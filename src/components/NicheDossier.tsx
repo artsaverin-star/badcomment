@@ -158,7 +158,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       </header>
 
       <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
-        <dl className="mt-2 border-t border-[var(--color-border-subtle)]">
+        <dl className="mt-8 border-t border-[var(--color-border-subtle)]">
           <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
           <MarketRow k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
           <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />

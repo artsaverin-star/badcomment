@@ -5,7 +5,6 @@ import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
-import RatingAuthBadge from "@/components/RatingAuthBadge";
 import RatingShots from "@/components/RatingShots";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 
@@ -137,35 +136,26 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
           const tx = (k: "verdict" | "loved" | "weak" | "whoFor" | "authNote") => (ru ? a[k] : a.en?.[k] ?? a[k]) ?? "";
           return (
             <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-9">
-              {/* Icon sits ABOVE the title so the title runs full width on mobile */}
               <div className="flex items-center gap-3">
-                <span className="text-footnote tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
+                <span className="w-4 shrink-0 self-start text-right text-footnote tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                 {a.icon
                   // eslint-disable-next-line @next/next/no-img-element
-                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
-                  : <div className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
+                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-16 shrink-0 rounded-[16px] object-cover" />
+                  : <span className="size-16 shrink-0 rounded-[16px] bg-[var(--color-bg-muted)]" />}
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                  <h2 className="text-headline text-[var(--color-text-primary)]">{a.title}</h2>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-tertiary)]"><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</span> {ru ? "в сторе" : "store"}</span>
+                    <span className="inline-flex items-center rounded-full px-2.5 py-1 text-caption font-medium" style={{ background: `color-mix(in srgb, ${av.fg} 15%, transparent)`, color: av.fg }}>{av.word}</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-tertiary)]"><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{nf(a.ratings)}</span> {ru ? "оценок" : "ratings"}</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]"><span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}/100</span> {ru ? "народный" : "people's"}</span>
+                  </div>
+                </div>
               </div>
 
-              <h2 className="mt-3 text-headline text-[var(--color-text-primary)]">{a.title}</h2>
-
-              <p className="mt-3 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(tx("verdict"))}</p>
+              <p className="mt-4 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(tx("verdict"))}</p>
 
               {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
-
-              {/* Store + people scores, then a compact clickable authenticity chip */}
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
-                  <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "В сторе" : "Store"}</div>
-                  <div className="mt-1 text-subhead tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
-                  <div className="mt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">{nf(a.ratings)} {ru ? "оценок" : "ratings"}</div>
-                </div>
-                <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
-                  <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Народный" : "People's"}</div>
-                  <div className="mt-1 text-subhead tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-caption text-[var(--color-text-tertiary)]"> / 100</span></div>
-                  <div className="mt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
-                </div>
-                <RatingAuthBadge caption={ru ? "Честность" : "Authenticity"} label={ru ? "Звезда в сторе" : "Store star"} word={av.word} note={tg(tx("authNote"))} fg={av.fg} detailsLabel={ru ? "подробнее" : "details"} closeLabel={ru ? "Закрыть" : "Close"} />
-              </div>
 
               <div className="mt-5 flex flex-col gap-3.5">
                 <Field label={ru ? "Сильное" : "Strong"}>{tg(tx("loved"))}</Field>

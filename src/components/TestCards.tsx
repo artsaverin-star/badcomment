@@ -86,7 +86,7 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
 
 function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean }) {
   return (
-    <button type="button" onClick={onClick} className={`group/c relative flex h-full flex-col items-start gap-3 rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-left transition-colors ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)] hover:bg-[color-mix(in_srgb,var(--color-text-primary)_4%,var(--color-surface-card))]"}`}>
+    <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}

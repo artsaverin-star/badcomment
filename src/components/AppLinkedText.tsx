@@ -48,26 +48,40 @@ export default function AppLinkedText({ text, apps, locale = "ru", as = "span", 
   const ru = locale !== "en";
   const [open, setOpen] = useState<AppLite | null>(null);
 
-  // name (lowercased) -> app, preferring the longest names. Skip names < 3 chars.
+  // name (lowercased) -> app. `bareSet` = names distinctive enough to link even
+  // without a trailing score, so common short words ("Sleep", "Calm") only link
+  // when the content explicitly tagged them with a stat in parentheses.
   const byName = new Map<string, AppLite>();
+  const bareSet = new Set<string>();
   for (const a of apps) {
     for (const n of [a.title, shortName(a.title)]) {
+      if (n.length < 3) continue;
       const key = n.toLowerCase();
-      if (n.length >= 3 && !byName.has(key)) byName.set(key, a);
+      if (!byName.has(key)) byName.set(key, a);
+      if (n.length >= 6 || /\d/.test(n) || /\s/.test(n.trim()) || /[a-zа-яё][A-ZА-ЯЁ]/.test(n)) bareSet.add(key);
     }
   }
   const names = [...byName.keys()].sort((x, y) => y.length - x.length);
 
+  // Any stat parenthetical the content writes, in any order: a paren that holds
+  // "realScore" / a ratings-or-reviews count, or a bare 1-3 digit score. Leaves
+  // store-star decimals like (4,7) and years like (2024) untouched.
+  const STAT = `\\((?:[^)]*(?:realScore|оценок|оценки|ratings|reviews|отзывов)[^)]*|\\d{1,3})\\)`;
+  const stripRe = new RegExp(`\\s?${STAT}`, "gi");
   const tokens: (string | { name: string; app: AppLite })[] = [];
   if (names.length) {
-    const re = new RegExp(`\\b(${names.map(escapeRe).join("|")})\\s*\\((\\d{1,3})\\)`, "gi");
+    const re = new RegExp(`\\b(${names.map(escapeRe).join("|")})(\\s*${STAT})?`, "gi");
     let last = 0;
     let m: RegExpExecArray | null;
     while ((m = re.exec(text)) !== null) {
-      if (m.index > last) tokens.push(text.slice(last, m.index));
-      const app = byName.get(m[1].toLowerCase());
-      tokens.push(app ? { name: m[1], app } : m[0]);
-      last = re.lastIndex;
+      const key = m[1].toLowerCase();
+      const app = byName.get(key);
+      if (app && (m[2] || bareSet.has(key))) {
+        if (m.index > last) tokens.push(text.slice(last, m.index));
+        tokens.push({ name: m[1], app });
+        last = re.lastIndex;
+      }
+      if (re.lastIndex === m.index) re.lastIndex++; // guard against zero-length
     }
     if (last < text.length) tokens.push(text.slice(last));
   } else {
@@ -80,9 +94,9 @@ export default function AppLinkedText({ text, apps, locale = "ru", as = "span", 
       <Tag className={className}>
         {tokens.map((t, i) =>
           typeof t === "string" ? (
-            // strip leftover "(NN)" scores on names we couldn't link, so the
-            // strange numbers are gone everywhere, not just on matched apps
-            t.replace(/\s?\((\d{1,3})\)/g, "")
+            // strip leftover stat parentheticals on names we couldn't link, so
+            // the strange numbers are gone everywhere, not just on matched apps
+            t.replace(stripRe, "")
           ) : (
             <button
               key={i}
