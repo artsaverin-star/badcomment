@@ -7181,554 +7181,601 @@
  {
   "slug": "sleep-tracking-1",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
+  "categoryName": "Сон и звуки для сна",
   "title": "Трекер сна для сменных работников",
-  "oneLiner": "Трекер сна, который понимает, что «ночь» бывает с 8 утра до 4 дня",
-  "asOf": "2026-06-20",
+  "oneLiner": "Журнал сна и дефицита для тех, кто работает в ночь, в сутки или по скользящему графику",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "I work night shift and sleep during the day. I cannot enter my sleep schedule into the app because the time isn't even available",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
+    "quote": "It gives terrible ratings to folks if they do not sleep in certain times (which you cannot set). Due to work schedules, people sleep at different times. For example, a night shift worker would sleep during the day but you cannot put that in the app; for the calculations and health tips, etc.",
+    "rating": 4,
+    "app": "Sleep Number"
    },
    {
-    "quote": "completely unable to use this app because it does not give an option for night shift workers who sleep during the day so I can't set a sleeping schedule",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
+    "quote": "Love the bed,  love the features the app tracks giving me insight into my sleep.  Instead of tracking and scoring for sleep timing consistency, the bed scores against its calculated optimum bed time circadian rhythm.  It wants to me to go to bed much later than fits into my personal schedule.  It ca",
+    "rating": 2,
+    "app": "Sleep Number"
    },
    {
-    "quote": "It only has options to go to sleep between 7 p.m. and 6 a.m. and wake up between 2 a.m. and 2 p.m. I work overnights",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "it will literally say I was in REM sleep when I was actively awake, driving, ect",
-    "rating": 1,
+    "quote": "Since last update it hasn’t been tracking accurately. I sleep through out the night and it’s telling me i only slept 3 hours every night for the past two weeks",
+    "rating": 3,
     "app": "ShutEye®: Sleep Tracker, Sound"
    },
    {
-    "quote": "It has changed my perception about sleeping patterns. it's helping me to me more productive at work and in my runs",
-    "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "quote": "My app is not recording effectively. I wear my watch everyday. Especially at night. I slept at least 8 hours but the app only recorded 4 hours. The app did not record Wednesday, April 15th at all. This inconsistency has been going on for a while. I may not renew. I need the information for my health",
+    "rating": 3,
+    "app": "SleepWatch - Top Sleep Tracker"
    },
    {
-    "quote": "There's a lot of sleep trackers out there that give you endless pointless data. But this one actually changed the outlook of my day entirely! being able to precisely pinpoint my peak and troughs throughout the day",
-    "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "quote": "It’s not free",
+    "rating": 1,
+    "app": "Calm"
    },
    {
-    "quote": "This app is great at telling you what to do, but incapable of responding to what is happening to you. Here I am after my best day of following its advice, awake at 4 am, unable to get back to sleep",
+    "quote": "Can’t add content to playlists anymore.  Reported to Support and was sent a link to a list of new bug fixes, none of which reference playlists. Documentation on playlists hasn’t updated since 2024.",
     "rating": 2,
-    "app": "RISE: Sleep Tracker"
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "Сменный рабочий физически не может ввести свой график в любом массовом приложении: поля времени обрезаны до стандартной ночи, и целый сегмент выпадает ещё на ст",
-    "obsCount": 7,
+    "title": "Все существующие трекеры считают «норму» от фиксированного ночного окна и штрафуют за дневной сон или поздний отход ко сну. Сменный работник видит красные метри",
+    "obsCount": 6,
     "apps": [
      "RISE: Sleep Tracker",
+     "AutoSleep: Watch Sleep Tracker",
      "Sleep Cycle - Tracker & Sounds",
-     "ShutEye®: Sleep Tracker, Sound"
+     "Pillow: Sleep Tracker"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Сменный рабочий физически не может ввести свой график в любом массовом приложении: поля времени обрезаны до стандартной ночи, и целый сегмент выпадает ещё на старте",
+  "gap": "Все существующие трекеры считают «норму» от фиксированного ночного окна и штрафуют за дневной сон или поздний отход ко сну. Сменный работник видит красные метрики каждый день, хотя спит ровно столько, сколько нужно. Никто не строит трекер под их реальность.",
   "idea": {
-   "pitch": "Медсёстры, охранники, водители дальнобойщики и операторы производств работают в смены годами и не получают никакого инструмента контроля сна, потому что все трекеры спроектированы под офисника. Продукт строится вокруг произвольного расписания и считает качество сна в контексте смены: сколько часов до выхода, насколько долог был цикл, восстановились ли вы до следующей. B2B-канал идёт через службы охраны труда и транспортные компании, которые уже платят за контроль усталости пилотов и водителей.",
+   "pitch": "Пользователь задаёт тип графика: сутки через трое, 2-2-3, плавающие смены. Приложение считает дефицит сна относительно заданной нормы для конкретного рабочего блока, а не от абстрактного «нужно ложиться в 23:00». Умный будильник привязан к концу конкретной смены, а не к времени суток. Через неделю видно, какие смены дают реальный отдых, а какие оставляют хронический недосып.",
    "features": [
-    "ввод любого окна сна без ограничений по времени суток",
-    "расчёт «готовности к смене» за час до выхода на работу",
-    "журнал смен с привязкой к качеству сна в ту же ночь",
-    "напоминание лечь спать с учётом следующей смены, а не астрономической ночи",
-    "экспорт PDF-отчёта для врача медосмотра или службы охраны труда"
+    "Выбор типа графика (сутки/ночная/плавающий/2-2-3) с настройкой под себя",
+    "Дефицит сна считается от нормы конкретного блока, не от «идеального» ночного окна",
+    "Умный будильник с окном пробуждения в лёгкой фазе, привязанный к графику смены",
+    "Журнал симптомов: усталость, концентрация, настроение после каждого блока сна",
+    "Еженедельный отчёт: какие смены сопровождаются устойчивым недосыпом"
    ],
    "antiFeatures": [
-    "цикл сна в виде красивых фаз и дуг не нужен без сверки с реальностью",
-    "советы в духе «ложитесь в 22:00» для человека, встающего в 5 вечера",
-    "геймификация и покемоны"
+    "Никакого «ты ложишься слишком поздно» и красных флагов для дневного сна",
+    "Нет советов в стиле «соблюдай режим» для людей, чья работа исключает режим",
+    "Нет сравнения с «нормой взрослого человека» без учёта графика"
    ],
-   "monetization": "Транспортные и логистические компании уже платят за системы мониторинга усталости водителей (fatigue management). Корпоративная подписка на команду 20-200 человек. Физлица покупают доступ за разовый платёж, так как подписка на здоровье при нестабильном графике неудобна."
+   "monetization": "Подписка 4-6 долларов в месяц. Аудитория: медсёстры, водители, охранники, производственные рабочие люди со стабильным доходом, которые тратят деньги на здоровье. Аналоги берут 40-60 долларов в год и не решают их задачу. Разовая покупка «пожизненный доступ» за 20-25 долларов работает для этой аудитории как альтернатива подписке."
   }
  },
  {
   "slug": "sleep-tracking-2",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Скрининг апноэ до клиники",
-  "oneLiner": "Приложение, которое выявляет признаки апноэ по записи ночи и говорит, идти ли к врачу",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Анализатор храпа для пар",
+  "oneLiner": "Записывает, классифицирует и разграничивает ночные звуки двух человек в одной комнате",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "This app helped me seek help and I eventually got diagnosed with Sleep Apnea (AHI = 40). I am now on treatment with a CPAP and my quality of life has greatly improved in many aspects",
+    "quote": "This is a sleep tracker app it works on my outdated iPhone 6s but one thing is that it don’t work if there’s another person in the room that snores loudly cuz it thinks it’s u",
+    "rating": 4,
+    "app": "ShutEye®: Sleep Tracker, Sound"
+   },
+   {
+    "quote": "I my phone has not recorded sounds two different nights in the last week. Everything is set correctly in my settings",
+    "rating": 3,
+    "app": "SleepWatch - Top Sleep Tracker"
+   },
+   {
+    "quote": "Thanks for the quick fix of the 3.4.4 version only records snoring now and not accurately tracking my sleep/awake time. It appears to be working properly now. Thanks again!",
     "rating": 5,
     "app": "ShutEye®: Sleep Tracker, Sound"
    },
    {
-    "quote": "Helping me determine what I need to do to stop snoring for free. It's already done a better job and then a $300 sleep study",
-    "rating": 5,
-    "app": "SnoreLab : Record Your Snoring"
-   },
-   {
-    "quote": "My dental sleep doc wanted me to download this to track and see how often I snore for mild sleep apnea",
+    "quote": "I enjoy Calm and the layout along with the variety, however, I prefer the Open app as it allows me to dive deeper into guided meditation, guided breathing exercises and more.",
     "rating": 3,
-    "app": "SnoreLab : Record Your Snoring"
+    "app": "Calm"
    },
    {
-    "quote": "Incredible! When you hear your own snore - it changes your world!",
+    "quote": "I can’t sleep without noise so that’s why I like it but also couz there is cat ones 🐈",
     "rating": 5,
-    "app": "SnoreLab : Record Your Snoring"
+    "app": "Calm"
    },
    {
-    "quote": "I only unsubscribed because an incline pillow helped me stop snoring (as confirmed by before/after readings on the app)",
-    "rating": 5,
-    "app": "SnoreLab : Record Your Snoring"
-   },
-   {
-    "quote": "I've learned how I need to sleep with my head raised on pillows that has really taught me how to sleep and I feel so good",
+    "quote": "I really adore this app and have been using for years. I hope they continue to make only human-created music, videos and meditations because the moment they do AI, I’m cancelling my subscription. I would also prefer if they had more voices on their meditations instead of just the one man and woman o",
     "rating": 4,
-    "app": "SnoreLab : Record Your Snoring"
-   },
-   {
-    "quote": "This app collects your data and sells it",
-    "rating": 1,
-    "app": "SnoreLab : Record Your Snoring"
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "Человек годами не понимает, почему не высыпается. платное исследование сна стоит дорого и назначается в очередь, а массовые приложения просто пишут «плохой сон»",
-    "obsCount": 7,
+    "title": "Все приложения для записи храпа работают как будто в комнате один человек. Когда рядом партнёр, приложение либо приписывает его звуки пользователю, либо смешива",
+    "obsCount": 6,
     "apps": [
      "SnoreLab : Record Your Snoring",
      "ShutEye®: Sleep Tracker, Sound",
-     "Sleep Tracker & Sound by Remly"
+     "Sleep Tracker: Recorder, Sound",
+     "Sleep Talk Recorder"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Человек годами не понимает, почему не высыпается. Платное исследование сна стоит дорого и назначается в очередь, а массовые приложения просто пишут «плохой сон» без указания на возможную причину",
+  "gap": "Все приложения для записи храпа работают как будто в комнате один человек. Когда рядом партнёр, приложение либо приписывает его звуки пользователю, либо смешивает всё вместе. Пара не понимает, кто реально храпит и насколько сильно. Это не просто технический баг это причина, по которой половина пользователей SnoreLab удаляют приложение.",
   "idea": {
-   "pitch": "Апноэ во сне не диагностировано у большинства носителей симптомов: они усталые, раздражённые, с высоким давлением и думают, что просто «плохо спят». Продукт делает одно: анализирует запись ночи, считает паузы дыхания, характер храпа и кислородные провалы (через носимое) и выдаёт понятный вывод: «признаки есть, покажите это врачу» или «признаков нет». Монетизация идёт через направление в клиники-партнёры и телемедицинские сервисы, которые платят за квалифицированного пациента со сформулированной проблемой.",
+   "pitch": "Два смартфона в паре работают синхронно: каждый пишет звук со своей стороны кровати, алгоритм по тайм-стемпам разграничивает источники. Оба партнёра утром видят свой личный отчёт: интенсивность, продолжительность, пики. Приложение показывает, в какую ночь кто разбудил другого, и рекомендует конкретные изменения для того, кто является основным источником.",
    "features": [
-    "ночная запись звука с алгоритмом подсчёта пауз дыхания и эпизодов храпа",
-    "простая шкала риска с объяснением на языке симптомов, не терминов",
-    "экспорт записи и графика для сомнолога одной кнопкой",
-    "интеграция с пульсоксиметром или носимым для данных о сатурации",
-    "журнал динамики за месяц: стало ли хуже после алкоголя, набора веса, смены позы"
+    "Синхронная запись с двух телефонов с разграничением источника звука по пространственному расположению",
+    "Классификация: храп, апноэ-паузы, разговор во сне, кашель, внешний шум",
+    "Личный отчёт для каждого участника пары с историей по ночам",
+    "Тепловая карта ночи: в какие часы шум был интенсивным и с чьей стороны",
+    "Экспорт PDF-отчёта для врача с данными за период"
    ],
    "antiFeatures": [
-    "детальный анализ фаз сна не нужен до понимания, дышишь ли ты вообще",
-    "геймификация и баллы за «хорошую ночь»",
-    "общие советы по гигиене сна вместо конкретного вывода"
+    "Не нужно железо: никаких умных будильников, подушек или браслетов",
+    "Нет навязчивых советов про похудение или операции без запроса",
+    "Не приписывает звуки партнёра пользователю и не смешивает в один профиль"
    ],
-   "monetization": "Телемедицинские платформы и частные сомнологические клиники платят за лидов с оформленным запросом. CPAP-ретейлеры платят за аудиторию с подтверждённым диагнозом. Разовая платная консультация внутри приложения."
+   "monetization": "Подписка 6-8 долларов в месяц за пару (два аккаунта). Люди с партнёром, который храпит, или с подозрением на апноэ платят за специализированные устройства по 100-300 долларов. SnoreLab берёт 5 долларов в месяц за одного пользователя. Платящая аудитория существует и тратит деньги охотно: медицинская необходимость."
   }
  },
  {
   "slug": "sleep-tracking-3",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Умный будильник с гарантией не опоздать",
-  "oneLiner": "Умный будильник с железной гарантией: ловит лёгкую фазу, но никогда не будит раньше жёсткого минимума",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Звуковой экран от храпа партнёра",
+  "oneLiner": "Активно маскирует храп в спальне персональным звуковым фоном, настроенным под конкретный тип храпа",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "now it's smart alarm feature, the feature I bought it for, ignores my set alarm and will instead start ringing at 4 or 5 in the morning. It's ruined about 3 of my nights",
+    "quote": "I can’t sleep without noise so that’s why I like it but also couz there is cat ones 🐈",
+    "rating": 5,
+    "app": "Calm"
+   },
+   {
+    "quote": "White Noise always helps me sleep better. It makes me feel more calm and relaxed.White Noise is the reason that when I wake up I am ready for the day ahead.",
+    "rating": 5,
+    "app": "White Noise Lite"
+   },
+   {
+    "quote": "I use the fan noise when I’m traveling because I can’t bring my own fan. Since I can’t sleep without the white noise in the background the fan sound is a life saver.",
+    "rating": 5,
+    "app": "White Noise Deep Sleep Sounds"
+   },
+   {
+    "quote": "Love love love this app. It has greatly improved my peace of mind, and the sleep meditations are perfect for winding down in the evenings. But I so miss being able to hear the crickets during my meditations. :(",
+    "rating": 4,
+    "app": "Calm"
+   },
+   {
+    "quote": "I’ve used this app for several years at night to help cover noise while I sleep. Recently it’s started turning itself off randomly- sometimes after 5 minutes, sometimes after an hour. This isn’t restful.",
     "rating": 2,
-    "app": "Sleepwave: Alarm & Tracker"
+    "app": "White Noise Lite"
    },
    {
-    "quote": "I never set the alarm for 11:55pm and then had it going off to wake me up every half hour after that",
-    "rating": 1,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "didnt wake me up on time i missed school",
-    "rating": 1,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "It not only presents me with statistics but also manages the wake up alarm through its Light sleep detection.. Just a chef's kiss",
+    "quote": "I am at the beach and I have the noisiest neighbors and this sound helps me sleep even with there noises it just drowns them out",
     "rating": 5,
-    "app": "Sleep Cycle - Tracker & Sounds"
-   },
-   {
-    "quote": "The main feature I love is the gentle wake-up, where a soft sound starts, followed by a gentle alarm. This helps me wake up gradually without rushing to turn off the alarm",
-    "rating": 5,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "normally I can't get up even with an alarm, but this actually worked. I'm kind of suprised",
-    "rating": 5,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "Cannot check if the alarm works for me without subscription. Immediate uninstall",
-    "rating": 1,
-    "app": "Sleepwave: Alarm & Tracker"
+    "app": "Bedtime Fan: White Noise Baby"
    }
   ],
   "mechanisms": [
    {
-    "title": "Умный будильник в существующих приложениях может сработать в 4 утра вместо 7, потому что нашёл «лёгкую фазу» слишком рано. люди пропускают работу и школу, а дов",
-    "obsCount": 7,
+    "title": "Партнёр, которому мешает храп, сейчас решает проблему берушами или переезжает в другую комнату. Белый шум помогает, но выбирается наугад: один человек не засыпа",
+    "obsCount": 6,
     "apps": [
-     "Sleepwave: Alarm & Tracker",
-     "Sleep Cycle - Tracker & Sounds"
+     "White Noise Lite",
+     "White Noise Deep Sleep Sounds",
+     "SnoreLab : Record Your Snoring",
+     "ColorSleep: Green, Brown Noise"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Умный будильник в существующих приложениях может сработать в 4 утра вместо 7, потому что нашёл «лёгкую фазу» слишком рано. Люди пропускают работу и школу, а доверие к функции рушится навсегда",
+  "gap": "Партнёр, которому мешает храп, сейчас решает проблему берушами или переезжает в другую комнату. Белый шум помогает, но выбирается наугад: один человек не засыпает под вентилятор, другому не подходит дождь. Нет инструмента, который бы подобрал маскирующий звук именно под частоту и ритм конкретного партнёрского храпа.",
   "idea": {
-   "pitch": "Идея умного будильника правильная, реализация опасная: алгоритм ставит «хороший сон» выше «прийти вовремя» и будит когда хочет. Продукт предлагает двухуровневую архитектуру: мягкое окно для поиска лёгкой фазы плюс жёсткий предохранитель, который никогда не даёт отклониться больше 15 минут. Это единственный трекер, где можно поставить умный будильник и не бояться проспать. Аудитория: люди с тяжёлым подъёмом, у которых уже был провал из-за умного будильника, и родители, будящие детей в школу.",
+   "pitch": "Приложение записывает несколько минут реального храпа партнёра и анализирует частотный профиль. На основе анализа генерирует персонализированный маскирующий звук: шум именно в тех частотах, где слышен храп. Пользователь слышит его через наушники или динамик. Через неделю приложение уточняет профиль: какие ночи были с меньшим количеством пробуждений.",
    "features": [
-    "настраиваемое мягкое окно поиска лёгкой фазы в пределах 10-20 минут до будильника",
-    "жёсткий предохранитель: будильник звенит не позже установленного времени никогда",
-    "нарастающий сигнал от тихого к громкому за 2 минуты",
-    "уведомление накануне, если приложение видит, что вы ляжете поздно и не выспитесь",
-    "журнал подъёмов: в какую фазу поднялись, насколько легко встали по самооценке"
+    "Запись и частотный анализ реального храпа партнёра за одну ночь",
+    "Генерация персонализированного маскирующего звука под конкретный частотный профиль",
+    "Режим наушников: звук плавно нарастает при обнаружении храпа и затихает в тишине",
+    "Журнал ночей: количество пробуждений, оценка качества сна",
+    "Библиотека базовых масок (вентилятор, дождь, коричневый шум) как отправная точка"
    ],
    "antiFeatures": [
-    "трекинг фаз как самоцель без привязки к пробуждению",
-    "умный будильник без предохранителя от слишком раннего срабатывания",
-    "запись звука ночью без согласия пользователя"
+    "Не будит партнёра и не пытается «вылечить» его от храпа",
+    "Не требует специальных наушников или оборудования",
+    "Нет трекинга фаз сна и лишней аналитики только маскировка шума"
    ],
-   "monetization": "Разовая покупка без подписки: человек платит один раз за гарантию не проспать. Корпоративная лицензия для работодателей с ранними сменами (фабрики, госпитали), где опоздание критично."
+   "monetization": "Разовая покупка 9-15 долларов или подписка 3-4 доллара в месяц. Берушей продают на миллиарды долларов в год это прямая аудитория, которая уже тратит деньги на проблему. Люди, которые просыпаются от храпа партнёра, мотивированы платить немедленно."
   }
  },
  {
   "slug": "sleep-tracking-4",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Коучинг сна для тревожных",
-  "oneLiner": "Программа выхода из тревоги вокруг сна: не считаем баллы, учимся не бояться плохой ночи",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Звуковой менеджер для родителей новорождённых",
+  "oneLiner": "Предсказывает окна сна младенца и автоматически запускает нужный звук в нужный момент",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "i find i sleep better without it",
-    "rating": 1,
-    "app": "Sleep Cycle - Tracker & Sounds"
-   },
-   {
-    "quote": "This app is great at telling you what to do, but incapable of responding to what is happening to you. Here I am after my best day of following its advice, awake at 4 am, unable to get back to sleep",
-    "rating": 2,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "I almost threw my phone against the wall",
-    "rating": 2,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "I'll figure it out on my own I'm not paying for something when I can feel it but don't want to listen",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "helps me understand why I dont sleep well and it works well overtime to fix your sleep schedule",
+    "quote": "I have used this app all my life and my mom has used it for not just herself but all 4 of my siblings this app is a 10",
     "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "app": "White Noise Deep Sleep Sounds"
    },
    {
-    "quote": "It has changed my perception about sleeping patterns. it's helping me to me more productive at work and in my runs",
+    "quote": "Love not having to bring a big box fan. I can take this everywhere.",
     "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "app": "Bedtime Fan: White Noise Baby"
    },
    {
-    "quote": "son muchas tareas a la hora de levantarse, me encanta pero es demasiado y dormir se vuelve un trabajo",
+    "quote": "I’m asleep within 15 minutes with this soothing fan sound. \nI am very happy with it.",
+    "rating": 5,
+    "app": "Bedtime Fan: White Noise Baby"
+   },
+   {
+    "quote": "Don’t attempt to try this app out. Apple will charge you before the trial is up then you’re stuck paying $80 for a service you might not like. That’s what happened with me and support is a joke. So if their so called “30 day money back guarantee “",
+    "rating": 1,
+    "app": "Calm"
+   },
+   {
+    "quote": "Have been using Calm since 4 years but lately since 3 weeks it keeps dropping in between all meditations and I have to restart from beginning!!\nAnd yes I have updated it as well",
+    "rating": 2,
+    "app": "Calm"
+   },
+   {
+    "quote": "We like monotone voices.. deep male that take you on travels. Need more of those please",
     "rating": 3,
-    "app": "Pokémon Sleep"
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "Часть людей спит хуже именно потому, что отслеживает сон. страх плохих цифр, ожидание будильника и контроль фаз становятся новым источником тревоги, а не покоя.",
-    "obsCount": 7,
+    "title": "Родители используют два отдельных приложения: одно для трекинга сна ребёнка, другое для белого шума. Эти инструменты не знают друг о друге. Приложение для белог",
+    "obsCount": 6,
     "apps": [
-     "Sleep Cycle - Tracker & Sounds",
-     "RISE: Sleep Tracker",
-     "Pokémon Sleep"
+     "White Noise Baby",
+     "Napper: Baby Sleep Tracker",
+     "Sound Sleeper Baby White Noise",
+     "Smart Sleep Coach by Pampers™"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Часть людей спит хуже именно потому, что отслеживает сон. Страх плохих цифр, ожидание будильника и контроль фаз становятся новым источником тревоги, а не покоя. Ни одно приложение не работает с этим прямо",
+  "gap": "Родители используют два отдельных приложения: одно для трекинга сна ребёнка, другое для белого шума. Эти инструменты не знают друг о друге. Приложение для белого шума не знает, что ребёнок вот-вот проснётся, и не подготавливает плавное нарастание звука. Трекер не запускает шум автоматически, когда начинается укладывание.",
   "idea": {
-   "pitch": "Ортосомния, тревога вокруг сна, растёт вместе с рынком трекеров. Человек лежит и думает «уже 2 ночи, я не высыпаюсь» вместо того чтобы спать. Продукт построен на когнитивно-поведенческой терапии инсомнии и работает как структурированный курс: 6 недель, реальные практики, живой или цифровой коуч, никаких графиков фаз. Аудитория давно платит: психотерапевты берут 3000-8000 рублей за сессию, а специалистов по этой терапии катастрофически мало.",
+   "pitch": "Когда родитель фиксирует начало укладывания, приложение автоматически запускает звук и включает таймер. По данным о предыдущих снах прогнозируется примерное время следующего пробуждения. За 5 минут до истечения прогнозного сна звук начинает плавно нарастать, готовя комфортное пробуждение. Всё в одном приложении без переключения.",
    "features": [
-    "6-недельный структурированный курс на базе КПТ-И без трекинга фаз",
-    "дневник сна в упрощённом формате: лёг, встал, оценка субъективно",
-    "упражнения на снижение тревоги перед сном: парадоксальное намерение, ограничение сна, стимульный контроль",
-    "асинхронная обратная связь от сертифицированного специалиста по КПТ-И раз в неделю",
-    "трекер прогресса по поведению, а не по качеству сна в баллах"
+    "Трекер снов ребёнка с прогнозом следующего окна засыпания на основе данных",
+    "Автозапуск звука при начале укладывания с настройкой любимого пресета",
+    "Плавное нарастание звука за несколько минут до прогнозного пробуждения",
+    "Журнал эффективных звуков: какой тип шума давал самые длинные сессии сна",
+    "Виджет быстрого запуска на экране блокировки без разблокировки телефона"
    ],
    "antiFeatures": [
-    "автоматический трекинг фаз сна и любые «баллы за ночь»",
-    "пуш-уведомления с оценкой качества сна утром",
-    "советы лечь раньше и избегать синего света без работы с убеждениями"
+    "Нет теоретических советов про «правильный» режим без учёта реального ребёнка",
+    "Не требует подписки на отдельное приложение звуков и отдельное приложение трекинга",
+    "Нет рекламы, которая включается ночью во время укладывания"
    ],
-   "monetization": "Платная программа разовым доступом (3000-6000 рублей за полный курс). Направления от психиатров и неврологов, которые не имеют времени вести КПТ-И самостоятельно. ДМС-каналы в корпоративных пакетах."
+   "monetization": "Подписка 5 долларов в месяц или разовая покупка 20 долларов. Родители новорождённых одна из самых платёжеспособных и мотивированных аудиторий в App Store. Napper и Smart Sleep Coach by Pampers уже берут деньги за трекинг, а White Noise Baby держит лояльных пользователей годами."
   }
  },
  {
   "slug": "sleep-tracking-5",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Трекер сна для родителей с маленькими детьми",
-  "oneLiner": "Трекер, который помогает родителю наладить сон ребёнка и выспаться самому",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Генератор звуков для людей с тиннитусом",
+  "oneLiner": "Персонализированный звуковой фон под конкретную частоту и тип шума в ушах",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "my granddaughter sleeps sound with this app when she sleeps at our house",
+    "quote": "The best app I never knew I needed. I use the binaural sounds and I’m asleep every single time within 8-10 min. It’s amazing and I highly recommend! Worth the money for the subscription.",
     "rating": 5,
-    "app": "Sleep Tracker & Sound by Remly"
+    "app": "White Noise Deep Sleep Sounds"
    },
    {
-    "quote": "the sleep sounds make you fall asleep so much faster and the way it wakes you up is just amazing",
-    "rating": 5,
-    "app": "Sleepwave: Alarm & Tracker"
+    "quote": "Seriously I have to pay just to hear sounds? Money grubbing.",
+    "rating": 1,
+    "app": "BetterSleep: Relax and Sleep"
    },
    {
-    "quote": "it was so calming I fell asleep and just one minute this is going to be five stars right even my sister and my baby brother that's one years old also fell asleep",
-    "rating": 5,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "it actually adds like 30 minutes to your sleep routine both going to bed and waking up. way too much of a chore and much to much waiting",
+    "quote": "The free version, for me, have two of the only sounds I truly can fall asleep to. Most of them would actually keep me awake. Also, they are very low in sound. Needs to be louder.",
     "rating": 3,
-    "app": "Pokémon Sleep"
+    "app": "White Noise Deep Sleep Sounds"
    },
    {
-    "quote": "when I do try to use the app to track my sleep, I have to do 10 different things in order to progress before sleeping",
-    "rating": 2,
-    "app": "Pokémon Sleep"
+    "quote": "This was a very useful app and had some amazing features although to unlock more sounds I had to become a member which upsets me a little but I still enjoyed this app.",
+    "rating": 4,
+    "app": "White Noise Deep Sleep Sounds"
    },
    {
-    "quote": "My request is for the app to automatically start sleep tracking at a predefined bedtime, just like it shows a bedtime notification",
+    "quote": "I love this program. It helps me maybe you could have a frenzy when you can for a week have calm for free. It would be nice to do that. This is from a 8 year old girl byeeeeeeeee.",
     "rating": 5,
-    "app": "Sleepwave: Alarm & Tracker"
+    "app": "Calm"
    },
    {
-    "quote": "There needs to be some sort of (UNPAID) sleep data editing option for when the app crashes or closes for some random reason while sleeping and doesn't record the whole sleep cycle",
-    "rating": 2,
-    "app": "Pokémon Sleep"
+    "quote": "Currently on a 168 day streak, but after the most recent update, background scene sounds will no longer play behind meditations, despite uninstalling, reinstalling, and resetting all audio settings. Please fix, I beg of you!!!",
+    "rating": 4,
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "Родители с грудными и маленькими детьми спят фрагментарно годами, но ни один трекер не умеет работать с многократными пробуждениями и дневным сном в непредсказу",
-    "obsCount": 7,
+    "title": "Тиннитус это конкретная частота или паттерн звука, уникальный для каждого человека. Стандартный белый шум маскирует тиннитус случайно: кому-то подходит, кому-то",
+    "obsCount": 6,
     "apps": [
-     "Sleep Tracker & Sound by Remly",
-     "Sleepwave: Alarm & Tracker",
-     "ShutEye®: Sleep Tracker, Sound"
+     "White Noise HQ: sound machine",
+     "Sleep Sounds HQ: relaxing aid",
+     "Noise Machine - Brown, White",
+     "Ocean Wave Sounds for Sleep"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Родители с грудными и маленькими детьми спят фрагментарно годами, но ни один трекер не умеет работать с многократными пробуждениями и дневным сном в непредсказуемое время. Приложение предлагает им стандартный режим «одна ночь один цикл»",
+  "gap": "Тиннитус это конкретная частота или паттерн звука, уникальный для каждого человека. Стандартный белый шум маскирует тиннитус случайно: кому-то подходит, кому-то нет. Нет инструмента, который помогает подобрать маскирующий звук целенаправленно, опираясь на описание собственного тиннитуса.",
   "idea": {
-   "pitch": "Молодые родители это самая страдающая группа по лишению сна и единственная, для которой «просто ляг раньше» невозможен. Продукт ведёт суммарный сон за сутки по фрагментам (ночь плюс дневные окна), отслеживает сон ребёнка параллельно и подсказывает окно, когда лечь вместе. Канал продаж через сообщества мам и платформы для молодых родителей, которые уже покупают консультации по сну ребёнка за 5000-15000 рублей.",
+   "pitch": "Пользователь описывает свой тиннитус через интерактивный тест: выбирает ближайшую частоту (высокий писк, средний гул, шипение) и интенсивность. Приложение генерирует несколько вариантов маскирующего звука в узком диапазоне вокруг указанной частоты. Пользователь выбирает лучший вариант и сохраняет персональный пресет. Через 30 дней приложение предлагает сравнить, не изменилась ли ситуация.",
    "features": [
-    "суммарный трекинг сна за 24 часа по фрагментам без единого цикла",
-    "параллельный журнал сна ребёнка с подсказкой оптимального окна для совместного сна",
-    "сигнал «сейчас лечь»: ребёнок спит, у вас 40 минут",
-    "еженедельный отчёт долга сна для обоих родителей",
-    "советы адаптации режима под возраст ребёнка от 0 до 3 лет"
+    "Интерактивный тест для определения частоты и характера тиннитуса без специального оборудования",
+    "Генератор звуков с настройкой узкополосного шума под конкретную частоту",
+    "Персональные пресеты с возможностью микшировать несколько слоёв",
+    "Ночной режим: постепенное затухание звука через заданное время без резкого обрыва",
+    "Журнал: оценка интенсивности тиннитуса по дням с возможностью отследить динамику"
    ],
    "antiFeatures": [
-    "точный анализ фаз сна: при фрагментарном сне он бессмыслен",
-    "умный будильник: ребёнок не знает о лёгких фазах",
-    "геймификация и награды за «правильную» ночь"
+    "Не претендует на лечение и не даёт медицинских советов без запроса",
+    "Нет генерализованной библиотеки «звуки природы» только целевые маскирующие частоты",
+    "Не показывает рекламу ночью и не обрывает воспроизведение при заблокированном экране"
    ],
-   "monetization": "Консультанты по детскому сну уже берут деньги за свои услуги и могут продавать доступ к платформе как дополнение к курсу. Подписка для родителей на период 0-24 месяца ребёнка. Партнёрство с роддомами и педиатрическими центрами."
+   "monetization": "Разовая покупка 15-20 долларов или подписка 4 доллара в месяц. Аудитория с тиннитусом мотивирована и хронически. Специализированные устройства стоят 200-500 долларов. Приложения для тиннитуса в App Store берут 10-40 долларов. Это платящая аудитория с чёткой проблемой."
   }
  },
  {
   "slug": "sleep-tracking-6",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Корпоративный журнал усталости сотрудников",
-  "oneLiner": "Инструмент для компаний: сотрудник отмечает усталость, менеджер видит риски по команде",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Инструмент управления долгом сна и джетлагом",
+  "oneLiner": "Считает накопленный дефицит сна и строит план восстановления после перелётов или напряжённых недель",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "I work night shift and sleep during the day. I cannot enter my sleep schedule into the app because the time isn't even available",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "completely unable to use this app because it does not give an option for night shift workers who sleep during the day so I can't set a sleeping schedule",
-    "rating": 1,
-    "app": "RISE: Sleep Tracker"
-   },
-   {
-    "quote": "There's a lot of sleep trackers out there that give you endless pointless data. But this one actually changed the outlook of my day entirely! being able to precisely pinpoint my peak and troughs throughout the day",
+    "quote": "Has helped me track my sleep and help me wake up early to be more productive. If I could give it more than five stars I would.",
     "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "app": "Alarmy - Loud alarm clock"
    },
    {
-    "quote": "It has changed my perception about sleeping patterns. it's helping me to me more productive at work and in my runs",
-    "rating": 5,
-    "app": "RISE: Sleep Tracker"
+    "quote": "I've had the app through two \"upgrades\". The content is wonderful, but the app's organization has now gotten so bad succeeding changes that  if it gets any worse, I will drop it.",
+    "rating": 3,
+    "app": "Headspace: Sleep & Meditation"
    },
    {
-    "quote": "Cute little super useful surveillance app even Meta and Google can't compete with!! I love the app then I find it's selling my data like it's dirt",
+    "quote": "One star for asking me every single time I open the app to provide an App Store rating and review . That does not make me calm. It makes me irritated. So hopefully now the requests stop.",
     "rating": 1,
-    "app": "RISE: Sleep Tracker"
+    "app": "Calm"
    },
    {
-    "quote": "Did I just hand some random company my health data on false promises?",
+    "quote": "I thought I could listen to Dr. Eric or whatever his name is, talk about mountains every night. BUT NOOOOO! You get the first three plays for free but then they charge you like $80.00 for the rest of the year!!! Complete scam! They just want your money! They don’t care about your sleep! Dr. Eric did",
+    "rating": 2,
+    "app": "Calm"
+   },
+   {
+    "quote": "The app has been great for my mental health… until now.\n\nI have been on a long streak of daily meditations, but even though I’ve use the app every day, the app ended my streak… all my days are checked and everything! Why did you end my streak?\n\nThis is disheartening and totally blows my motivation. ",
+    "rating": 3,
+    "app": "Calm"
+   },
+   {
+    "quote": "This is one of my regular, built-in, daily self-care activities. Worth the investment of a yearly subscription. Tamara’s voice is angelic and she’s an eloquent speaker.",
     "rating": 5,
-    "app": "Sleep Cycle - Tracker & Sounds"
-   },
-   {
-    "quote": "changed from an apple phone to Samsung phone watch and my premium membership is just been wasted with no connection",
-    "rating": 1,
-    "app": "SleepWatch - Top Sleep Tracker"
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "Компании платят за оценку готовности персонала к работе в опасных условиях, но нет простого инструмента, который работник заполнит за 30 секунд утром, а руковод",
-    "obsCount": 7,
+    "title": "RISE строит концепцию долга сна, но плохо работает с дробным сном, сменными графиками и импортом из Apple Health. Джетлаг-функции есть у единиц приложений, но о",
+    "obsCount": 6,
     "apps": [
      "RISE: Sleep Tracker",
+     "AutoSleep: Watch Sleep Tracker",
      "Sleep Cycle - Tracker & Sounds",
-     "SleepWatch - Top Sleep Tracker"
+     "Sleepwave: Alarm & Tracker"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Компании платят за оценку готовности персонала к работе в опасных условиях, но нет простого инструмента, который работник заполнит за 30 секунд утром, а руководитель увидит агрегированную картину без личных данных",
+  "gap": "RISE строит концепцию долга сна, но плохо работает с дробным сном, сменными графиками и импортом из Apple Health. Джетлаг-функции есть у единиц приложений, но они либо дают шаблонные советы, либо требуют ввода перелёта вручную без понимания вашего реального состояния. Нет простого инструмента, который говорит: «ты недоспал 11 часов за эту неделю, вот как наверстать без ущерба для следующей».",
   "idea": {
-   "pitch": "Авиация, железная дорога, строительство и нефтянка обязаны контролировать усталость сотрудников по регламентам, но делают это бумажными анкетами или вообще не делают. Продукт превращает самооценку усталости в структурированный поток данных: работник за 30 секунд отмечает сон и самочувствие, платформа строит агрегат без персональных данных и сигналит, если в смену идёт слишком много усталых. Прямой договор с предприятием.",
+   "pitch": "Приложение читает данные Apple Health о снах за последние 30 дней и вычисляет индивидуальную базовую потребность через первые 10 ночей наблюдения. Затем считает реальный дефицит. Пользователь вводит предстоящий перелёт, командировку или стрессовую неделю: приложение строит план восстановления, распределяя дополнительный сон по будущим дням без образования нового долга.",
    "features": [
-    "30-секундная утренняя отметка: время сна плюс субъективная усталость от 1 до 5",
-    "агрегированный дашборд для менеджера: доля усталых в смену без отдельных имён",
-    "API-интеграция с системами планирования смен",
-    "пороговые оповещения: если больше 30% смены отметили высокую усталость",
-    "ежемесячный отчёт для службы охраны труда"
+    "Импорт сна из Apple Health и расчёт персональной базовой нормы",
+    "Счётчик накопленного дефицита в часах с историей по неделям",
+    "Планировщик джетлага: вводишь перелёт, получаешь план сдвига режима по дням",
+    "Рекомендация оптимального времени дополнительного сна без риска сбить текущий ритм",
+    "Виджет с текущим долгом сна и прогнозом полного восстановления"
    ],
    "antiFeatures": [
-    "трекинг фаз сна через микрофон: сотрудник не согласится слать ночные записи работодателю",
-    "советы по гигиене сна от имени компании",
-    "публичный рейтинг или сравнение сотрудников"
+    "Не требует носимого устройства, работает только с данными телефона и Apple Watch",
+    "Нет общих советов по гигиене сна без привязки к реальным данным пользователя",
+    "Не штрафует пользователя за дневной сон и нарушение «идеального» расписания"
    ],
-   "monetization": "Подписка B2B за сотрудника в месяц (по модели HR-инструментов). Обязательный аудит усталости в ряде отраслей создаёт регуляторный спрос без убеждения клиента. Первые клиенты: промышленные предприятия, авиационные компании, крупный ретейл с ночными сменами."
+   "monetization": "Подписка 5 долларов в месяц или разовая покупка 18 долларов. Частые путешественники и менеджеры с перегруженными неделями аудитория с деньгами и мотивацией. RISE берёт около 50 долларов в год и не решает задачу полностью. Это точечная ниша с реальным платёжеспособным ядром."
   }
  },
  {
   "slug": "sleep-tracking-7",
   "category": "sleep-tracking",
-  "categoryName": "Трекеры сна и будильники",
-  "title": "Трекер сна в городском шуме",
-  "oneLiner": "Трекер, который работает с вентилятором, кондиционером и городским шумом, потому что научен отфильтровывать фон",
-  "asOf": "2026-06-20",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Премиальная звуковая библиотека для путешественников",
+  "oneLiner": "Автономная библиотека высококачественных звуков для сна в гостиницах и самолётах без подписки и рекламы",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 93
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
   },
   "reviewGrid": [
    {
-    "quote": "it doesn't work when the fan or ac is on, in middle east and asia we have long summer hence ac and fans at night are common so it should work accordingly",
+    "quote": "Had this app for years and only needed it occasionally for sleep when outside noise was too much. Now they added a paywall for sounds. Enjoy losing the majority of your users. I’ll buy a small fan to travel with instead of paying $70 annually for something you will eventually decide needs improving ",
     "rating": 1,
-    "app": "Sleep Cycle - Tracker & Sounds"
+    "app": "BetterSleep: Relax and Sleep"
    },
    {
-    "quote": "if you have a fan it's super innacurate it said I got 0 hours of sleep and was awake for 8 hours 40 minutes",
+    "quote": "Wonderful app, i use it for traveling and It is very relaxing!",
+    "rating": 5,
+    "app": "White Noise Lite"
+   },
+   {
+    "quote": "this is so great it’s free and helps me sleep on the go and while traveling it’s a real game changer",
+    "rating": 5,
+    "app": "White Noise Lite"
+   },
+   {
+    "quote": "Solid features that don’t live behind a paywall. Lots of free sounds plus great premium sounds if you like to vary things or have specific tastes.",
+    "rating": 5,
+    "app": "Rain Rain Sleep Sounds"
+   },
+   {
+    "quote": "I bought prior to 2019 (turns out is relevant) but bought all sounds permanently. They stopped honoring and will not return my correspondence. If there are any app devs you should clone this",
     "rating": 1,
-    "app": "ShutEye®: Sleep Tracker, Sound"
+    "app": "Rain Rain Sleep Sounds"
    },
    {
-    "quote": "white noise in background tricks app into thinking I've been snoring all night long. app needs a filter to remove background noise",
-    "rating": 3,
-    "app": "SnoreLab : Record Your Snoring"
-   },
-   {
-    "quote": "It uses a sonar system sending out noises imperceptible to humans to listen for it coming back, but by sister could hear it and had to sleep in the other room, so I can't use this app",
-    "rating": 2,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "I've incredibly sensitive hearing and how it tracks your sleep releases a ridiculously high painful frequency for me",
-    "rating": 3,
-    "app": "Sleepwave: Alarm & Tracker"
-   },
-   {
-    "quote": "I wanted to see if this app was good, at least make the first night free, now im just stuck with data thats behind a paywall",
-    "rating": 1,
-    "app": "ShutEye®: Sleep Tracker, Sound"
-   },
-   {
-    "quote": "very unethical to let someone use the app overnight only to hold their data hostage in the morning",
-    "rating": 1,
-    "app": "SnoreLab : Record Your Snoring"
+    "quote": "Love love love this app. It has greatly improved my peace of mind, and the sleep meditations are perfect for winding down in the evenings. But I so miss being able to hear the crickets during my meditations. :(",
+    "rating": 4,
+    "app": "Calm"
    }
   ],
   "mechanisms": [
    {
-    "title": "В жарком климате и в городах половина людей спит с вентилятором или кондиционером. ни один массовый трекер не умеет отделить их шум от звуков человека, и вся но",
-    "obsCount": 7,
+    "title": "Путешественники самые лояльные пользователи звуковых приложений. Они используют их как замену бытовому вентилятору в чужих номерах, но сталкиваются с тремя проб",
+    "obsCount": 6,
     "apps": [
-     "Sleep Cycle - Tracker & Sounds",
-     "ShutEye®: Sleep Tracker, Sound",
-     "SnoreLab : Record Your Snoring",
-     "Sleep Tracker & Sound by Remly"
+     "White Noise Lite",
+     "Sleep Sounds by Sleep Pillow",
+     "Sleep Machine",
+     "White Noise Deluxe"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "В жарком климате и в городах половина людей спит с вентилятором или кондиционером. Ни один массовый трекер не умеет отделить их шум от звуков человека, и вся ночь записывается как «храп» или «бодрствование»",
+  "gap": "Путешественники самые лояльные пользователи звуковых приложений. Они используют их как замену бытовому вентилятору в чужих номерах, но сталкиваются с тремя проблемами: звук прекращается при блокировке экрана, рекламные ролики включаются ночью, нет офлайн-режима для самолёта. Платить за годовую подписку только ради пяти ночей в командировку невыгодно.",
   "idea": {
-   "pitch": "Шумовой профиль фона, вентилятора или улицы, стабилен и предсказуем: его можно калибровать при первом запуске и вычитать из ночной записи. Это инженерная задача, которую ни один массовый продукт не решил до конца, хотя обратная связь из тысяч отзывов прямо называет её главной причиной недоверия. Продукт строится на честном обещании: работает с фоновым шумом, или деньги назад. Платящий клиент: жители Ближнего Востока, Азии, южных городов России.",
+   "pitch": "Приложение продаёт звуки как разовые покупки: 12 звуков бесплатно навсегда, остальные за 2-5 долларов за пак. Никакой подписки. Все купленные звуки доступны офлайн. Приложение не запрашивает трекинг, не показывает рекламу и не просит подписаться на рассылку. Единственная функция: включить качественный звук, который не прервётся ночью.",
    "features": [
-    "калибровка фонового шума при первом запуске с сохранением профиля",
-    "адаптивный фильтр, вычитающий стабильный фоновый шум из ночной записи",
-    "честный индикатор качества записи: «шум слишком высокий, данные ненадёжны»",
-    "ручная коррекция ночи: отметить, что запись неверна, и убрать её из статистики без удаления",
-    "ночной режим без ультразвукового излучения, мешающего людям с чутким слухом"
+    "12 базовых звуков бесплатно навсегда без регистрации и рекламы",
+    "Паки по теме: вентиляторы, дождь, природа, городской шум разовая покупка навсегда",
+    "Офлайн-воспроизведение всех купленных звуков без интернета",
+    "Фоновое воспроизведение без прерывания при блокировке экрана или переключении приложений",
+    "Таймер с постепенным затуханием и плавным нарастанием в начале"
    ],
    "antiFeatures": [
-    "ультразвуковой сонар для трекинга через динамик, слышимый партнёру",
-    "громкие заявления о точности без честного индикатора ненадёжных данных",
-    "обязательная регистрация до первого результата"
+    "Никакой подписки, никаких автоматических списаний после пробного периода",
+    "Никакой рекламы: ни баннеров, ни ролика ночью",
+    "Нет трекинга сна, нет аккаунта, нет синхронизации просто звук"
    ],
-   "monetization": "Разовая покупка с честным триалом: первые три ночи бесплатно, данные открыты сразу. Целевой рынок Ближний Восток и Юго-Восточная Азия с высоким проникновением смартфонов и жарким климатом. Партнёрства с производителями вентиляторов и климатической техники как канал дистрибуции."
+   "monetization": "Разовые покупки паков по 2-5 долларов. Средний путешественник покупает 2-3 пака по 3 доллара. Долгосрочные пользователи покупают ещё. Без подписки меньше отток и негатив, зато устойчивый доход от новых пользователей через App Store поиск. BetterSleep потерял многолетних пользователей именно на переходе к подписке это незанятая ниша."
+  }
+ },
+ {
+  "slug": "sleep-tracking-8",
+  "category": "sleep-tracking",
+  "categoryName": "Сон и звуки для сна",
+  "title": "Ритуал отхода ко сну для людей с бессонницей",
+  "oneLiner": "Структурированная вечерняя программа для перехода от тревожного бодрствования к расслаблению с отслеживанием эффективности",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 94,
+   "reviews": 30658,
+   "observations": 352
+  },
+  "reviewGrid": [
+   {
+    "quote": "i’ve had headspace for over a decade. for the first 3-4 years, I loved it. this app’s approach toward meditation and wellness has noticeably shifted since its inception though. When I started, it was Andy Puddicombe doing all of the meditations, translating what he learned as a monk into meditations",
+    "rating": 2,
+    "app": "Headspace: Sleep & Meditation"
+   },
+   {
+    "quote": "Always the same menu & programs need better new material",
+    "rating": 1,
+    "app": "Calm"
+   },
+   {
+    "quote": "It is not the best because every second it tries to get you to buy there premium plan and it is annoying and like everything is locked so you can’t listen to it (if you click on something that’s free and then you go to your home screen and hit next you get you might be able to get to a song that’s l",
+    "rating": 2,
+    "app": "Calm"
+   },
+   {
+    "quote": "Always asking to rate to share. I would like to use the app to help myself first without the interruption s.",
+    "rating": 3,
+    "app": "Calm"
+   },
+   {
+    "quote": "I love this app. I suffer with insomnia and the sounds this app offers are so helpful. A lot of ppl don’t know this but if you have Kaiser Permanente, you can get this app for free.",
+    "rating": 5,
+    "app": "Calm"
+   },
+   {
+    "quote": "My dog and I listen to Anna Acton's nap time. Sleep story every day after lunch and have a cozy satisfying nap. At bedtime I choose sleep music and leave it on all night – sleep like a baby. I also use the calm meditation app at times.",
+    "rating": 4,
+    "app": "Calm"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Люди с хронической бессонницей знают, что медитации и белый шум существуют. Проблема не в отсутствии инструментов, а в отсутствии структуры: что делать в конкре",
+    "obsCount": 6,
+    "apps": [
+     "Sleepiest: Sleep Meditation",
+     "Calm",
+     "Meditopia: Sleep, Meditation",
+     "Avrora Sleep Sounds & Stories"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди с хронической бессонницей знают, что медитации и белый шум существуют. Проблема не в отсутствии инструментов, а в отсутствии структуры: что делать в конкретный вечер, в какой последовательности, как долго. Приложения вроде Calm и Headspace предлагают контент, но не программу. Пользователь снова застревает перед библиотекой с вопросом «что включить сегодня».",
+  "idea": {
+   "pitch": "Приложение задаёт пользователю три вопроса вечером: уровень тревожности, физическое напряжение, насколько устал. На основе ответов собирает конкретную 20-30 минутную программу из последовательности шагов: дыхание, расслабление тела, звуковой фон. Никакого выбора контента только кнопка «начать». Через 14 дней показывает, какие программы коррелировали с более коротким временем засыпания.",
+   "features": [
+    "Вечерний опрос из трёх вопросов для подбора программы на текущий вечер",
+    "Готовые последовательные программы 20-30 минут без необходимости выбирать контент",
+    "Модули программы: дыхательные упражнения, сканирование тела, звуковой фон",
+    "Журнал засыпания: пользователь отмечает время реального засыпания утром",
+    "Анализ через 14 дней: какие типы программ работали лучше для конкретного пользователя"
+   ],
+   "antiFeatures": [
+    "Нет бесконечного каталога для прокрутки только одна готовая программа на вечер",
+    "Нет соревновательных стриков и геймификации, которые создают тревогу при пропуске",
+    "Нет советов про кофеин, экраны и синий свет без запроса"
+   ],
+   "monetization": "Подписка 6-8 долларов в месяц. Люди с хронической бессонницей аудитория с сильной мотивацией и готовностью платить: они уже тратят деньги на снотворные, мелатонин, консультации. Calm берёт 70 долларов в год и не решает задачу структуры. Headspace то же самое. Это незанятая позиция в ценовом диапазоне 6-8 долларов."
   }
  },
  {
