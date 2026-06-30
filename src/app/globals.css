@@ -466,7 +466,7 @@ html:not([data-theme="dark"]) .atmosphere {
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: edge-shimmer 4.5s linear infinite;
+  animation: edge-shimmer 18s ease-in-out infinite;
 }
 @keyframes edge-shimmer {
   from { background-position: 130% 0; }
