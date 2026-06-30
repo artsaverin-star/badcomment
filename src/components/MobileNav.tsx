@@ -8,7 +8,7 @@ import LangSwitch from "./LangSwitch";
 import ThemeSwitch from "./ThemeSwitch";
 import AuthButton from "./AuthButton";
 import HeaderSearch from "./HeaderSearch";
-import { t, type Locale } from "@/lib/i18n";
+import { type Locale } from "@/lib/i18n";
 
 // Compact header control for phones: a single menu button that opens a sheet
 // with the section nav + language/theme switches + sign-in. Desktop keeps the
@@ -20,7 +20,6 @@ export default function MobileNav({
   locale: Locale;
   theme: "light" | "dark";
 }) {
-  const tr = t(locale);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -37,9 +36,14 @@ export default function MobileNav({
     };
   }, [open]);
 
+  // The site has three surfaces only: home, ideas, rating.
+  const ru = locale !== "en";
+  const onIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
+  const onRating = pathname === "/rating" || pathname.startsWith("/rating/");
   const tabs = [
-    { href: "/", label: tr.nav.catalog, active: !(pathname === "/ideas" || pathname.startsWith("/ideas/")) },
-    { href: "/ideas", label: tr.nav.ideas, active: pathname === "/ideas" || pathname.startsWith("/ideas/") },
+    { href: "/", label: ru ? "Главная" : "Home", active: !onIdeas && !onRating },
+    { href: "/ideas", label: ru ? "Идеи" : "Ideas", active: onIdeas },
+    { href: "/rating", label: ru ? "Рейтинг" : "Rating", active: onRating },
   ];
 
   return (

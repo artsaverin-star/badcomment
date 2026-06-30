@@ -28,8 +28,8 @@ export default async function LibraryPage() {
           <p className="mx-auto mt-2 max-w-xs text-callout text-[var(--color-text-secondary)]">
             У тебя открыты все приложения, идеи и категории.
           </p>
-          <Link href="/catalog" className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] hover:opacity-90">
-            Открыть каталог
+          <Link href="/" className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] hover:opacity-90">
+            На главную
           </Link>
         </div>
       ) : (
