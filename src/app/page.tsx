@@ -6,9 +6,9 @@ import { ownsDeck } from "@/lib/unlocks";
 import { buildFeed } from "@/lib/ideaFeed";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { getCatalogData } from "@/lib/catalogData";
-import { listIdeas } from "@/lib/ideas";
-import { PREMIUM_NICHES } from "@/lib/premiumNiches";
-import { getSegmentSummary } from "@/lib/segmentSummary";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { categoryCards } from "@/lib/regenCards";
+import ideasData from "@/data/ideas.json";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -47,7 +47,7 @@ export default async function Home() {
   const ru = locale !== "en";
   const premium = await isPremium();
   const loggedIn = !!(await getSessionUser());
-  const { domains, totalReviews } = getCatalogData(locale, premium);
+  const { totalReviews } = getCatalogData(locale, premium);
 
   // Idea feed embedded on the landing. Breakdowns are free to read here (open on
   // click for everyone) — so build with depth for all; the grid gates QUANTITY
@@ -67,48 +67,32 @@ export default async function Home() {
     lifetimePrice: LIFETIME.rub,
   };
 
-  // Beautiful per-category cover cards (salute + selling copy) for live cats.
-  const catCards = domains
-    .flatMap((d) => d.categories)
-    .filter((c) => c.live)
-    .map((c) => {
-      const summary = getSegmentSummary(c.slug);
-      if (!summary) return null;
-      // Hook = the governing thought (the niche's core insight) — the "затравка"
-      // pulled from the breakdown. Blurb = a short plain line about what the card
-      // is. No store app-names (they're messy: "App: Subtitle, ...").
-      const hook = getNicheThesis(c.slug, locale)?.governing || summary.lead || "";
-      const reviews = summary.reviewsScanned;
-      const blurb = ru
-        ? `Прочитали ${reviews.toLocaleString("ru-RU")} отзывов на ${c.appsCount} приложений: что хвалят, на что злятся и каких не хватает — готовый разбор для тех, кто думает сделать своё.`
-        : `We read ${reviews.toLocaleString("en-US")} reviews of ${c.appsCount} apps: what's loved, hated and missing — a ready breakdown for anyone thinking of building their own.`;
-      return {
-        slug: c.slug,
-        name: c.name,
-        icons: c.apps.map((a) => a.icon).filter((x): x is string => !!x),
-        apps: c.appsCount,
-        reviews,
-        observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
-        ideas: listIdeas().filter((i) => i.category === c.slug).length,
-        hook: tg(hook),
-        blurb: tg(blurb),
-      };
-    })
-    .filter((c): c is NonNullable<typeof c> => !!c);
-
-  // Premium-10: the popular, vibe-coder-buildable niches we re-authored to
-  // ultra quality (per-app v3 + niche synthesis). Pin them to the top of the
-  // homepage list, in popularity order; everything else keeps its order below.
-  const PREMIUM: string[] = [...PREMIUM_NICHES];
-  // Drop slug duplicates (a few niches live in two domain blocks in the source).
-  const seenSlugs = new Set<string>();
-  for (let i = 0; i < catCards.length; ) {
-    if (seenSlugs.has(catCards[i].slug)) catCards.splice(i, 1);
-    else { seenSlugs.add(catCards[i].slug); i++; }
-  }
-
-  const premiumRank = (slug: string) => { const i = PREMIUM.indexOf(slug); return i === -1 ? PREMIUM.length : i; };
-  catCards.sort((a, b) => premiumRank(a.slug) - premiumRank(b.slug));
+  // Homepage shows only the ULTRA tier — the 29 niches rebuilt on the full
+  // people's-rating dataset (rating + dossier + ideas). Cards are sourced
+  // straight from that data (RATING_BY_SLUG), so they never depend on the
+  // legacy taxonomy/segment-insights gate (which keyed off a few niches' older
+  // slugs and silently dropped their card). Final order is set in <Landing>.
+  type RApp = { icon?: string | null; ratings?: number };
+  type RFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
+  const ideasAll = ideasData as { category: string }[];
+  const catCards = Object.entries(RATING_BY_SLUG as Record<string, RFile>).map(([slug, r]) => {
+    const cards = categoryCards(slug, locale)?.product ?? [];
+    const icons = [...r.apps]
+      .sort((a, b) => (b.ratings ?? 0) - (a.ratings ?? 0))
+      .map((a) => a.icon)
+      .filter((x): x is string => !!x);
+    return {
+      slug,
+      name: ru ? r.name : r.nameEn || r.name,
+      icons,
+      apps: r.count,
+      reviews: r.totalReviews,
+      observations: cards.reduce((s, c) => s + (c.count || 0), 0),
+      ideas: ideasAll.filter((i) => i.category === slug).length,
+      hook: tg(getNicheThesis(slug, locale)?.governing || ""),
+      blurb: "",
+    };
+  });
 
   const lp = ru ? "ru" : "en";
   const homeJsonLd = {
