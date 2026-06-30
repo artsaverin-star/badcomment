@@ -32,8 +32,9 @@ import scannerPdf from "./scanner-pdf.json";
 import aiChatbot from "./ai-chatbot.json";
 import intermittentFasting from "./intermittent-fasting.json";
 import flashcards from "./flashcards.json";
+import translator from "./translator.json";
 
 export const RATING_BY_SLUG: Record<string, unknown> = {
-  "scanner-pdf": scannerPdf, "ai-chatbot": aiChatbot, "intermittent-fasting": intermittentFasting, flashcards,
+  "scanner-pdf": scannerPdf, "ai-chatbot": aiChatbot, "intermittent-fasting": intermittentFasting, flashcards, translator,
   "ai-avatars-headshots": aiAvatarsHeadshots, "ai-writing": aiWriting, astrology, "baby-tracking": babyTracking, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "focus-productivity": focusProductivity, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "journaling-mood": journalingMood, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "plant-care": plantCare, "recipes-meal-planning": recipesMealPlanning, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "sleep-tracking": sleepTracking, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps, "workout-fitness": workoutFitness,
 };

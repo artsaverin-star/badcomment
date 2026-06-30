@@ -44334,5 +44334,628 @@
    ],
    "monetization": "Подписка $9 в месяц: безлимитное медиа-хранилище и специализированные шаблоны. Бесплатно: до 50 медиа-карточек с хранилищем 100 МБ. Ориентир: студенты консерваторий и химических факультетов, которые платят за профессиональные инструменты."
   }
+ },
+ {
+  "slug": "translator-1",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Медицинский переводчик для клиник и ухода на дому",
+  "oneLiner": "Точный перевод в медицинском контексте: симптомы, дозировки, анамнез не бытовые фразы.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 30
+  },
+  "reviewGrid": [
+   {
+    "quote": "I needed to communicate to a Spanish speaking resident whom I care for (newly admitted). 100% would never recommend this app.",
+    "rating": 1,
+    "app": "Translate Anything"
+   },
+   {
+    "quote": "Hello as a medical professional, the app doesn't translate well for medical conditions. It is great to use for conversational purposes.",
+    "rating": 4,
+    "app": "Talk & Translate AI Translator"
+   },
+   {
+    "quote": "I was able to speak to my housekeepers today about an emergency and cancelled service for today. Their primary language is Spanish and mine is English. This App was Very Helpful.",
+    "rating": 4,
+    "app": "Translator with Speech"
+   },
+   {
+    "quote": "I have been using Google to send messages to Russian speakers and they tell me that the English to Russian translation produces too much nonsense that is unreadable to them.",
+    "rating": 3,
+    "app": "Translate Anything"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Общий словарь даёт сбои в профессиональном контексте",
+    "obsCount": 30,
+    "apps": [
+     "Talk & Translate AI Translator",
+     "Translate Anything",
+     "Translator with Speech",
+     "iTranslate Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Живой разговор в критической ситуации ключевой сценарий",
+    "obsCount": 22,
+    "apps": [
+     "Speak & Translate - Translator",
+     "Translator with Speech",
+     "Live Translator - AI Translate"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Контекст (уход, экстренная ситуация) меняет требования к точности",
+    "obsCount": 18,
+    "apps": [
+     "Translate Anything",
+     "Talk & Translate AI Translator"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ни одно приложение не заточено под медицинскую лексику: симптомы, препараты, дозировки, анатомия, инструкции при выписке. Фраза 'болит под рёбрами справа' переводится как бытовая, а не как 'правое подреберье'. Для фельдшеров, сиделок и семей мигрантов в клиниках это реальный риск.",
+  "idea": {
+   "pitch": "Голосовой переводчик с медицинским режимом: встроенный глоссарий симптомов и процедур, режим врач-пациент с историей диалога, экспорт сессии в PDF для медкарты.",
+   "features": [
+    "Режим 'врач / пациент' с автосменой стороны без нажатий",
+    "Словарь симптомов, анатомии и препаратов на 20+ языках",
+    "Фраза-подсказки под контекст (боль, аллергия, история болезни)",
+    "Офлайн-пакет для работы в подвалах и стационарах без сети",
+    "Экспорт сессии: сохранить диалог как PDF с временными метками"
+   ],
+   "antiFeatures": [
+    "Не добавлять бытовые переводы это конкурент Google, а не продукт",
+    "Не строить на подписке $10/неделю медики платят за годовую лицензию",
+    "Не обещать юридическую точность фокус на коммуникации, не на диагностике"
+   ],
+   "monetization": "B2B: лицензия на клинику или НКО (уход, хоспис, реабилитация). B2C: подписка $9.99/мес для частных сиделок и семей. Первый канал форумы и ассоциации медработников."
+  }
+ },
+ {
+  "slug": "translator-2",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Переводчик с честным офлайном: скачал работает",
+  "oneLiner": "Пакет языка скачан и больше не нужен интернет, без исключений и скрытых условий.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 28
+  },
+  "reviewGrid": [
+   {
+    "quote": "Takes forever to find a translation. Even if I download the languages I need it still tries to find using the internet which can be extremely slow when traveling internationally. Now I have to put my iphone into airplane mode to get an instant offline translation which is annoying.",
+    "rating": 2,
+    "app": "Translate"
+   },
+   {
+    "quote": "I got this app for my trip to Rome and Greece. I got it mainly for the Greek part due to Apple did have Greek as an option. Liked the idea that I could use it off line. When the time came I couldn't use it. I paid for the offline version and it never worked so I ended up having to turn my travel data on.",
+    "rating": 2,
+    "app": "Translator GO: AI Translate"
+   },
+   {
+    "quote": "This app is title offline but you only get offline if you upgrade.",
+    "rating": 2,
+    "app": "Spanish Translator Offline"
+   },
+   {
+    "quote": "I downloaded this as the plane was taking off. Buy the off line version! Best $30 I ever spent",
+    "rating": 5,
+    "app": "Spanish Translator Offline"
+   },
+   {
+    "quote": "App worked well if in a strong Wi-Fi environment. Walking around the streets of Paris with obviously no Wi-Fi, the app was pretty useless. Would not recommend.",
+    "rating": 2,
+    "app": "Translator GO: AI Translate"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Офлайн заявлен, но по факту требует сети",
+    "obsCount": 28,
+    "apps": [
+     "Spanish Translator Offline",
+     "Translator GO: AI Translate",
+     "Translate",
+     "Persian Translator Offline",
+     "Microsoft Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Путешественник платит именно за автономность",
+    "obsCount": 20,
+    "apps": [
+     "Spanish Translator Offline",
+     "Translator GO: AI Translate",
+     "Scan & Translate+ Text Grabber"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Пользователи покупают офлайн-версию ради поездки, а на месте обнаруживают: приложение всё равно лезет в сеть, скачанный пакет не активируется или игнорируется. Честный офлайн отдельный продукт, которого на рынке нет. Платящий уже определён: это путешественник, купивший пакет заранее.",
+  "idea": {
+   "pitch": "Переводчик, в котором офлайн это не опция, а архитектура: голос, текст и камера работают без сети после однократного скачивания языкового пакета.",
+   "features": [
+    "Голосовой и текстовый перевод полностью на устройстве (on-device LLM/модель)",
+    "Камера с OCR тоже офлайн, включая нелатинские шрифты",
+    "Принудительный офлайн-режим в интерфейсе одна кнопка без дополнительных условий",
+    "Верификация пакета при скачивании: тест перевода без сети прямо в магазине",
+    "Чёткий индикатор: онлайн/офлайн виден всегда, не спрятан в настройки"
+   ],
+   "antiFeatures": [
+    "Не называть слово offline в маркетинге, если хоть одна функция требует сети",
+    "Не делать офлайн надстройкой над онлайн-архитектурой",
+    "Не выходить с подпиской $10/неделю путешественник платит разово перед поездкой"
+   ],
+   "monetization": "Разовая покупка языкового пакета: $4.99 за один язык, $14.99 за набор 'путешественник'. Lifetime $29.99. Никакой подписки это и есть дифференциация от конкурентов."
+  }
+ },
+ {
+  "slug": "translator-3",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Клавиатура-переводчик без задержек для мессенджеров",
+  "oneLiner": "Пишешь в WhatsApp, iMessage, Telegram перевод появляется мгновенно, как обычная клавиатура.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "I really like the application. It works well. I mainly use the keyboard because it translates messages really well on apps like Whatsapp. I just really wish it had the swipe feature.",
+    "rating": 4,
+    "app": "iTranslate Translator"
+   },
+   {
+    "quote": "The keyboard translate from messages or WhatsApp is very slow. Sometimes it takes up to 30 seconds to translate. Other Translate programs are much much faster.",
+    "rating": 3,
+    "app": "Live Translator - AI Translate"
+   },
+   {
+    "quote": "I do like this keyboard. It translated very well. Only thing it glitches when trying to use the backspace button. It doesn't respond fluidly and when you press it too many times it deletes the whole message.",
+    "rating": 4,
+    "app": "Translator Guru: Voice & Text"
+   },
+   {
+    "quote": "It's very easy to use app BUT I'm not paying $10 a week for an app. That's crazy. Spare me that it cost money to make the app and keeping it up to date. I can see $10 a month but not a WEEK.",
+    "rating": 3,
+    "app": "Translator Keyboard - Language"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Клавиатура лучший UX для переписки, но технически сырая",
+    "obsCount": 26,
+    "apps": [
+     "iTranslate Translator",
+     "Live Translator - AI Translate",
+     "Translator Guru: Voice & Text",
+     "Translator Keyboard - Language",
+     "UDictionary Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Переписка на иностранном языке ежедневная задача",
+    "obsCount": 18,
+    "apps": [
+     "iTranslate Translator",
+     "Translator Guru: Voice & Text"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Клавиатура-переводчик как формат востребована, но ни одна реализация не работает нормально: задержки до 30 секунд, backspace стирает всё сообщение, запрос full keyboard access пугает пользователей. Кто пишет в WhatsApp с испаноязычными родственниками или корейскими коллегами платит, если инструмент работает.",
+  "idea": {
+   "pitch": "Нативная iOS-клавиатура с on-device переводом: типичная задержка меньше 500 мс, swipe-жесты, не требует полного доступа для базовых функций.",
+   "features": [
+    "On-device перевод прямо в клавиатуре без отправки текста на сервер",
+    "Swipe влево/вправо для переключения направления перевода",
+    "Кнопка 'вставить перевод' вместо автозамены пользователь контролирует",
+    "Фиксированный язык пары: не нужно настраивать каждый раз",
+    "Минимальные разрешения: только базовый доступ, без 'allow full access'"
+   ],
+   "antiFeatures": [
+    "Не делать автоперевод при каждом нажатии раздражает",
+    "Не требовать подписку при первом запуске до того, как пользователь ощутил ценность",
+    "Не поддерживать 100 языков плохо лучше 10 языков хорошо"
+   ],
+   "monetization": "Freemium: 5 языковых пар бесплатно, больше по $1.99 за пару или $7.99/год. Платящая аудитория эмигранты и те, кто ведёт регулярную переписку на нескольких языках."
+  }
+ },
+ {
+  "slug": "translator-4",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Голос под контроль: переводчик со скоростью воспроизведения",
+  "oneLiner": "Регулируй скорость речи и повторяй фразы для тех, кто учит язык в живом использовании.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 38
+  },
+  "reviewGrid": [
+   {
+    "quote": "I am seriously frustrated. I have tried and tried to find where to slow down the speed of the spoken words (to better learn them) and I can not find anywhere to do this.",
+    "rating": 3,
+    "app": "Microsoft Translator"
+   },
+   {
+    "quote": "I just purchased this app because I am traveling to South Korea and I want to be able to understand the signs in the airport as well as communicate with the taxi drivers, however the speech playback speed is way to fast and a bit glitched. If there is a way to slow it down that would be helpful!",
+    "rating": 3,
+    "app": "Live Translator - AI Translate"
+   },
+   {
+    "quote": "Use it for French. Very accurate and I love the option for alternative words and sentences. But the sound of the voice playback is horrible and sounds like a robot. This seems unacceptable in the age of AI.",
+    "rating": 3,
+    "app": "DeepL Translate"
+   },
+   {
+    "quote": "Speaks too fast but very helpful to use. The Computer voice is a bit harsh sometimes as well.",
+    "rating": 4,
+    "app": "iTranslate Voice"
+   },
+   {
+    "quote": "Only problem is that the speech translation is far too rapid for beginners.",
+    "rating": 3,
+    "app": "Translate Me - Live Translator"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "TTS слишком быстрый и нет регулятора скорости",
+    "obsCount": 38,
+    "apps": [
+     "iTranslate Voice",
+     "Live Translator - AI Translate",
+     "DeepL Translate",
+     "Microsoft Translator",
+     "Translate Me - Live Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи хотят учиться через реальный контекст, не через флэш-карточки",
+    "obsCount": 20,
+    "apps": [
+     "iTranslate Translator",
+     "Microsoft Translator",
+     "Live Translator - AI Translate"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Регулятор скорости TTS фича с нулевой стоимостью реализации, но её нет ни в одном массовом переводчике. Изучающие языки (а не только туристы) готовы платить, потому что используют переводчик как ежедневный тренажёр произношения и слуха.",
+  "idea": {
+   "pitch": "Переводчик с режимом обучения: слайдер скорости воспроизведения 0.5x-1.5x, кнопка повтора фразы, транслитерация рядом с переводом, история фраз как мини-разговорник.",
+   "features": [
+    "Слайдер скорости TTS с тремя пресетами: медленно / нормально / быстро",
+    "Кнопка 'повторить' без перезапуска ввода",
+    "Транслитерация под переводом для нелатинских языков",
+    "История последних 50 фраз как мини-разговорник для поездки",
+    "Голоса нейронного TTS, не синтезатор 1990-х"
+   ],
+   "antiFeatures": [
+    "Не добавлять полный курс языка это Duolingo, а не переводчик",
+    "Не убирать мгновенный текстовый перевод ради 'режима обучения'",
+    "Не ставить скорость за paywall это базовая доступность"
+   ],
+   "monetization": "Базовый переводчик бесплатно. Подписка $4.99/мес за нейронные голоса + история + транслитерация. Целевая аудитория A1-B1 уровень, готовит поездку или работает с иностранными коллегами."
+  }
+ },
+ {
+  "slug": "translator-5",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Разговорный режим без автоперебива: толкни кнопку говори",
+  "oneLiner": "Push-to-talk для живого диалога: ни автодетект, ни наложение, ни обрыв на полуслове.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 42
+  },
+  "reviewGrid": [
+   {
+    "quote": "The auto-detection in Conversation Mode is too aggressive. When sharing one phone with a friend, the app constantly cuts me off and blasts out translations while I'm still talking. It causes a confusing overlap of audio that ruins the conversation. Please bring back the manual recording controls",
+    "rating": 3,
+    "app": "Google Translate"
+   },
+   {
+    "quote": "ONLY app i have found that does not require constant button pushing to talk. True conversation mode, i use one earbud and partner uses the other. If they add offline mode where downloaded languages can be used outside of wifi i would give 5 stars",
+    "rating": 4,
+    "app": "Live Translator - AI Translate"
+   },
+   {
+    "quote": "Initially I liked this app very much. For context I am hard of hearing and this app helps with quick conversations at help desks like libraries for example. I use converse so it listens continuously rather than every time clicking on listen.",
+    "rating": 2,
+    "app": "Microsoft Translator"
+   },
+   {
+    "quote": "I opened the app and clicked on Conversation but it was a bust. First, it took way too long to translate, and with this TikTok generation, things have to be fast, pretty much simultaneous. Second, it's totally useless when there's an actual conversation going on with multiple people.",
+    "rating": 2,
+    "app": "Google Translate"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Автодетект речи обрывает говорящего на паузах",
+    "obsCount": 42,
+    "apps": [
+     "Google Translate",
+     "Live Translator - AI Translate",
+     "Microsoft Translator",
+     "Dialog - Translate Speech"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Один наушник на двоих реальный сценарий уличного общения",
+    "obsCount": 28,
+    "apps": [
+     "Live Translator - AI Translate",
+     "Microsoft Translator"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Разговорный режим везде одинаков: либо агрессивный автодетект (прерывает), либо постоянное нажатие кнопки (неудобно в живой беседе). Нет адаптивного режима: PTT + умная тишина + ручное подтверждение перевода. Сценарий продавец/покупатель, турист/местный миллионы людей, платящих за роуминг и поездки.",
+  "idea": {
+   "pitch": "Два режима разговора: PTT (держи кнопку и говори) и автодетект с настройкой чувствительности паузы. Визуальный экран диалога крупный шрифт для показа собеседнику.",
+   "features": [
+    "PTT-режим: зажал кнопку запись, отпустил перевод",
+    "Слайдер тишины: от 0.3 с до 2 с пользователь выбирает паузу",
+    "Экран диалога: две стороны крупным шрифтом, каждая подсвечивается при активности",
+    "Режим 'один наушник': звук переключается между динамиком и наушником автоматически",
+    "История диалога прокручивается ничего не теряется"
+   ],
+   "antiFeatures": [
+    "Не делать авто-перевод без подтверждения в медицинских и деловых сценариях",
+    "Не убирать PTT ради 'умного' автодетекта пользователи хотят контроль",
+    "Не добавлять рекламу в момент живого разговора"
+   ],
+   "monetization": "Freemium: текстовый перевод бесплатно. Разговорный режим $5.99/мес или $39.99/год. Дополнительно: корпоративная лицензия для гидов, сопровождения и сервисов в туризме."
+  }
+ },
+ {
+  "slug": "translator-6",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Голос для редких языков: фарси, украинский, тагальский, самоа",
+  "oneLiner": "Языки в списке и они реально говорят, а не только переводят текст.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "Persian and many more languages are not available in voice mode not benifited",
+    "rating": 1,
+    "app": "Speak & Translate - Translator"
+   },
+   {
+    "quote": "Was looking to translate spoken English to/from Ukrainian since Ukrainian is listed as a supported language. When we got to the conversation mode, clicking on the microphone popped up the message that translations were not available for this language pair.",
+    "rating": 2,
+    "app": "Translate Me - Live Translator"
+   },
+   {
+    "quote": "My wife speaks cebuano so I thought this would be well with the $100+ bucks, then I see it only translates cebuano to English via text. Voice translate is not available for that particular combination.",
+    "rating": 3,
+    "app": "Voice Translator: Translate AI"
+   },
+   {
+    "quote": "I want to know how the Kanji is pronounced in Japanese, but for some reason, the voice button won't work. This app is still useful, though, but I still need some help.",
+    "rating": 4,
+    "app": "Talk & Translate AI Translator"
+   },
+   {
+    "quote": "When I saw this app advertising on my TikTok for you page, I was astonished by its works. I wasted no time and downloaded the app thinking how fun it will be to show my Samoan Elders/Family Members. When I opened the app however I tried finding the Samoan language to translate it to but found no luck.",
+    "rating": 3,
+    "app": "Talk & Translate AI Translator"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Язык есть в списке, но голосовой ввод/вывод для него не работает",
+    "obsCount": 24,
+    "apps": [
+     "Speak & Translate - Translator",
+     "Translate Me - Live Translator",
+     "Voice Translator: Translate AI",
+     "Voice Translator: Translate AI",
+     "Talk & Translate AI Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи платят именно ради нестандартных языковых пар",
+    "obsCount": 16,
+    "apps": [
+     "Speak & Translate - Translator",
+     "Voice Translator: Translate AI",
+     "Talk & Translate AI Translator"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Большой список языков маркетинг. Реально голос поддерживают 15-20 языков, всё остальное текст или заглушка. Диаспорные сообщества (иранцы, украинцы, филиппинцы, самоанцы) платят за конкретную языковую пару и обнаруживают обман после оплаты.",
+  "idea": {
+   "pitch": "Переводчик с гарантией: если язык в списке он работает голосом в обе стороны. Старт с 30 языками вместо 130, зато все честные.",
+   "features": [
+    "Верификация каждого языка: TTS + STT протестированы перед публикацией",
+    "Страница языка: что работает текст / голос / офлайн иконки без мелкого шрифта",
+    "Фарси, украинский, тагальский, урду на равных правах с испанским",
+    "Транслитерация для арабской, персидской, деванагари графики",
+    "Push-обновление: когда голос для языка появляется уведомление"
+   ],
+   "antiFeatures": [
+    "Не добавлять язык, пока голосовой движок не готов",
+    "Не обещать офлайн для редких языков без реального on-device движка",
+    "Не строить монетизацию через пакеты языков пользователи не доверяют после обмана"
+   ],
+   "monetization": "Подписка $6.99/мес с честной таблицей поддержки на странице магазина. Отдельный пакет для диаспоры: семейный план $9.99/мес на 5 устройств."
+  }
+ },
+ {
+  "slug": "translator-7",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Региональный диалект как первоклассный гражданин",
+  "oneLiner": "Мексиканский испанский это не испанский Испании. Бразильский португальский не европейский. Переключение в один тап.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 22
+  },
+  "reviewGrid": [
+   {
+    "quote": "The particular part of Mexico, I am in they do not comprehend most of this translator. Spanish in Mexico is very regional. I am having a hard time using this translator in my current location it is a shame I paid for a lifetime and I cannot use it.",
+    "rating": 2,
+    "app": "Spanish Translator Offline"
+   },
+   {
+    "quote": "This app has Portuguese from Brazil, but the Portuguese from Portugal is from Brazil. We don't use the same these words in Portugal. These words are spoken in Brazil only.",
+    "rating": 1,
+    "app": "Translator ·"
+   },
+   {
+    "quote": "The app is 100% accurate but why is it so hard to get dialects? I am trying to translate words into American English yet it translates into the British version and it is really hard to try to choose the dialect, I have to struggle in order to get the one I am trying to translate.",
+    "rating": 4,
+    "app": "DeepL Translate"
+   },
+   {
+    "quote": "This has actual LatAm Spanish translation. I do wish there was a preference setting for JUST the languages I am interested in.",
+    "rating": 4,
+    "app": "DeepL Translate"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Диалект скрыт в настройках и сбрасывается при каждом запуске",
+    "obsCount": 22,
+    "apps": [
+     "DeepL Translate",
+     "Spanish Translator Offline",
+     "Translator ·",
+     "iTranslate Translator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Точный диалект ключевое требование для носителей и профессионалов",
+    "obsCount": 14,
+    "apps": [
+     "DeepL Translate",
+     "iTranslate Translator"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Смешение диалектов не баг, а архитектурное решение: дешевле обучить одну модель. Но носители португальского Португалии, мексиканского испанского конкретного региона или американского английского чувствуют дискриминацию. Профессиональные переводчики и гиды платят за точность диалекта.",
+  "idea": {
+   "pitch": "Языковой профиль пользователя: один раз указал 'мексиканский испанский, регион Оахака' приложение запоминает навсегда, все переводы и голос адаптированы под него.",
+   "features": [
+    "Профиль: родной язык + диалект, целевой язык + диалект хранится постоянно",
+    "Матрица вариантов: для испанского 6 региональных вариантов, для португальского 2",
+    "Быстрое переключение диалекта свайпом по языковому чипу",
+    "Голос TTS привязан к диалекту не нейтральный кастильский для мексиканца",
+    "Обратная связь: кнопка 'не мой вариант' отправляет пример на улучшение"
+   ],
+   "antiFeatures": [
+    "Не обещать региональные диалекты, которые реально не поддерживает TTS",
+    "Не прятать выбор диалекта за третьим уровнем настроек",
+    "Не смешивать диалекты в одной модели лучше меньше вариантов, но честных"
+   ],
+   "monetization": "Базовый диалект бесплатно. Расширенная матрица диалектов $3.99/мес или $24.99/год. Корпоративно: лицензия для языковых школ и туроператоров."
+  }
+ },
+ {
+  "slug": "translator-8",
+  "category": "translator",
+  "categoryName": "Переводчики",
+  "title": "Переводчик документов и сканов с PDF-импортом",
+  "oneLiner": "Загрузи PDF, фото инструкции или скан контракта получи читаемый перевод, а не ошибку.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 38,
+   "reviews": 12771,
+   "observations": 16
+  },
+  "reviewGrid": [
+   {
+    "quote": "Tried to upload a PDF from Files. Could not find a means by which to upload any documents from anywhere in the known universe. It was the primary reason I downloaded it. I will be deleting it now.",
+    "rating": 2,
+    "app": "Microsoft Translator"
+   },
+   {
+    "quote": "This app looked at an old Russian church document that had both printed and scripted Russian language. Most of what it saw it translated however there were names on the document and those of course were left in Russian",
+    "rating": 4,
+    "app": "Scan & Translate+ Text Grabber"
+   },
+   {
+    "quote": "The app is fine, but it depends on the language and length of what you are trying to translate. For example: I was trying to transite these two russian words from my sheet music. The app worked. However, when i needed it to translate a paragraph of Chinese, the translation was awful.",
+    "rating": 2,
+    "app": "Photo Translator - Translate"
+   },
+   {
+    "quote": "I should have read through the reviews because now that I do they all sound fake. This app costs $10 a week and I thought it be worth it for my trip to Japan but it was NOT. The app kept crashing mid translation and I had to re-write or repeat what I had said.",
+    "rating": 2,
+    "app": "Translate Anything"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "PDF и длинные документы не поддерживаются или ломаются",
+    "obsCount": 16,
+    "apps": [
+     "Microsoft Translator",
+     "Scan & Translate+ Text Grabber",
+     "Photo Translator - Translate",
+     "Camera Translator - AI OCR +"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Сканирование старых и рукописных документов ценная нишевая функция",
+    "obsCount": 10,
+    "apps": [
+     "Scan & Translate+ Text Grabber"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Никто нормально не сделал перевод документов на мобильном: PDF-импорта нет, OCR ломается на мелком тексте, лимит символов выбрасывает ошибку в середине абзаца. Кто уже платит за это: иммигранты с контрактами и справками, студенты с учебниками на иностранных языках, специалисты с зарубежными инструкциями к оборудованию.",
+  "idea": {
+   "pitch": "Мобильный переводчик документов: PDF из Files и фото на вход, структурированный перевод с сохранённой вёрсткой на выход. Без лимитов по символам.",
+   "features": [
+    "Импорт PDF прямо из Files.app и iCloud Drive",
+    "OCR с адаптивным фокусом: мелкий текст, рукопись, низкий контраст",
+    "Перевод с сохранением структуры: заголовки, списки, таблицы не разрушаются",
+    "Без лимита по символам весь документ целиком",
+    "Экспорт переведённого документа в PDF или текст"
+   ],
+   "antiFeatures": [
+    "Не обещать перевод юридических документов с юридической точностью",
+    "Не строить на лимите в 3 фото/день это враг первого сценария использования",
+    "Не конкурировать с Google Translate на бытовых фразах фокус на документах"
+   ],
+   "monetization": "Подписка $8.99/мес для частных лиц. B2B: лицензия для иммиграционных юристов, медицинских офисов, технических отделов с зарубежными поставщиками. Пробный период 3 документа бесплатно, без кредитной карты."
+  }
  }
 ]
