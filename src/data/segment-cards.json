@@ -73590,5 +73590,420 @@
    }
   ],
   "hygiene": []
+ },
+ "scanner-pdf": {
+  "product": [
+   {
+    "title": "Авто-захват страницы срабатывает невпопад или не держит документ в кадре",
+    "plus": "В лучших случаях автодетект работает быстро и без участия пользователя пользователи Scanner Pro и TurboScan хвалят скорость. SwiftScan (ex-ScanBot) десятилетиями строил репутацию на точном авто-кропе.",
+    "minus": "Автозахват жалуют несколько приложений: он либо срабатывает слишком рано (фиксирует кадр до выравнивания), либо совсем не реагирует на документ и требует постоянного ручного запуска. Scanner Mini, Genius Scan Enterprise, FineReader, Scan Hero все со свежими жалобами на деградацию этой функции после обновлений.",
+    "count": 42,
+    "apps": [
+     "Scanner Mini Scan PDF & Fax",
+     "Genius Scan Enterprise - PDF",
+     "FineReader: PDF Scanner & OCR",
+     "TurboScan™ Pro: PDF scanner",
+     "Scan Hero: PDF Scanner",
+     "Scanner App: Genius Scan"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "Scanner Mini Scan PDF & Fax",
+      "rating": 2,
+      "date": "",
+      "quote": "I've been using this app for several years now and paid for the upgrade to pro. However, I am less and less satisfied with its performance. For example, when scanning, the app constantly says \"get closer\", even when the image to scan is filling the screen. Auto-capture only works in ideal conditions"
+     },
+     {
+      "app": "Scanner Mini Scan PDF & Fax",
+      "rating": 1,
+      "date": "",
+      "quote": "This app (and Scanner Pro) only works intermittently. The auto-capture function essentially does not work. When it does detect a book or document it can't hold on long enough to take a picture/scan."
+     },
+     {
+      "app": "TurboScan™ Pro: PDF scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "Love the app but how do I turn off auto edge detection? It won't quit automatically cropping my image incorrectly… I will change to 5 stars if someone can help me"
+     }
+    ]
+   },
+   {
+    "title": "Отправка по email из приложения не работает или занимает часы",
+    "plus": "Когда отправка функционирует, пользователи ценят мгновенную пересылку прямо из приложения без лишних шагов особенно отмечают TurboScan и Doc Scan в нормальных условиях.",
+    "minus": "Отправка PDF по email одна из самых частых точек отказа по всему корпусу. Письма не приходят совсем, уходят спустя часы, вместо PDF прикрепляется изображение или приложение зависает на этапе отправки. Проблема воспроизводится в TurboScan обеих версий, JotNot, CamScanner+, Clear Scan, Doc Scan, Scanner-Edit PDF.",
+    "count": 38,
+    "apps": [
+     "TurboScan™: document scanner",
+     "TurboScan™ Pro: PDF scanner",
+     "JotNot Scanner App Pro",
+     "Doc Scan - PDF Scanner",
+     "Clear Scan: Doc Scanner App",
+     "CamScanner + | OCR Scanner"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "TurboScan™ Pro: PDF scanner",
+      "rating": 2,
+      "date": "",
+      "quote": "Been using turbo scan for years. Worked flawless then one day wasn't able to send documents as pdf files anymore after they were scanned. Normally I would hit send for the scanned pdf and then within seconds I would receive an email showing that I received it. Now I may or may not receive the email"
+     },
+     {
+      "app": "JotNot Scanner App Pro",
+      "rating": 2,
+      "date": "",
+      "quote": "Takes great pictures, but the whole point is to be able to email them. I'm going on hour 12 now of trying to email this. I've tried to send it to multiple emails. This happens about half of the time, and I just have to keep trying until it randomly works again."
+     },
+     {
+      "app": "Doc Scan - PDF Scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "Simple easy to use. Love using this app for scanning and emailing doc from phone when on the go. Works fantastic for 1 or 2 page docs. I have struggled with multi page docs - 6-14 pages. App can support but I can't adjust the size of the file, and it often ends up being more than 10mb and can't ge"
+     }
+    ]
+   },
+   {
+    "title": "Пакетный импорт фото и порядок страниц в многостраничном PDF",
+    "plus": "",
+    "minus": "Пользователи сталкиваются с двумя связанными проблемами: нельзя выбрать сразу несколько фото из галереи (добавляют по одному), а когда пакетный импорт всё же есть приложение переставляет страницы в произвольном порядке. Особенно болезненно для тех, кто сканирует длинные пакеты документов или квитанции. Затронуты TurboScan, Photo to PDF, AI Scanner, TapScanner.",
+    "count": 28,
+    "apps": [
+     "TurboScan™: document scanner",
+     "Photo to PDF Converter Scanner",
+     "Photo to PDF Convert Scanner +",
+     "AI Scanner : Image to Text",
+     "TurboScan™ Pro: PDF scanner"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "TurboScan™: document scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "Works perfect for work and turning photos into PDFs but the main issue when I'm making a pdf I can't do multiple photos from my gallery at once I have to add one at a time. PLEASE FIX THIS!"
+     },
+     {
+      "app": "Photo to PDF Converter Scanner",
+      "rating": 2,
+      "date": "",
+      "quote": "i put my photos in in order, thinking that the app would let the photos stay in that order, but instead it uploaded every single one completely out of order. i sent it to everyone in my class and didn't realize until hours later. why does it do this ???"
+     },
+     {
+      "app": "Photo to PDF Convert Scanner +",
+      "rating": 2,
+      "date": "",
+      "quote": "It's an amazing app but it's annoying because I can't select multiple photos to convert at once. You have to click on them one by one. And when it's 40 photos that's a ridiculous amount of time that feels wasted."
+     }
+    ]
+   },
+   {
+    "title": "Качество OCR рукопись и нестандартный контент превращаются в мусор",
+    "plus": "Для чистого печатного текста OCR в CamScanner, FineReader и Adobe Scan работает достаточно хорошо пользователи отмечают читаемый результат. AI Scanner справляется с рукописью лучше большинства конкурентов.",
+    "minus": "На рукописном тексте, нестандартных шрифтах, таблицах и языках с диакритикой OCR даёт нечитаемый вывод. Поля смешиваются, слова разбиваются на слоги, пространственная разметка таблиц теряется полностью. ScanGuru, FineReader, uScan и AI Scanner получают конкретные жалобы на неверное распознавание рукописи.",
+    "count": 26,
+    "apps": [
+     "ScanGuru: PDF Scanner App",
+     "FineReader: PDF Scanner & OCR",
+     "AI Scanner : Image to Text",
+     "xScan : Document Scanner App",
+     "uScan - PDF Document Scanner"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "ScanGuru: PDF Scanner App",
+      "rating": 2,
+      "date": "",
+      "quote": "I had 2 letters that our mother's hand wrote. We needed them turned into typed letters. Scanned both letter just fine. But the transfer to text were complete fails!! 1-3 words per line (when shared to computer), words were jumbled together and also parsed into fractions of the word."
+     },
+     {
+      "app": "AI Scanner : Image to Text",
+      "rating": 3,
+      "date": "",
+      "quote": "Fairly accurate on French hand-writing, but FAR LESS than the claimed 99%. After correcting the errors, I knew that reading it into Dictation would have been faster."
+     },
+     {
+      "app": "FineReader: PDF Scanner & OCR",
+      "rating": 2,
+      "date": "",
+      "quote": "I've scanned a few chapters of a book to make searching the book easier for me. When I look at the text after it converts it to a text several sections are not recognized or readable."
+     }
+    ]
+   },
+   {
+    "title": "Цветовое искажение при сканировании изображение желтеет, уходит в чёрно-белое или теряет насыщенность",
+    "plus": "Ряд приложений предлагает выбор фильтра вручную (цвет, ч/б, улучшенный), и пользователи довольны, когда этот выбор работает и сохраняется между сессиями.",
+    "minus": "Автоматическая обработка изображения регулярно ломает цвет: сканы приобретают желтоватый оттенок (Photos PDF), при редактировании цветной документ принудительно переводится в ч/б (iScanner, Forma), антитеневой фильтр оставляет тень нетронутой, зато съедает цвет подписи (CamScanner). Пользователи, работающие с цветными документами, паспортами и произведениями искусства, описывают это как блокирующий дефект.",
+    "count": 22,
+    "apps": [
+     "iScanner: PDF Document Scanner",
+     "Photos PDF : Scanner Converter",
+     "Forma: PDF Document Editor",
+     "CamScanner - PDF Scanner App",
+     "Scanner PDF scan document"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "iScanner: PDF Document Scanner",
+      "rating": 2,
+      "date": "",
+      "quote": "This was touted as one of the better scanning apps. Well, the scan itself comes out very well, as soon as I want to edit anything on a document, it turns black-and-white. I scanned a beautiful color copy of a document, but every time I go to edit it, it goes from the colors to just black-and-whi"
+     },
+     {
+      "app": "Photos PDF : Scanner Converter",
+      "rating": 3,
+      "date": "",
+      "quote": "All of my PDF conversions turn my documents into a funky yellow color. I don't like this at all. I also paid for the unlimited use. It does let me do that but I have since started using another PDF converter solely based on how my documents look following the conversion on this app."
+     },
+     {
+      "app": "Scanner PDF scan document",
+      "rating": 3,
+      "date": "",
+      "quote": "Scanning in black and white is fine but the app doesn't seem very happy scanning my passport in colour. I can't get the image to be clear no matter the amount of light in the background."
+     }
+    ]
+   },
+   {
+    "title": "Организация документов: папки, переименование и поиск по сканам",
+    "plus": "TurboScan, Doc Scan и некоторые версии Genius Scan дают базовую структуру папок и поиск по имени файла пользователи ценят это как ключевую причину выбора именно этого приложения.",
+    "minus": "Вложенные папки отсутствуют почти везде пользователи вынуждены хранить все документы в плоской структуре. Переименование в SCAN ACE зависает приложение. В TurboScan папки не сортируются по алфавиту. В PDF Editor файлы нельзя переместить в папку после редактирования. Поиск по содержимому документа редкость.",
+    "count": 20,
+    "apps": [
+     "TurboScan™ Pro: PDF scanner",
+     "Doc Scan - PDF Scanner",
+     "SCAN ACE · PDF Scanner App",
+     "PDF Editor ®",
+     "My Scans, best PDF Scanner App"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "TurboScan™ Pro: PDF scanner",
+      "rating": 1,
+      "date": "",
+      "quote": "I use a lot of folders on TurboScan. There is no way to search for a folder. Folders are not listed in alphabetical order. It's all random."
+     },
+     {
+      "app": "Doc Scan - PDF Scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "I love this app, but have one complaint - I'm unable to create a subfolder (i.e. a folder inside of another folder). So, I have to save documents into a flat directory structure. Would be great if I could further organize documents into subfolders"
+     },
+     {
+      "app": "SCAN ACE · PDF Scanner App",
+      "rating": 2,
+      "date": "",
+      "quote": "App works decently for scanning, but when I try to rename, the app freezes, so I have to export and rename each file on my computer. It's a good enough workaround, but there are better options out there right now that don't require that so I will probably use those instead."
+     }
+    ]
+   },
+   {
+    "title": "Синхронизация с облаком и между устройствами теряет файлы или не запускается",
+    "plus": "SwiftScan (ScanBot) исторически выделялся автоматической загрузкой в облако сразу после сканирования пользователи называют это главной причиной выбора. Scanner Pro с Dropbox работал годами без нареканий.",
+    "minus": "Синхронизация с Dropbox, Google Drive, iCloud и OneDrive ломается после обновлений и не восстанавливается самостоятельно. SwiftScan не синхронизирует с iCloud на iOS. Scanner Pro перестал работать с Dropbox. JotNot потерял авторизацию Google и получил предупреждение о неверифицированном доступе. Потеря документов при смене устройства системная боль у TurboScan, JotNot и My Scans.",
+    "count": 18,
+    "apps": [
+     "SwiftScan AI Document Scanner",
+     "Scanner Pro・Scan PDF Documents",
+     "JotNot Scanner App Pro",
+     "My Scans, best PDF Scanner App",
+     "Genius Scan Enterprise - PDF"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "SwiftScan AI Document Scanner",
+      "rating": 1,
+      "date": "",
+      "quote": "In the beginning, it worked great once they purchased the pro and VIP packages. However, now years later, the app is not syncing with the iCloud account with iOS. And after several emails to Customer Support resolutions have not resolved the issue."
+     },
+     {
+      "app": "Scanner Pro・Scan PDF Documents",
+      "rating": 2,
+      "date": "",
+      "quote": "This app had been working great for so many years. Now I can't get it to sync with Dropbox or Google Drive."
+     },
+     {
+      "app": "JotNot Scanner App Pro",
+      "rating": 1,
+      "date": "",
+      "quote": "I had linked this app with my Google Drive account a year or two and then a few months ago, I had to reauthenticate and couldn't. Google warned me that the JotNot Pro was trying to access sensitive data from my Google account and hadn't been verified."
+     }
+    ]
+   },
+   {
+    "title": "Экспорт PDF: формат, размер файла и маршрут сохранения",
+    "plus": "Простые приложения вроде Tiny Scanner и TurboScan, когда работают нормально, дают PDF за минимум шагов. Genius Scan хвалят за возможность экспортировать через сторонние приложения.",
+    "minus": "Adobe Scan убрал видимую кнопку сохранения, из-за чего пользователи не могут забрать PDF в локальные файлы приложение предлагает только ссылку. iLovePDF при каждом действии генерирует новый файл и открывает новую папку. Doc Scan не может отправить документ более 10 МБ по email. Scanner Scan PDF & Docs после обновлений отключал методы экспорта один за другим.",
+    "count": 18,
+    "apps": [
+     "Adobe Scan: PDF & OCR Scanner",
+     "iLovePDF - PDF Editor & Scan",
+     "Doc Scan - PDF Scanner",
+     "Scanner App: Genius Scan",
+     "Scan to PDF: Converter Scanner"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "Adobe Scan: PDF & OCR Scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "Export PDF Needs Simplification. I don't need a link, I need a PDF in my phone files."
+     },
+     {
+      "app": "iLovePDF - PDF Editor & Scan",
+      "rating": 1,
+      "date": "",
+      "quote": "Almost every action exports a new file, forces you into a new folder, and breaks your workflow by opening new tabs and restarting the process. Instead of allowing compound actions, the app forces you to save and re-import between every step."
+     },
+     {
+      "app": "Scan to PDF: Converter Scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "I have paid for the subscription for the last few months, and every few months another export option becomes unavailable. The button to email it to myself stopped working, other buttons also stopped working until I was only able to export to my Google drive account."
+     }
+    ]
+   },
+   {
+    "title": "Подпись и заполнение форм на мобильном точность позиционирования и масштаб",
+    "plus": "PDF Expert хвалят за возможность добавлять текстовые поля с привязкой к сетке. iLovePDF поддерживает подпись в базовом режиме. Acrobat Reader исторически считается эталоном работы с формами.",
+    "minus": "Создать электронную подпись легко, но разместить её точно на нужном поле невозможно: она огромная и не меняет масштаб, не поворачивается (Photo to PDF Convert Scanner). В PDF Hero курсор при вводе текста прыгает, выноска инструмента рисования смещается от реального касания. В Acrobat Reader флажки форм пропадают на телефоне, хотя видны на десктопе.",
+    "count": 16,
+    "apps": [
+     "Photo to PDF Convert Scanner +",
+     "PDF Hero - PDF Editor & Reader",
+     "Acrobat Reader: PDF Editor",
+     "iLovePDF - PDF Editor & Scan",
+     "Mobile Scanner App - Scan PDF"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "Photo to PDF Convert Scanner +",
+      "rating": 1,
+      "date": "",
+      "quote": "The fact that you cannot manipulate the signature is terrible. You create an esig and it's HUGE and cannot be resized, flipped, rotated"
+     },
+     {
+      "app": "PDF Hero - PDF Editor & Reader",
+      "rating": 3,
+      "date": "",
+      "quote": "I had trouble using this app with copy and paste when I would pick up info from my contacts app an attempt to put it into a PDF. Also I found that once I enter data it was difficult to go back and edit that data without the cursor jumping all over the place or requiring me to delete the entire line"
+     },
+     {
+      "app": "Acrobat Reader: PDF Editor",
+      "rating": 3,
+      "date": "",
+      "quote": "My check boxes are not appearing on my phone when using a form, but They appear on the desktop. It was there before but not after this update."
+     }
+    ]
+   },
+   {
+    "title": "Детекция краёв и обрезка авто-кроп режет документ неправильно",
+    "plus": "Когда детекция краёв работает корректно, пользователи Adobe Scan, Clear Scan и некоторых версий Genius Scan отмечают идеальную обрезку как главное преимущество перед обычной камерой.",
+    "minus": "Авто-кроп регулярно выдаёт перекошенный результат: загнутые углы физического документа трактуются как скошенный ракурс и программа радикально перекраивает пропорции (Photos PDF). SCAN ACE после обновления принудительно добавляет дюймовую рамку, делая сканер бесполезным для нот. Ручная коррекция рамки в ряде приложений заморожена не перетаскивается.",
+    "count": 16,
+    "apps": [
+     "Photos PDF : Scanner Converter",
+     "SCAN ACE · PDF Scanner App",
+     "My Scanner: Scan to PDF & Edit",
+     "Scanner - Edit PDF & documents",
+     "JotNot Scanner App"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "Photos PDF : Scanner Converter",
+      "rating": 2,
+      "date": "",
+      "quote": "This app's auto scan interprets folded corners as (the type you get with any physical document with a staple in the corner) as though your document is at a very skewed angle, and rescales photos to cartoonish and unreadable proportions."
+     },
+     {
+      "app": "SCAN ACE · PDF Scanner App",
+      "rating": 3,
+      "date": "",
+      "quote": "I've truly loved using this app for years. However, its newest versions are not good for making pdfs of music! The older versions did not impose a one inch border on the scan result. Now it does and is almost useless for scanning music!"
+     },
+     {
+      "app": "Scanner - Edit PDF & documents",
+      "rating": 2,
+      "date": "",
+      "quote": "When it auto-detects the page, it gives you handles to let you readjust the area, but 75% of the time it doesn't actually let me drag all 4 handles, some stay frozen in the original place."
+     }
+    ]
+   },
+   {
+    "title": "Аннотации и разметка PDF инструменты не сохраняются или пропадают",
+    "plus": "PDF Expert называют лучшим инструментом аннотирования для учёбы и работы с академическими текстами пользователи хвалят snap-to-grid и плавное поведение карандаша.",
+    "minus": "Acrobat Reader регулярно теряет разметку: пользователь возвращается к 100-страничному сценарию и видит чистый документ без единой пометки. Экспорт PDF вместе с аннотациями описывают как непроходимо сложный. PDF Hero смещает нарисованные объекты при экспорте. Genius Scan Enterprise сломал функцию слияния документов и не чинит её годами.",
+    "count": 14,
+    "apps": [
+     "Acrobat Reader: PDF Editor",
+     "PDF Expert: Editor & Converter",
+     "PDF Hero - PDF Editor & Reader",
+     "Genius Scan Enterprise - PDF",
+     "iLovePDF - PDF Editor & Scan"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "Acrobat Reader: PDF Editor",
+      "rating": 2,
+      "date": "",
+      "quote": "I love the ease of marking up docs in Acrobat. But two massive issues: (1) Often (50/50%) I'll return to a document I've marked up (usually a 100-page screenplay) and find that my markups have totally vanished. (2) Simply exporting a PDF WITH the markups is preposterously difficult."
+     },
+     {
+      "app": "PDF Hero - PDF Editor & Reader",
+      "rating": 2,
+      "date": "",
+      "quote": "The tools on this app are very glitchy and whenever you try to download your edited version of the pdf it is missing writing or moves it around."
+     },
+     {
+      "app": "Genius Scan Enterprise - PDF",
+      "rating": 4,
+      "date": "",
+      "quote": "Dropped a star off until they fix the merge function they broke on the last update. It's been years now."
+     }
+    ]
+   },
+   {
+    "title": "Сканирование малоформатных объектов чеки, визитки, ID-карты",
+    "plus": "TurboScan и Genius Scan хвалят за удобное сканирование чеков пользователи ведут через них учёт расходов годами. SCAN ACE в режиме накопительного сканирования чеков в один PDF работает чисто.",
+    "minus": "ID-карты и малые форматы дают размытый результат: SCAN ACE после обновления принудительно переключился на ultra-wide линзу, из-за чего текст на чеках нечитаем. SwiftScan требует поднести устройство так близко, что камера теряет фокус. JotNot на iPhone 14 Pro не может нормально автофокусироваться на мелком документе из-за macro-camera.",
+    "count": 12,
+    "apps": [
+     "SCAN ACE · PDF Scanner App",
+     "SwiftScan AI Document Scanner",
+     "JotNot Scanner App Pro",
+     "TurboScan™ Pro: PDF scanner",
+     "iScanner: PDF Document Scanner"
+    ],
+    "kicker": "",
+    "evidence": [
+     {
+      "app": "SCAN ACE · PDF Scanner App",
+      "rating": 1,
+      "date": "",
+      "quote": "Whose bad idea was it to force the iPhone Ultra Wide lens to capture the scans now? PUT IT BACK! Text on small receipts is so blurry and low res now. HATE IT."
+     },
+     {
+      "app": "SwiftScan AI Document Scanner",
+      "rating": 3,
+      "date": "",
+      "quote": "Long time user and used to be very happy with it. Unfortunately the business or ID scanning functionality is useless on my iPhone 13 Pro. It requires you get so close it loses focus. So it will scan them but they will be a blurry mess."
+     },
+     {
+      "app": "JotNot Scanner App Pro",
+      "rating": 4,
+      "date": "",
+      "quote": "Unfortunately last year I purchased an iPhone 14 Pro and with the Macro/Wide Screen option camera on the 14 Pro I cannot get a good focused scan. It is either too far away or too close to capture the whole document."
+     }
+    ]
+   }
+  ],
+  "hygiene": []
  }
 }

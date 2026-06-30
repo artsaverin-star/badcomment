@@ -42320,5 +42320,661 @@
    ],
    "monetization": "Подписка $19-39 $/мес для предпринимателей малого бизнеса. Pay-per-document $4-9 для разовых пользователей. Аудитория платит юристам по $150-500/час за те же задачи даже частичная автоматизация с дисклеймером имеет прямой ROI. Аналоги (DoNotPay) закрылись или выросли в что-то другое ниша на редактуре текста без юридических советов свободна."
   }
+ },
+ {
+  "slug": "scanner-pdf-1",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Пакетный сканер квитанций с автотегами",
+  "oneLiner": "Сканируешь стопку чеков за одно касание, приложение само раскладывает их по категориям расходов и экспортирует таблицу для бухгалтерии.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 40
+  },
+  "reviewGrid": [
+   {
+    "quote": "Works perfect for work and turning photos into PDFs but the main issue when I'm making a pdf I can't do multiple photos from my gallery at once I have to add one at a time. PLEASE FIX THIS!",
+    "rating": 3,
+    "app": "TurboScan™: document scanner"
+   },
+   {
+    "quote": "It's an amazing app but it's annoying because I can't select multiple photos to convert at once. You have to click on them one by one. And when it's 40 photos that's a ridiculous amount of time that feels wasted.",
+    "rating": 2,
+    "app": "Photo to PDF Convert Scanner +"
+   },
+   {
+    "quote": "I have used this in business to scan receipts for reimbursement, then I don't have to worry about keeping in order as you just add the next page with each receipt. I use it every month to quickly send documents requested while at home.",
+    "rating": 5,
+    "app": "SCAN ACE · PDF Scanner App"
+   },
+   {
+    "quote": "I love this app. It allows me to quickly scan receipts without a clunky scanner. No waiting for a large scanner to warm up. No messy cables. Love it.",
+    "rating": 4,
+    "app": "TurboScan™: document scanner"
+   },
+   {
+    "quote": "If you need to select more than one photo at a time to be put into a file goodluck. Ever job I sell has photos and i have to sit there and select one by one uploading doing the same thing over and over. Should be able to select more than one",
+    "rating": 3,
+    "app": "TurboScan™ Pro: PDF scanner"
+   },
+   {
+    "quote": "i put my photos in in order, thinking that the app would let the photos stay in that order, but instead it uploaded every single one completely out of order. i sent it to everyone in my class and didn't realize until hours later. why does it do this ???",
+    "rating": 2,
+    "app": "Photo to PDF Converter Scanner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Добавление фото по одному делает пакетное сканирование невыносимым",
+    "obsCount": 28,
+    "apps": [
+     "TurboScan™: document scanner",
+     "Photo to PDF Convert Scanner +",
+     "Photo to PDF Converter Scanner",
+     "AI Scanner : Image to Text"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи годами ведут учёт расходов через сканер чеков",
+    "obsCount": 12,
+    "apps": [
+     "TurboScan™ Pro: PDF scanner",
+     "SCAN ACE · PDF Scanner App",
+     "iScanner: PDF Document Scanner"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Никто не соединяет пакетный захват с автоматической категоризацией расходов и экспортом в CSV/Excel. Бухгалтеры и самозанятые вынуждены вручную разбирать стопки чеков в таблицах после сканирования.",
+  "idea": {
+   "pitch": "Мобильный сканер чеков для самозанятых и малого бизнеса: снимаешь всю стопку за один сеанс, OCR вытаскивает сумму, дату, поставщика, приложение предлагает категорию расходов, на выходе готовый отчёт в CSV или Google Sheets. Ни одна существующая альтернатива не делает это в одном флоу без ручного ввода.",
+   "features": [
+    "Мультивыбор фото из галереи с сохранением порядка",
+    "OCR для извлечения суммы, даты и названия продавца с каждого чека",
+    "Автопредложение категории (еда, транспорт, оборудование и т.д.) с возможностью поправить",
+    "Экспорт в CSV, Google Sheets и формат 1С",
+    "Месячный и квартальный свод расходов прямо в приложении",
+    "Умное распознавание мелкого текста на чеках без переключения линзы"
+   ],
+   "antiFeatures": [
+    "Не делаем полноценный бухгалтерский учёт или интеграцию с банком",
+    "Не добавляем облачное хранилище сканов (пусть пользователь сам решает, где хранить)",
+    "Не делаем факс и подпись строго утилита для чеков"
+   ],
+   "monetization": "Разовая покупка за 299-499 руб. Самозанятые и ИП уже платят за аналогичный функционал в виде подписок они готовы к разовому платежу за инструмент без подписочной ловушки."
+  }
+ },
+ {
+  "slug": "scanner-pdf-2",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "OCR-редактор рукописного текста",
+  "oneLiner": "Переводит рукопись в редактируемый текст с постраничным инлайн-редактором ошибок прямо на экране без копирования в другое приложение.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "I had 2 letters that our mother's hand wrote. We needed them turned into typed letters. Scanned both letter just fine. But the transfer to text were complete fails!! 1-3 words per line (when shared to computer), words were jumbled together and also parsed into fractions of the word.",
+    "rating": 2,
+    "app": "ScanGuru: PDF Scanner App"
+   },
+   {
+    "quote": "Fairly accurate on French hand-writing, but FAR LESS than the claimed 99%. After correcting the errors, I knew that reading it into Dictation would have been faster.",
+    "rating": 3,
+    "app": "AI Scanner : Image to Text"
+   },
+   {
+    "quote": "I've been slowly trying to transcribe old handwritten journals into an online searchable format. This is the first text OCR I've tried that seems truly capable of recognizing handwritten pages. The accuracy isn't perfect, but it's really amazing what it is able to recognize",
+    "rating": 4,
+    "app": "AI Scanner : Image to Text"
+   },
+   {
+    "quote": "Like I was saying if it's handwritten DONT DO IT!! It's always incorrect and your spending more time trying to figure out what it's supposed to be saying and your deleting most of it…",
+    "rating": 4,
+    "app": "AI Scanner : Image to Text"
+   },
+   {
+    "quote": "I've scanned a few chapters of a book to make searching the book easier for me. When I look at the text after it converts it to a text several sections are not recognized or readable.",
+    "rating": 2,
+    "app": "FineReader: PDF Scanner & OCR"
+   },
+   {
+    "quote": "I'm a photographer and I received contact list that were handwritten from over 50 students with phone number name email classes they enrolled in and I needed to send an email to everybody so that meant typing out by hand every child contact form",
+    "rating": 5,
+    "app": "AI Scanner : Image to Text"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "OCR рукописи выдаёт нечитаемый мусор, пробелы и обрывки слов",
+    "obsCount": 26,
+    "apps": [
+     "ScanGuru: PDF Scanner App",
+     "AI Scanner : Image to Text",
+     "FineReader: PDF Scanner & OCR",
+     "xScan : Document Scanner App",
+     "uScan - PDF Document Scanner"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Когда распознавание работает, пользователи экономят часы ручного набора",
+    "obsCount": 8,
+    "apps": [
+     "AI Scanner : Image to Text",
+     "xScan : Document Scanner App"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Все конкуренты дают OCR как чёрный ящик: отсканировал, получил текст, иди правь в другом приложении. Никто не строит инлайн-поток «ошибка рядом с оригиналом» когда видишь сканированную страницу и рядом распознанный текст с подсветкой сомнительных мест.",
+  "idea": {
+   "pitch": "Приложение для людей, которым нужно перевести рукопись в текст: дневники, письма, конспекты, полевые записи. Распознавание работает через современную vision-модель, а редактор показывает оригинал и текст рядом сомнительные слова подсвечены, исправляешь касанием. Целевой сегмент исследователи, архивисты, нотариусы, учёные.",
+   "features": [
+    "Специализированный режим рукописи с более высоким порогом уверенности модели",
+    "Split-view: скан страницы слева, редактируемый текст справа с подсветкой неуверенных слов",
+    "Поддержка многостраничных документов с навигацией по страницам",
+    "Экспорт в DOCX, TXT, PDF с текстовым слоем",
+    "Поддержка нескольких языков включая смешанные тексты"
+   ],
+   "antiFeatures": [
+    "Не делаем общий сканер документов только рукопись",
+    "Не добавляем факс, облако, синхронизацию строгий фокус на конвертации",
+    "Не обещаем 99% точность: честно показываем уверенность модели"
+   ],
+   "monetization": "Разовая покупка с пакетами страниц или подписка 199 руб/мес. Исследователи и архивисты платят за инструменты регулярно это профессиональный сегмент с деньгами."
+  }
+ },
+ {
+  "slug": "scanner-pdf-3",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Надёжный PDF-экспорт без облака",
+  "oneLiner": "Сканирует, сохраняет PDF прямо на устройство в указанную папку, отправляет через любое приложение без аккаунта, без подписки, без сюрпризов.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 56
+  },
+  "reviewGrid": [
+   {
+    "quote": "Export PDF Needs Simplification. I don't need a link, I need a PDF in my phone files.",
+    "rating": 3,
+    "app": "Adobe Scan: PDF & OCR Scanner"
+   },
+   {
+    "quote": "Almost every action exports a new file, forces you into a new folder, and breaks your workflow by opening new tabs and restarting the process. Instead of allowing compound actions, the app forces you to save and re-import between every step.",
+    "rating": 1,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "I've been using this app for years. It's been very reliable so far, but it keeps crashing since the latest upgrade. Very frustrating.",
+    "rating": 3,
+    "app": "Scanner Pro・Scan PDF Documents"
+   },
+   {
+    "quote": "I have paid for the subscription for the last few months, and every few months another export option becomes unavailable. The button to email it to myself stopped working, other buttons also stopped working until I was only able to export to my Google drive account.",
+    "rating": 3,
+    "app": "Scan to PDF: Converter Scanner"
+   },
+   {
+    "quote": "I'm scanning my documents but once they're scanned, I can't send it as a file or save it as a PDF to my phone… it's just stuck in the app.",
+    "rating": 2,
+    "app": "Scanner - Edit PDF & documents"
+   },
+   {
+    "quote": "I've used this app for years to scan documents with my phone in a pinch. It works great. Today it forced me to upgrade, and now I find that I can only share one document without paying an exorbitant subscription.",
+    "rating": 2,
+    "app": "Tiny Scanner - PDF Scanner App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Экспорт PDF в локальные файлы заблокирован или сломан после обновлений",
+    "obsCount": 18,
+    "apps": [
+     "Adobe Scan: PDF & OCR Scanner",
+     "iLovePDF - PDF Editor & Scan",
+     "Scanner - Edit PDF & documents",
+     "Scan to PDF: Converter Scanner"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи хотят отправить PDF через стандартный share sheet без лишних шагов",
+    "obsCount": 38,
+    "apps": [
+     "TurboScan™ Pro: PDF scanner",
+     "Doc Scan - PDF Scanner",
+     "Clear Scan: Doc Scanner App"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Рынок завален приложениями, которые захватывают пользователя в собственное облако и потом обрезают экспорт. Никто не строит утилиту, где единственная задача положить PDF в нужную папку без аккаунта и без сюрпризов.",
+  "idea": {
+   "pitch": "Минималистичный сканер с одним обещанием: PDF оказывается там, куда ты сказал. Без аккаунта, без облака, без шагов, которые внезапно требуют подписки. Целевая аудитория люди, которых обожгли Adobe Scan, CamScanner и другие сервисы с исчезающим экспортом. Плюс корпоративные пользователи с политикой «данные только на устройстве».",
+   "features": [
+    "Сохранение PDF в любую папку Files.app в один тап",
+    "Share sheet для отправки через Outlook, WhatsApp, AirDrop, мессенджеры без промежуточных шагов",
+    "Настройка папки по умолчанию открыл, снял, сохранилось само",
+    "Сжатие PDF с ползунком качества перед сохранением",
+    "Без аккаунта, без облака, без телеметрии офлайн-first"
+   ],
+   "antiFeatures": [
+    "Не делаем облачную синхронизацию и собственное хранилище",
+    "Не добавляем OCR и редактор только сканирование и экспорт",
+    "Не используем freemium с урезанным экспортом"
+   ],
+   "monetization": "Разовая покупка 149-249 руб. Корпоративный вариант лицензия на команду через Apple Business Manager. Это продукт для людей, которые уже обожглись на бесплатных приложениях и готовы заплатить один раз за надёжность."
+  }
+ },
+ {
+  "slug": "scanner-pdf-4",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Умный файловый менеджер для сканов",
+  "oneLiner": "Вложенные папки, полнотекстовый поиск по содержимому документов и автосортировка всё что должно быть в сканере для людей с сотнями файлов.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 20
+  },
+  "reviewGrid": [
+   {
+    "quote": "I use a lot of folders on TurboScan. There is no way to search for a folder. Folders are not listed in alphabetical order. It's all random.",
+    "rating": 1,
+    "app": "TurboScan™ Pro: PDF scanner"
+   },
+   {
+    "quote": "I'm unable to create a subfolder (i.e. a folder inside of another folder). So, I have to save documents into a flat directory structure. Would be great if I could further organize documents into subfolders",
+    "rating": 3,
+    "app": "Doc Scan - PDF Scanner"
+   },
+   {
+    "quote": "Scanner Pro: Lacks the ability to create nested folders for better organization",
+    "rating": 3,
+    "app": "Scanner Pro・Scan PDF Documents"
+   },
+   {
+    "quote": "App works decently for scanning, but when I try to rename, the app freezes, so I have to export and rename each file on my computer.",
+    "rating": 2,
+    "app": "SCAN ACE · PDF Scanner App"
+   },
+   {
+    "quote": "You can create folders. You can edit PDF's. You cannot move the edited files into folders. Very very basic feature lacking. I'm organized. This app makes it difficult to stay organized.",
+    "rating": 4,
+    "app": "PDF Editor ®"
+   },
+   {
+    "quote": "Great app…easy to use. Needs a search function to help find specific files.",
+    "rating": 3,
+    "app": "Photos PDF : Scanner Converter"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Плоская структура без вложенных папок, поиск только по имени файла",
+    "obsCount": 20,
+    "apps": [
+     "TurboScan™ Pro: PDF scanner",
+     "Doc Scan - PDF Scanner",
+     "SCAN ACE · PDF Scanner App",
+     "PDF Editor ®",
+     "My Scans, best PDF Scanner App"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Переименование и перемещение файлов зависают или не работают",
+    "obsCount": 10,
+    "apps": [
+     "SCAN ACE · PDF Scanner App",
+     "PDF Editor ®",
+     "My Scans, best PDF Scanner App"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все сканеры делают упор на захват, но игнорируют, что пользователи накапливают сотни документов и потом не могут их найти. Полнотекстовый поиск по содержимому PDF и нормальные вложенные папки отсутствуют почти везде.",
+  "idea": {
+   "pitch": "Сканер для людей, у которых уже накопилось много документов: медицинские карты, договоры, гарантии, налоговые бумаги. Основная ценность не съёмка, а хранение: вложенные папки, теги, полнотекстовый поиск по отсканированным документам через OCR-индекс. Целевой сегмент юристы, врачи, бухгалтеры, агенты по недвижимости.",
+   "features": [
+    "Неограниченная глубина вложенных папок",
+    "Полнотекстовый поиск по содержимому отсканированных документов (OCR-индекс строится в фоне)",
+    "Теги и цветовые метки для быстрой классификации",
+    "Быстрое переименование и перемещение без зависаний",
+    "Экспорт целой папки одним архивом",
+    "Сортировка по дате, имени, размеру, тегу"
+   ],
+   "antiFeatures": [
+    "Не делаем собственное облачное хранилище синхронизируем через Files.app и стандартные провайдеры",
+    "Не добавляем редактор аннотаций только организация и поиск",
+    "Не ограничиваем число документов в бесплатной версии"
+   ],
+   "monetization": "Подписка 299 руб/мес для профессионалов с большим объёмом документов. Юристы и бухгалтеры платят за инструменты организации, у них нет альтернативы кроме Dropbox с ручной структурой."
+  }
+ },
+ {
+  "slug": "scanner-pdf-5",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Сканер удостоверений и малых форматов",
+  "oneLiner": "Специализированный захват ID-карт, визиток и чеков с автоматическим выбором правильной линзы и сохранением точных пропорций.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 12
+  },
+  "reviewGrid": [
+   {
+    "quote": "Whose bad idea was it to force the iPhone Ultra Wide lens to capture the scans now? PUT IT BACK! Text on small receipts is so blurry and low res now. HATE IT.",
+    "rating": 1,
+    "app": "SCAN ACE · PDF Scanner App"
+   },
+   {
+    "quote": "Long time user and used to be very happy with it. Unfortunately the business or ID scanning functionality is useless on my iPhone 13 Pro. It requires you get so close it loses focus. So it will scan them but they will be a blurry mess.",
+    "rating": 3,
+    "app": "SwiftScan AI Document Scanner"
+   },
+   {
+    "quote": "Unfortunately last year I purchased an iPhone 14 Pro and with the Macro/Wide Screen option camera on the 14 Pro I cannot get a good focused scan. It is either too far away or too close to capture the whole document.",
+    "rating": 4,
+    "app": "JotNot Scanner App Pro"
+   },
+   {
+    "quote": "Scanning in black and white is fine but the app doesn't seem very happy scanning my passport in colour. I can't get the image to be clear no matter the amount of light in the background.",
+    "rating": 3,
+    "app": "Scanner PDF scan document"
+   },
+   {
+    "quote": "My use primarily is to take shots off of television with this App. It makes the process simpler and with great color accuracy. None work better.",
+    "rating": 4,
+    "app": "uScan - PDF Document Scanner"
+   },
+   {
+    "quote": "I got this years back and it has been my go-to for scanning documents. Unfortunately, I've recently upgraded to an iPhone 14 pro and the 5.1.4 (build 250) release doesn't seem to auto focus properly. Still good for converting images from the photo library, so the work around is to take pictures with the normal camera app first",
+    "rating": 3,
+    "app": "JotNot Scanner App Pro"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Современные iPhone с несколькими линзами не умеют выбрать правильную для малого формата",
+    "obsCount": 12,
+    "apps": [
+     "SCAN ACE · PDF Scanner App",
+     "SwiftScan AI Document Scanner",
+     "JotNot Scanner App Pro",
+     "TurboScan™ Pro: PDF scanner",
+     "iScanner: PDF Document Scanner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ни одно приложение не решает проблему мультилинзовых iPhone: ультраширокий угол даёт размытые мелкие тексты, макро теряет фокус при отдалении. Нет специализированного режима для ID-карт, визиток и чеков с умным выбором и калибровкой линзы.",
+  "idea": {
+   "pitch": "Утилита для HR-специалистов, нотариусов, операторов на стойке регистрации: сканирование паспортов, водительских прав, банковских карт, визиток с точным захватом пропорций и читаемым текстом. Приложение определяет тип документа, выбирает оптимальную линзу и фокусное расстояние, предупреждает если результат нечёткий до сохранения.",
+   "features": [
+    "Умный выбор линзы для каждого размера формата (телефото для мелкого текста)",
+    "Предустановленные шаблоны для паспорта, водительского удостоверения, банковской карты, визитки, чека",
+    "Проверка резкости перед сохранением с предложением пересканировать",
+    "Автосохранение обеих сторон карты в один документ",
+    "OCR для имени, даты рождения, номера документа с экспортом в структурированный формат"
+   ],
+   "antiFeatures": [
+    "Не делаем общий сканер документов только малые форматы и удостоверения",
+    "Не храним биометрические данные на сервере",
+    "Не добавляем факс и редактор"
+   ],
+   "monetization": "B2B лицензия для компаний риелторские агентства, гостиницы, каршеринг, нотариальные конторы. Они уже платят за верификацию документов через сторонние сервисы. Разовая лицензия на устройство 1490-2990 руб."
+  }
+ },
+ {
+  "slug": "scanner-pdf-6",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Аннотатор PDF с гарантией сохранности",
+  "oneLiner": "Разметка PDF, которая не исчезает: все аннотации записываются в файл немедленно и экспортируются вместе с документом одним тапом.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 14
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love the ease of marking up docs in Acrobat. But two massive issues: (1) Often (50/50%) I'll return to a document I've marked up (usually a 100-page screenplay) and find that my markups have totally vanished. (2) Simply exporting a PDF WITH the markups is preposterously difficult.",
+    "rating": 2,
+    "app": "Acrobat Reader: PDF Editor"
+   },
+   {
+    "quote": "The tools on this app are very glitchy and whenever you try to download your edited version of the pdf it is missing writing or moves it around.",
+    "rating": 2,
+    "app": "PDF Hero - PDF Editor & Reader"
+   },
+   {
+    "quote": "Dropped a star off until they fix the merge function they broke on the last update. It's been years now.",
+    "rating": 4,
+    "app": "Genius Scan Enterprise - PDF"
+   },
+   {
+    "quote": "This is my preferred app for reading and annotating pdfs for academic work. My only gripe is that it doesnt support the Apple Pencil Pro.",
+    "rating": 4,
+    "app": "PDF Expert: Editor & Converter"
+   },
+   {
+    "quote": "PDF Expert has been outstanding since I bought it in 2017. Reliable, fast, and packed with powerful features through years of updates I've never lost the tools I rely on.",
+    "rating": 5,
+    "app": "PDF Expert: Editor & Converter"
+   },
+   {
+    "quote": "Been using this for a while for my college work and this app is the perfect pdf editor when you don't have a printer. There are just a few glitches and problems I've faced when using it which makes me want to switch even tho it's been doing well. First thing, sometimes text disappears when typing",
+    "rating": 4,
+    "app": "PDF Hero - PDF Editor & Reader"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Аннотации исчезают при возврате к документу или при экспорте смещаются",
+    "obsCount": 14,
+    "apps": [
+     "Acrobat Reader: PDF Editor",
+     "PDF Hero - PDF Editor & Reader",
+     "Genius Scan Enterprise - PDF",
+     "iLovePDF - PDF Editor & Scan"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Профессиональные пользователи платят за надёжный аннотатор и держатся за него годами",
+    "obsCount": 8,
+    "apps": [
+     "PDF Expert: Editor & Converter"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Adobe Acrobat теряет разметку в 50% случаев по словам пользователей. PDF Expert дорог и не поддерживает Apple Pencil Pro. Бюджетные альтернативы смещают аннотации при экспорте. Никто не сделал просто надёжный аннотатор с явной гарантией сохранности.",
+  "idea": {
+   "pitch": "Аннотатор для студентов, журналистов, сценаристов и преподавателей: выделения, комментарии, рукописные заметки с Apple Pencil сохраняются немедленно в файл (не в отдельный слой), экспорт с аннотациями работает одной кнопкой. Гарантия файл всегда содержит разметку, даже если приложение упало.",
+   "features": [
+    "Встроенные аннотации (flatten-in-file) не отдельный слой, который может потеряться",
+    "Поддержка Apple Pencil и Pencil Pro с чувствительностью к нажатию",
+    "Экспорт PDF с аннотациями в один тап без дополнительных шагов",
+    "Автосохранение после каждого штриха без явного нажатия Save",
+    "Полнотекстовый поиск по тексту и по тексту заметок",
+    "История версий можно вернуться к документу без разметки"
+   ],
+   "antiFeatures": [
+    "Не делаем сканер документов только работа с готовыми PDF",
+    "Не добавляем облачный ИИ-анализ документов",
+    "Не делаем редактирование исходного текста PDF"
+   ],
+   "monetization": "Подписка 399 руб/мес или 2990 руб/год. Студенты и преподаватели платящий сегмент, который уже тратит на PDF Expert 4000+ в год. Предлагаем то же качество дешевле с честными гарантиями."
+  }
+ },
+ {
+  "slug": "scanner-pdf-7",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Мобильный инструмент подписания форм",
+  "oneLiner": "Заполняешь PDF-форму на телефоне, подпись точно встаёт на нужное поле, отправляешь получателю без десктопа и без Adobe.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 16
+  },
+  "reviewGrid": [
+   {
+    "quote": "The fact that you cannot manipulate the signature is terrible. You create an esig and it's HUGE and cannot be resized, flipped, rotated",
+    "rating": 1,
+    "app": "Photo to PDF Convert Scanner +"
+   },
+   {
+    "quote": "I had trouble using this app with copy and paste when I would pick up info from my contacts app an attempt to put it into a PDF. Also I found that once I enter data it was difficult to go back and edit that data without the cursor jumping all over the place or requiring me to delete the entire line",
+    "rating": 3,
+    "app": "PDF Hero - PDF Editor & Reader"
+   },
+   {
+    "quote": "My check boxes are not appearing on my phone when using a form, but They appear on the desktop. It was there before but not after this update.",
+    "rating": 3,
+    "app": "Acrobat Reader: PDF Editor"
+   },
+   {
+    "quote": "It's convenient for users filling out a document online, but trying to print at home is not working to my home printer. Not convenient. I need to sign the document hand written. On my iPad. Not good, at all!",
+    "rating": 3,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "I dislike that I have to go through so many different menus to do a single task. I wish I could edit and sign. Not have to edit, create a new file, and then choose to sign.",
+    "rating": 4,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "Just my opinion, not worth the money will not edit a PDF, you can't do negative star reviews. Extremely short review, but when there's nothing good to say nothing at all.",
+    "rating": 2,
+    "app": "PDF Editor ®"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Подпись невозможно масштабировать и точно позиционировать на поле формы",
+    "obsCount": 16,
+    "apps": [
+     "Photo to PDF Convert Scanner +",
+     "PDF Hero - PDF Editor & Reader",
+     "iLovePDF - PDF Editor & Scan",
+     "Mobile Scanner App - Scan PDF",
+     "Acrobat Reader: PDF Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Заполнение PDF-форм на мобильном постоянная боль: флажки пропадают, подпись не масштабируется, курсор прыгает. Никто не оптимизировал флоу именно под мобильное заполнение форм с правильной тактильной механикой для подписи.",
+  "idea": {
+   "pitch": "Инструмент для людей, которым нужно подписывать договоры, налоговые формы, медицинские документы с телефона: загружаешь PDF, приложение находит поля форм и поля для подписи, размещаешь элементы с привязкой к сетке, отправляешь напрямую. Целевые пользователи риелторы, фрилансеры, HR-специалисты.",
+   "features": [
+    "Автоматическое определение полей PDF-формы (AcroForm) и подсветка пустых",
+    "Подпись с жёсткой привязкой к полю формы масштаб подбирается автоматически",
+    "Ввод текста в поля формы с умной клавиатурой (дата, имя, сумма)",
+    "Инициалы и штамп как отдельные объекты с историей использования",
+    "Отправка заполненного PDF через email, WhatsApp, Telegram без промежуточного сохранения"
+   ],
+   "antiFeatures": [
+    "Не делаем юридически значимую электронную подпись (КЭП, ЭЦП) это другой рынок",
+    "Не делаем сканер документов и OCR",
+    "Не добавляем командный документооборот и статусы согласования"
+   ],
+   "monetization": "Pay-per-use: первые 5 форм бесплатно, потом 9 руб за документ или пакет 290 руб/мес. Риелторы подписывают десятки документов в месяц это рабочий инструмент, за который платят."
+  }
+ },
+ {
+  "slug": "scanner-pdf-8",
+  "category": "scanner-pdf",
+  "categoryName": "Сканеры документов",
+  "title": "Цветной сканер для творческих материалов",
+  "oneLiner": "Сохраняет точные цвета при сканировании для художников, дизайнеров и тех, кто архивирует цветные документы без потери насыщенности.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 52,
+   "reviews": 22040,
+   "observations": 22
+  },
+  "reviewGrid": [
+   {
+    "quote": "This was touted as one of the better scanning apps. Well, the scan itself comes out very well, as soon as I want to edit anything on a document, it turns black-and-white. I scanned a beautiful color copy of a document, but every time I go to edit it, it goes from the colors to just black-and-white",
+    "rating": 2,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "All of my PDF conversions turn my documents into a funky yellow color. I don't like this at all. I also paid for the unlimited use. It does let me do that but I have since started using another PDF converter solely based on how my documents look following the conversion on this app.",
+    "rating": 3,
+    "app": "Photos PDF : Scanner Converter"
+   },
+   {
+    "quote": "Scanning in black and white is fine but the app doesn't seem very happy scanning my passport in colour. I can't get the image to be clear no matter the amount of light in the background.",
+    "rating": 3,
+    "app": "Scanner PDF scan document"
+   },
+   {
+    "quote": "Why when I want to edit a color picture it automatically makes it black and white. That is a terrible feature.",
+    "rating": 4,
+    "app": "Forma: PDF Document Editor"
+   },
+   {
+    "quote": "First of all the app forced me to opt into a free trail subscription of their premium service. For some reason the images mess with the colors the moment they're taken in the app. I am an artist and my best works use darker color palates. I am genuinely better off using",
+    "rating": 2,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "La app no tiene la capacidad de eliminar la sombre del papel si afectar el color original de las firmas en azul",
+    "rating": 3,
+    "app": "CamScanner - PDF Scanner App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Автообработка меняет цвет: желтит, переводит в ч/б или съедает насыщенность",
+    "obsCount": 22,
+    "apps": [
+     "iScanner: PDF Document Scanner",
+     "Photos PDF : Scanner Converter",
+     "Forma: PDF Document Editor",
+     "CamScanner - PDF Scanner App",
+     "Scanner PDF scan document"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Весь рынок оптимизирован под чёрно-белые деловые документы. Художники, дизайнеры, архивисты цветных документов, люди, сканирующие паспорта и дипломы, сталкиваются с тем, что автообработка уничтожает цвет. Нет ни одного приложения, позиционированного на точную цветопередачу.",
+  "idea": {
+   "pitch": "Сканер для тех, кому важен цвет: художники оцифровывают скетчи и акварели, дизайнеры архивируют образцы, люди сканируют паспорта и дипломы, коллекционеры документируют предметы. Приложение предлагает калиброванный цветной режим с отключённой агрессивной обработкой, компенсацией цветовой температуры и предпросмотром «до/после».",
+   "features": [
+    "Цветной режим с минимальной обработкой и точной гаммой",
+    "Компенсация жёлтого оттенка от ламп без изменения цвета документа",
+    "Предпросмотр «до/после» обработки перед сохранением",
+    "Режим без обработки для художников (raw-скан с коррекцией только геометрии)",
+    "Управление яркостью и контрастом отдельно от цветового баланса",
+    "Экспорт в PNG/TIFF для максимального качества, не только PDF"
+   ],
+   "antiFeatures": [
+    "Не делаем чёрно-белый режим улучшения деловых документов",
+    "Не добавляем OCR цветные документы редко нужно распознавать",
+    "Не делаем пакетную обработку документооборота"
+   ],
+   "monetization": "Разовая покупка 349 руб. Художники и дизайнеры платят за инструменты, которые уважают их работу. Дополнительно пакет профессиональных форматов (TIFF, 300dpi+) за 199 руб."
+  }
  }
 ]
