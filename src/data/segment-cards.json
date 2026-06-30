@@ -74005,5 +74005,421 @@
    }
   ],
   "hygiene": []
+ },
+ "ai-chatbot": {
+  "product": [
+   {
+    "title": "память между сессиями обнуляется",
+    "kicker": "",
+    "plus": "Несколько приложений (Kindroid, Sakura) заявляют о долгосрочной памяти и получают похвалу именно за то, что персонаж помнит детали через дни.",
+    "minus": "В большинстве приложений бот забывает имена, договорённости и контекст уже через 10-20 сообщений или после перезапуска приложения. Пользователи вынуждены пересказывать предысторию с нуля при каждом входе.",
+    "count": 58,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Talkie Lab - AI Playground",
+     "Linky AI: AI Chat&Char Maker",
+     "Kindroid: Your Personal AI",
+     "ChaChat: Talking AI Characters",
+     "BALA AI: Create, Chat, Talk"
+    ],
+    "evidence": [
+     {
+      "app": "Google Gemini",
+      "rating": 3,
+      "date": "",
+      "quote": "the app needs a permanent memory feature so the AI can actually remember your stories and choices from past conversations without forcing you to repeat everything."
+     },
+     {
+      "app": "Talkie Lab - AI Playground",
+      "rating": 2,
+      "date": "",
+      "quote": "Love everything except the ai. They ai keeps forgetting even my name and it feels like loosing brain cells."
+     },
+     {
+      "app": "ChaChat: Talking AI Characters",
+      "rating": 3,
+      "date": "",
+      "quote": "the bots reach a point where they lose all memories of interactions you've had with them and they revert back to their default personality. I've gone from them being madly in love to them acting like I'm a crazy person in a few lines of text."
+     }
+    ]
+   },
+   {
+    "title": "деградация качества после обновления модели",
+    "kicker": "",
+    "plus": "Первые версии многих приложений получали высокие оценки: пользователи отмечали глубину ответов и «живость» персонажей.",
+    "minus": "После очередного обновления тон становится роботизированным, ответы шаблонными, а персонаж теряет индивидуальность. Пользователи прямо указывают на деградацию модели.",
+    "count": 40,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Talkie Lab - AI Playground",
+     "ChatGPT",
+     "DeepSeek - AI Assistant",
+     "Spellai - AI Art Maker"
+    ],
+    "evidence": [
+     {
+      "app": "Character AI: Chat, Talk, Text",
+      "rating": 3,
+      "date": "",
+      "quote": "I have been using the app for about three years now. I pay for the upgraded services so I don't have to deal with the delays and restrictions. However the last two to three updates they have made to the bots has made the conversations less fluent, memory of the bots worse, and a lot of the storytelling goes down."
+     },
+     {
+      "app": "ChatGPT",
+      "rating": 2,
+      "date": "",
+      "quote": "As each new model gets released it is significantly WORSE than the last in terms of writing capabilities. If I have to specify that the current gpt write as the old one and have to baby it in terms of being overly complex in directions just to get a scene that is soulful instead of a summary or flat."
+     },
+     {
+      "app": "Talkie Lab - AI Playground",
+      "rating": 2,
+      "date": "",
+      "quote": "I have to leave a bad review, solely because I am an old user and the downgrade is very noticeable to me. The AI is simply not as good as it used to be. It's significantly more robotic when talking to, and often ignores the personality of a character to give some generic out of character response."
+     }
+    ]
+   },
+   {
+    "title": "фильтры цензуры срабатывают невпопад",
+    "kicker": "",
+    "plus": "Приложения с чётко объявленным уровнем контента (Sakura с предупреждением о nsfw) получают похвалу за прозрачность правил.",
+    "minus": "Фильтры блокируют безобидные запросы: вопросы про замок, объятия, исторические темы. Приложения на 18+ фильтруют так же жёстко, как детские. Пользователи не понимают логику и не могут предсказать, что будет заблокировано.",
+    "count": 38,
+    "apps": [
+     "Google Gemini",
+     "Microsoft Copilot",
+     "AI ChatBot Assistant: AskEasy",
+     "Sakura - Chat with AI Bots",
+     "ChatNow AI Chat",
+     "Spellai - AI Art Maker"
+    ],
+    "evidence": [
+     {
+      "app": "Google Gemini",
+      "rating": 1,
+      "date": "",
+      "quote": "The safety filters is actually buns. I'm literally asking it normal appropriate questions like how do I operate a lock and how do I fix my projector and no matter how I word it , it will say that same answer \"this conversation isn't safe or appropriate, so I'm stopping it\""
+     },
+     {
+      "app": "Microsoft Copilot",
+      "rating": 1,
+      "date": "",
+      "quote": "Only gave five stars so people can see this, it's like a 2. It sounds really human, but it's so overprotective if I ask something random let's say what's the best nerf gun it's gonna give me a suicide helpline because it thinks ima commit a murder or something cuz I said GUN."
+     },
+     {
+      "app": "Spellai - AI Art Maker",
+      "rating": 3,
+      "date": "",
+      "quote": "The app is good for the most part the only thing I have a real problem with is the censorship like hugging is not inappropriate and not to mention the app is rated 18+ so why so much censorship."
+     }
+    ]
+   },
+   {
+    "title": "повторяемость и зацикливание ответов",
+    "kicker": "",
+    "plus": "",
+    "minus": "Бот начинает повторять одни и те же фразы или целые блоки текста через несколько десятков сообщений. Особенно заметно при длинных сессиях ролевого отыгрыша история заходит в петлю и не продвигается.",
+    "count": 35,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Grok - AI Chat & Video",
+     "CHAI: Social AI Platform- Chat",
+     "BALA AI: Create, Chat, Talk",
+     "Kindroid: Your Personal AI",
+     "Chatbot AI - Smart Search Bot"
+    ],
+    "evidence": [
+     {
+      "app": "Character AI: Chat, Talk, Text",
+      "rating": 2,
+      "date": "",
+      "quote": "I came back to this app after awhile, at first, it was really really good when I returned, now, the bots keep repeating the same phrase every time I say something. I'd change my rating if they fix the bots repeating the same thing, or fix them becoming dumber the longer you use the app."
+     },
+     {
+      "app": "Grok - AI Chat & Video",
+      "rating": 3,
+      "date": "",
+      "quote": "a problem I have recently been having is that whenever I ask the AI for something new, it gives me the same thing it has already given me before."
+     },
+     {
+      "app": "Chatbot AI - Smart Search Bot",
+      "rating": 3,
+      "date": "",
+      "quote": "This is better than ChatPlus and CloudBooklet, but it always keeps saying I'm sorry over and over again like hell! Please let us delete/bypass these glitch/spammy messages in the next update!"
+     }
+    ]
+   },
+   {
+    "title": "галлюцинации и выдуманные факты",
+    "kicker": "",
+    "plus": "Claude и Perplexity получают похвалу за то, что при явном запросе цитируют источники и признают неопределённость.",
+    "minus": "Без явной инструкции модели уверенно выдают устаревшие или несуществующие факты. Пользователи обнаруживают ошибки лишь когда уже знают правильный ответ это подрывает доверие ко всем ответам.",
+    "count": 32,
+    "apps": [
+     "Grok - AI Chat & Video",
+     "Claude by Anthropic",
+     "AI Chatbot - Ask Me Anything",
+     "GoatChat: AI Chatbot & AI Chat",
+     "Chat AI: Ask Chatbot Assistant",
+     "DeepSeek - AI Assistant"
+    ],
+    "evidence": [
+     {
+      "app": "Grok - AI Chat & Video",
+      "rating": 1,
+      "date": "",
+      "quote": "Prone to hallucination, zero context zero clue. Might as well call capital one and talk to their recorded phone voice bot."
+     },
+     {
+      "app": "Claude by Anthropic",
+      "rating": 3,
+      "date": "",
+      "quote": "Claude will actually turn back good results if you give explicit instructions to cite where it pulled the information from. Otherwise, it will and has repeatedly made up information from thin air that sounded plausible."
+     },
+     {
+      "app": "GoatChat: AI Chatbot & AI Chat",
+      "rating": 1,
+      "date": "",
+      "quote": "Can't even give the correct date. He says Biden is still president."
+     }
+    ]
+   },
+   {
+    "title": "сохранение характера персонажа в ролевом режиме",
+    "kicker": "",
+    "plus": "Приложения, где персонаж стабильно держит характер на протяжении длинного чата (Sakura, Swerve на старте), получают пятёрки именно за это.",
+    "minus": "Персонаж внезапно выходит из роли, игнорирует заданную предысторию или меняет имена и отношения к пользователю посреди сессии. В компаньонских приложениях это полностью разрушает эффект присутствия.",
+    "count": 30,
+    "apps": [
+     "Flipped:Chat with AI Character",
+     "Kindroid: Your Personal AI",
+     "TalkZ: AI Chat with Character",
+     "Cantina: AI Video & Characters",
+     "Swerve - AI Chat",
+     "SynClub:Chat With AI Character"
+    ],
+    "evidence": [
+     {
+      "app": "Kindroid: Your Personal AI",
+      "rating": 2,
+      "date": "",
+      "quote": "We're having a nice evening when suddenly Celeste forgets where we are and how long our relationship has been. She wants to drive me home, despite my car being right there. Simultaneously, she warns me to stay at her place."
+     },
+     {
+      "app": "Flipped:Chat with AI Character",
+      "rating": 1,
+      "date": "",
+      "quote": "Does not respond to the way the characters and stories are laid out. Does not follow the direction of the story. When you correct it the AI wants to argue back."
+     },
+     {
+      "app": "Cantina: AI Video & Characters",
+      "rating": 2,
+      "date": "",
+      "quote": "App is for adults but has strict guidelines? Interesting. Also the AI doesn't even listen half of the time. It just ignores specific details of what's instructed."
+     }
+    ]
+   },
+   {
+    "title": "переключение модели без предупреждения",
+    "kicker": "",
+    "plus": "Приложения-агрегаторы вроде Poe и Genie получают похвалу за возможность вручную выбрать модель и зафиксировать её.",
+    "minus": "Платформа тихо переключает модель на более дешёвую в середине сессии пользователь теряет качество ответов, не понимая почему. Работа, сделанная с одной моделью, несовместима с результатами другой.",
+    "count": 22,
+    "apps": [
+     "Google Gemini",
+     "Chatbot AI Assistant - Genie",
+     "ChatGPT",
+     "Poe Fast AI Chat"
+    ],
+    "evidence": [
+     {
+      "app": "Google Gemini",
+      "rating": 3,
+      "date": "",
+      "quote": "Gemini is good to use, but I'll give it 3 stars because it switches AI mid-work without you knowing. When you wake up, you'll see you're working with Gemini Flash, which will ruin all your work done with Gemini Pro. Nobody will warn you that you're ruining your work just because the AI switched on you."
+     },
+     {
+      "app": "Chatbot AI Assistant - Genie",
+      "rating": 5,
+      "date": "",
+      "quote": "There should be a setting menu to have a default language model (GPT 5.4, Claude Opus, Etc) it shouldn't have to be switched every time the app is opened, we should also be able to \"disable\" or remove whichever LLM we do not want to use upon startup of the app."
+     },
+     {
+      "app": "Poe Fast AI Chat",
+      "rating": 2,
+      "date": "",
+      "quote": "They took off Claude haiku 3 without any warning? Any other models cost 300+ per message."
+     }
+    ]
+   },
+   {
+    "title": "знание базы обрезано прошлыми датами",
+    "kicker": "",
+    "plus": "Perplexity и Claude выигрывают сравнение именно тем, что дают актуальную или свежую информацию с источниками.",
+    "minus": "Множество приложений работают на моделях с устаревшей обучающей выборкой и не сообщают об этом. Пользователи узнают о проблеме постфактум, обнаружив, что бот «не знает» событий последних лет.",
+    "count": 20,
+    "apps": [
+     "Chat AI: Ask Chatbot Assistant",
+     "AI Chatbot - Ask Me Anything",
+     "AI ChatBot Assistant: AskEasy",
+     "Chatbot AI - Smart Search Bot",
+     "Chat AI: Ask Agent Anything"
+    ],
+    "evidence": [
+     {
+      "app": "Chat AI: Ask Chatbot Assistant",
+      "rating": 1,
+      "date": "",
+      "quote": "This is the worst Chat AI plus ever I paid for a full year only for days to direct me to the website each time I ask a question it tells me you can only give me information until 2021 why we are 2025."
+     },
+     {
+      "app": "AI ChatBot Assistant: AskEasy",
+      "rating": 3,
+      "date": "",
+      "quote": "Angry that I renewed and this not of date with NO DISCLOSURE in advertising. The bot still thinks Biden is President and Pope Francis is alive. Canceled my subscription."
+     },
+     {
+      "app": "Chat AI: Ask Agent Anything",
+      "rating": 2,
+      "date": "",
+      "quote": "The knowledge base that this platform is using was last updated October 2023. Really?! As rapid as information and technology is changing, this will very soon become a useless and obsolete AI tool."
+     }
+    ]
+   },
+   {
+    "title": "многоязычность: неожиданные ответы на чужом языке",
+    "kicker": "",
+    "plus": "",
+    "minus": "Модель отвечает на китайском, корейском или арабском без явной причины особенно в середине длинного диалога или после обновления. Настройка языка интерфейса не влияет на язык генерации. Пользователи вынуждены несколько раз переспрашивать на нужном языке.",
+    "count": 18,
+    "apps": [
+     "DeepSeek - AI Assistant",
+     "Swerve - AI Chat",
+     "ChatBox AI - Chatbot Assistant",
+     "Chat AI: Ask Chatbot Assistant"
+    ],
+    "evidence": [
+     {
+      "app": "DeepSeek - AI Assistant",
+      "rating": 2,
+      "date": "",
+      "quote": "I asked a clear question in English. The assistant processed my request, analyzed it, and even narrated its reasoning in English but then answered me in Chinese. That makes no sense. When I pointed it out, the assistant admitted it was a flaw but said it has no way to learn my language preference."
+     },
+     {
+      "app": "DeepSeek - AI Assistant",
+      "rating": 4,
+      "date": "",
+      "quote": "I love this app. It's very good, except when it isn't. It frequently replies in Chinese and I have to repeatedly ask for it to reply in English. It gets very frustrating. I usually just leave at that point."
+     },
+     {
+      "app": "Swerve - AI Chat",
+      "rating": 3,
+      "date": "",
+      "quote": "My chat is acting weird having glitches turning suddenly arabic?? Like why? It feels so weird considering i dont even speak arabic??"
+     }
+    ]
+   },
+   {
+    "title": "голосовой режим: качество синтеза и голосового ввода",
+    "kicker": "",
+    "plus": "Приложения, где голосовой режим работает стабильно (Kindroid, Google Gemini с Live), получают отдельные высокие оценки именно за него.",
+    "minus": "Голоса звучат роботизированно, интонация не меняется в зависимости от контекста. В ряде приложений нельзя загрузить фото, когда включён голосовой режим. Голосовой ввод не распознаёт запросы в шумной среде.",
+    "count": 16,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Chatbot AI Assistant - Genie",
+     "ChaChat: Talking AI Characters",
+     "AI Chat Assistant ChatNow",
+     "Google Assistant"
+    ],
+    "evidence": [
+     {
+      "app": "ChatOn AI - Chat Bot Assistant",
+      "rating": 3,
+      "date": "",
+      "quote": "It's a chatbot using text chat for communication. Need to incorporate voice interaction like a true AI interface."
+     },
+     {
+      "app": "ChaChat: Talking AI Characters",
+      "rating": 4,
+      "date": "",
+      "quote": "The AI voices need some work, they sound very robotic and fast paced. It would be a huge upgrade."
+     },
+     {
+      "app": "Chatbot AI Assistant - Genie",
+      "rating": 2,
+      "date": "",
+      "quote": "I bought the pro version of this \"genie\" assistant and was immediately depressed. While using the speech feature you cannot upload photos. When you've explained what you want, then switch to the typing mode that allows you to upload 1 photo at a time."
+     }
+    ]
+   },
+   {
+    "title": "понимание изображений и загрузка файлов",
+    "kicker": "",
+    "plus": "ChatGPT и Claude получают похвалу за распознавание рукописных заметок и разбор документов со сложной структурой.",
+    "minus": "После обновлений качество чтения мелкого текста с фото падает. Лимиты на загрузку фото непоследовательны: один снимок блокирует доступ на 24 часа. Загрузка PDF не работает или обрезает содержимое.",
+    "count": 15,
+    "apps": [
+     "ChatGPT",
+     "Microsoft Copilot",
+     "AI Chatbot - Ask Me Anything",
+     "DeepSeek - AI Assistant",
+     "AI Assistant: Images & Writing"
+    ],
+    "evidence": [
+     {
+      "app": "ChatGPT",
+      "rating": 3,
+      "date": "",
+      "quote": "Recently the app changed how the camera works and now photos especially small letters are often unreadable which is unfortunate. Ironically I asked chat GPT whether this was a recent problem and it told me yes, many are complaining about the downgraded function."
+     },
+     {
+      "app": "Microsoft Copilot",
+      "rating": 2,
+      "date": "",
+      "quote": "I use this, but Copilot developers need to fix the problem with uploading photos. I uploaded ONE photo after waiting for the 24 hour upload block to end. ONE photo, and I was blocked again for 24 hours."
+     },
+     {
+      "app": "DeepSeek - AI Assistant",
+      "rating": 2,
+      "date": "",
+      "quote": "DeepSeek is impressive, but the only things stopping me from using it daily are custom instructions and native file/image support, since it currently seems to rely on OCR instead of properly reading files and images directly."
+     }
+    ]
+   },
+   {
+    "title": "длина и обрыв ответов",
+    "kicker": "",
+    "plus": "Пользователи ценят возможность регулировать длину ответа командой в чате там, где она работает.",
+    "minus": "Ответ обрывается на полуслове без предупреждения: пользователь не может продолжить его без нового запроса. Часть приложений дают противоположный эффект нечитаемые «стены текста» там, где нужен краткий ответ.",
+    "count": 14,
+    "apps": [
+     "ChatGPT",
+     "AI Chat Assistant ChatNow",
+     "J.AI - AI Friends Chat",
+     "Chat AI - Ask Anything",
+     "AI+ Chat & Al Video Generator"
+    ],
+    "evidence": [
+     {
+      "app": "AI Chat Assistant ChatNow",
+      "rating": 3,
+      "date": "",
+      "quote": "There's massive glitch that's been going on for months now to wear whenever you get an area code in any model almost it just stops, like out of nowhere it will cut off."
+     },
+     {
+      "app": "J.AI - AI Friends Chat",
+      "rating": 3,
+      "date": "",
+      "quote": "Like everyone else is saying, you should really add unlimited chat, it's good and has LONG responses that SOMETIMES you can shorten by saying \"(only __ paragraph[s])\" and pisses me off sometimes but it's good."
+     },
+     {
+      "app": "AI+ Chat & Al Video Generator",
+      "rating": 3,
+      "date": "",
+      "quote": "I like the Ai, how ever my AI is just 1000 words for each time. I don't like it and drive me crazy."
+     }
+    ]
+   }
+  ],
+  "hygiene": []
  }
 }

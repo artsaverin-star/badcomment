@@ -42976,5 +42976,630 @@
    ],
    "monetization": "Разовая покупка 349 руб. Художники и дизайнеры платят за инструменты, которые уважают их работу. Дополнительно пакет профессиональных форматов (TIFF, 300dpi+) за 199 руб."
   }
+ },
+ {
+  "slug": "ai-chatbot-1",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Ролевой компаньон с долгосрочной памятью",
+  "oneLiner": "Персонаж помнит всё: имена, договорённости, историю отношений через дни и недели, без пересказа с нуля.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 88
+  },
+  "reviewGrid": [
+   {
+    "quote": "the app needs a permanent memory feature so the AI can actually remember your stories and choices from past conversations without forcing you to repeat everything.",
+    "rating": 3,
+    "app": "Google Gemini"
+   },
+   {
+    "quote": "Love everything except the ai. They ai keeps forgetting even my name and it feels like loosing brain cells.",
+    "rating": 2,
+    "app": "Talkie Lab - AI Playground"
+   },
+   {
+    "quote": "the bots reach a point where they lose all memories of interactions you've had with them and they revert back to their default personality. I've gone from them being madly in love to them acting like I'm a crazy person in a few lines of text.",
+    "rating": 3,
+    "app": "ChaChat: Talking AI Characters"
+   },
+   {
+    "quote": "We're having a nice evening when suddenly Celeste forgets where we are and how long our relationship has been. She wants to drive me home, despite my car being right there.",
+    "rating": 2,
+    "app": "Kindroid: Your Personal AI"
+   },
+   {
+    "quote": "I like copilot, but there is one thing bad about it and that is when you talk about something and then talk later about it, it doesn't save and it forgets everything and you have to repeat everything you said to it.",
+    "rating": 3,
+    "app": "Microsoft Copilot"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Провал памяти между сессиями",
+    "obsCount": 58,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Talkie Lab - AI Playground",
+     "ChaChat: Talking AI Characters",
+     "Kindroid: Your Personal AI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Стабильность персонажа в длинных чатах",
+    "obsCount": 30,
+    "apps": [
+     "Kindroid: Your Personal AI",
+     "Sakura - Chat with AI Bots"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Ни одно массовое приложение не хранит структурированный контекст отношений на стороне сервера и не обновляет его автоматически после каждой сессии. Память либо отсутствует, либо реализована как сырой «системный промпт», который быстро вытесняется.",
+  "idea": {
+   "pitch": "Мобильный компаньон для нарративных ролевых игр, где отношения сохраняются как граф фактов: имена персонажей, хронология событий, эмоциональный тон последних встреч. Перед каждой сессией граф конвертируется в компактный контекст и инжектируется в промпт персонаж никогда не теряет нить.",
+   "features": [
+    "Граф памяти: автоматическое извлечение фактов из диалога после каждой сессии",
+    "Карточка сессии: «что было в прошлый раз» перед началом чата",
+    "Ручная правка фактов пользователь может удалить или дополнить запись",
+    "Временная шкала отношений с ключевыми событиями",
+    "Импорт истории из Character AI / Kindroid"
+   ],
+   "antiFeatures": [
+    "Без бесконечной ленты случайных персонажей",
+    "Без социальной платформы и чужих чат-ботов",
+    "Без рекомендательного алгоритма"
+   ],
+   "monetization": "Подписка 6-8 долларов в месяц за расширенный граф (неограниченное число фактов) и приоритетную модель. Бесплатный уровень один персонаж, 50 записей памяти."
+  }
+ },
+ {
+  "slug": "ai-chatbot-2",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "ИИ-помощник для водителей и работников руками",
+  "oneLiner": "Голосовой ассистент без экрана: задаёшь вопрос в дороге или за станком, получаешь короткий точный ответ вслух.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 30
+  },
+  "reviewGrid": [
+   {
+    "quote": "I want to be able to just talk as I'm a trucker and I can't type and drive or read and drive everything else is fine",
+    "rating": 3,
+    "app": "AI Chat Assistant ChatNow"
+   },
+   {
+    "quote": "It's a chatbot using text chat for communication. Need to incorporate voice interaction like a true AI interface.",
+    "rating": 3,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "The AI voices need some work, they sound very robotic and fast paced. It would be a huge upgrade.",
+    "rating": 4,
+    "app": "ChaChat: Talking AI Characters"
+   },
+   {
+    "quote": "I bought the pro version of this \"genie\" assistant and was immediately depressed. While using the speech feature you cannot upload photos.",
+    "rating": 2,
+    "app": "Chatbot AI Assistant - Genie"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Голосовой ввод/вывод работает нестабильно или отсутствует",
+    "obsCount": 16,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Chatbot AI Assistant - Genie",
+     "AI Chat Assistant ChatNow"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Режим hands-free нужен профессиям без доступа к экрану",
+    "obsCount": 14,
+    "apps": [
+     "AI Chat Assistant ChatNow",
+     "Google Assistant"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все существующие голосовые ИИ-ассистенты требуют смотреть в экран для уточнения, прокрутки ответа или ввода. Нет приложения, оптимизированного именно для сценария «руки заняты, глаза заняты».",
+  "idea": {
+   "pitch": "Приложение для iOS с единственным экраном: большая кнопка «держи и говори» и голосовой ответ. Оптимизировано под фоновый режим, CarPlay и Bluetooth-гарнитуры. Ответ адаптируется по длине: короткий вопрос два предложения вслух, «расскажи подробнее» полный пересказ.",
+   "features": [
+    "Push-to-talk с поддержкой CarPlay и AirPods",
+    "Адаптивная длина ответа по команде голосом",
+    "История последних 20 запросов для просмотра после поездки",
+    "Офлайн-распознавание речи через Apple Speech",
+    "Голосовые команды для повтора, уточнения, копирования ответа"
+   ],
+   "antiFeatures": [
+    "Без генерации изображений",
+    "Без текстового чата как основного интерфейса",
+    "Без ролевых персонажей"
+   ],
+   "monetization": "Единовременная покупка 4.99 доллара или подписка 2.99 в месяц для доступа к сильной модели. Аудитория: дальнобойщики, мастера по ремонту, курьеры, строители."
+  }
+ },
+ {
+  "slug": "ai-chatbot-3",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Агрегатор моделей с зафиксированным выбором",
+  "oneLiner": "Один интерфейс, конкретная модель по умолчанию не переключается без ведома пользователя никогда.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 42
+  },
+  "reviewGrid": [
+   {
+    "quote": "Gemini is good to use, but I'll give it 3 stars because it switches AI mid-work without you knowing. When you wake up, you'll see you're working with Gemini Flash, which will ruin all your work done with Gemini Pro.",
+    "rating": 3,
+    "app": "Google Gemini"
+   },
+   {
+    "quote": "There should be a setting menu to have a default language model (GPT 5.4, Claude Opus, Etc) it shouldn't have to be switched every time the app is opened, we should also be able to \"disable\" or remove whichever LLM we do not want to use upon startup of the app",
+    "rating": 5,
+    "app": "Chatbot AI Assistant - Genie"
+   },
+   {
+    "quote": "It was fun while it lasted. They took off Claude haiku 3 without any warning? Any other models cost 300+ per message.",
+    "rating": 2,
+    "app": "Poe Fast AI Chat"
+   },
+   {
+    "quote": "I have a harder time with this bcz it takes 15 to 20 min to log into this application. The constant code changes",
+    "rating": 4,
+    "app": "Microsoft 365 Copilot"
+   },
+   {
+    "quote": "Claude is the best. But if you are OK using a Chinese model, z.ai's large model scores within a few percent on benchmarks at about 1/5 the cost. It's a brutal market.",
+    "rating": 4,
+    "app": "Claude by Anthropic"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тихое переключение модели без предупреждения",
+    "obsCount": 22,
+    "apps": [
+     "Google Gemini",
+     "Chatbot AI Assistant - Genie",
+     "Poe Fast AI Chat"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Ручной выбор модели = конкурентное преимущество",
+    "obsCount": 20,
+    "apps": [
+     "Poe Fast AI Chat",
+     "Chatbot AI Assistant - Genie"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Ни один агрегатор не даёт пользователю контракт: «эта модель закреплена за этим чатом навсегда». Poe молча убирает модели. Genie переключается при перезапуске.",
+  "idea": {
+   "pitch": "Чат-клиент поверх OpenAI / Anthropic / Mistral API, где каждый тред имеет жёстко зафиксированную модель. При попытке провайдера убрать модель пользователь видит предупреждение за 7 дней и может экспортировать чат. Нет рекламы, нет подставных переключений.",
+   "features": [
+    "Выбор модели на уровне треда с фиксацией в метаданных",
+    "Push-уведомление об устаревании или удалении модели заранее",
+    "Сравнение двух моделей на один и тот же запрос в сплит-режиме",
+    "Экспорт чата в Markdown / PDF",
+    "Свои API-ключи (BYOK) для снижения стоимости"
+   ],
+   "antiFeatures": [
+    "Без собственной модели",
+    "Без рекомендательной системы выбора",
+    "Без социальных функций"
+   ],
+   "monetization": "Подписка 7 долларов в месяц: облачная синхронизация, история без ограничений, приоритетный доступ к новым провайдерам. Режим BYOK бесплатный с ограничением 3 активных треда."
+  }
+ },
+ {
+  "slug": "ai-chatbot-4",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Нишевый ИИ для студентов с пошаговыми объяснениями",
+  "oneLiner": "Решает задачи по фото и объясняет каждый шаг так, что понимаешь не просто копируешь ответ.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 35
+  },
+  "reviewGrid": [
+   {
+    "quote": "I haven't been in college in years and chem was daunting, this helps me step by step and I can even asks it questions if I'm not sure what it's explaining, it makes note cards for me and helps me understand!",
+    "rating": 5,
+    "app": "Solvely - AI Study Tools"
+   },
+   {
+    "quote": "It knows how to solve word problems and complex algebra and will explain the process I love it 10/5 stars it's so good",
+    "rating": 5,
+    "app": "Solvely - AI Study Tools"
+   },
+   {
+    "quote": "I tried testing it 95% got wrong I was in shock I couldn't believe it please fix it.",
+    "rating": 2,
+    "app": "Solvely - AI Study Tools"
+   },
+   {
+    "quote": "This is the worst Chat AI plus ever I paid for a full year only for days to direct me to the website each time I ask a question it tells me you can only give me information until 2021 why we are 2025.",
+    "rating": 1,
+    "app": "Chat AI: Ask Chatbot Assistant"
+   },
+   {
+    "quote": "Overall good for help but if u have a multi part question, and take a picture of the 2nd one after your done with the first, it treats the second one as an individual picture ignoring all given data in part a…",
+    "rating": 4,
+    "app": "Solvely - AI Study Tools"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Пошаговое объяснение задачи",
+    "obsCount": 20,
+    "apps": [
+     "Solvely - AI Study Tools"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Слабое понимание многошаговых задач с контекстом",
+    "obsCount": 15,
+    "apps": [
+     "Solvely - AI Study Tools",
+     "Chat AI: Ask Agent Anything"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Существующие решатели (Solvely, PhotoMath) не связывают части одной задачи между собой и не строят «карту знаний»: где студент понимает, а где проваливается.",
+  "idea": {
+   "pitch": "Учебный ассистент для старшей школы и первых курсов вуза: фотографируешь задачу, получаешь пошаговое решение с объяснением концепции, а не просто ответ. Приложение отслеживает, какие темы вызывают затруднения, и предлагает упражнения именно по ним.",
+   "features": [
+    "Распознавание рукописных и печатных задач по фото",
+    "Пошаговое объяснение с возможностью задать вопрос на каждом шаге",
+    "Карта слабых мест: таймлайн ошибок по темам",
+    "Генерация похожих задач для отработки",
+    "Флэш-карточки по ключевым концепциям из решённых задач"
+   ],
+   "antiFeatures": [
+    "Без режима «просто дай ответ без объяснений»",
+    "Без игровых механик с таблицами лидеров",
+    "Без генерации изображений"
+   ],
+   "monetization": "Freemium: 5 задач в день бесплатно. Подписка 4.99 в неделю или 12.99 в месяц неограниченные задачи и карта знаний. Основной платящий сегмент родители, оплачивающие помощь детям."
+  }
+ },
+ {
+  "slug": "ai-chatbot-5",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Приватный ассистент с локальной моделью",
+  "oneLiner": "Все разговоры остаются на устройстве никакой сервер не видит твои запросы и данные.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 22
+  },
+  "reviewGrid": [
+   {
+    "quote": "I would try to do real work on a project but only paid enterprise level at 200$ a month would keep my work secure. All tiers below that will retain data.",
+    "rating": 2,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "DeepSeek is impressive, but the only things stopping me from using it daily are custom instructions and native file/image support, since it currently seems to rely on OCR instead of properly reading files and images directly.",
+    "rating": 2,
+    "app": "DeepSeek - AI Assistant"
+   },
+   {
+    "quote": "I asked a clear question in English. The assistant processed my request, analyzed it, and even narrated its reasoning in English but then answered me in Chinese. That makes no sense.",
+    "rating": 2,
+    "app": "DeepSeek - AI Assistant"
+   },
+   {
+    "quote": "Never trust surveillance.",
+    "rating": 1,
+    "app": "ChatGPT"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Пользовательские данные уходят на сервер провайдера",
+    "obsCount": 12,
+    "apps": [
+     "Claude by Anthropic",
+     "ChatGPT",
+     "DeepSeek - AI Assistant"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Недоверие к китайским и крупным западным платформам",
+    "obsCount": 10,
+    "apps": [
+     "DeepSeek - AI Assistant",
+     "ChatGPT"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Приложения на основе локальных LLM существуют (Ollama, LM Studio), но они требуют технических знаний для настройки и не предлагают удобного мобильного UX. Нет продукта для нетехнических пользователей, которым важна приватность.",
+  "idea": {
+   "pitch": "iOS-приложение, которое запускает квантизованную малую модель прямо на iPhone (через Core ML) без сервера, без аккаунта, без телеметрии. Для задач, где модель устройства слаба, опционально можно подключить свой API-ключ с шифрованием на стороне клиента.",
+   "features": [
+    "Локальная модель (Phi-3 Mini или Mistral 7B Q4) без интернета",
+    "Нет регистрации и сбора данных честное нулевое логирование",
+    "Шифрование истории чатов с Face ID",
+    "Подключение своего OpenAI / Anthropic ключа как гибридный режим",
+    "Экспорт истории в зашифрованный архив"
+   ],
+   "antiFeatures": [
+    "Без облачной синхронизации истории по умолчанию",
+    "Без ролевых персонажей и социальных функций",
+    "Без платных подписок с доступом к данным"
+   ],
+   "monetization": "Разовая покупка приложения 9.99 доллара. Дополнительные языковые пакеты (модели) 2.99 каждый. Аудитория: юристы, врачи, предприниматели, параноики по безопасности."
+  }
+ },
+ {
+  "slug": "ai-chatbot-6",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Ассистент с актуальными данными и источниками",
+  "oneLiner": "Каждый ответ привязан к свежей информации из сети с датой и ссылкой, не из архива 2021 года.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 52
+  },
+  "reviewGrid": [
+   {
+    "quote": "The knowledge base that this platform is using was last updated October 2023. Really?! As rapid as information and technology is changing, this will very soon become a useless and obsolete AI tool.",
+    "rating": 2,
+    "app": "Chat AI: Ask Agent Anything"
+   },
+   {
+    "quote": "Angry that I renewed and this not of date with NO DISCLOSURE in advertising. The bot still thinks Biden is President and Pope Francis is alive. Canceled my subscription.",
+    "rating": 3,
+    "app": "AI ChatBot Assistant: AskEasy"
+   },
+   {
+    "quote": "This is the worst Chat AI plus ever I paid for a full year only for days to direct me to the website each time I ask a question it tells me you can only give me information until 2021 why we are 2025.",
+    "rating": 1,
+    "app": "Chat AI: Ask Chatbot Assistant"
+   },
+   {
+    "quote": "Claude will actually turn back good results if you give explicit instructions to cite where it pulled the information from. Otherwise, it will and has repeatedly made up information from thin air that sounded plausible.",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "Prone to hallucination, zero context zero clue. Might as well call capital one and talk to their recorded phone voice bot.",
+    "rating": 1,
+    "app": "Grok - AI Chat & Video"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Устаревшая база знаний без предупреждения",
+    "obsCount": 20,
+    "apps": [
+     "Chat AI: Ask Chatbot Assistant",
+     "AI ChatBot Assistant: AskEasy",
+     "Chat AI: Ask Agent Anything"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Галлюцинации и выдуманные факты",
+    "obsCount": 32,
+    "apps": [
+     "Grok - AI Chat & Video",
+     "Claude by Anthropic",
+     "GoatChat: AI Chatbot & AI Chat"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Perplexity занял нишу поиска с источниками, но его UX ориентирован на исследования, а не на быстрые ответы в диалоге. Нет компактного чат-бота, который просто добавляет свежий контекст к любому вопросу и всегда показывает дату источника.",
+  "idea": {
+   "pitch": "Чат-ассистент с живым веб-поиском для каждого ответа по умолчанию: не по запросу, а всегда. Ответ всегда содержит дату источника и ссылку. Если информация не найдена в сети бот честно говорит об этом, а не выдумывает.",
+   "features": [
+    "Автоматический веб-поиск к каждому запросу с датой источника",
+    "Подсветка фрагментов, основанных на найденных данных, отдельно от рассуждений модели",
+    "Режим «только из сети» никаких ответов из весов модели",
+    "Тематические подборки: технологии, медицина, финансы с преднастроенными источниками",
+    "Уведомление, если по теме за последние 24 часа появились важные новости"
+   ],
+   "antiFeatures": [
+    "Без режима «поговори со мной» без источников",
+    "Без ролевых персонажей",
+    "Без генерации изображений"
+   ],
+   "monetization": "Подписка 8.99 в месяц: неограниченные запросы с поиском, приоритетные источники, экспорт в PDF. Бесплатно 20 запросов в день. Аудитория: журналисты, аналитики, студенты, люди, принимающие серьёзные решения."
+  }
+ },
+ {
+  "slug": "ai-chatbot-7",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Нарративный ролевой движок для писателей",
+  "oneLiner": "ИИ-партнёр по совместному написанию историй, который держит характер персонажа и не выходит из роли даже в длинных сессиях.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 65
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have been using the app for about three years now. I pay for the upgraded services so I don't have to deal with the delays and restrictions. However the last two to three updates they have made to the bots has made the conversations less fluent, memory of the bots worse, and a lot of the storytelling goes down.",
+    "rating": 3,
+    "app": "Character AI: Chat, Talk, Text"
+   },
+   {
+    "quote": "Does not respond to the way the characters and stories are laid out. Does not follow the direction of the story. When you correct it the AI wants to argue back.",
+    "rating": 1,
+    "app": "Flipped:Chat with AI Character"
+   },
+   {
+    "quote": "its alright i kinda have to teach it how to write a story which is something i shouldn't have to do",
+    "rating": 3,
+    "app": "Chat Smith: AI Chatbot & Agent"
+   },
+   {
+    "quote": "As each new model gets released it is significantly WORSE than the last in terms of writing capabilities. If I have to specify that the current gpt write as the old one and have to baby it in terms of being overly complex in directions just to get a scene that is soulful instead of a summary or flat.",
+    "rating": 2,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "I came back to this app after awhile, at first, it was really really good when I returned, now, the bots keep repeating the same phrase every time I say something.",
+    "rating": 2,
+    "app": "Character AI: Chat, Talk, Text"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Персонаж выходит из роли и игнорирует сюжет",
+    "obsCount": 30,
+    "apps": [
+     "Flipped:Chat with AI Character",
+     "Kindroid: Your Personal AI",
+     "Character AI: Chat, Talk, Text"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Деградация качества нарратива после обновлений модели",
+    "obsCount": 40,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Talkie Lab - AI Playground",
+     "ChatGPT"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Повторяемость фраз и зацикливание",
+    "obsCount": 35,
+    "apps": [
+     "Character AI: Chat, Talk, Text",
+     "Grok - AI Chat & Video",
+     "CHAI: Social AI Platform- Chat"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все существующие ролевые платформы строятся на массовых персонажах из аниме и поп-культуры. Нет инструмента для авторов, которые хотят строить собственный нарратив с контролем над тоном, темпом и канонами мира.",
+  "idea": {
+   "pitch": "Инструмент совместного написания для авторов-одиночек: задаёшь мир, правила, персонажей с детальными карточками и пишешь сцены вместе с моделью. Бот придерживается твоего канона, отслеживает противоречия и предупреждает, если персонаж ведёт себя вне своего характера.",
+   "features": [
+    "Карточки персонажей и мира структурированный канон вне контекстного окна",
+    "Детектор выхода из роли: предупреждение, если ответ противоречит карточке",
+    "Сцены как отдельные документы с версионированием",
+    "Режим «только продолжение» бот пишет следующий абзац в твоём стиле",
+    "Экспорт в Markdown / Scrivener"
+   ],
+   "antiFeatures": [
+    "Без готовых публичных персонажей",
+    "Без социальной ленты и лайков",
+    "Без игровых механик монетизации через рекламу"
+   ],
+   "monetization": "Подписка 9.99 в месяц: неограниченные сцены, расширенный канон, версионирование. Бесплатно до 3 проектов и 50 сцен. Аудитория: fanfic-авторы, сценаристы, DnD-мастера."
+  }
+ },
+ {
+  "slug": "ai-chatbot-8",
+  "category": "ai-chatbot",
+  "categoryName": "ИИ-ассистенты",
+  "title": "Профессиональный ИИ для риелторов и агентов",
+  "oneLiner": "Вертикальный ассистент для агентов по недвижимости: шаблоны, скрипты, разбор объектов всё в контексте профессии.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 57,
+   "reviews": 22227,
+   "observations": 15
+  },
+  "reviewGrid": [
+   {
+    "quote": "As a realtor , I reference Chat a lot , this has been a huge help",
+    "rating": 4,
+    "app": "Super AI Chat - AI Chatbot"
+   },
+   {
+    "quote": "ChatGPT has literally replaced google, & any other website I'd go to for information.. I also use it for so many other reasons, to help with autism things, help me rearrange my home, meal plan's & grocery lists … just everything..",
+    "rating": 5,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "Helps me with teaching all the time saves me lots of time",
+    "rating": 5,
+    "app": "Microsoft 365 Copilot"
+   },
+   {
+    "quote": "It has been helpful when writing reports for work. I'm also planning a move alone to another state. I don't feel so overwhelmed thanks to Microsoft co pilot",
+    "rating": 5,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "ChatGPT waste so much of our time and our money rendering things that we don't ask for and then spending hours explaining over and over again why it won't work even though they promised that they'll get it done",
+    "rating": 1,
+    "app": "ChatGPT"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Общие ассистенты используются для профессиональных задач",
+    "obsCount": 12,
+    "apps": [
+     "Super AI Chat - AI Chatbot",
+     "Microsoft 365 Copilot",
+     "ChatGPT"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Требование пересобирать контекст каждый раз",
+    "obsCount": 8,
+    "apps": [
+     "ChatGPT",
+     "Claude by Anthropic"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ChatGPT используется риелторами как универсальный инструмент, но им нужно каждый раз объяснять профессиональный контекст с нуля. Нет вертикального ИИ с готовыми шаблонами объявлений, скриптами звонков, калькуляторами ипотеки и базой знаний по местному рынку.",
+  "idea": {
+   "pitch": "Мобильный ИИ-помощник для агентов по недвижимости: знает терминологию, умеет генерировать объявления о продаже по фото и характеристикам объекта, помогает готовиться к показам и переговорам. Агент настраивает профиль один раз рынок, тип объектов, тон общения и ассистент работает в этом контексте постоянно.",
+   "features": [
+    "Генерация объявлений по фото и параметрам объекта",
+    "Скрипты звонков и переговоров с возможностью адаптации под клиента",
+    "Калькулятор ипотеки и расчёт рентабельности встроенно в чат",
+    "База шаблонов документов: договор просмотра, оффер, отказ",
+    "Голосовые заметки с объектов транскрибируются и структурируются автоматически"
+   ],
+   "antiFeatures": [
+    "Без CRM и управления сделками",
+    "Без публичной ленты объявлений",
+    "Без обучающего курса по профессии"
+   ],
+   "monetization": "Подписка 19.99 в месяц ниже стоимости одного потраченного часа агента. Продажа через профессиональные ассоциации риелторов и брокерские сети. Аудитория платит за инструменты, которые экономят время на рутине."
+  }
  }
 ]
