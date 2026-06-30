@@ -74,15 +74,15 @@ function firstSentence(t?: string) {
 }
 
 // Small colourful section pill (All ideas / People's rating).
-function NavPill({ href, label, gradient }: { href: string; label: string; gradient: string }) {
+function NavPill({ href, label, accent }: { href: string; label: string; accent: string }) {
   return (
     <Link
       href={href}
-      style={{ backgroundImage: gradient }}
-      className="group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout text-white shadow-[0_8px_24px_-10px_rgba(0,0,0,0.7)] transition-transform duration-200 hover:-translate-y-0.5"
+      style={{ ["--ec" as string]: accent }}
+      className="edge-glow group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-[var(--color-border-subtle)] px-5 py-2.5 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
     >
       {label}
-      <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </Link>
   );
 }
@@ -93,7 +93,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))]"
+      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[hsl(var(--atmo-h,28)_24%_12%_/_0.5)] p-6 transition-colors duration-200 hover:bg-[hsl(var(--atmo-h,28)_26%_16%_/_0.62)]"
     >
       <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
       {icons.length > 0 && (
@@ -263,8 +263,8 @@ export default function Landing({
 
       {/* Small section pills, then every niche with a full dossier. */}
       <div className="mx-auto mt-7 flex w-full max-w-5xl flex-wrap justify-center gap-2.5 px-4">
-        <NavPill href="/ideas" label={ru ? "Все идеи" : "All ideas"} gradient="linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)" />
-        <NavPill href="/rating" label={ru ? "Народный рейтинг" : "People's rating"} gradient="linear-gradient(135deg, #0ea5e9 0%, #10b981 100%)" />
+        <NavPill href="/ideas" label={ru ? "Все идеи" : "All ideas"} accent="#c026d3" />
+        <NavPill href="/rating" label={ru ? "Народный рейтинг" : "People's rating"} accent="#10b981" />
       </div>
       <div className="mx-auto mt-7 w-full max-w-5xl px-4 sm:mt-9">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
