@@ -1,17 +1,19 @@
-import ultra from "@/data/ultraCategories.json";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
 
-// "Ultra" = a category whose breakdown, ideas and per-app teardown were rebuilt
-// on the full 100-app people's-rating dataset (the highest quality tier).
-const ULTRA = new Set(ultra as string[]);
+// "Ultra" = a niche whose breakdown, ideas and per-app teardown were rebuilt on
+// the full ~100-app people's-rating dataset (the highest quality tier). This is
+// the ONE canonical set — the homepage cards, the /ideas feed and the /rating
+// list all derive from it, so the three surfaces always match.
+const ULTRA = new Set(Object.keys(RATING_BY_SLUG));
 
 export function isUltra(slug: string): boolean {
   return ULTRA.has(slug);
 }
 
-// Categories that have a published people's rating page (/rating/<slug>).
-export const PEOPLES_RATING_SLUGS = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks"] as const;
-const RATED = new Set<string>(PEOPLES_RATING_SLUGS);
+// Every ULTRA niche has a published people's-rating page (/rating/<slug>), since
+// the rating dataset is exactly what defines the tier.
+export const PEOPLES_RATING_SLUGS = Object.keys(RATING_BY_SLUG);
 
 export function hasPeoplesRating(slug: string): boolean {
-  return RATED.has(slug);
+  return ULTRA.has(slug);
 }

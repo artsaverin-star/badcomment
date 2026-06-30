@@ -41,12 +41,13 @@ export type Idea = {
 
 const ideas = ideasData as Idea[];
 
-// An idea is publishable only while its category's synthesis is published —
-// the synthesis gate (10 balanced разборы × 500 reviews each) is the single
-// source of truth for "this category's data is complete". If a synthesis is
-// withheld, the idea derived from the same data is withheld with it.
-import segmentInsights from "@/data/segment-insights.json";
-const PUBLISHED_CATEGORIES = new Set(Object.keys(segmentInsights as Record<string, unknown>));
+// Single source of truth for "this niche is published": the ULTRA tier — the 29
+// niches rebuilt on the full people's-rating dataset (rating + dossier + ideas).
+// The homepage, the /rating list and these ideas all key off the same set, so
+// the three surfaces always show the exact same niches. Legacy slugs (older
+// pre-ULTRA twins) are retired everywhere by virtue of not being in this set.
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
+const PUBLISHED_CATEGORIES = new Set(Object.keys(RATING_BY_SLUG));
 
 export function listIdeas(): Idea[] {
   // Best ideas first (critic score), then by validated demand.
