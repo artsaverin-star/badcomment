@@ -180,7 +180,8 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
       </div>
       {!locked && open && (
         <Modal onClose={() => setOpen(null)}>
-          <h3 className="text-headline text-[var(--color-text-primary)]">{open.title}</h3>
+          <Icon name={open.icon} className="size-9 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
+          <h3 className="mt-3 text-headline text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
           {open.pitch && <Sec k={ru ? "Что это" : "What it is"}>{open.pitch}</Sec>}
