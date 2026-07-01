@@ -59,6 +59,7 @@ const NICHES = [
   { slug: "wallpapers-widgets", name: "Обои и виджеты", nameEn: "Wallpapers & widgets", blurb: "Где виджеты работают и контент свежий, а где реклама на каждый тап и накрутка." },
   { slug: "water-hydration", name: "Трекеры воды", nameEn: "Water & hydration", blurb: "Где напоминание не глохнет и отметка в один тап, а где реклама и накрутка." },
   { slug: "pet-care", name: "Уход за питомцами", nameEn: "Pet care", blurb: "Где лог здоровья и напоминания о лекарствах надёжны, а где куцые ветзаписи и сломанный семейный синк." },
+  { slug: "password-manager", name: "Менеджеры паролей", nameEn: "Password managers", blurb: "47 приложений: где перенос на новый телефон и автозаполнение надёжны, а где скам-аутентификаторы и накрутка." },
 ];
 
 export default async function RatingIndexPage() {

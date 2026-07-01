@@ -50041,5 +50041,501 @@
    ],
    "monetization": "Бесплатно: 1 устройство, данные за 30 дней. Подписка 149 руб/мес: несколько устройств, безлимитная история, экспорт в CSV для ветеринара."
   }
+ },
+ {
+  "slug": "password-manager-1",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Мигратор паролей из проблемных хранилищ",
+  "oneLiner": "Инструмент для пользователей, застрявших в 1Password, LastPass или Keeper, который помогает выгрузить данные и перейти в открытый формат за один вечер",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 84
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have used this one for years and have tried to switch because their price keeps going up and up now it's 50 bucks a year. Seems crazy for a password keeper. They make it virtually impossible to switch. Don't get started.",
+    "rating": 2,
+    "app": "Keeper Password Manager"
+   },
+   {
+    "quote": "The only reason I keep using this trash is momentum, migration out of this ecosystem is unavailable.",
+    "rating": 2,
+    "app": "Keeper Password Manager"
+   },
+   {
+    "quote": "I bought 1Password 7 years ago (one-time license) and was a happy user. Then the company pushed everyone toward the subscription model. On renewal, the price jumped from $0 to $36 per year.",
+    "rating": 2,
+    "app": "1Password: Password Manager"
+   },
+   {
+    "quote": "Used changed phones and it was absolutely impossible to transfer my info over. Cancelled membership. Thank goodness I have Apple's password keeper, too. Pass on this one folks.",
+    "rating": 3,
+    "app": "Dashlane Password Manager"
+   },
+   {
+    "quote": "You cannot export PWs other than to proprietary so x format, so once you use OneSafe, you are stuck with it. In my case I want to move to Apple Passwords, and it looks like I have to do it manually for 370 passwords.",
+    "rating": 1,
+    "app": "oneSafe+ password manager"
+   }
+  ],
+  "mechanisms": [
+   "Платные менеджеры намеренно усложняют экспорт, чтобы удержать пользователя",
+   "CSV-файлы из разных хранилищ несовместимы между собой по колонкам",
+   "Пользователь боится потерять данные при ручном переносе и остаётся в плохом продукте"
+  ],
+  "gap": "Ни один из крупных менеджеров не делает процедуру экспорта удобной: форматы несовместимы, поля разные, данные теряются. Пользователь хотел бы уйти, но не уходит из-за трения переноса, а не из-за ценности продукта.",
+  "idea": {
+   "pitch": "Десктопное или веб-приложение с одной задачей: принять CSV или проприетарный экспорт из 1Password, LastPass, Keeper, Dashlane, mSecure и нормализовать его в Bitwarden JSON или KeePass KDBX. Целевой пользователь платит за подписку, которую хочет отменить, но боится потерять 200-500 паролей при переносе.",
+   "features": [
+    "Поддержка импорта из 10 популярных форматов: CSV 1Password, LastPass, Keeper, Dashlane, mSecure, RoboForm, Enpass, SafeInCloud, oneSafe, NordPass",
+    "Экспорт в три открытых формата: Bitwarden JSON, KeePass KDBX, Apple Passwords CSV",
+    "Предпросмотр всех записей перед экспортом с подсветкой пустых или конфликтующих полей",
+    "Дедупликация: если один логин записан дважды с разным паролем, программа помечает это и просит выбрать",
+    "Полностью офлайн: файл обрабатывается локально, никаких серверов"
+   ],
+   "antiFeatures": [
+    "Не превращаться в ещё один менеджер паролей: только импорт и экспорт, без хранилища",
+    "Не требовать подписку для базового переноса",
+    "Не добавлять синхронизацию или облако"
+   ],
+   "monetization": "Разовая оплата 7-12 долларов за полную версию без ограничений. Бесплатно первые 50 записей, чтобы пользователь убедился в качестве до оплаты. Аудитория уже платит 40-90 долларов в год за менеджер, от которого хочет уйти."
+  }
+ },
+ {
+  "slug": "password-manager-2",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "KeePass-клиент с нормальным автозаполнением",
+  "oneLiner": "iOS-приложение для KeePass-базы с автозаполнением, которое реально работает в банковских приложениях, а не только на сайтах",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 67
+  },
+  "reviewGrid": [
+   {
+    "quote": "The autofill feature is clunky and spotty at best. Sometimes it works, sometimes it doesn't. Biggest complaint, otherwise it's a decent app.",
+    "rating": 3,
+    "app": "KeePassium (KeePass passwords)"
+   },
+   {
+    "quote": "I need to autofill a password into my banking app to add payees and this app will not do it. Sometimes it works after a couple tries. It doesn't give me the option to manually copy and paste myself.",
+    "rating": 1,
+    "app": "KeePassium (KeePass passwords)"
+   },
+   {
+    "quote": "I was so disappointed when Strongbox DEV turned out to be a sellout to the highest bidder. Leaving users desperately searching for a new alternative that would value your privacy.",
+    "rating": 4,
+    "app": "KeePassium (KeePass passwords)"
+   },
+   {
+    "quote": "Great password manager. I switched from 1Password and have no regrets. I love the wifi sync system and the ability to export to an open standard format.",
+    "rating": 5,
+    "app": "Strongbox - Password Manager"
+   },
+   {
+    "quote": "I appreciate the commitment to privacy, I really do. And the app is beautiful. But it just doesn't work well. It constantly can't find the database file, even though nothing has changed. If it does find it, it takes upwards of ten to twenty seconds to load it.",
+    "rating": 2,
+    "app": "KeePassium (KeePass passwords)"
+   }
+  ],
+  "mechanisms": [
+   "KeePass-формат не привязан к вендору, пользователь сам владеет базой",
+   "Автозаполнение iOS ASExtension работает только с сайтами, в нативных приложениях часто нет",
+   "Пользователи KeePass технически грамотны и платят за надёжность, а не за красивый интерфейс"
+  ],
+  "gap": "KeePass-клиенты на iOS предлагают офлайн-хранилище, но автозаполнение в банковских и корпоративных приложениях работает нестабильно. Механизм обхода через буфер обмена с автоочисткой есть, но он неудобен. Технически грамотные пользователи готовы платить за клиент, где это работает надёжно.",
+  "idea": {
+   "pitch": "iOS-приложение для KeePass KDBX-файлов с приоритетом на надёжное автозаполнение: поддержка ASCredentialProviderExtension с корректной обработкой нативных приложений, быстрая разблокировка через Face ID и автоочистка буфера через 20 секунд как запасной путь. База хранится там, где хочет пользователь: iCloud Drive, Dropbox или локально.",
+   "features": [
+    "Автозаполнение в нативных iOS-приложениях через extensionpoint с fallback-кнопкой копирования",
+    "Автоочистка буфера обмена через настраиваемый таймаут (10-60 сек)",
+    "Открытие базы из iCloud Drive, Dropbox, WebDAV или по локальной Wi-Fi-синхронизации",
+    "Face ID разблокировка без ввода мастер-пароля для повседневного использования",
+    "Подсветка записей, для которых домен в базе не совпадает с открытым приложением, чтобы не вставить не тот пароль"
+   ],
+   "antiFeatures": [
+    "Не хранить пароли на собственных серверах",
+    "Не добавлять проприетарный формат базы поверх KDBX",
+    "Не требовать подписку за базовые функции открытия и автозаполнения"
+   ],
+   "monetization": "Одноразовая покупка за 12-15 долларов или $25 lifetime без подписки. Аудитория уже платила за 1Password и Strongbox и предпочитает разовую оплату. Можно добавить опциональную подписку за облачные функции типа синхронизации истории."
+  }
+ },
+ {
+  "slug": "password-manager-3",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "2FA-аутентификатор с надёжным переносом на новый телефон",
+  "oneLiner": "TOTP-приложение, которое не теряет коды при смене устройства и не превращает переход на новый телефон в пятичасовой квест",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 112
+  },
+  "reviewGrid": [
+   {
+    "quote": "Your app makes it impossible for me to retrieve my accounts after a phone upgrade.",
+    "rating": 1,
+    "app": "Google Authenticator"
+   },
+   {
+    "quote": "Moving from old phone to new phone isn't just a task, it is a full time job. Last pass has turned 2 factor authentication into 5 factor authentication when you include the need to log into my account on the PC in addition to the authenticator and the LP app on both phones.",
+    "rating": 2,
+    "app": "LastPass Authenticator"
+   },
+   {
+    "quote": "Every time I get a new phone, getting my accounts set back up is a nightmare. It wont let you delete and re-add an account. It tries to have you sign in but then it asks for an Authenticator code to complete the sign in process.",
+    "rating": 1,
+    "app": "Microsoft Authenticator"
+   },
+   {
+    "quote": "Bought a new phone and used iCloud to sync the new phone. UI erased all 2FA accounts and now I'm locked out of everything that used the Verify app!!!",
+    "rating": 1,
+    "app": "UniFi Verify"
+   },
+   {
+    "quote": "Just all my codes that I just entered disappeared",
+    "rating": 1,
+    "app": "LastPass Authenticator"
+   }
+  ],
+  "mechanisms": [
+   "TOTP-коды хранятся только на устройстве без автоматического бэкапа",
+   "При смене телефона без старого устройства под рукой пользователь теряет доступ ко всем аккаунтам с 2FA",
+   "Аутентификаторы крупных вендоров привязаны к их экосистеме и не дают независимый экспорт"
+  ],
+  "gap": "Потеря TOTP-кодов при смене телефона задокументирована сотнями отзывов во всех популярных аутентификаторах. Механизм переноса либо привязан к старому устройству, либо зависит от облака конкретного вендора. Нет аутентификатора, где бэкап TOTP-секретов работает надёжно и независимо.",
+  "idea": {
+   "pitch": "TOTP-аутентификатор без хранения логинов, где перенос на новый телефон занимает 2 минуты: зашифрованный бэкап TOTP-секретов в iCloud или Dropbox с ключом, который пользователь контролирует сам. Приложение не управляет паролями и не конкурирует с менеджерами паролей, только TOTP-коды.",
+   "features": [
+    "Зашифрованный бэкап TOTP-секретов в iCloud Drive или Dropbox с пользовательским ключом",
+    "Восстановление базы без старого устройства: только файл бэкапа и мастер-ключ",
+    "QR-экспорт каждого TOTP-секрета для сохранения в другом месте",
+    "Папки и метки для организации кодов по сервисам",
+    "Apple Watch: показ активных кодов с обратным отсчётом прямо на запястье"
+   ],
+   "antiFeatures": [
+    "Не держать TOTP-секреты на собственных серверах компании",
+    "Не добавлять хранение паролей, чтобы не конкурировать с менеджерами",
+    "Не требовать подписку для основного функционала переноса"
+   ],
+   "monetization": "Разовая покупка 5-8 долларов или бесплатно до 10 аккаунтов. Пользователи, которые уже сталкивались с потерей 2FA-кодов, готовы платить за надёжность. Дополнительный доход через подписку за Apple Watch-расширение и приоритетную поддержку."
+  }
+ },
+ {
+  "slug": "password-manager-4",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Семейный сейф с реальным разделением доступа",
+  "oneLiner": "Совместное хранилище для семьи из 2-5 человек, где у каждого свой раздел и общий раздел, и никто не видит пароли других без разрешения",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 43
+  },
+  "reviewGrid": [
+   {
+    "quote": "Been using DashLane for 6 years now with 5 family members all using it as well. It seamlessly updates my passwords no matter what platform I'm using. My parents are getting older and sharing passwords and having them on the same platform as me makes things so much easier.",
+    "rating": 4,
+    "app": "Dashlane Password Manager"
+   },
+   {
+    "quote": "I store everything in my Keeper. With five kids and a mother who can't remember any passwords, I have every piece of data in my hand at all times.",
+    "rating": 4,
+    "app": "Keeper Password Manager"
+   },
+   {
+    "quote": "This is one of the most important apps I have ever owned. If something ever happened to me I have given my son complete access to be able to handle all my accounts.",
+    "rating": 5,
+    "app": "LastPass Password Manager"
+   },
+   {
+    "quote": "How do I export the sites and passwords to another secure password app so my family can access if I die?",
+    "rating": 1,
+    "app": "Passwords"
+   },
+   {
+    "quote": "I love being able to manage and share passwords between family members. This is a great service.",
+    "rating": 4,
+    "app": "Proton Pass - Password Manager"
+   }
+  ],
+  "mechanisms": [
+   "Семейные планы у крупных менеджеров стоят 40-75 долларов в год и растут каждые 1-2 года",
+   "Пользователи хотят завещать доступ к аккаунтам на случай смерти, но механизм не реализован нигде удобно",
+   "Общий доступ к хранилищу часто означает видимость всех паролей всех членов семьи"
+  ],
+  "gap": "Семейные планы у 1Password, LastPass и Keeper работают как единое хранилище без гранулированных прав. Члены семьи либо видят всё, либо не видят ничего. Механизма цифрового наследования нет ни у кого в удобном виде.",
+  "idea": {
+   "pitch": "Семейный менеджер паролей для 2-5 человек с двумя разделами у каждого: личный (виден только ему) и общий (например, стриминг-сервисы и коммунальные аккаунты). Отдельная функция: «конверт наследника» зашифрованный список аккаунтов, который открывается при подтверждении двумя членами семьи.",
+   "features": [
+    "Личный раздел и общий раздел для каждого участника, видимость настраивается отдельно",
+    "Приглашение по email без необходимости создавать учётную запись той же компании",
+    "Конверт наследника: список аккаунтов с инструкциями, который открывается при подтверждении двумя людьми из списка доверенных",
+    "Общий раздел для паролей Netflix, ЖКХ, банков без доступа к личным записям",
+    "Экспорт всего хранилища в зашифрованный PDF для хранения на флешке"
+   ],
+   "antiFeatures": [
+    "Без навязчивых апгрейдов внутри потока добавления записи",
+    "Без единого мастер-аккаунта, к которому все привязаны через одну точку отказа",
+    "Без ценообразования на человека: фиксированная цена за семью из 2-5 человек"
+   ],
+   "monetization": "Подписка 5-7 долларов в месяц за семью до 5 человек, без деления на количество участников. Разовая пожизненная лицензия за 50-60 долларов. Аудитория уже платит больше за 1Password Family или Keeper Family."
+  }
+ },
+ {
+  "slug": "password-manager-5",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Аудит утечек с конкретными шагами",
+  "oneLiner": "Проверка всего хранилища паролей на утечки и чёткий список: что менять, в каком порядке, с объяснением почему",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 38
+  },
+  "reviewGrid": [
+   {
+    "quote": "I was notified that 3 of my passwords were comprised in a data leak!",
+    "rating": 2,
+    "app": "Passwords"
+   },
+   {
+    "quote": "Where is the support for passkeys? Been a long time user, but may have to switch for this reason alone.",
+    "rating": 3,
+    "app": "Norton Password Manager"
+   },
+   {
+    "quote": "Someone accessed my account from another country. There was no way for me to reject their request to log in. They have access to my bank account information and sensitive data.",
+    "rating": 1,
+    "app": "Dashlane Password Manager"
+   },
+   {
+    "quote": "All my passwords are in the cloud. If my ISP fails, I have no access to my passwords. It used to be I could download a comma delineated text file of all my logins just for this very reason.",
+    "rating": 1,
+    "app": "Dashlane Password Manager"
+   },
+   {
+    "quote": "It doesn't make sense you would charge to use a feature so common such as 2FA.",
+    "rating": 2,
+    "app": "Bitwarden Password Manager"
+   }
+  ],
+  "mechanisms": [
+   "Уведомления об утечках есть у Apple Passwords и Dashlane, но они не говорят что делать дальше",
+   "Пользователи знают что их пароли утекли, но не понимают приоритет: что менять первым",
+   "Аккаунты без 2FA после утечки остаются уязвимыми, даже если пароль поменяли"
+  ],
+  "gap": "Инструменты проверки утечек показывают список аккаунтов, но не приоритизируют их и не объясняют следующий шаг. Пользователь видит 47 совпадений и закрывает вкладку, потому что не знает с чего начать.",
+  "idea": {
+   "pitch": "Утилита аудита безопасности: принимает CSV из любого менеджера паролей, проверяет хэши паролей через Have I Been Pwned API офлайн-методом (k-anonymity), сортирует результаты по критичности аккаунта и выдаёт пронумерованный список из 5-10 приоритетных замен с прямыми ссылками на страницу смены пароля.",
+   "features": [
+    "Офлайн-проверка паролей через k-anonymity без передачи хэшей целиком",
+    "Приоритизация по типу аккаунта: банки и email сверху, развлечения внизу",
+    "Детектор повторяющихся паролей с картой, где один пароль используется на нескольких сайтах",
+    "Прямые ссылки на страницу смены пароля для 100 популярных сервисов",
+    "Отчёт до и после: счёт безопасности растёт при каждом исправленном аккаунте"
+   ],
+   "antiFeatures": [
+    "Не хранить пароли после закрытия сессии: только анализ, без постоянного хранилища",
+    "Не пугать запросами покупки подписки в середине проверки",
+    "Не требовать регистрации аккаунта"
+   ],
+   "monetization": "Разовая оплата 8-10 долларов за полный аудит. Бесплатно первые 20 записей. Целевой пользователь: тот, кто уже встречал уведомление об утечке и хочет разобраться, но не знает с чего начать. Платит один раз, как за услугу, а не за подписку."
+  }
+ },
+ {
+  "slug": "password-manager-6",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Локальный менеджер паролей с нормальной синхронизацией через собственный облачный аккаунт",
+  "oneLiner": "Хранилище паролей, которое лежит в вашем Dropbox или iCloud, а не на серверах компании, но при этом синхронизация работает с первого раза",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 89
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've been using Enpass for years. If I didn't need it on my iPad, I'd be happy with it. However, I've yet to find a reliable way to update my iPad with my Mac after making changes to either. To sync, I must delete the app from my iPad, then reinstall.",
+    "rating": 3,
+    "app": "Enpass Password Manager"
+   },
+   {
+    "quote": "This is such a great App. I switched from 1Password and have no regrets. I love the wifi sync system and the ability to export to an open standard format.",
+    "rating": 5,
+    "app": "Strongbox - Password Manager"
+   },
+   {
+    "quote": "Nice app works well with my iPhone, make sure you have a cloud to back up to.",
+    "rating": 5,
+    "app": "SafeInCloud 1"
+   },
+   {
+    "quote": "I've used aWallet Cloud as my password keeper for over 5 years. I love the simplicity and reliability of the app.",
+    "rating": 5,
+    "app": "aWallet Cloud Password Manager"
+   },
+   {
+    "quote": "Information lost due to an error uploading/downloading from cloud Google Drive. Synchronization error: The operation couldn't be completed. (com.google.HTTPStatus error 404.)",
+    "rating": 2,
+    "app": "aWallet Cloud Password Manager"
+   }
+  ],
+  "mechanisms": [
+   "Пользователи хотят контролировать место хранения данных, но при этом не возиться с синхронизацией вручную",
+   "Хранилище в Dropbox или iCloud честный компромисс: данные не у вендора, но синк работает",
+   "Когда синхронизация через облако пользователя ломается, поддержки нет: вендор говорит это не наш сервер"
+  ],
+  "gap": "Менеджеры с пользовательским облаком (Enpass, aWallet, SafeInCloud) предлагают правильную модель хранения, но синхронизация ломается при каждом крупном обновлении iOS или смене устройства. Пользователь хочет контролировать данные, но не хочет тратить вечер на восстановление синка.",
+  "idea": {
+   "pitch": "Менеджер паролей, где файл базы хранится в iCloud Drive, Dropbox или WebDAV самого пользователя, а синхронизация работает через нативный File Provider API iOS без кастомных хаков. Приложение никогда не хранит мастер-пароль и не может видеть данные пользователя. Целевой пользователь: технически грамотный, уже использовал Enpass или Strongbox, устал от сломанной синхронизации.",
+   "features": [
+    "Нативный File Provider API: база хранится в iCloud Drive или Dropbox как обычный файл",
+    "Диагностика синхронизации в один клик: приложение само проверяет актуальность файла и показывает когда последний раз синхронизировалось",
+    "Конфликт-резолюция: если файл изменён на двух устройствах одновременно, приложение показывает diff и предлагает выбрать",
+    "Автозаполнение через iOS Autofill с Face ID разблокировкой",
+    "Поддержка TOTP прямо в записи, без отдельного аутентификатора"
+   ],
+   "antiFeatures": [
+    "Не хранить копию базы на собственных серверах вендора ни при каких условиях",
+    "Не требовать собственный облачный аккаунт как обязательный вариант синхронизации",
+    "Не ломать синхронизацию при обновлении iOS без тестирования на бета-версиях"
+   ],
+   "monetization": "Пожизненная лицензия за 20-25 долларов. Бесплатный режим с ограничением 50 записей. Аудитория технически грамотная и уже платила за Enpass или Strongbox: они платят один раз и хотят получить надёжность."
+  }
+ },
+ {
+  "slug": "password-manager-7",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Passkey-ориентированный менеджер без хранения паролей",
+  "oneLiner": "Приложение для тех, кто переходит на passkeys и хочет хранить их независимо от iCloud Keychain, с удобным управлением какие сервисы уже поддерживают passkeys",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 29
+  },
+  "reviewGrid": [
+   {
+    "quote": "Awesome app. Downloaded the Mac version after using the iOS version. Basically, this is the only way I've found if you want an offline-only way of generating passkeys on iOS, and one of the few ways I've found that you can do this on macOS.",
+    "rating": 5,
+    "app": "KeePassium (KeePass passwords)"
+   },
+   {
+    "quote": "It's such a massive feature gap to not have support for Passkeys on macOS.",
+    "rating": 3,
+    "app": "Proton Pass - Password Manager"
+   },
+   {
+    "quote": "I upgraded to this version from the old safe in cloud password manager because of the passkey support. The web links on this version can take up the entire page, it looks awful.",
+    "rating": 3,
+    "app": "Password Manager: Safe"
+   },
+   {
+    "quote": "Works without passkey support on MacOS and Windows browser extension. It leaves me to shy away from recommending to others.",
+    "rating": 3,
+    "app": "Password Manager: Safe"
+   },
+   {
+    "quote": "I've been using Strongbox on my Mac and iPhone for years! It just works with no problem. I originally picked Strongbox because it used open source password formats so I wouldn't be locked in if I didn't like it.",
+    "rating": 5,
+    "app": "Strongbox - Password Manager"
+   }
+  ],
+  "mechanisms": [
+   "Passkeys хранятся в iCloud Keychain по умолчанию, без возможности использовать сторонний вендор без рут-доступа",
+   "Пользователи не знают, какие из их сервисов уже поддерживают passkeys и когда стоит переходить",
+   "При смене экосистемы (iOS на Android) passkeys из iCloud не переносятся"
+  ],
+  "gap": "Passkey-поддержка в сторонних менеджерах появилась, но интерфейс для управления ими добавлен как afterthought. Нет приложения, где пользователь видит список своих сервисов с индикатором: этот уже поддерживает passkeys, этот нет, вот ссылка для перехода.",
+  "idea": {
+   "pitch": "Приложение для управления passkeys с акцентом на переход: при добавлении аккаунта приложение проверяет, поддерживает ли сервис passkeys, и показывает прямую ссылку на настройки безопасности аккаунта для создания passkey. Хранит passkeys через iOS Credential Provider Extension независимо от iCloud Keychain.",
+   "features": [
+    "iOS Credential Provider Extension: passkeys хранятся в приложении, не в iCloud Keychain",
+    "База поддерживаемых сервисов: 500 популярных сайтов с флагом passkey support и прямой ссылкой",
+    "Индикатор прогресса перехода: сколько из ваших аккаунтов уже на passkeys",
+    "Экспорт passkeys в стандартный формат для переноса на другое устройство или платформу",
+    "Поддержка TOTP как запасной метод для сервисов, которые ещё не перешли"
+   ],
+   "antiFeatures": [
+    "Не превращаться в ещё один полный менеджер паролей с классическими паролями",
+    "Не привязывать passkeys к собственному облаку вендора",
+    "Не требовать подписку для базового хранения и использования passkeys"
+   ],
+   "monetization": "Разовая покупка 10 долларов. Бесплатно первые 10 passkeys. Рынок платёжеспособный: технически грамотные пользователи Apple, уже платящие за другие инструменты безопасности. Дополнительный доход через корпоративную лицензию для небольших команд."
+  }
+ },
+ {
+  "slug": "password-manager-8",
+  "category": "password-manager",
+  "categoryName": "Менеджеры паролей",
+  "title": "Генератор паролей под конкретные правила сайта",
+  "oneLiner": "Создаёт пароль с первого раза, потому что знает требования сайта и не генерирует то, что потом не примут",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 47,
+   "reviews": 11524,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "Good place to save passwords, the feedback for them, though, is where it goes wrong. Apple generated a random password for me, but this app said that RXF345-BMA-810 would be easy to guess?!??!",
+    "rating": 2,
+    "app": "Passwords"
+   },
+   {
+    "quote": "Character strings are longer than selected number of characters. For example, if one selects a password string of 9 characters, it will produce a 15 character string.",
+    "rating": 4,
+    "app": "Cryptical"
+   },
+   {
+    "quote": "When generating a password it don't always give you every single criteria that you have selected. Especially for shorter passwords. So if you have all of the toggles selected, and a password of only 8 characters you may get a password that don't include a number or don't include a special character.",
+    "rating": 4,
+    "app": "Cryptical"
+   },
+   {
+    "quote": "I wish it had a feature that allowed user to add special characters to pass phrases and which ones they needed to add.",
+    "rating": 4,
+    "app": "Bitwarden Password Manager"
+   },
+   {
+    "quote": "When generating a passwords by batch, it won't match the assigned number of characters you chose. For instance, if I wanted to assign a batch of just 1 password with 10 characters, after counting I would count only about 8 numbers/letters.",
+    "rating": 4,
+    "app": "Cryptical"
+   }
+  ],
+  "mechanisms": [
+   "Сайты имеют уникальные правила паролей: запрет спецсимволов, максимум 16 символов, обязательные цифры в конкретных позициях",
+   "Генераторы в менеджерах паролей не учитывают правила конкретного сайта и создают пароль, который потом не принимают",
+   "Пользователь тратит время на переборку вариантов или устанавливает слабый пароль вручную"
+  ],
+  "gap": "Все генераторы паролей создают пароль по общим правилам пользователя, но не знают ограничений конкретного сайта. Банк принимает максимум 12 символов без специальных знаков, а генератор создаёт 20 символов со спецзнаками и пользователь узнаёт об этом только после ошибки при сохранении.",
+  "idea": {
+   "pitch": "Генератор паролей с базой правил для 1000 популярных сервисов: открываешь сайт, приложение подсказывает ограничения, и генерирует пароль, который гарантированно пройдёт валидацию. Для сайтов без правил в базе предлагает безопасный дефолт и позволяет вручную настроить ограничения и сохранить их на будущее.",
+   "features": [
+    "База правил паролей для 1000 популярных сервисов: максимальная длина, запрещённые символы, обязательные классы",
+    "Автоопределение текущего сайта через Share Extension и подстановка правил",
+    "Визуальный валидатор: пока правила соблюдены все показывают зелёный, нарушение подсвечивает красным",
+    "Пользовательские правила: если сайта нет в базе, сохраняешь свои ограничения вручную",
+    "Открытый вклад: пользователи отправляют правила неизвестных сайтов через форму в приложении"
+   ],
+   "antiFeatures": [
+    "Не превращаться в полный менеджер паролей: только генерация и правила",
+    "Не навязывать облачный аккаунт для работы с базой правил",
+    "Не ограничивать количество генераций за платформой"
+   ],
+   "monetization": "Бесплатно для базовой генерации без базы правил сайтов. Подписка 2-3 доллара в месяц или 15 долларов разово за доступ к базе правил и пользовательские профили сайтов. Аудитория: пользователи корпоративных систем и банков с жёсткими требованиями к паролям, которые платят за удобство."
+  }
  }
 ]

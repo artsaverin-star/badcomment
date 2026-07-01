@@ -6528,5 +6528,55 @@
     ]
    }
   ]
+ },
+ "password-manager": {
+  "governing": "The password manager market has one glaring blind spot: switching phones. Dozens of reviews across Microsoft Authenticator, Google Authenticator, Duo, LastPass Authenticator, mSecure, Passible, and oneSafe all describe the same scenario bought a new iPhone, lost everything. The paradox is that the biggest brand names (1Password, NordPass, LastPass) actually score lower than niche indie KeePass clients: aWallet earned 78 points, Strongbox and KeePassium each landed 72, while 1Password inflates a 4.6 store rating against a real text average of 2.36. The reason is simple small apps don't touch the monetization after the user has paid, and they don't break what was working. The real entry point for a builder here isn't another vault, it's solving infrastructure transitions: migrating between devices, recovering access without the master password, reliable export.",
+  "competitorRead": "The market splits into four camps. KeePass-compatible clients (Strongbox, KeePassium, aWallet, pwSafe) are technically honest with an open format, but autofill is unreliable and Android coverage is thin. Commercial cloud suites (1Password, LastPass, Keeper, Dashlane, NordPass) are convenient as long as you keep paying, but they raise prices regularly, make it hard to leave their ecosystem, and degrade the UX over time: 1Password removed the search bar from the main screen, and Keeper freezes for minutes on startup due to poor optimization. Authenticators (Microsoft Authenticator, Google Authenticator, Duo, LastPass Authenticator) are either corporate or locked into someone else's ecosystem, and they all share one disease: transferring TOTP codes when you switch phones is either impossible or requires both devices in hand at the same time. Cheap offline vaults (mSecure, Password Manager-, Passible, iPassworder) skip subscriptions but fall apart beyond basic reading: Face ID loops endlessly, sync breaks, and support goes silent.",
+  "pillars": [
+   {
+    "title": "Vault migration when switching phones",
+    "dek": "This is the most painful scenario in the entire category. Microsoft Authenticator has a documented death loop: to sign in you need a code, to get the code you need to sign in dozens of reviews, text average 1.5. Google Authenticator wiped all codes for users before cloud sync was added. oneSafe broke backups during the version 5 to 6 upgrade. An app that solves this transition without friction no QR codes, no manual export, no old phone required addresses a real fear, not an imaginary one.",
+    "match": [
+     "device migration",
+     "transfer accounts",
+     "new phone",
+     "backup restore",
+     "iCloud sync",
+     "QR code migration",
+     "switch phone",
+     "lost my codes"
+    ]
+   },
+   {
+    "title": "Autofill in native apps",
+    "dek": "Autofill is the single reason a password manager belongs on a phone rather than in a notebook. NordPass doesn't auto-save when you change a password, Proton Pass crashes Safari when attempting to fill, and RoboForm doesn't offer to save the updated password. Bitwarden crashes when creating an entry directly through Autofill on iOS. Keeper users note that autofill is getting better but still isn't reliable. Dependable autofill isn't a feature it's table stakes. When it works half the time, a password manager becomes a liability.",
+    "match": [
+     "autofill",
+     "auto-fill",
+     "password fill",
+     "Safari extension",
+     "browser extension",
+     "iOS autofill",
+     "fill passwords",
+     "autofill not working"
+    ]
+   },
+   {
+    "title": "Biometric unlock and session model",
+    "dek": "Face ID and Touch ID have been the unlock standard for years, but the market has turned them into a monetization lever. mSecure put Face ID behind a paywall users call it outrageous. My Passwords Manager silently removed biometrics for long-time paying users. SecureSafe broke Face ID for over a year and redirected users to a browser login, which infuriated people who had been paying for years. Meanwhile NordPass and Bitwarden ask for the master password too often, destroying the whole point of biometrics. The session model how long the app stays unlocked and what it requires to re-authenticate directly determines whether a password manager feels like an assistant or a gatekeeper.",
+    "match": [
+     "Face ID",
+     "Touch ID",
+     "biometric",
+     "biometric unlock",
+     "session timeout",
+     "master password prompt",
+     "auto-lock",
+     "unlock loop",
+     "login loop",
+     "face recognition"
+    ]
+   }
+  ]
  }
 }

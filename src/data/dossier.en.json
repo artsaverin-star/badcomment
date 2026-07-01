@@ -3265,5 +3265,72 @@
    "money": "Pet care in the US is a high average-ticket market with low price sensitivity among the core audience. Owners of sick or senior animals spend thousands of dollars a year on veterinary care and see a $10-30 per month app as a rounding error. Busy couples buy smart feeders and GPS collars at $500-1,000 and stack subscriptions on top. Both groups pay readily as long as the product delivers on its promise. The peak monetization point is chronic or emergency medical care plus remote monitoring for the time-strapped.",
    "marketLead": "The market is fragmented by job-to-be-done. In training, Dogo and Puppr lead with tens of thousands of reviews, but both lost key features after monetization. In vet portals, clinic apps (PetDesk, myVCA, Thrive) dominate with hundreds of thousands of users, but none work outside their own network. In telemedicine, Airvet and Pawp have captured the audience but hit a licensing ceiling: no prescriptions, no real clinic replacement. In smart devices, Whisker (Litter-Robot) and Petlibro have tens of thousands of users with clear pain around family access. There is no clear leader covering the full pet lifecycle."
   }
+ },
+ "password-manager": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Escapees from bloated suites",
+     "job": "Get out of a manager that has raised its price three times in five years without losing hundreds of passwords in the move",
+     "payLevel": "pays readily",
+     "payNote": "They already pay $30-91 a year for 1Password, Keeper, or Dashlane and keep paying even when they're angry about price hikes. They only leave when the breaking point is finally reached. They're willing to switch for a reasonable flat fee or a one-time purchase.",
+     "servedBy": [
+      "Bitwarden Password Manager",
+      "KeePassium (KeePass passwords)",
+      "Proton Pass - Password Manager",
+      "aWallet Cloud Password Manager",
+      "Dashlane Password Manager"
+     ],
+     "gap": "A clean migration tool: one-click import from 1Password, Keeper, Dashlane, and LastPass with a completeness check. These users themselves say that manual export is the main barrier keeping them in a subscription they hate."
+    },
+    {
+     "name": "Family admin",
+     "job": "Keep the whole family's passwords in one place so the spouse, kids, and elderly parents can log into what they need without calling for help",
+     "payLevel": "pays readily",
+     "payNote": "Family plans get purchased willingly and without hesitation Keeper Family, Dashlane Family, 1Password Families. The one pain: prices climb every year while the number of seats stays the same. One 1Password user wrote about a father who died suddenly, and because of the password manager the family could sort out his accounts.",
+     "servedBy": [
+      "Keeper Password Manager",
+      "Dashlane Password Manager",
+      "1Password: Password Manager",
+      "Passwords",
+      "LastPass Password Manager"
+     ],
+     "gap": "A family plan with a fixed one-time price or a clear cost ceiling, plus a digital inheritance feature that almost every player is missing. Several reviews explicitly ask how to hand passwords to loved ones if something happens."
+    },
+    {
+     "name": "Privacy-first user",
+     "job": "Store passwords only on their own hardware, no third-party servers, preferably in an open format they can audit or move at any time",
+     "payLevel": "pays selectively",
+     "payNote": "They pay for a one-time license or a lifetime plan but draw a hard line against annual subscriptions for access to their own data. They use Bitwarden free, KeePassium, Strongbox, or Sticky Password with offline sync. They'll pay extra for self-hosted or a premium tier if it's a one-time charge.",
+     "servedBy": [
+      "Strongbox - Password Manager",
+      "KeePassium (KeePass passwords)",
+      "Bitwarden Password Manager",
+      "Sticky Password Manager & Safe",
+      "Enpass Password Manager"
+     ],
+     "gap": "A KeePass-compatible manager with a solid mobile UX, reliable autofill, and no pushy upgrade banners for users who have already paid. Strongbox and KeePassium occupy this niche but both suffer from unstable autofill and issues after the app changed ownership."
+    },
+    {
+     "name": "Post-breach reactor",
+     "job": "After an account got hacked or a breach notification arrived, finally get things in order: unique strong passwords everywhere and 2FA, tonight",
+     "payLevel": "pays selectively",
+     "payNote": "They pay impulsively right after an incident. They convert fast but choose by recommendation or ad, not by features. They're sensitive to onboarding simplicity because they want to solve the problem in one sitting. Some take the path of least resistance and go with Apple Passwords or Google.",
+     "servedBy": [
+      "Google Authenticator",
+      "Microsoft Authenticator",
+      "Passwords",
+      "Norton Password Manager",
+      "Bitwarden Password Manager"
+     ],
+     "gap": "An onboarding flow built for the breach scenario: a fast audit of existing passwords, a prioritized queue of what to change first, and built-in 2FA setup for the top 10 most important sites. Not one product in the market walks users through this coherently."
+    }
+   ],
+   "takeaway": "The paying audience in this category is well established but deeply unhappy with current providers. The hottest group is people who are already paying Keeper, 1Password, or Dashlane and are angry about annual price hikes but are afraid of losing their data in a migration. The family segment pays without negotiating but wants a fixed price and an inheritance feature. Privacy-focused users pay once and stay loyal for years as long as their settings aren't touched. A solo builder's real entry point is one of three niches: a clean importer from the top 5 managers with a completeness check, a KeePass client with a proper UX, or a family plan with one-time pricing and digital inheritance."
+  },
+  "market": {
+   "money": "There is money in this category, but it flows to mature players with multi-year user bases. The main revenue stream is subscriptions at $30-100 per person per year, family plans, and enterprise licenses. Lifetime licenses serve as an acquisition tool for smaller players. Entering as a new password manager is extremely difficult: users stick with their current provider for years even when they're frustrated, because migration is painful and the cost of a mistake is high. Bitwarden's free tier and Apple's built-in Passwords app have already eaten the bottom of the market, so a new product without a clear advantage won't build a paying base.",
+   "marketLead": "The market is moving toward passkeys, breach monitoring, and offline backup. Users who are burned out on bloated suites with annual price hikes are actively looking for simpler tools with fixed pricing, and that demand comes through louder than anything else in the reviews."
+  }
  }
 }

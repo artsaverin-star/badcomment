@@ -12878,5 +12878,165 @@
    "No schedule loss after a firmware update on the device"
   ],
   "monetization": "Free: 1 device, 30 days of data. Subscription at $3.99/month for multiple devices, unlimited history, and CSV export for the vet."
+ },
+ "password-manager-1": {
+  "categoryName": "Password managers",
+  "title": "Password migrator out of locked-down vaults",
+  "oneLiner": "A tool for users stuck in 1Password, LastPass, or Keeper that gets their data out and into an open format in a single evening",
+  "gap": "None of the major managers make export convenient: formats are incompatible, fields differ, data gets dropped. Users want to leave but don't, because of migration friction not because of product value.",
+  "pitch": "A desktop or web app with one job: accept a CSV or proprietary export from 1Password, LastPass, Keeper, Dashlane, or mSecure and normalize it into Bitwarden JSON or KeePass KDBX. The target user is paying for a subscription they want to cancel but are afraid of losing 200-500 passwords in the move.",
+  "features": [
+   "Import support for 10 popular formats: CSV from 1Password, LastPass, Keeper, Dashlane, mSecure, RoboForm, Enpass, SafeInCloud, oneSafe, and NordPass",
+   "Export to three open formats: Bitwarden JSON, KeePass KDBX, and Apple Passwords CSV",
+   "Preview all entries before export with highlights for empty or conflicting fields",
+   "Deduplication: if the same login appears twice with different passwords, the app flags it and asks which one to keep",
+   "Fully offline: files are processed locally, no servers involved"
+  ],
+  "antiFeatures": [
+   "Don't become another password manager import and export only, no vault",
+   "Don't require a subscription for a basic migration",
+   "Don't add sync or cloud storage"
+  ],
+  "monetization": "One-time payment of $7-12 for the full version with no limits. Free for the first 50 entries so users can verify quality before paying. The audience already pays $40-90 a year for a manager they want to leave."
+ },
+ "password-manager-2": {
+  "categoryName": "Password managers",
+  "title": "KeePass client with autofill that actually works",
+  "oneLiner": "An iOS app for KeePass databases with autofill that works in banking apps, not just websites",
+  "gap": "KeePass clients on iOS offer offline vaults but autofill in banking and enterprise apps is unreliable. The clipboard fallback with auto-clear exists but is inconvenient. Tech-savvy users will pay for a client where this works consistently.",
+  "pitch": "An iOS app for KeePass KDBX files built around reliable autofill: proper ASCredentialProviderExtension handling for native apps, fast Face ID unlock, and clipboard auto-clear after 20 seconds as a fallback. The database lives wherever the user wants iCloud Drive, Dropbox, or locally.",
+  "features": [
+   "Autofill in native iOS apps through the extension point with a fallback copy button",
+   "Clipboard auto-clear after a configurable timeout (10-60 seconds)",
+   "Open database from iCloud Drive, Dropbox, WebDAV, or local Wi-Fi sync",
+   "Face ID unlock without entering the master password for everyday use",
+   "Highlight entries where the domain in the database doesn't match the open app, to prevent pasting the wrong password"
+  ],
+  "antiFeatures": [
+   "Don't store passwords on your own servers",
+   "Don't add a proprietary format on top of KDBX",
+   "Don't require a subscription to open and autofill"
+  ],
+  "monetization": "One-time purchase at $12-15 or a $25 lifetime license with no subscription. The audience has already paid for 1Password and Strongbox and prefers one-time pricing. An optional subscription for cloud features like sync history is fine as an add-on."
+ },
+ "password-manager-3": {
+  "categoryName": "Password managers",
+  "title": "2FA authenticator with reliable phone-to-phone transfer",
+  "oneLiner": "A TOTP app that doesn't lose your codes when you switch phones and doesn't turn a device upgrade into a five-hour ordeal",
+  "gap": "Losing TOTP codes when switching phones is documented in hundreds of reviews across every popular authenticator. Transfer is either tied to the old device or depends on a specific vendor's cloud. There is no authenticator where TOTP secret backup works reliably and independently.",
+  "pitch": "A TOTP authenticator that does not manage passwords, where moving to a new phone takes two minutes: an encrypted backup of TOTP secrets in iCloud or Dropbox with a key the user controls themselves. The app doesn't touch passwords and doesn't compete with password managers just TOTP codes.",
+  "features": [
+   "Encrypted backup of TOTP secrets to iCloud Drive or Dropbox with a user-controlled key",
+   "Restore without the old device: just the backup file and the master key",
+   "QR export of each TOTP secret for saving elsewhere",
+   "Folders and labels to organize codes by service",
+   "Apple Watch: display active codes with a countdown right on the wrist"
+  ],
+  "antiFeatures": [
+   "Don't store TOTP secrets on your own company servers",
+   "Don't add password storage it competes with managers and adds scope",
+   "Don't require a subscription to transfer codes"
+  ],
+  "monetization": "One-time purchase of $5-8, or free up to 10 accounts. Users who have already lost 2FA codes once will pay for reliability. Additional revenue through a subscription for the Apple Watch extension and priority support."
+ },
+ "password-manager-4": {
+  "categoryName": "Password managers",
+  "title": "Family vault with real permission separation",
+  "oneLiner": "A shared vault for 2-5 people where each member has a private section and a shared section, and nobody sees anyone else's passwords without permission",
+  "gap": "Family plans in 1Password, LastPass, and Keeper work as a single shared vault without granular permissions. Family members either see everything or nothing. Nobody has digital inheritance in a usable form.",
+  "pitch": "A family password manager for 2-5 people with two sections for each member: private (visible only to them) and shared (for streaming services, utilities, and bank accounts). A separate feature: an heir envelope an encrypted list of accounts that unlocks when confirmed by two trusted family members.",
+  "features": [
+   "Private and shared sections for each member, visibility configured separately",
+   "Invite by email without requiring the other person to create an account with the same company",
+   "Heir envelope: a list of accounts with instructions that opens when confirmed by two people from a trusted list",
+   "Shared section for Netflix, utility, and bank passwords without access to personal entries",
+   "Full vault export to an encrypted PDF for storing on a USB drive"
+  ],
+  "antiFeatures": [
+   "No pushy upsell prompts inside the add-entry flow",
+   "No single master account that everyone is attached to as a single point of failure",
+   "No per-person pricing: flat rate for a family of 2-5"
+  ],
+  "monetization": "Subscription at $5-7 per month for up to 5 people, not per seat. One-time lifetime license at $50-60. The audience already pays more than this for 1Password Family or Keeper Family."
+ },
+ "password-manager-5": {
+  "categoryName": "Password managers",
+  "title": "Breach audit with concrete next steps",
+  "oneLiner": "Checks your entire password vault against breach databases and produces a clear, prioritized list of what to change, in what order, and why",
+  "gap": "Breach checking tools show a list of affected accounts but don't prioritize them or explain the next step. A user sees 47 matches and closes the tab because they don't know where to start.",
+  "pitch": "A security audit utility: accepts a CSV from any password manager, checks password hashes against Have I Been Pwned using the k-anonymity method offline, sorts results by account criticality, and produces a numbered list of 5-10 priority changes with direct links to the password-change page.",
+  "features": [
+   "Offline password check via k-anonymity no full hashes sent anywhere",
+   "Prioritization by account type: banks and email at the top, entertainment at the bottom",
+   "Reused password detector with a map showing where one password is used across multiple sites",
+   "Direct links to the password-change page for 100 popular services",
+   "Before-and-after report: a security score that rises with each fixed account"
+  ],
+  "antiFeatures": [
+   "Don't retain passwords after the session ends analysis only, no permanent vault",
+   "No subscription upsell prompts in the middle of an audit",
+   "No account registration required"
+  ],
+  "monetization": "One-time payment of $8-10 for a full audit. Free for the first 20 entries. The target user has already seen a breach notification and wants to fix things but doesn't know where to start. They pay once, like for a service not a subscription."
+ },
+ "password-manager-6": {
+  "categoryName": "Password managers",
+  "title": "Local password manager with sync that actually works through your own cloud",
+  "oneLiner": "A password vault that lives in your Dropbox or iCloud not on the company's servers and where sync works from the first try",
+  "gap": "Managers that use the user's own cloud (Enpass, aWallet, SafeInCloud) have the right storage model, but sync breaks with every major iOS update or device change. Users want to own their data but don't want to spend an evening restoring sync.",
+  "pitch": "A password manager where the database file lives in the user's iCloud Drive, Dropbox, or WebDAV, and sync works through the native File Provider API without custom hacks. The app never stores the master password and cannot see user data. Target user: tech-savvy, has used Enpass or Strongbox, tired of broken sync.",
+  "features": [
+   "Native File Provider API: database lives in iCloud Drive or Dropbox as a regular file",
+   "One-tap sync diagnostic: the app checks whether the file is current and shows when it last synced",
+   "Conflict resolution: if the file was changed on two devices at once, the app shows a diff and lets the user choose",
+   "iOS Autofill with Face ID unlock",
+   "TOTP support directly inside an entry, no separate authenticator needed"
+  ],
+  "antiFeatures": [
+   "Never store a copy of the database on the vendor's own servers under any circumstances",
+   "Don't require your own cloud account as the only sync option",
+   "Don't break sync on iOS updates without testing against betas"
+  ],
+  "monetization": "Lifetime license at $20-25. Free mode limited to 50 entries. The audience is technical and has already paid for Enpass or Strongbox they pay once and want reliability in return."
+ },
+ "password-manager-7": {
+  "categoryName": "Password managers",
+  "title": "Passkey-first manager without classical passwords",
+  "oneLiner": "An app for people moving to passkeys who want to store them outside of iCloud Keychain, with clear visibility into which services already support passkeys",
+  "gap": "Passkey support has arrived in third-party managers, but the management interface was added as an afterthought. There is no app where a user can see their list of services with a clear indicator: this one already supports passkeys, this one doesn't, here's the link to make the switch.",
+  "pitch": "A passkey management app focused on the transition: when you add an account, the app checks whether the service supports passkeys and shows a direct link to the account security settings to create one. Stores passkeys through the iOS Credential Provider Extension, independent of iCloud Keychain.",
+  "features": [
+   "iOS Credential Provider Extension: passkeys stored in the app, not in iCloud Keychain",
+   "Service support database: 500 popular sites with a passkey support flag and a direct link",
+   "Transition progress indicator: how many of your accounts are already on passkeys",
+   "Passkey export in a standard format for moving to another device or platform",
+   "TOTP support as a fallback method for services that haven't made the switch yet"
+  ],
+  "antiFeatures": [
+   "Don't become another full password manager with classical passwords",
+   "Don't lock passkeys to your own vendor cloud",
+   "Don't require a subscription for basic passkey storage and use"
+  ],
+  "monetization": "One-time purchase of $10. Free for the first 10 passkeys. The market is willing to pay: technically minded Apple users who already spend money on other security tools. Additional revenue through enterprise licensing for small teams."
+ },
+ "password-manager-8": {
+  "categoryName": "Password managers",
+  "title": "Password generator that knows each site's rules",
+  "oneLiner": "Generates a password that works on the first try because it knows the site's requirements and won't produce something that gets rejected",
+  "gap": "Every password generator creates passwords by the user's general rules, not the site's actual constraints. A bank accepts 12 characters max with no special characters, the generator produces 20 characters with symbols and the user only finds out after a save error.",
+  "pitch": "A password generator with a rules database for 1,000 popular services: open the site, the app surfaces the constraints, and generates a password guaranteed to pass validation. For sites not in the database, it offers a safe default and lets the user set custom rules and save them for next time.",
+  "features": [
+   "Rules database for 1,000 popular services: max length, forbidden characters, required character classes",
+   "Auto-detect the current site via Share Extension and apply its rules",
+   "Visual validator: all rules show green when met, violations highlight in red",
+   "Custom rules: if the site isn't in the database, save your own constraints manually",
+   "Community contribution: users submit rules for unknown sites through an in-app form"
+  ],
+  "antiFeatures": [
+   "Don't become a full password manager generation and rules only",
+   "Don't require a cloud account to use the rules database",
+   "Don't limit the number of generations behind a paywall"
+  ],
+  "monetization": "Free for basic generation without the site rules database. Subscription at $2-3 per month or $15 one-time for access to the rules database and custom site profiles. Audience: users of corporate systems and banks with strict password requirements who pay for convenience."
  }
 }

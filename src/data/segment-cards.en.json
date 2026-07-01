@@ -7430,5 +7430,70 @@
     "minus": "Most apps block editing past days without a paid upgrade or do not support it at all. After midnight the day's record locks."
    }
   ]
+ },
+ "password-manager": {
+  "product": [
+   {
+    "title": "Autofill in browsers and apps",
+    "plus": "Autofill removes the biggest point of friction: users open a site and are instantly logged in without ever opening the manager separately. Those who have it working reliably call the app indispensable and use it every day.",
+    "minus": "Reliability varies wildly from app to app. Many competitors fail to fire on certain sites, don't offer to save an updated password, or paste the old one after a change. In Proton Pass and Safari, the manager itself occasionally crashes during a fill attempt."
+   },
+   {
+    "title": "Cross-device password sync",
+    "plus": "Sync across phone, tablet, and computer turns a password manager from a static notebook into a live tool. Users on family plans appreciate that a password updated on one device shows up instantly everywhere else.",
+    "minus": "Sync is the most common failure point. After iOS updates or cloud storage changes, data gets out of sync across devices, duplicates appear, or entries vanish. A few apps still require a desktop computer as an intermediary for syncing."
+   },
+   {
+    "title": "Data transfer when switching phones",
+    "plus": "For users who have built up hundreds of entries over the years, a one-tap move to a new phone is a critical scenario. Apps with solid cloud backup or KeePass format take all the fear out of switching devices.",
+    "minus": "Switching phones is the top trigger for losing access in this category. Dozens of reviews describe the same situation: bought a new phone, all passwords gone. Authenticators have it even worse there is no account transfer by default, and some have no backup for codes at all."
+   },
+   {
+    "title": "Biometric unlock (Face ID / Touch ID)",
+    "plus": "Biometric login resolves the tension between security and convenience: no need to type the master password multiple times a day. Users who have stable Face ID consider it a non-negotiable feature and switch apps the moment it disappears.",
+    "minus": "Several apps moved biometrics behind a paywall without warning their long-time users. Others send Face ID into an infinite loop after updates, locking users out of all their passwords. This is the top driver of rage in reviews."
+   },
+   {
+    "title": "Master password and vault recovery",
+    "plus": "One master password is the trade-off the whole market has accepted: memorize one strong password instead of a hundred weak ones. Users with good habits keep the same manager for years without issues.",
+    "minus": "A forgotten master password means permanent loss of all data. No app offers reliable recovery without a security trade-off. Reviews document the same ending: deleted the app, started over, lost years of entries."
+   },
+   {
+    "title": "TOTP and 2FA inside the vault",
+    "plus": "When TOTP codes live in the same app as the passwords, logging in becomes one gesture: fill the password and copy the code from the same entry. KeePassium and Strongbox users cite this as the main argument for storing 2FA inside the manager.",
+    "minus": "Bitwarden gates TOTP behind a paid tier, which feels like a cash grab for an open-source product. A few authenticators show TOTP codes on entries that don't have them, causing confusion. Standalone authenticators wipe all codes when you switch phones if there is no backup."
+   },
+   {
+    "title": "Passkey support",
+    "plus": "Passkeys eliminate the password as a concept: log in with biometrics, no characters to type. Users who already use passkeys in banking apps and services actively look for a manager that stores them alongside passwords.",
+    "minus": "Passkey support in most managers is incomplete: works on iPhone but not on macOS or in the browser extension. Norton has no passkey support at all. Strongbox crashes when trying to save a passkey. SafeInCloud users report passkeys not working in Mac browser extensions."
+   },
+   {
+    "title": "Import and migration from another manager",
+    "plus": "Users with large password libraries are willing to pay for a manager that lets them move from another app without manually re-entering every entry. Export to standard formats like CSV and KeePass is a selling point at decision time.",
+    "minus": "Importing from iPhone Safari on iOS without a desktop browser is impossible in Proton Pass. NordPass has no direct import from the built-in iPhone vault. oneSafe only uses a proprietary format, so switching to Apple Passwords means manually moving 370 entries."
+   },
+   {
+    "title": "Shared access for family or team",
+    "plus": "A family plan with a shared vault solves a real problem: both spouses can see the streaming or bank password without texting it back and forth. Dashlane users with a family of five call this the main reason to keep paying.",
+    "minus": "Shared access is confusing to set up in most products. SafeInCloud vaults on two devices drift out of sync and stop merging. In oneSafe, sharing with a spouse fails and data pastes in the wrong format. A separate issue: what to do with a deceased family member's passwords."
+   },
+   {
+    "title": "Offline access without internet",
+    "plus": "Users who work in places without reliable internet planes, travel, corporate networks without guest Wi-Fi treat local storage as a hard requirement. Apps like KeePassium and aWallet are valued precisely for this.",
+    "minus": "Cloud-first products throw a connection error exactly when a password is needed offline. Duo Mobile has an offline mode but users say it's unreliable. Dashlane dropped support for working without its browser extension, which locked out a chunk of corporate users."
+   },
+   {
+    "title": "Breach alerts and weak password warnings",
+    "plus": "Breach monitoring turns the manager from a passive vault into an active assistant. Users appreciate when the app proactively tells them a specific site's password appeared in a leaked dataset no manual checking required.",
+    "minus": "Norton doesn't check the dark web. Apple Passwords notified users about compromised passwords, but users don't understand how the monitoring actually works. The Apple Passwords generator once flagged a randomly generated password as weak without explaining why."
+   },
+   {
+    "title": "Storing notes, cards, and documents alongside passwords",
+    "plus": "Long-time users often store more than just logins: PIN codes, security question answers, credit card numbers, lock combinations, and scanned documents. This turns the app into a personal safe with a single entry point.",
+    "minus": "Attachment limits or missing photo support are nearly universal: Keeper caps the number of file uploads, eWallet doesn't store images inside entries. RoboForm handles notes well but form autofill is unpredictable."
+   }
+  ],
+  "hygiene": []
  }
 }
