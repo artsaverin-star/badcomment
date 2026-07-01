@@ -13378,5 +13378,165 @@
    "Do not recommend buying items in the right colors as the first step. Audit what is already there first"
   ],
   "monetization": "One-time purchase of $12 for the full analysis result plus wardrobe audit. Style DNA and My Best Colors users paid $10 to $15 for color analysis and did not get an actionable next step. This audience is already motivated to pay. They are looking for a specific tool, not a theory."
+ },
+ "meal-prep-grocery-1": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Meal planner with auto-generated shopping list",
+  "oneLiner": "Pick your recipes for the week, tap one button, and get a single clean shopping list with no duplicate ingredients",
+  "gap": "Several apps generate a shopping list from a meal plan, but none reliably handles the two adjacent steps: merging the same ingredient from different recipes (eMeals multiplies instead of sums) and automatically subtracting what's already in the pantry. A merge engine that matches ingredients by meaning rather than exact string is missing.",
+  "pitch": "A meal planner where the shopping list builds itself in one tap with no duplicates. The user adds recipes for the week, marks what's already at home, and gets one clean consolidated list. The app merges identical ingredients from different recipes even when the names are worded slightly differently.",
+  "features": [
+   "URL import from any recipe site or Instagram",
+   "Smart merge: two recipes with chicken breast produce one line item with the combined weight",
+   "Pantry checkbox: mark an ingredient you already have and it drops off the shopping list",
+   "Serving-size scaling: change the number of servings and the list recalculates",
+   "Real-time shared shopping list for couples"
+  ],
+  "antiFeatures": [
+   "Don't cap the recipe library in the free tier value grows with the library",
+   "Don't insert sponsored or recommended items into the shopping list",
+   "Don't return a hard error when a link fails to parse offer a manual-entry template instead"
+  ],
+  "monetization": "Subscription at $4 5 per month or $35 per year. Plan to Eat built an audience that pays year after year for one single mechanism: recipe-to-list. AnyList and MealBoard both show that a planner with reliable list generation retains subscribers longer than any other feature."
+ },
+ "meal-prep-grocery-2": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Shared grocery list with bulletproof sync",
+  "oneLiner": "The list updates on both phones instantly, handles simultaneous edits without conflicts, and never silently drops items",
+  "gap": "List sync for couples is the defining feature of this category, but it's unreliable almost everywhere: Our Groceries, List Ease, Grocery Gadget, Bring!, and Grocery List with Sync have all broken it through updates. A conflict-free replicated data type that handles concurrent edits without data loss and surfaces conflicts instead of silently discarding them doesn't exist in this space.",
+  "pitch": "A shopping list for couples or families where sync is the team's only priority. When both partners add the same item simultaneously, the app collapses them into one entry with combined quantities. If sync falls behind for any reason, a lock-screen widget shows the status and the last time the other device updated.",
+  "features": [
+   "Conflict-resilient replication: simultaneous edits never delete or duplicate items",
+   "Sync status widget: shows when the list was last updated on the other device",
+   "Optional partner notifications when items are added, with a quiet mode during shopping",
+   "One-hour change history: see who added what to sort out any confusion",
+   "Apple Watch checkboxes that sync back to the shared list without opening the phone"
+  ],
+  "antiFeatures": [
+   "Don't require social-login to access sharing email or phone number is enough",
+   "Don't silently delete an item during a conflict show both versions to the user",
+   "Don't paywall the core sharing feature if sharing is the entire point of the product"
+  ],
+  "monetization": "Subscription at $3 per month or $25 per year. Couples and families that find a working sync solution pay for years (Our Groceries, AnyList, and Grocery Gadget all have long-term subscribers). The market pays specifically for reliability this is not an add-on feature, it is the product."
+ },
+ "meal-prep-grocery-3": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Pantry tracker that prevents duplicate purchases",
+  "oneLiner": "Scan barcodes when you unpack groceries, and the app knows what's at home so you never buy a second jar of salt",
+  "gap": "Pantry Check and Cooklist both offer pantry tracking, but both suffer from the same critical flaw: pantry data doesn't sync across family members' devices. A shared household inventory that automatically subtracts what's already stocked when building a shopping list and shows only what's actually missing doesn't exist.",
+  "pitch": "A shared pantry for two: both household members see the same inventory in real time. When building a shopping list the app cross-references the pantry and removes items you already have enough of. Expiration reminders fire before food goes bad, not after.",
+  "features": [
+   "Barcode scanner with a cloud product database: identifies most brands without manual entry",
+   "Shared household inventory: both devices see the same data, changes sync instantly",
+   "Pantry subtraction from shopping list: add a recipe and the app removes ingredients you already have",
+   "Expiration reminders 3 days out, with a suggestion for which recipe to use the item in",
+   "Consumption history: track how often an item runs out to know how much to buy"
+  ],
+  "antiFeatures": [
+   "Don't require manual name entry when a barcode isn't recognized offer photo-based auto-recognition instead",
+   "Don't store data locally only with no backup losing an entire pantry after an update kills the product",
+   "Don't paywall household sharing it's the baseline feature for a family pantry tracker"
+  ],
+  "monetization": "Subscription at $5 per month. Cooklist retains users at $10 but loses them to instability. Pantry Check proved people will pay an annual subscription for pantry inventory when it works. A household that avoids even a few duplicate purchases sees ROI within the first month."
+ },
+ "meal-prep-grocery-4": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Shopping list sorted by your store's aisles",
+  "oneLiner": "Your list automatically reorders to match your store layout so you never have to double back to dairy after passing it",
+  "gap": "Aisle sorting exists in Grocery Gadget, Our Groceries, and Grocery Smart, but no app learns the route automatically by watching the order in which items are checked off. A behavior-learning mechanism after 3 or 4 trips it proposes a sort order that matches the user's actual path through their specific store is entirely missing.",
+  "pitch": "A shopping list that learns how you shop. After your first few trips the app analyzes the order you checked things off and suggests an auto-sort. You don't have to configure anything: milk ends up at the bottom of your list if you always grab it last. For a new store, learning starts fresh.",
+  "features": [
+   "Auto-sort from check-off history: the app memorizes your real route through a specific store",
+   "Manual categories as a starting point: set the initial order and the algorithm refines it over time",
+   "Multiple store profiles: separate routes for Costco, Trader Joe's, and your local supermarket",
+   "Aisle label next to each item: Milk, Dairy, Aisle 4",
+   "Filter to the next two aisles only: see just what's coming up on your route"
+  ],
+  "antiFeatures": [
+   "Don't apply global category defaults instead of a personal route every store is laid out differently",
+   "Don't put manual aisle editing behind a paywall that's the setup tool for first-time use",
+   "Don't reset a learned sort order during an app update without warning"
+  ],
+  "monetization": "One-time purchase at $5 or a subscription at $2 per month with sync. Grocery Gadget has retained users since the Palm Pilot era specifically because of their configured store routes. People who have their route dialed in pay to keep it when they switch to a new phone."
+ },
+ "meal-prep-grocery-5": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Budget shopping list with live cart total",
+  "oneLiner": "Enter prices as you shop and watch your running total with tax so you never get surprised at the register",
+  "gap": "Total Plus solves only the calculator problem and isn't a real shopping list. AnyList and Grocery Smart have price fields but don't sum a running total as you shop. A budget-limit mechanism where the user sets a max, sees remaining balance as they add items to the cart, and gets a warning $10 15 before the limit doesn't exist.",
+  "pitch": "A shopping list with a built-in budget. Enter a planned price when you add each item, confirm the actual price in the store when you check it off. The app shows a live total with tax and alerts you when you're getting close to your limit. No surprises at checkout.",
+  "features": [
+   "Planned vs. actual price per item: the difference shows where you saved or overspent",
+   "Budget limit with a countdown: how much you have left to spend",
+   "Automatic tax by geolocation: no need to enter the rate manually",
+   "Running total of checked-off items: the sum of what's already in the cart",
+   "Weekly spend history: your average grocery bill over time"
+  ],
+  "antiFeatures": [
+   "Don't cap the number of items in the free tier 10 items isn't enough for a real grocery run",
+   "Don't ask for the tax rate on every launch geolocation sets it once",
+   "Don't place an ad directly in the running-total row that's a critical moment of use"
+  ],
+  "monetization": "One-time purchase at $4 or a subscription at $2 per month. Total Plus shows there is a paying audience specifically for this mechanism. Budget shoppers from Flipp's user base (520,000 ratings) are actively looking for a way to track their spend in real time inside the store that's their primary job, not an afterthought."
+ },
+ "meal-prep-grocery-6": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Macro-based meal planner with a ready shopping list",
+  "oneLiner": "Enter your macros and food preferences and get a full week of meals plus a shopping list no manual work required",
+  "gap": "Prospre and FitGenie generate macro-matched meal plans, but both apps block plan generation when targets fall outside their recommended ranges. An unrestricted macro input covering keto (75/20/5), high-protein protocols, physician-prescribed diets paired with auto-generated shopping list output doesn't exist anywhere in the category.",
+  "pitch": "A meal planner for people who track macros but don't want to spend an hour a day deciding what to eat. Enter your targets any ratio, no restrictions and the app picks meals from its library, builds a weekly plan, and immediately outputs a shopping list. Your partner sees the list on their phone.",
+  "features": [
+   "Unrestricted macro inputs: keto, high-protein, physician protocols no forced range limits",
+   "Auto-generated weekly plan: 5 to 7 meals from the library matched to your targets",
+   "Shopping list with exact weights in grams and standard package sizes",
+   "Shared shopping list: your partner sees what to buy without screenshots",
+   "One-tap meal swap: don't like Monday's option, get an alternative with the same macros"
+  ],
+  "antiFeatures": [
+   "Don't block plan generation when macros fall outside a recommended range the user owns their health decisions",
+   "Don't display quantities in non-standard units like 0.37 cups use standard measures or grams only",
+   "Don't require an internet connection to view an already-generated plan and list"
+  ],
+  "monetization": "Subscription at $6 per month. FitGenie and Prospre both retain paying users specifically for the macro-matched plan generation mechanism. Athletes and people on specialized diets already pay for MyFitnessPal and similar tools: a capable alternative with wider parameter support and a built-in shopping list is a natural switch."
+ },
+ "meal-prep-grocery-7": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Sunday batch meal prep planner",
+  "oneLiner": "Choose your meals for the week, and the app builds a cook-order schedule and one consolidated shopping list scaled to all your servings",
+  "gap": "eMeals, Plan to Eat, and Cooklist all generate shopping lists from recipes, but none of them builds a batch-cooking schedule. A cook-order optimization engine one that knows the chicken takes 40 minutes, the grains take 20, and schedules them so everything is done at the same time is entirely missing from the category.",
+  "pitch": "A meal prep planner that makes Sunday productive. Pick 4 to 5 dishes for the week and the number of servings you want. The app builds a consolidated shopping list and a cooking schedule with timers: what goes in the oven first, what simmers in parallel, what to chop while something is roasting.",
+  "features": [
+   "Batch shopping list: all ingredients for the week's dishes merged with duplicates summed",
+   "Cook-order schedule that accounts for each dish's timing and runs parallel steps in parallel",
+   "In-schedule timers: tap a step and the countdown starts for the next action",
+   "Container-scaled serving sizes: tell the app how many containers you want and it recalculates",
+   "Container labels with dish name, date, and shelf life for printing or display"
+  ],
+  "antiFeatures": [
+   "Don't suggest dishes that don't hold for 4 to 5 days dressed salads and fried fish don't belong in a meal prep plan",
+   "Don't build a schedule around equipment the user doesn't have if there's no slow cooker, leave it out",
+   "Don't express shopping quantities in non-standard measures 370 g of flour, not 2.6 cups"
+  ],
+  "monetization": "Subscription at $5 per month. eMeals proved that busy families pay for a done-for-you meal plan with store integration. The meal prep audience is more disciplined and has more spending power they already invest in containers and equipment. An app that makes Sunday cooking systematic solves a real problem."
+ },
+ "meal-prep-grocery-8": {
+  "categoryName": "Meal planning & grocery",
+  "title": "Recipe importer with a shared household library",
+  "oneLiner": "Paste a link from any browser, Reel, or TikTok and the recipe lands in your library with ingredients parsed and clutter stripped out",
+  "gap": "ReciMe and Plan to Eat both import recipes well, but a shared family library is either impossible or requires each member to maintain their own separate copy. A single household recipe collection where everyone contributes, changes are visible to all, and the shared pool feeds one weekly menu with one shopping list doesn't exist.",
+  "pitch": "A recipe organizer for the whole household. Every family member adds recipes from the web, social media, or types in grandma's handwritten ones. The library is shared: when planning the week you see your recipes and your partner's in one place. One subscription covers everyone in the household.",
+  "features": [
+   "URL import from any recipe site: ingredients and steps with no ad copy or life-story preamble",
+   "Instagram Reels import by link: the app pulls the recipe from the caption or subtitles",
+   "Family library: everyone in the household sees the same collection",
+   "Tag and ingredient search: find everything you can make with chicken and broccoli",
+   "Add to meal plan and auto-generate a weekly shopping list"
+  ],
+  "antiFeatures": [
+   "Don't charge separately per device or platform one subscription, all household devices",
+   "Don't manage the subscription outside the App Store so users can't cancel the standard way",
+   "Don't cap the recipe library someone who has loaded 300 recipes isn't leaving, and they'll be a subscriber for life"
+  ],
+  "monetization": "Subscription at $5 7 per month per household. ReciMe amassed 249,000 ratings on recipe import and retains users despite billing complaints. Plan to Eat keeps users for 8 to 15 years. A family library with honest household pricing not per-device pricing closes the gap that Recipe Keeper and BigOven have left wide open."
  }
 }

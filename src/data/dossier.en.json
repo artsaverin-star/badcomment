@@ -3529,5 +3529,67 @@
    "money": "Revenue flows through subscriptions from people who have already entered 50 to 200 items into the app. That cataloging effort is the lock: leaving means losing work you have already done. Churn does not happen from boredom. It happens from data loss after an update or broken login. Those are the only real reasons for leaving, and they come up in reviews again and again. The market is not monopolized: the leaders on actual quality (Whering, Stylebook, Indyx) hold hundreds of thousands of installs, but none has cracked reliable data storage or smart auto-suggestions.",
    "marketLead": "Apps win when they offer an honest free core and charge for real features: sync, unlimited items, packing lists. Paywalling the item-upload flow itself kills conversion and generates a wave of one-star reviews."
   }
+ },
+ "meal-prep-grocery": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Households with a shared list",
+     "job": "Maintain one live list that both partners can view and edit from their own phones in real time, even when one of them is already at the store",
+     "payLevel": "pays readily",
+     "payNote": "They pay $10 15 a year for AnyList or Our Groceries without hesitation. Sync between phones isn't a feature it's a baseline requirement. Without it the app has no point. Reviews document years of use and repeated returns after trying alternatives.",
+     "servedBy": [
+      "AnyList: Grocery Shopping List",
+      "Our Groceries Shopping List",
+      "Grocery List with Sync",
+      "List Ease: Shared Grocery List",
+      "Grocery List - Listonic"
+     ],
+     "gap": "Sync breaks across most apps at exactly the wrong moment inside the store. No app has reliably solved edit conflicts when both partners add the same item simultaneously. There is no change history and no way to undo an accidental deletion of the entire list."
+    },
+    {
+     "name": "Weekly meal planners",
+     "job": "Build a weekly menu from personal recipes, generate one consolidated shopping list, and knock it out in a single order or one trip to the store",
+     "payLevel": "pays readily",
+     "payNote": "Plan to Eat holds users for 8 to 15 years on an annual subscription. Reviews explicitly credit the app as the reason someone signed up for Instacart. The core value proposition is URL recipe import plus automatic list generation from the week's chosen dishes.",
+     "servedBy": [
+      "Plan to Eat",
+      "AnyList: Grocery Shopping List",
+      "MealBoard - Meal Planner",
+      "eMeals - Healthy Meal Plans",
+      "Meal Planner & Grocery List"
+     ],
+     "gap": "Recipes from TikTok and Facebook comments can't be imported without manually copying the link. Serving-size scaling exists but unit normalization doesn't, so the shopping list reads '3 packages' instead of '600 g.' Nobody has closed the loop: what's already in the pantry vs. what still needs to be bought."
+    },
+    {
+     "name": "Macro trackers",
+     "job": "Plan meals to hit a specific protein/fat/carb ratio for the day and get a shopping list that makes that plan actually executable",
+     "payLevel": "pays selectively",
+     "payNote": "They pay when the algorithm genuinely builds a plan around their macros rather than just counting calories. FitGenie and Prospre keep subscribers because of their adaptive algorithm, but they lose anyone on keto or non-standard splits the app refuses to generate a plan and doesn't explain why.",
+     "servedBy": [
+      "Prospre - Meal Planner",
+      "FitGenie: Macro & Food Tracker"
+     ],
+     "gap": "Both apps only work with standard CICO ranges and silently block keto and high-protein diets. There is no Apple Health or MyFitnessPal integration. The food database is thin outside the US."
+    },
+    {
+     "name": "Deal hunters",
+     "job": "Find which store has the best price on a specific item this week and build a multi-store route around the lowest totals",
+     "payLevel": "pays reluctantly",
+     "payNote": "Flipp amassed 520,000 ratings on a free model. This audience values savings, not service, and won't pay a subscription for a list. They'll only consider a paid app if it demonstrably and noticeably cuts their grocery bill.",
+     "servedBy": [
+      "Flipp: Shop Grocery Deals",
+      "Total Plus:Shopping Calculator",
+      "List Ease: Shared Grocery List"
+     ],
+     "gap": "Flipp doesn't cover all regional chains, and in-app prices often diverge from what's on the shelf. There is no smart consolidated list that automatically routes items to the cheapest store. Deal alerts fire on items that aren't even on the user's tracked list."
+    }
+   ],
+   "takeaway": "Two segments have real money: households with a shared list and weekly meal planners. Both pay year after year for a solution that closes the recipe-to-list-to-store loop and doesn't break on a Friday night in the checkout aisle. Macro trackers pay selectively and only when the algorithm works for their specific diet. Deal hunters don't bring money."
+  },
+  "market": {
+   "money": "Families and weekly planners pay $10 40 a year for apps that reliably close the recipe-to-shopping-list loop, and they stay for years. The macro segment pays for an adaptive algorithm, but the addressable market is narrow. Budget shoppers and deal hunters monetize through ads and retail partnerships, not subscriptions.",
+   "marketLead": "The leading edge of the market is automated end-to-end execution from recipe to a Instacart or Walmart order in a single tap. Whoever solves reliable sync and social-media import without manual copy-paste captures the most loyal and highest-paying segment."
+  }
  }
 }

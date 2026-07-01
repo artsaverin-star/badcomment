@@ -63,6 +63,7 @@ const NICHES = [
   { slug: "ai-image-generation", name: "ИИ-генерация картинок", nameEn: "AI image generation", blurb: "61 приложение: где генерация правда слушает промпт и аватар похож на тебя, а где накрутка и bait-and-switch (43 из 61 накручены)." },
   { slug: "car-maintenance", name: "Уход за авто", nameEn: "Car maintenance", blurb: "36 приложений: где автозапись поездок не теряет смену и напоминания о ТО срабатывают, а где данные исчезают при смене телефона." },
   { slug: "wardrobe-outfit", name: "Гардероб и образы", nameEn: "Wardrobe & outfits", blurb: "28 приложений: где каталог собирается быстро и подбор идёт из твоих вещей, а где ИИ-стилист зациклен на 3 вещах и списывает без спроса." },
+  { slug: "meal-prep-grocery", name: "Меню и списки покупок", nameEn: "Meal planning & grocery", blurb: "44 приложения: где рецепт превращается в список и синк с семьёй держится в магазине, а где синхронизация рвётся и теряет позиции." },
 ];
 
 export default async function RatingIndexPage() {

@@ -51470,5 +51470,501 @@
    ],
    "monetization": "Разовая покупка 12 долларов за полный результат анализа плюс аудит гардероба. Пользователи Style DNA и My Best Colors платили 10-15 долларов за цветотипирование и не получили применения результата. Эта аудитория уже мотивирована платить: они ищут конкретный инструмент, а не теорию."
   }
+ },
+ {
+  "slug": "meal-prep-grocery-1",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Планировщик меню с автосписком покупок",
+  "oneLiner": "Выбираешь рецепты на неделю, нажимаешь одну кнопку и получаешь единый список покупок без дублей",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 187
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is great for planning your menu each week. It also generates a shopping list for you which is super helpful for me. I only wish they offered more recipes.",
+    "rating": 4,
+    "app": "Plan to Eat"
+   },
+   {
+    "quote": "I love this app. The ability to pull recipes from all over and have the app organize them is amazing. It's only my husband and I so we often adjust the portions from the original recipe which the app does for you. This app has helped us reduce our grocery bills because we are only buying what we need.",
+    "rating": 5,
+    "app": "Plan to Eat"
+   },
+   {
+    "quote": "I love love love!!! This is the most simple, streamlined method I have found, for keeping it all moving with a busy family, I absolutely love it!!!",
+    "rating": 5,
+    "app": "Cooklist: Pantry Meals Recipes"
+   },
+   {
+    "quote": "I like the app a lot and think it's very good however, I wish it had a feature where you could snip recipes from YouTube, Facebook and other social platforms and easily upload them into the app.",
+    "rating": 4,
+    "app": "MealBoard - Meal Planner"
+   },
+   {
+    "quote": "I love being able to import or take a photo of a recipe and have them save directly into my recipes. Along with all the little features for sorting, searching, tagging. I use it every day.",
+    "rating": 4,
+    "app": "Plan to Eat"
+   }
+  ],
+  "mechanisms": [
+   "Планировщики меню превращают выбранные рецепты в один сводный список покупок это ключевой механизм, за который люди платят",
+   "Импорт рецепта по URL устраняет ручной ввод: пользователь копирует ссылку из браузера, приложение вытаскивает ингредиенты",
+   "Масштабирование порций автоматически пересчитывает количества при изменении числа едоков"
+  ],
+  "gap": "Генерация списка покупок из плана меню есть в нескольких приложениях, но ни одно не решает надёжно два смежных шага: суммирование одинаковых ингредиентов из разных рецептов (eMeals умножает вместо суммирования) и автоматическую корректировку под то, что уже есть в кладовой. Нужен механизм объединения дублей по сущности, а не точному названию.",
+  "idea": {
+   "pitch": "Планировщик меню, в котором список покупок формируется нажатием одной кнопки и не содержит дублей. Пользователь добавляет рецепты на неделю, указывает, что уже есть дома, и получает чистый итоговый список. Приложение суммирует одинаковые ингредиенты из разных рецептов, даже если они названы немного по-разному.",
+   "features": [
+    "Импорт рецепта по URL с любого кулинарного сайта или из Instagram",
+    "Слияние дублей: два рецепта с куриной грудкой дают одну позицию с суммарным весом",
+    "Галочка на ингредиент, который уже есть дома, убирает его из списка покупок",
+    "Масштабирование порций: изменил число едоков, список пересчитался",
+    "Совместный доступ к списку покупок для пары в реальном времени"
+   ],
+   "antiFeatures": [
+    "Не ограничивать число рецептов в библиотеке бесплатного плана: ценность растёт с библиотекой",
+    "Не создавать спонсорские или рекомендательные позиции в списке покупок",
+    "Не требовать ручного ввода рецепта если ссылка не парсится, предложить шаблон вместо ошибки"
+   ],
+   "monetization": "Подписка 4-5 долларов в месяц или 35 в год. Plan to Eat собрал аудиторию, которая платит годами за единственный механизм рецепт-список. Пользователи AnyList и MealBoard показывают: планировщик меню с надёжной генерацией списка удерживает людей на подписке дольше, чем любая другая функция."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-2",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Совместный список покупок с надёжной синхронизацией",
+  "oneLiner": "Список обновляется на обоих телефонах мгновенно, не ломается при одновременном редактировании и не теряет позиции",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 214
+  },
+  "reviewGrid": [
+   {
+    "quote": "My wife and I have been using this app for a while, but we've been running into sync issues that are happening with increasing frequency. I'll add something to our shared list, but my wife's list doesn't update. Or vice versa. And there's no way to force a sync. Killing the app doesn't help.",
+    "rating": 2,
+    "app": "Grocery List with Sync"
+   },
+   {
+    "quote": "Cannot get it to share the list with my husband. tried many things deleted and restarted could not get it to sync. Wish there was a different way to get it to sync with a partner.",
+    "rating": 2,
+    "app": "Our Groceries Shopping List"
+   },
+   {
+    "quote": "If I add an item to the list and my wife adds the same item on her phone to the shared list, the app removes the item from the list. I wish it just duplicated the item, not removed the entry. That causes us issues all the time.",
+    "rating": 4,
+    "app": "Bring! Grocery Shopping List"
+   },
+   {
+    "quote": "Great for making lists for myself, but the account login doesn't work and the primary reason I wanted it was so my wife and I could share lists and add things to them so that when either one of us went to the store we could get everything.",
+    "rating": 1,
+    "app": "List Ease: Shared Grocery List"
+   },
+   {
+    "quote": "Used it regularly for our household and it was really great when it worked. Recently it stopped synching lists between family members and became much less useful for us. Contacted support and issue was never resolved. Moving on to another solution.",
+    "rating": 2,
+    "app": "List Ease: Shared Grocery List"
+   }
+  ],
+  "mechanisms": [
+   "Шеринг списка между двумя телефонами требует безконфликтной репликации данных: когда оба человека редактируют одновременно, большинство приложений теряет изменения или дублирует позиции",
+   "Приложения для совместных списков падают именно в магазине, когда один человек активно вычёркивает, а второй добавляет новые позиции",
+   "Семьи, которые нашли рабочую синхронизацию, остаются на приложении годами, даже терпя другие недостатки"
+  ],
+  "gap": "Синхронизация для пары является главной функцией категории, но почти везде она нестабильна: Our Groceries, List Ease, Grocery Gadget, Bring! и Grocery List with Sync сломали её обновлениями. Нужен механизм с conflict-free replicated data type, который обрабатывает конкурентное редактирование без потерь и предупреждает о конфликте вместо тихого удаления.",
+  "idea": {
+   "pitch": "Список покупок для пары или семьи, в котором синхронизация это единственный приоритет команды. Когда оба человека добавляют один и тот же товар одновременно, приложение схлопывает их в одну позицию с объединёнными количествами. Если синхронизация по каким-то причинам отстаёт, виджет на экране блокировки показывает статус и последнее время обновления.",
+   "features": [
+    "Конфликтоустойчивая репликация: одновременные правки не удаляют и не дублируют позиции",
+    "Виджет со статусом синхронизации: когда список последний раз обновился на другом устройстве",
+    "Уведомление партнёру при добавлении позиций (по желанию, с тихим режимом на время шопинга)",
+    "История изменений за последний час: кто что добавил, помогает разобраться после путаницы",
+    "Apple Watch: чекбоксы без открытия телефона, синхронизируются с общим списком"
+   ],
+   "antiFeatures": [
+    "Не требовать регистрацию через соцсети для доступа к шерингу: email или номер телефона достаточно",
+    "Не удалять позицию тихо при конфликте: показать оба варианта пользователю",
+    "Не блокировать совместный доступ за платный план, если это основная функция продукта"
+   ],
+   "monetization": "Подписка 3 доллара в месяц или 25 в год. Пары и семьи, которые нашли рабочий шеринг, платят годами (Our Groceries, AnyList, Grocery Gadget все держат многолетних подписчиков). Рынок готов платить именно за надёжность: это не дополнительная функция, а само ядро продукта."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-3",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Трекер кладовой с предотвращением двойных покупок",
+  "oneLiner": "Сканируешь штрихкоды при покупке, приложение знает, что уже есть дома, и не даёт купить второй упаковке соли",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 156
+  },
+  "reviewGrid": [
+   {
+    "quote": "I never write reviews but this app totally deserves it. I always forget what I have and often buy duplicates because I forget what's in my fridge. This app has single handedly changed the game for me. I now know what I have, am reminded when things are about to expire, and know what I need to make next.",
+    "rating": 5,
+    "app": "Pantry Check - Grocery List"
+   },
+   {
+    "quote": "This app provides the type of organizational hack our grandmas could only dream of. Knowing exactly what's in your pantry and when it'll expire is a game changer. Now, I understand my eating habits a lot better and can budget almost to perfection without looking at the receipt.",
+    "rating": 5,
+    "app": "Pantry Check - Grocery List"
+   },
+   {
+    "quote": "I'm disabled and have some memory issues. I just discovered your app and scanned everything I had, and out of 500 or so items I only had to enter about 6 manually. It's been a great help with eating and budgeting. I just wish it cost less.",
+    "rating": 5,
+    "app": "Cooklist: Pantry Meals Recipes"
+   },
+   {
+    "quote": "This could be a really useful app if I could log into my account on multiple devices. Unfortunately I added items in my pantry on my iPad and found out too late that I was unable to log into my account on my iPhone. My support ticket had gone unanswered for a week. App deleted.",
+    "rating": 2,
+    "app": "Pantry Check - Grocery List"
+   },
+   {
+    "quote": "Spent two hours scanning items in the pantry and updating expiration dates. Had over 100 items scanned and then the entire inventory just disappeared! The app is fairly user friendly and I thought I was going to like it. Even paid for the annual membership. So disappointing.",
+    "rating": 1,
+    "app": "Pantry Check - Grocery List"
+   }
+  ],
+  "mechanisms": [
+   "Трекер кладовой со сканером штрихкодов переносит учёт запасов с бумаги или памяти в структурированную базу: сканировал, положил на полку, вычеркнул при использовании",
+   "Напоминание о сроках годности меняет поведение: человек готовит из того, что вот-вот испортится, вместо того чтобы покупать новое",
+   "Главный барьер входа начальное сканирование кладовой занимает час, если данные потом потерялись, пользователь уходит навсегда"
+  ],
+  "gap": "Pantry Check и Cooklist предлагают трекер кладовой, но оба страдают от критической проблемы: данные кладовой не синхронизируются между устройствами семьи. Нужен механизм общего инвентаря кладовой для пары, который при открытии списка покупок автоматически вычитает то, что уже есть дома, и показывает только реальный дефицит.",
+  "idea": {
+   "pitch": "Кладовая для двоих: оба члена семьи видят одни и те же запасы в реальном времени. При составлении списка покупок приложение сверяется с инвентарём и убирает позиции, которых дома уже достаточно. Напоминания о сроках годности приходят до того, как продукт испортится, а не после.",
+   "features": [
+    "Сканер штрихкодов с облачной базой: распознаёт большинство брендов без ручного ввода",
+    "Общий инвентарь для пары: оба устройства видят одно и то же, изменения синхронизируются мгновенно",
+    "Вычитание из списка покупок: добавил рецепт, приложение убрало ингредиенты, которые уже есть",
+    "Напоминания о сроке годности за 3 дня до истечения с советом, в какое блюдо использовать",
+    "История расхода: когда закончился кетчуп в прошлый раз, чтобы понять сколько покупать"
+   ],
+   "antiFeatures": [
+    "Не требовать ручного ввода названия если штрихкод не распознан: предложить фото и автоматическое распознавание",
+    "Не хранить данные только локально без резервной копии: потеря инвентаря после обновления убивает продукт",
+    "Не блокировать общий доступ за отдельный платный план: это базовая функция для семейного трекера"
+   ],
+   "monetization": "Подписка 5 долларов в месяц. Cooklist держит пользователей на 10 долларах, но теряет их из-за нестабильности. Pantry Check доказал, что люди готовы платить годовую подписку за инвентарь кладовой, если он работает. Семья, которая сэкономила деньги на дублях, видит ROI за первый месяц."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-4",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Список покупок с сортировкой по проходам магазина",
+  "oneLiner": "Список автоматически упорядочивается так, как расположены отделы в твоём магазине, и не заставляет возвращаться к молоку после кассы",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 143
+  },
+  "reviewGrid": [
+   {
+    "quote": "The Our Grocery Shopping list App is great. I can list the stores I shop at and enter the items in the order I walk through the store.",
+    "rating": 5,
+    "app": "Our Groceries Shopping List"
+   },
+   {
+    "quote": "I've been using this app for almost 8 years and absolutely love it and gave it an original five star rating. Now, however in December 2022 Apple had an update rollout which now when using your mic and voice to input an entry such as strawberries on a list, it doubles the first letter.",
+    "rating": 3,
+    "app": "Grocery List with Sync"
+   },
+   {
+    "quote": "This app has it ALL for your grocery shopping and inventory control needs! I especially love how you can create a list based upon what is in each grocery store aisle in order to create the most efficient shopping experience.",
+    "rating": 5,
+    "app": "Grocery - Smart Shopping List"
+   },
+   {
+    "quote": "While I do have a couple of suggestions that I submitted as feedback, the current features make this App very useful for me. I can create separate grocery lists for, say, recipes, specific stores, or events. In a list, I can sort by aisle or alphabetically, and can change the aisle and category info.",
+    "rating": 4,
+    "app": "Grocery Gadget"
+   },
+   {
+    "quote": "I still have some challenges. The list of remembered meals is only on each day, so if you add Hamburgers to a Monday, then next week you want them on Friday, you have to manually enter them.",
+    "rating": 3,
+    "app": "Meal Planner & Weekly Menu"
+   }
+  ],
+  "mechanisms": [
+   "Когда список покупок упорядочен по проходам, поход в магазин занимает на 20-30 минут меньше: не нужно возвращаться в уже пройденный отдел",
+   "Раскладка магазина уникальна для каждой торговой сети и даже каждого конкретного магазина, поэтому фиксированные категории работают плохо",
+   "Пользователи, которые однажды потратили время на настройку порядка проходов, не переходят в другое приложение: это инвестиция, которая удерживает"
+  ],
+  "gap": "Сортировка по проходам есть в Grocery Gadget, Our Groceries и Grocery Smart, но ни одно приложение не запоминает маршрут автоматически по тому, в каком порядке пользователь реально вычёркивает позиции. Нужен механизм обучения по поведению: после 3-4 походов приложение предлагает порядок, который совпадает с реальным маршрутом пользователя по его конкретному магазину.",
+  "idea": {
+   "pitch": "Список покупок, который учится у тебя. После первых трёх походов приложение анализирует порядок вычёркивания и предлагает авторасстановку позиций. Менять вручную больше не нужно: молоко само оказывается в конце списка, если ты всегда берёшь его последним. Для нового магазина обучение начинается заново.",
+   "features": [
+    "Автосортировка по истории вычёркивания: приложение запоминает реальный маршрут по конкретному магазину",
+    "Ручные категории как стартовая точка: пользователь задаёт первый порядок, алгоритм уточняет его",
+    "Несколько профилей магазинов: свой маршрут для Costco, Trader Joe's и местного супермаркета",
+    "Показ отдела рядом с каждой позицией: молоко, молочные товары, 4-й проход",
+    "Фильтр по текущей части маршрута: видишь только позиции следующих двух проходов"
+   ],
+   "antiFeatures": [
+    "Не применять глобальные категории вместо персонального маршрута: раскладка в каждом магазине своя",
+    "Не прятать ручное редактирование порядка за платный план: это инструмент первой настройки",
+    "Не перестраивать уже изученный порядок при обновлении приложения без предупреждения"
+   ],
+   "monetization": "Разовая покупка 5 долларов или подписка 2 доллара в месяц с синхронизацией. Grocery Gadget удерживает пользователей с Palm Pilot именно за настроенные маршруты по магазинам. Люди, которые один раз получили правильный порядок, платят, чтобы не потерять его при переходе на новый телефон."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-5",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Бюджетный список покупок с подсчётом итога в магазине",
+  "oneLiner": "Вводишь цены по ходу шопинга и видишь текущую сумму с налогом, чтобы не выйти за бюджет на кассе",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 118
+  },
+  "reviewGrid": [
+   {
+    "quote": "I truly love this app and have used it for years!! I am a bargain shopper!! I especially love it for Black Friday deals and any holiday deals! I no longer have to buy a newspaper to hunt for deals! I love everything at my finger tips!",
+    "rating": 5,
+    "app": "Flipp: Shop Grocery Deals"
+   },
+   {
+    "quote": "This is one of my most used apps. It's important that I know what my total will be at the end of shopping, and also see how much each item will be after taxes. This app does that for me. Love it quick and simple.",
+    "rating": 5,
+    "app": "Total Plus:Shopping Calculator"
+   },
+   {
+    "quote": "The only thing missing is an ability to set a budget, for instance if I only want to spend a hundred dollars at a location, for it to count down and let me know how much I have left to spend.",
+    "rating": 4,
+    "app": "Total Plus:Shopping Calculator"
+   },
+   {
+    "quote": "This is a great app for planning meal and automatically adding the ingredients to your shopping list. The only downside is that I would like to be able to track my spending as I am going through the store by barcoding the prices to make sure I am staying within budget.",
+    "rating": 4,
+    "app": "AnyList: Grocery Shopping List"
+   },
+   {
+    "quote": "Love being able to find the ads I'm looking for all in one place! I love it when I wanna get the best deals on specific items like Bounty paper towels, I can just type in my item and up pops all my local stores and other stores where I can make a frugal purchase.",
+    "rating": 5,
+    "app": "Flipp: Shop Grocery Deals"
+   }
+  ],
+  "mechanisms": [
+   "Покупатель с бюджетом делает две работы одновременно: ведёт список и считает сумму в уме или на телефоне, ни одно массовое приложение не объединяет эти задачи чисто",
+   "Автоопределение налоговой ставки по геолокации устраняет ручной ввод и делает итоговую сумму точной для конкретного магазина",
+   "Бюджетный шоппинг устойчивая привычка, которая не исчезает при смене экономической ситуации"
+  ],
+  "gap": "Total Plus решает только задачу калькулятора и не является полноценным списком. AnyList и Grocery Smart имеют ценовые поля, но не суммируют итог в реальном времени по ходу шопинга. Нужен механизм бюджетного лимита: пользователь задаёт максимум, видит остаток по мере добавления позиций в корзину, и получает предупреждение за 10-15 долларов до лимита.",
+  "idea": {
+   "pitch": "Список покупок с встроенным бюджетом. Ввёл плановую цену при составлении списка, в магазине вычеркнул и подтвердил реальную. Приложение показывает текущий итог с налогом и сигнализирует, когда бюджет близко к исчерпанию. На кассе никаких сюрпризов.",
+   "features": [
+    "Плановая и реальная цена для каждой позиции: разница показывает, где сэкономил или переплатил",
+    "Бюджетный лимит с обратным отсчётом: сколько денег осталось потратить",
+    "Автоматический налог по геолокации: не нужно вводить ставку вручную",
+    "Текущий итог по вычеркнутым позициям: сумма того, что уже в корзине",
+    "История трат по неделям: сколько уходит на продукты в среднем"
+   ],
+   "antiFeatures": [
+    "Не ограничивать число позиций в списке бесплатной версии: 10 позиций не хватает на реальную закупку",
+    "Не переспрашивать ставку налога при каждом открытии приложения: геолокация определяет это один раз",
+    "Не показывать рекламу прямо в строке с итоговой суммой: это критичный момент использования"
+   ],
+   "monetization": "Разовая покупка 4 доллара или подписка 2 доллара в месяц. Total Plus показывает, что платящая аудитория существует именно за этот механизм. Бюджетные покупатели из аудитории Flipp (520 000 оценок) регулярно ищут способ контролировать сумму прямо в магазине: это их основная работа, а не дополнительная функция."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-6",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Планировщик питания под макросы с готовым списком покупок",
+  "oneLiner": "Вводишь свои макросы и предпочтения, получаешь план питания на неделю и список покупок без ручной работы",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 129
+  },
+  "reviewGrid": [
+   {
+    "quote": "I finally found an app that has everything I was looking for. The meals that they provide are based off my macros and I have not had one disappointing meal yet. I've owned it for almost 2 months. And the way they make everything so easy and organized is amazing! Even just the free version gives you tons of options.",
+    "rating": 5,
+    "app": "Prospre - Meal Planner"
+   },
+   {
+    "quote": "I put in my macros targets for keto and it said I was outside of their recommended range for fat so it didn't give me any meals. Pretty much useless unless your macros fall inside their recommended range.",
+    "rating": 2,
+    "app": "Prospre - Meal Planner"
+   },
+   {
+    "quote": "Loving this app! Just got premium and it's awesome that meals can be generated based on macros and what's in your pantry. An awesome feature would be the ability to export or share the grocery list. My wife does grocery shopping and it was a pain to screenshot everything and text them over.",
+    "rating": 5,
+    "app": "FitGenie: Macro & Food Tracker"
+   },
+   {
+    "quote": "FINALLY. An app that HELPS me to reach my goals by adjusting the macros. And they also provide meal ideas to help reach the rest of your macros. Love love love this app!",
+    "rating": 5,
+    "app": "FitGenie: Macro & Food Tracker"
+   },
+   {
+    "quote": "Great app. I've got a need for higher than normal protein intake, but your parameters don't allow for meal planning beyond 40% of my calories intake. More flexibility would be great. I like that my meal prep list can be sent to Amazon for order fulfillment.",
+    "rating": 4,
+    "app": "Prospre - Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   "Автогенерация плана питания под КБЖУ устраняет главную причину, по которой люди не придерживаются диеты: не знают, что именно есть",
+   "Жёсткие ограничения на диапазон макросов (Prospre, FitGenie) делают приложение бесполезным для нестандартных протоколов: кето, высокобелковые диеты, рекомендации врача",
+   "Список покупок из готового плана превращает питание под макросы из ежедневных решений в одну еженедельную задачу"
+  ],
+  "gap": "Prospre и FitGenie генерируют план питания под макросы, но оба приложения блокируют создание плана при выходе за свои рекомендованные диапазоны. Нужен механизм без жёстких ограничений: пользователь задаёт любые макросы (включая кето 75-20-5 или врачебные протоколы) и получает список совместимых блюд с автоматическим списком покупок.",
+  "idea": {
+   "pitch": "Планировщик питания для тех, кто следит за макросами, но не хочет тратить час в день на составление меню. Указываешь свои КБЖУ (любые, без ограничений по диапазону), приложение подбирает блюда из библиотеки, формирует план на неделю и сразу выдаёт список покупок. Партнёр видит список на своём телефоне.",
+   "features": [
+    "Любые макросы без принудительных ограничений: кето, высокобелковые, врачебные протоколы",
+    "Автогенерация недельного плана: 5-7 блюд из библиотеки под заданные КБЖУ",
+    "Список покупок из плана с указанием точного веса ингредиентов в граммах и стандартных упаковках",
+    "Шеринг списка покупок: партнёр видит что купить без скриншотов",
+    "Замена блюда одним нажатием: не нравится понедельник, получи альтернативу с теми же макросами"
+   ],
+   "antiFeatures": [
+    "Не блокировать план если макросы выходят за рекомендованный диапазон: пользователь сам отвечает за своё здоровье",
+    "Не показывать граммы в нестандартных единицах вроде 0.37 чашки: только стандартные меры или граммы",
+    "Не требовать подключения к интернету для просмотра уже составленного плана и списка"
+   ],
+   "monetization": "Подписка 6 долларов в месяц. FitGenie и Prospre держат платящих пользователей именно за механизм подбора плана под макросы. Аудитория атлетов и людей на специальных диетах уже платит за MyFitnessPal и схожие приложения: готовая замена с более широкими параметрами и встроенным списком покупок привлечёт переключателей."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-7",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Батч-планировщик meal prep на воскресенье",
+  "oneLiner": "Выбираешь блюда для недельного meal prep, приложение строит очерёдность готовки и сводный список покупок под все порции",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "We love this app. We've tried other options over the years, but come back to eMeals every time! I do wish there was a meal prep mode that would easily tell you what and how to prep in advance!",
+    "rating": 4,
+    "app": "eMeals - Healthy Meal Plans"
+   },
+   {
+    "quote": "I really wanted to love this app, it was great at first with helping me keep track of my groceries. I was really hoping for a button that just generates a meal plan. I don't care to choose, then create a shopping list with the remainder of what I don't have. My family needs an occasional skip or fast replacement button.",
+    "rating": 3,
+    "app": "Cooklist: Pantry Meals Recipes"
+   },
+   {
+    "quote": "This is so easy, pick your plan, pick your dish, that creates a store list, check off items you have, send it to store for curbside pickup! Couldn't be easier and we like the meals I make. Well done!",
+    "rating": 5,
+    "app": "eMeals - Healthy Meal Plans"
+   },
+   {
+    "quote": "eMeals is a great app for planning your weekly dinners. I like it for what it is but I will say the recipes lack depth and are what I would consider beginner recipes. My main gripe is that using the app to shop is a nightmare it never sends items to the cart.",
+    "rating": 2,
+    "app": "eMeals - Healthy Meal Plans"
+   },
+   {
+    "quote": "I love how easy it is to import recipes from other places, organizing my pantry, shopping list and the recipe selection options. The only things I would like to eventually see is the Meal plan section auto creating plans for me from using my recipes collection.",
+    "rating": 4,
+    "app": "Cooklist: Pantry Meals Recipes"
+   }
+  ],
+  "mechanisms": [
+   "Meal prep в воскресенье устоявшаяся практика: человек тратит 2-3 часа, готовит на всю неделю и избавляется от ежедневных решений о еде",
+   "Батч-готовка требует другой логистики, чем ежедневная: сначала все зерновые, потом белки, потом овощи нельзя просто суммировать рецепты в любом порядке",
+   "Ни одно приложение в нише не строит расписание готовки под параллельное использование духовки, плиты и мультиварки"
+  ],
+  "gap": "eMeals, Plan to Eat и Cooklist генерируют список покупок из рецептов, но ни одно не строит расписание батч-готовки. Нужен механизм оптимизации очерёдности: приложение знает, что курицу запекают 40 минут, кашу варят 20 минут, и составляет временной график так, чтобы к концу 2 часов всё было готово одновременно.",
+  "idea": {
+   "pitch": "Планировщик meal prep, который делает воскресенье продуктивным. Выбираешь 4-5 блюд на неделю и количество порций. Приложение строит сводный список покупок и расписание готовки с таймерами: что ставить в духовку первым, что варить параллельно, что нарезать пока что-то томится.",
+   "features": [
+    "Батч-список покупок: ингредиенты для всех блюд недели собраны с суммированием дублей",
+    "Расписание готовки с учётом времени каждого блюда: параллельные процессы, не последовательные",
+    "Таймеры прямо в расписании: нажал на шаг, пошёл таймер до следующего действия",
+    "Масштабирование порций для контейнеров: выбрал сколько контейнеров нужно, пересчитал ингредиенты",
+    "Пометка контейнеров: этикетки с блюдом, датой и сроком хранения для печати или показа"
+   ],
+   "antiFeatures": [
+    "Не предлагать блюда, которые плохо хранятся 4-5 дней: листовые салаты, жареная рыба не годятся для meal prep",
+    "Не строить расписание без учёта доступного оборудования: если у пользователя нет мультиварки, не добавлять её в план",
+    "Не суммировать список покупок без учёта стандартных размеров упаковок: 370 г муки, а не 2.6 стакана"
+   ],
+   "monetization": "Подписка 5 долларов в месяц. eMeals доказал, что занятые семьи платят за готовый план питания с интеграцией в магазин. Meal prep аудитория более дисциплинированная и платёжеспособная: они уже тратят деньги на контейнеры и технику. Приложение, которое делает воскресное приготовление системным, решает реальную задачу."
+  }
+ },
+ {
+  "slug": "meal-prep-grocery-8",
+  "category": "meal-prep-grocery",
+  "categoryName": "Меню и списки покупок",
+  "title": "Импортер рецептов в личную библиотеку с надёжным шерингом",
+  "oneLiner": "Копируешь ссылку из браузера, Reels или TikTok, рецепт появляется в библиотеке с ингредиентами и без лишнего текста",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 44,
+   "reviews": 9801,
+   "observations": 164
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is a godsend. I love being able to see a recipe online, upload it into the app, and have the ingredients automatically added to my shopping list. LIFE CHANGING!!",
+    "rating": 5,
+    "app": "Plan to Eat"
+   },
+   {
+    "quote": "If I could have dreamt up the most perfect app it still would not have been as good as this one is. Incredible! Not a detail missed. Any recipe in any form, website, social media, cook book or handwritten from your grandmother gets imported correctly and seamlessly.",
+    "rating": 5,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "I have a huge recipe library in the app. However, the more I used it, the more I wanted to seamlessly share recipes with my adult children, friends, and other family members. I downgraded my rating to 4 stars because there is no way that I can share a collection.",
+    "rating": 4,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "The app itself is great, however we bought it with the belief that family (2 people in same house) could share recipes. That's not the case unless you drop $40! What family doesn't share recipes or plan what they are eating together?",
+    "rating": 2,
+    "app": "Recipe Keeper"
+   },
+   {
+    "quote": "I've been using this for years. It is my go to for creating my cooking menu and shopping list. It even imports from instagram reels and the like. Give it a try.",
+    "rating": 5,
+    "app": "Plan to Eat"
+   }
+  ],
+  "mechanisms": [
+   "Импорт рецепта по URL устраняет переписывание ингредиентов вручную с сайтов, переполненных рекламой и историями авторов",
+   "Совместная библиотека рецептов для семьи следующий шаг после личного органайзера, но Recipe Keeper и ReciMe требуют отдельную оплату за шеринг",
+   "Люди накапливают библиотеки рецептов годами, после чего боятся менять приложение: инвестиция в библиотеку удерживает пользователя"
+  ],
+  "gap": "ReciMe и Plan to Eat хорошо импортируют рецепты, но общая библиотека на всю семью либо невозможна, либо каждый ведёт свою копию. Нужен механизм единой коллекции рецептов для домохозяйства: все добавляют в общий фонд, изменения видны сразу у всех, и из этого фонда собирается совместное меню на неделю с общим списком покупок.",
+  "idea": {
+   "pitch": "Органайзер рецептов для всей семьи. Каждый член семьи добавляет рецепты из интернета, соцсетей или вводит бабушкины вручную. Библиотека общая: при составлении меню на неделю видишь и свои рецепты, и партнёрские. Одна подписка покрывает всех в домохозяйстве.",
+   "features": [
+    "Импорт по URL с любого кулинарного сайта: ингредиенты и шаги без рекламного текста",
+    "Импорт из Instagram Reels по ссылке: приложение вытаскивает рецепт из описания или субтитров",
+    "Семейная библиотека: рецепты видны всем, кто приглашён в домохозяйство",
+    "Тегирование и поиск по ингредиенту: что можно приготовить из курицы и брокколи",
+    "Добавление рецепта в план и автогенерация списка покупок на неделю"
+   ],
+   "antiFeatures": [
+    "Не брать отдельную плату за каждое устройство или платформу: одна подписка, все устройства семьи",
+    "Не хранить подписку вне App Store чтобы пользователь не мог отменить её стандартным способом",
+    "Не ограничивать число рецептов в библиотеке: человек, который загрузил 300 рецептов, не уйдёт и станет постоянным подписчиком"
+   ],
+   "monetization": "Подписка 5-7 долларов в месяц на домохозяйство. ReciMe собрал 249 000 оценок на импорте рецептов и удерживает людей, несмотря на спорный биллинг. Plan to Eat держит пользователей 8-15 лет. Семейная библиотека с честной ценой за домохозяйство (не за устройство) закрывает ту дыру, которую Recipe Keeper и BigOven оставили незаполненной."
+  }
  }
 ]

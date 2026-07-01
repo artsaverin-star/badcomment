@@ -7587,5 +7587,69 @@
     "minus": "Open feeds surface inappropriate content alongside younger audiences and unwanted messages from strangers. AI-generated posts are gradually crowding out real outfits, which reduces the feed's value."
    }
   ]
+ },
+ "meal-prep-grocery": {
+  "product": [
+   {
+    "title": "One-tap recipe-to-grocery-list import",
+    "plus": "Paste a link from any website, social feed, or Instagram Reel and the app instantly parses the ingredients into your shopping list. Users call it a 'game changer' and stick with apps for years specifically because of this feature.",
+    "minus": "Import only works reliably on clean recipe pages. Facebook posts, TikTok videos, recipes buried in comments, and many major sites either error out or return an empty result, forcing the user to type everything in manually."
+   },
+   {
+    "title": "Real-time collaborative shopping list",
+    "plus": "Both partners see the same list on their own phones and can edit it at the same time. Families use this for years: one person adds items from home, the other checks them off at the store. For most users it's the primary reason to install this type of app.",
+    "minus": "Sync breaks regularly after updates: items don't arrive on the partner's phone, already-checked items reappear, and there is no way to force a manual refresh. These failures tend to happen inside the store."
+   },
+   {
+    "title": "Shopping list sorted by store aisle",
+    "plus": "Items are grouped by the physical sections of the store in the order you typically walk through it. The result is a faster trip with no backtracking to sections you already passed.",
+    "minus": "Auto-categorization often dumps everything into 'Other.' After updates the aisle assignments reset and the user has to re-sort the whole list from scratch."
+   },
+   {
+    "title": "Pantry inventory and duplicate-purchase prevention",
+    "plus": "The app maintains a running inventory of what's already at home: scan a barcode to log the item with its expiration date. Users stop buying duplicates and can see what needs to be used before it goes bad.",
+    "minus": "The pantry inventory lives on one device only and isn't accessible to a partner or on an Android phone. The scanner misses a significant portion of products, and the food database is limited to one country."
+   },
+   {
+    "title": "Weekly meal calendar",
+    "plus": "Place recipes on days of the week and the app automatically assembles one unified shopping list from the entire plan. It eliminates the daily 'what should I make?' question and reduces multiple grocery runs to one weekly trip.",
+    "minus": "Recipe ingredients don't always carry over to the list automatically either the feature is absent or it's broken. Some apps create a separate list per recipe instead of one consolidated list."
+   },
+   {
+    "title": "Duplicate ingredient merging across multiple recipes",
+    "plus": "When several recipes call for the same ingredient eggs, onions the app totals the quantities and adds a single line item. The shopper sees the final number they need, not three separate 'eggs' entries.",
+    "minus": "The merging algorithm often fails: slight name variations ('eggs' vs. 'large eggs') stay as separate lines. eMeals multiplies quantities by the number of recipes instead of summing them, sending users to the store needing nine bags of broccoli instead of three."
+   },
+   {
+    "title": "Apple Watch support",
+    "plus": "The shopping list is available right on your wrist without unlocking your phone. Users describe this as rare among apps and cite the Watch companion as the reason they stay with a specific service for years.",
+    "minus": "Watch support quietly disappears after updates. Sync between the Watch and the phone runs in only one direction: items checked off on the Watch remain on the phone list. Several apps have dropped the Watch app entirely."
+   },
+   {
+    "title": "Offline mode that doesn't lose data",
+    "plus": "Reliable offline access lets you open your list in a store with poor signal, add items at home without Wi-Fi, and check the list in an underground parking garage. Users in rural areas name this as their top selection criterion.",
+    "minus": "Some apps require a network call every time they launch: without signal in the store they freeze on the loading screen or don't open at all. After a sync failure the on-device list can appear empty even though no data was deleted."
+   },
+   {
+    "title": "Check-off with recurring item restore",
+    "plus": "Users check off items while shopping, then restore them all in one action for the following week. Purchase history keeps everything ever added, so you never have to retype your standard weekly staples.",
+    "minus": "An accidental tap removes an item with no confirmation and no undo. Some apps have no 'restore all' button and no separation between the current list and a master template, so recurring items disappear permanently."
+   },
+   {
+    "title": "Real-time running cart total",
+    "plus": "The app tallies the cart total as you add priced items, including tax. Users know exactly how much to expect at checkout and don't blow their budget at the register.",
+    "minus": "The total doesn't update automatically when the list changes. Beyond around 10 items or multiple stores, the feature is paywalled. Tax calculation is geolocation-based only and doesn't support multiple tax rates."
+   },
+   {
+    "title": "Macro-based meal planning",
+    "plus": "The app generates a weekly meal plan matched to your protein/fat/carb targets and builds the shopping list automatically. Users value not having to count manually or choose recipes themselves.",
+    "minus": "Hard limits on a 'recommended macro range' block plan generation for keto, high-protein, and vegan diets. Allergy filters are sometimes ignored and forbidden foods still show up in recommendations."
+   },
+   {
+    "title": "Receipt scan to replenish pantry",
+    "plus": "The app reads a paper receipt or product barcodes and automatically updates pantry inventory. Users don't have to type anything: one scan adds dozens of items at once.",
+    "minus": "Digital receipts and delivery orders aren't supported, even though most users no longer shop in person regularly. Integration with partner retailers (Kroger, Amazon) breaks periodically and requires re-authentication."
+   }
+  ]
  }
 }

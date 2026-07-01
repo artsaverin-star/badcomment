@@ -6613,5 +6613,44 @@
     ]
    }
   ]
+ },
+ "meal-prep-grocery": {
+  "governing": "Meal planning apps all follow the same loop: a recipe from the web lands in a personal library, from the library it goes on a weekly menu, and the menu becomes a consolidated grocery list in one tap. That cycle is what makes Plan to Eat (realScore 91) and AnyList (82) category leaders users report 8 to 15 years of continuous use and call the auto-generated shopping list 'life-changing.' The real friction isn't in finding recipes, it's in what comes after: list sync between partners breaks at the worst possible moment (a recurring complaint across Our Groceries, List Ease, Grocery Gadget, and BuyMeAPie), and the list in the store is one undifferentiated pile instead of a logical route through the aisles. MealBoard holds its top-4 spot only because it added a pantry inventory that answers 'what do I already have at home.'",
+  "competitorRead": "The market is actually three distinct products. Full-cycle planners (Plan to Eat, AnyList, MealBoard) cover the entire recipe-to-list loop but require a subscription, and some users find them overkill. Pure shared-list tools (Our Groceries, Listonic, Bring!) do one thing, and do it badly: sync breaks across all three on a regular basis, and Listonic injects sponsored items directly into your personal list. Retail integrators (eMeals with Walmart, Cooklist with Kroger) push the furthest on automation but are locked to specific chains the moment Kroger refreshes its auth flow, Cooklist stops working for half its users.",
+  "pillars": [
+   {
+    "title": "Recipe-to-grocery-list import",
+    "dek": "A user spots a recipe on a website or an Instagram Reel, pastes the link, and within seconds every ingredient is in their library. From multiple recipes the app builds one merged list with no duplicates. Plan to Eat and AnyList have done this reliably for years, most others break the import after every major update.",
+    "match": [
+     "meal planning app",
+     "import recipe shopping list",
+     "recipe to grocery list",
+     "weekly meal planner",
+     "add recipe to shopping list"
+    ]
+   },
+   {
+    "title": "Real-time list sync between household members",
+    "dek": "Partners add items from separate phones and see changes instantly, even while one of them is already in the store. This is both the most-requested feature in the category and the most frequently broken one: dozens of reviews across Our Groceries, Grocery Gadget, and List Ease describe the same scenario one person standing in an aisle staring at a stale list. AnyList handles it more reliably than the rest, Our Groceries is a close second.",
+    "match": [
+     "shared grocery list",
+     "family grocery list sync",
+     "real-time grocery list",
+     "couple shopping list app",
+     "shared list sync"
+    ]
+   },
+   {
+    "title": "Grocery list organized by store aisle",
+    "dek": "Items are sorted in the order you actually walk through your store: produce first, then dairy, then meat. Users of Our Groceries and Grocery Gadget cite this feature specifically as the reason they've stayed loyal for years. Without it, the list is a jumble and you end up scrolling back and forth in the aisle hunting for the next item.",
+    "match": [
+     "grocery list by aisle",
+     "store aisle organization",
+     "shopping list categories",
+     "organize list by department",
+     "aisle sorted shopping list"
+    ]
+   }
+  ]
  }
 }
