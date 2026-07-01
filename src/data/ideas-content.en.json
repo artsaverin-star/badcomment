@@ -13218,5 +13218,165 @@
    "No fragmenting a single trip to a property into a dozen segments because of red lights"
   ],
   "monetization": "Subscription at $7 to $10 per month or $60 per year. A landlord with five properties pays for mileage deductions that genuinely reduce their tax bill by hundreds of dollars annually. For a realtor logging thousands of client-visit miles, this is direct savings, not a convenience."
+ },
+ "wardrobe-outfit-1": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Fast wardrobe catalog with clean backgrounds",
+  "oneLiner": "A digital closet where adding an item takes 10 seconds because background removal works on the first try",
+  "gap": "Cataloging clothes requires taking a photo, removing the background, and cleaning up the crop. No popular app handles this step reliably: backgrounds get cut unevenly, and dark items on dark backgrounds vanish entirely. What is needed is a background removal engine that asks for a second photo when it is not confident and lets users fix problem areas with a fingertip, without switching to another app.",
+  "pitch": "A wardrobe organizer where adding one item takes 10 seconds. The app evaluates the quality of its own crop and only asks you to reshoot when the result is bad. A built-in editor lets you fix a problem spot in 5 seconds with a single brush stroke. No other app required.",
+  "features": [
+   "Background removal with confidence scoring: the app shows how clean the result is and offers a quick fix option",
+   "Built-in mask editor: paint over a leftover background area with one finger swipe",
+   "Batch import from the camera roll: select 10 photos in a row and the app processes them in the background",
+   "Auto-category tagging: the app suggests a category (top, bottom, shoes, accessory) for each item",
+   "Multi-angle photos for a single item: a main shot plus a fabric detail or label"
+  ],
+  "antiFeatures": [
+   "Do not hide manual background editing behind a paid plan. It is a basic part of adding any item",
+   "Do not silently create duplicate items during batch processing",
+   "Do not enforce an item count limit that is only revealed after the user has already uploaded their wardrobe"
+  ],
+  "monetization": "One-time purchase of $8 to $12, or a $3 per month subscription for an unlimited catalog. Stylebook and Whering users already pay specifically to store their wardrobe. Someone who spent an evening adding 80 items is very likely to pay to protect that work when they switch phones."
+ },
+ "wardrobe-outfit-2": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Weekly outfit planner with smart picks from your own closet",
+  "oneLiner": "Plans 7 days of outfits using only what is already in your closet, without repeating combinations",
+  "gap": "Outfit generators in existing apps loop on a handful of items, ignoring what was worn over the past few days. What is needed is a weekly planning algorithm that blocks the same item from appearing twice in 7 days and rotates evenly through the whole catalog.",
+  "pitch": "A weekly planner that every Sunday lays out 7 outfits from the items in your closet. The algorithm knows your history: if jeans showed up Tuesday, it will suggest a different bottom Wednesday. You scan the plan, swap out any day you do not like with a swipe, and save it to your calendar.",
+  "features": [
+   "Plan 7 outfits in one session: the app proposes, you approve or swap",
+   "Wear history: every item is stamped with the date it was worn and the algorithm keeps it out of suggestions for 7 days",
+   "Event tagging per outfit: workday, meeting, casual outing, workout",
+   "Block specific items for the week: at the dry cleaner, in storage",
+   "Lock screen widget: today's outfit at a glance without opening the app"
+  ],
+  "antiFeatures": [
+   "Do not suggest items the user has explicitly marked inactive (out of season, work uniform)",
+   "Do not loop on the same pieces with every new request. Variety matters more than item popularity",
+   "Do not require a daily app open to keep the planner running. The plan is built once a week"
+  ],
+  "monetization": "Subscription at $4 per month or one-time purchase at $15. Paying Whering and Indyx users are already in the habit of managing their wardrobe in an app. People who free up morning decision time with a ready plan value that more than a plain catalog."
+ },
+ "wardrobe-outfit-3": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "AI stylist strictly from your own closet",
+  "oneLiner": "Builds outfits and answers style questions using only clothes you have already bought",
+  "gap": "Most AI stylists pivot to purchase recommendations when they claim your catalog does not have enough. What is needed is a mechanism that works strictly within the items already uploaded, accounts for event context, and explains why a specific combination works.",
+  "pitch": "An AI stylist with one rule: no shopping recommendations. You describe the event and your mood, the app builds an outfit from what is in your closet, and explains the logic behind it: why these pieces work together in color, texture, and occasion. If something is genuinely missing, the app says so honestly, without linking to any store.",
+  "features": [
+   "Context input: describe the event in text or pick from presets (work meeting, date, errand run, flight)",
+   "Outfit explanation: why this pairing works by color, style, and occasion",
+   "One-tap exclusion: remove a specific item from today's suggestions with a single tap",
+   "Three alternatives per request: quick switching between options",
+   "Chat-style stylist: responses are built entirely from your uploaded wardrobe"
+  ],
+  "antiFeatures": [
+   "Do not recommend buying a new item as the answer to a user's request",
+   "Do not ignore event context. A beach look and a business meeting need very different things from the same closet",
+   "Do not repeat the same combinations on follow-up requests within the same week"
+  ],
+  "monetization": "Subscription at $5 to $7 per month. The audience already paying for Indyx or Stylebook is looking for the next step: not just storing a wardrobe, but using it more intelligently. Alta Daily and Acloset users paid for the promise of style from their own clothes and did not get it."
+ },
+ "wardrobe-outfit-4": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Capsule wardrobe builder",
+  "oneLiner": "Analyzes the items you have uploaded and shows exactly which basics are missing for a working capsule",
+  "gap": "Capsule wardrobe helpers recommend buying from a template without looking at what you already own. What is needed is an audit mechanism: the app scans your uploaded items, counts the potential combinations each piece enables, and shows which one or two additions would unlock the most new outfits.",
+  "pitch": "A capsule auditor: upload your closet and the app calculates how many outfits each pair of items can produce, then surfaces the bottlenecks. You see a clear result: add one white button-down and get 14 new outfits from pieces already hanging in your closet. This is not a shopping list. It is concrete analytics on the wardrobe you already have.",
+  "features": [
+   "Compatibility graph: how many outfits each item unlocks when paired with the rest",
+   "Gap analysis: the three additions that would produce the most new combinations",
+   "Wardrobe color map: the ratio of neutrals to accent pieces and how well they mix",
+   "Season mode: hide out-of-season items and recalculate the capsule on what is current",
+   "Saved capsule plans with notes: a record of why specific pieces were chosen"
+  ],
+  "antiFeatures": [
+   "Do not push a generic capsule template (10 neutral pieces) that ignores the user's actual wardrobe",
+   "Do not nudge toward shopping. If a gap is identified, describe what to look for without affiliate links",
+   "Do not limit the audit by item count on the free plan. The value of the audit grows with wardrobe size"
+  ],
+  "monetization": "Subscription at $5 per month or one-time purchase at $18. Audience: mindful-consumption and minimalism followers who track capsule wardrobe creators. They already pay for Cladwell and Indyx and leave when they do not get real analytics."
+ },
+ "wardrobe-outfit-5": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Trip suitcase builder from your own closet",
+  "oneLiner": "Helps you pack for a specific trip by building outfits only from items in your uploaded wardrobe",
+  "gap": "Packing lists exist in almost every wardrobe organizer, but none solves the core travel problem: bringing the fewest items for the most combinations. What is needed is a mechanism to select a subset of your wardrobe and automatically calculate how many outfits those items cover for specific days and event types on the trip.",
+  "pitch": "A trip planner that knows your closet. You enter the number of days, the types of events (beach, dinners, sightseeing), and the temperature range. The app suggests the minimum set of items from your wardrobe that covers every day without repeats. Before you leave you can see which outfit is mapped to which day.",
+  "features": [
+   "Trip setup: days, event types, temperature range",
+   "Pack optimization: fewest items, most combinations from your uploaded wardrobe",
+   "Day-by-day planner: an outfit for each day with the option to swap individual pieces",
+   "Packing checklist: mark each item as packed and see what is still left",
+   "Trip history: remember what you took to Barcelona in May so you do not pack linen for Berlin in November"
+  ],
+  "antiFeatures": [
+   "Do not suggest buying items for the trip. The goal is to use what you already have",
+   "Do not require a complete wardrobe catalog before the packing mode works. It should run on a partial list",
+   "Do not include invalid combinations in the plan (sundress paired with dress shoes)"
+  ],
+  "monetization": "Subscription at $4 per month or one-time purchase at $12. Frequent travelers (4 to 8 trips a year) already pay for Stylebook and Pureple for this feature. Someone who has paid airline bag fees is happy to pay for an app that helps them avoid them."
+ },
+ "wardrobe-outfit-6": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Wear tracker and cost per wear",
+  "oneLiner": "Counts how many times each item has been worn and shows the real cost of every single wear",
+  "gap": "Cost-per-wear tracking exists in Stylebook and Acloset but requires manually entering a price for every item and is clunky for daily logging. What is needed is a quick daily outfit log (one tap) with automatic cost-per-wear recalculation and a list of items that have not been worn in a while.",
+  "pitch": "An outfit journal for people who want to know what they actually wear. Each morning, one tap: select today's outfit or confirm yesterday's. The app calculates the cost per wear for every item, flags anything that has not come out in 30 days, and sends a monthly summary: your most-worn pieces, your most expensive per-wear pieces, and your overall trend.",
+  "features": [
+   "Quick outfit log: assemble from your catalog in 20 seconds or pick from saved outfits",
+   "Cost per wear for each item: automatically recalculates with every log entry",
+   "Sleeping items list: not worn for N days, with a nudge and a suggested outfit to use it",
+   "Monthly summary: top 5 most worn, top 5 most expensive per wear, overall trajectory",
+   "Occasion tags: work, errand, dinner, workout. Stats broken down by context"
+  ],
+  "antiFeatures": [
+   "Do not require a price entry before tracking can start. Price can be added later whenever the user wants",
+   "Do not make daily logging take longer than 30 seconds. If it does, users will drop the habit",
+   "Do not put wear history behind a paywall. Data from past days belongs to the user"
+  ],
+  "monetization": "Subscription at $3 per month or one-time purchase at $10. Stylebook users have been paying for this feature for years. The mindful-consumption and capsule-wardrobe audience treats cost per wear as a key argument before any purchase. For them it is a financial discipline tool."
+ },
+ "wardrobe-outfit-7": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Weather-based outfit picker from your own wardrobe",
+  "oneLiner": "Every morning suggests an outfit from your uploaded items based on the real temperature outside, not a store catalog",
+  "gap": "Weather-based outfit suggestions exist in several apps but are either disconnected from the user's actual wardrobe (Weather Fit) or use weather data incorrectly (Acloset). What is needed is a mechanism that pulls real temperature from geolocation for the morning, filters the wardrobe by seasonal tags, and suggests an outfit only from items that are appropriate for the conditions.",
+  "pitch": "A one-screen morning assistant: open the app, see the current temperature, and get an outfit from your closet that fits it. No store catalogs. The user tags each item once with a season and temperature range, and from then on the app handles it automatically.",
+  "features": [
+   "Geolocation weather: temperature, precipitation, and wind for the morning without manually entering a city",
+   "Temperature range tags per item: below 40F, 40 to 60F, 60 to 77F, above 77F",
+   "Wardrobe filtering by current conditions: the app shows only items that are appropriate for today",
+   "Block out-of-season pieces: remove winter coats from summer suggestions with a single toggle",
+   "Home screen widget: temperature and today's outfit without opening the app"
+  ],
+  "antiFeatures": [
+   "Do not recommend store items as part of the weather outfit",
+   "Do not use an average daily temperature for the suggestion. What matters is the temperature when the user is heading out",
+   "Do not ignore precipitation when choosing footwear and outerwear"
+  ],
+  "monetization": "Subscription at $3 per month. Weather Fit shows that users pay for a well-designed weather-based outfit feature: the app has over 3,700 ratings and an engaged audience built entirely around the widget and avatar concept. A version that works with your real wardrobe removes the main limitation of that genre."
+ },
+ "wardrobe-outfit-8": {
+  "categoryName": "Wardrobe & outfits",
+  "title": "Color analysis with a clear result and wardrobe audit",
+  "oneLiner": "Identifies your color season and immediately shows which items in your uploaded wardrobe work for you and which to set aside",
+  "gap": "Color analysis apps stop at delivering a result. They do not connect the identified season to the user's actual wardrobe. They do not show which items in the closet fall within the palette and which do not. What is needed is a wardrobe audit by color: every item gets a compatibility score against the user's color season.",
+  "pitch": "A two-step color audit. Step one: take a selfie in natural light, get a clear result (one of 12 seasonal subtypes) with an explanation of why that one. Step two: upload your wardrobe and the app marks every item as 'in your palette,' 'neutral,' or 'not your color' and shows you what to wear with confidence and what might be better to sell.",
+  "features": [
+   "Automatic seasonal subtype identification from a selfie, with an explanation of the result",
+   "Wardrobe audit: each item gets a compatibility label based on the detected palette",
+   "Advice for neutrals outside your palette: how to make them work anyway",
+   "Sell list: items outside your palette that you rarely wear, automatically flagged",
+   "Wardrobe filter by color compatibility: browse only what actually works on you"
+  ],
+  "antiFeatures": [
+   "Do not return a result like 'you are between winter and spring' without a clear conclusion. The user came for an answer, not more questions",
+   "Do not cap the wardrobe audit by item count. The value of the audit grows with wardrobe size",
+   "Do not recommend buying items in the right colors as the first step. Audit what is already there first"
+  ],
+  "monetization": "One-time purchase of $12 for the full analysis result plus wardrobe audit. Style DNA and My Best Colors users paid $10 to $15 for color analysis and did not get an actionable next step. This audience is already motivated to pay. They are looking for a specific tool, not a theory."
  }
 }

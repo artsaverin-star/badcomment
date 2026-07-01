@@ -50974,5 +50974,501 @@
    ],
    "monetization": "Подписка 7-10 долларов в месяц или 60 долларов в год. Арендодатель с 5 объектами платит за вычет пробега, который реально уменьшает налог на сотни долларов в год. Риэлтор тратит на клиентские выезды тысячи миль: для него это прямая экономия, а не удобство."
   }
+ },
+ {
+  "slug": "wardrobe-outfit-1",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Быстрый каталог гардероба с чистым фоном",
+  "oneLiner": "Цифровой шкаф, куда вещи добавляются за 10 секунд, потому что удаление фона работает с первой попытки",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "I am so far liking the app but the photos are never clean or straight or have a good background like in the overview of the app if anyone has tips I could use them.",
+    "rating": 4,
+    "app": "Whering: Your Digital Closet"
+   },
+   {
+    "quote": "Took me 20 minutes just to upload one shirt it works at times, but literally when I open the app it makes my Wi-Fi turn off and it runs so slow",
+    "rating": 2,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "I'm having trouble getting a clean background removal with the free version. Creating outfits is not very fun again because of the messy background removal. I think about the only way this app will work is if I manually edit the images in another program and then import the clean images into this app.",
+    "rating": 2,
+    "app": "Acloset - AI Fashion Assistant"
+   },
+   {
+    "quote": "Tried to input photo of a new pair of sandals and the auto editer took off the entire white platform sole making the shoe look flat and there doesn't seem to be a way for me to fix it.",
+    "rating": 2,
+    "app": "Stylebook"
+   },
+   {
+    "quote": "I spent hours entering photos of my wardrobe only to find out that I put the looks together. No help from the app. I wasted my time.",
+    "rating": 1,
+    "app": "Stylebook"
+   }
+  ],
+  "mechanisms": [
+   "Удаление фона в большинстве приложений убирает лишнее вместе с деталями вещи (подошва, тёмная деталь на тёмном фоне)",
+   "Пользователь тратит вечер на добавление гардероба и уже не хочет возвращаться к приложению",
+   "Без чистого каталога ни генерация образов, ни поиск по вещи не работают как обещано"
+  ],
+  "gap": "Каталогизация вещей требует снять фото, удалить фон и поправить обрезку. Ни одно популярное приложение не решает этот шаг надёжно: фон удаляется криво, тёмные вещи на тёмном фоне вовсе теряются. Нужен механизм удаления фона, который запрашивает дополнительный снимок при низкой уверенности и позволяет точечно исправить проблемные зоны без внешних инструментов.",
+  "idea": {
+   "pitch": "Органайзер гардероба, где добавление одной вещи занимает 10 секунд. Приложение само оценивает качество обрезки и просит пересфотографировать только тогда, когда результат плохой. Встроенный редактор позволяет закрасить проблемный участок пальцем за 5 секунд без перехода в другое приложение.",
+   "features": [
+    "Удаление фона с оценкой уверенности: приложение показывает, насколько чист результат, и предлагает быстрое исправление",
+    "Встроенный редактор маски: закрасить забытый участок фона одним мазком пальца",
+    "Пакетная добавка вещей из фотоплёнки: выбрать 10 фото подряд, приложение обрабатывает их в фоне",
+    "Авторазметка по типу вещи: приложение само предлагает категорию (верх, низ, обувь, аксессуар)",
+    "Фото с нескольких ракурсов для одной вещи: основной снимок плюс деталь ткани или этикетка"
+   ],
+   "antiFeatures": [
+    "Не прятать ручное редактирование фона за платный план: это базовый инструмент добавления вещи",
+    "Не добавлять дублирующие вещи без предупреждения при пакетной обработке",
+    "Не ограничивать количество вещей лимитом, скрытым до момента, когда гардероб уже загружен"
+   ],
+   "monetization": "Разовая покупка 8-12 долларов или подписка 3 доллара в месяц для неограниченного каталога. Пользователи Stylebook и Whering уже платят за приложение именно ради хранения гардероба. Человек, который потратил вечер на добавление 80 вещей, с большой вероятностью заплатит, чтобы не потерять их при смене телефона."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-2",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Планировщик образов на неделю с умным подбором из своего гардероба",
+  "oneLiner": "Собирает образы на 7 дней только из вещей, которые уже есть в шкафу, и не повторяет сочетания",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 127
+  },
+  "reviewGrid": [
+   {
+    "quote": "App is great for organizing your wardrobe and visualizing all my shoes and clothes but it is not good for menswear. Also despite having hundreds of items in my closet, it almost always recommends the same top and bottom IF the feature even works at all.",
+    "rating": 3,
+    "app": "Whering: Your Digital Closet"
+   },
+   {
+    "quote": "Recommendations used to be good but now it just does the same 3-4 clothes from my 80+ wardrobe. Please fix this and I'll raise the review. I used to find great and interesting combos but now it's just the same few clothes.",
+    "rating": 1,
+    "app": "Acloset - AI Fashion Assistant"
+   },
+   {
+    "quote": "I ask for it to make different outfits and it gives me the same outfit with the same top, accessory, bottoms, and shoes, constantly and idk if its like a glitch or anything.",
+    "rating": 3,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "I spent hours uploading all my closet to the app because I was hoping for a smart AI function. Ugh nope. When I ask for outfit suggestions it gives me 6 outfits all with the same shoes (I have 45 pairs).",
+    "rating": 3,
+    "app": "Fits - Outfit Planner & Closet"
+   },
+   {
+    "quote": "This is a great app but the ai thing is not good. And it makes you put in a photo so you can try on the clothes but it does not work out.",
+    "rating": 4,
+    "app": "Fits - Outfit Planner & Closet"
+   }
+  ],
+  "mechanisms": [
+   "Алгоритм рекомендаций циклится на 3-5 вещах из 80+, потому что учитывает только частоту добавления, а не разнообразие образов",
+   "Пользователь планирует образы раз в неделю: утреннее решение занимает лишнее время и приводит к одним и тем же сочетаниям",
+   "Приложения не хранят историю образов и не исключают повторы из рекомендаций"
+  ],
+  "gap": "Генераторы образов в существующих приложениях зацикливаются на нескольких вещах, не учитывая, что уже было надето за последние дни. Нужен алгоритм недельного планирования, который запрещает повторять ту же вещь дважды за 7 дней и равномерно проходит по всему каталогу.",
+  "idea": {
+   "pitch": "Планировщик на неделю, который каждое воскресенье составляет 7 образов из вещей в шкафу. Алгоритм знает историю: если джинсы появлялись во вторник, в среду он предложит другой низ. Пользователь просматривает план, меняет неподходящий день свайпом и сохраняет в календарь.",
+   "features": [
+    "Планирование 7 образов за одну сессию: приложение предлагает, пользователь одобряет или меняет",
+    "История носки: каждая вещь помечается датой использования, алгоритм не повторяет её 7 дней",
+    "Привязка образа к событию: рабочий день, встреча, прогулка, спорт",
+    "Блокировка отдельных вещей на неделю: сдал в химчистку, убрал в хранение",
+    "Виджет на экране блокировки: образ на сегодня одним взглядом без открытия приложения"
+   ],
+   "antiFeatures": [
+    "Не предлагать образы из категорий, которые пользователь явно пометил как неактивные (внесезонное, рабочая форма)",
+    "Не зацикливаться на одних и тех же вещах при каждом новом запросе: разнообразие важнее популярности предмета",
+    "Не требовать ежедневный вход для работы планировщика: план составляется раз в неделю"
+   ],
+   "monetization": "Подписка 4 доллара в месяц или разовая покупка 15 долларов. Платящая аудитория Whering и Indyx уже привыкла вести гардероб в приложении. Те, кто освобождает утреннее время за счёт готового плана, ценят это выше, чем просто каталог вещей."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-3",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "ИИ-стилист только из своего шкафа",
+  "oneLiner": "Подбирает образы и отвечает на вопросы по стилю исключительно из вещей, которые уже куплены",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 118
+  },
+  "reviewGrid": [
+   {
+    "quote": "I tried two other apps and numerous clothing delivery services that were not useful at all. I love this app because it gives me ideas of outfits with the things I already own. Can't say enough great things about it.",
+    "rating": 5,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "The closet will not let you create outfits with your own clothes. It just creates styles with clothes to buy.",
+    "rating": 3,
+    "app": "Style DNA: AI Stylist & Closet"
+   },
+   {
+    "quote": "This is a great idea and the app and AI are very functional, but the great limitation is that it takes your closet and recommends more of it. But if I already have that closet then what good is the app? It mixes business and personal and wants me to wear dress shoes out, when I should be dressing ca",
+    "rating": 2,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "Awful looks they all look bad I thought that they will use clothes from my closet and they didn't. None of the given outfits are cute they are ugly and unmatched.",
+    "rating": 1,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "So bad just made outfits with one of my tops and suggested me to buy clothes for everything else such a waste of time.",
+    "rating": 1,
+    "app": "Alta Daily: Digital AI Closet"
+   }
+  ],
+  "mechanisms": [
+   "Большинство ИИ-стилистов используют каталог пользователя как отправную точку, а потом предлагают купить недостающие вещи",
+   "Пользователь открывает приложение с вопросом «что мне надеть сегодня», а получает список покупок",
+   "Контекст (куда иду, какая погода, рабочий или выходной) не учитывается при подборе"
+  ],
+  "gap": "Большинство ИИ-стилистов переключаются на рекомендации к покупке, когда собственного каталога якобы не хватает. Нужен механизм, который работает строго в рамках уже загруженных вещей, учитывает контекст события и объясняет, почему именно это сочетание подходит.",
+  "idea": {
+   "pitch": "ИИ-стилист с одним правилом: никаких покупок. Пользователь описывает событие и настроение, приложение составляет образ только из того, что есть в шкафу, и объясняет логику: почему эти вещи сочетаются по цвету, фактуре и поводу. Если чего-то объективно не хватает, приложение честно говорит об этом без ссылок на магазины.",
+   "features": [
+    "Контекстный запрос: описать событие текстом или выбрать из готовых вариантов (рабочая встреча, свидание, прогулка, перелёт)",
+    "Объяснение образа: почему эта пара вещей работает вместе по цвету, стилю, поводу",
+    "Исключение нежелательных вещей: убрать конкретную вещь из рекомендаций на сегодня одним нажатием",
+    "Альтернативные варианты: три образа на один запрос, быстрое переключение между ними",
+    "Запрос к стилисту в чате: ответ строится только на базе загруженного гардероба"
+   ],
+   "antiFeatures": [
+    "Не рекомендовать купить новую вещь как решение запроса пользователя",
+    "Не игнорировать контекст события: пляжный образ и корпоратив требуют разных вещей из того же шкафа",
+    "Не предлагать одни и те же сочетания при повторных запросах в течение недели"
+   ],
+   "monetization": "Подписка 5-7 долларов в месяц. Аудитория, которая уже платит за Indyx или Stylebook, ищет следующий шаг: не просто хранить гардероб, а использовать его умнее. Пользователи Alta Daily и Acloset оставляли деньги именно за обещание стиля из своих вещей и не получили его."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-4",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Строитель капсульного гардероба",
+  "oneLiner": "Анализирует загруженные вещи и показывает, каких базовых позиций не хватает для работающей капсулы",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 104
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app has completely changed how I get dressed, pack and plan for trips, and how I view my closet. I tell all my friends to get it, even my fiance wants to Indyx his closet now. Just get it you won't regret it.",
+    "rating": 5,
+    "app": "Indyx: Wardrobe & Outfit App"
+   },
+   {
+    "quote": "After uploading just two items through the URL importer, this feature stopped working. I reached out to customer service by email to be told I wasn't copying the URL right.",
+    "rating": 1,
+    "app": "Indyx: Wardrobe & Outfit App"
+   },
+   {
+    "quote": "Great idea but AI not smart enough to give various options. Doesn't support individual style. Wait for improvement in AI before purchasing a subscription.",
+    "rating": 3,
+    "app": "Dressly: AI Outfit Stylist"
+   },
+   {
+    "quote": "They give decent advice for making purchases and how to think about building a wardrobe but the capsule they recommended for me was WAY off, including items I said I did not like.",
+    "rating": 2,
+    "app": "Dressly: AI Outfit Stylist"
+   },
+   {
+    "quote": "I am not on social media or into posting content, so I'm honestly surprised how much I'm enjoying the community feature. I love how the formulas have helped me to use items I already have in my wardrobe.",
+    "rating": 5,
+    "app": "Outfit Formulas: Closet Maker"
+   }
+  ],
+  "mechanisms": [
+   "Капсульный гардероб работает только когда у каждой базовой вещи есть пара «якорей»: нейтральный верх, нейтральный низ, одна акцентная деталь",
+   "Приложения либо предлагают купить готовый список капсулы, не смотря на уже имеющееся, либо анализируют по формуле, которая не учитывает личный стиль",
+   "Пользователь не видит, каких именно вещей не хватает для максимальной сочетаемости того, что уже есть"
+  ],
+  "gap": "Капсульные помощники предлагают покупать по шаблону без учёта уже имеющегося гардероба. Нужен механизм аудита: приложение смотрит на загруженные вещи, считает потенциальные сочетания для каждой и показывает, какая одна-две позиции откроют максимальное число новых комбинаций.",
+  "idea": {
+   "pitch": "Аудитор капсулы: загружаешь шкаф, приложение считает, сколько образов можно собрать из каждой пары вещей, и показывает «узкие места». Пользователь видит: добавь одну белую рубашку и получишь 14 новых образов из вещей, которые уже висят. Это не шоппинг-список, а конкретная аналитика по своему гардеробу.",
+   "features": [
+    "Граф сочетаемости: сколько образов открывает каждая вещь в связке с остальными",
+    "Анализ пробелов: три позиции, добавление которых даст максимальное число новых комбинаций",
+    "Цветовая карта гардероба: соотношение нейтральных и акцентных вещей, насколько они сочетаются между собой",
+    "Режим сезон: скрыть внесезонные вещи и пересчитать капсулу только по актуальным",
+    "Сохранение планов капсулы с заметками: почему выбраны именно эти вещи"
+   ],
+   "antiFeatures": [
+    "Не предлагать стандартный шаблон капсулы (10 вещей нейтральных цветов) в обход реального гардероба пользователя",
+    "Не подталкивать к покупке: если пробел выявлен, описать что именно искать, без партнёрских ссылок",
+    "Не ограничивать аналитику количеством вещей на бесплатном плане: ценность аудита пропорциональна размеру гардероба"
+   ],
+   "monetization": "Подписка 5 долларов в месяц или разовая покупка 18 долларов. Аудитория: сторонники осознанного потребления и минимализма, которые следят за блогерами о капсульном гардеробе. Они уже платят за Cladwell и Indyx и уходят, не получив реальной аналитики."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-5",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Сборщик чемодана из своего шкафа",
+  "oneLiner": "Помогает упаковать чемодан на конкретную поездку, составив образы только из вещей в загруженном гардеробе",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 96
+  },
+  "reviewGrid": [
+   {
+    "quote": "I just finished digitizing my closet, this app is so fun and useful! I especially love the packing list feature, it is so helpful!",
+    "rating": 4,
+    "app": "Stylebook"
+   },
+   {
+    "quote": "I love Pureple, I've been using it for years. I used AI to create outfits for my recent vacation, selecting items such as jewelry, purses, and shoes. It was amazing and perfect. It really helped me not overpack, for once!",
+    "rating": 5,
+    "app": "Pureple: AI Outfit Planner"
+   },
+   {
+    "quote": "A feature that could be added is a vacation feature where you select what you have available to you during that time and it creates outfits just using those pieces.",
+    "rating": 4,
+    "app": "Whering: Your Digital Closet"
+   },
+   {
+    "quote": "I love the app for packing and special events! I've found it very helpful and fun to mess around with the different possibilities! It's helped me look at my closet differently!",
+    "rating": 4,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "I like this app and find it most useful when I'm packing for trips. One thing that would be a huge game changer in the functionality for me would be if you could build looks just using clothes you have already added to the packing list for a particular trip.",
+    "rating": 4,
+    "app": "Stylebook"
+   }
+  ],
+  "mechanisms": [
+   "Путешественник перебирает вещи вручную и берёт лишнее, потому что не видит, сколько образов даст набор из 8 предметов",
+   "Приложения с пакинг-листами не привязаны к реальному гардеробу: пишешь список заново для каждой поездки",
+   "Вещь, взятая в поездку, должна работать в 2-3 образах иначе она занимает место без пользы"
+  ],
+  "gap": "Пакинг-листы существуют почти в каждом органайзере гардероба, но ни один не решает главную задачу поездки: взять минимум вещей с максимальным числом сочетаний. Нужен механизм выбора подмножества из гардероба и автоматического расчёта, сколько образов дают выбранные вещи для конкретных дней и типов событий поездки.",
+  "idea": {
+   "pitch": "Планировщик поездки, который знает твой шкаф. Указываешь количество дней, тип событий (пляж, ужины, прогулки) и температуру. Приложение предлагает минимальный набор вещей из твоего гардероба, который покроет все дни без повторов. Перед отъездом видишь, какой образ на какой день идёт.",
+   "features": [
+    "Ввод поездки: дни, типы событий, диапазон температур",
+    "Оптимизация набора: минимальное число вещей, максимальное число сочетаний из загруженного гардероба",
+    "Планировщик дней: образ на каждый день с возможностью поменять конкретную вещь",
+    "Чеклист упаковки: отметить каждую вещь как упакованную, видеть что ещё осталось",
+    "История поездок: что брали в Барселону в мае, не брать летний лён в Берлин в ноябре"
+   ],
+   "antiFeatures": [
+    "Не предлагать купить вещи для поездки: задача в том, чтобы использовать то, что уже есть",
+    "Не требовать полного каталога гардероба до начала работы: пакинг-режим должен работать с частичным списком",
+    "Не показывать невалидные сочетания в плане (пляжный сарафан + деловые туфли)"
+   ],
+   "monetization": "Подписка 4 доллара в месяц или разовая покупка 12 долларов. Частые путешественники (4-8 поездок в год) уже платят за Stylebook и Pureple за эту функцию. Человек, который платит за перевес чемодана, с удовольствием заплатит за приложение, которое этого избегает."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-6",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Трекер носки и цена за использование",
+  "oneLiner": "Считает, сколько раз надета каждая вещь, и показывает реальную стоимость каждого выхода в ней",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 87
+  },
+  "reviewGrid": [
+   {
+    "quote": "I started tracking my outfits 700 days ago on Stylebook and haven't missed a day! I find it extremely helpful to have data about what I am wearing and how often, especially the cost-per-wear information.",
+    "rating": 5,
+    "app": "Stylebook"
+   },
+   {
+    "quote": "I've enjoyed using this app so much over the years that I pay for extra closet space. I've used it for years to try to make the most of my closet. I don't necessarily use the outfit suggestions much, but I like the usage statistics, cost per wear, and looking back at what I wear each day.",
+    "rating": 5,
+    "app": "Acloset - AI Fashion Assistant"
+   },
+   {
+    "quote": "As a woman who works in a corporate role, I have always looked for a way to catalogue, plan out, and track my wardrobe, with inspiration and/or recommendations. ALTA does all this and more. I use it daily to plan and track my styles.",
+    "rating": 5,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "The main reason I use Alta is to wear more of the clothes in my closet and speed up my mornings.",
+    "rating": 4,
+    "app": "Alta Daily: Digital AI Closet"
+   },
+   {
+    "quote": "Have you ever felt you had nothing you wanted to wear and still have a closet full of clothes? ALTA will change that! I wear more of my clothes and love what I'm wearing thanks to the AI assistance.",
+    "rating": 5,
+    "app": "Alta Daily: Digital AI Closet"
+   }
+  ],
+  "mechanisms": [
+   "Вещь за 8000 рублей, надетая 3 раза, стоит 2666 рублей за выход, та же вещь в 40 выходах стоит 200 рублей",
+   "Без учёта носки пользователь покупает новое, не осознавая, что купленное год назад не надето ни разу",
+   "Трекер носки меняет поведение при шопинге: вопрос «сколько раз я это надену» появляется до покупки"
+  ],
+  "gap": "Учёт стоимости вещи за использование (cost-per-wear) есть в Stylebook и Acloset, но требует ручного ввода цены для каждой вещи и неудобен для ежедневной отметки. Нужен механизм быстрой отметки образа дня (одно нажатие) с автоматическим пересчётом стоимости и выделением вещей, которые давно не надевались.",
+  "idea": {
+   "pitch": "Дневник образов для тех, кто хочет знать, что реально носит. Каждое утро одно нажатие: выбрал образ или отметил вчерашний. Приложение считает стоимость за выход для каждой вещи, показывает «спящие» предметы (не надеты 30 дней) и каждый месяц присылает сводку: самые носимые вещи, самые дорогие на один выход.",
+   "features": [
+    "Быстрая отметка образа: собрать из каталога за 20 секунд или выбрать из сохранённых",
+    "Cost-per-wear для каждой вещи: автоматически пересчитывается при каждой отметке",
+    "Список спящих вещей: не надевалось N дней с напоминанием и подсказкой образа",
+    "Ежемесячная сводка: топ-5 самых носимых, топ-5 самых дорогих на выход, общая динамика",
+    "Тэги повода: работа, прогулка, ужин, спорт статистика по контексту"
+   ],
+   "antiFeatures": [
+    "Не требовать ввод цены для начала трекинга: цена добавляется по желанию позже",
+    "Не делать отметку образа долгой: если это занимает больше 30 секунд, пользователь бросит привычку",
+    "Не прятать историю носки за пейволл: данные за прошлые дни принадлежат пользователю"
+   ],
+   "monetization": "Подписка 3 доллара в месяц или разовая покупка 10 долларов. Пользователи Stylebook годами платят именно за эту функцию. Аудитория осознанного потребления и капсульного гардероба считает cost-per-wear ключевым аргументом при покупке: для них это инструмент финансовой дисциплины."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-7",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Погодный подбор образа из своего гардероба",
+  "oneLiner": "Каждое утро предлагает образ из загруженных вещей с учётом реальной температуры за окном, не из каталога магазина",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 79
+  },
+  "reviewGrid": [
+   {
+    "quote": "For 82 F degree weather, this system recommends wool pants, long sleeve pullover sweaters AND cardigans. This would give one the medical malady heat stroke.",
+    "rating": 1,
+    "app": "Acloset - AI Fashion Assistant"
+   },
+   {
+    "quote": "I wanted this app to be exactly what it offers but it's heavily flawed. Often it's recommending me jackets and coats in the spring. Even after changing my closet to exclude those things.",
+    "rating": 2,
+    "app": "Acloset - AI Fashion Assistant"
+   },
+   {
+    "quote": "This is a fun, cheerful way to choose your outfit for the day. No more dressing for sun and getting wet in the rain!",
+    "rating": 5,
+    "app": "Weather Fit: Outfit Forecast"
+   },
+   {
+    "quote": "Helps me efficiently decide what to wear outside based on the weather without needing to go outside.",
+    "rating": 5,
+    "app": "Weather Fit: Outfit Forecast"
+   },
+   {
+    "quote": "The calendar feature is pretty good for planning, but the weather integration could work better with my actual clothes.",
+    "rating": 4,
+    "app": "Pureple: AI Outfit Planner"
+   }
+  ],
+  "mechanisms": [
+   "Приложения рекомендуют образ по заданному «стилю» или алгоритму без проверки текущей температуры",
+   "Когда погодная интеграция есть (Acloset), она использует усреднённую погоду за период, а не реальный прогноз на час выхода",
+   "Пользователь получает несезонный совет и теряет доверие к рекомендациям навсегда"
+  ],
+  "gap": "Погодный подбор образа существует в нескольких приложениях, но либо не привязан к реальному гардеробу пользователя (Weather Fit), либо использует погодные данные некорректно (Acloset). Нужен механизм, который берёт реальную температуру по геолокации на утро, фильтрует гардероб по сезонным тегам и предлагает образ только из того, что подходит по погоде.",
+  "idea": {
+   "pitch": "Утренний помощник с одним экраном: открываешь приложение, видишь температуру сейчас и образ из своего гардероба, который под неё подходит. Никаких каталогов магазинов. Пользователь один раз помечает вещи тегами сезона и диапазона температур, дальше приложение работает само.",
+   "features": [
+    "Геолокационная погода: температура, осадки, ветер на утро без ручного ввода города",
+    "Теги температурного диапазона для каждой вещи: до +5°C, +5-15°C, +15-25°C, выше +25°C",
+    "Фильтрация гардероба по актуальной погоде: приложение показывает только подходящие вещи",
+    "Блокировка внесезонного: убрать из подборки пальто на лето одним переключателем",
+    "Виджет на главный экран: температура и образ без открытия приложения"
+   ],
+   "antiFeatures": [
+    "Не рекомендовать вещи из магазинов как часть погодного образа",
+    "Не использовать усреднённую дневную температуру для совета: важна температура в момент выхода",
+    "Не игнорировать осадки при выборе обуви и верхнего слоя"
+   ],
+   "monetization": "Подписка 3 доллара в месяц. Weather Fit показывает, что пользователи платят за красивый погодный подбор одежды: приложение собрало 3745 оценок и активную аудиторию именно на виджете и персонаже. Версия, работающая с реальным гардеробом, снимает главное ограничение этого жанра."
+  }
+ },
+ {
+  "slug": "wardrobe-outfit-8",
+  "category": "wardrobe-outfit",
+  "categoryName": "Гардероб и образы",
+  "title": "Цветовой анализ с выводом и применением в своём гардеробе",
+  "oneLiner": "Определяет цветотип и сразу показывает, какие вещи из загруженного гардероба работают, а какие стоит отложить",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 5955,
+   "observations": 71
+  },
+  "reviewGrid": [
+   {
+    "quote": "I was completely surprised by the color analysis. After all this time, I thought I knew my best color palette but was completely wrong. So glad I discovered this app!",
+    "rating": 5,
+    "app": "Style DNA: AI Stylist & Closet"
+   },
+   {
+    "quote": "people pay BIG BUCKS to get this done in person but i'm so glad i found this app. i had no idea i was wearing the entirely wrong color palette for my skin. now i feel way more confident in every outfit.",
+    "rating": 5,
+    "app": "Style DNA: AI Stylist & Closet"
+   },
+   {
+    "quote": "I purchased this app with the premium features hoping to finally narrow down my best colors. Instead of telling me my season based on a photograph of my face/hair, I was presented with an overwhelming number of choices that left me confused and not any closer to finding my color matches.",
+    "rating": 2,
+    "app": "My Best Colors"
+   },
+   {
+    "quote": "doesn't analyze your season and give you a result. You have to figure it out yourself even after a $15 purchase!",
+    "rating": 1,
+    "app": "My Best Colors"
+   },
+   {
+    "quote": "I love this app - and the ability to refer back to my colors when shopping or getting dressed. Before styling was a challenge and relying on blue, grey, black or white was my go to. Now I can confidently wear colors that actually suit me!",
+    "rating": 5,
+    "app": "My Best Colors"
+   }
+  ],
+  "mechanisms": [
+   "Цветовой анализ (сезонный метод) реально меняет поведение при шопинге: люди перестают покупать вещи, которые им не идут",
+   "Существующие приложения либо дают результат без объяснения (просто «вы зима»), либо показывают сотни палитр и оставляют пользователя разбираться самостоятельно",
+   "Следующий шаг после анализа пройтись по уже имеющемуся гардеробу с новым знанием ни одно приложение не поддерживает"
+  ],
+  "gap": "Цветотипирующие приложения останавливаются на выдаче результата. Они не связывают полученный цветотип с реальным гардеробом пользователя: не показывают, какие вещи из шкафа в его палитре, а какие нет. Нужен механизм аудита гардероба по цвету: каждой вещи присваивается оценка совместимости с цветотипом пользователя.",
+  "idea": {
+   "pitch": "Цветовой аудит гардероба в двух шагах. Шаг один: делаешь селфи при дневном свете, получаешь чёткий результат (один из 12 сезонных подтипов) с объяснением, почему именно он. Шаг два: загружаешь гардероб, приложение помечает каждую вещь как «в палитре», «нейтральная» или «не твоя» и показывает, что можно носить с уверенностью, а что лучше продать.",
+   "features": [
+    "Автоматическое определение сезонного подтипа по селфи с объяснением результата",
+    "Аудит загруженного гардероба: каждая вещь получает метку по совместимости с палитрой",
+    "Рекомендации по использованию нейтральных вещей вне палитры: как сделать их работающими",
+    "Список на продажу: вещи, которые не в палитре и редко надевались автоматически выделены",
+    "Фильтр гардероба по цветовой совместимости: смотреть только то, что точно идёт"
+   ],
+   "antiFeatures": [
+    "Не давать результат «вы между зимой и весной» без чёткого вывода: пользователь пришёл за ответом, а не за вопросом",
+    "Не ограничивать аудит гардероба по числу вещей: ценность растёт вместе с размером шкафа",
+    "Не рекомендовать купить вещи в нужных цветах как первый шаг: сначала аудит того, что есть"
+   ],
+   "monetization": "Разовая покупка 12 долларов за полный результат анализа плюс аудит гардероба. Пользователи Style DNA и My Best Colors платили 10-15 долларов за цветотипирование и не получили применения результата. Эта аудитория уже мотивирована платить: они ищут конкретный инструмент, а не теорию."
+  }
  }
 ]
