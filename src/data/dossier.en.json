@@ -3198,5 +3198,72 @@
    "money": "The market is saturated but money is poorly distributed. The install leader is Waterllama (155k ratings) and the quality leader is Watercat and WaterH. Most apps monetize through a $3-10 per month or $20-30 per year subscription, but users actively search for a one-time purchase. Smart bottles (HidrateSpark, WaterH) create a separate hardware-locked market with a more loyal audience: the buyer has already spent $50-100 on the bottle and is ready to pay for a quality companion. The clearest path to revenue in this niche is a lifetime license at $10-20, mentioned in positive reviews as the single main reason for the purchase.",
    "marketLead": "Waterllama leads on user count and brand recognition. Watercat leads on real quality and retention. HidrateSpark leads in the hardware segment but suffers from unstable firmware. There is no actual leader combining reliable Watch integration with honest monetization."
   }
+ },
+ "pet-care": {
+  "audience": {
+   "segments": [
+    {
+     "name": "New puppy owners",
+     "job": "Learn basic commands and house rules without hiring a trainer, and not get lost in the chaos of the first few weeks",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to spend $50-150 per year on a structured course, but react strongly to hidden charges and dark patterns during onboarding. When the subscription terms are clear, they pay readily.",
+     "servedBy": [
+      "Woofz - Puppy and Dog Training",
+      "Dogo - Dog Training & Clicker",
+      "Puppr - Dog Training & Tricks",
+      "Zigzag - Dog & Puppy Training",
+      "EveryDoggy - Dog Training App"
+     ],
+     "gap": "No app solves the problem of syncing training progress between two adults in the same household: one parent completes a lesson but the other has no idea where they left off. A shared family training journal with separate roles does not exist."
+    },
+    {
+     "name": "Multi-pet households with chronic conditions",
+     "job": "Keep track of medication schedules, vaccines, and vet appointments across multiple animals without missing anything",
+     "payLevel": "pays readily",
+     "payNote": "Owners of three or more pets already spend heavily on veterinary care and food. An app that genuinely saves them time and reduces anxiety feels like a cheap tool. Concrete signal: The Pack by Zoetis users say the service saves them significantly on prescription medications.",
+     "servedBy": [
+      "The Pack by Zoetis",
+      "GreatPetCare",
+      "Digitail - Smarter Pet Care",
+      "PetDesk",
+      "myVCA"
+     ],
+     "gap": "No app can merge medical records from different clinics and different apps into one timeline. Every client portal is locked to its own network, so when an owner sees a specialist or visits an emergency clinic, the entire history disappears."
+    },
+    {
+     "name": "Owners of sick or senior pets",
+     "job": "Get a vet's answer right now when something goes wrong, without waiting for an appointment or rushing to an emergency clinic for every concern",
+     "payLevel": "pays readily",
+     "payNote": "Willing to pay for telemedicine and insurance if the promise holds up. Pawp and Airvet users with seriously ill pets (a diabetic Labrador, a 10-year-old cat with cancer) paid for years expecting real help in a critical moment.",
+     "servedBy": [
+      "Airvet for Pet Parents",
+      "Pawp: 24/7 Vet & Pet Care",
+      "myVCA",
+      "PetDesk",
+      "Thrive Pet Healthcare"
+     ],
+     "gap": "Telemedicine is stuck in a triage role: the vet sees the problem and outlines a plan but cannot write a prescription, which undercuts the whole value proposition. The gap is connecting the online consultation to an actual prescription and same-day medication delivery."
+    },
+    {
+     "name": "Busy couples with a pet at home",
+     "job": "Know the pet is fed, safe, and monitored during the workday while coordinating with a partner without phone calls",
+     "payLevel": "pays readily",
+     "payNote": "They buy smart feeders for $80-150, GPS collars for $500-1,000, and pay monitoring subscriptions on top. Willingness to pay is high, but payment stays tied to reliability: when the feeder goes offline or the collar loses signal, loyalty collapses immediately.",
+     "servedBy": [
+      "Petlibro",
+      "Barkio: Dog Monitor & Pet Cam",
+      "Dog Monitor",
+      "Fi - GPS Dog Tracker",
+      "Whisker"
+     ],
+     "gap": "Multi-user mode is broken across the board: Petlibro kicks the second person out of their session, Dogtra does not allow two phones, Fi does not show multiple pets on one map. A product designed for a couple as a single decision-making unit does not exist."
+    }
+   ],
+   "takeaway": "Money in this niche concentrates at two points: sick and senior pets (owners pay without question when the service actually works in a critical moment) and busy couples with smart devices (subscriptions and hardware are already purchased, but no product treats the couple as a single user). New puppy owners pay more readily than expected but only when the subscription mechanics are transparent and free of dark patterns. Build for a couple or a household with multiple pets: that is the only segment where every existing product breaks in exactly the same place and where the fix is technically straightforward."
+  },
+  "market": {
+   "money": "Pet care in the US is a high average-ticket market with low price sensitivity among the core audience. Owners of sick or senior animals spend thousands of dollars a year on veterinary care and see a $10-30 per month app as a rounding error. Busy couples buy smart feeders and GPS collars at $500-1,000 and stack subscriptions on top. Both groups pay readily as long as the product delivers on its promise. The peak monetization point is chronic or emergency medical care plus remote monitoring for the time-strapped.",
+   "marketLead": "The market is fragmented by job-to-be-done. In training, Dogo and Puppr lead with tens of thousands of reviews, but both lost key features after monetization. In vet portals, clinic apps (PetDesk, myVCA, Thrive) dominate with hundreds of thousands of users, but none work outside their own network. In telemedicine, Airvet and Pawp have captured the audience but hit a licensing ceiling: no prescriptions, no real clinic replacement. In smart devices, Whisker (Litter-Robot) and Petlibro have tens of thousands of users with clear pain around family access. There is no clear leader covering the full pet lifecycle."
+  }
  }
 }

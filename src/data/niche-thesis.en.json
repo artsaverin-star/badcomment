@@ -2801,63 +2801,37 @@
   ]
  },
  "pet-care": {
-  "governing": "In pet care, owners aren't buying a feature. they're buying peace of mind: the confidence that they'll find a runaway, trust a reliable person, never lose a health history, and know their pet is okay. Every product wins or loses at the exact moment the owner's anxiety peaks. and most fail precisely there.",
-  "competitorRead": "The market breaks into devices (trackers), trust marketplaces (sitting, adoption), and portals tied to a clinic or brand. Leaders monetize harder than they serve: annual subscriptions with no free tier, fees on both sides of the transaction, stripped features, pet data held hostage, cancellation traps. A gap remains for a product that puts the moment of anxiety, data continuity, and clear owner control ahead of revenue extraction.",
+  "governing": "The pet-care app category (myVCA, PetDesk, Thrive, Digitail, Otto, PetPage) solves scheduling vet visits but fails to retain users between appointments: medical history is capped at two years, vaccination certificate export is unavailable, family sync is broken, and medication reminders silently stop firing after app updates. The top-rated app, Airvet (71 points), holds its position through after-hours telehealth but cannot prescribe medication and covers none of the everyday care tasks. The real entry point is a household with 2-4 pets that wants a unified health journal, working sync across two phones, and reminders that survive OS updates.",
+  "competitorRead": "Clinic client portals (myVCA, PetDesk, Thrive, Digitail, Otto) are tied to a single clinic and lose data when an owner switches vets or visits an emergency center. Smart-device apps (Petlibro, Whisker) block family access with a single active session: the second person gets logged out whenever someone else signs in. GPS trackers (Fi, SpotOn, Halo) handle safety but keep no medical history. Training apps (Puppr, Dogo, Zigzag, Woofz) monetize on content but have no integration with a health journal. Not one player connects daily care, medical memory, and family access in a single product.",
   "pillars": [
    {
-    "title": "Find and don't lose: tracking and search at the moment of truth",
-    "dek": "A tracker's value is peace of mind, not a map. But devices kill live search, sound, and radar exactly when the pet is lost or the collar has fallen off. They show the old address, inflate the fence radius to a mile, get drowned out by rustling leaves, and lose everything people loved about the old Whistle. The winner is whoever works in the worst minute.",
+    "title": "a pet's medical memory that doesn't depend on one clinic",
+    "dek": "Owners want to see past visits, lab results, and vaccination certificates at any time regardless of which clinic they used. Today myVCA stores only the two most recent years, Thrive removed the vaccination schedule after a redesign, and PDF vaccine certificate export is unavailable across the bottom half of the ratings. Owners of chronically ill pets (diabetes, allergies, senior cats on multiple medications) set dosing reminders that silently stop firing after an app update and only discover the failure after missing a dose. Multi-pet profiles technically exist in The Pack by Zoetis and GreatPetCare, but the UI does not scale: two dogs require manual profile switching, and Fi does not show multiple pets on one map. The founder opportunity is a unified health journal that is clinic-agnostic, stores history indefinitely, and delivers reminders that survive OS updates.",
     "match": [
-     "трекер",
-     "радар",
-     "забор",
-     "потер",
-     "сбеж",
-     "ошейник",
-     "whistle",
-     "пульс",
-     "детект",
-     "локац",
-     "спокой"
+     "pet medication and vaccine reminders",
+     "vet records and treatment history access",
+     "medical document export and upload",
+     "multi-pet profiles management"
     ]
    },
    {
-    "title": "Trust as a product: sitting and adoption marketplaces",
-    "dek": "What's being sold here isn't a service. it's a person and an animal. Loyalty is tied to a specific sitter. meeting in person beats shipping from a thousand miles away. the daily walk photo is the product. Platforms destroy trust with a broken geo-filter, no screening, a stranger instead of the chosen person, and a blind spot for cats and exotic pets.",
+    "title": "being present at home without having to be there",
+    "dek": "Owners of anxious dogs and smart feeders want to see, hear, and control their pets remotely and share that access with a partner. Dog Monitor and Barkio handle monitoring, but the bark log breaks every event into a separate entry instead of summarizing \"barked for 10 minutes from 2:20 to 2:30 PM,\" making the history useless. Petlibro tracks water and food intake, but the alert \"water intake changed drastically\" arrives with no explanation unless you pay for a subscription. The core systemic problem is family sync: Petlibro, Dogo, and Fi support only one active session, so the second household member gets kicked out whenever the first signs in. The potty and walk log in Dogo lags a few minutes and requires a force-quit to refresh, pushing couples back to text messages. The founder opportunity is real-time shared access with no device limit, plus an aggregated activity summary instead of a stream of individual events.",
     "match": [
-     "ситтер",
-     "адопш",
-     "пристро",
-     "скрининг",
-     "чужак",
-     "контрол",
-     "кошк",
-     "экзот",
-     "фото",
-     "лента",
-     "приют",
-     "цену",
-     "человек"
+     "pet anxiety and behavior monitoring at home",
+     "feeding and water intake log",
+     "potty and walk log with sync",
+     "family member synchronization"
     ]
    },
    {
-    "title": "The pet's memory: health history, loyalty, and continuity",
-    "dek": "A portal stays alive as long as it stores and reuses pet data and keeps the notifications a medication depends on. Stripped history kills the purpose. a profile doesn't carry over into a booking. the monthly plan removes the fear of a $700 bill, but the vet is different every time. Rewards work as an anchor but crumble on receipts and coupons. What keeps people is the clinic that knows them by name.",
+    "title": "supporting your pet outside the home: training, safety, and advice",
+    "dek": "Once a pet leaves the house, owners switch between three disconnected tools: a training app, a GPS tracker, and telehealth. Structured programs from Puppr and Dogo offer step-by-step video lessons, but most clips show only the pet and not the instructor, so it is unclear how to position your hands or body. The Fi tracker does not update position without the owner's phone nearby, meaning a dog walker has no visibility. Halo and SpotOn GPS fences promise a portable perimeter without a physical fence, but the battery degrades within a year and the geofence shocks the dog inside the allowed zone when signal is lost. Airvet covers late-night worries but cannot prescribe medication and leaves almost no trace in the pet's health history. The founder opportunity is connecting training progress, walk routes, and vet consultations on a single pet timeline that every family member can access without switching accounts.",
     "match": [
-     "истори",
-     "прививк",
-     "запис",
-     "профил",
-     "заложник",
-     "напомин",
-     "врач",
-     "купон",
-     "награ",
-     "клиник",
-     "имени",
-     "запас",
-     "подписк",
-     "отмен"
+     "structured dog training programs with video instructions",
+     "GPS tracking and safe zones",
+     "activity tracking and step counter",
+     "telehealth consultation quality"
     ]
    }
   ]

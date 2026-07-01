@@ -5741,144 +5741,144 @@
   "monetization": "Parents already pay for photo books, birthday photographers, and prints. A per-film one-time payment or an unlimited monthly subscription at a low price point"
  },
  "pet-care-1": {
-  "categoryName": "Pet Care",
-  "title": "Pet Health Record",
-  "oneLiner": "A pet health record that no clinic or subscription can ever lock you out of",
-  "gap": "Years of medical history, vaccinations, and medications end up trapped inside a single app. When a subscription changes or a service shuts down, the data becomes inaccessible, even for a pet that has passed away.",
-  "pitch": "The service stores a pet's complete medical history in an open format. Owners can download a PDF at any time, share it with any clinic, and move without losing anything. Monetization runs through clinics and veterinary networks: they pay for integration so that their records flow into the health card automatically, without putting the burden on the owner.",
+  "categoryName": "Pet care",
+  "title": "Medication log with reliable reminders",
+  "oneLiner": "Insulin, parasite prevention, and vaccine schedules that keep working after every app update",
+  "gap": "None of the 27 apps in the category guarantees reminder delivery or shows whether a notification actually reached the device. Owners only learn about a failure after missing a dose.",
+  "pitch": "A pet medication tracker with confirmed delivery: a reminder is only marked delivered once it reaches the device. If it fails, a backup SMS or push notification goes to a second family member's phone. Target user: a dog or cat owner managing long-term therapy such as insulin, allergy injections, or parasite prevention.",
   "features": [
-   "Full export to PDF and JSON in one tap at any time",
-   "Reliable push reminders for vaccinations, deworming, and ongoing medications",
-   "Share the health card with a clinic or sitter via link, no account required",
-   "Medication history with dosages and the prescribing vet",
-   "Multi-pet and multi-owner support: the whole family sees one shared record"
+   "Confirmed reminder delivery with a backup channel (SMS or a second phone)",
+   "Dose history logged as given, missed, or delayed",
+   "Multiple pet profiles on one account with separate schedules",
+   "Family access: two or more users share one log without logging each other out",
+   "Treatment history export to PDF for the vet"
   ],
   "antiFeatures": [
-   "Locking data when a subscription is cancelled",
-   "Storing records only in a closed database with no export",
-   "Requiring registration to view a shared link"
+   "No ads for pet supplies or insurance inside the data entry flow",
+   "No paywalled alerts hiding information about your pet's behavior",
+   "No schedule resets after an app update"
   ],
-  "monetization": "Vet clinics and networks (Banfield-style) pay for white-label access and API integration. Owners pay for premium notifications and a family account."
+  "monetization": "Subscription at $4.99/month for unlimited pets and family access for up to 4 people. Free plan covers one pet with no backup delivery channel."
  },
  "pet-care-2": {
-  "categoryName": "Pet Care",
-  "title": "Chronic Disease Monitoring for Dogs",
-  "oneLiner": "Health monitoring for dogs with chronic conditions: tracker data goes straight to the vet",
-  "gap": "Owners of dogs with heart failure, tracheal collapse, and other chronic conditions want to catch deterioration before symptoms appear, but there is nowhere to send tracker data and no one to interpret it.",
-  "pitch": "The service ingests heart rate and activity data from any compatible tracker and builds a trend line for veterinary oversight. A cardiologist or internist sees the weekly trend in a single dashboard and receives an alert when resting values fall below the normal range for that specific dog. B2B revenue comes from veterinary clinics paying a monthly fee for a patient dashboard covering dogs on chronic protocols.",
+  "categoryName": "Pet care",
+  "title": "Family sync without mutual sign-outs",
+  "oneLiner": "One account, multiple devices: both owners see feedings and potty trips at the same time",
+  "gap": "Every auto-feeder and tracker is tied to a single active session. A couple sharing a pet is forced to share one phone or call each other before every feeding.",
+  "pitch": "An app with true multi-device accounts: up to 5 household members see a shared pet log in real time, tap \"fed\" or \"walked,\" and everyone's view updates instantly. For households with multiple pets, each animal appears as its own card on a shared dashboard.",
   "features": [
-   "Integration with Tractive and other trackers via API",
-   "A personal baseline for each dog rather than a generic population average",
-   "Alerts sent to the vet when readings deviate from that baseline",
-   "Clinic dashboard showing all chronic patients on one screen",
-   "PDF report covering a chosen period for the patient file and insurance"
+   "Multi-device account with no sign-out: up to 5 simultaneous sessions",
+   "Real-time event log: feeding, potty, walk, medication",
+   "Push notification to other members when someone logs an event",
+   "Unified dashboard for all pets with color-coded cards",
+   "Sync history showing which family member made each entry"
   ],
   "antiFeatures": [
-   "Generic tracking that ignores breed and body size",
-   "Notifications that go only to the consumer app without involving a vet",
-   "Manual data entry instead of automatic sync"
+   "No required pairing with a smart-feeder hardware device",
+   "No sync delay of several minutes: updates are instant",
+   "No paid limit on the number of participants"
   ],
-  "monetization": "Vet clinics and cardiologists pay for the chronic-patient dashboard. Owners pay for alerts and PDF reports."
+  "monetization": "Free for 2 devices and 1 pet. Subscription at $3.99/month for 5 devices, 5 pets, and full history."
  },
  "pet-care-3": {
-  "categoryName": "Pet Care",
-  "title": "Cat and Small Animal Sitting Platform",
-  "oneLiner": "A sitting and care platform built exclusively for cats, exotic animals, and small pets",
-  "gap": "Dog-centric platforms absorbed cat services without adding even a species filter. Owners of cats, rabbits, and birds cannot find a sitter who knows how to give injections or feed their animal correctly.",
-  "pitch": "The service focuses exclusively on cats and small exotic animals. Every sitter is verified on species handling and medication administration. Clients immediately see who can give insulin injections and who has experience with ferrets. Monetization is a commission on each booking plus a subscription for sitters who want an extended profile.",
+  "categoryName": "Pet care",
+  "title": "Pet health record with export",
+  "oneLiner": "A complete history of visits, vaccines, and labs: always in your pocket and ready for any vet",
+  "gap": "No app gives the owner a complete treatment history independent of the clinic. When a vet changes, the history stays in the old app or disappears entirely.",
+  "pitch": "An independent medical cabinet for your pet: the owner uploads documents (certificates, lab results, imaging, invoices), the app organizes them by type and date, and on demand generates a QR code with the vaccination card to show a groomer, a boarding facility, or a new vet.",
   "features": [
-   "Species filter: cat, rabbit, bird, reptile, small rodent",
-   "Verified medical-procedure skills: injections, pills, drops",
-   "Photo and video updates every few hours",
-   "Background check on every sitter",
-   "Preferred sitter booking with priority availability"
+   "Upload any document type: PDF, photo, discharge summary",
+   "Auto-tagging by category: vaccine, lab result, prescription, wellness visit",
+   "Vaccination card export to PDF or QR with no restrictions",
+   "Lifetime timeline with no year-based cutoff",
+   "Reminder: \"next vaccine based on last record is in 3 months\""
   ],
   "antiFeatures": [
-   "Auto-assigning an unfamiliar sitter without the owner's consent",
-   "An overall rating that does not break down by species",
-   "Sharing home-access details with a sitter before the owner confirms"
+   "Not locked to one clinic: data belongs to the owner",
+   "No hidden limit on file count or storage on the free plan",
+   "No forced integration with a specific veterinary software platform"
   ],
-  "monetization": "Commission on each booking. Sitters pay a subscription for a verified profile that lists their medical skills."
+  "monetization": "Free up to 20 documents and 1 pet. Subscription at $5.99/month for unlimited storage, unlimited pets, and QR code generation."
  },
  "pet-care-4": {
-  "categoryName": "Pet Care",
-  "title": "Operations Tool for Dog Walkers and Pet Sitters",
-  "oneLiner": "A tool for professional sitters and dog walkers: manage clients, routes, and reports without a marketplace taking a cut",
-  "gap": "Experienced sitters work directly with regular clients but have no tool to manage schedules, routes, photo reports, and payments outside a platform that charges commission.",
-  "pitch": "The service gives walkers and sitters a complete operations stack without a marketplace: a client database, GPS-tracked routes, automatic photo reports sent to owners, and direct online payment. The sitter keeps the client relationship and stops losing 20 to 30 percent to platform fees. The sitter pays, not the pet owner.",
+  "categoryName": "Pet care",
+  "title": "Anxiety monitor with a daily summary",
+  "oneLiner": "The camera listens for barking and rolls it up into one daily report instead of 40 separate notifications",
+  "gap": "Apps log every bark as a separate event. Owners cannot see an anxiety pattern across the day and have nothing to show a veterinary behaviorist to help adjust a treatment plan.",
+  "pitch": "A monitor with smart aggregation: instead of 40 notifications a day, the owner gets one evening report: \"barked for 18 minutes today, peak at 2:00-3:30 PM, quieted within 2 minutes after your voice cue.\" A weekly trend chart lets them share progress with their vet or trainer.",
   "features": [
-   "Schedule and visit log with check-in and check-out timestamps",
-   "Automatic photo and GPS track sent to the owner after each visit",
-   "Client database with a pet card: food, allergies, vet, medications",
-   "Direct online payments with no intermediary",
-   "Repeat bookings and reminders for regular clients"
+   "Daily summary report: total noise time, peaks, response to voice cues",
+   "Weekly and monthly trend chart",
+   "Two-way audio with a one-tap \"calm down\" button",
+   "Uses the existing phone camera: no extra hardware needed",
+   "PDF report export for a veterinary behaviorist"
   ],
   "antiFeatures": [
-   "A rating system for attracting new clients (that is a marketplace, not this)",
-   "A commission on every transaction",
-   "A public SEO profile page"
+   "No stream of 50 individual push notifications per day",
+   "No paywalled subscription required to understand alert meaning",
+   "No need for a second phone: works with an old phone as the camera"
   ],
-  "monetization": "Sitters and walkers pay a flat subscription for the professional tool. No per-booking commission."
+  "monetization": "Subscription at $4.49/month for history storage and PDF reports. Free tier covers live view and the last 24 hours."
  },
  "pet-care-5": {
-  "categoryName": "Pet Care",
-  "title": "Nearby Pet Adoption Finder",
-  "oneLiner": "An adoption platform showing only animals within 50 km so you can meet them before bringing them home",
-  "gap": "Large adoption databases break geo filters and show animals thousands of miles away with paid shipping, even though people need to meet a pet in person and see how it gets along with the family and existing animals.",
-  "pitch": "The service shows only animals from genuinely nearby shelters and private foster homes. The location is always accurate and there is no shipping option. Each animal is manually confirmed by the shelter, and owners can book a meet-and-greet directly in the app. Shelters pay: a flat listing fee or a subscription to a management dashboard.",
+  "categoryName": "Pet care",
+  "title": "Multi-pet dashboard",
+  "oneLiner": "All your pets on one screen with separate schedules and a single shared event feed",
+  "gap": "Most apps technically support multiple pets but display them one at a time. An owner with 3-4 animals wastes time switching profiles instead of checking the status of everyone at a glance.",
+  "pitch": "An app built from scratch for households with 2-5 pets: the home screen shows cards for every animal with a color code, the most recent event, and the next scheduled item. Tapping a card opens that pet's detailed log. No profile switching required.",
   "features": [
-   "Strict geo filter showing only animals with verified coordinates within the chosen radius",
-   "One-tap scheduling for a meet-and-greet",
-   "Animal profile with temperament and compatibility notes for children and other pets",
-   "Notification when a new animal matching your preferences appears nearby",
-   "Shelter dashboard with animal status, meeting requests, and history"
+   "Grid dashboard showing all pets with key statuses on one screen",
+   "Color tag per pet for instant recognition",
+   "Separate medication and feeding schedules per animal",
+   "Combined daily feed: all events across all pets in one stream with a per-pet filter",
+   "Support for different species: cats, dogs, birds, reptiles with customizable event types"
   ],
   "antiFeatures": [
-   "Shipping animals from other cities",
-   "Aggregating from external databases without verifying the location",
-   "An algorithmic feed without geo priority"
+   "No single active profile: no need to choose which pet to look at",
+   "No extra charge per additional pet",
+   "No hard species limit: not just cats and dogs"
   ],
-  "monetization": "Shelters and foster networks pay for animal listings and dashboard access. No ads."
+  "monetization": "Free for 1-2 pets. Subscription at $4.99/month for unlimited pets and family access."
  },
  "pet-care-6": {
-  "categoryName": "Pet Care",
-  "title": "Animal Tracking Tool for Shelters and Breeders",
-  "oneLiner": "A tool for shelters and breeders: track animals, vaccinations, and adoptions without spreadsheets",
-  "gap": "Shelters and breeders track animals, vaccinations, transfers, and adoptions in Excel or paper logbooks. They lose history whenever a volunteer changes and cannot quickly produce a record for a new owner.",
-  "pitch": "The service replaces Excel in a shelter or breeding facility. Every animal has a digital record with its full history from intake to adoption, and the new owner receives a ready-made passport on the way out. The system sends reminders for scheduled vaccinations across the entire population and generates reports for regulatory bodies. Shelters and breeders pay as B2B clients on a subscription.",
+  "categoryName": "Pet care",
+  "title": "GPS for the dog walker: shared tracker access",
+  "oneLiner": "Owner and dog walker both see the dog on the map at the same time without sharing an account",
+  "gap": "GPS trackers rely on the owner's phone as a relay. When a dog walker takes the dog, the owner loses visibility, and having the walker log in to a personal account creates a data-privacy problem.",
+  "pitch": "A guest mode for the tracker: the owner sends the dog walker a session link and the walker sees the map with the dog's position without access to the account, payment details, or medical records. After the walk, the owner receives the route and an activity summary.",
   "features": [
-   "Animal record: intake details, health, vaccinations, temperament",
-   "Reminders for scheduled vaccinations and treatments across the full population",
-   "One-click new-owner passport generation at the time of adoption",
-   "Foster and volunteer log with contact history",
-   "Reports for government veterinary oversight"
+   "Temporary guest link that expires after N hours",
+   "Map with live position and route for the guest with no account access",
+   "Walk route saved to the owner's timeline when the session ends",
+   "Position transmitted over cellular directly, not relayed through the owner's phone",
+   "Alert to owner if the dog leaves the geofence during a guest session"
   ],
   "antiFeatures": [
-   "A public-facing adoption storefront (that is a separate product)",
-   "A consumer interface for individual pet owners",
-   "A free tier capped at a limited number of animals"
+   "No sharing of the primary account login and password",
+   "No app install required for the guest: they open a browser page",
+   "No forced social leaderboard or public location data"
   ],
-  "monetization": "Shelters, kennels, and vet clinics pay a monthly subscription scaled to the number of animals under management."
+  "monetization": "Free plan includes 3 guest sessions per month. Subscription at $7.99/month for unlimited sessions and 12 months of route history."
  },
  "pet-care-7": {
-  "categoryName": "Pet Care",
-  "title": "Pet GPS Tracker with Backup Radio Channel",
-  "oneLiner": "A GPS tracker for pets with a backup radio channel: works where phones lose signal",
-  "gap": "Trackers cut off live search and sound alerts precisely when a pet has moved outside cellular coverage, and collar mounts come loose in the worst possible scenarios.",
-  "pitch": "The device combines cellular with a backup low-frequency channel: in a forest or dead zone it switches to a range of up to 15 km and keeps live tracking active. The hardware product is sold with an annual connectivity subscription. Distribution is direct or through veterinary clinics and pet stores as an add-on at checkout.",
+  "categoryName": "Pet care",
+  "title": "Dog training with instructor video",
+  "oneLiner": "Step-by-step lessons that show both the dog and the trainer's hands, not just the animal",
+  "gap": "Training apps film only the dog or only the trainer. Beginners need to see both at the same time to copy hand position and distance from the animal.",
+  "pitch": "A training video course with a mandatory picture-in-picture format: the trainer in close-up in the corner plus the dog in the main frame, simultaneously. Every lesson ends with a self-check card listing common mistakes the owner should verify before moving on.",
   "features": [
-   "Automatic failover to a backup LoRa channel when cellular is lost",
-   "Live search and audible signal work outside carrier coverage",
-   "Reinforced attachment clip with a removal sensor and instant alert",
-   "Alarm mode with high-frequency location updates when the pet leaves a safe zone",
-   "Integration with the health record: scanning the collar QR code shows the owner's contact and the pet's allergies"
+   "Dual-frame video in every lesson: trainer and dog shown together",
+   "Self-check checklist after each lesson: for example, \"am I holding my hand at nose level?\"",
+   "Week-by-week program targeting a specific problem: reactivity, jumping, loose-leash walking",
+   "Built-in clicker with adjustable sound and a vibration option",
+   "Progress journal per command with the date of first success"
   ],
   "antiFeatures": [
-   "A mobile app without a physical device",
-   "A mapping subscription with no backup channel",
-   "A one-size-fits-all collar design that ignores breed size"
+   "No aggressive hidden subscription prompts in the first 24 hours",
+   "No locking of basic lessons behind a paywall: monetization is on advanced programs",
+   "No removing the community section: user success stories stay accessible"
   ],
-  "monetization": "The hardware device is a one-time purchase. An annual connectivity subscription follows. Partnership with vet clinics and pet stores for shelf distribution."
+  "monetization": "First 10 lessons free. Subscription at $8.99/month for the full catalog and access to weekly live online sessions with a trainer."
  },
  "audiobooks-1": {
   "categoryName": "Audiobooks",
@@ -12858,5 +12858,25 @@
    "Forced app-rating prompts"
   ],
   "monetization": "One-time purchase of $3.99. Medical users convert well to paying: the problem is real, the price is small relative to treatment costs."
+ },
+ "pet-care-8": {
+  "categoryName": "Pet care",
+  "title": "Food and water monitor with editable log",
+  "oneLiner": "The auto-feeder records what your pet ate, you correct any wrong entries, and you see a weight trend over the past month",
+  "gap": "Auto-feeder and water fountain apps do not allow log editing and cap analytics at one week. An owner of a cat on a diet or with chronic kidney disease cannot see a monthly water intake trend without a paid subscription.",
+  "pitch": "A nutrition tracking app compatible with popular auto-feeders and smart water fountains, with a fully editable log and consumption charts over any time range. Anomaly alerts arrive with a plain-language explanation: no information locked behind a paywall.",
+  "features": [
+   "Edit or delete any feeding or water intake entry",
+   "Consumption chart for day, week, month, and year in one app",
+   "Plain-language explanation of intake-pattern alerts included in the free plan",
+   "Multi-device support: feeder plus water fountain plus manual entries in one place",
+   "Correlation of water intake with body weight for diet management"
+  ],
+  "antiFeatures": [
+   "No alerts that hide the explanation behind a paywall",
+   "No ad pop-ups every time the app opens",
+   "No schedule loss after a firmware update on the device"
+  ],
+  "monetization": "Free: 1 device, 30 days of data. Subscription at $3.99/month for multiple devices, unlimited history, and CSV export for the vet."
  }
 }

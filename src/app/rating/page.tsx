@@ -58,6 +58,7 @@ const NICHES = [
   { slug: "mind-mapping", name: "Карты мыслей", nameEn: "Mind mapping", blurb: "Где узлы создаются быстро и синк не теряет карту, а где урезанная мобилка." },
   { slug: "wallpapers-widgets", name: "Обои и виджеты", nameEn: "Wallpapers & widgets", blurb: "Где виджеты работают и контент свежий, а где реклама на каждый тап и накрутка." },
   { slug: "water-hydration", name: "Трекеры воды", nameEn: "Water & hydration", blurb: "Где напоминание не глохнет и отметка в один тап, а где реклама и накрутка." },
+  { slug: "pet-care", name: "Уход за питомцами", nameEn: "Pet care", blurb: "Где лог здоровья и напоминания о лекарствах надёжны, а где куцые ветзаписи и сломанный семейный синк." },
 ];
 
 export default async function RatingIndexPage() {
