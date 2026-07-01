@@ -25,7 +25,7 @@ export default function IdeasDeck({
       <IdeaCards ideas={ideas} />
 
       {gate && (
-        <div className="relative mt-4">
+        <div id="idea-gate" className="relative mt-4 scroll-mt-24">
           {lockedPreview.length > 0 && (
             <div className="pointer-events-none select-none blur-[6px] [mask-image:linear-gradient(to_bottom,black_0%,black_25%,transparent_85%)]" aria-hidden="true">
               <IdeaCards ideas={lockedPreview} locked locale={locale} />

@@ -5,9 +5,14 @@ import type { Locale } from "@/lib/i18n";
 
 export type Chip = { slug: string; name: string };
 
-// Horizontal, scrollable category filter strip (gallery-style). Each chip is a
-// link that filters the idea grid by niche via ?cat=, preserving the sort.
-export default function CategoryChips({ chips, current, sort, locale = "ru" }: { chips: Chip[]; current?: string; sort?: string; locale?: Locale }) {
+const Lock = () => (
+  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="-ml-0.5 shrink-0 opacity-70"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>
+);
+
+// Horizontal, scrollable category filter strip (gallery-style). "All niches" is
+// free; filtering by a specific niche is a premium feature — for non-owners the
+// niche chips show a lock and send them to the unlock gate instead of filtering.
+export default function CategoryChips({ chips, current, sort, locale = "ru", locked = false }: { chips: Chip[]; current?: string; sort?: string; locale?: Locale; locked?: boolean }) {
   const ru = locale !== "en";
   const href = (cat?: string) => {
     const p = new URLSearchParams();
@@ -16,25 +21,24 @@ export default function CategoryChips({ chips, current, sort, locale = "ru" }: {
     const q = p.toString();
     return q ? `/?${q}` : "/";
   };
-  const item = (label: string, active: boolean, cat?: string) => (
-    <Link
-      key={cat ?? "all"}
-      href={href(cat)}
-      scroll={false}
-      className={`shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-footnote font-medium transition-colors ${
-        active
-          ? "border-transparent bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]"
-          : "border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-      }`}
-    >
-      {label}
-    </Link>
-  );
+  const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  const base = "shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-footnote font-medium transition-colors inline-flex items-center gap-1.5";
+  const cls = (active: boolean) => `${base} ${active ? "border-transparent bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"}`;
+
   return (
     <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex w-max items-center gap-2">
-        {item(ru ? "Все ниши" : "All niches", !current)}
-        {chips.map((c) => item(c.name, c.slug === current, c.slug))}
+        <Link href={href()} scroll={false} className={cls(!current)}>{ru ? "Все ниши" : "All niches"}</Link>
+        {chips.map((c) =>
+          locked ? (
+            <button key={c.slug} type="button" onClick={toGate} className={cls(false)}>
+              <Lock />{c.name}
+            </button>
+          ) : (
+            <Link key={c.slug} href={href(c.slug)} scroll={false} className={cls(c.slug === current)}>{c.name}</Link>
+          ),
+        )}
       </div>
     </div>
   );

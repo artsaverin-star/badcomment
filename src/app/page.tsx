@@ -155,7 +155,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       </header>
 
       <div className="mt-8">
-        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} />
+        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
       </div>
 
       <div className="mt-8">
