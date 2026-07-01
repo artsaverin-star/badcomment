@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug, listDomains } from "@/lib/researchCategories";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import { getSlugByProductId } from "@/lib/appSlugs";
@@ -86,17 +87,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const locale = await getLocale();
   const ru = locale !== "en";
   const cat = getCategoryBySlug(slug, locale);
-  if (!cat) return {};
+  // ULTRA niches added straight to the people's-rating data may have no legacy
+  // researchCategories entry — fall back to the rating set for name and counts
+  // so their /segment pages still ship full SEO metadata.
+  const rset = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string; count?: number; totalReviews?: number }>)[slug];
+  const catName = cat?.name ?? (ru ? rset?.name : rset?.nameEn ?? rset?.name);
+  if (!catName) return {};
   const summary = getSegmentSummary(slug);
   const ideaCount = listIdeas().filter((i) => i.category === slug).length;
-  const reviews = summary?.reviewsScanned ?? 5000;
+  const reviews = summary?.reviewsScanned ?? rset?.totalReviews ?? 5000;
+  const appsCount = summary?.appsCount ?? rset?.count ?? 10;
 
   const title = ru
-    ? `Идеи приложений: ${cat.name} — что построить в нише 2026`
-    : `App ideas: ${cat.name} — what to build in this niche 2026`;
+    ? `Идеи приложений: ${catName} — что построить в нише 2026`
+    : `App ideas: ${catName} — what to build in this niche 2026`;
   const description = ru
-    ? `Какое приложение сделать в нише «${cat.name}»? Разобрали ${summary?.appsCount ?? 10} приложений и ${reviews.toLocaleString("ru-RU")} отзывов: на что злятся пользователи, чего им не хватает и какие ${ideaCount} идей напрашиваются.`
-    : `What app to build in the "${cat.name}" niche? We analyzed ${summary?.appsCount ?? 10} apps and ${reviews.toLocaleString("en-US")} reviews: what users hate, what's missing, and ${ideaCount} ideas worth building.`;
+    ? `Какое приложение сделать в нише «${catName}»? Разобрали ${appsCount} приложений и ${reviews.toLocaleString("ru-RU")} отзывов: на что злятся пользователи, чего им не хватает и какие ${ideaCount} идей напрашиваются.`
+    : `What app to build in the "${catName}" niche? We analyzed ${appsCount} apps and ${reviews.toLocaleString("en-US")} reviews: what users hate, what's missing, and ${ideaCount} ideas worth building.`;
 
   const lp = ru ? "ru" : "en";
   const url = `https://inapp.pro/${lp}/segment/${slug}`;
@@ -104,8 +111,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords: ru
-      ? ["идеи приложений", "какое приложение сделать", "ниша для приложения", cat.name, "идея для стартапа", "анализ отзывов", "2026"]
-      : ["app ideas", "what app to build", "app niche", cat.name, "startup idea", "review analysis", "2026"],
+      ? ["идеи приложений", "какое приложение сделать", "ниша для приложения", catName, "идея для стартапа", "анализ отзывов", "2026"]
+      : ["app ideas", "what app to build", "app niche", catName, "startup idea", "review analysis", "2026"],
     alternates: {
       canonical: url,
       languages: {

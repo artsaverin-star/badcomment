@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
@@ -86,7 +86,7 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
 
 function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean }) {
   return (
-    <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
+    <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_160px] ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
@@ -170,16 +170,39 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
   );
 }
 
+const IDEA_PAGE = 24;
+
 export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; locked?: boolean; locale?: Locale }) {
   const [open, setOpen] = useState<Idea | null>(null);
+  // Render in pages and grow on scroll. Owners get the whole deck (600+ cards);
+  // mounting all at once — each with an animated edge-glow ring — pins the GPU
+  // and heats the phone. Rendering ~24 at a time keeps active animations bounded.
+  const [count, setCount] = useState(IDEA_PAGE);
+  const sentinel = useRef<HTMLDivElement | null>(null);
   const ru = locale !== "en";
+
+  useEffect(() => { setCount(IDEA_PAGE); }, [ideas]);
+  useEffect(() => {
+    if (count >= ideas.length) return;
+    const el = sentinel.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (e) => { if (e.some((x) => x.isIntersecting)) setCount((c) => Math.min(c + IDEA_PAGE, ideas.length)); },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [count, ideas.length]);
+
+  const shown = ideas.slice(0, count);
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {ideas.map((x, i) => (
+        {shown.map((x, i) => (
           <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)} />
         ))}
       </div>
+      {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}
       {!locked && open && (
         <Modal onClose={() => setOpen(null)}>
           <Icon name={open.icon} className="size-9 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
