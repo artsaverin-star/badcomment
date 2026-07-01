@@ -3064,5 +3064,72 @@
    "money": "The market runs on two models: subscription for teams (MindMeister, Lucidchart, AYOA from $8 to $100 per month) and one-time purchase for solo users (SimpleMind Pro, miMind). The subscription segment is wealthier, but Lucidchart and MindMeister dominate it. One-time purchases do not scale to ARR, but they build loyalty.",
    "marketLead": "XMind leads on quality and format variety. Lucidchart leads in enterprise reach but killed mobile access for individuals. SimpleMind Pro owns the 'no subscription, all platforms' niche. There is no clear leader in the mobile market for individual users."
   }
+ },
+ "wallpapers-widgets": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Aesthetic teens",
+     "job": "Style their home screen around a specific visual vibe (preppy, Y2K, dark academia, anime) and show it off to peers",
+     "payLevel": "pays reluctantly",
+     "payNote": "Wants everything free or ad-supported. Does not see subscriptions as normal, but may make a one-time purchase to unlock a theme. Average spend under $3.",
+     "servedBy": [
+      "Color Widgets",
+      "ThemePack: Widgets & Wallpaper",
+      "Aesthetic",
+      "Mico - Widget & Live Wallpaper",
+      "Preppy Wallpaper Cute Girly 4K"
+     ],
+     "gap": "There is no app that works honestly in free mode and still delivers an aesthetically coherent result. Most either hide everything behind a paywall or bombard every tap with ads. A 'free daily theme, one-time purchase for extended content, no subscription' model has not been tried."
+    },
+    {
+     "name": "Power customizers",
+     "job": "Get full control over the phone's look: icons, widgets, and wallpapers in one unified style, including custom fonts and interactive elements",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to pay for a tool that actually works. Will buy a one-time unlock or annual subscription if the mechanics are stable. Will drop any app where iOS Shortcuts creates duplicates and clutter.",
+     "servedBy": [
+      "Widgy Widgets: Home/Lock/Watch",
+      "Widgetsmith",
+      "Widget Box Interactive Widgets",
+      "iScreen - Widgets & Wallpaper",
+      "Cool Themes & Fonts: Cute Text"
+     ],
+     "gap": "iOS Shortcuts breaks icon customization for most apps: duplicates, wrong bookmark target, reverts on deletion. Nobody has solved this natively. The first product to offer clean icon-swapping without the clutter will take this segment entirely."
+    },
+    {
+     "name": "Niche aesthetic fans",
+     "job": "Find wallpapers and themes for a specific fandom or subculture (anime, K-pop, kawaii, Sanrio, street art) without manually digging through Pinterest",
+     "payLevel": "pays readily",
+     "payNote": "Pay for a specific character or title not found in stock collections. Open to a subscription if the catalog is current and actively updated. Pain point: animated wallpapers are promised but do not work on most devices.",
+     "servedBy": [
+      "Anime Wallpaper - Live Engine",
+      "Top Anime Wallpaper",
+      "Mico - Widget & Live Wallpaper",
+      "Dope Wallpapers For iPhone 4K",
+      "Themelia: Theme & Widget"
+     ],
+     "gap": "Not a single app supports searching by specific character. Libraries are organized by series, not by character. Users search for 'Gojo' and get 'all of Jujutsu Kaisen.' And no app has solved honest labeling: which animation is real and which is a static frame."
+    },
+    {
+     "name": "Minimalist organizers",
+     "job": "Put a functional widget on screen (time, countdown, personal photos, a note) without decorative fluff, and have it survive every iOS update reliably",
+     "payLevel": "pays readily",
+     "payNote": "Pay for reliability, not content. Willing to spend $5-15 one-time for a widget that does not break after each iOS update. View subscriptions as overkill for a utility tool.",
+     "servedBy": [
+      "Photo Widget.",
+      "Countdown - Widget & Reminders",
+      "Days • Countdown & Widgets",
+      "Flip Clock - digital widgets",
+      "Note Widget - Love Drawing"
+     ],
+     "gap": "Every iOS update breaks widgets across all competitors: photos stop showing, the counter freezes, transparency shifts. Nobody positions themselves around a compatibility guarantee and fast fixes after Apple updates. This is not a technical feature. It is a contract this segment will pay for."
+    }
+   ],
+   "takeaway": "The real money in this niche sits in two places: niche aesthetic fans pay for content tied to their specific fandom and tolerate poor UX to get it, while minimalist organizers pay for a reliable utility widget. The mass market aesthetic teen drives download volume and ad revenue but does not spend much. The power customizer will pay, but only if the mechanics do not break their phone. Build for a fandom niche with an honest catalog (character-level search, real animation labeling) or for a reliable utility widget with a compatibility guarantee after iOS updates, not an all-in-one combo that the market has already overproduced."
+  },
+  "market": {
+   "money": "The market monetizes through subscriptions (typically $5-10 per month or $30-80 per year) and ad views. Actual paying users are a small fraction: most apps run on ad revenue from a large free audience. The top earners by paying users are niche catalogs with fandom content and utility widgets with a real function. Subscriptions for icon packs and themes feel like manipulation and convert poorly.",
+   "marketLead": "Widgetsmith (756k ratings) and Color Widgets (516k ratings) hold volume thanks to the TikTok hype wave of 2020-2021, but real product quality has declined. Everpix and Vellum lead in curated wallpapers with high text averages. In the anime niche, Anime Wallpaper - Live Engine with a realScore of 58 stands clearly above competitors. There is no true leader in reliable utility widgets: Photo Widget. comes closest, but stability after iOS updates remains an unsolved problem."
+  }
  }
 }

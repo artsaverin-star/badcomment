@@ -56,6 +56,7 @@ const NICHES = [
   { slug: "sobriety", name: "Трезвость и отказ от привычек", nameEn: "Sobriety & quitting", blurb: "Где счётчик держит и срыв обрабатывается без стыда, а где пустышка." },
   { slug: "qr-scanner", name: "QR и штрих-код сканеры", nameEn: "QR & barcode scanners", blurb: "Где скан быстрый и ссылка видна до перехода, а где подписочная ловушка и накрутка." },
   { slug: "mind-mapping", name: "Карты мыслей", nameEn: "Mind mapping", blurb: "Где узлы создаются быстро и синк не теряет карту, а где урезанная мобилка." },
+  { slug: "wallpapers-widgets", name: "Обои и виджеты", nameEn: "Wallpapers & widgets", blurb: "Где виджеты работают и контент свежий, а где реклама на каждый тап и накрутка." },
 ];
 
 export default async function RatingIndexPage() {
