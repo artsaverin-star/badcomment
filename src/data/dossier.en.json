@@ -3332,5 +3332,68 @@
    "money": "There is money in this category, but it flows to mature players with multi-year user bases. The main revenue stream is subscriptions at $30-100 per person per year, family plans, and enterprise licenses. Lifetime licenses serve as an acquisition tool for smaller players. Entering as a new password manager is extremely difficult: users stick with their current provider for years even when they're frustrated, because migration is painful and the cost of a mistake is high. Bitwarden's free tier and Apple's built-in Passwords app have already eaten the bottom of the market, so a new product without a clear advantage won't build a paying base.",
    "marketLead": "The market is moving toward passkeys, breach monitoring, and offline backup. Users who are burned out on bloated suites with annual price hikes are actively looking for simpler tools with fixed pricing, and that demand comes through louder than anything else in the reviews."
   }
+ },
+ "ai-image-generation": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Anime and art fans",
+     "job": "Want to create characters for stories and fan fiction in a specific visual style (anime, fantasy, Ghibli) without any formal art training",
+     "payLevel": "pays selectively",
+     "payNote": "Pay for credits as long as the app holds its style and tags. They leave instantly if quality degrades after an update or if censorship starts blocking swimsuits.",
+     "servedBy": [
+      "Neko AI - Anime Art Generator",
+      "PixAI - AI Anime Art Generator",
+      "Gencraft AI Image Generator",
+      "AI Art Generator - UniDream AI"
+     ],
+     "gap": "There is not a single app that reliably holds its LoRA style through updates without quietly cutting the free credit limit. An app with transparent changelogs and a firm promise not to break already-purchased plans will own this audience."
+    },
+    {
+     "name": "Avatar seekers",
+     "job": "Want to see themselves in different styles (professional headshot, cosplay, historical era) and share the results on social media",
+     "payLevel": "pays reluctantly",
+     "payNote": "Willing to pay once for a pack, but not for a subscription when the output does not look like their face. Reviews say it directly: wrong hair color, wrong ethnicity, bald where there is hair.",
+     "servedBy": [
+      "MyMood AI: AI Photo Generator",
+      "Visify: AI Photo Generator",
+      "AI Photo Generator: Remake AI",
+      "Momo: AI Photo Video Maker",
+      "GIO - AI Photoshoot Generator"
+     ],
+     "gap": "The entire segment suffers from the same problem: the face coming out does not match the face going in. Whoever solves accurate likeness transfer in a mobile app without double billing will get a paying audience that is currently disappointed by everyone."
+    },
+    {
+     "name": "Small business and e-commerce",
+     "job": "Need fast product photos on white or themed backgrounds without hiring a photographer or renting a studio",
+     "payLevel": "pays readily",
+     "payNote": "This is work, not entertainment. They will pay monthly if the app is stable and the output looks professional. Zero tolerance for hidden fees or feature changes after payment.",
+     "servedBy": [
+      "Arvin: AI Product Photo Maker",
+      "Ideogram AI - Image Generator",
+      "Adobe Firefly AI Video Photo"
+     ],
+     "gap": "Arvin pivoted from product photos to logos after selling annual subscriptions. Ideogram is best-in-class for text rendering but runs as a webview. The honest mobile product-photo generator with no hidden upsells is essentially an open slot."
+    },
+    {
+     "name": "Niche content creators",
+     "job": "Need ready-to-use images for a specific purpose: a tattoo sketch to preview on the body, a YouTube thumbnail, a coloring page, social media content",
+     "payLevel": "pays selectively",
+     "payNote": "Pay for results, not subscriptions. Tattoo artists genuinely use Tattoo AI during consultations but complain that complex styles always produce the same generic output regardless of the prompt.",
+     "servedBy": [
+      "Tattoo AI - Tattoo Design",
+      "Ai Tattoo Ideas-Art Generator",
+      "Color Pop AI: Coloring Book",
+      "Kling AI: AI Image Video Maker"
+     ],
+     "gap": "Specialized tools (tattoo, coloring pages, video thumbnails) perform worse than general generators on prompt accuracy. A vertical generator with real quality in one niche, without an ad after every action, will find a paying audience among professionals."
+    }
+   ],
+   "takeaway": "The market is overcrowded but nearly empty on quality. 43 of 61 apps in this sample inflate their ratings, and real text scores drop to 1.4-2.5. Paying users are the ones who get results, but most apps systematically fail on three axes: the output face does not match the user, credits burn without a result, and features change retroactively. The right place to build is a segment with a clear job-to-be-done (product photo, tattoo sketch, professional headshot) and an honest payment model with no hidden coins stacked on top of a subscription. That bar is what nobody is holding consistently."
+  },
+  "market": {
+   "money": "Revenue flows through two schemes: subscriptions at $7-80 per month and credit packs on top. The second scheme, which the market calls double billing, has become the norm and the leading cause of refund requests. Churn is high: users leave after the very first generation where the output does not match what the ad showed. Lifetime purchases ($30-100) are regularly voided without compensation, which destroys trust in any long-term investment in the category.",
+   "marketLead": "The market is moving toward accurate likeness transfer and narrow verticals. Whoever first solves stable face matching on input-to-output without double billing will capture the avatar and professional headshot segment a group that is currently disappointed by every existing player."
+  }
  }
 }

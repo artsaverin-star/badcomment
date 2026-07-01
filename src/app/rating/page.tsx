@@ -60,6 +60,7 @@ const NICHES = [
   { slug: "water-hydration", name: "Трекеры воды", nameEn: "Water & hydration", blurb: "Где напоминание не глохнет и отметка в один тап, а где реклама и накрутка." },
   { slug: "pet-care", name: "Уход за питомцами", nameEn: "Pet care", blurb: "Где лог здоровья и напоминания о лекарствах надёжны, а где куцые ветзаписи и сломанный семейный синк." },
   { slug: "password-manager", name: "Менеджеры паролей", nameEn: "Password managers", blurb: "47 приложений: где перенос на новый телефон и автозаполнение надёжны, а где скам-аутентификаторы и накрутка." },
+  { slug: "ai-image-generation", name: "ИИ-генерация картинок", nameEn: "AI image generation", blurb: "61 приложение: где генерация правда слушает промпт и аватар похож на тебя, а где накрутка и bait-and-switch (43 из 61 накручены)." },
 ];
 
 export default async function RatingIndexPage() {

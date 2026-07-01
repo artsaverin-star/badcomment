@@ -1123,102 +1123,66 @@
  "ai-image-generation": {
   "product": [
    {
-    "title": "\"Still Me\". face preservation as the core driver of love",
-    "plus": "When edits are subtle and people recognize themselves, the app earns its highest praise: \"it's still the same me.\"",
-    "minus": "If the AI turns a face into a stranger's or a cartoon, users feel erased. and they leave for good."
+    "title": "Avatar face likeness accuracy",
+    "plus": "Users upload dozens of their own photos and expect the AI to reproduce their appearance precisely: hair color, eye color, face shape. When it works, the reaction is genuine delight and screenshots get shared immediately.",
+    "minus": "In most avatar apps the model ignores the uploaded photos and generates a different person entirely: wrong ethnicity, hair added to bald users, everyone rendered at the same body type. Credits burn and the user sees a stranger."
    },
    {
-    "title": "Natural beats wow: over-processing kills trust in the result",
-    "plus": "People praise edits that \"didn't overdo it\" and look realistic rather than manufactured.",
-    "minus": "The moment an image goes cartoony or obviously fake, ratings drop. even from users who were ready to pay."
+    "title": "Prompt adherence and control",
+    "plus": "Users who know how to write prompts get exactly what they want from these apps: a specific style, precise details, the right number of characters. For them the generator becomes a real tool, not a lottery.",
+    "minus": "Most apps ignore detailed instructions: ask for one person, get two, ask for a clean-shaven face, get a beard, specify a style in the prompt and it changes nothing. Credits get spent on retries."
    },
    {
-    "title": "\"Buying blind\": card required before you've seen a single result",
-    "plus": null,
-    "minus": "Being asked for payment details before seeing any output reads as a scam, not a price. and it's the single biggest trigger for one-star reviews."
+    "title": "Credit economy on failed generations",
+    "plus": "Users accept a pay-per-result model and are willing to spend credits when they get the image they wanted. Part of the audience deliberately waits for the right moment to avoid wasting them.",
+    "minus": "Credits get charged even for blocked, stuck, or completely failed generations with no refund. Users lose money over and over on retries until the model finally produces something acceptable. Every session becomes a gamble at their own expense."
    },
    {
-    "title": "Try it quietly without being chased. a reason people choose to buy",
-    "plus": "When users can explore calmly without a payment popup on every tap, that's explicitly named as the deciding factor for purchasing.",
-    "minus": "Any \"buy now\" wall on every action feels like pressure and decides the question against installing."
+    "title": "Safety filters and censorship",
+    "plus": "Users with neutral requests that fall within the app's SFW guidelines appreciate the predictability: safe content for characters, illustrations, and children's projects. The generator becomes a reliable work tool with no surprises.",
+    "minus": "Filters fire on neutral requests: women in swimsuits, hugging, historical scenes with weapons. Blocking is inconsistent across gender and context. Users spend credits on generations that get flagged without knowing in advance what will be blocked."
    },
    {
-    "title": "Age and style generation outputs a different race and face entirely",
-    "plus": null,
-    "minus": "Input: a real person. Output: someone else's face, different ethnicity, different bone structure. the model substitutes its own \"average\" for the actual user."
+    "title": "Specialized tattoo generation",
+    "plus": "Tattoo artists use apps to show clients quick sketch mockups during consultations: displaying a rough design on the body is faster than drawing by hand. The body-placement preview feature genuinely helps in their work.",
+    "minus": "Detailed, specific requests produce the same generic output regardless of style. Choosing between Nordic, Japanese, or realism barely changes the image. Complex designs with specific symbols get ignored, and the app adds random faces or extra elements."
    },
    {
-    "title": "The virtual try-on: hairstyles and looks before committing. unmet demand",
-    "plus": "People come specifically to \"try a cut\" before the salon visit. and when it works, it becomes a moment of genuine delight.",
-    "minus": "A catalog of \"five options for guys\" collapses the entire premise of the feature."
+    "title": "Product photography for business",
+    "plus": "Small businesses and fashion sellers use AI for fast background replacement on products: no photographer, no studio, no model needed. Speed and variety of scenes attract sellers who need many options in a short time.",
+    "minus": "The product scale in the output does not match the original, products get distorted on models, and logos are regenerated with misspellings. The app changes its specialty after a user has already bought an annual subscription, leaving them without the promised features."
    },
    {
-    "title": "\"It used to be better\": model regression and creative arsenal cuts",
-    "plus": null,
-    "minus": "Older versions offered richer styles and finer control. new \"improvements\" strip away options, and users who've been loyal for years walk out."
+    "title": "Generation speed and server queues",
+    "plus": "Users cite fast generation as one of the top reasons they like certain apps: 50 seconds to a result feels like a reasonable standard, and instant feedback makes experimentation enjoyable.",
+    "minus": "Servers cannot handle peak-hour load: generations stall for 12+ hours, get stuck at 99% and never finish, while credits have already been deducted. Paid users get no priority in the queue."
    },
    {
-    "title": "Fine-grained control vs. one-tap: power users want knobs, not presets",
-    "plus": "Experienced users value precise manual adjustments and angle selection as signs of a \"professional\" tool.",
-    "minus": "Replacing settings with one-touch filters removes control and reads as a step backward."
+    "title": "Inpainting and instruction-based editing",
+    "plus": "Users want to make targeted edits to a finished image: remove a background, a shadow, an unwanted object, or clean up a specific detail. When it works, the app saves time compared to a manual editor.",
+    "minus": "After two or three iterations, apps start ignoring new instructions and keep burning credits with no change. Trying to fix a detail ends up altering the face or introducing artifacts in another part of the frame. There is no way to tell the AI what areas not to touch."
    },
    {
-    "title": "Multi-face detection is a systemic blind spot",
-    "plus": null,
-    "minus": "When two people are in the photo, apps either detect only one face or apply edits to both simultaneously. group and couple shots fall entirely outside the use case."
+    "title": "Onboarding and free trial expectations",
+    "plus": "Users eagerly download new generators and are ready to subscribe if the free trial lets them actually experience the product. A few solid results at the start builds real loyalty.",
+    "minus": "Free trials give 1,000 credits when every action costs 3,000. The trial runs out before the user can produce a single image, then rolls straight into a paid subscription. Ads show features that do not exist in the app."
    },
    {
-    "title": "Over-censorship blocks perfectly harmless images",
-    "plus": null,
-    "minus": "Overly broad NSFW filters block even mundane scenes, and users feel the company has appointed itself their nanny."
+    "title": "Anime styles and tag control",
+    "plus": "Anime art fans create characters using tags and LoRA models, getting control close to Stable Diffusion right on their phone. Rich libraries of ready-made characters and daily free credits build the habit of coming back every day.",
+    "minus": "After updates, LoRA filters stop working and credits are not returned. Apps named \"Anime Art\" generate only realistic-style images instead of anime. Tags that used to work stop producing the expected output with no explanation."
    },
    {
-    "title": "Prompt accuracy: the output doesn't match what was asked for",
-    "plus": "With careful prompting, people get exactly what they envisioned. and that keeps them in the app.",
-    "minus": "Generation routinely ignores the prompt, can't handle simple text in the scene, and keeps adding extra hands and fingers."
+    "title": "Text rendering on images",
+    "plus": "Users value precise text and logo rendering: Ideogram is positioned as the best in class for this and users specifically choose it for typography and branding. Generated quotes and labels are used for Bible illustrations, greeting cards, and social posts.",
+    "minus": "In most generators, text on images contains typos and gibberish. After 50 attempts to get the correct spelling, users give up. Text in video is unreadable, with warped and distorted letters even in short words."
    },
    {
-    "title": "Restoring old photos. an emotional use case with high payoff",
-    "plus": "Bringing old, blurry shots back to life produces strong emotional resonance and genuine gratitude.",
-    "minus": "When restoration mangles hands and leaves half the frame untouched, the magic falls apart."
-   },
-   {
-    "title": "\"ChatGPT / Gemini already does this for free\". the product becomes a commodity",
-    "plus": null,
-    "minus": "Users directly compare paid niche apps to free general-purpose models and find no reason to pay the premium."
-   },
-   {
-    "title": "Limits on paying subscribers: bought unlimited, hit a ceiling anyway",
-    "plus": null,
-    "minus": "Paid subscribers suddenly see \"limit reached\" on features they already paid for. breaking the core promise of the subscription and disrupting actual work."
-   },
-   {
-    "title": "Loyalty isn't rewarded: long-time users feel betrayed",
-    "plus": null,
-    "minus": "People who've used an app for five to nine years watch prices rise and features disappear with zero acknowledgment. and that's what turns fans into enemies."
-   },
-   {
-    "title": "\"Lifetime\" access vanishes when you change phones. a trust-destroying purchase",
-    "plus": null,
-    "minus": "Access bought \"forever\" doesn't transfer to a new device and can't be restored. support goes silent. a strategic hit to trust, not just a billing complaint."
-   },
-   {
-    "title": "Confidence and mood as the real product, not \"a filter\"",
-    "plus": "People describe the outcome as a boost of confidence and comfort in their own skin. what's being sold is an emotion, not pixels.",
-    "minus": "When the AI renders faces looking sad or \"worse than before,\" the emotional contract is broken."
-   },
-   {
-    "title": "Cross-device and platform parity: paid on one, locked out on another",
-    "plus": null,
-    "minus": "Subscriptions don't transfer between iPhone and Android, the Android version is thinner, access is capped to one device. all of it breaks the expectation of \"I paid for an account, not a phone.\""
-   },
-   {
-    "title": "Ads as an access key that doesn't turn",
-    "plus": null,
-    "minus": "When access to a feature is promised \"after watching an ad\" but the ad won't close or never unlocks the result, the free-tier loop breaks entirely. strategically worse than just showing a lot of ads."
+    "title": "Product degradation after updates",
+    "plus": "Long-term users form a genuine attachment to an app: they return for years, pay for subscriptions, and recommend it to friends. Quality during good periods is remembered and becomes the reference point.",
+    "minus": "After updates, working features disappear, generation quality drops, and lifetime subscriptions get voided without compensation. Users with years of history write about betrayal: they paid for one thing and got a weaker product in return."
    }
-  ],
-  "hygiene": []
+  ]
  },
  "study-aids": {
   "product": [

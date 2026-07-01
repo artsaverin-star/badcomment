@@ -3501,144 +3501,144 @@
   "monetization": "B2B SaaS: per-seat monthly subscription. HR and insurers already pay for wellbeing platforms. Corporate health benefit programs are the main entry point."
  },
  "ai-image-generation-1": {
-  "categoryName": "AI Image Generation",
-  "title": "Virtual Hair Try-On Tool for Salons",
-  "oneLiner": "A salon tool: the client sees themselves with a new hairstyle before the cut, right on the stylist's tablet",
-  "gap": "People come to the salon with a reference photo and still fear making the wrong call: there is no honest way to try a haircut on your own face before scissors are picked up",
-  "pitch": "The salon places a tablet at the station: the client takes a photo, browses hundreds of styles, and sees themselves, not a model from a catalog. The stylist closes the upsell because the client has already fallen for the result. Sold to the salon as a tool for raising average ticket value, not to the consumer as entertainment.",
+  "categoryName": "AI image generation",
+  "title": "Avatar generator with accurate likeness",
+  "oneLiner": "For people who already pay for AI avatars but keep getting someone else's face on their body",
+  "gap": "Every paid avatar service charges upfront and delivers results 30-60 minutes later. None of them lets users verify face-recognition quality on a single preview shot before paying for a full pack. Likeness accuracy control simply does not exist as a product feature.",
+  "pitch": "An AI avatar service where the user sees one preview with their actual face before approving and launching the full pack. This removes the core fear: paying and getting a stranger. Under the hood: IP-Adapter or InstantID on top of SDXL or Flux, with a face similarity score checked before final rendering.",
   "features": [
-   "A library of 500+ hairstyles filterable by length, face shape, and hair texture",
-   "Face-locked rendering: the cut lands on the client's head, not an average model",
-   "Stylist mode: large screen, fast style switching without navigating menus",
-   "Try-on history: the client leaves with a PDF booklet of their favorites",
-   "Manager analytics: which hairstyles are tried most often and convert into bookings"
+   "Single-shot preview before payment: the user sees likeness quality up front",
+   "Accuracy check via face similarity score: if below threshold, the system flags it before charging",
+   "Upload 8-20 photos from different angles to fine-tune a personal LoRA",
+   "Body and background chosen independently from the face, so body parameters are not pulled from the model's default distribution",
+   "Redo guarantee: if face similarity falls below 80%, a regeneration is included in the price"
   ],
   "antiFeatures": [
-   "No B2C mode or personal account: this is a business tool, not a client's phone app",
-   "No beauty filters or retouching: the only job is try-on, not enhancing appearance",
-   "No fantasy looks: only realistic hairstyles a stylist can actually recreate"
+   "No 50-shot pack delivered without a single preview",
+   "No changing the user's ethnicity without an explicit request",
+   "No charging for failed generations"
   ],
-  "monetization": "Salons already pay for CRM, loyalty programs, and training materials. Subscription at 2,000-5,000 rubles per month per location, with a corporate tier for chains."
+  "monetization": "One-time payment per pack: $5-6 for 20 avatars after approving the preview shot. This audience already paid $9-49 per pack in ARTA, Momo, and GIO and got the wrong result. They will pay again for a guaranteed outcome."
  },
  "ai-image-generation-2": {
-  "categoryName": "AI Image Generation",
-  "title": "Old Family Photo Restoration Service",
-  "oneLiner": "Mail-in photo restoration: send your scans, receive a finished album",
-  "gap": "People want to bring their grandparents' photos back to life but do not trust an automated result: they are afraid of getting back a stranger's face instead of a loved one's",
-  "pitch": "The customer uploads a batch of old scans or submits an order through a chat bot. An operator runs the model, manually reviews every result, and returns a finished archive within two days. The human review is the product: people are not paying for automation, they are paying for certainty that no one will distort their grandfather's face. A print album option in gift packaging brings the average order value well above a basic digital delivery.",
+  "categoryName": "AI image generation",
+  "title": "Consistent character across an illustration series",
+  "oneLiner": "For authors and comic creators who need the same character across many scenes without redrawing by hand",
+  "gap": "No mobile generator solves the sequential narrative problem: a character in scene 1, scene 2, and scene 10 needs to look identical. The LoRA plus ControlNet toolchain exists on desktop but has no mobile equivalent.",
+  "pitch": "A mobile service for creating illustration series with a single recurring character. The user describes or uploads a reference for the character once, the service builds a personal LoRA and applies it to every new scene. Under the hood: Flux or SDXL with IP-Adapter for consistency and ControlNet for pose control.",
   "features": [
-   "Order intake through Telegram or a website with no registration required",
-   "Manual review of every frame before delivery",
-   "Face restoration that preserves unique features rather than averaging them out",
-   "Option for a printed photo album with delivery",
-   "Cloud archive with permanent family access"
+   "Character lock-in: a description or 3-5 reference photos create a persistent visual profile",
+   "Pose changes via sketch or ready-made pose presets without losing the character's appearance",
+   "Multiple characters in one scene with consistency maintained for each",
+   "Export the series as a PDF or numbered PNG set for books and comics",
+   "Character library: save up to 5 characters and reuse them across different projects"
   ],
   "antiFeatures": [
-   "No instant fully-automated mode without review: speed is sacrificed for quality",
-   "No generation of fictional scenes: only restoration of real photographs",
-   "No subscription: single orders only, so customers are not held by a promise of unlimited access"
+   "No changing the character's appearance between scenes without an explicit user request",
+   "No re-prompting required for every new scene",
+   "No capping the number of scenes per project on the base tier"
   ],
-  "monetization": "People already pay photo studios for printing and restoration. Average order 3,000-7,000 rubles per package, with a gift format for birthdays and anniversaries."
+  "monetization": "Subscription at $8-12 per month for authors with unlimited scenes. One-time payment for a single project of up to 20 scenes at $4-5. Audience: book authors, educational content creators, comic developers who already pay for Midjourney or Leonardo."
  },
  "ai-image-generation-3": {
-  "categoryName": "AI Image Generation",
-  "title": "Product Card Generator for Marketplace Sellers",
-  "oneLiner": "A tool for sellers on Wildberries and Ozon: one product photo goes in, a full set of listing cards comes out",
-  "gap": "A marketplace seller shoots their product on a table, but they need dozens of backgrounds, angles, and seasonal presentations. A photo studio is expensive, and a weak product card kills conversion",
-  "pitch": "The seller uploads one white-background photo. The system returns that same product placed in ten different scenes: a forest walk, a cozy interior, a tabletop next to coffee. Cards are delivered in the correct format for Wildberries, Ozon, and Yandex Market. The savings from skipping one photo session every three months covers an annual subscription.",
+  "categoryName": "AI image generation",
+  "title": "Tattoo preview on your actual skin",
+  "oneLiner": "Shows how a specific design will look on a specific spot on your body, not on a stock photo",
+  "gap": "Tattoo apps can generate sketches but cannot overlay them onto a photo of real skin with body curves and proper skin tone. The placement feature exists in Tattoo AI but accuracy is low: the app adds stray elements and ignores style details.",
+  "pitch": "An app with one job: take a photo of a body area, take an uploaded or generated tattoo sketch, and composite it realistically with skin curvature, lighting, and tone in mind. Under the hood: inpainting via ControlNet plus a depth map for deformation along the body contour.",
   "features": [
-   "Product compositing into scenes with texture and packaging detail preserved",
-   "Scene presets by category: clothing, cosmetics, electronics, food",
-   "Export in marketplace formats with correct dimensions and aspect ratios",
-   "Batch processing: upload 50 products, receive 500 listing cards",
-   "Version history: sellers can return to previous variants without regenerating"
+   "Overlay a PNG sketch onto a body photo with deformation for arm, shoulder, and back curvature",
+   "Generate a sketch from a prompt with style selection: blackwork, watercolor, geometric, Japanese, minimalist",
+   "Upload a reference image for accurate reproduction of a specific design rather than an AI interpretation of it",
+   "Resize and rotate after placement",
+   "PDF export for the tattoo artist with the skin preview and a separate PNG of the sketch"
   ],
   "antiFeatures": [
-   "No face or person editing: products only, to avoid consent and privacy issues",
-   "No generation from scratch without a product photo: works only with the client's real product",
-   "No unlimited free tier: first 10 cards free, then a paid subscription"
+   "No adding extra elements to the design without a request",
+   "No suggesting random tattoo styles when the user already chose one",
+   "No blocking the upload of a custom sketch"
   ],
-  "monetization": "Marketplace sellers already spend on photo studios and designers. Subscription at 5,000-15,000 rubles per month depending on volume, with an agency tier for those managing multiple stores."
+  "monetization": "One-time payment of $5 for 10 previews or a $4-per-month subscription for tattoo artists with unlimited consultations. Artists pay because clients who see a visual preview convert at a higher rate."
  },
  "ai-image-generation-4": {
-  "categoryName": "AI Image Generation",
-  "title": "Automated Portrait Retouching for Photographers",
-  "oneLiner": "A service for photographers: the client is shot, and overnight the portraits are retouched with a guarantee that the person still looks like themselves",
-  "gap": "Photographers spend 4 to 8 hours retouching each portrait session or outsource it abroad with unpredictable results: there is no reliable pipeline that preserves the subject's real appearance",
-  "pitch": "The photographer uploads raw portraits at the end of the day and receives processed files by morning: skin is cleaned up, but the face remains the same person with no cosmetic surgery or altered features. Each result passes an automated identity-preservation check, and flagged frames are marked for manual review. The photographer sells fast turnaround to clients as a premium delivery option.",
+  "categoryName": "AI image generation",
+  "title": "Anime in a locked style",
+  "oneLiner": "An anime art generator where the chosen style does not drift frame to frame and faithfully reproduces the intended aesthetic",
+  "gap": "Anime generators offer a wide style selection, but none provides a lock-in mechanism: set a style once and get consistent results in it without drift. Each new generation shifts the style slightly, making it impossible to build a coherent series.",
+  "pitch": "An anime generator with a list of named studio and genre style presets that work as a lock: everything within one project stays in the chosen style. Under the hood: SDXL with a set of style-specific LoRAs that remain active across all generations inside one project.",
   "features": [
-   "Batch retouching that preserves each person's unique facial features",
-   "Automatic identity check: flags the result if it drifts from the original",
-   "Adjustable style: the photographer sets the processing level once and it applies to the whole session",
-   "Lightroom and Capture One integration via plugin",
-   "8-hour delivery with an SLA or money back"
+   "Style presets: Kyoto Animation, Trigger, Ghibli, 90s retro, shonen action, slice-of-life, dark fantasy",
+   "Project-level style lock: all generations within one series use the same LoRA set",
+   "Character generation with a locked appearance for use across different scenes",
+   "Tag system for fine-tuning within the locked style (lighting, camera angle, emotion)",
+   "Export the series as a storyboard or PNG set for manga"
   ],
   "antiFeatures": [
-   "No consumer-facing mode: B2B only through a professional account",
-   "No artistic background generation: portrait retouching only",
-   "No subscription without a minimum volume: plans start at 200 photos per month"
+   "No changing the base style when switching poses or backgrounds",
+   "No blocking the upload of a custom reference image",
+   "No pushing NSFW content on users who did not request it"
   ],
-  "monetization": "Photographers already pay for Lightroom, retouching services, and freelance retouchers. Subscription at 3,000-10,000 rubles per month, volume packages for studios."
+  "monetization": "Subscription at $6-8 per month with unlimited generations in base styles. Additional studio presets unlocked for $2 each. The audience already pays in Neko AI and PixAI and will pay more for predictable output."
  },
  "ai-image-generation-5": {
-  "categoryName": "AI Image Generation",
-  "title": "Character Builder for Indie Game Studios",
-  "oneLiner": "A tool for indie studios: a concept sketch goes in, a complete sprite sheet with all angles and animation poses comes out",
-  "gap": "A small game studio cannot afford a dedicated character artist full-time, but drawing one character by hand in every required pose takes weeks of work",
-  "pitch": "The game designer draws a sketch or describes a character in text, and the system returns a consistent set: front view, back view, side view, several animation poses, and an inventory icon. The visual style is fixed once and stays consistent throughout the whole game. The studio saves a month of work per character and moves into development instead of getting stuck at the concept stage.",
+  "categoryName": "AI image generation",
+  "title": "Product photos with accurate product scale",
+  "oneLiner": "AI product photography where the item's size and shape are not distorted and logos render correctly",
+  "gap": "AI product photo generators can swap backgrounds and add environments but cannot hold accurate product proportions or keep logos intact. This is critical for e-commerce: a buyer seeing a distorted item does not trust the listing.",
+  "pitch": "A product photography service where the item is cut out from its original photo and placed into an AI-generated environment without altering its shape or logo. Under the hood: product segmentation plus background-only inpainting via Flux Fill, with the product area protected from regeneration.",
   "features": [
-   "Character generation in multiple angles from a single reference or text prompt",
-   "Visual style lock: the second character is automatically in the same art style as the first",
-   "Export in engine formats: Unity sprite sheet, Godot, Unreal asset",
-   "Detail editor: change clothing color or weapon shape without regenerating everything",
-   "Iteration mode: shows 4 variants, you pick the closest and refine from there"
+   "Smart segmentation: the product is cut out with clean edges and the background is replaced by AI",
+   "Logo protection: text areas are locked from regeneration",
+   "Scene library: flat lay, lifestyle, studio white, natural materials, seasonal decor",
+   "Proportion control: product scale is fixed before background generation begins",
+   "Batch processing: up to 20 products per session with a consistent background style"
   ],
   "antiFeatures": [
-   "No photorealistic mode: game art styles only, not film rendering",
-   "No background or environment generation: characters only, to stay focused",
-   "No free tier with watermarks: 14-day trial period only"
+   "No distorting the product's shape to fit the scene",
+   "No regenerating text or logos on packaging",
+   "No requiring a white background as input: accept any source photo"
   ],
-  "monetization": "Indie studios already pay for the asset store, Midjourney, and freelancers. Subscription at 8,000-20,000 rubles per month per studio, with a corporate tier for publishers."
+  "monetization": "Subscription at $12-15 per month for marketplace sellers with batch processing. One-time pack of 50 products for $5. The audience already pays for studio photography or Arvin and is getting distortions in return."
  },
  "ai-image-generation-6": {
-  "categoryName": "AI Image Generation",
-  "title": "Cross-Platform Subscription With Permanent Edit History",
-  "oneLiner": "One account that works on every device and never loses your paid access when you switch phones",
-  "gap": "People lose their paid access when they switch phones or move between platforms and feel cheated: they thought they bought an app and discovered they had bought a device",
-  "pitch": "The service stores edit history, paid features, and user settings in the cloud tied to an account, not a device. Switching phones, changing platforms, or reinstalling does not break access. Trust in a purchase becomes a competitive advantage: in a segment where everyone charges money and disappears, an honest long-term license with real support is rare.",
+  "categoryName": "AI image generation",
+  "title": "Targeted AI editor that leaves the face alone",
+  "oneLiner": "Edits a specific element in a photo based on your instruction and does not touch anything else, especially the face",
+  "gap": "Mobile AI editors either apply changes to the entire image or require a rough manual selection mask. There is no product where you can tap a specific object, say what you want done, and have only that area change while the face stays untouched.",
+  "pitch": "A targeted inpainting editor: the user taps an object in the photo, describes the change they want, and only that region gets regenerated. The face is automatically protected unless explicitly selected. Under the hood: SAM2 for tap-based segmentation plus Flux Fill for inpainting the selected zone.",
   "features": [
-   "Account tied to email, not to a device or app store",
-   "Cross-platform access: iOS, Android, web with no extra charges",
-   "Full editing history with the ability to return to any previous step",
-   "Lifetime license with a real guarantee: one-click migration when switching devices",
-   "Support responds within 24 hours, not through a bot"
+   "Tap-to-select: tapping an object automatically builds a mask via SAM2",
+   "Face lock: the face region is protected from changes by default and unlocked separately",
+   "Text instruction for the selected area: remove, replace, recolor, change material",
+   "Edit history: up to 10 steps back without quality loss",
+   "Before/after slider comparison before saving"
   ],
   "antiFeatures": [
-   "No device limits: one account everywhere with no additional payments",
-   "No hidden limits on paid tiers: buy unlimited, get unlimited",
-   "No forced plan changes on updates: existing users do not lose features after upgrades"
+   "No applying global AI enhancements to the entire image without a request",
+   "No altering the face when editing the background or clothing",
+   "No charging credits when the result is visibly worse than the original"
   ],
-  "monetization": "Users already pay for FaceApp, Lensa, and Airbrush but feel deceived. A one-time lifetime license at 1,500-3,000 rubles as the main product, with an annual subscription as an alternative."
+  "monetization": "Subscription at $5 per month for 100 edits, or a one-time purchase of 20 edits for $2. Users already paid for ReShoot and similar apps and got ruined faces. They pay for the guarantee that the face stays untouched."
  },
  "ai-image-generation-7": {
-  "categoryName": "AI Image Generation",
-  "title": "On-Brand Image Generator for Marketing Teams",
-  "oneLiner": "A tool for agencies: upload a brand style guide and get a generator that stays within brand guidelines every time",
-  "gap": "Marketing teams spend days getting generated images approved against brand guidelines: every generator produces something different, and a designer has to manually fix each frame for the client's colors and style",
-  "pitch": "The agency uploads a logo, color palette, reference brand content, and prohibited elements once. From that point any manager or copywriter can generate images that automatically comply with the brand: no unexpected fonts, no off-brand colors, no visuals that will fail approval. The client pays for campaign speed, not for designer hours.",
+  "categoryName": "AI image generation",
+  "title": "Cover and thumbnail generator for content platforms",
+  "oneLiner": "A thumbnail generator built for YouTube, Twitch, and podcasts with correct text and platform-native templates",
+  "gap": "Image generators make a visually appealing picture but do not understand platform specifics: YouTube thumbnails have their own dimensions and safe text zones, Twitch has different ones, podcasts have their own. There is no tool that combines AI background generation with correctly positioned text inside a platform template.",
+  "pitch": "A cover generator with templates for specific platforms. The user picks a platform, AI generates a background scene, and text is applied via an Ideogram endpoint or a standalone text renderer placed inside the template's safe zones. The final file is exported at the correct resolution immediately.",
   "features": [
-   "Brand kit upload: colors, fonts, forbidden elements, and examples of approved images",
-   "Style-constrained generation: the system rejects results that violate the guidelines",
-   "Role-based access: managers generate, designers approve, clients view",
-   "Version history by project and campaign",
-   "Export with metadata: which prompt, which variant, who approved it"
+   "Platform templates: YouTube 1280x720, Twitch 1920x1080, Spotify podcast 3000x3000, Reels 1080x1920",
+   "Safe text zones: headlines and logos placed outside each platform's UI chrome",
+   "Background generation from a prompt with mood selection: energetic, tech, natural, gaming",
+   "Upload a face photo for placement in a designated zone on the cover",
+   "Five cover variations per generation for A/B testing"
   ],
   "antiFeatures": [
-   "No kit-free mode: the tool only works with an uploaded brand profile",
-   "No B2C version for individual users: team accounts only",
-   "No generation of people or faces: objects and abstract scenes only, to avoid legal risk"
+   "No generating text through the main diffusion model only through a dedicated renderer",
+   "No distorting proportions to fit non-standard sizes",
+   "No requiring prompt expertise: the user describes the video topic, not a technical brief"
   ],
-  "monetization": "Agencies already pay for Adobe, Canva for Teams, and Midjourney. Subscription at 15,000-50,000 rubles per month per workspace, with white-label pricing for agencies that resell to clients."
+  "monetization": "Subscription at $8 per month for 50 covers. Content creators already pay $15-50 per cover to a designer or pay for a Canva subscription, are used to spending on visuals, and pay for speed."
  },
  "study-aids-1": {
   "categoryName": "Flashcards and Study Tools",
@@ -13038,5 +13038,25 @@
    "Don't limit the number of generations behind a paywall"
   ],
   "monetization": "Free for basic generation without the site rules database. Subscription at $2-3 per month or $15 one-time for access to the rules database and custom site profiles. Audience: users of corporate systems and banks with strict password requirements who pay for convenience."
+ },
+ "ai-image-generation-8": {
+  "categoryName": "AI image generation",
+  "title": "Coloring pages from any photo",
+  "oneLiner": "Turns a photo or AI image into a clean black-and-white outline for a printable coloring page with no stray lines or artifacts",
+  "gap": "Existing coloring apps offer a library of preset content. No tool accepts any photo or AI image and converts it into clean line art for printing, with adjustable detail levels for different age groups.",
+  "pitch": "A photo-to-coloring-page converter with three detail modes: simple (for kids under 5), medium (for school-age children), and detailed (for adults and artists). Under the hood: edge detection plus AI simplification via a specialized model built on ControlNet lineart, with post-processing to remove artifacts.",
+  "features": [
+   "Three detail levels: large zones for toddlers, medium level for school-age kids, detailed art for adults",
+   "Upload a photo from the gallery or generate an image from a prompt with immediate conversion to a coloring page",
+   "Preview before saving with the ability to switch detail levels",
+   "High-resolution export for printing at A4 and A3",
+   "Batch mode: upload 5-10 photos and get a full set of coloring pages for a class or event"
+  ],
+  "antiFeatures": [
+   "No ads in the middle of creating a page",
+   "No pushing users toward a built-in library instead of letting them upload their own photos",
+   "No watermark on the print file in the base tier"
+  ],
+  "monetization": "One-time purchase of $3 without ads, or a pack of 30 pages for $5. Teachers and parents pay once before an event or class and do not want a subscription. Additional revenue via themed coloring page packs: Halloween, New Year, animals, superheroes."
  }
 }
