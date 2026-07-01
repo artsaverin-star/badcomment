@@ -12697,5 +12697,166 @@
    "No paid themes that cannot be transferred to a new device"
   ],
   "monetization": "Free sync for one theme. Subscription at $1.99/month unlocks unlimited themes, version history, and link sharing."
+ },
+ "water-hydration-1": {
+  "categoryName": "Water & hydration",
+  "title": "Reminders that don't go quiet on iOS",
+  "oneLiner": "People quit water trackers not because they're lazy but because reminders stop arriving after two days.",
+  "gap": "iOS kills notifications from apps the user has not directly interacted with. No app has solved this reliably: most require the user to open the app to keep reminders alive.",
+  "pitch": "An app that delivers reminders through Live Activity and the lock-screen widget. The user logs water straight from the lock screen without unlocking the phone, which counts as direct interaction for iOS and keeps the schedule intact. Target segment: people with chronic conditions and athletes whose doctor told them to monitor hydration.",
+  "features": [
+   "Live Activity on the lock screen with a one-tap log button",
+   "Reminders via UNUserNotificationCenter backed by a BGAppRefreshTask to maintain the schedule",
+   "Adaptive intervals: shortens the gap if the user has missed two reminders in a row",
+   "Apple Watch complication with instant logging that does not open the app",
+   "'Why did my reminders stop?' screen with a one-action guide to iOS Focus settings"
+  ],
+  "antiFeatures": [
+   "Gamification and animations that slow down quick logging",
+   "Reminders delivered only via push notifications with no Live Activity fallback",
+   "Progress reset on reinstall"
+  ],
+  "monetization": "One-time purchase of $2.99 to unlock Apple Watch and Live Activity. No subscription needed: users with medical conditions prefer predictable pricing over a cloud service model."
+ },
+ "water-hydration-2": {
+  "categoryName": "Water & hydration",
+  "title": "The lock-screen widget as the whole interface",
+  "oneLiner": "The best water tracking app is the one you never have to open.",
+  "gap": "Widgets are added as a secondary feature rather than designed as the primary interface. The result: they break on updates, fall out of sync with the phone, and do not support custom volumes.",
+  "pitch": "A minimalist tracker where the lock-screen widget is the entire product. You open the app only to adjust settings. For people with chronic conditions (POTS, kidney disease, diabetes) logging must take under a second, not a menu navigation.",
+  "features": [
+   "Lock-screen widget with three preset volumes the user configures once",
+   "Apple Watch complication using the same one-tap logic",
+   "Progress ring visible directly on the widget without opening the app",
+   "HealthKit write for every entry in real time",
+   "App reduced to a settings screen: daily goal, volumes, reminder schedule"
+  ],
+  "antiFeatures": [
+   "Onboarding flows longer than 30 seconds",
+   "Animations and sounds on every log",
+   "Requiring the app to be opened to add an entry"
+  ],
+  "monetization": "Free: one widget, one daily goal. One-time purchase of $1.99 to unlock a second widget (desk and gym) plus 30 days of history."
+ },
+ "water-hydration-3": {
+  "categoryName": "Water & hydration",
+  "title": "Tracking actual hydration, not just water",
+  "oneLiner": "People drink coffee, protein shakes, and juice and want to know how much of that actually counts.",
+  "gap": "Every competitor either tracks only water for free or adds other drinks as categories without a real hydration coefficient. Nobody calculates net hydration with scientific backing.",
+  "pitch": "A tracker that calculates net daily hydration, not total fluid volume. 200 ml of coffee equals roughly 140 ml of hydration (caffeine offsets part of it). A protein shake made with milk has its own coefficient. Target segment: athletes and people with kidney or cardiac conditions who need precision, not an approximate goal.",
+  "features": [
+   "Drink database with hydration coefficients based on research (water, coffee, tea, milk, electrolyte drinks, alcohol)",
+   "Custom drink entry with a manual coefficient (for protein, smoothies, soup)",
+   "Daily goal expressed in ml of net hydration, not total fluid",
+   "Prompt: 'Your coffee today covered 62% of your goal you need N more ml of water'",
+   "Apple Health export logged as hydration, not just water"
+  ],
+  "antiFeatures": [
+   "Paywall on basic beverages (tea, coffee, milk)",
+   "Counting only water and marking other drinks as 'not included'",
+   "Requiring volume input every time with no quick presets"
+  ],
+  "monetization": "Free: 10 drinks from the database. One-time purchase of $3.99 to unlock the full database and custom drinks. Target users (athletes, nephrology patients) pay without pushback."
+ },
+ "water-hydration-4": {
+  "categoryName": "Water & hydration",
+  "title": "Reliable Apple Watch and phone sync",
+  "oneLiner": "Watch and phone data diverge to absurd levels: 18% on the wrist, 0% in the pocket.",
+  "gap": "Every app uses WCSession, which requires the companion app to be open on the phone. The correct fix is writing directly to HealthKit from the Watch so the phone can be off entirely.",
+  "pitch": "A tracker where Apple Watch is a full primary client, not an extension. Entries go straight into HealthKit from the Watch: the phone can be off and no data is lost. Target segment: athletes at the gym and people with medical conditions who leave their phone behind during workouts or procedures.",
+  "features": [
+   "WatchKit app writes directly to HKHealthStore without a WCSession intermediary",
+   "Automatic midnight reset on the Watch itself, not dependent on a phone sync",
+   "Watch face complication with progress and a log button",
+   "Phone app reads from HealthKit on launch rather than a local database",
+   "'Yesterday's data restored' alert on first open after a gap"
+  ],
+  "antiFeatures": [
+   "Sync dependent on the phone app being open",
+   "Data stored only in the app's local database with no Health backup",
+   "Progress reset when the user switches phones"
+  ],
+  "monetization": "One-time purchase of $1.99. Users with medical conditions (cardiology, nephrology) are sensitive to data loss and pay for reliability."
+ },
+ "water-hydration-5": {
+  "categoryName": "Water & hydration",
+  "title": "Bottle profiles instead of a smart gadget",
+  "oneLiner": "Automatic tracking without Bluetooth: scan your bottle once, then tap 'I drank it.'",
+  "gap": "Smart bottles are expensive and fail over Bluetooth. No product offers 'almost automatic' tracking without hardware: scan the bottle once, then tap a single button.",
+  "pitch": "An app with vessel profiles: scan a barcode or snap a photo of your bottle once and set the volume. After that the main screen shows one large button labeled 'drank from this bottle.' For kidney patients and athletes with a fixed routine this is faster than manual entry and far cheaper than HidrateSpark.",
+  "features": [
+   "Barcode scanner for popular bottles (Stanley, Hydro Flask, Contigo) with auto-fill volume",
+   "Quick vessel profile: one tap adds a full bottle",
+   "Up to three active vessels (sport bottle, office glass, travel mug)",
+   "Daily history broken down by vessel so you see what you drink from most",
+   "Live Activity notification showing the active vessel name"
+  ],
+  "antiFeatures": [
+   "Dependence on hardware or Bluetooth",
+   "Requiring volume input every time without remembering the vessel",
+   "Paid vessel database"
+  ],
+  "monetization": "Free: one vessel profile. One-time purchase of $1.99 to unlock three vessels and the barcode scanner. Users are replacing an $80 smart bottle."
+ },
+ "water-hydration-6": {
+  "categoryName": "Water & hydration",
+  "title": "Edit entries without paranoia",
+  "oneLiner": "Tap the wrong amount by accident and your data lies all day with no way to fix it.",
+  "gap": "Most apps block editing entries or hide it behind a paywall. Tapping the wrong preset by mistake is a common error. No app has made this obviously free and simple.",
+  "pitch": "A tracker built around the idea that making mistakes is fine. Swipe left on an entry to delete it. Tap the day's total to open a list and correct any entry. Log a missed drink from yesterday with no restrictions at all. For people with diabetes and kidney conditions, data accuracy is clinically important.",
+  "features": [
+   "Swipe-to-delete any log entry with a 5-second undo",
+   "Edit the volume and drink type of any already-saved entry",
+   "Backdate entry: choose time and date when logging",
+   "Timeline view for the day instead of a single number, showing when and how much",
+   "Sync edits back to Apple Health: delete an entry and it disappears from Health too"
+  ],
+  "antiFeatures": [
+   "Blocking edits after midnight",
+   "Paywall on viewing or editing previous days",
+   "No undo after an accidental delete"
+  ],
+  "monetization": "Fully free for core use. Revenue from a one-time purchase of $0.99 to export history as CSV or PDF for a doctor visit."
+ },
+ "water-hydration-7": {
+  "categoryName": "Water & hydration",
+  "title": "A character that actually motivates you to drink",
+  "oneLiner": "A sad thirsty cat beats any plain notification it's not just cute, it's a real behavioral mechanic.",
+  "gap": "Pet characters work as a motivation mechanism but developers make one mistake: they trigger animations on every app launch. This creates a conflict between 'charming' and 'fast.' Nobody has solved this by separating the two: pet visible on the widget, animation only on reaching the daily goal.",
+  "pitch": "A pet on the lock-screen widget that changes state in real time. Low water sad face. On track content. Goal hit celebration. Log water without opening the app: tap the widget. Animations fire only at milestone moments, not on every launch. Target segment: teens and young adults who need a living trigger, not a spreadsheet.",
+  "features": [
+   "Lock-screen widget with an animated pet in three states (thirsty / on track / goal reached)",
+   "Tap the widget to add a serving, no app launch required",
+   "Pet persists across reinstalls, tied to an account",
+   "Rare animations only for special moments (first goal of the week, 7-day streak)",
+   "'Minimal mode' setting: disable all animations, keep a static state icon"
+  ],
+  "antiFeatures": [
+   "Welcome animation on every app launch",
+   "Pet lost when the app is deleted",
+   "Paywall to unlock the character"
+  ],
+  "monetization": "Free: one pet. New characters available as one-time purchases at $0.99 each. Users pay for cosmetics more readily than for features."
+ },
+ "water-hydration-8": {
+  "categoryName": "Water & hydration",
+  "title": "A tracker built for medical hydration needs",
+  "oneLiner": "People with kidney stones, POTS, and diabetes pay for accuracy, not animation.",
+  "gap": "Not one app is positioned as a medical tool. Every competitor bolts medical features (HealthKit, custom targets) onto an entertainment product with ads and paywalls, which repels exactly the users who need reliability most.",
+  "pitch": "An app for people whose doctor told them to 'drink more water' and who take that literally. No ads, no freemium feature gates one upfront payment. PDF report export for the doctor with hourly detail across a selected date range. Target segment: patients with urolithiasis, POTS, chronic kidney disease, and diabetes.",
+  "features": [
+   "One-time purchase, no subscription, no ads",
+   "Custom daily goal in ml based on body weight, condition, or doctor recommendation (free text field, not a formula)",
+   "PDF report for the selected period: a table with timestamp and volume for every entry, formatted for a clinic visit",
+   "Reminders via Live Activity that cannot be accidentally silenced by app inactivity",
+   "Apple Health integration with no restrictions: full history available to other health apps"
+  ],
+  "antiFeatures": [
+   "Ads in any form",
+   "Feature paywalls after the initial purchase",
+   "Gamification and animations (out of place in a medical context)",
+   "Forced app-rating prompts"
+  ],
+  "monetization": "One-time purchase of $3.99. Medical users convert well to paying: the problem is real, the price is small relative to treatment costs."
  }
 }

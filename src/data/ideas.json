@@ -49386,5 +49386,604 @@
    ],
    "monetization": "Бесплатно синхронизация одной темы, за 199 руб/мес безлимит тем, история версий и шеринг по ссылке."
   }
+ },
+ {
+  "slug": "water-hydration-1",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Уведомления, которые не глохнут на iOS",
+  "oneLiner": "Люди бросают трекер не потому что лень, а потому что напоминания перестают приходить через два дня.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 28
+  },
+  "reviewGrid": [
+   {
+    "quote": "I set notifications to go off every 5 minutes and then they randomly don't for a while until I open the app again.",
+    "rating": 1,
+    "app": "Water tracker Waterllama"
+   },
+   {
+    "quote": "Maybe this isn't the app's fault, but it appears that an iPhone stops sending you notifications from apps you don't interact with often enough. I never actually opened the Waterllama app - I just responded to the notifications on my Apple Watch, drank water, and moved on.",
+    "rating": 1,
+    "app": "Water tracker Waterllama"
+   },
+   {
+    "quote": "I've had this app for one week. It sent me reminders the first two days and then suddenly stopped sending them. I have rebooted twice and it happens again after a day.",
+    "rating": 2,
+    "app": "Drink Water Daily Reminder"
+   },
+   {
+    "quote": "I got notifications for a while. Never changed any settings but I stopped getting notifications. Uninstalled and reinstalled the app, still don't get any.",
+    "rating": 1,
+    "app": "Drink Water Daily Reminder"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Напоминания через Live Activity или виджет блокировки пользователь взаимодействует с системой, не открывая приложение",
+    "obsCount": 28,
+    "apps": [
+     "Water tracker Waterllama",
+     "Drink Water Daily Reminder",
+     "Water Tracker - Drink Reminder"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Уведомления работают как триггер смены привычки: пользователи пьют воду без сознательных усилий, когда система надёжна",
+    "obsCount": 18,
+    "apps": [
+     "Water Tracker by WaterMinder®",
+     "Water Reminder - P App",
+     "Waterful® Drink water tracker"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "iOS глушит уведомления от приложений, с которыми пользователь не взаимодействовал напрямую. Ни одно приложение не решило это надёжно: большинство требует открытия приложения, чтобы напоминания не обрывались.",
+  "idea": {
+   "pitch": "Приложение с напоминаниями через Live Activity и виджет блокировки. Пользователь отмечает воду прямо с экрана блокировки без разблокировки телефона, что значит постоянное 'взаимодействие' для iOS и никаких обрывов. Целевой сегмент: люди с хроническими заболеваниями и спортсмены, которым врач рекомендовал следить за гидратацией.",
+   "features": [
+    "Live Activity на экране блокировки с кнопкой добавления порции в одно нажатие",
+    "Уведомления через UNUserNotificationCenter с фоновой задачей BGAppRefreshTask для поддержания расписания",
+    "Адаптивные интервалы: сокращает паузу, если пользователь пропустил 2 напоминания подряд",
+    "Watchface-осложнение Apple Watch с мгновенной отметкой без открытия приложения",
+    "Экран 'Почему замолчали уведомления' с инструкцией по настройке фокусов iOS"
+   ],
+   "antiFeatures": [
+    "Геймификация и анимации, которые замедляют быстрый ввод",
+    "Напоминания только через push-уведомления без Live Activity резерва",
+    "Сброс прогресса при переустановке"
+   ],
+   "monetization": "Разовая покупка 299 руб. за разблокировку Apple Watch и Live Activity. Подписка не нужна: пользователи с медпоказаниями платят охотнее за предсказуемость, а не за 'облако'."
+  }
+ },
+ {
+  "slug": "water-hydration-2",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Виджет на экране блокировки как единственный интерфейс",
+  "oneLiner": "Лучшее приложение для трекинга воды то, которое не нужно открывать.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have POTS, and it's so helpful to be able to add custom drinks and cups and add records just by tapping the widget once.",
+    "rating": 5,
+    "app": "Water Tracker - Drink Reminder"
+   },
+   {
+    "quote": "Simple, cute, fun way to track water intake. Would love for their to be a widget so I could see my progress from the home screen.",
+    "rating": 4,
+    "app": "Watercat: drink reminder"
+   },
+   {
+    "quote": "I love the app and the encouragement to drink water. I just wish I could add the amount of ounces I drank from my watch and not having to open the app to do that.",
+    "rating": 4,
+    "app": "Water Tracker Daily"
+   },
+   {
+    "quote": "App used to be 5 stars, but an update forces the Apple Watch widget to only display units in milliliters even though all of my settings are in ounces.",
+    "rating": 2,
+    "app": "Water Tracker - Drink Reminder"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Виджет на экране блокировки и Apple Watch как основная точка входа: трекинг происходит без разблокировки телефона",
+    "obsCount": 26,
+    "apps": [
+     "Water Tracker by WaterMinder®",
+     "Water Tracker - Drink Reminder",
+     "Watercat: drink reminder"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Виджеты ломаются после обновлений или показывают данные не в тех единицах, что разрушает привычку",
+    "obsCount": 14,
+    "apps": [
+     "Water Tracker - Drink Reminder",
+     "Water Reminder - Daily Tracker",
+     "Water Log & Drink Reminder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Виджет добавляется как дополнительная функция, а не проектируется как главный интерфейс. Результат: ломается при обновлениях, не синхронизируется с телефоном, не поддерживает кастомные объёмы.",
+  "idea": {
+   "pitch": "Минималистичный трекер, у которого виджет блокировки это и есть весь продукт. Приложение открывается только для настройки. Людям с хроническими заболеваниями (POTS, почечная недостаточность, диабет) нужна отметка за секунду, а не навигация по меню.",
+   "features": [
+    "Виджет экрана блокировки с выбором из 3 пресетных объёмов (настраиваются один раз)",
+    "Apple Watch-осложнение на циферблат с той же логикой в одно нажатие",
+    "Прогресс-кольцо прямо на виджете без открытия приложения",
+    "HealthKit-запись каждой порции в реальном времени",
+    "Приложение сводится к экрану настроек: норма, объёмы, расписание уведомлений"
+   ],
+   "antiFeatures": [
+    "Экраны онбординга дольше 30 секунд",
+    "Анимации и звуки при каждой отметке",
+    "Необходимость открывать приложение для добавления записи"
+   ],
+   "monetization": "Бесплатно: один виджет, одна норма. Разовая покупка 149 руб. за второй виджет (для рабочего места / спортзала) и историю за 30 дней."
+  }
+ },
+ {
+  "slug": "water-hydration-3",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Трекинг реальной гидратации, а не просто воды",
+  "oneLiner": "Люди пьют кофе, протеин, сок и хотят знать, сколько воды из этого реально считается.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "Honestly, this app would be great if it would allow me to track my tea's and coffee without having to pay for that upgrade. It's convenient for my apple watch but the subscription to add coffee just turns me away from this app.",
+    "rating": 2,
+    "app": "Water Tracker by WaterMinder®"
+   },
+   {
+    "quote": "When I first got this a couple years ago you had ton of free choices. Milk, water, juices, pop, coffee, adjust drink volume, etc. I was incredibly disappointed to find out recently that every single thing other than water is paywalled.",
+    "rating": 2,
+    "app": "Water Reminder - Daily Tracker"
+   },
+   {
+    "quote": "I have been using this app for months to meet my water intake for my fitness goals. I liked this one specifically because I could track other beverages. NOW, all the sudden, they lock every drink but water, coffee, milk, and tea behind a paywall.",
+    "rating": 1,
+    "app": "Water Tracker - Drink Reminder"
+   },
+   {
+    "quote": "I like this app because it shows the actual hydration amount of different beverages. But it just stopped syncing to Apple Health.",
+    "rating": 3,
+    "app": "My Water: Daily Drink Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Пейволл на любые напитки кроме воды: кофе, чай, сок, протеин всё за подписку",
+    "obsCount": 24,
+    "apps": [
+     "Water tracker Waterllama",
+     "Water Reminder - Daily Tracker",
+     "Water Tracker - Drink Reminder",
+     "Hydro Coach - Hydration App"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Коэффициент гидратации напитка: пользователи хотят не просто 'выпил кофе', а реальный вклад в норму с поправкой на кофеин",
+    "obsCount": 11,
+    "apps": [
+     "My Water: Daily Drink Tracker",
+     "Water Reminder - Daily Tracker",
+     "Hydro Coach - Hydration App"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Все конкуренты либо учитывают только воду бесплатно, либо добавляют напитки как категории без реального коэффициента гидратации. Никто не считает net hydration с научным обоснованием.",
+  "idea": {
+   "pitch": "Трекер, который считает чистую гидратацию за день, а не объём жидкости. Кофе 200 мл = +140 мл гидратации (кофеин забирает часть). Протеиновый коктейль на молоке имеет свой коэффициент. Сегмент: спортсмены и люди с почечными или кардиологическими показаниями, которым нужна точность, а не приблизительная норма.",
+   "features": [
+    "База напитков с коэффициентом гидратации на основе научных данных (вода, кофе, чай, молоко, электролитные напитки, алкоголь)",
+    "Кастомный напиток с ручным коэффициентом (для протеина, смузи, супа)",
+    "Суточная цель в мл чистой гидратации, не в мл жидкости",
+    "Подсказка: 'Ваш кофе сегодня покрыл 62% нормы, нужно ещё N мл воды'",
+    "Экспорт в Apple Health как hydration, не просто water"
+   ],
+   "antiFeatures": [
+    "Пейволл на базовые напитки (чай, кофе, молоко)",
+    "Учёт только воды и пометка других напитков как 'не считаются'",
+    "Принудительный ввод объёма каждый раз без быстрых пресетов"
+   ],
+   "monetization": "Бесплатно: 10 напитков из базы. Разовая покупка 399 руб. за полную базу и кастомные напитки. Целевые пользователи (спортсмены, нефрологические пациенты) платят без возражений."
+  }
+ },
+ {
+  "slug": "water-hydration-4",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Надёжная синхронизация Apple Watch и телефона",
+  "oneLiner": "Данные на часах и телефоне расходятся до смешного: 18% на запястье, 0% в кармане.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 21
+  },
+  "reviewGrid": [
+   {
+    "quote": "It's been a while that the app on the apple watch don't sync with the phone, exemp on watch 18% and on the phone it's 0, please try to fix this bug.",
+    "rating": 3,
+    "app": "Water Tracker by WaterMinder®"
+   },
+   {
+    "quote": "Love the app on my watch. Easy to use, easy to record and the reminders are helpful without being too intrusive. But for some reason it won't sync with my iPhone. I'll have a day with 415% of my goal followed by several days of 0%.",
+    "rating": 3,
+    "app": "Water Log & Drink Reminder"
+   },
+   {
+    "quote": "It seems to log correctly when I keep the app running on my phone in the background. But if I have it closed on the phone it does not log correctly.",
+    "rating": 3,
+    "app": "Water Log & Drink Reminder"
+   },
+   {
+    "quote": "This app suffers from the same bug that several other water trackers suffer from. When using it from the Apple Watch, it does not reset the amount of water to zero at the end of the day.",
+    "rating": 2,
+    "app": "Water Log & Drink Reminder"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Синхронизация через WCSession: данные с часов теряются, если приложение на телефоне закрыто",
+    "obsCount": 21,
+    "apps": [
+     "Water Tracker by WaterMinder®",
+     "Water Reminder - P App",
+     "Water Log & Drink Reminder"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи активно хотят вести трекинг с запястья: отметка с часов без телефона главная причина привязаться к приложению",
+    "obsCount": 16,
+    "apps": [
+     "Water Tracker by WaterMinder®",
+     "Water Reminder - P App",
+     "Waterlogged Drink More Water"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Все приложения используют WCSession, который требует открытого companion-приложения на телефоне. Правильное решение писать данные напрямую в HealthKit с часов, тогда телефон может быть выключен.",
+  "idea": {
+   "pitch": "Трекер, у которого Apple Watch полноценный первичный клиент, а не 'расширение'. Запись идёт сразу в HealthKit с часов: телефон можно выключить, данные не потеряются. Сегмент: спортсмены на тренировках и люди с медпоказаниями, которые не берут телефон в зал или на процедуры.",
+   "features": [
+    "Watchkit-приложение пишет напрямую в HKHealthStore без промежуточного слоя WCSession",
+    "Автоматический сброс нормы в полночь прямо на часах, не ждёт синхронизации с телефоном",
+    "Осложнение на циферблат с прогрессом и кнопкой добавления порции",
+    "Телефонное приложение загружает данные из HealthKit при открытии, а не из локальной базы",
+    "Алерт 'Данные за вчера восстановлены' при первом открытии после разрыва"
+   ],
+   "antiFeatures": [
+    "Зависимость синхронизации от открытого приложения на телефоне",
+    "Хранение данных только в локальной базе приложения без бэкапа в Health",
+    "Сброс прогресса при смене телефона"
+   ],
+   "monetization": "Разовая покупка 249 руб. Пользователи с медпоказаниями (кардиология, нефрология) чувствительны к потере данных и платят за надёжность."
+  }
+ },
+ {
+  "slug": "water-hydration-5",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Бутылка с умным объёмом вместо смарт-гаджета",
+  "oneLiner": "Автоматический трекинг без Bluetooth: просто сканируешь штрихкод и вводишь, что выпил.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 13
+  },
+  "reviewGrid": [
+   {
+    "quote": "I bought the new PRO 2 model on Wednesday. It worked for the first few hours, but since Thursday, every single drink log has been stuck in a perpetual spinning loop. The app clearly reads the exact ounces from the bottle via Bluetooth, but the data never actually finalizes.",
+    "rating": 1,
+    "app": "HidrateSpark Water Tracker"
+   },
+   {
+    "quote": "My biggest pet peeve of this bottle and app is the calibration... Every time I charge it or wash my bottle I take out the puck and every time I have to go through the app through 15 different menus just to figure out where the calibration button is.",
+    "rating": 2,
+    "app": "HidrateSpark Water Tracker"
+   },
+   {
+    "quote": "This smart bottle is a lifesaver! It tracks everything automatically so I don't have to. I set reminders for every 15 mins, and the bottle flashes blue to remind me to sip super helpful when I'm not near my phone.",
+    "rating": 4,
+    "app": "WaterH"
+   },
+   {
+    "quote": "I got a new phone and when I set it up says already paired to another phone. Click on the bottle icon there is nothing saying to remove bottle.",
+    "rating": 2,
+    "app": "HidrateSpark Water Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Bluetooth-синхронизация нестабильна: пропускает записи, зависает, не работает в фоне",
+    "obsCount": 13,
+    "apps": [
+     "HidrateSpark Water Tracker",
+     "WaterH",
+     "waterdrop® Hydration App"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Автоматический трекинг без ручного ввода главная причина, по которой пользователи наконец начинают пить норму",
+    "obsCount": 9,
+    "apps": [
+     "HidrateSpark Water Tracker",
+     "WaterH"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Умные бутылки стоят дорого и ломаются из-за Bluetooth. Нет продукта, который даёт 'почти автоматический' трекинг без аппаратуры: отсканировал бутылку один раз, тапнул 'выпил'.",
+  "idea": {
+   "pitch": "Приложение с профилями сосудов: пользователь один раз сканирует штрихкод или фотографирует свою бутылку, задаёт объём. Дальше на главном экране одна большая кнопка 'выпил из этой бутылки'. Для людей с почечными показаниями и спортсменов с фиксированным режимом это быстрее ручного ввода и дешевле HidrateSpark.",
+   "features": [
+    "Сканер штрихкода популярных бутылок (Stanley, Hydro Flask, Contigo) с автоопределением объёма",
+    "Быстрый профиль сосуда: один тап = добавить полную бутылку",
+    "До 3 активных сосудов (спортивная бутылка, стакан в офисе, кружка)",
+    "История с разбивкой по сосудам: видно, из чего пьёшь чаще",
+    "Уведомление через Live Activity с именем активного сосуда"
+   ],
+   "antiFeatures": [
+    "Зависимость от аппаратного модуля или Bluetooth",
+    "Принудительный ввод объёма каждый раз без запоминания сосуда",
+    "Платная база сосудов"
+   ],
+   "monetization": "Бесплатно: 1 профиль сосуда. Разовая покупка 199 руб. за 3 сосуда и штрихкод-сканер. Пользователи заменяют умную бутылку за 8 тысяч рублей."
+  }
+ },
+ {
+  "slug": "water-hydration-6",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Редактирование записей без паранойи",
+  "oneLiner": "Случайно тапнул не тот объём и теперь данные врут весь день, исправить нельзя.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 16
+  },
+  "reviewGrid": [
+   {
+    "quote": "I like the app, but I accidentally clicked on the wrong drink, and I can't delete that data, so my data is off just because of that mistake, and it's bugging me.",
+    "rating": 1,
+    "app": "My Water - Daily Water Tracker"
+   },
+   {
+    "quote": "I don't like the fact that I can't remove a log ive accidentally added.",
+    "rating": 1,
+    "app": "My Water - Daily Water Tracker"
+   },
+   {
+    "quote": "it would be helpful if an option to edit you water intake amounts were added. i mistakenly input the wrong number and wasn't able to change it.",
+    "rating": 3,
+    "app": "My Water - Daily Water Tracker"
+   },
+   {
+    "quote": "I forgot to add water intake before midnight and it would not allow me to go back to edit. Looking for a new app.",
+    "rating": 2,
+    "app": "Water Tracker Daily"
+   },
+   {
+    "quote": "Taking away features and locking them behind a paywall is a bad look. I can't even input drinks from previous days anymore?",
+    "rating": 1,
+    "app": "Water Tracker - Drink Reminder"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Удаление и правка записей заблокированы или убраны за пейволл после обновления",
+    "obsCount": 16,
+    "apps": [
+     "My Water - Daily Water Tracker",
+     "My Water: Daily Drink Tracker",
+     "Water Tracker Daily",
+     "Water Tracker - Drink Reminder"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Возможность вносить записи задним числом критична для людей с нерегулярным режимом",
+    "obsCount": 12,
+    "apps": [
+     "Water Tracker - Drink Reminder",
+     "Water Log & Drink Reminder",
+     "waterdrop® Hydration App"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большинство приложений не разрешают редактировать записи или прячут это за пейволл. При этом легкое нажатие на неправильный пресет типичная ошибка. Нет ни одного приложения, где это решено очевидно и бесплатно.",
+  "idea": {
+   "pitch": "Трекер, построенный вокруг принципа 'ошибаться нормально'. Свайп влево по записи удалить. Нажатие на итоговую цифру за день открыть список и поправить любую запись. Внести пропущенный стакан за вчера без ограничений. Для людей с диабетом и почечными показаниями точность данных критична.",
+   "features": [
+    "Свайп-удаление любой записи из хроники без подтверждения (с undo 5 секунд)",
+    "Редактирование объёма и типа напитка в уже добавленной записи",
+    "Внесение записи задним числом: выбор времени и даты при добавлении",
+    "Временная шкала за день вместо одной цифры: видно, когда пил и сколько",
+    "Синхронизация правок в Apple Health (удалил запись удалилась и в Health)"
+   ],
+   "antiFeatures": [
+    "Запрет на редактирование после полуночи",
+    "Пейволл на просмотр и редактирование предыдущих дней",
+    "Отсутствие undo при случайном удалении"
+   ],
+   "monetization": "Полностью бесплатно для базового использования. Монетизация через разовую покупку 149 руб. за экспорт истории в CSV/PDF для предоставления врачу."
+  }
+ },
+ {
+  "slug": "water-hydration-7",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Персонаж, который реально мотивирует пить воду",
+  "oneLiner": "Грустный кот без воды работает лучше любых сухих уведомлений это не фан, это механика.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 14
+  },
+  "reviewGrid": [
+   {
+    "quote": "Lez talk about this little blob cat that drives me insane. Every hour it meows and says some random water-related thing, and when you don't give it water it just looks SO SAD. I don't even want to know what it's made of.",
+    "rating": 5,
+    "app": "Watercat: drink reminder"
+   },
+   {
+    "quote": "This app is so freaking cute! Love the little badge awards and cute octopus friend! And I love that I can record multiple kinds of drinks for free! Where other apps make you pay for anything besides water.",
+    "rating": 5,
+    "app": "Waterful® Drink water tracker"
+   },
+   {
+    "quote": "Good way to keep track of water. Only thing I don't like lately is when I start up the app it has an animated cat waving hello. Cute but takes ages and I just want to record the water quickly.",
+    "rating": 4,
+    "app": "Watercat: drink reminder"
+   },
+   {
+    "quote": "I love it but I wish it would have something that slowly died when you forgot to drink enough water, because I don't always drink enough because it doesn't matter if I don't.",
+    "rating": 4,
+    "app": "Water Tracker Daily"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Персонаж с эмоциональной реакцией на гидратацию: меняет вид и настроение в зависимости от прогресса",
+    "obsCount": 14,
+    "apps": [
+     "Watercat: drink reminder",
+     "Water tracker Waterllama",
+     "Waterful® Drink water tracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Анимации при запуске замедляют быстрый ввод: пользователи хотят выключить анимацию, но оставить персонажа",
+    "obsCount": 7,
+    "apps": [
+     "Watercat: drink reminder",
+     "Water tracker Waterllama"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Персонажи работают как мотивационный механизм, но разработчики делают ошибку: ставят анимацию при каждом запуске. Результат конфликт между 'милым' и 'быстрым'. Никто не решил это разделением: персонаж виден на виджете, анимация только при достижении нормы.",
+  "idea": {
+   "pitch": "Питомец на виджете экрана блокировки, который меняет вид в реальном времени. Мало воды грустный, нормально доволен, выпил норму праздник. Добавление воды без открытия приложения: тап на виджет. Анимация только на иконке при достижении дневной цели, не при каждом запуске. Целевой сегмент: подростки и молодые взрослые, которым нужна не таблица, а живой триггер.",
+   "features": [
+    "Виджет блокировки с анимированным питомцем в 3 состояниях (жажда / норма / перевыполнено)",
+    "Тап на виджет = добавить порцию, без открытия приложения",
+    "Питомец остаётся за пользователем при переустановке: привязан к аккаунту",
+    "Редкие анимации только в особые моменты (первая норма за неделю, серия 7 дней)",
+    "Настройка 'минимальный режим': отключить все анимации, оставить статичную иконку состояния"
+   ],
+   "antiFeatures": [
+    "Приветственная анимация при каждом запуске",
+    "Потеря питомца при удалении приложения",
+    "Пейволл на разблокировку персонажа"
+   ],
+   "monetization": "Бесплатно: один питомец. Покупка новых персонажей по 99 руб. каждый. Пользователи платят за косметику охотнее, чем за функции."
+  }
+ },
+ {
+  "slug": "water-hydration-8",
+  "category": "water-hydration",
+  "categoryName": "Трекеры воды",
+  "title": "Трекер для людей с медицинскими показаниями к гидратации",
+  "oneLiner": "Люди с почечными камнями, POTS и диабетом платят за точность, а не за анимацию.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 31,
+   "reviews": 6131,
+   "observations": 18
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have POTS, and it's so helpful to be able to add custom drinks and cups and add records just by tapping the widget once. The charts and statistics over time are super useful for my doctor.",
+    "rating": 5,
+    "app": "Water Tracker - Drink Reminder"
+   },
+   {
+    "quote": "I have a medical condition that increases the risk of blood clots, so it's EXTREMELY important for me to stay hydrated. This app's tracker and reminders help me remember to drink water, which in turn reduces the risk of blood clots. Literally a lifesaver. However, the ads are placed too close to the log button.",
+    "rating": 4,
+    "app": "Daily Water Tracker Reminder"
+   },
+   {
+    "quote": "This is a great product considering I have to keep up with my water intake for my heart issues, but I can't afford that to keep up with the water that's crazy",
+    "rating": 3,
+    "app": "Water Tracker by WaterMinder®"
+   },
+   {
+    "quote": "I am constantly dehydrated. Headaches, heart palpitations and poor blood pressure. I'm not kidding. It's embarrassing I know. But it's because I'm constantly on the go. Kids, house, and 10 hours shifts, I just can't find time.",
+    "rating": 5,
+    "app": "WaterH"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Медицинский контекст: пользователи с POTS, почечными камнями, сердечной недостаточностью используют трекер как инструмент управления здоровьем, а не привычкой",
+    "obsCount": 18,
+    "apps": [
+     "Water Tracker - Drink Reminder",
+     "Daily Water Tracker Reminder",
+     "Water Tracker by WaterMinder®",
+     "WaterH"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Реклама поверх кнопки ввода или пейволл на базовые функции воспринимаются как недопустимые для медицинского инструмента",
+    "obsCount": 14,
+    "apps": [
+     "Daily Water Tracker Reminder",
+     "Water Tracker by WaterMinder®",
+     "Drink Water Daily Reminder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Нет ни одного приложения, позиционированного как медицинский инструмент. Все конкуренты добавляют медицинские функции (HealthKit, кастомная норма) внутрь развлекательного продукта с рекламой и пейволлами, что отталкивает именно тех пользователей, кому нужна надёжность.",
+  "idea": {
+   "pitch": "Приложение для людей, которым врач сказал 'пейте больше воды' и они воспринимают это буквально. Никакой рекламы, никакого freemium по функциям только разовая оплата. Экспорт PDF-отчёта для врача с почасовой статистикой за период. Целевой сегмент: пациенты с уролитиазом, POTS, хронической почечной недостаточностью, диабетом.",
+   "features": [
+    "Разовая оплата без подписки и без рекламы",
+    "Кастомная норма в мл на основе веса, заболевания или рекомендации врача (поле для ввода числа, не формула)",
+    "PDF-отчёт за период: таблица с временем и объёмом каждой записи для визита к врачу",
+    "Уведомления через Live Activity: нельзя случайно заглушить из-за неактивности приложения",
+    "Apple Health-интеграция без ограничений: вся история доступна для других медицинских приложений"
+   ],
+   "antiFeatures": [
+    "Реклама в любом виде",
+    "Пейволл на функции после первичной оплаты",
+    "Геймификация и анимации (отвлекают от медицинского контекста)",
+    "Принудительные push-запросы на оценку приложения"
+   ],
+   "monetization": "Разовая покупка 499 руб. Пользователи с медицинскими показаниями хорошо конвертируются в платящих: проблема реальная, цена воспринимается как незначительная относительно расходов на лечение."
+  }
  }
 ]

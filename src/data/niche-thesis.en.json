@@ -6518,5 +6518,41 @@
     ]
    }
   ]
+ },
+ "water-hydration": {
+  "governing": "The water tracker niche solves one job reminding someone to drink a glass of water at the right time but none of the 31 apps in the category does it reliably. Water Tracker PRO (realScore 67), Watercat (63), and Waterllama (62) sit at the top, yet even the leaders share the same blind spots: iOS quietly kills background processes for apps users don't open directly, a problem Waterllama documented openly (a user responded to notifications via Apple Watch, never launched the app itself, and reminders stopped after a few days). Logging each sip by hand creates enough friction to prevent any habit from sticking. The market is clearly split: paying users will buy a lifetime license for $8 (Waterful) or a smart bottle for tens of dollars (HidrateSpark, WaterH), while most apps charge $30 per year for a feature that gets used three times before the user forgets. The opening for a founder is an app where reminders survive on iOS without the user ever opening it, logging takes a single tap from a widget, and data stays in sync between Watch and phone.",
+  "competitorRead": "Waterllama (155k ratings, realScore 62) is the most visually polished product in the niche, but an aggressive paywall blocks coffee, soda, and other drinks immediately, and reminders die without regular manual app launches. Watercat (1,300 ratings, realScore 63) earns high text ratings through the emotional mechanic of a sad thirsty cat, but a widget never shipped and a post-update video ad broke the experience for loyal users. WaterMinder (34k ratings, realScore 55) pitches itself as a serious Apple Watch tracker, but Watch-to-phone sync is chronically unreliable: 18% on the wrist, 0% in the pocket. HidrateSpark (realScore 48) eliminates the main tracking barrier with auto-logging through a smart bottle, but when Bluetooth drops the app becomes useless. The honest-monetization slot is held by Waterful: maximum features free plus a lifetime unlock for $8, which users call out positively in the very first line of their reviews.",
+  "pillars": [
+   {
+    "title": "reminders that don't go silent",
+    "dek": "iOS terminates background processes for apps users do not interact with directly on screen. Waterllama documented this publicly: a user responded to notifications only from Apple Watch, never opened the app, and after a few days the reminders stopped entirely. Five other apps in this card collected 28 similar cases. The standard fix from every developer is the same: tell the user to dig through iOS background settings themselves, which most people never do. An app that either routes around this through system-level approaches (background refresh, pre-scheduled local notifications) or gives the user one clear action to fix it gains a durable advantage. Logging missed cups from earlier hours or previous days belongs in this same bucket: if a user couldn't log before midnight or forgot for a few hours, the app must let them correct it without a paywall and without losing the day.",
+    "match": [
+     "reliable iOS reminders",
+     "backdating water logs"
+    ]
+   },
+   {
+    "title": "remove friction from every log entry",
+    "dek": "The main barrier to water tracking is not forgetting to drink it is that logging the fact on your phone takes too long. Users explicitly name a lock-screen widget or a one-tap Apple Watch action as the primary reason they keep tracking at all. But after updates, widgets break (blank tile, stale data), and the Watch app loses sync. On top of that, apps offer fixed presets of 8, 12, and 16 oz while people drink from a 24 oz bottle or a protein shake in an 11 oz carton and have to do mental math every time. Fixing a wrong entry is often impossible: tap the wrong amount and the day's data becomes meaningless, killing motivation. Some apps also physically cover the log button with ads this is literal, not a metaphor, the button is hidden. An app where the widget is always reliable, volumes are freely customizable, and mistakes are trivially correctable closes this entire cluster with one tool.",
+    "match": [
+     "one-tap widget or Watch logging",
+     "custom drink volumes and units",
+     "delete and edit logged entries",
+     "ads blocking the log button",
+     "tracking drinks beyond water"
+    ]
+   },
+   {
+    "title": "keep data intact across devices and services",
+    "dek": "When Apple Watch shows 18% toward your goal and the phone shows 0%, tracking loses all meaning. This is a chronic failure for WaterMinder and Water Log: entries made from the Watch while the phone app is closed simply do not save. Apple Health is the obvious single source of truth for health data, but many apps either skip it entirely or sync breaks after updates. Fitbit and MyFitnessPal integration in Waterlogged has been broken for years with no fix, even though that integration is the reason people paid for the app. Smart bottles from HidrateSpark and WaterH remove the main manual-logging barrier entirely, but both have unstable Bluetooth and hide recalibration deep in menus. Pet-character mechanics (Watercat, Waterllama) build habits where plain notifications never worked, but the character should not disappear when the user reinstalls or gets a new phone. An app that predictably saves every entry regardless of where it came from and writes correctly to Apple Health solves this cluster for most users.",
+    "match": [
+     "phone to Watch sync",
+     "Apple Health integration",
+     "auto-tracking via smart bottle",
+     "Fitbit and MyFitnessPal integration",
+     "pet or gamification for motivation"
+    ]
+   }
+  ]
  }
 }
