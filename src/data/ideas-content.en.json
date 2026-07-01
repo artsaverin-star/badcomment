@@ -2360,144 +2360,144 @@
   "monetization": "Consumer subscription at $3-5 per month. Per-request API pricing for app developers. Existing recipe apps already monetize this feature, which means users will pay for it. Build it standalone and do it right."
  },
  "sobriety-1": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Peer Sobriety Mentor",
-  "oneLiner": "A platform where someone in recovery gets a real peer mentor and daily contact with them",
-  "gap": "In a moment of acute craving, there is no live person nearby, and in-app chats without moderation turn into bullying or emptiness",
-  "pitch": "A person finds a peer mentor who has walked the road from addiction to stable sobriety. They call every day and message in a chat that is closed to outsiders. The mentor receives a monthly payout through the platform. The client gets real human support instead of a bot.",
+  "categoryName": "Sobriety & quitting",
+  "title": "Sobriety tracker that keeps your relapse history",
+  "oneLiner": "A counter that does not erase your whole journey on a relapse but saves every period as part of your complete story",
+  "gap": "Most apps silently zero the counter and offer no response to a relapse at all. The person is left alone exactly when they need support the most.",
+  "pitch": "A tracker where a relapse does not erase your history but opens a new chapter. The counter resets, but all previous periods stay visible right alongside it: the user sees not a failure but their total sober time across their entire life.",
   "features": [
-   "mentor matching by addiction type, sobriety length, and time zone",
-   "private two-way chat and audio calls inside the platform",
-   "daily check-in: a short mood form visible only to the mentor",
-   "full contact history and mood log over time",
-   "mentor ratings and verification by sobriety length and user reviews"
+   "On restart, the app shows several supportive screens instead of just zeroing the timer",
+   "A timeline of all sober periods with a lifetime total in days",
+   "A short, optional note about the relapse: what happened, with no forced answer required",
+   "A lock-screen widget that shows the current streak and lifetime total",
+   "A check-in notification one hour after restart: brief and judgment-free"
   ],
   "antiFeatures": [
-   "unmoderated group chats",
-   "gamification and badges",
-   "content feeds and motivational quotes"
+   "No comparison with other people's streaks at the moment of restart",
+   "No required forms about relapse reasons immediately after the event",
+   "No gamified loss mechanics: the counter does not turn red or flash"
   ],
-  "monetization": "User subscription ($15-30/month), 60-70% goes to the mentor, corporate wellness packages sold through HR"
+  "monetization": "A paid subscription unlocks extended period history, data export, and a private journal. The core tracker and restart flow are free forever."
  },
  "sobriety-2": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Workplace Sobriety Support for Employers",
-  "oneLiner": "A B2B tool for HR: anonymous addiction screening, an employee assistance program, and outcome tracking across the workforce",
-  "gap": "Employers pay for health insurance and sick leave but cannot see how many employees struggle with alcohol or nicotine dependence, and have no way to help them anonymously",
-  "pitch": "A company connects the platform as an extension of its health benefits or as a standalone EAP. An employee takes an anonymous screening, receives a personalized support plan, and gets access to mentors or psychologists. HR sees only aggregated statistics and ROI: fewer sick days and lower turnover.",
+  "categoryName": "Sobriety & quitting",
+  "title": "A fast tool for the acute craving moment",
+  "oneLiner": "Open it during a craving and get a concrete plan for the next ten minutes no subscription screen in the way",
+  "gap": "Craving tools are almost universally locked behind a paywall. The person hits a subscription screen at their most vulnerable moment.",
+  "pitch": "An app with one button on the main screen: open it during a craving and get a concrete plan for the next ten minutes. Breathing, movement, or a message to someone your choice. The full crisis mode is always free.",
   "features": [
-   "anonymous addiction screening for employees using the AUDIT test and similar tools",
-   "personal plan with recommendations, exercises, and scheduled therapist sessions",
-   "integration with the corporate portal and health insurance card",
-   "HR dashboard with aggregated data and no personal identifiers",
-   "quarterly report on risk reduction and sick-day savings"
+   "One large button on the main screen, accessible without signing in",
+   "Four to seven short exercises to choose from: breathing, cold water, movement, reaching out to someone",
+   "A craving timer: most peaks pass in 15 to 20 minutes, and the app shows the progress",
+   "After getting through the craving, a short optional note about the trigger",
+   "Stats showing how many times you held on and the pattern by day of the week"
   ],
   "antiFeatures": [
-   "identifying individual employees to HR",
-   "mandatory notifications to work email",
-   "gamification and leaderboards"
+   "No paywall on crisis tools",
+   "No automatic addiction-related notifications that become triggers themselves",
+   "No forced community contact during an acute moment"
   ],
-  "monetization": "B2B subscription from $3-8 per employee per month, bundled into corporate health plans or purchased separately by HR"
+  "monetization": "Paid access to extended trigger analytics, personal craving patterns, and journal export. The crisis mode is always free."
  },
  "sobriety-3": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Crisis Button",
-  "oneLiner": "A single-action app: tap it during an acute craving and get live support within three minutes",
-  "gap": "At the sharpest moment of craving, help is either behind a paywall, broken, or just text that does not work at an emotional peak",
-  "pitch": "A person taps one button. Within three minutes they are connected to an on-call mentor or psychologist on a short call. No onboarding, no subscription before the first contact. You pay only for the minutes of the call, like calling an ambulance.",
+  "categoryName": "Sobriety & quitting",
+  "title": "A private text community for people in recovery",
+  "oneLiner": "A support space without your real name and without social media, where it feels safe to speak openly",
+  "gap": "Existing communities either require a real name or suffer from chaotic waves of unexplained bans. People lose their connections and trust in the platform.",
+  "pitch": "A private text community for people in recovery: only a username and words, no real name and no profile photos. Sign up with email or phone, no third-party account required.",
   "features": [
-   "one large button on the screen that triggers a queue of on-call mentors",
-   "voice or text contact with a real mentor within one to three minutes",
-   "short grounding exercises while you wait (breathing, sensory anchoring)",
-   "crisis log: when it happened, how long it lasted, how it resolved",
-   "pay-per-use: charged per minute of call or prepaid minute packs"
+   "Sign up with a username: no real name, no profile photo required",
+   "Topic channels by type of addiction and stage of recovery",
+   "Transparent moderation rules: every decision is explained",
+   "Direct messages only after mutual consent from both people",
+   "Notifications only for direct replies, no noise from every post in the feed"
   ],
   "antiFeatures": [
-   "monthly subscription before first use",
-   "mandatory registration and intake form at install",
-   "day counter and progress tracker"
+   "No login through Apple, Google, or Facebook",
+   "No automatic bans without explanation",
+   "No public follower counts or likes"
   ],
-  "monetization": "Per-call pricing ($1-2 per minute) or minute packs ($5 for 5 minutes), insurance companies can pay per enrollment as a health plan add-on"
+  "monetization": "A paid subscription unlocks extended direct messaging, group calls, and access to moderated private groups. The core community is free."
  },
  "sobriety-4": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Teen Addiction Recovery Program",
-  "oneLiner": "A recovery program for social media and vaping addiction aimed at teens aged 13 to 17, purchased by parents",
-  "gap": "Teens are blocked from most sobriety apps by age restrictions, and adult communities shame and exclude them",
-  "pitch": "A parent pays for a 30-day course for their child. The teen completes it independently: daily tasks, video mentors their own age, a closed community for teenagers only. The parent sees progress without access to the child's personal entries.",
+  "categoryName": "Sobriety & quitting",
+  "title": "An open-ended milestone scale for long-term sobriety",
+  "oneLiner": "An achievement system that does not end at year one and keeps growing with the person for years",
+  "gap": "Most apps cap their milestone system at the first year or a finite badge set. People with five or ten years of sobriety have nothing left to look forward to.",
+  "pitch": "An achievement system that continues beyond the first year: each new year unlocks a tier with rare badges, and the user can set their own personal milestones that matter to them specifically.",
   "features": [
-   "sign-in without a card or age verification through a parent account",
-   "content and mentors aged 16-22 who have been through it themselves",
-   "closed community for teens only with active moderation",
-   "daily micro-tasks written in the style and language of teenagers",
-   "parent dashboard showing daily completion only, with no personal content"
+   "Core time-based milestones from 24 hours to 10 years and beyond, with no ceiling",
+   "Personal milestones: the user names what they are holding on for",
+   "A special sobriety-anniversary screen with a sharing option",
+   "Personal health stats tied to specific milestones",
+   "Rare badges at 5, 10, 15, and 20 years that do not reset on a relapse"
   ],
   "antiFeatures": [
-   "open chats shared with adults",
-   "clinical tone and medical terminology",
-   "ad banners and ad-based monetization"
+   "No public leaderboard comparing other people's milestones",
+   "No badges for number of app opens",
+   "No ceiling: the system does not end at 82 achievements"
   ],
-  "monetization": "Parent pays a one-time course fee ($20-40 for 30 days) or a subscription, schools and child psychologists buy group licenses"
+  "monetization": "A paid subscription unlocks personal milestones and custom badges. Time-based milestones are free."
  },
  "sobriety-5": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Sobriety Journal with a Live Therapist",
-  "oneLiner": "A daily structured journal for people in remission, paired with a weekly session with a therapist who reads the entries",
-  "gap": "Journaling in apps breaks down, gets no response, and nobody reads what you wrote on your hardest day",
-  "pitch": "A user keeps a journal with structured prompts every day. The therapist has access to the entries and holds a 30-minute session once a week, already knowing the context of the week. The cost is far lower than private therapy because the therapist does not spend the session asking what happened this week.",
+  "categoryName": "Sobriety & quitting",
+  "title": "Journal with personal trigger analysis",
+  "oneLiner": "The journal shows which day and time cravings hit hardest, based entirely on your own entries",
+  "gap": "Journals in most apps are just a text field. Nobody shows the patterns: which days and situations bring on cravings most often.",
+  "pitch": "A mood and situation tracker with automatic pattern analysis. After two or three weeks of entries, the app surfaces concrete insights: Friday evenings are dangerous, being alone at home is riskier than noisy places, stress-related cravings last longer than usual.",
   "features": [
-   "daily prompts: a morning intention and an evening reflection",
-   "craving log: when it happened, what triggered it, how it went",
-   "therapist sees the full entry feed before each session",
-   "30-minute video session once a week inside the platform",
-   "PDF export of entries for personal records"
+   "A daily check-in that takes 30 seconds: mood, situation, craving level",
+   "Trigger tags from a preset list plus your own custom ones",
+   "A pattern chart by day of week, time of day, and situation type",
+   "A proactive heads-up during historically high-risk times based on your history",
+   "Entries stored locally with optional cloud backup"
   ],
   "antiFeatures": [
-   "AI responses instead of a real therapist",
-   "public journal or open community",
-   "motivational quotes and content feeds"
+   "No penalty for skipping a day",
+   "No sharing of data with third-party analytics services",
+   "No crashes on save"
   ],
-  "monetization": "Subscription $50-80/month includes a therapist and unlimited journaling, therapists keep 60% and the platform takes 40%"
+  "monetization": "Paid access to extended pattern analytics and journal export. Basic entries and simple stats are free."
  },
  "sobriety-6": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Gradual Alcohol Reduction Program",
-  "oneLiner": "A medically guided program for cutting back on alcohol, with a drink tracker, a doctor, and a personalized 12-week plan",
-  "gap": "People want to drink less, not quit entirely, but every app pushes full abstinence and a rigid day count",
-  "pitch": "The user does not have to quit: they set their own goal (two glasses on Friday instead of a bottle every day). An addiction medicine doctor builds a reduction plan, the tracker logs what actually happened, and the algorithm adjusts the plan every week. After 12 weeks the person has either reached their goal or moves to the next level.",
+  "categoryName": "Sobriety & quitting",
+  "title": "A sobriety counter widget with no paywall",
+  "oneLiner": "The day count on your lock screen comes free it is a core feature, not a paid add-on",
+  "gap": "The widget is the primary daily anchor of sobriety, but it is locked behind a subscription in almost every app. This triggers the sharpest user complaints of any feature.",
+  "pitch": "A tracker with multiple counters and widgets for the lock screen, home screen, and Dynamic Island all free. Paying should buy depth, not basic visibility into your own progress.",
   "features": [
-   "drink tracker with no pressure to quit completely",
-   "initial online session with a doctor to set a reduction goal",
-   "weekly plan adjustment based on tracker data",
-   "neuroscience explanations of what alcohol does to sleep and anxiety",
-   "option to switch to full abstinence and a new plan whenever you are ready"
+   "Lock screen, home screen, and Dynamic Island widgets available for free",
+   "Up to five simultaneous counters, each with a name and color",
+   "The widget shows one counter or all of them user's choice",
+   "Sync between iPhone and Apple Watch",
+   "A minimal interface with no ads and no notifications by default"
   ],
   "antiFeatures": [
-   "sobriety day counter that resets when you have a drink",
-   "moralizing tone and quotes about the harms of alcohol",
-   "open community with public confessions"
+   "No ads inside the app",
+   "No paywall on widgets: they are the foundation, not an extra feature",
+   "No data loss when switching to a new device"
   ],
-  "monetization": "12-week starter package ($60, includes a doctor and tracker), monthly renewal at $20, insurers and employers pay as a prevention program"
+  "monetization": "Paid access to extended stats, export, and custom widget themes. The widget and tracking are free forever."
  },
  "sobriety-7": {
-  "categoryName": "Quit Drinking, Smoking, Scrolling",
-  "title": "Recovery School",
-  "oneLiner": "A structured 90-day sobriety course with live group sessions, sold as a one-time product rather than a subscription",
-  "gap": "People pay for app subscriptions year after year but never get the structure or the sense of a completed journey that a finished course provides",
-  "pitch": "You buy the 90-day course once and go through it with a group of 10 to 12 people led by a facilitator who is in recovery themselves. Live video sessions three times a week, daily tasks, a journal. After 90 days you receive a certificate and the option to become a facilitator for the next cohort.",
+  "categoryName": "Sobriety & quitting",
+  "title": "A recovery program without a religious frame",
+  "oneLiner": "A structured CBT-based course for people who find the 12-step approach is not a fit",
+  "gap": "The 12-step programs work for millions, but the religious language turns away part of the audience. Secular, structured alternatives with the same depth are nearly absent in mobile apps.",
+  "pitch": "A step-by-step recovery program grounded in cognitive behavioral therapy and SMART Recovery: no mention of a higher power, with a brief evidence-based explanation for every step. Journal, exercises, and the ability to share with a mentor all in one place.",
   "features": [
-   "fixed 90-day path with a clear finish line",
-   "live group sessions three times a week with a facilitator",
-   "daily assignments: journal, exercises, audio",
-   "closed group for cohort members only",
-   "graduate certificate and a facilitator training program"
+   "A 12-week program with daily CBT-based exercises",
+   "A gratitude list and evening inventory without any religious context",
+   "The ability to share the journal with a mentor or coach",
+   "A daily two-to-three-minute reading: secular texts on recovery",
+   "Progress tracking through the stages of the program"
   ],
   "antiFeatures": [
-   "open-ended subscription with no finish line",
-   "open community of strangers with no shared history",
-   "gamification and points"
+   "No religious language and no mention of a higher power by default",
+   "No judgment toward non-religious perspectives",
+   "No imposition of a single approach: AA materials are optional"
   ],
-  "monetization": "One-time course payment ($80-150), corporate bulk purchases through HR, graduates pay $30 for facilitator certification"
+  "monetization": "A paid full program course and mentor connection. Daily readings and a basic journal are free."
  },
  "kids-learning-1": {
   "categoryName": "Kids Learning",
@@ -7561,144 +7561,144 @@
   "monetization": "Golf clubs already pay for tee-sheet systems like ForeUp, Lightspeed Golf, and Jonas at $200 to $800 per month. Course analytics as an add-on module at $100 to $300 per month is realistic. First customers are reached through golf course associations that represent 15,000 courses in the US alone."
  },
  "intermittent-fasting-1": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Post-Bariatric Surgery Meal Plan with a Dedicated Nutrition Coach",
-  "oneLiner": "A structured intermittent fasting plan for people recovering from bariatric surgery, coordinated with the operating surgeon.",
-  "gap": "After bariatric surgery the doctor sends the patient home with an A4 sheet and the advice to 'eat less.' The patient does not know when or how to introduce a fasting window, is afraid of damaging the sutures, and no mainstream app knows anything about their anatomy.",
-  "pitch": "Bariatric patients pay tens of thousands of rubles for nutrition rehabilitation programs, yet after discharge they are left alone with a plate. This service gives them a step-by-step 12-week fasting plan synchronized with the healing stages and a chat with a nutritionist who specializes in post-surgical nutrition. Clinics integrate the product as a continuation of their own follow-up care and pay for it as an extension of their service.",
+  "categoryName": "Intermittent fasting",
+  "title": "Fasting tracker with reliable retroactive time edits",
+  "oneLiner": "Forgetting to tap Start trashes the whole log: if the app won't let you fix the time after the fact, users walk out and don't come back.",
+  "gap": "Every app either has no editing of past entries or crashes with \"cannot overlap fasts\" on any attempt to shift a time. People lose weeks of history over a single missed button tap.",
+  "pitch": "A fasting tracker where correcting the time of a past fast takes three taps without breaking the log. The engine resolves overlaps automatically: it offers to shift the adjacent entry, and only asks the user when there are multiple options.",
   "features": [
-   "A 12-week transition plan from liquids to solid foods, with a gradual introduction of the fasting window",
-   "Weekly video calls with a nutritionist experienced in bariatric protocols",
-   "Symptom tracker covering nausea, reflux, and dumping syndrome, with automatic summaries sent to the physician",
-   "Recipe library organized by phase (pureed, soft, regular) with protein per serving calculated",
-   "Clinic integration: the surgeon can view patient progress and adjust the plan through a dedicated physician dashboard"
+   "Edit the start and end of any past fast directly from the calendar view",
+   "Overlap detector that suggests auto-shifting the neighboring entry",
+   "A \"when did you actually start?\" field right on the timer screen for users who forgot to tap",
+   "Change log: see what was edited and when",
+   "Full support for fasts longer than 24 hours with no false date conflicts"
   ],
   "antiFeatures": [
-   "Gamification and streaks: someone recovering from surgery should not feel like a failure if their fasting window shifts",
-   "Letting users pick long protocols without nutritionist approval",
-   "Photo-based calorie scanning: post-operative portions require precision, not rough estimates"
+   "Edits only available through support or a feedback form instead of a direct UI",
+   "Editing locked behind a paywall when the pain hits hardest for people who are already paying",
+   "Confirmation dialogs and warnings on every single change"
   ],
-  "monetization": "Clinics pay a subscription to enroll their patients (B2B). Patients pay the nutritionist directly for 3 to 6 sessions in the first month. Bariatric centers already sell aftercare programs for significant sums, and this is a natural extension of that same service."
+  "monetization": "Free: timer and the last 7 days of history with no editing. Subscription from $3.99/month: full history and editing of any entry. Paying users are the first to complain about lost history, so conversion will be high."
  },
  "intermittent-fasting-2": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Intermittent Fasting Adapted to Rotating Shift Schedules",
-  "oneLiner": "An adaptive fasting plan for people whose schedules shift each week: nurses, security guards, drivers, and factory operators.",
-  "gap": "Someone working a 24-on-72-off schedule has a different night and morning every single week. Every existing app wants the same fasting window each day, which is physically impossible for shift workers.",
-  "pitch": "Shift workers make up a third of the Russian workforce, and their disrupted eating rhythm is a direct driver of metabolic disorders. The service takes the week's shift schedule and automatically slides the fasting window so it fits the real routine: eating after the shift, fasting during sleep. Employers in healthcare and transportation pay for the program as a corporate wellness benefit.",
+  "categoryName": "Intermittent fasting",
+  "title": "Dual timer: fasting and eating window on one screen",
+  "oneLiner": "Every tracker counts how long you have not eaten. Nobody counts how much time you have left to eat -- and that is a completely different question.",
+  "gap": "Every app shows only the fasting timer. An eating window countdown -- how many hours remain before it closes -- is almost nowhere implemented, even though users request it in every app regardless of brand.",
+  "pitch": "Two timers on the main screen: one counts the length of the fast, the other counts down how much time is left in the eating window. This shifts the app from \"how long have I been holding out\" to \"do I need to eat before 8pm.\"",
   "features": [
-   "Shift schedule import (manual entry or a link to a corporate scheduling tool)",
-   "Automatic fasting window adjustment for each workday, no manual tweaking needed",
-   "Body education content adapted to the time of day the shift falls, not generic morning framing",
-   "Sleep and fatigue tracker alongside the eating window, showing how fasting affects recovery after a night shift",
-   "HR dashboard for employers: aggregate department stats with no personal data exposed"
+   "Two timers on one screen: fast and eating window running simultaneously",
+   "Widget with both countdowns on the lock screen and in Dynamic Island",
+   "\"30 minutes until your eating window closes\" notification with a configurable threshold",
+   "A visual ring with two arcs: one grows with the fast, one shrinks with the eating window",
+   "History: how many hours of the eating window were used each day"
   ],
   "antiFeatures": [
-   "A fixed 16:8 preset with no flexibility: useless for shift workers",
-   "Push notifications at the same time every day: if someone is sleeping after a night shift, that is a failure",
-   "Daily streaks: a shift worker's rhythm is per-shift, not per-day"
+   "Locking the eating window timer behind a paywall while the fasting timer is free",
+   "Showing only the eating window close time with no countdown",
+   "Inserting nutrition tips directly into the timer screen"
   ],
-  "monetization": "Corporate contracts with hospitals, factories, and transport companies, which already buy wellness programs for staff. Individual subscriptions for shift workers who pay out of pocket at a lower price than the corporate tier. Partnerships with healthcare worker unions."
+  "monetization": "One-time purchase of $4.99 or a $1.99/month subscription. The dual timer is the app's core value, not an add-on: hiding it behind a paywall kills conversion. Paid content: widgets, Apple Watch complication, history analytics."
  },
  "intermittent-fasting-3": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Intermittent Fasting for Prediabetes Under Endocrinologist Supervision",
-  "oneLiner": "A clinically oriented service for people with prediabetes and insulin resistance: a fasting protocol with glucose monitoring and an endocrinologist coach.",
-  "gap": "An endocrinologist says 'try intermittent fasting' and schedules the next appointment in three months. The patient does not know how to start, is afraid of a blood sugar crash, and no app knows their lab results.",
-  "pitch": "More than 20 million people in Russia have prediabetes, and half of them have already been advised to try time-restricted eating. The service accepts lab results and builds a safe fasting plan with a weekly data review led by an endocrinologist coach. The patient pays less than a private consultation fee and arrives at the doctor's appointment with a three-month diary already in hand.",
+  "categoryName": "Intermittent fasting",
+  "title": "Biological phase scale tuned to the user's protocol",
+  "oneLiner": "Seeing \"autophagy is happening now\" on screen is the main reason people hold through to the end of a fast. But every protocol has its own physiology, and every app shows the same generic chart.",
+  "gap": "All top apps show three or four phases for the first 24 hours without accounting for the protocol. With 16:8, autophagy begins in literally the last hour of the fast, with OMAD, it kicks in around hour 18. One universal scale for everyone makes phase content meaningless, and information about autophagy is locked behind a paywall in nearly every app.",
+  "pitch": "A tracker where the phase scale is built around the user's specific protocol. On OMAD 23:1, autophagy shows up by hour 18. On 16:8, it honestly shows that it starts right at the end. No marketing graphic -- just physiology mapped to your schedule.",
   "features": [
-   "Lab result upload (PDF or photo) with automatic calculation of a safe starting fasting window",
-   "Integration with continuous glucose monitors (CGM): see blood sugar response to the eating window in real time",
-   "Weekly 25-minute video review with an endocrinologist coach",
-   "Alert when glucose goes outside a safe range, with a recommendation to break the fast",
-   "Physician report: a PDF with one month of trends, ready to bring to an appointment"
+   "Personalized phase scale: ketosis and autophagy hours depend on fast length",
+   "Push notification at each phase transition: \"you have entered ketosis\"",
+   "A brief 2-3 sentence explanation of each phase with no extra screens",
+   "A \"what is happening right now\" section with a countdown to the next phase",
+   "Comparison: what 18:6 vs OMAD delivers in terms of autophagy depth"
   ],
   "antiFeatures": [
-   "Letting users choose long protocols (36 hours or more) without coach approval",
-   "Leaderboards and competition with other users",
-   "Photo-based food scanning instead of precise entry: managing blood glucose requires gram-level accuracy, not guesses"
+   "Mixing fasting phases with nutrition tips and recipes",
+   "Locking ketosis and autophagy behind a paywall -- that is the main reason people download the app in the first place",
+   "Showing the same phase scale for every protocol"
   ],
-  "monetization": "Subscription with a coach, paid by patients already motivated by their diagnosis. Partnerships with CGM manufacturers (Libre, Dexcom) as recommended software. Corporate contracts with insurance companies as an early prevention program."
+  "monetization": "Free: phases for the first 20 hours. Subscription at $2.99/month: extended autophagy content (hours 20-72), scale adapted for OMAD and longer protocols. Targeted monetization that does not block the thing users open the app to see."
  },
  "intermittent-fasting-4": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Corporate Weight Management Program Through Fasting for HR",
-  "oneLiner": "An intermittent fasting program for corporate clients: HR buys it, employees use it, and results are measurable.",
-  "gap": "Corporate wellness amounts to a gym discount used by 4 percent of employees. The employer pays but sees no outcome. Fasting requires no gym and works even for people with sedentary jobs.",
-  "pitch": "Companies spend money on health insurance and wellness programs, but HR has no tool that shows a measurable result in kilograms and sick days saved. The service is sold to HR as a 12-week corporate challenge with anonymous group statistics, live webinars with a nutritionist, and a weekly team progress digest. Employees get structure and peer support, employers get a report.",
+  "categoryName": "Intermittent fasting",
+  "title": "Fasting history sync that survives a phone switch",
+  "oneLiner": "About one in three users who switch phones loses months of history -- and that is not a bug, it is an architectural choice that is straightforward to fix.",
+  "gap": "Most apps store data locally or through unreliable iCloud. After reinstalling, switching phones, or an accidental deletion, history is gone. Competitors do not solve this even in their premium tiers.",
+  "pitch": "A tracker where fasting history is indestructible by default. Every action syncs to the server the moment it happens -- not once a day, not through iCloud, but immediately. Restoring after a reinstall takes a few seconds.",
   "features": [
-   "Team dashboard for HR with aggregate metrics and no personal data: participation rate, average fasting duration by week",
-   "12-week program with weekly group webinars from a nutritionist",
-   "Anonymous team chat where participants support each other without sharing personal numbers",
-   "Final employer report with an ROI estimate based on self-reported health metric changes",
-   "3-minute onboarding: the employee sees their first timer right away, no long questionnaire"
+   "Instant server sync on every fast, no manual backup needed",
+   "Full history restore after signing in on a new phone",
+   "Export the entire history to CSV or JSON in one tap",
+   "Last-synced status visible right in the interface",
+   "Local copy plus server copy: data lives in both places at all times"
   ],
   "antiFeatures": [
-   "Named individual leaderboards: creates pressure and violates privacy",
-   "Mandatory integration with HRMS systems: drags the sales cycle out by months",
-   "Shame-based notifications for missed days: toxic in a corporate context"
+   "Local-only storage even when offline",
+   "Manual backup or export as the only way to save history",
+   "A restore button that appears only after the data is already gone"
   ],
-  "monetization": "Corporate team subscription, tapping existing wellness budgets that companies already spend on health insurance, gym benefits, and corporate coaching. Per-employee monthly pricing with a minimum 3-month contract. Employers in Russia already pay for comparable weight loss programs through health insurance."
+  "monetization": "Free: backup of the last 30 days. Subscription at $2.49/month: full history with no limits plus export. The audience is people who have already lost data or are afraid of losing it: they have a high willingness to pay specifically for reliability."
  },
  "intermittent-fasting-5": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Intermittent Fasting Program for Adults Over 60",
-  "oneLiner": "Intermittent fasting for adults over 60 with a weekly call from a real nutritionist and a simple interface that gets out of the way.",
-  "gap": "Older adults do not always carry their phone and often forget to tap a button. Smartwatches do not sync or are not present at all. Modern app interfaces are designed for 30-year-olds. A nutritionist by phone is expensive, yet people specifically need human support rather than a bot.",
-  "pitch": "The older adult market for intermittent fasting is large and almost entirely underserved: a cardiologist or endocrinologist most often recommends fasting to this group, they are willing to pay for personal guidance, and they do not need complex features. The service is built around one weekly call with a nutritionist, a maximally simple tracker with three buttons, and reminders delivered via SMS rather than push notifications only.",
+  "categoryName": "Intermittent fasting",
+  "title": "A streak that counts real fasts, not app opens",
+  "oneLiner": "A streak keeps people in the app for weeks, but if it resets from a bug or a long fast, they leave immediately.",
+  "gap": "The streak algorithm in most apps counts \"one fast per calendar day\" strictly. A 25-hour fast or a retroactive entry resets the streak. This is a technical flaw that users experience as unfair treatment.",
+  "pitch": "A tracker with a streak that counts actual fasting hours, not whether the app was opened once a day. A 36-hour fast counts as two days. Retroactive entries preserve the streak. A technical failure triggers an automatic restore request.",
   "features": [
-   "Three-action tracker: start the fast, end the fast, log water. Nothing else.",
-   "Weekly call with a nutritionist by phone, not just video, because the voice matters to this audience",
-   "SMS reminders as a backup channel for when the phone is sitting on the table",
-   "A simple printed weekly progress summary to bring to a doctor's appointment",
-   "Shared access for an adult child: a son or daughter can see a parent's progress and message the nutritionist"
+   "Streak calculated from total fasting hours, not app opens",
+   "Fasts longer than 24 hours counted correctly: 36 hours equals two streak days",
+   "Adding a past fast retroactively does not reset the current streak",
+   "\"Streak at risk\" warning two hours before midnight if no fast has started",
+   "Streak history screen: see why it reset and when"
   ],
   "antiFeatures": [
-   "Widgets and complex setup: older adults do not know what a widget is and will not figure it out",
-   "Photo-based food scanning: blurry results and the output is wrong anyway",
-   "Gamification and streaks: an older adult whose streak resets will not come back"
+   "Resetting the streak on any technical glitch with no restore option",
+   "Counting the streak by app opens instead of actual fasts",
+   "Streak recovery offered as a separate paid purchase"
   ],
-  "monetization": "Subscription paid by an adult child as a gift to their parent, a pattern that already works in telemedicine and grocery delivery. Direct payment by the older user themselves, an audience that is financially comfortable and used to paying for a doctor. Partnerships with cardiology and endocrinology clinics."
+  "monetization": "Free: streak for the last 30 days and basic notifications. Subscription at $1.99/month: full streak history, detailed analytics, and protection against loss from technical failures. People pay to protect an achievement they have already earned."
  },
  "intermittent-fasting-6": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Extended Multi-Day Fasting Program with Medical Supervision",
-  "oneLiner": "An online program for people doing extended fasts of two days or more, with medical oversight and live support throughout.",
-  "gap": "Someone who wants to do a three-to-five-day fast reads books on the subject, but no tracker handles windows that long and no doctor wants to supervise it. They go alone and are frightened.",
-  "pitch": "The extended fasting market is growing quickly: retreat programs lasting 5 to 10 days cost from 200,000 rubles, yet people want to do this at home. The service offers a medically supervised multi-day fasting program without travel: a doctor reviews baseline lab results, daily check-ins happen inside the app, an alert triggers at dangerous symptoms, and a structured refeeding protocol guides the exit. It costs 10 times less than a retreat and is far safer than going it alone.",
+  "categoryName": "Intermittent fasting",
+  "title": "Flexible fasting for irregular schedules",
+  "oneLiner": "Standard presets are built for people who wake up at the same time every day. A shift worker does not fit that mold and leaves.",
+  "gap": "Every app is built around 16:8 with a fixed start time. Non-standard protocols -- 19:5, 21:3, alternate-day fasting -- are either unavailable or require manual reconfiguration every week.",
+  "pitch": "A tracker with a duration-based mode: you set a number of hours, not a time of day. Each day the fast starts when it is convenient, and the app counts from that point. For shift workers, a floating window that fits any irregular schedule.",
   "features": [
-   "Medical onboarding: lab upload (electrolytes, ECG for those over 50), with clearance granted or a recommendation against proceeding",
-   "Daily check-in with a symptom log covering weakness, dizziness, heart palpitations, and mood",
-   "Early-exit algorithm: automatic alert to the physician when a combination of warning symptoms appears",
-   "Refeeding protocol after a long fast with a step-by-step menu for 3 to 7 days",
-   "Group chat for each cohort: people fasting at the same time support each other in real time"
+   "Duration-based fast mode: enter 18 hours, not a specific start and end time",
+   "Mixed weekly schedule: one day OMAD, the next 18:6, the next a rest day",
+   "Month-ahead planner with markers for non-standard days",
+   "Any protocol from 12:12 to 23:1 with no grid restrictions",
+   "Quick copy of last week as a template for the next"
   ],
   "antiFeatures": [
-   "Selling multi-day protocols without medical clearance: legally and ethically unacceptable",
-   "Gamifying fast duration: competing over who fasts longest is dangerous",
-   "Auto-approving any request without checking lab results"
+   "Mandatory weekly questionnaires to recalculate the plan",
+   "Flexible protocols locked behind a paywall",
+   "App automatically changing the user's protocol without consent"
   ],
-  "monetization": "The program is sold as a one-time purchase like a course: clearance plus 5-day supervision plus a refeeding protocol. Retreats and clinics already charge large amounts for the same thing offline. The price anchor is a retreat versus the program at a fraction of the cost."
+  "monetization": "Free: presets for 16:8, 18:6, and 20:4. Subscription at $3.49/month: flexible rhythm, planner, and alternate-day fasting. The target audience -- healthcare workers, shift workers, frequent travelers -- pays willingly because there are no decent alternatives."
  },
  "intermittent-fasting-7": {
-  "categoryName": "Intermittent Fasting",
-  "title": "Fasting Compliance Verification Platform for Insurance Companies",
-  "oneLiner": "A tool for insurers: verified fasting protocol adherence data as the basis for a premium discount.",
-  "gap": "An insurer offers a discount for a healthy lifestyle but has no way to verify it. The policyholder says they watch their diet, but the insurer cannot confirm it. Fasting can be verified objectively through biomarkers and tracker data.",
-  "pitch": "Insurance companies are looking for measurable behavioral data to differentiate premiums and reduce loss ratios. The service provides a verified quarterly fasting protocol compliance report using continuous glucose monitoring data or home ketone test strips as objective confirmation. The insurer gets an evidence-based risk management tool, the policyholder gets a premium discount.",
+  "categoryName": "Intermittent fasting",
+  "title": "Weight chart on the same axis as fasting history",
+  "oneLiner": "A user loses nine kilograms in a month and then leaves the app because weight data disappeared after an update. Progress without history is just a number.",
+  "gap": "Most apps either have no weight chart at all, or it breaks after updates, or Apple Health sync works only one way. People lose their weight data at exactly the moment when there is real progress to show -- and that stings most.",
+  "pitch": "A tracker where weight history and fasting history share one timeline. On a single screen you can see: in the weeks with solid protocol adherence, the curve goes down. That is a narrative with cause and effect, not just a number on the scale.",
   "features": [
-   "Fasting verification through home ketone test strips with timestamped photo confirmation",
-   "Quarterly report in insurer-ready format: weeks on protocol, average duration, gaps",
-   "Integration with health insurance tiers: the insurer sees aggregate cohort metrics for their policyholders",
-   "5-minute onboarding for the insured: no long questionnaire, just choose a protocol and upload a policy number",
-   "Partner dashboard for the insurer: cohort management and configurable thresholds for the discount"
+   "Weight chart and fasting history on one screen with a shared time axis",
+   "Two-way Apple Health sync: weight from Health shows up in the tracker and vice versa",
+   "Manual annotations on the chart: \"started OMAD,\" \"vacation,\" \"lost the streak\"",
+   "Daily \"log your weight today\" prompt with one tap directly from the notification",
+   "Reliable storage: weight history does not disappear after updates or a phone switch"
   ],
   "antiFeatures": [
-   "Giving the insurer direct access to an individual's personal data without explicit consent",
-   "Requiring a continuous glucose monitor with no alternative: too high a barrier for most people",
-   "Leaderboards among policyholders: creates unhealthy pressure"
+   "Weight chart behind a paywall when results are the primary reason to keep using the app",
+   "Weight data not linked to fasting: loses the connection between the protocol and the outcome",
+   "Weight prompt appearing every time the app is opened"
   ],
-  "monetization": "The insurer pays for cohort enrollment (B2B, with existing budgets for policyholder health management programs). The insured pays for a verification kit of test strips as a consumable. Comparable programs already operate in the US through major insurers."
+  "monetization": "Free: weight tracker and basic chart. Subscription at $2.99/month: overlay with fasting history, PDF export, and long-term analytics. People who are already seeing results are happy to pay for the tool that records those results."
  },
  "cycling-1": {
   "categoryName": "Cycling and Training",
@@ -10859,5 +10859,1348 @@
    "No ads and no selling data to third parties"
   ],
   "monetization": "Subscription at $5 to $8 per month or $49 to $59 per year. The target audience owns stations costing $150 to $1,000 and has already proven willingness to spend on hardware. Additional tier for research groups and municipalities building urban observation networks."
+ },
+ "scanner-pdf-1": {
+  "categoryName": "Document scanners",
+  "title": "Batch receipt scanner with expense categorization",
+  "oneLiner": "Scan an entire stack of receipts in one session and the app pulls out amounts, dates, and vendors, sorts them by category, and hands you a spreadsheet ready for accounting.",
+  "gap": "Batch capture and automatic expense categorization are never combined into a single flow. Freelancers and small-business owners scan receipts and then manually sort through stacks in a spreadsheet. OCR exists everywhere, but no app carries the job all the way to a finished report.",
+  "pitch": "A receipt scanner for freelancers and small businesses: shoot the whole stack in one session, OCR extracts the amount, date, and merchant name, the app suggests an expense category, you correct if needed, and the output is a CSV or Google Sheet. The full cycle from camera to report with no manual data entry.",
+  "features": [
+   "Multi-select photos from the gallery with preserved order",
+   "OCR extraction of amount, date, and merchant name from each receipt",
+   "Auto-suggested expense category (food, transport, equipment) with the ability to override",
+   "Export to CSV, Google Sheets, and QuickBooks-compatible formats",
+   "Monthly and quarterly expense summary built into the app",
+   "Page-order warning before saving if sequence is detected as wrong"
+  ],
+  "antiFeatures": [
+   "No full accounting suite or bank integration",
+   "No proprietary cloud storage for scans",
+   "No fax or document signing"
+  ],
+  "monetization": "One-time purchase at $3 to $5. Freelancers already pay subscription fees for comparable tools and are ready to pay once for a tool with no subscription trap."
+ },
+ "scanner-pdf-2": {
+  "categoryName": "Document scanners",
+  "title": "Handwriting-to-text converter with a side-by-side correction editor",
+  "oneLiner": "Converts handwritten pages to editable text and displays the original scan and the recognized text side by side so you can spot and fix errors without switching apps.",
+  "gap": "Every app treats OCR as a black box: scan, receive text, go edit it somewhere else. No one builds a flow where the original and the recognized text are visible together and uncertain words are highlighted right on the page.",
+  "pitch": "Built for people who need to convert handwriting to text: diaries, letters, field notes, class notes. Recognition runs through a vision model, the editor shows the scan and the text side by side, uncertain words are highlighted, and you correct with a tap right there. Target users: archivists, researchers, notaries.",
+  "features": [
+   "Dedicated handwriting mode with a higher model-confidence threshold",
+   "Split view: scan on the left, editable text on the right with uncertain words highlighted",
+   "Multi-page document support with per-page navigation",
+   "Export to DOCX, TXT, and PDF with a text layer",
+   "Multi-language support including mixed-language documents"
+  ],
+  "antiFeatures": [
+   "Not a general document scanner, handwritten text only",
+   "No cloud sync or storage, strict focus on conversion",
+   "No claim of 99% accuracy. Honest per-word confidence is shown instead"
+  ],
+  "monetization": "One-time purchase with page-credit packs, or a subscription at around $2 per month. Archivists and researchers pay regularly for professional tools."
+ },
+ "scanner-pdf-3": {
+  "categoryName": "Document scanners",
+  "title": "Scanner with direct PDF save to a folder",
+  "oneLiner": "Scans and drops the PDF exactly where you pointed, no account required, no cloud gateway, no steps that suddenly demand a subscription.",
+  "gap": "Most scanners lock users into a proprietary cloud and then trim export options behind a paywall. No one builds a utility where the PDF simply lands in the right folder with no account required.",
+  "pitch": "A minimal scanner with one promise: the PDF ends up where you said. No account, no cloud, no steps that suddenly need a subscription. Built for users burned by Adobe Scan and CamScanner, and for enterprise users with on-device data storage policies.",
+  "features": [
+   "Save PDF to any Files.app folder in one tap",
+   "Share sheet for sending via Outlook, WhatsApp, or AirDrop with no intermediate steps",
+   "Configurable default folder: open the app, scan, file saves automatically",
+   "PDF compression slider with a file-size preview before saving",
+   "Fully offline, no telemetry, no account"
+  ],
+  "antiFeatures": [
+   "No cloud sync or proprietary storage",
+   "No OCR or editor, scanning and export only",
+   "No freemium with restricted export"
+  ],
+  "monetization": "One-time purchase at $2 to $3. Enterprise option: team license through Apple Business Manager. Users already burned by free apps are ready to pay once for a predictable result."
+ },
+ "scanner-pdf-4": {
+  "categoryName": "Document scanners",
+  "title": "Scan vault with full-text search by document content",
+  "oneLiner": "Nested folders, tags, and search inside the text of scanned documents, not just filenames, for users who have accumulated hundreds of scans.",
+  "gap": "Every scanner focuses on capture and ignores accumulation. Six months in, the user has hundreds of files, search only works on filenames, and there are no subfolders. Almost no one offers full-text search through an OCR index.",
+  "pitch": "A scanner for users who have already built up a large archive: medical records, contracts, warranties, tax documents. The core value is not the camera, it is storage. Nested folders, tags, and full-text search through a background OCR index. Target segment: attorneys, physicians, accountants, real-estate agents.",
+  "features": [
+   "Unlimited nested folder depth",
+   "Full-text search through scanned document content via a background OCR index",
+   "Tags and color labels for fast classification",
+   "Fast rename and move without freezing",
+   "Export an entire folder as a single archive",
+   "Sort by date, name, size, or tag"
+  ],
+  "antiFeatures": [
+   "No proprietary cloud. Syncs through Files.app and standard providers",
+   "No annotation editor, organization and search only",
+   "No document count limit in the base tier"
+  ],
+  "monetization": "Subscription at about $4 per month for professionals with high document volume. Attorneys and accountants pay for organization tools. The only current alternative is Dropbox with a manual folder structure."
+ },
+ "scanner-pdf-5": {
+  "categoryName": "Document scanners",
+  "title": "Small-format document scanner with lens selection",
+  "oneLiner": "Accurately captures passports, driver's licenses, bank cards, and business cards, picks the right lens on a multi-camera iPhone automatically, and warns you if the frame is soft.",
+  "gap": "No app solves the multi-lens iPhone problem. Ultra-wide blurs small text. Macro loses focus when you pull back. Nobody offers a specialized mode for ID cards and business cards with intelligent lens selection.",
+  "pitch": "A utility for HR specialists, notaries, and front-desk operators: scanning passports, licenses, bank cards, and business cards with accurate proportions and readable text. The app detects the document type, picks the optimal lens, and warns about softness before saving.",
+  "features": [
+   "Smart lens selection per format, telephoto for small text",
+   "Templates for passport, driver's license, bank card, business card, and receipt",
+   "Sharpness check before saving with an option to rescan",
+   "Auto-save both sides of a card as a single document",
+   "OCR extraction of name, date, and document number into a structured format"
+  ],
+  "antiFeatures": [
+   "Not a general A4 document scanner",
+   "No biometric data stored on a server",
+   "No fax or annotation editor"
+  ],
+  "monetization": "B2B per-device license for companies: real-estate agencies, hotels, car-sharing services, notary offices. They already pay for document verification through third-party services. One-time per-device license at $20 to $40."
+ },
+ "scanner-pdf-6": {
+  "categoryName": "Document scanners",
+  "title": "PDF annotator that writes markup directly into the file",
+  "oneLiner": "Highlights and handwritten notes are written into the file after every stroke, and exporting with markup works in one tap with no risk of losing anything.",
+  "gap": "Adobe Acrobat loses markup in half of all cases according to user reports. PDF Expert is expensive and does not support Apple Pencil Pro. Budget alternatives shift annotations on export. No one has built a simply reliable annotator with an explicit guarantee that markup is preserved.",
+  "pitch": "An annotator for students, journalists, screenwriters, and teachers: highlights, comments, and handwritten notes with Apple Pencil are written into the file immediately, and exporting the PDF with annotations is a single tap. The file always contains your markup, even if the app crashed.",
+  "features": [
+   "Annotations written directly into the file (flattened in place), not into a separate layer that can be lost",
+   "Apple Pencil and Pencil Pro support with pressure sensitivity",
+   "One-tap PDF export with annotations included, no extra steps",
+   "Auto-save after every stroke with no manual save button needed",
+   "Full-text search across document text and note text",
+   "Version history: revert to the document before any markup"
+  ],
+  "antiFeatures": [
+   "Not a document scanner, works with existing PDFs only",
+   "No cloud-based content analysis",
+   "No editing of the source PDF text"
+  ],
+  "monetization": "Subscription at $5 per month or $35 per year. Students and teachers already spend $50 or more per year on PDF Expert. This delivers the same quality at a lower price with an honest reliability guarantee."
+ },
+ "scanner-pdf-7": {
+  "categoryName": "Document scanners",
+  "title": "Fill and sign PDF forms from your phone",
+  "oneLiner": "Load a PDF with form fields, the app finds and highlights them, your signature snaps precisely to the right spot, and you send through a messenger without touching a desktop.",
+  "gap": "Filling PDF forms on mobile is a constant pain. Checkboxes disappear, signatures cannot be scaled, cursors jump. No one has optimized the flow for mobile with correct signature-placement mechanics.",
+  "pitch": "A tool for people who need to sign contracts, tax forms, and medical documents from a phone. Load the PDF, the app finds the fields and signature lines, you place elements with grid snap, you send directly. Target users: real-estate agents, freelancers, HR specialists.",
+  "features": [
+   "Automatic detection of AcroForm fields with unfilled fields highlighted",
+   "Signature locked to the form field with automatic scale fitting",
+   "Text input in fields with a smart keyboard matched to the data type (date, name, amount)",
+   "Initials and stamp as separate objects with a usage history",
+   "Send the filled PDF via email, WhatsApp, or Telegram with no intermediate save step"
+  ],
+  "antiFeatures": [
+   "No legally binding digital signature (qualified e-signature is a separate market)",
+   "No document scanner or OCR",
+   "No team workflow with approval statuses"
+  ],
+  "monetization": "Pay-per-use: first five forms free, then $0.10 per document or a $3 per month pack. Real-estate agents sign dozens of documents a month. This is a work tool they will pay for."
+ },
+ "scanner-pdf-8": {
+  "categoryName": "Document scanners",
+  "title": "Color-accurate scanner for artists and designers",
+  "oneLiner": "Scans drawings, watercolors, and color documents without the yellow cast or automatic grayscale conversion that wipes out color.",
+  "gap": "The entire market is optimized for black-and-white business documents. Artists, designers, archivists, and people scanning passports and diplomas all hit the same wall: automatic image processing destroys color. No app is built around color accuracy.",
+  "pitch": "A scanner for users who care about color. Artists digitize sketches and watercolors. Designers archive samples. People scan passports and diplomas. A calibrated color mode with aggressive processing disabled, color-temperature compensation, and a before-and-after preview before saving.",
+  "features": [
+   "Color mode with minimal processing and accurate gamma",
+   "Yellow-cast compensation from artificial lighting without touching the document color",
+   "Before-and-after preview of processing before saving",
+   "Raw mode for artists: geometry correction only, color untouched",
+   "Independent brightness and contrast controls separate from color balance",
+   "Export to PNG and TIFF for maximum quality, not only PDF"
+  ],
+  "antiFeatures": [
+   "No black-and-white business document enhancement mode",
+   "No OCR. Color documents rarely need text recognition",
+   "No batch document-processing workflow"
+  ],
+  "monetization": "One-time purchase at $4 to $5. Artists and designers pay for tools that respect their work. An additional professional-format pack (TIFF, 300 dpi and above) at $2 to $3."
+ },
+ "ai-chatbot-1": {
+  "categoryName": "AI assistants",
+  "title": "Roleplay chat with a memory graph that persists across sessions",
+  "oneLiner": "Your character remembers names, agreements, and relationship history across days and weeks no recap needed.",
+  "gap": "No mass-market app stores structured relationship context server-side and updates it automatically after each session. Memory is either absent or implemented as a raw system prompt that gets crowded out quickly.",
+  "pitch": "A mobile roleplay companion where the relationship is stored as a fact graph: character names, event timeline, emotional tone of recent encounters. Before each session the graph is compressed into a compact context and injected into the prompt the character never loses the thread.",
+  "features": [
+   "Memory graph: automatic fact extraction from the conversation after each session",
+   "Session card with a brief recap of the previous chat before you start",
+   "Manual editing: users can delete or add entries to the memory",
+   "Relationship timeline with key events",
+   "Import history from Character AI or Kindroid"
+  ],
+  "antiFeatures": [
+   "No endless feed of random characters",
+   "No social platform or other people's bots",
+   "No recommendation algorithm"
+  ],
+  "monetization": "Subscription at $6-8/month for an expanded graph no cap on stored facts and priority model access. Free tier: one character and 50 memory entries."
+ },
+ "ai-chatbot-2": {
+  "categoryName": "AI assistants",
+  "title": "Hands-free voice assistant for screenless work",
+  "oneLiner": "Hold the button, say your question, hear a short precise answer. No screen, no hands, no stopping.",
+  "gap": "Every existing voice AI assistant requires looking at the screen to clarify, scroll through the answer, or type a follow-up. Nothing is optimized for the scenario where your hands and eyes are occupied.",
+  "pitch": "An app with a single screen: a large push-to-talk button and an audio response. Built for background mode, CarPlay, and Bluetooth headsets. Response length adapts automatically: a quick question gets two spoken sentences, a 'tell me more' command triggers a full readout.",
+  "features": [
+   "Push-to-talk with CarPlay and AirPods support",
+   "Adaptive response length: voice-controlled without touching the screen",
+   "History of the last 20 queries to review after the drive",
+   "Offline speech recognition via Apple Speech",
+   "Voice commands to repeat, clarify, or copy a response"
+  ],
+  "antiFeatures": [
+   "No image generation",
+   "No text chat as the primary interface",
+   "No roleplay characters"
+  ],
+  "monetization": "One-time purchase at $4.99 or $2.99/month for access to a stronger model. Target audience: truckers, repair technicians, couriers, and construction workers."
+ },
+ "ai-chatbot-3": {
+  "categoryName": "AI assistants",
+  "title": "Chat client with per-thread model locking",
+  "oneLiner": "One interface, multiple providers your chosen model is locked to the thread and never switches without notice.",
+  "gap": "No aggregator gives users a contract: this model stays pinned to this thread, permanently. Poe quietly removes models. Genie resets on restart.",
+  "pitch": "A chat client on top of the OpenAI, Anthropic, and Mistral APIs where every thread has a hard-pinned model. If a provider removes a model, the user gets a 7-day warning and can export the chat first. No ads, no silent swaps.",
+  "features": [
+   "Per-thread model selection stored in thread metadata",
+   "Push notification when a model is deprecated or removed, sent in advance",
+   "Side-by-side comparison of two models on a single prompt",
+   "Chat export to Markdown or PDF",
+   "BYOK mode (bring your own API key) to cut costs"
+  ],
+  "antiFeatures": [
+   "No proprietary language model",
+   "No model recommendation engine",
+   "No social features"
+  ],
+  "monetization": "Subscription at $7/month: cloud sync, unlimited history, early access to new providers. BYOK mode is free with a cap of 3 active threads."
+ },
+ "ai-chatbot-4": {
+  "categoryName": "AI assistants",
+  "title": "Study problem solver with a personal weakness map",
+  "oneLiner": "Snap a photo of a problem, get every step explained, and see exactly which topics you keep getting wrong.",
+  "gap": "Existing solvers Solvely, PhotoMath don't link parts of the same problem together and don't build a knowledge map showing where a student consistently struggles.",
+  "pitch": "A learning assistant for high school and early college: snap a photo of any problem and get a step-by-step walkthrough that explains the concept, not just the answer. The app tracks which topics trip you up and surfaces more problems from those areas.",
+  "features": [
+   "Recognition of handwritten and printed problems from photos",
+   "Step-by-step breakdown with the ability to ask a question at any step",
+   "Weakness map: a timeline of mistakes by topic",
+   "Practice problem generation targeting weak areas",
+   "Flashcards for concepts pulled from solved problems"
+  ],
+  "antiFeatures": [
+   "No quick-answer mode with no explanation",
+   "No gamification or leaderboards",
+   "No image generation"
+  ],
+  "monetization": "Freemium: 5 problems per day free. Subscription at $4.99/week or $12.99/month for unlimited problems and the knowledge map. Primary paying segment: parents buying help for their kids."
+ },
+ "ai-chatbot-5": {
+  "categoryName": "AI assistants",
+  "title": "On-device AI assistant with no server",
+  "oneLiner": "Every conversation stays on your phone no server sees your queries, no account required.",
+  "gap": "Local-LLM apps exist Ollama, LM Studio but they require technical knowledge and offer no polished mobile UX. There's nothing for non-technical users who care about privacy.",
+  "pitch": "An iOS app that runs a quantized small model directly on the iPhone via Core ML no server, no account, no telemetry. For tasks that need more power, users can optionally connect their own API key with client-side encryption.",
+  "features": [
+   "Local model (Phi-3 Mini or Mistral 7B Q4) with no internet connection required",
+   "No sign-up and no data collection: genuine zero logging",
+   "Chat history encrypted behind Face ID",
+   "Optional connection to a personal OpenAI or Anthropic key as a hybrid mode",
+   "Export history to an encrypted archive"
+  ],
+  "antiFeatures": [
+   "No cloud history sync by default",
+   "No roleplay characters or social features",
+   "No subscriptions that access user data"
+  ],
+  "monetization": "One-time purchase at $9.99. Additional language packs alternate models at $2.99 each. Target audience: lawyers, doctors, entrepreneurs, and anyone who needs data to stay private."
+ },
+ "ai-chatbot-6": {
+  "categoryName": "AI assistants",
+  "title": "Chat assistant with live web search and source dates",
+  "oneLiner": "Every answer is grounded in fresh web data with a date and a link, not from a two-year-old training cut.",
+  "gap": "Perplexity owns the sourced-search niche, but its UX is designed for research, not quick conversational answers. There's no compact chatbot that adds fresh context to any question and always shows when the source was published.",
+  "pitch": "A chat assistant that runs a live web search on every response by default not on demand, always. Each answer includes a source date and a link. If the web turns up nothing, the bot says so explicitly and doesn't make something up.",
+  "features": [
+   "Automatic web search on every query, with source date attached",
+   "Highlighted web-sourced fragments separated from the model's own reasoning",
+   "Web-only mode: zero answers from model weights",
+   "Topic feeds tech, health, finance with preconfigured trusted sources",
+   "Alert when important news on a topic appears in the last 24 hours"
+  ],
+  "antiFeatures": [
+   "No free-form conversation mode without sources",
+   "No roleplay characters",
+   "No image generation"
+  ],
+  "monetization": "Subscription at $8.99/month: unlimited sourced queries, priority sources, PDF export. Free tier: 20 queries per day. Target audience: journalists, analysts, students, and people making high-stakes decisions."
+ },
+ "ai-chatbot-7": {
+  "categoryName": "AI assistants",
+  "title": "Collaborative story writing tool with a world canon",
+  "oneLiner": "An AI writing partner that holds character voice, tracks your world canon, and flags contradictions.",
+  "gap": "Every existing roleplay platform is built around mass-produced anime and pop-culture characters. There's no tool for writers who want to build their own narrative with control over tone, pacing, and world rules.",
+  "pitch": "A tool for solo writers: define your world, rules, and characters with detailed cards, then write scenes together with the model. The AI stays within your canon, tracks continuity, and warns you when a character acts out of character.",
+  "features": [
+   "Character and world cards: structured canon stored outside the context window",
+   "Out-of-character detector: alert when a character contradicts their card",
+   "Scenes as individual documents with version history",
+   "Continue mode: the model writes the next paragraph in your style",
+   "Export to Markdown or Scrivener"
+  ],
+  "antiFeatures": [
+   "No library of public pre-made characters",
+   "No social feed or likes",
+   "No ad-based monetization mechanics"
+  ],
+  "monetization": "Subscription at $9.99/month: unlimited scenes, expanded canon, version history. Free tier: up to 3 projects and 50 scenes. Target audience: fanfic authors, screenwriters, and tabletop RPG game masters."
+ },
+ "ai-chatbot-8": {
+  "categoryName": "AI assistants",
+  "title": "Vertical AI assistant for real estate agents",
+  "oneLiner": "Set up your professional context once and the assistant always knows your market, your terminology, and your typical tasks.",
+  "gap": "ChatGPT is already used by real estate agents as a general-purpose tool, but they have to explain professional context from scratch every session. There's no vertical AI with ready-made listing templates, call scripts, and a knowledge base for typical transactions.",
+  "pitch": "A mobile AI assistant for real estate agents: knows the terminology, generates listings from photos and property specs, and helps prepare for showings and negotiations. The agent fills out a profile once market, property type, communication style and the assistant operates within that context from then on.",
+  "features": [
+   "Listing generation from photos and property specs",
+   "Call and negotiation scripts adapted to client type",
+   "Mortgage calculator and profitability estimate right inside the chat",
+   "Document templates: showing agreement, offer letter, rejection letter",
+   "Voice notes from a property visit automatically transcribed and structured"
+  ],
+  "antiFeatures": [
+   "No CRM or deal management",
+   "No public listing feed",
+   "No professional education course"
+  ],
+  "monetization": "Subscription at $19.99/month less than the cost of one hour of an agent's time. Sold through real estate associations and broker networks. This audience is already used to paying for tools that take routine work off their plate."
+ },
+ "intermittent-fasting-8": {
+  "categoryName": "Intermittent fasting",
+  "title": "Food log without automatic tips or judgment",
+  "oneLiner": "People stop logging meals not because they are lazy but because every entry gets criticized. A neutral log keeps them going longer.",
+  "gap": "In every app, automated tips are generated for each meal with no context. Konjac Rice at 20 calories gets a tip to \"replace it with something lower calorie.\" That is not help -- it is algorithmic judgment that kills the logging habit.",
+  "pitch": "A tracker with a neutral log mode: the app records the fact, it does not grade it. A tip appears only if the user explicitly asked for one. Notifications celebrate a completed fast but never criticize specific foods.",
+  "features": [
+   "Silent log mode: any food is recorded with no automatic comment",
+   "Tips available only on explicit request via a separate button under the entry",
+   "Notifications only about the fast itself: \"18 hours -- great work\"",
+   "No warnings about \"wrong\" foods during the eating window",
+   "Full AI tip disable in settings, permanently"
+  ],
+  "antiFeatures": [
+   "Automatic comment after every food entry with no way to turn it off",
+   "Words like \"lazy,\" \"bad,\" or \"consider replacing\" in notifications",
+   "Forced tips used as a subscription sales mechanism"
+  ],
+  "monetization": "Free: basic tracker with no tips. Subscription at $3.99/month: a personal coach with on-demand tips and nutrition analytics. The paradox is that the people willing to pay for tips are exactly the ones who want them on their own terms. Forcing tips on them for free drives away the very users who might have bought them voluntarily."
+ },
+ "flashcards-1": {
+  "categoryName": "Study flashcards",
+  "title": "Reliable deck storage with sync and version history",
+  "oneLiner": "Every change is saved automatically. Students can see the full edit history and restore any deck to any point in the last 90 days with a single tap.",
+  "gap": "No app offers an explicit data safety guarantee: no version history, no one-tap export, no sync confirmation. Students lose weeks of work and churn.",
+  "pitch": "A flashcard app where every edit is timestamped in the cloud and version history is two taps away. After each session, a quiet notification shows how many changes were saved. Medical students and language learners who spend months building decks finally stop fearing app updates.",
+  "features": [
+   "Every deck change syncs to the cloud in real time with a timestamp",
+   "90-day version history: roll back to any point in one tap without overwriting the current version",
+   "Free export to .apkg (Anki), CSV, and PDF, not buried in settings",
+   "Post-session notification showing the number of changes saved",
+   "Log in on a new device without re-doing onboarding. Decks appear immediately"
+  ],
+  "antiFeatures": [
+   "Decks unavailable without an internet connection, no offline mode",
+   "Sync only on manual button press",
+   "Export locked behind a subscription"
+  ],
+  "monetization": "Subscription at $8/month: 90-day version history and priority restore. Free tier: 7-day history and manual export. Target: medical students (USMLE, NCLEX) and language schools already accustomed to paying for study tools."
+ },
+ "flashcards-2": {
+  "categoryName": "Study flashcards",
+  "title": "Transparent review schedule: see exactly why a card is back",
+  "oneLiner": "The SRS algorithm shows students its schedule and lets them adjust confidence by hand, so no one gets stuck looping through the same cards.",
+  "gap": "SRS works as a black box. Users do not know why a card reappears, cannot intervene, and get stuck in loops. FSRS exists only in Anki, and Anki explains none of it to the user.",
+  "pitch": "An app where the SRS schedule is visible and editable. Each card shows a hint: next review in 3 days because you answered correctly twice in a row. Students can adjust their confidence on a 1-to-5 scale and the schedule recalculates immediately. First audience: students preparing for JLPT and HSK where precise progress control is critical.",
+  "features": [
+   "Mini-graph on every card: when it was last shown, how you answered, when the next review is",
+   "Manual confidence adjustment on a 1-to-5 scale with immediate schedule recalculation",
+   "Weak-spot dashboard: top 10 cards with the worst retention over the last 30 days",
+   "Failure-first mode: cards with no correct answer three times running go to the top of the session",
+   "Schedule export to Google Calendar for exam week"
+  ],
+  "antiFeatures": [
+   "Fully automatic mode with no option to adjust the schedule manually",
+   "No explanation of why a card reappears",
+   "No way to skip a card the user already knows"
+  ],
+  "monetization": "Freemium: free up to 200 cards with basic SRS. Subscription at $6/month unlocks the transparent dashboard, manual schedule edits, and export. Target: language certificate students (JLPT, HSK, IELTS) who already pay for courses and textbooks."
+ },
+ "flashcards-3": {
+  "categoryName": "Study flashcards",
+  "title": "Native speaker pronunciation, not text-to-speech",
+  "oneLiner": "Language flashcards with verified recordings from real speakers instead of a TTS engine that mispronounces words and erodes trust in the whole content set.",
+  "gap": "Every competitor uses TTS. No app offers crowdsourced native speaker recordings or verified audio for language decks. Users lose trust in content because of wrong stress patterns.",
+  "pitch": "A flashcard platform where each word comes with a recording from a verified native speaker pool, like Forvo but built directly into the SRS. For popular languages including Japanese, Mandarin, and Korean, the library already includes recordings tagged by region. Students studying non-Latin scripts finally hear real pronunciation instead of a robot.",
+  "features": [
+   "Speaker recording library with regional tags for Japanese, Mandarin, and Korean",
+   "Request a pronunciation from a verified speaker when creating a card, delivered within 24 hours",
+   "Compare your pronunciation to the reference: waveform overlay and match score",
+   "Users upload their own recordings and vote for the best version",
+   "Offline audio packs by language: download once, use without a connection"
+  ],
+  "antiFeatures": [
+   "TTS only with no option to upload custom audio",
+   "Pronunciation locked behind a subscription even for common words",
+   "No feature to compare your pronunciation against a reference"
+  ],
+  "monetization": "Subscription at $9/month: unlimited access to the speaker pool and pronunciation comparison. Free: 50 requests per month and the top 1,000 words for the target language. Target: language school students and JLPT N5-N1 candidates who pay for quality content."
+ },
+ "flashcards-4": {
+  "categoryName": "Study flashcards",
+  "title": "AI deck generation with a review step before saving",
+  "oneLiner": "Upload a PDF or photo of your notes and get a deck, but first review cards in batches: delete weak ones, edit wording, then save.",
+  "gap": "AI generation exists everywhere, but a review step before saving does not exist anywhere. Off-topic cards, wrong-language questions, and vague phrasing all land in the deck unfiltered. Students either waste time cleaning up manually or end up drilling bad content.",
+  "pitch": "AI generates cards from a PDF or photo of notes, but the deck does not save automatically. The app shows cards in batches of 5-7: the student swipes to keep the ones that work, removes weak ones, and edits wording right on that screen. Built for students who make decks from lecture slides the night before an exam.",
+  "features": [
+   "Upload a PDF, photo of notes, or pasted text and generate up to 50 cards at a time",
+   "Mandatory review screen: every card is approved before entering the deck (keep, delete, or edit)",
+   "Auto-detect source language: questions always match the language of the uploaded material",
+   "Smart prioritization: AI highlights key concepts rather than paraphrasing pages in order",
+   "No daily upload limit for paid users"
+  ],
+  "antiFeatures": [
+   "Generation with no review step: cards go straight into the deck",
+   "One upload every 20 minutes for free users",
+   "Cards cannot be edited during the review step"
+  ],
+  "monetization": "Freemium: 3 uploads per day on the free plan. Subscription at $7/month: unlimited uploads, priority processing, and upload history. Target: students with packed lecture schedules in medicine, law, and IT certifications who already pay for Notion AI and ChatGPT."
+ },
+ "flashcards-5": {
+  "categoryName": "Study flashcards",
+  "title": "Anki and CSV import with interactive field mapping",
+  "oneLiner": "Accepts .apkg, any CSV format, and Google Sheets by link. Students see a five-card preview and configure column mapping before pressing import.",
+  "gap": "Import in existing apps is either broken (CSV rejected) or requires an exact format with no documentation. Users with established Anki and Excel collections cannot migrate. This is the first barrier when switching apps.",
+  "pitch": "An app built around smart import: accepts .apkg, .csv, .txt, and Google Sheets by link. After upload, an interactive mapping screen opens: drag columns onto the question, answer, and tag fields, and see a preview of the first five cards before confirming. Target audience: Anki users who want a decent mobile interface but are not willing to re-create thousands of cards.",
+  "features": [
+   "Format support: .apkg (Anki), .csv in any encoding, .txt with custom delimiter, Google Sheets by link",
+   "Interactive field mapping: drag columns onto question, answer, and tag fields",
+   "Five-card preview before final import",
+   "Preserves Anki progress (intervals and counters) when importing .apkg",
+   "Round-trip export: any deck can be downloaded back as .apkg or CSV"
+  ],
+  "antiFeatures": [
+   "Only one import format supported",
+   "No preview before import: cards land in the deck as-is",
+   "Anki progress is lost during transfer"
+  ],
+  "monetization": "One-time purchase of $4.99 unlocks unlimited import. Free: import up to 100 cards. Target: active Anki users willing to pay once for a comfortable mobile interface."
+ },
+ "flashcards-6": {
+  "categoryName": "Study flashcards",
+  "title": "Medical flashcards: diagrams, pharmacology, and a countdown to exam day",
+  "oneLiner": "A curated library of anatomy diagrams and NCLEX-style questions paired with a custom card editor and SRS that builds a schedule backward from your exam date.",
+  "gap": "Medical students use either Picmonic or Anki. Picmonic offers only pre-made content with no customization. Anki is too complex for newcomers. No app combines medical diagrams and NCLEX-style questions with user-created decks in a single clean interface.",
+  "pitch": "An app with a library of medical diagrams covering anatomy, pharmacology, and pathophysiology, plus an editor where students add their own cards alongside the official material. The SRS reads the NCLEX or USMLE deadline and builds the minimum necessary schedule working backward from the exam date.",
+  "features": [
+   "Library of 2,000 ready-made medical diagrams searchable by organ system and subject",
+   "Custom card editor with image support: textbook photo or hand-drawn diagram",
+   "NCLEX-style questions for each topic: not just \"what is this\" but \"select the nurse's priority action\"",
+   "Deadline-aware SRS: enter your exam date and the app builds the minimum required review schedule",
+   "Group decks: classmates co-edit and share material together"
+  ],
+  "antiFeatures": [
+   "Pre-made content only with no option to add custom cards",
+   "Exam date ignored when building the review schedule",
+   "Images on cards disappear after an app update"
+  ],
+  "monetization": "Subscription at $12/month or $99/year: full access to the diagram library and NCLEX-style questions. Free: unlimited custom cards and 100 cards from the library. Paying segment: medical students already spending $200-500 on UWorld and other study tools."
+ },
+ "flashcards-7": {
+  "categoryName": "Study flashcards",
+  "title": "Hands-free card review with voice answers",
+  "oneLiner": "The app reads each card aloud, the student says the answer, and speech recognition grades it with synonym tolerance. No need to touch the screen.",
+  "gap": "Voice mode exists only in niche Bible memorization apps, and it barely works there. Language and medical apps do not offer it, even though students want to review cards while walking or driving.",
+  "pitch": "A voice study session: the app reads the question through TTS or a native speaker recording, the student says the answer aloud, and recognition scores it with synonym tolerance. Hands and eyes free. First market: foreign language vocabulary and oral prep for the IELTS Speaking section. Student drivers, athletes, and anyone who studies on the go.",
+  "features": [
+   "Fully hands-free mode: cards are read aloud and answers are spoken",
+   "Flexible recognition: a correct answer counts on phonetic match, not only exact wording",
+   "Voice session history: minutes studied and percentage of correct answers",
+   "Earphone button control: next card or repeat",
+   "Offline mode: voice sessions work without a connection after the audio pack is downloaded"
+  ],
+  "antiFeatures": [
+   "Answer only counts on exact match, no synonym tolerance",
+   "Voice mode requires an internet connection",
+   "No earphone button control"
+  ],
+  "monetization": "Subscription at $8/month: unlimited voice sessions, history, and offline packs. Free: 10 voice cards per day. Target: IELTS Speaking candidates and students who spend 30-60 minutes commuting."
+ },
+ "flashcards-8": {
+  "categoryName": "Study flashcards",
+  "title": "Reliable image and audio storage for niche disciplines",
+  "oneLiner": "Images and audio files live in the cloud and never vanish after an update. Specialized templates cover sheet music cards for musicians and structural formulas for chemists.",
+  "gap": "Media cards are nominally supported in many apps, but images disappear after updates or device changes, and custom audio files are locked behind paid plans. Musicians, chemists, and architects suffer from this but there is no product built for them.",
+  "pitch": "A flashcard app with first-class media support: images and audio are stored in the cloud and tied to the card, not the device, so they never get lost. Inserting a photo or audio is one tap. Specialized templates: sheet music cards for musicians, structural formula cards for chemists.",
+  "features": [
+   "Lossless cloud media storage: images and audio tied to the card, not the device",
+   "Sheet music card template: tune name on the front, notation plus audio on the back",
+   "Chemical structure template: built-in structure drawing tool with SMILES support",
+   "Drag-and-drop media from Photos, Files, or camera without leaving the editor",
+   "Image compression without quality loss when downloading an offline pack"
+  ],
+  "antiFeatures": [
+   "Media stored locally and lost on reinstall",
+   "Image insertion locked behind a subscription",
+   "No discipline-specific templates"
+  ],
+  "monetization": "Subscription at $9/month: unlimited media storage and specialized templates. Free: up to 50 media cards with 100 MB of storage. Target: conservatory students and chemistry majors who pay for professional tools."
+ },
+ "translator-1": {
+  "categoryName": "Translator apps",
+  "title": "Medical-vocabulary translator for caregivers and clinics",
+  "oneLiner": "Symptoms, dosages, and medical history translate accurately, not like everyday phrases.",
+  "gap": "No app is tuned for medical vocabulary: symptoms, medications, dosages, anatomy, discharge instructions. The phrase 'pain under the right ribs' gets translated as small talk rather than as a clinical term. For paramedics, home-care aides, and immigrant families in clinical settings, this is a real-world risk.",
+  "pitch": "A voice translator with a medical mode: a built-in glossary of symptoms and procedures, a doctor-patient conversation mode with session history, and PDF export of the session for the patient record.",
+  "features": [
+   "Doctor/patient mode with automatic side-switching, no button presses",
+   "Symptom, anatomy, and medication glossary covering 20 languages",
+   "Context-aware phrase suggestions: pain, allergies, medical history",
+   "Offline pack for use in hospitals and facilities without reliable connectivity",
+   "Session export as a timestamped PDF"
+  ],
+  "antiFeatures": [
+   "Do not add everyday translation that competes with Google, not a product",
+   "Do not build on a weekly subscription medical professionals pay for annual licenses",
+   "Do not promise legal accuracy the focus is communication, not diagnosis"
+  ],
+  "monetization": "B2B: per-clinic or NGO license (home care, hospice, rehabilitation). B2C: $9.99/month subscription for private caregivers and families. First channel: professional caregiver forums and healthcare worker associations."
+ },
+ "translator-2": {
+  "categoryName": "Translator apps",
+  "title": "Translator with true offline and no hidden exceptions",
+  "oneLiner": "Download a language pack and never need the internet again voice, text, and camera all included.",
+  "gap": "Users buy an offline version for a trip and discover on arrival that the app still phones home, the downloaded pack does not activate, or it gets ignored. Honest offline is a distinct product that does not exist on the market. The paying customer is already identified: the traveler who bought a pack in advance.",
+  "pitch": "A translator where offline is architecture, not an option: voice, text, and camera all work without a network connection after a one-time language pack download.",
+  "features": [
+   "Voice and text translation fully on-device with no data sent to a server",
+   "Offline OCR for the camera, including non-Latin scripts",
+   "One-tap forced offline mode with no extra conditions",
+   "Pack verification on download: a test translation without a network connection immediately after the download completes",
+   "Persistent online/offline indicator on screen, not buried in settings"
+  ],
+  "antiFeatures": [
+   "Do not mention offline in marketing if any feature still requires a connection",
+   "Do not build offline as a layer on top of an online architecture",
+   "Do not launch with a weekly subscription travelers pay once before the trip"
+  ],
+  "monetization": "One-time language pack purchase: $4.99 for a single language, $14.99 for a traveler bundle. Lifetime $29.99. No subscription that is the differentiator."
+ },
+ "translator-3": {
+  "categoryName": "Translator apps",
+  "title": "Translator keyboard for messengers with no lag",
+  "oneLiner": "Type in WhatsApp or Telegram and the translation appears instantly, right on the keyboard.",
+  "gap": "A translator keyboard is in demand, but no implementation works reliably: lags up to 30 seconds, backspace deletes the entire message, and the full-access permission request scares users away. Anyone messaging in WhatsApp with Spanish-speaking relatives or Korean colleagues will pay if the tool actually works.",
+  "pitch": "A native iOS keyboard with on-device translation: under 500ms latency, swipe gestures to flip direction, and an insert-translation button instead of auto-replace.",
+  "features": [
+   "On-device translation directly in the keyboard, no text sent to a server",
+   "Swipe left and right to flip translation direction",
+   "Insert-translation button instead of auto-replace the user controls the output",
+   "Pinned language pair no need to reconfigure every session",
+   "Minimal permissions no full keyboard access required"
+  ],
+  "antiFeatures": [
+   "Do not auto-translate on every keystroke it is annoying",
+   "Do not require a subscription before the user has felt any value",
+   "Do not support 100 languages poorly 10 languages done well beats 100 done badly"
+  ],
+  "monetization": "Freemium: 5 language pairs free, additional pairs at $1.99 each or $7.99/year for all. The paying audience is immigrants and anyone who messages regularly across two languages."
+ },
+ "translator-4": {
+  "categoryName": "Translator apps",
+  "title": "Translator with TTS speed control for language learners",
+  "oneLiner": "Slow playback to 0.5x, repeat the phrase, hear it again no fiddling with buttons.",
+  "gap": "A TTS speed slider is a zero-cost feature to implement, yet it is missing from every mainstream translator. Language learners use a translator as a daily pronunciation and listening tool, not just to look up a word.",
+  "pitch": "A translator with a listening mode: a playback speed slider from 0.5x to 1.5x, a repeat button without re-entering input, transliteration next to the translation, and a phrase history that doubles as a mini phrasebook.",
+  "features": [
+   "TTS speed slider with three presets: slow, normal, fast",
+   "Repeat button without re-entering input",
+   "Transliteration below the translation for non-Latin languages",
+   "Last 50 phrases saved as a mini phrasebook",
+   "Neural voices without a synthetic accent"
+  ],
+  "antiFeatures": [
+   "Do not add a full language course that is Duolingo, not a translator",
+   "Do not remove instant text translation in favor of a learning mode",
+   "Do not put the speed slider behind a paywall it is a basic accessibility feature"
+  ],
+  "monetization": "Basic translator free. $4.99/month subscription for neural voices, phrase history, and transliteration. Target audience: A1-B1 learners preparing for a trip or communicating with foreign colleagues."
+ },
+ "translator-5": {
+  "categoryName": "Translator apps",
+  "title": "Conversation translator with manual recording control",
+  "oneLiner": "Hold the button to speak, release to get the translation. No auto-cutoff mid-sentence.",
+  "gap": "Conversation mode is identical everywhere: either aggressive auto-detection that interrupts you, or constant button-pressing that is awkward in a live exchange. No adaptive mode exists with push-to-talk and a configurable silence threshold. The seller/buyer and tourist/local scenarios cover hundreds of millions of people.",
+  "pitch": "Two conversation modes: push-to-talk (hold to record, release to translate) and auto-detect with an adjustable silence sensitivity. A large dialogue screen for showing to the other person.",
+  "features": [
+   "PTT mode: hold the button to record, release to translate",
+   "Silence threshold slider from 0.3s to 2s the user decides",
+   "Dialogue screen: both sides in large text with the active side highlighted",
+   "Single-earbud mode: audio switches between speaker and earpiece automatically",
+   "Scrollable dialogue history that does not lose anything"
+  ],
+  "antiFeatures": [
+   "Do not auto-translate without confirmation in medical or business scenarios",
+   "Do not remove PTT in favor of smart auto-detect users want control",
+   "Do not show ads during an active live conversation"
+  ],
+  "monetization": "Freemium: text translation free. Conversation mode at $5.99/month or $39.99/year. Corporate license for tour guides, accompaniment services, and travel operators."
+ },
+ "translator-6": {
+  "categoryName": "Translator apps",
+  "title": "Translator with honest rare-language support: Farsi, Ukrainian, Tagalog",
+  "oneLiner": "If a language is in the list, it works both ways by voice. No dead stubs after you pay.",
+  "gap": "A long language list is marketing. Real voice support covers 15 to 20 languages, everything else is text or a silent stub. Diaspora communities Iranians, Ukrainians, Filipinos pay for a specific language pair and discover the deception after the purchase.",
+  "pitch": "A translator with a guarantee: if a language is in the list, it works both ways by voice. Start with 30 languages instead of 130 but every single one is honest.",
+  "features": [
+   "Every language verified: TTS and STT tested before the language is listed",
+   "Language card with icons for text, voice, and offline no fine print",
+   "Farsi, Ukrainian, Tagalog, and Urdu on equal footing with Spanish",
+   "Transliteration for Arabic, Persian, and Devanagari scripts",
+   "Push notification when voice mode for a new language becomes available"
+  ],
+  "antiFeatures": [
+   "Do not add a language until the voice engine is ready",
+   "Do not promise offline for rare languages without a real on-device engine",
+   "Do not monetize through language packs users do not trust that model after being burned"
+  ],
+  "monetization": "Subscription at $6.99/month with an honest capability table on the store page. Family plan at $9.99/month for 5 devices, aimed at diaspora households."
+ },
+ "translator-7": {
+  "categoryName": "Translator apps",
+  "title": "Translator with a persistent dialect profile, no daily resetting",
+  "oneLiner": "Set Mexican Spanish once and the app remembers it across every translation, forever.",
+  "gap": "Dialect mixing is not a bug it is an architectural choice: training one model is cheaper. Speakers of European Portuguese, regional Mexican Spanish, or American English feel overlooked. Professional translators and tour guides pay for dialect precision.",
+  "pitch": "A user language profile: set Mexican Spanish, Oaxaca region once, and the app remembers it permanently. All translations and voice output adapt to that profile.",
+  "features": [
+   "Profile: native language with dialect and target language with dialect stored permanently",
+   "Variant matrix: 6 regional options for Spanish, 2 for Portuguese",
+   "Quick dialect switch by swiping the language chip",
+   "TTS voice tied to the dialect not neutral Castilian for a Mexican user",
+   "Not my variant button that submits an example for improvement"
+  ],
+  "antiFeatures": [
+   "Do not promise regional dialects that TTS does not actually support",
+   "Do not bury dialect selection three levels deep in settings",
+   "Do not mix dialects into a single model fewer honest variants beats more fake ones"
+  ],
+  "monetization": "Basic dialect free. Extended dialect matrix at $3.99/month or $24.99/year. Corporate: license for language schools and tour operators."
+ },
+ "translator-8": {
+  "categoryName": "Translator apps",
+  "title": "PDF and document scan translator, right on your phone",
+  "oneLiner": "Import a PDF or a photo of a manual and get a readable translation with structure preserved, no error halfway through.",
+  "gap": "No one has built document translation on mobile that actually works: no PDF import, OCR breaks on small text, character limits throw an error in the middle of a paragraph. Who already pays for this: immigrants dealing with contracts and official letters, students with textbooks in foreign languages, specialists handling manuals from overseas equipment suppliers.",
+  "pitch": "A mobile document translator: PDF from Files and photos as input, structured translation with preserved layout as output. No character limits.",
+  "features": [
+   "PDF import from Files.app and iCloud Drive",
+   "OCR with adaptive focus: small text, handwriting, low contrast",
+   "Translation that preserves structure: headings, lists, and tables stay intact",
+   "No character limit the entire document, all at once",
+   "Export the translated document as PDF or plain text"
+  ],
+  "antiFeatures": [
+   "Do not promise legal-grade document translation accuracy",
+   "Do not build on a 3-photos-per-day limit it kills the first-use scenario",
+   "Do not compete with Google Translate on everyday phrases stay focused on documents"
+  ],
+  "monetization": "Subscription at $8.99/month for individuals. B2B: license for immigration attorneys, medical offices, and technical departments with overseas suppliers. First 3 documents free, no credit card required."
+ },
+ "run-tracking-1": {
+  "categoryName": "Running trackers",
+  "title": "A training plan that recalculates after every run",
+  "oneLiner": "Not a fixed 9-week script but a living plan: after each session it looks at your heart rate and perceived effort and adjusts the next step to fit you.",
+  "gap": "No C25K app changes the next workout based on how the current one went. A user says 'too hard' and the plan keeps marching forward. What is needed is an algorithm that inserts intermediate sessions rather than simply rolling back a week.",
+  "pitch": "A couch-to-5K coach where the next workout is built from the last one. Heart rate in the final five minutes plus a 1-to-10 effort rating determine how big the next step will be. No generic templates.",
+  "features": [
+   "After each run, one field: RPE from 1 to 10. The app recalculates the next interval on its own, no extra questions asked",
+   "If heart rate in the last 5 minutes exceeds 85 percent of max, the plan inserts a recovery session before the next progression step",
+   "A countdown to the finish: 'you are X workouts away from 5K at your current pace', updated every session",
+   "After each recalculation, one line of explanation: why the next session is what it is",
+   "Auto-reschedule of a missed workout to the next available day without losing progress",
+   "Fast-track mode: if three sessions in a row felt easy, the plan skips intermediate steps"
+  ],
+  "antiFeatures": [
+   "Do not dig deeper than RPE and heart rate: VO2max, HRV, and similar metrics only scare beginners",
+   "Do not suggest switching to 10K before the 5K is done: the user made a deal with themselves",
+   "Do not require a survey every two weeks: one input after the run, done"
+  ],
+  "monetization": "Basic plan free. Adaptive algorithm and progress history on subscription at $7-9/month or a one-time lifetime purchase for $39."
+ },
+ "run-tracking-2": {
+  "categoryName": "Running trackers",
+  "title": "A running coach for Apple Watch with no phone in your pocket",
+  "oneLiner": "A full couch-to-5K plan lives on your wrist: the Watch logs the route, walks you through intervals by voice, and syncs data when you get home.",
+  "gap": "Watch to 5K is the only niche player but it lacks heart rate zones and has a cluttered interface on a small screen. NRC will not launch a guided run without the phone nearby. The market is open for an app built from the ground up with watchOS as the primary platform and iPhone as the weekly stats screen.",
+  "pitch": "An app where Apple Watch is the device. The full plan lives on the Watch, GPS and heart rate record without the phone, and voice guides you through intervals directly in your earbud. The phone is opened once at first setup and then once a week to review stats.",
+  "features": [
+   "The entire couch-to-5K plan is loaded to the Watch in advance: no internet needed during the run",
+   "Voice commands go to AirPods or any Bluetooth headphones directly from the Watch",
+   "Watch screen during the run: three numbers only, current pace, time left in the interval, heart rate. Nothing else.",
+   "After returning home, auto-sync to the iPhone app takes about ten seconds",
+   "Eyes-free control: one tap on the crown to pause, two taps to skip to the next interval",
+   "Heart rate zones displayed on the Watch screen during the run, no phone required"
+  ],
+  "antiFeatures": [
+   "Do not try to show a map on the Watch screen: too small and distracting during a run",
+   "Do not require a constant iPhone connection during the workout",
+   "Do not treat the iPhone app as the main screen: it is secondary in purpose and in design"
+  ],
+  "monetization": "One-time purchase at $4.99, no subscription: Watch users value honest pricing. Additional plans (5K to 10K, half-marathon) at $2.99 each."
+ },
+ "run-tracking-3": {
+  "categoryName": "Running trackers",
+  "title": "A treadmill tracker that counts your miles honestly",
+  "oneLiner": "GPS does not work here, so the app calculates distance from treadmill speed and the Watch accelerometer so your run history stays intact through winter.",
+  "gap": "C25K apps were designed for outdoors. A third of users head inside during winter and want the plan to continue without a break in their history. No tool handles indoor running properly: either the mode is missing or it spits out garbage instead of a real distance.",
+  "pitch": "A couch-to-5K coach where a treadmill run is equal to an outdoor one. Treadmill speed is entered once at the start. The Watch accelerometer refines the calculation if the belt changes speed. Everything saves to the same history as outdoor runs.",
+  "features": [
+   "Enter treadmill speed at the start of a session: one number, one tap. The app handles distance from there.",
+   "Watch accelerometer as a secondary source: if the belt speeds up or slows down, cadence adjusts the counter",
+   "Unified history: outdoor and indoor runs in one chart, no 'may be inaccurate' tags",
+   "Voice interval cues work identically indoors and outdoors: the same experience in any setting",
+   "Auto-detection of indoor mode via missing GPS signal: no manual mode switching needed",
+   "Export to HealthKit with the correct Indoor Run activity type"
+  ],
+  "antiFeatures": [
+   "Do not draw a route map in indoor mode: it is misleading",
+   "Do not block access to the plan until GPS locks",
+   "Do not require a Bluetooth connection to the treadmill console: most gyms do not allow it"
+  ],
+  "monetization": "Indoor mode with history included in the base plan. Advanced analytics (VO2max estimate, heart rate zones) on subscription at $4.99/month. A 'hibernate' option for summer at $1/month for users who want to keep the subscription without active use."
+ },
+ "run-tracking-4": {
+  "categoryName": "Running trackers",
+  "title": "Coach voice cues that ride on top of your music without cutting it",
+  "oneLiner": "The coach speaks into a side channel: music never stops or ducks hard, the voice layers over it for a few seconds and fades out.",
+  "gap": "The technical fix is AVAudioSession with ducking instead of interruption, but no mainstream tracker has done it right. At the same time, no one has given users a choice of coach voice from multiple human-sounding options.",
+  "pitch": "A tracker where audio quality is the flagship feature. Music does not stop: cues ride on top at a lower volume via ducking. Three coach voice modes to choose from: data only, short encouragement, fully silent (Watch haptics only).",
+  "features": [
+   "Ducking instead of interruption: voice plays roughly 12 dB under the music, Spotify and Apple Music never pause",
+   "Three voice modes: data only (pace and distance), with short encouragement, silent (Watch vibration only)",
+   "Four human-sounding voice options to pick at first setup",
+   "On first launch, the app checks Spotify compatibility and shows the result right away",
+   "Cue frequency is adjustable: every minute, every kilometer, or only at interval changes",
+   "Voice preview before the run: a ten-second sample"
+  ],
+  "antiFeatures": [
+   "Do not turn on motivational phrases by default: data only out of the box, everything else opt-in",
+   "Do not use a synthesized voice with a noticeable robotic quality",
+   "Do not build a built-in music player: the goal is to work on top of an existing streaming service, not replace it"
+  ],
+  "monetization": "One voice and basic cues free. Voice selection, Spotify compatibility, and silent mode on subscription at $5.99/month. The core audio experience is sold as an upgrade to users who have already tried the free tier."
+ },
+ "run-tracking-5": {
+  "categoryName": "Running trackers",
+  "title": "Target pace on the Watch face in real time",
+  "oneLiner": "Not an average pace after the finish but a color signal right now: green means on target, red means slow down, yellow means you are slightly fast.",
+  "gap": "Beginners start too fast and blow up by mid-interval. No C25K app addresses this systematically: no per-interval target pace, no voice warning for going out too hard. Runna says 'speed up or slow down' but never gives a specific number.",
+  "pitch": "A tracker with a target pace for every running interval. Before the interval starts, the voice reads out the range. The Watch face changes color when you drift off target. The beginner sees and hears when to ease off, no phone needed.",
+  "features": [
+   "Target pace for each running interval is calculated from the first workout and updated as the runner improves",
+   "Watch screen: three colors only. Green (on target), yellow (slightly fast), red (too fast). No numbers, one glance.",
+   "Voice alert if pace stays out of range for more than 30 seconds",
+   "Post-run breakdown: average pace for each running interval separately, not an overall average",
+   "Zone width setting: tight (plus or minus 5 sec/km) or wide (plus or minus 15) for complete beginners",
+   "Week-over-week pace comparison: see whether real progress is happening without relying on subjective feel"
+  ],
+  "antiFeatures": [
+   "Do not show VO2max and lactate threshold: not the right audience",
+   "Do not ask for a 5K goal time: too early for a beginner and intimidating",
+   "Do not send pace alerts more than once every 30 seconds: frequent interruptions are annoying"
+  ],
+  "monetization": "Real-time pace is free as a hook. Color zones on Watch, per-interval breakdowns, and week-over-week comparison are premium at $6.99/month."
+ },
+ "run-tracking-6": {
+  "categoryName": "Running trackers",
+  "title": "A running plan that does not break when you miss a day",
+  "oneLiner": "Illness, travel, life got in the way, the plan quietly shifts to your next free day and your streak and progress stay intact.",
+  "gap": "Runna is the most flexible option but its vacation mode is clunky and there is no sick mode. For people with irregular schedules, parents, shift workers, freelancers, there is not one app that honestly says: 'you missed, no big deal, here is the best time to catch up.'",
+  "pitch": "A running plan that lives in your actual schedule. Three workouts on any three days of the week. When you miss: a quick choice to shift the whole plan or skip the session. Sick mode in one tap: the plan waits, the streak does not reset, notifications go quiet.",
+  "features": [
+   "At setup you pick three preferred days, but with no hard lock: any of them can be swapped within the same week",
+   "Missed a workout: the next day the app offers two options, shift the whole plan or skip this session and continue",
+   "Sick mode: one tap and the plan pauses, streak stays intact, notifications turn off",
+   "Reminder time can be changed per day directly from the notification, no need to go into settings",
+   "Transfer history: the app shows that the plan has been rescheduled three times and that is fine",
+   "Projected finish date recalculates based on the user's real rhythm, not the ideal schedule"
+  ],
+  "antiFeatures": [
+   "Do not show red 'missed' badges: only a neutral reschedule with no judgment",
+   "Do not ask the user to explain why they missed: one tap to reschedule, no forms",
+   "Do not reset progress when a week is repeated: all completed runs stay in history"
+  ],
+  "monetization": "Basic plan free. Flexible schedule, sick mode, and finish date forecast on subscription at $4.99/month or a one-time lifetime purchase for $19.99."
+ },
+ "run-tracking-7": {
+  "categoryName": "Running trackers",
+  "title": "A documentary podcast as your running coach",
+  "oneLiner": "Each workout is 20 minutes of a real person's story, someone who started running after 40 or after illness. Intervals are baked into the edit of the story.",
+  "gap": "Zombies, Run! is the monopolist in narrative running but the zombie-apocalypse genre is not for everyone. The C25K audience is broader: people 30 to 55 who do not connect with zombies but do connect with the idea of 'a story unfolds while you run.' No one has tried real stories from real people as the narrative format.",
+  "pitch": "A couch-to-5K coach where the audio content is a documentary podcast. Nine episodes equal nine weeks of the plan. Each episode is one person's story, cut through editing into walk and run intervals. Music plays underneath, the voice layers over it with ducking.",
+  "features": [
+   "9 episodes for 9 weeks of the plan. Each one is a real person's story whose edit matches the interval structure of the workout.",
+   "Music plays underneath, the host's voice layers over it without cutting the track",
+   "At the end of each episode, a short takeaway or observation from the person featured",
+   "After completing the program: a library of bonus episodes, new stories each month",
+   "Users can submit their own story: the best ones go into the next season",
+   "Apple Watch compatible: the narrative plays in your earbud without the phone nearby"
+  ],
+  "antiFeatures": [
+   "Do not make the stories fictional: the power comes from reality and recognizability",
+   "Do not insert ads or branded messages inside the narrative",
+   "Do not make episodes into motivational speeches: a real story with real struggle, not slogans"
+  ],
+  "monetization": "First three episodes (three weeks of the plan) free. Full season at $9.99. Additional seasons at $4.99 each. Subscription at $4.99/month for users who want all seasons at once."
+ },
+ "run-tracking-8": {
+  "categoryName": "Running trackers",
+  "title": "GPS track cleanup: Garmin-grade accuracy without buying a Garmin",
+  "oneLiner": "After your run an algorithm snaps points to real roads, removes GPS jumps, and returns an honest distance that stays consistent run to run.",
+  "gap": "Every major app uses standard CoreLocation with no post-processing. Map-matching to known roads (the way Garmin does it) has not been implemented by any C25K player. This is not a hardware question, it is a smoothing algorithm at the app level.",
+  "pitch": "A tracker where the GPS track is cleaned up after the finish: points snap to real roads from OpenStreetMap, outliers are removed, and distance on the same route matches from run to run. Garmin-grade accuracy without buying a Garmin.",
+  "features": [
+   "Map-matching after the finish: the track snaps to the nearest road within 2 seconds of stopping",
+   "Outlier filter: points with physically impossible acceleration are automatically cut as GPS jumps",
+   "Same-route comparison across runs: 'today the same route, 30 meters off from last time'",
+   "Background operation with a visible status bar indicator: the user can see the app is active",
+   "Fallback to Apple Watch pedometer when signal is lost in a tunnel or dense building cluster",
+   "Export of the corrected GPX file to Strava or Garmin Connect"
+  ],
+  "antiFeatures": [
+   "Do not snap trails and dirt paths to roads: unpaved terrain needs a separate mode",
+   "Do not recalculate distance via map-matching in real time: it lags and creates confusion",
+   "Do not position this as a full Garmin replacement: compete only on track accuracy"
+  ],
+  "monetization": "Basic tracking free. Map-matching after the run, same-route comparison, and GPX export on subscription at $3.99/month. Cheaper than competitors because the focus is one sharp feature."
+ },
+ "voice-recorder-1": {
+  "categoryName": "Voice recorders",
+  "title": "A recording that never cuts out when the screen locks",
+  "oneLiner": "The recorder keeps going in the background as long as needed and alerts you the moment something goes wrong",
+  "gap": "Popular apps cut the recording on lock or silently crash during long meetings. The user only finds out after the call is over.",
+  "pitch": "A recorder that keeps the session alive indefinitely: an AVAudioSession keep-alive ping every 30 seconds, a Live Activity on the lock screen, and an instant alert on any failure.",
+  "features": [
+   "Background recording via AVAudioSession in .record mode with a keep-alive ping every 30 seconds",
+   "Live indicator on the lock screen via Live Activity (iOS 16+)",
+   "Auto-restart after an incoming call with a break marker in the transcript",
+   "Push notification if recording is interrupted for more than 5 seconds",
+   "No length limit at any tier",
+   "Session log: start time, total duration, number of interruptions"
+  ],
+  "antiFeatures": [
+   "No 3, 15, or 30-minute cutoff on the free tier",
+   "No recording reset when switching to another app",
+   "No silent crashes without a notification"
+  ],
+  "monetization": "Recording is free forever that's the hook. A $4.99/month subscription unlocks transcription and AI summaries."
+ },
+ "voice-recorder-2": {
+  "categoryName": "Voice recorders",
+  "title": "Transcription tuned to your domain and accent",
+  "oneLiner": "The model knows your field's terminology and doesn't drop every fifth word because of your accent",
+  "gap": "Users record an hour of a lecture or interview, get 75 to 80 percent accuracy, and spend as much time correcting it as they would have spent taking notes by hand. Every app offers one universal model with no regard for accent or subject matter.",
+  "pitch": "Before transcribing, you pick a context: medicine, law, IT meeting, or academic lecture. A specialized model knows the right terms and handles accents better.",
+  "features": [
+   "Domain selector before you start: medicine, law, sales, IT, academia",
+   "Whisper large-v3 with a domain-specific vocabulary for each context",
+   "Built-in editor with clickable timestamps: tap a word to jump to that moment in the audio",
+   "Uncertain-word highlighting: words the model isn't confident about appear in red",
+   "Export to .docx, .srt, and .txt with timestamps",
+   "Offline transcription for confidential meetings"
+  ],
+  "antiFeatures": [
+   "No claims of '99% accuracy' without disclosing accent and noise caveats",
+   "No forced cloud upload for local files",
+   "No transcript loss after an app update"
+  ],
+  "monetization": "Pay-per-use: one hour of transcription for $0.99. Enterprise plan at $29/month with unlimited transcription and priority queue."
+ },
+ "voice-recorder-3": {
+  "categoryName": "Voice recorders",
+  "title": "Diarization that remembers your teammates' voices",
+  "oneLiner": "Record a 30-second voice sample once, and every future meeting comes out with real names instead of Speaker numbers",
+  "gap": "In every app, diarization starts from scratch each meeting. The same person becomes Speaker 1 one time and Speaker 3 the next. There's no way to learn a colleague's voice once and skip re-labeling.",
+  "pitch": "A recorder with team voice profiles: record 30 seconds from each colleague once, and every following meeting automatically comes out with real names and no manual labeling.",
+  "features": [
+   "Voice profiles: a 30-second sample and that voice is recognized in all future recordings",
+   "Automatic matching to new sessions with no extra setup",
+   "Tap an unknown speaker, type their name, and the voice is saved in one step",
+   "Per-speaker digest: a summary of exactly what each person said in a meeting",
+   "Export with a Speaker column in CSV for team archives"
+  ],
+  "antiFeatures": [
+   "No speaker ID reset between sessions",
+   "No charge for adding profiles to a team of up to 20 people",
+   "No speaker numbers in the final export"
+  ],
+  "monetization": "Solo plan at $3.99/month with up to 10 voice profiles. Team plan at $9.99/month for 5 users, plus $2/month per additional user."
+ },
+ "voice-recorder-4": {
+  "categoryName": "Voice recorders",
+  "title": "A finished document after the meeting, formatted for your job",
+  "oneLiner": "A SOAP note for the doctor, a call log for the lawyer, CRM fields for the sales rep, not a generic list of bullet points",
+  "gap": "Every app produces the same template with Discussion, Decisions, and Next Steps. A lawyer needs a formal record, a doctor needs a SOAP note, a sales rep needs CRM fields, a teacher needs a lesson plan.",
+  "pitch": "Choose your role once, and every recording automatically becomes a document in the right format, ready to send without any editing.",
+  "features": [
+   "Output templates by role: sales call (CRM fields), patient visit (SOAP), legal meeting (formal record), lesson (lesson plan), 1-on-1 (feedback and growth areas)",
+   "Custom template with Markdown variables",
+   "Summary runs automatically after the recording stops, no manual tap needed",
+   "Editable fields with auto-save on every change",
+   "Send a formatted email directly from the app"
+  ],
+  "antiFeatures": [
+   "No generic Discussion Points and Action Items",
+   "No lost summary when the app closes",
+   "No waiting: summary builds in parallel with transcription"
+  ],
+  "monetization": "The standard template is free so users can feel the value. A $7.99/month subscription unlocks all professional templates and custom ones."
+ },
+ "voice-recorder-5": {
+  "categoryName": "Voice recorders",
+  "title": "Search your recordings by content, not by file name",
+  "oneLiner": "Ask about the Q3 budget and get a list of moments with exact timestamps from every meeting this year",
+  "gap": "Search everywhere works only on file names. After six months the user doesn't remember what they named the recording, but they remember that Q3 budget came up in that meeting.",
+  "pitch": "A recorder archive with semantic search across all transcripts: type a question instead of a file name and get a list of matching moments with timestamps.",
+  "features": [
+   "Semantic search across content using embeddings of all transcripts",
+   "Results with timestamps: tap to start playback from that exact point",
+   "Auto-tags by topic: the app suggests labels like budget, hiring, tech debt",
+   "Smart folders filtered by participants, date, tags, and duration",
+   "Renaming with auto-save and a name history",
+   "Search works offline on locally stored transcripts"
+  ],
+  "antiFeatures": [
+   "No file-name-only search",
+   "No lost file name after renaming",
+   "No required cloud sync for search to work"
+  ],
+  "monetization": "Search across the last 10 recordings is free. A $5.99/month subscription unlocks the full archive with no limits."
+ },
+ "voice-recorder-6": {
+  "categoryName": "Voice recorders",
+  "title": "An interview recorder with ready-made quotes and attribution",
+  "oneLiner": "Record the interview, highlight the best lines right in the transcript, and get a document with attributed quotes",
+  "gap": "Journalists and UX researchers record interviews on generic voice apps, then manually pull quotes, add attribution, and verify exact wording. No product covers this workflow end to end.",
+  "pitch": "Tap any paragraph in the transcript and it becomes a quote with the speaker's name and a timestamp. When you're done, export a document where everything is already formatted.",
+  "features": [
+   "Highlight mode: tap a paragraph to turn it into a quote with a timestamp and speaker name",
+   "Verbatim check: compares the highlighted text against the audio and flags any discrepancy",
+   "5-second rewind when playback is paused",
+   "Export interview quotes to .docx with Speaker: Quote formatting",
+   "On-device backup of the recording in parallel with cloud storage",
+   "No file deletion on rename or edit"
+  ],
+  "antiFeatures": [
+   "No recording deletion from any action other than an explicit delete",
+   "No iTunes-only export",
+   "No mismatch between what you see in the app and what comes out in the export"
+  ],
+  "monetization": "Recording and playback are free. A $6.99/month subscription unlocks diarization, quote highlighting, and export."
+ },
+ "voice-recorder-7": {
+  "categoryName": "Voice recorders",
+  "title": "An Apple Watch recorder with reliable file transfer",
+  "oneLiner": "Stop the recording on your wrist and the file is on your phone in five seconds, no waiting and no manual steps",
+  "gap": "Watch recording exists in several apps, but file sync is unreliable. The user records an idea on their wrist and can't find it afterward.",
+  "pitch": "One large button on the watch starts recording. When you stop, the file transfers to the phone via WCSession in a few seconds. If the phone isn't nearby, the watch holds a local buffer.",
+  "features": [
+   "WatchKit Extension with one large Record button and one Stop button",
+   "Immediate transfer via WCSession transferFile on recording stop",
+   "Local buffer on the watch for up to 30 minutes without the phone nearby",
+   "Status on the phone: Received from Apple Watch 2 minutes ago",
+   "watchOS 7.x support with no dependency on newer APIs",
+   "Transcription starts automatically after the file is received"
+  ],
+  "antiFeatures": [
+   "No scheduled sync instead of immediate transfer",
+   "No manual file transfer procedure",
+   "No silent recording loss after reinstalling the app"
+  ],
+  "monetization": "The Watch component is unlocked with a one-time purchase of $4.99. Transcription of Watch recordings is included in the main plan."
+ },
+ "voice-recorder-8": {
+  "categoryName": "Voice recorders",
+  "title": "Lecture to structured notes with exam questions",
+  "oneLiner": "Record the class and get notes with key terms, main takeaways, and a set of practice questions ready to review",
+  "gap": "Students record lectures on generic voice apps, get a raw transcript, and spend the evening writing notes by hand. No product covers the full study workflow: terms, structure, exam questions.",
+  "pitch": "After a two-hour lecture you don't get a transcript, you get a finished set of notes: new terms with definitions, key points organized by section, and practice questions.",
+  "features": [
+   "Lecture mode: automatically pulls out new terms and their definitions",
+   "Structured notes by timestamp: intro, main sections, conclusions",
+   "Flashcards for review: exam-style questions generated from the transcript",
+   "Mixed-language support: switches between English, Spanish, or other languages within a single recording",
+   "Web view to review notes on a laptop before an exam",
+   "No length limit on academic recordings"
+  ],
+  "antiFeatures": [
+   "No 3-minute cap on the free tier",
+   "No generic Action Items template in place of study notes",
+   "No recording loss when switching to Zoom or Teams"
+  ],
+  "monetization": "Unlimited recording is free. A student plan at $2.99/month with a .edu email unlocks AI notes and flashcards."
+ },
+ "resume-builder-1": {
+  "categoryName": "Resume builders",
+  "title": "Show the price before they fill anything in, not after",
+  "oneLiner": "Users see the download cost upfront and decide for themselves whether an hour of their time is worth it.",
+  "gap": "No app offers a pay-per-export model shown before the user starts filling in their resume. Users learn the price only at the final step, after they have already invested the time.",
+  "pitch": "A resume builder that shows the download price on the template selection screen before any data is entered. The user sees the amount, agrees, fills in the form, and gets their PDF with no surprise at the end. No subscription, one payment for one file.",
+  "features": [
+   "Price shown directly on each template card before the user taps Start",
+   "Pay once per PDF with no trial or auto-renewal",
+   "Free real-time preview until the moment of payment",
+   "Edit for free, pay only when tapping Download",
+   "Dedicated page explaining what is included and what stays free forever",
+   "Re-export the same resume within 30 days at no additional charge"
+  ],
+  "antiFeatures": [
+   "No subscription upsells inside the resume creation flow",
+   "No watermark on a file the user already paid for",
+   "No price hidden behind data-entry screens"
+  ],
+  "monetization": "One-time payment per PDF export. Additional options: a five-export bundle at a discount, version history storage, ATS check as a separate add-on."
+ },
+ "resume-builder-2": {
+  "categoryName": "Resume builders",
+  "title": "A PDF that actually downloads and gets accepted by job sites",
+  "oneLiner": "The app verifies the file for ATS readability right before delivery, and users know this upfront.",
+  "gap": "No app validates the generated PDF for ATS compatibility before handing it over. There is no text-parsing test, no format validation. Users only find out there is a problem when a recruiter tells them or a job site rejects the upload.",
+  "pitch": "A resume generator with a built-in file check: after generating the PDF, the app automatically runs a text-readability test, font-embedding check, and size validation. Users see the result before tapping Download, not after getting rejected on a job site.",
+  "features": [
+   "Automatic PDF check after generation: text is parsed and structure is validated",
+   "Warning if fonts are not embedded or if tables will break an ATS parser",
+   "Free re-generation if the file fails the check",
+   "Send a test email to yourself to verify the attachment before downloading",
+   "A table-free, image-free template with a guaranteed pass on basic ATS parsers",
+   "Export log with date and status for every file"
+  ],
+  "antiFeatures": [
+   "No templates with tables or images without an ATS-risk warning",
+   "No polished preview that diverges from what the PDF actually contains"
+  ],
+  "monetization": "Generation and basic ATS check are included in the one-time export payment. Advanced per-platform checks and unlimited re-generations are in the paid tier."
+ },
+ "resume-builder-3": {
+  "categoryName": "Resume builders",
+  "title": "Send your resume without a configured mail app on your phone",
+  "oneLiner": "The app sends the email through its own server, not through the device mail client that half of users have never set up.",
+  "gap": "Every app routes through the system mailto handler, which is not configured on half of smartphones. In-app sending via the service's own SMTP or sharing through messaging apps is not implemented anywhere in the set.",
+  "pitch": "A resume builder with built-in sending: the PDF goes from the app's servers to any address with no dependency on device settings. Bonus: a public view link and one-tap share to any messaging app.",
+  "features": [
+   "Email sent via the service's own SMTP, no system mail app, no device warnings",
+   "Public link for viewing the resume in a browser without downloading a PDF",
+   "Share to any messaging app via iOS Share Sheet and Android Intents with the PDF attached",
+   "Send to multiple recipients with different resume versions in one go",
+   "View counter for the public link so you know whether the recruiter opened it",
+   "Send history tied to job title and date"
+  ],
+  "antiFeatures": [
+   "No dependency on a configured mail client on the device",
+   "No empty attachments in outgoing emails"
+  ],
+  "monetization": "First three sends are free. After that, a send bundle or subscription. Link analytics and scheduled delivery are in the paid tier."
+ },
+ "resume-builder-4": {
+  "categoryName": "Resume builders",
+  "title": "Most recent job always at the top",
+  "oneLiner": "A new position moves automatically to the first slot, no manual dragging or deleting the whole list required.",
+  "gap": "No app in the set sorts experience entries automatically by date. Drag-and-drop is either poorly implemented or absent. Users delete the entire list and re-enter entries in the correct order.",
+  "pitch": "A builder with automatic chronology: when a new job is added, the work history list instantly reorders so the most recent entry is at the top. Data is never lost. For edge cases, drag-and-drop and manual ordering are available.",
+  "features": [
+   "Auto-sort experience blocks by end date on every add or edit",
+   "Drag-and-drop reordering for overlapping roles and freelance work",
+   "Warning when dates overlap or the order is non-standard",
+   "Functional resume mode that groups by skills instead of chronology",
+   "Toggle between formats without re-entering any data"
+  ],
+  "antiFeatures": [
+   "No appending to the bottom when a new entry is added without warning",
+   "No order reset when switching templates"
+  ],
+  "monetization": "Core features free. Paid access: functional format, section order control, multiple resume versions for different job targets."
+ },
+ "resume-builder-5": {
+  "categoryName": "Resume builders",
+  "title": "AI shows a suggestion alongside the original, nothing gets overwritten",
+  "oneLiner": "The AI displays its edit in a comparison view, the user picks what to keep, and nothing is lost.",
+  "gap": "Every app applies AI edits directly on top of the user's text. There is no comparison mode, no version history, no explicit undo after applying a change. Users lose their own wording permanently.",
+  "pitch": "An AI assistant in suggestion mode: the model shows its version next to the original in a two-column view with changes highlighted. The user decides what to take: everything, individual phrases, or nothing. The original is kept in history until explicitly deleted.",
+  "features": [
+   "Diff view: original on the left, AI version on the right, changes highlighted",
+   "Accept all, pick individual sentences, or reject all",
+   "Version history for every field with the ability to roll back to any point",
+   "AI explains the reason for each suggestion rather than just rewriting",
+   "Separate commands: improve tone, shorten, tailor to this job description"
+  ],
+  "antiFeatures": [
+   "No auto-applying edits without explicit user confirmation",
+   "No adding skills that were not in the original text"
+  ],
+  "monetization": "First three AI suggestions free. Paid tier: unlimited suggestions, 30-day version history, tailoring to a specific job description."
+ },
+ "resume-builder-6": {
+  "categoryName": "Resume builders",
+  "title": "Cover letter editor with autosave",
+  "oneLiner": "A letter written for a specific company saves as you type and never resets to the placeholder when you navigate between steps.",
+  "gap": "Cover letter editors across all apps are unreliable: no character-level autosave, no per-job drafts, no change history. Users rewrite the same letter many times.",
+  "pitch": "A dedicated cover letter editor that autosaves every few seconds: text is never lost when navigating between steps, switching templates, or when the app crashes. Each letter is stored separately and linked to a specific job application.",
+  "features": [
+   "Draft autosaved every few seconds with a visible status indicator",
+   "Letter library tied to company name and job title",
+   "AI starter: three paragraphs tailored to a specific role based on the user's resume data",
+   "Edit history for each letter with the ability to return to any version",
+   "Quick toggle between two letter variants to see which performs better"
+  ],
+  "antiFeatures": [
+   "No reset to template text when navigating between screens",
+   "No text loss on app error or restart"
+  ],
+  "monetization": "One letter draft free. Library for multiple applications, AI generation, and version history in the paid tier."
+ },
+ "resume-builder-7": {
+  "categoryName": "Resume builders",
+  "title": "Tailor your resume to a specific job: compare against the job description",
+  "oneLiner": "Paste the job description and see exactly which keywords are missing from your resume and what to rephrase.",
+  "gap": "No app analyzes a job description and compares it against the user's resume. Keyword search, gap analysis, and prioritization against a specific job posting are not implemented anywhere in the set.",
+  "pitch": "A targeting tool built into the builder: the user pastes a job description, the app matches it against their resume, and surfaces which keywords are missing, which skills to move up, and what to rephrase for that specific JD. The output is a separate tailored resume version with the master copy untouched.",
+  "features": [
+   "Job description analysis: extract key skills, terms, and requirements",
+   "Match score showing how well the resume covers the job's requirements",
+   "Recommendations list: what to add, what to rephrase, what to surface higher",
+   "Create a job-specific resume version without modifying the original",
+   "Application tracker: which resume version was sent to which job",
+   "Outcome flag: did this version get a response"
+  ],
+  "antiFeatures": [
+   "No adding skills the user does not actually have",
+   "No promises of guaranteed ATS filter passes"
+  ],
+  "monetization": "First job analysis free. Pack of five analyses or a subscription for active job seekers. A user targeting a specific role pays readily when the match score improves visibly."
+ },
+ "resume-builder-8": {
+  "categoryName": "Resume builders",
+  "title": "Upload an existing resume and start editing immediately",
+  "oneLiner": "A user with 10 years of experience does not want to re-enter their career manually: they upload a PDF or drop in a LinkedIn link and get a populated form in under a minute.",
+  "gap": "Importing an existing resume from PDF or LinkedIn with full field population and preserved structure does not work in any app in the set. Academic CVs and long profiles suffer the most.",
+  "pitch": "A builder with reliable import: upload a PDF or paste a LinkedIn profile URL and get a filled-in form with recognized job titles, dates, and skills. From there, just edit and pick a template no retyping your career from scratch.",
+  "features": [
+   "PDF parsing with structure recognition: sections, titles, dates, skills",
+   "LinkedIn import from a public URL with support for extended profiles",
+   "Import preview before confirming, with the ability to adjust how sections were parsed",
+   "Support for academic CVs: publications, grants, conferences with no length limit",
+   "Original file stored as a backup in case parsing goes wrong"
+  ],
+  "antiFeatures": [
+   "No dropping job descriptions during import",
+   "No shortening job titles to generic labels without the user's explicit approval"
+  ],
+  "monetization": "First import free. Repeat import for profile updates, LinkedIn sync, and academic CV support in the paid tier."
+ },
+ "invoice-maker-1": {
+  "categoryName": "Invoice makers",
+  "title": "Estimate with three pricing tiers in one document",
+  "oneLiner": "Send the client one PDF with good, better, and best options. The client picks directly in the document, and the estimate automatically becomes an invoice at the chosen amount.",
+  "gap": "No app natively supports a multi-option estimate in a single document. Contractors are forced to send three separate PDFs and explain the differences over text.",
+  "pitch": "A tool for building estimates with three pricing columns side by side. The client opens a link, taps the option they want, and the estimate converts to an invoice at the right amount. No follow-up messages, no data re-entry.",
+  "features": [
+   "Estimate table with three price columns displayed side by side",
+   "Interactive client link with a selection button for each option",
+   "Automatic conversion of the chosen option into an invoice",
+   "Client e-signature in the same document",
+   "Push notification to the contractor the moment a selection is made",
+   "PDF export with rejected options hidden"
+  ],
+  "antiFeatures": [
+   "Accounting and profit reporting",
+   "Complex tax filings",
+   "Proprietary payment processing with high fees"
+  ],
+  "monetization": "$15 per month for active contractors. Up to five estimates free, then paid. The three-option mode is available on the paid plan only."
+ },
+ "invoice-maker-2": {
+  "categoryName": "Invoice makers",
+  "title": "Deposit and final payment inside one invoice",
+  "oneLiner": "The client pays 50% at booking and the balance on completion. One document, the balance updates itself, no second invoice needed.",
+  "gap": "Most apps cannot handle a two-stage payment on a single invoice. Contractors create two documents by hand or keep a side spreadsheet, and the outstanding balance never auto-updates.",
+  "pitch": "An app for contractors where deposit-plus-final is built into the invoice itself. The client gets one document, pays through the first link, and the final amount only unlocks after the contractor marks the job done.",
+  "features": [
+   "Deposit field as a percentage or fixed amount at invoice creation",
+   "Two payment steps for the client inside one document",
+   "Automatic balance recalculation after each partial payment",
+   "\"Mark job complete\" button that activates the final payment request",
+   "Full payment timeline for the invoice on one screen",
+   "Client notification when the remaining balance is due"
+  ],
+  "antiFeatures": [
+   "Proprietary payment processing integrate Stripe or Square, do not build it",
+   "Bookkeeping and bank reconciliation",
+   "Multi-employee management"
+  ],
+  "monetization": "Flat $12 per month with unlimited invoices. Zero-commission processing as a competitive edge over Square. Payment processing via Stripe with fees passed to the client."
+ },
+ "invoice-maker-3": {
+  "categoryName": "Invoice makers",
+  "title": "Instant notification the moment a client opens your invoice",
+  "oneLiner": "A push arrives the second the client opens the invoice link, with full status tracking: viewed, paid, overdue, and smart automatic reminders.",
+  "gap": "\"Client viewed\" notifications exist in only a handful of apps, work unreliably, and give no guidance on whether to call now or wait. Nobody has built smart follow-up logic on top of this.",
+  "pitch": "An app with reliable invoice-open tracking. A push hits the moment the client opens the link, showing view time and device type. If the invoice has been opened multiple times without payment, that is your signal to call right now. Automatic reminders to the client are built around this behavior.",
+  "features": [
+   "Push notification on the client's first invoice open",
+   "View count and timestamp of the most recent visit",
+   "Call-now prompt triggered after multiple views with no payment",
+   "Auto-reminder to the client after a configurable number of days",
+   "Status feed: sent, viewed, partially paid, paid, overdue",
+   "Weekly receivables digest showing who owes what and when they last looked"
+  ],
+  "antiFeatures": [
+   "CRM and project management",
+   "Business bank account",
+   "Accountant-facing reporting"
+  ],
+  "monetization": "$10 per month for tracking and reminders. Invoice creation is free forever. Tracking is paid-tier only. The value is immediate: you know the client saw it, so you call with confidence."
+ },
+ "invoice-maker-4": {
+  "categoryName": "Invoice makers",
+  "title": "Per-client timer with one-tap invoice conversion",
+  "oneLiner": "Start a timer on a project, switch to the next client, hit one button at the end of the week, and get an accurate invoice for each client with exact hours.",
+  "gap": "Harvest and FreshBooks solve this on desktop but the mobile timer is often not linked to a specific client, drops data on app switch, or does not surface a Live Activity. For freelancers, the phone is the primary tool.",
+  "pitch": "A mobile time tracker where the main screen is a client list with a start-timer button next to each name. Log your hours, tap \"invoice,\" and the app multiplies hours by rate to generate a PDF. Live Activity keeps the active timer visible on the lock screen without opening the app.",
+  "features": [
+   "Client list with a start-timer button inline on each row",
+   "Live Activity and Dynamic Island showing the running timer without opening the app",
+   "Default hourly rate stored per client",
+   "Weekly hours report broken down by client",
+   "\"Invoice this week\" button per client",
+   "Manual time entry backdated with a note"
+  ],
+  "antiFeatures": [
+   "Nested task and subtask tracking",
+   "Team timesheet approval workflows",
+   "Jira or Linear integration"
+  ],
+  "monetization": "$9 per month for unlimited clients and invoice conversion. First two clients free forever. Target audience: designers, consultants, and lawyers who bill by the hour."
+ },
+ "invoice-maker-5": {
+  "categoryName": "Invoice makers",
+  "title": "One account across all devices with no data loss",
+  "oneLiner": "The tech invoices from his phone on-site, the owner sees it in a browser at the office. No manual exports, no lost history when the phone gets replaced.",
+  "gap": "iOS-to-Android sync fails or loses data in most apps. Replacing a phone wipes the invoice history. Shared access for an owner and a worker on the same account is almost never built in.",
+  "pitch": "An app with real cloud sync that has nothing to do with iCloud and no local storage. iOS, Android, and browser all show the same invoice list in real time. Up to two users on the account by default: the business owner and their worker operate in parallel.",
+  "features": [
+   "Real-time cloud sync independent of iCloud",
+   "Full-featured web version with the same capabilities as the mobile app",
+   "Up to two users on the base plan, up to five on the advanced plan",
+   "Auto-save every ten seconds while editing",
+   "Full invoice database export to CSV when switching apps",
+   "Offline mode with sync on reconnect"
+  ],
+  "antiFeatures": [
+   "Enterprise role-based access controls and permissions",
+   "ERP integrations",
+   "Team-level analytics"
+  ],
+  "monetization": "Freemium: one device and ten invoices per month free. $14 per month for all devices and two users. $22 per month for five users. Core pitch: with every competitor your data disappears when you change phones."
+ },
+ "invoice-maker-6": {
+  "categoryName": "Invoice makers",
+  "title": "Send invoices via SMS and WhatsApp, not just email",
+  "oneLiner": "Deliver the invoice through email, SMS, or WhatsApp. The client opens the link right away instead of hunting for an email buried in spam.",
+  "gap": "SMS delivery exists in only a handful of apps and is often unreliable. WhatsApp is almost never supported natively even though it is the first place many clients look.",
+  "pitch": "A tool where the invoice goes out in one tap through any channel: email, SMS, or WhatsApp. The client receives a short link to a mobile invoice page, approves the work, and pays right there. No PDF attachments to lose in a spam folder.",
+  "features": [
+   "Send invoice via email, SMS, and WhatsApp from a single screen",
+   "Mobile web invoice page with a built-in payment button",
+   "Short link requiring no client login",
+   "Per-channel open tracking",
+   "Message templates per channel: short for SMS, longer for WhatsApp",
+   "One-tap resend of the reminder through the same channel"
+  ],
+  "antiFeatures": [
+   "Bulk marketing broadcasts",
+   "CRM and sales funnels",
+   "Multi-currency international processing"
+  ],
+  "monetization": "$11 per month including up to 100 SMS messages. Email is always free. Additional SMS at $0.05 each. Core value: the invoice was delivered and read, not lost in spam."
+ },
+ "invoice-maker-7": {
+  "categoryName": "Invoice makers",
+  "title": "Separate tax rates for labor and materials in one invoice",
+  "oneLiner": "Tag each line item as labor or materials, and the app calculates tax separately for each type. Contractors stop overpaying tax and stop explaining wrong numbers to clients.",
+  "gap": "Almost every app applies one flat tax rate to the entire invoice total. Contractors, plumbers, and HVAC pros complain about this constantly because materials and labor are taxed differently in their trade.",
+  "pitch": "An app for construction contractors with tax assignment at the line-item level. Tag each row as labor, materials, or tax-exempt, and set a separate rate for each type. The final PDF shows a clean tax breakdown that looks professional to any client.",
+  "features": [
+   "Labor / materials / tax-exempt toggle on each invoice line",
+   "Two independent tax rate fields",
+   "PDF summary block showing labor subtotal, materials subtotal, and tax per type",
+   "Saved rate presets for common tax combinations",
+   "Buyer tax ID field",
+   "Annual tax report exportable as PDF or CSV"
+  ],
+  "antiFeatures": [
+   "Tax filing and submission",
+   "Balance sheet accounting",
+   "Enterprise roles and audit trails"
+  ],
+  "monetization": "$13 per month. Core pitch: the app literally saves money. You stop overpaying tax and stop sending clients wrong numbers. Contractors get this math immediately."
+ },
+ "invoice-maker-8": {
+  "categoryName": "Invoice makers",
+  "title": "Before-and-after job photos embedded inside the invoice",
+  "oneLiner": "Photograph the site before you start and after you finish. Captioned photos attach to the invoice in one gesture. The client sees exactly what was done and questions drop off.",
+  "gap": "Most apps let you attach photos but without captions or a before-and-after structure. Photos in the PDF often fail to render for the recipient or get lost entirely. This erodes client trust and multiplies follow-up questions after job completion.",
+  "pitch": "An app for contractors where photo documentation is built into the invoicing flow, not bolted on as an afterthought. Shoot before, shoot after, add captions in one gesture. The PDF reads like a professional completion report: the work is visible and the quality is clear.",
+  "features": [
+   "Before and after sections built directly into the invoice or estimate form",
+   "Text captions next to each photo",
+   "PDF output with photos and captions at full quality",
+   "Photo annotations: arrow, circle, text",
+   "Client gallery: all jobs at one address in one place",
+   "Share the photo report with the client as a separate link independent of the invoice"
+  ],
+  "antiFeatures": [
+   "General-purpose photo storage",
+   "Google Photos or iCloud integration",
+   "Corporate document management"
+  ],
+  "monetization": "$12 per month with 5 GB of photo storage included. Additional storage at $2 per GB per month. Competitive position: photo evidence reduces disputes with clients and protects the contractor's payment."
+ },
+ "sobriety-8": {
+  "categoryName": "Sobriety & quitting",
+  "title": "Body recovery and money saved tracker",
+  "oneLiner": "Shows exactly how your body is healing and how much money has been freed up in real numbers that do not reset on an update",
+  "gap": "Stats are a powerful motivator, but they lose credibility through technical failures: an app update can shift the start date and corrupt the accumulated numbers.",
+  "pitch": "A tracker with a detailed organ-recovery timeline and a precise money-saved counter. The user enters their addiction type and their spending, the app calculates everything else. Data is stored locally and never resets on an update.",
+  "features": [
+   "A recovery timeline for lungs, heart, liver, skin, and brain, grounded in research",
+   "A personal money counter using the spending figure the user enters",
+   "A short fact about exactly what changed in the body at each milestone",
+   "Support for multiple addiction types: alcohol, nicotine, vaping, and other",
+   "Data stored locally and transferred correctly when switching devices"
+  ],
+  "antiFeatures": [
+   "No shifting of the start date on an app update",
+   "No stats without grounding in real research",
+   "No data loss when switching to a new phone"
+  ],
+  "monetization": "Paid extended stats and PDF export for sharing with a doctor. The core health and money tracker is free."
  }
 }

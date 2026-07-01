@@ -2270,5 +2270,671 @@
    ],
    "takeaway": "The habit tracker niche looks crowded by app count, but it is split across several audiences that no single product serves well. The highest-paying and most evangelical segment — neurodivergent adults — has no product designed around their mechanics, only products adapted for them. Power users stay for years but leave at the first technical failure. The professional market (therapists, coaches, ABA specialists) is nearly untouched: willing to pay for a multi-client dashboard, they are working with spreadsheets."
   }
+ },
+ "scanner-pdf": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Field professionals and freelancers",
+     "job": "Scan work documents, receipts, and contracts on the go and send them immediately to a client or accounting team without returning to the office.",
+     "payLevel": "pays readily",
+     "payNote": "Willing to pay $5 to $15 per month for a subscription if the app is reliable. Prefers a one-time purchase or annual plan. A $10 to $15 weekly subscription reads as exploitative. Landscape architects, case managers, and attorneys in the field are the specific personas that surface in reviews.",
+     "servedBy": [
+      "TurboScan™ Pro: PDF scanner",
+      "Scanner Pro・Scan PDF Documents",
+      "Doc Scan - PDF Scanner",
+      "JotNot Scanner App Pro",
+      "Scanner App: Genius Scan"
+     ],
+     "gap": "Not one app delivers reliable email sending. TurboScan emails take hours, Genius Scan emails stopped arriving entirely, and JotNot delivers files in an unreadable .jot format. A field professional scans a document specifically to send it right away. That final step is exactly where every market leader breaks."
+    },
+    {
+     "name": "Students",
+     "job": "Digitize handwritten assignments, notes, or printed handouts and submit them as PDFs through a learning platform or email.",
+     "payLevel": "pays reluctantly",
+     "payNote": "Looking for free or nearly free. Willing to tolerate ads or pay a one-time fee of $1 to $5. A one-week subscription for a single assignment happens but feels like a forced move. Several reviews say outright: \"should be free for students.\"",
+     "servedBy": [
+      "PDF Scanner to scan Document.s",
+      "TurboScan™: document scanner",
+      "Tiny Scanner - PDF Scanner App",
+      "PDF Scanner App: TapScanner",
+      "Photos PDF : Scanner Converter"
+     ],
+     "gap": "Apps handle handwritten text poorly: OCR produces unreadable output or does not support handwriting at all. A student wants to submit a handwritten assignment as a clean scanned PDF, not as OCR text, just a sharp image with correct A4 proportions. No app is built specifically for that use case. Auto-straightening distorts notebook pages, and page order in batch capture gets shuffled."
+    },
+    {
+     "name": "Home users with a paper archive",
+     "job": "Digitize and keep important personal documents insurance policies, tax paperwork, medical records, family archives so they are accessible from a phone.",
+     "payLevel": "pays selectively",
+     "payNote": "Pays once for the app or for a very cheap subscription of $1 to $3 per month at most. Typical pattern: bought three years ago, uses it once a quarter. Will pay for a lifetime license but sees a recurring subscription as unfair for infrequent use.",
+     "servedBy": [
+      "Tiny Scanner - PDF Scanner App",
+      "My Scans, best PDF Scanner App",
+      "iScanner: PDF Document Scanner",
+      "Scanner App: Genius Scan",
+      "TurboScan™: document scanner"
+     ],
+     "gap": "Documents disappear when switching phones or reinstalling the app. All five leaders store the archive locally with no cloud backup by default. Users spent years building a personal archive and lost everything on a new phone. This is a systemic pain no one has solved with a simple fix, namely auto-sync to whatever cloud provider the user already has, at no extra charge."
+    },
+    {
+     "name": "Professionals who sign contracts and forms",
+     "job": "Receive a PDF form or contract, sign it on a phone, and send it back without printing or using a desktop scanner.",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to pay a one-time fee or subscribe up to $10 to $15 per month if the tool feels professional. Pays for PDF Expert or Adobe Acrobat but gets angry when paid features are revoked or hidden behind a new subscription tier. The primary payment trigger is a deal or a deadline, not ongoing routine use.",
+     "servedBy": [
+      "PDF Expert: Editor & Converter",
+      "Acrobat Reader: PDF Editor",
+      "iLovePDF - PDF Editor & Scan",
+      "Forma: PDF Document Editor",
+      "Genius Scan Enterprise - PDF"
+     ],
+     "gap": "Signing on iPhone is broken across the board: the drawing tool misses by an inch (PDF Hero), the signature cannot be scaled (Photo to PDF Convert Scanner+), and annotations vanish on reopen (Acrobat). No app gets the full mobile cycle right: open PDF, type into a field, place a signature, send, without something breaking."
+    }
+   ],
+   "takeaway": "Four distinct segments, four distinct budgets. Field professionals pay readily for something that simply works. Students pay as little as possible. Home users pay once and forget. Form-signers pay when a contract is on the line. The gap that cuts across all four is the same: the final delivery step breaks, and trust collapses instantly."
+  },
+  "market": {
+   "money": "The niche monetizes through subscriptions ($3 to $15 per month) or one-time purchases, with most apps placing the paywall exactly on export, the only action users open a scanner to perform.",
+   "marketLead": "The market is oversaturated and in decay. Long-standing leaders (CamScanner, Genius Scan, TurboScan) broke core features through updates and aggressive monetization, while newer entrants are busy inflating ratings. Users trust apps for years, then switch the moment the basic scan-and-send cycle stops working. That opens the niche for a new player with an honest model and reliable email export."
+  }
+ },
+ "ai-chatbot": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Professionals and analysts",
+     "job": "Speed up work with text, documents, research, and code without sacrificing accuracy",
+     "payLevel": "pays readily",
+     "payNote": "Willing to hold two subscriptions at the same time ChatGPT plus Claude for their different strengths. They name specific dollar amounts: $20 for ChatGPT, plus Claude specifically for document work. Perplexity Pro for verified sources.",
+     "servedBy": [
+      "Claude by Anthropic",
+      "ChatGPT",
+      "Perplexity - AI Search & Chat",
+      "Google Gemini",
+      "Microsoft Copilot"
+     ],
+     "gap": "No reliable long-term context memory across sessions: every time they have to re-explain the project, role, and style. Mobile apps for every top player are worse than the web versions, even as mobile usage grows faster."
+    },
+    {
+     "name": "Roleplay enthusiasts and storytellers",
+     "job": "Sustain long narrative conversations with a character that holds its role and remembers the story",
+     "payLevel": "pays selectively",
+     "payNote": "Pay to remove ads and unlock filters. The threshold is sensitive: they'll pay to avoid ads every 15-20 messages, but they leave when context breaks or a character degrades. Character AI lost three-year paid subscribers specifically because of post-update degradation.",
+     "servedBy": [
+      "Sakura - Chat with AI Bots",
+      "Character AI: Chat, Talk, Text",
+      "Kindroid: Your Personal AI",
+      "Moescape - AI Characters & Art",
+      "PolyBuzz: Chat with Characters"
+     ],
+     "gap": "No app has solved reliable character memory in long sessions: bots degrade, lose their voice, repeat early lines. This is the top complaint across the segment, and whoever solves it first will find users ready to pay."
+    },
+    {
+     "name": "People seeking companionship and emotional connection",
+     "job": "Have a conversation, get support, or feel like someone is there without judgment",
+     "payLevel": "pays reluctantly",
+     "payNote": "Pay impulsively to unlock a story beat or romantic content, but leave as soon as the monetization mechanic breaks the illusion hearts run out at a peak moment, an ad interrupts the conversation. Dokichat and EVA AI lose users exactly here.",
+     "servedBy": [
+      "Kindroid: Your Personal AI",
+      "Dokichat Romantic AI Chat",
+      "EVA AI Soulmate",
+      "CHAI: Social AI Platform- Chat",
+      "Linky AI: AI Chat&Char Maker"
+     ],
+     "gap": "The monetization mechanic always surfaces at the moment of peak emotional engagement, destroying trust. No product has found a subscription model that doesn't feel like being interrupted for money."
+    },
+    {
+     "name": "Students and self-learners",
+     "job": "Get a quick explanation, step-by-step solution, or homework help right from their phone",
+     "payLevel": "pays reluctantly",
+     "payNote": "Convert to paid only under high urgency exam, deadline. Solvely and Quiz AI monetize on exactly that pattern, but ratings suffer because the paywall kicks in after 2-3 questions, at which point users go looking for an alternative.",
+     "servedBy": [
+      "Solvely - AI Study Tools",
+      "Quiz AI: AI Homework Helper",
+      "ChatGPT",
+      "Google Gemini",
+      "Microsoft Copilot"
+     ],
+     "gap": "No product that walks through a solution step by step without hitting a paywall while also keeping context across the parts of a multi-step problem. Solvely drops context between parts of the same problem, which is critical for learning."
+    }
+   ],
+   "takeaway": "Money in this niche concentrates with professionals: they're the only segment that holds two subscriptions at once and doesn't leave after the first hiccup. Roleplay users pay selectively but care about memory quality, not price. The companion and student segments pay impulsively and show low loyalty. The strongest build targets are professionals with a specific workflow documents, research, code or roleplay users with a solved memory problem. Both groups already spend money and articulate what they want precisely. Don't build for 'broad daily-use audiences': that market belongs to ChatGPT and Gemini, and competing without differentiation means fighting inflated-rating nobodies at the bottom of the chart."
+  },
+  "market": {
+   "money": "The market runs on subscriptions from $10 to $30 per month, and paying users hold several subscriptions at once for different jobs rather than picking a single winner.",
+   "marketLead": "The niche splits into two completely separate markets with different trust dynamics: the top five ChatGPT, Claude, Gemini, Perplexity, Copilot attract professional users with real spending behavior, the other 52 apps are wrappers on the same APIs with inflated ratings, shrinking audiences, and aggressive monetization that destroys trust faster than it can be built."
+  }
+ },
+ "intermittent-fasting": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Weight-loss goal setters",
+     "job": "Lose a specific amount of weight through a clear eating schedule without counting every calorie",
+     "payLevel": "pays selectively",
+     "payNote": "They pay when they see results: reviews saying \"lost 21 pounds in three months\" sit right next to \"happy to subscribe since it's working.\" Price sensitivity is real at the inflection points (40 dollars a month triggers pushback, 30 dollars a year gets accepted). Paid conversion happens after 2-4 weeks of visible progress. They leave immediately if the paywall comes before the product.",
+     "servedBy": [
+      "Zero: Fasting & Food Tracker",
+      "Fastic Weight Loss & Fasting",
+      "DoFasting Intermittent Fasting",
+      "Fastin: Intermittent Fasting",
+      "WeFast: Diet Plan for Women"
+     ],
+     "gap": "There is no app that explains the physiology during the fast itself (what is happening at hour 8, 14, 18) without pushing a paywall before the user has felt any result. Phase visualization works as a mechanic, but a subscription wall blocks it before the user completes even one fast."
+    },
+    {
+     "name": "Established 16:8 and 18:6 practitioners",
+     "job": "Keep an accurate fasting log with no fanfare, no subscription, and no app that breaks after updates",
+     "payLevel": "pays readily",
+     "payNote": "The most reliably paying segment: people with 1-3 years of experience who have already spent money on Life app (now shut down), FastHabit, and Zero, and are actively looking for a replacement. They pay not for features but for reliability and to make sure history does not disappear. They name exact amounts: 30 dollars a year is fine, 40 dollars a month is not. A lifetime purchase is welcomed as a signal of team honesty.",
+     "servedBy": [
+      "Easy Fast Tracker: FastMinder",
+      "Daily Fast",
+      "Fasting Tracker • Easy Fast",
+      "Fasting Secret",
+      "Rhythm: Fasting Tracker"
+     ],
+     "gap": "Retroactive editing of start and end times exists in only a handful of apps, yet every user needs it. Automatic repeating fasts without a manual start each day are not implemented well anywhere. Sync between iPhone and iPad is still the exception, not the norm."
+    },
+    {
+     "name": "Keto combiners",
+     "job": "Track eating windows alongside keto macros in one tool without switching between two apps",
+     "payLevel": "pays readily",
+     "payNote": "They pay confidently and without haggling: they came from MFP after its paywall locked key features, are looking for an alternative, and are willing to pay a similar amount. Senza gets their money because it auto-calculates net carbs, and they call that the only reason not to leave. KetoDiet gets it for recipes. They praise the absence of a subscription as a point of principle (one-time purchase equals honesty).",
+     "servedBy": [
+      "Senza: Keto & Fasting",
+      "KetoDiet: Fasting & Meal Plans",
+      "Cronometer: Calorie Counter",
+      "Fasting + Intermittent Fasting",
+      "Kompanion: Weight Loss Plan"
+     ],
+     "gap": "There is no tool that shows net carbs in real time next to the fasting timer without a broken food database. Barcode scanners misread one in three products across all competitors. Keto recipes exist but the database is US- or Europe-focused, with no coverage of other regional food contexts."
+    },
+    {
+     "name": "Extended fast practitioners (24h+)",
+     "job": "Safely track 24-72 hour and multi-day fasts with hourly physiological context",
+     "payLevel": "pays selectively",
+     "payNote": "A small segment but a deliberate one: they arrived intentionally via OMAD, 5:2, water fasting, or medical guidance. They pay when the product genuinely fills the niche (Suavita gets their money specifically for 40-day fasts because there is no alternative). They will tolerate an ugly UI if the functionality is honest. They will not forgive a 24-hour cap -- they delete immediately.",
+     "servedBy": [
+      "Suavita: Fasting Tracker App",
+      "Easy Fast Tracker: FastMinder",
+      "Window - Intermittent Fasting",
+      "Fasting Secret",
+      "Fasting Tracker • Easy Fast"
+     ],
+     "gap": "Not a single quality app exists without a 24-48 hour cap that also includes physiological milestones by hour (what happens at hour 36, 48, 72). Suavita is the only one covering this niche, but the interface is rough. The market is effectively unfilled: users buy an immature product because nothing better exists."
+    }
+   ],
+   "takeaway": "Money in this niche concentrates in two segments: established practitioners (1-3 years of experience) and keto combiners. Both are already paying and are actively searching for a reliable replacement for apps that have died or degraded. Established practitioners pay for stability and honesty, keto combiners pay for net carbs plus a timer in one place. Weight-loss newcomers only convert to paid after visible results and are highly sensitive to early paywalls. The extended-fasting segment is small but loyal and pays where there is no competition. Building for established practitioners is the right call: they have already spent money and are actively hunting for an app that does not break after updates, where the main job is simply not losing data and allowing retroactive time edits. Do not build for newcomers without a clear niche: that market is saturated with review-inflated apps and aggressive paywalls, and competing on CAC there is not realistic."
+  },
+  "market": {
+   "money": "The market earns through subscriptions from 10 to 30 dollars a month or one-time purchases of 10-30 dollars, with paying users arriving after 2-4 weeks of use and willing to pay roughly what they pay for Netflix -- no more.",
+   "marketLead": "The niche is dominated by apps with inflated ratings and aggressive subscription onboarding: of the 47 apps analyzed, 23 show signs of manipulation, and the real market shortage is not a tracker per se but an app that simply does not break, does not lose history, and does not put a paywall up before the user has had a chance to understand why they would pay."
+  }
+ },
+ "flashcards": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Medical students and nursing candidates",
+     "job": "Memorize a massive body of facts for board exams (USMLE, NCLEX, Step) and retain them accurately during real clinical shifts",
+     "payLevel": "pays readily",
+     "payNote": "UWorld and Picmonic run $80-350 per year with no shortage of buyers. Failing a board exam costs far more than any subscription, so spending on study tools is treated as insurance.",
+     "servedBy": [
+      "UWorld Medical Exam Prep",
+      "Picmonic Nursing & NCLEX Study",
+      "MEDizzy - Medical Exam Prep",
+      "AnkiMobile Flashcards",
+      "AlgoApp - Flashcards"
+     ],
+     "gap": "No tool combines a quality spaced repetition algorithm with clinically accurate content and offline functionality during a shift. UWorld breaks without a connection, Anki takes an hour to set up, and Picmonic does not replace a question bank."
+    },
+    {
+     "name": "Self-directed language learners",
+     "job": "Build vocabulary and grammar at their own pace, without a teacher or hard deadlines",
+     "payLevel": "pays selectively",
+     "payNote": "They pay for a specific algorithm (FSRS in AlgoApp) or curated content in their target language. If an app offers only a fixed word list with no room for custom cards, they skip the subscription and fall back to free Anki.",
+     "servedBy": [
+      "AlgoApp - Flashcards",
+      "AnkiMobile Flashcards",
+      "WordUp - Vocabulary Builder",
+      "Brainscape - Study Flashcards",
+      "Kana - Hiragana and Katakana"
+     ],
+     "gap": "No single tool delivers quality SRS, custom card support, reliable offline access, and curated content for a specific language all at once. Users are forced to juggle two or three apps."
+    },
+    {
+     "name": "High school and college students cramming for exams",
+     "job": "Learn lecture material fast before a test in a few days, ideally without typing cards by hand",
+     "payLevel": "pays reluctantly",
+     "payNote": "Typical reaction: \"why should I pay when I already pay for school.\" They will make a small one-time purchase before an important exam but see subscriptions as a trap. Quizlet lost this segment after tightening its paywall.",
+     "servedBy": [
+      "Quizlet: More than Flashcards",
+      "Gizmo: AI Tutor",
+      "Knowt: AI Flashcards & Notes",
+      "Brainscape - Study Flashcards",
+      "Focus Tree: Timer & Flashcards"
+     ],
+     "gap": "Several apps offer AI card generation from a photo of notes, but quality is inconsistent and paywalls appear at the worst moment (two days before the test). There is no reliable free tool with solid SRS for one-off exam prep."
+    },
+    {
+     "name": "Professional certification candidates (GRE, IELTS, TOEFL, bar exam)",
+     "job": "Pass a standardized test on the first try: acquire academic vocabulary or domain-specific rules within a fixed deadline",
+     "payLevel": "pays readily",
+     "payNote": "Test prep spending reads as an investment: failing GRE or IELTS costs $200 or more and sets you back months. GRE Vocabulary Flashcards by Magoosh holds its audience precisely because it is free, removing the barrier for people already paying for courses.",
+     "servedBy": [
+      "GRE Vocabulary Flashcards",
+      "Vocabulary Flashcards - IELTS",
+      "TOEFL Flashcards - Vocabulary",
+      "Brainscape - Study Flashcards",
+      "AnkiMobile Flashcards"
+     ],
+     "gap": "All specialized apps (IELTS, TOEFL, GRE) offer a fixed closed content set with no way to add words from actual practice tests. Users want to combine a ready-made base with their own mistake lists, but no tool does this in a single interface."
+    }
+   ],
+   "takeaway": "Money concentrates in two places: medical students with board exams (large recurring payments, treated as insurance) and certification candidates (GRE, IELTS, TOEFL where a deadline creates acute pain and immediate willingness to pay). Both segments already pay competitors. High schoolers and cramming undergrads pay reluctantly and bail at the first paywall. Self-directed language learners pay selectively: only for an algorithm or content unavailable in free alternatives. Build for the audience with an external exam and a hard deadline. They have the motivation, the money, and the understanding that the cost of failure exceeds the cost of the tool. Do not build for students with no money and no deadline."
+  },
+  "market": {
+   "money": "Medical board prep (NCLEX, USMLE) and international language certifications (IELTS, TOEFL, GRE). UWorld charges $350+ per year with a full buyer pipeline. Picmonic is in the same price range. AlgoApp and AnkiMobile retain loyal paying users with years of investment in their decks. Quizlet lost the mass-market user after tightening monetization but continues to extract revenue from serious students.",
+   "marketLead": "AnkiMobile and AlgoApp share the top position on algorithm quality (both support FSRS). Quizlet leads on reach and shared content library size. UWorld and Picmonic dominate the medical niche. No single player delivers all four at once: reliable SRS, user-generated content, curated content library, and offline access."
+  }
+ },
+ "translator": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Travelers",
+     "job": "Read a menu, sign, or instruction in a foreign language and have a quick chat with a local while on a trip",
+     "payLevel": "pays selectively",
+     "payNote": "They pay for an offline pack or a one-time purchase before a trip. A $10/week subscription feels like a rip-off. They are willing to spend $5 10 once and forget about it. After coming home they delete the app or do not open it for months.",
+     "servedBy": [
+      "Google Translate",
+      "Spanish Translator Offline",
+      "iTranslate Translator",
+      "Speak & Translate - Translator",
+      "Microsoft Translator"
+     ],
+     "gap": "There is no app with a genuinely honest offline mode at a fixed one-time price. Every leader is either free with unreliable offline or pushes a subscription. Google Translate camera works well but does not save session translation history for offline review later. No app offers a trip journal mode: saved translations organized by day and location."
+    },
+    {
+     "name": "Immigrants and expats",
+     "job": "Communicate with a doctor, official, neighbor, or employer every day when the local language is not yet learned",
+     "payLevel": "pays readily",
+     "payNote": "They use a translator several times a day as a working tool. They pay for stability and reliability, not features. A hearing-impaired user relying on Microsoft Translator at a library help desk, or workers messaging Spanish-speaking colleagues through UDictionary's overlay, will pay monthly. They are sensitive to losing access after an update.",
+     "servedBy": [
+      "UDictionary Translator",
+      "Microsoft Translator",
+      "Dialog - Translate Speech",
+      "Translator »",
+      "iTranslate Translator"
+     ],
+     "gap": "No translator offers a permanent-resident mode: saved phrases organized by context (clinic, bank, work), full translation history, and offline as a first-class priority. Every competitor's voice mode breaks in any street or office noise and that is exactly where this segment lives."
+    },
+    {
+     "name": "Language learners",
+     "job": "Understand an unfamiliar word or phrase in context while reading, watching, or talking, and actually remember it without switching apps",
+     "payLevel": "pays selectively",
+     "payNote": "They will pay for a dictionary with built-in flashcards and pronunciation. They will not pay for voice translation they do not need. Yandex Translate is praised specifically for combining translation with vocabulary saving. Biblical Hebrew, Italian, and university French are real use cases from reviews. They convert to paid users when a word-review feature exists.",
+     "servedBy": [
+      "Yandex Translate",
+      "iTranslate Translator",
+      "DeepL Translate",
+      "UDictionary Translator",
+      "Microsoft Translator"
+     ],
+     "gap": "No translator has built-in spaced repetition directly inside the vocabulary list: you look up a word during translation and get a reminder the next day. DeepL offers alternative phrasings and register options but does not save them. Yandex saves words but the flashcard system is bare-bones. The gap between translate and remember is not closed by any app in the sample."
+    },
+    {
+     "name": "Professionals and business users",
+     "job": "Translate a business email, contract, or technical manual accurately while preserving tone and terminology often directly inside a work messenger",
+     "payLevel": "pays readily",
+     "payNote": "DeepL is described as the only app accurate on nuance, alternative phrasings, and register. They pay for accuracy, not voice. They use iTranslate and UDictionary keyboard extensions to translate directly inside corporate chat without switching apps. They will pay at SaaS-tool pricing levels as long as quality does not degrade after an update.",
+     "servedBy": [
+      "DeepL Translate",
+      "iTranslate Translator",
+      "Translator Keyboard - Language",
+      "UDictionary Translator",
+      "Translate Now - AI Translator"
+     ],
+     "gap": "No translator has project context memory: a company glossary, a remembered correspondence style, translation of the next email informed by previous ones. DeepL Desktop does this partially, the mobile app does not. Keyboard translators lose conversation context with every new input field."
+    }
+   ],
+   "takeaway": "Money in the translator category concentrates in two segments: immigrants who need the tool every day like a utility, and professionals who pay for accuracy in a business context. Both pay readily and regularly. Travelers and learners pay once or selectively, and building the core monetization around them is a dead end. Google and DeepL have covered general text translation for free, so building another general-purpose text translator makes no sense. The product opportunity opens where competitors fail consistently: reliable voice mode in noisy environments for immigrants, and context-aware glossaries for professionals. Never build for freeloaders looking for a free alternative to Google that is a path to zero conversion."
+  },
+  "market": {
+   "money": "The professional and business segment pays readily for accuracy and workflow integration. Immigrants pay for the reliability of a daily-use tool. Together these two segments represent a smaller share of total users but generate nearly all the category's revenue. DeepL charges $10.99/month from professionals and retains them for years. iTranslate holds 525,000 ratings and converts through its keyboard extension. The real ARPU of a traveler in this category is close to zero.",
+   "marketLead": "Google Translate dominates on coverage and free access, DeepL dominates among professionals on accuracy, and iTranslate holds market share through keyboard integration. The niche of a reliable everyday voice translator for use in noisy environments is not claimed by any leader: Dialog - Translate Speech shows strong retention but breaks under noise, and Microsoft Translator has degraded after updates."
+  }
+ },
+ "run-tracking": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Complete beginners (couch-to-5K)",
+     "job": "Run a full 5K without stopping in 8 weeks, without getting injured and without quitting in week two",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to make a one-time purchase in the $3-5 range but actively resists subscriptions. A paywall mid-course (weeks 5-7) feels like a betrayal and triggers a wave of one-star reviews. The 'pay once and finish' model (Just Run, Couch to 5K) earns the best reviews in the segment.",
+     "servedBy": [
+      "C25K® 5K Running Coach & Map",
+      "None to Run: Beginner, 5K, 10K",
+      "Just Run: Zero to 5K (+10K)",
+      "Zombies, Run! 5k Training",
+      "5K Runner: couch potato to 5K"
+     ],
+     "gap": "No product handles a relapse well. A user misses two weeks due to illness or travel and the app either keeps rolling the plan as if nothing happened or resets all progress. What is needed is a return mechanic: assess current fitness and offer a gentle re-entry point without a demoralizing reset to week one."
+    },
+    {
+     "name": "Casual 5K to 10K runners with a base",
+     "job": "Improve a personal record on familiar distances without burning out on monotonous runs and without hiring a real coach",
+     "payLevel": "pays readily",
+     "payNote": "This is the most commercially mature segment: these people already spend on shoes, watches, and gear, so a $10-15/month coaching subscription fits their worldview. Runna and Nike Run Club hold this audience, and it pays as long as progress is visible. The main churn trigger: the plan does not adapt when a workout is missed.",
+     "servedBy": [
+      "Runna: Running Plans & Coach",
+      "Nike Run Club: Running Coach",
+      "ASICS Runkeeper Run Tracker",
+      "Strava: Run, Bike, Walk",
+      "10K Runner, Couch to 10K Run"
+     ],
+     "gap": "Plan adaptability to real life. Runna claims to 'adapt based on how you feel', but users say directly that answering 'too hard' does not change the next workout. Nike Run Club logs a run separately from the plan. A product that honestly recalculates the block after a missed day or illness and explains why closes a gap no one has filled."
+    },
+    {
+     "name": "Half-marathon and marathon prep runners",
+     "job": "Arrive at the start line in the right shape on a specific date, with a structured multi-week plan that includes periodization",
+     "payLevel": "pays readily",
+     "payNote": "Pays for methodology, not a tracker. Run With Hal sells Higdon's name and periodization structure, and it works. Runna holds users with a subscription through 'what to run today' structure. TrainingPeaks retains triathletes through a coach connection. A price of $15-30/month is fine when there are 12 weeks to race day.",
+     "servedBy": [
+      "Runna: Running Plans & Coach",
+      "Run With Hal",
+      "TrainingPeaks: Plan Train Lift",
+      "Nike Run Club: Running Coach",
+      "ASICS Runkeeper Run Tracker"
+     ],
+     "gap": "Schedule rigidity. Run With Hal does not let you swap days, and that is the single most common complaint. Runna's vacation mode works as a workaround but not a solution. No one has solved 'move my workouts around this week and recalculate load' without breaking the periodization logic. That is not a niche feature, it is the top pain for anyone balancing race prep with a job."
+    },
+    {
+     "name": "Data-oriented Apple Watch runners",
+     "job": "Get a complete picture of the workout from the wrist without a phone in the pocket, and see heart rate zones, pace, and cumulative volume in one place",
+     "payLevel": "pays readily",
+     "payNote": "Will buy one-time apps for $5-20 without hesitation if the product actually works on Watch. WorkOutDoors and Zones for Training close part of this need with a one-time purchase and earn loyalty for years. This segment reacts especially hard to technical regressions after updates.",
+     "servedBy": [
+      "WorkOutDoors",
+      "Zones for Training",
+      "Watch to 5K－Couch to 5km coach",
+      "Tempo: Run Log & Insights",
+      "Runna: Running Plans & Coach"
+     ],
+     "gap": "A standalone Watch workout without a phone remains unsolved for coaching products. Watch to 5K does the right thing but breaks on audio cues through AirPods. Runna requires the phone nearby. WorkOutDoors gives data but no plan. A product that runs a full C25K program directly on Apple Watch without the phone, with audio, haptics, and correct heart rate zones, does not exist in working form."
+    }
+   ],
+   "takeaway": "Money sits in two places. First: casual 5K-10K runners with a base, who already spend on running, are ready to pay a subscription, and only churn when the plan fails to adapt to life. Second: marathon and half-marathon runners who pay for methodology and structure, not GPS. Beginners pay reluctantly and only once so building a core business around them is not the play, but they matter as a funnel. Street data is clear: Strava and Nike Run Club are free and strong at basic tracking, so competing on 'log your run' is pointless. Build around either adaptive planning (plan honestly recalculates after a missed session, illness, or race date change) or around Apple Watch as the primary screen without the phone. Do not build for complete beginners as the core audience: they convert weakly and the C25K market is saturated with dollar apps."
+  },
+  "market": {
+   "money": "The market is formed and divided. Strava monetizes via Strava Premium (around $11/month), Nike Run Club and adidas Running are free as brand marketing. Runna is around $16/month and growing fast in the structured-plans segment. TrainingPeaks holds the professional end (around $19/month with a coach). One-time purchases (Just Run, WorkOutDoors, Zones for Training) work in niches with technical users. Subscription monetization only holds when the plan visibly improves week over week, the moment progress stalls, the subscription is canceled.",
+   "marketLead": "Strava is the cultural leader and the social layer on top of any tracker. Nike Run Club is the most widely used free coach for beginners and casual runners. Runna is the fast-growing challenger for the structured race-prep segment. WorkOutDoors is the niche leader for Apple Watch with data and no coaching. TrainingPeaks is the standard for serious athletes and triathletes with a coach."
+  }
+ },
+ "voice-recorder": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Managers and teams in meetings",
+     "job": "Capture decisions and tasks from a meeting without taking notes during the conversation",
+     "payLevel": "pays readily",
+     "payNote": "They pay for annual Otter or Wave subscriptions without negotiating, because losing a meeting record costs more than the subscription. The core pain is losing a recording to a bug or missing auto-save, they'll pay extra for reliability. They churn when prices spike sharply (TapeACall going from $29 to $69 drove mass abandonment).",
+     "servedBy": [
+      "Otter Transcribe Voice Notes",
+      "Wave AI Note Taker & Recorder",
+      "Minutes: AI Meeting Note Taker",
+      "Easy Voice Recorder"
+     ],
+     "gap": "No auto-save without a manual tap after recording: several apps silently lose meetings. No mobile integration with MS Teams or Slack. Speaker identification resets and has to be redone by hand."
+    },
+    {
+     "name": "Journalists and researchers",
+     "job": "Transcribe a multi-speaker interview and export the text to an editor for working with quotes",
+     "payLevel": "pays readily",
+     "payNote": "They pay for accurate transcription with speaker labels and clean export to Word or Google Docs. One broken export format or losing six interviews after an update (a real Recorder Plus incident) and they're gone for good. The issue isn't price, it's workflow.",
+     "servedBy": [
+      "Transcribe - Speech to Text",
+      "Otter Transcribe Voice Notes",
+      "TapeACall Pro: Call Recorder",
+      "Wave AI Note Taker & Recorder"
+     ],
+     "gap": "Punctuation is weak and requires a proofread pass. Each export format beyond .txt costs extra. No way to train the model on a custom professional vocabulary. Recorder Plus has destroyed years-long archives during updates."
+    },
+    {
+     "name": "Students in lectures",
+     "job": "Record an entire lecture or seminar and get a structured set of notes without replaying everything",
+     "payLevel": "pays selectively",
+     "payNote": "They pay for a specific feature: structured notes or multilingual transcription (several explicitly mention graduate coursework in Spanish). Otter's free tier runs out fast, and some move to a paid plan after that. For basic recording without transcription they use Apple Voice Memos for free.",
+     "servedBy": [
+      "Minutes: AI Meeting Note Taker",
+      "Wave AI Note Taker & Recorder",
+      "Otter Transcribe Voice Notes",
+      "Voice Memos"
+     ],
+     "gap": "Mixed-language transcription in a single file doesn't work well (two languages in one class session). Sharing notes with classmates is clunky. Offline mode is absent, so transcription is unavailable without a network connection."
+    },
+    {
+     "name": "Musicians and creators capturing ideas",
+     "job": "Grab a melody, a lyric, or an arrangement idea on the go in seconds and find it later among other sketches",
+     "payLevel": "pays reluctantly",
+     "payNote": "Apple Voice Memos covers the core need for free, so they'll only pay for something concrete on top: Apple Watch recording on the go, MP3 export without conversion, Dropbox sync. Questionable ads in several apps (Voice Record Pro, Voice recorder Voz) are a bigger turnoff than price.",
+     "servedBy": [
+      "Voice Record Pro",
+      "Voice Recorder - Audio Record",
+      "Voice Memos",
+      "Easy Voice Recorder"
+     ],
+     "gap": "No search across recordings once the library grows large. File organization is primitive: folders exist, tags don't. Bluetooth speakers don't work during playback in several apps. Apple Watch recording doesn't sync reliably."
+    }
+   ],
+   "takeaway": "The money in this niche belongs to two paying segments: managers in meetings and journalists or researchers. Both are already paying, the question isn't whether to convert them, it's whether to lose them to a bug or a price hike. Students pay selectively and only for a specific feature on top of the free baseline. Musicians and creators are the weakest payers because Apple Voice Memos covers their need at no cost. The product worth building serves the meeting use case: auto-save without a manual tap, reliable speaker identification, and export to corporate formats. These are gaps people are ready to pay for today. Don't bet on the personal voice memo or music-sketch market: Apple's free alternative dominates, and everyone else competes on how little they charge for ads."
+  },
+  "market": {
+   "money": "Paying users cluster in two scenarios: business meetings and professional transcription. Those segments have an established ARPU of $50 to $140 per year. Everything else (personal notes, call recording, music sketches) runs on freemium or Apple's free offering. iOS call recorders are a sub-segment with a negative reputation: 15 of the 28 apps in the sample inflate their ratings, and most use the same conference-bridge workaround with the same limitations.",
+   "marketLead": "Otter is the recognizable leader in business transcription, but a real text rating of 2.82 out of 5 against a storefront rating of 4.76 signals that the product isn't meeting expectations. Wave AI Note Taker has the best real score (3.44) among AI transcription apps and is growing. In pure recording without transcription, Apple Voice Memos leads: 1 million ratings, free, and built into the OS."
+  }
+ },
+ "resume-builder": {
+  "audience": {
+   "segments": [
+    {
+     "name": "First-time applicants and new grads",
+     "job": "Need to create a first resume from scratch, fast, with no knowledge of structure. This also covers people returning to the job market after years away.",
+     "payLevel": "pays reluctantly",
+     "payNote": "Wants free or a one-time payment of $1-5. Subscriptions feel predatory especially when the person is out of work and short on cash. Direct quotes include \"Como quieren que les pague una subcripcion si no tengo trabajo\" and requests for a \"student option.\"",
+     "servedBy": [
+      "Resume Builder⁺",
+      "Resume AI Intelligent CV App",
+      "Resume AI - CV Maker & Builder",
+      "CV Resume",
+      "Resume Builder - AI Resumate"
+     ],
+     "gap": "No app explains resume structure inside the product. The question-and-answer flow in Resume AI is appreciated, but after completion the AI rewrites content into generic phrases with no way to revert. There is no educational layer: no tips on why a section matters or what to actually write."
+    },
+    {
+     "name": "Experienced job seekers updating their resume",
+     "job": "Already have a working resume or a LinkedIn profile and need to quickly update for a new role, add a recent job, or shift the emphasis. Do not want to start from scratch.",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to pay for a specific task (one export, one template) but reject annual subscriptions the logic being \"I update my resume once a year, why would I need a subscription?\" Direct quote: \"why would I need a subscription for a resume? I only need it once\". Will pay readily when a clear one-time price is shown before they start filling in data.",
+     "servedBy": [
+      "Got Resume Builder",
+      "Resume Builder by Nobody",
+      "Kickresume: AI Resume Builder",
+      "Resume Builder - CV Engineer",
+      "Resume Builder: PDF Resume App"
+     ],
+     "gap": "The critical gap is importing an existing resume. Either the feature is missing or it corrupts the original: job titles get shortened to generic labels, fields disappear. Plus the chronology issue: a new job gets appended to the bottom, not the top, breaking the reverse-chronological standard. Several users received recruiter rejections because of this."
+    },
+    {
+     "name": "Blue-collar workers without a computer",
+     "job": "Drivers, cooks, service workers, construction workers. The phone is their only device. They need a basic resume to apply for a specific job, no ATS required, often for printing or sending directly to an employer.",
+     "payLevel": "pays reluctantly",
+     "payNote": "Very price-sensitive. Many come specifically for \"free\" and get angry at a hidden paywall at the end. That said, several users readily paid $3-5 for the ability to print when the price was clear and small upfront. Voice input (Professional Resume Builder) resonates with this segment.",
+     "servedBy": [
+      "Quick Resume Pro",
+      "Resume Designer 3",
+      "Resume Star: Pro CV Maker",
+      "Resume Star 2: Pro CV Designer",
+      "Professional Resume Builder"
+     ],
+     "gap": "These apps do everything right during the fill-in stage but fall apart at export: the email attachment arrives empty, the Send button is inactive, the PDF is rejected by job sites. For someone without a computer, this is a dead end with no workaround through the web. There is also no chronology enforcement: entries are sorted in input order, not by date."
+    },
+    {
+     "name": "Professionals with ATS and design requirements",
+     "job": "Applying to international companies or large corporations with automated screening. Need a document that passes ATS and looks polished. Some are targeting the UK market with CV format (photo, personal details, longer than one page).",
+     "payLevel": "pays readily",
+     "payNote": "Willing to pay $10-20 for a quality result. Not angry about price angry that they paid and the product failed or did not deliver what was promised. Key trust trigger: a concrete outcome (callback, interview) or ATS compatibility mentioned in the app description.",
+     "servedBy": [
+      "Kickresume: AI Resume Builder",
+      "Resume Builder - CV Engineer",
+      "Resume Builder Pro with AI",
+      "Resume Builder: PDF Resume App",
+      "Resume AI Intelligent CV App"
+     ],
+     "gap": "Academic CV format (long, with publications, grants, conferences) is supported by no one one user states this directly in a Resume AI review. UK-format templates do not exist. Mobile versions are systematically weaker than web: they crash during editing, preview is poor. No in-app ATS compatibility check."
+    }
+   ],
+   "takeaway": "Only one segment pays readily: experienced professionals who need an ATS-compatible document and already understand its value. Experienced job seekers will pay for a one-time result but not a subscription. New grads and blue-collar workers generate controversy over hidden charges, not revenue. Build for the 3-10 years experience job seeker who is updating their resume for a new role: they pay, they come back, and their primary unmet need is importing an existing document without data loss plus control over chronological order. Build for new grads only if you have a free tier with honest limits otherwise they generate nothing but negative reviews."
+  },
+  "market": {
+   "money": "The niche monetizes through subscriptions (weekly, monthly, annual) and one-time payments for export. Actual prices range from $1 for a single PDF to $50 for lifetime access. The most common friction point is a hidden paywall at the last step after the user has already filled in everything: they spend an hour and only learn the price when they try to download. This is a systemic problem across all 24 players. Whoever shows transparent pricing at the start of the funnel wins on NPS and conversion immediately.",
+   "marketLead": "Kickresume leads on template quality and an AI assistant for rewriting, Resume Builder⁺ leads on audience volume (72k ratings), Got Resume Builder leads on honest free export. No player has closed the combination of reliable import plus reliable export plus transparent pricing that window is open for a new product."
+  }
+ },
+ "invoice-maker": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Contractors and builders",
+     "job": "Build an estimate on-site and send it to the client before they cool off. Then convert it to an invoice without retyping anything.",
+     "payLevel": "pays readily",
+     "payNote": "Willing to pay for a subscription if the tool genuinely saves time in the field. They churn when invoice limits get cut or their archive gets locked after cancellation, which feels like extortion.",
+     "servedBy": [
+      "Joist: Estimate Invoice Maker",
+      "Billdu: Invoice Estimate Maker",
+      "Invoice Maker ▸ Estimate App",
+      "Estimate Maker for Contractors",
+      "Freebie Estimate Maker App"
+     ],
+     "gap": "No reliable one-tap estimate-to-invoice conversion. No client signature on the estimate from a phone. Editing a sent document does not update the client's copy, so the contractor sends a stale price and loses money."
+    },
+    {
+     "name": "Freelancers and consultants",
+     "job": "Invoice for hours or projects, track payment status, and avoid keeping a separate accounting tool.",
+     "payLevel": "pays selectively",
+     "payNote": "Will pay for a combined time-tracker-plus-invoice or for a \"viewed\" read receipt. Price hikes land hard because they compare to free alternatives. Any hiccup in invoice delivery sends them looking elsewhere.",
+     "servedBy": [
+      "Harvest: Track Time & Invoice",
+      "HoneyBook - Small Business CRM",
+      "FreshBooks Invoicing App",
+      "Wave: Small Business Software",
+      "Invoice Simple: Invoice Maker"
+     ],
+     "gap": "The mobile timer drops entries when you switch apps. Estimates are browser-only, not accessible in the app. \"Viewed\" notifications are missing across most plan tiers, which kills a core value proposition."
+    },
+    {
+     "name": "Mobile service pros",
+     "job": "Send an invoice right after finishing a job, at the client's location. Collect payment on the spot or fire off a payment link by text. No laptop required.",
+     "payLevel": "pays selectively",
+     "payNote": "Will pay for SMS delivery and built-in payment acceptance. Sensitive to invoice count limits because their volume is steady but not massive. Comfortable with a one-time purchase, less comfortable with subscriptions.",
+     "servedBy": [
+      "Invoice Simple: Invoice Maker",
+      "Invoice2go: Easy Invoice Maker",
+      "Square Invoices: Invoice Maker",
+      "Easy Invoice Maker App",
+      "Tiny Invoice - Invoice Maker"
+     ],
+     "gap": "Draft invoices do not save when you switch to maps or take a call, so entered data is lost. SMS delivery is rare and most apps only offer email. No quick receipt screen once payment goes through."
+    },
+    {
+     "name": "Micro-retail and cleaning services",
+     "job": "Run recurring billing for regular clients, split service types with different tax rates, and pull a period summary for tax purposes.",
+     "payLevel": "pays reluctantly",
+     "payNote": "Budget is minimal. They compare the app against paper forms and Excel. Willing to pay a small flat fee but not a subscription that creeps up every year. Aggressive upsells drive them away fast.",
+     "servedBy": [
+      "Zoho Invoice Maker App",
+      "Invoice Generator - Zoho",
+      "Invoice Maker & Estimate App",
+      "Easy Invoice Maker App",
+      "Wave: Small Business Software"
+     ],
+     "gap": "No split tax rates for goods versus services within one invoice. Quarterly reports cannot be exported to PDF or Excel without upgrading to an expensive tier. No credit note for issuing a line-item refund."
+    }
+   ],
+   "takeaway": "The highest-value segment is contractors and builders: they invoice regularly, amounts are large, on-site time is expensive, and they will pay for a tool that does not let them down. The second paying group is freelancers and consultants who need the tracker-invoice-status bundle. Mobile service pros pay selectively and are sensitive to invoice limits. Micro-retail and cleaning are the most price-sensitive segment and should not be the primary design target. The product to build must cover the full flow of \"estimate on-site, signature, invoice, payment by text\" in a single session without data loss. That pain cuts across all four segments and nobody has solved it cleanly."
+  },
+  "market": {
+   "money": "The US small-business invoicing app market is mature and fragmented: dozens of apps with subscriptions ranging from $8 to $60 per month. Real revenue concentrates at players with a built-in payment rail (Square, QuickBooks) and CRM platforms with contract workflows (HoneyBook). Pure invoice makers compete on price and simplicity, and most have burned through aggressive price hikes that cost them user loyalty. The paying segment is small but stable, anchored by contractors and consultants with steady invoice volume.",
+   "marketLead": "Intuit QuickBooks (full accounting, not a pure invoicing tool), Square Invoices (driven by its payment infrastructure), HoneyBook (in the creative-pro segment with contracts), Invoice Simple (by audience reach, though it is losing that audience to price hikes)"
+  }
+ },
+ "sobriety": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Quitting alcohol",
+     "job": "Stay sober one day at a time and see concrete progress in their body and their wallet",
+     "payLevel": "pays readily",
+     "payNote": "Reframe collects around $120 per year and holds 41k ratings. I Am Sober monetizes its community and journal at 181k ratings. This segment is used to paying for in-person sobriety programs and clubs, and moving that spending online feels natural.",
+     "servedBy": [
+      "I Am Sober",
+      "Sober Time - Sobriety Counter",
+      "Reframe: Drink Less & Thrive",
+      "Quit Drinking",
+      "Sober SideKick: Quit Addiction"
+     ],
+     "gap": "There is no good relapse flow: apps either reset everything or pretend the relapse did not happen. Someone who drank after 90 days needs a quiet restart that preserves their history and carries no shame. None of the leaders handle this well."
+    },
+    {
+     "name": "Quitting smoking and vaping",
+     "job": "Get concrete data on physical recovery and calculate money saved to avoid falling off in the first month",
+     "payLevel": "pays selectively",
+     "payNote": "Smoke Free and QuitNow monetize extended stats and an AI assistant. Quit Vaping and Kwit keep the base free. This audience pays for specific features (health screen, achievements) but is price-sensitive: they were already spending on vapes and cigarettes.",
+     "servedBy": [
+      "Smoke Free - Quit Smoking Now",
+      "Quit Vaping",
+      "QuitNow!",
+      "Quit smoking for good - Kwit",
+      "My Last Cigarette"
+     ],
+     "gap": "Vaping and cigarettes involve different chemistry and different triggers, but most apps just copy cigarette mechanics onto vaping. There is no puff tracker with a real hourly consumption profile or a gradual reduction mode that does not reset the streak on a missed day."
+    },
+    {
+     "name": "12-step program participants",
+     "job": "Have a pocket toolkit for steps, prayers, and daily reflections to use with a sponsor and at meetings",
+     "payLevel": "pays readily",
+     "payNote": "Twenty-Four Hours a Day and My Spiritual Toolkit together hold 40k ratings at 4.8 to 4.9 stars. An audience with years of sobriety and a habit of reading AA literature will readily pay for the digital equivalent of their library.",
+     "servedBy": [
+      "Twenty-Four Hours a Day",
+      "My Spiritual Toolkit AA Steps",
+      "Sober Me: Tools for Recovery",
+      "12 Steps Guide",
+      "AA Audio Companion for Alcoholics Anonymous"
+     ],
+     "gap": "All existing tools are built around a Christian understanding of a higher power, but today's AA includes many atheists and agnostics with a different interpretation. There is no product that respects a secular path while keeping the structure of the steps intact."
+    },
+    {
+     "name": "Mindful reduction without full abstinence",
+     "job": "Manage alcohol consumption like a budget and understand personal patterns without labeling themselves as addicted",
+     "payLevel": "pays selectively",
+     "payNote": "Sunnyside and Reframe charge a subscription, but conversion is lower than in the quitting segment: people arrive without acute pain and leave more easily. Sunnyside maintains a small base (2k ratings) with a high score a small but genuinely paying segment.",
+     "servedBy": [
+      "Sunnyside: Drink Less Alcohol",
+      "Reframe: Drink Less & Thrive",
+      "Drinker's Helper - Drink Less",
+      "Quit Drinking",
+      "This Naked Mind Companion App"
+     ],
+     "gap": "Apps either push for complete abstinence (and then do not fit) or turn into a boring diary. What is missing is a product with a neutral stance: no labels, tracking as a mindfulness tool, no moral judgments, no suggestions to take medication."
+    }
+   ],
+   "takeaway": "Money is concentrated in two segments: people quitting alcohol pay readily and stay long-term, while AA participants are loyal for years and do not switch to competitors. Smokers and vapers pay, but only for specific features. The mindful-reduction segment pays selectively and inconsistently. The strongest opportunity is building for alcohol quitters with a proper relapse flow the largest segment with no good product answer for that moment. Second priority: a secular alternative to the AA toolkit, where the entire market is stuck in 1935."
+  },
+  "market": {
+   "money": "The market for digital sobriety and mindful-reduction tools. The leader I Am Sober has 181k App Store ratings, Smoke Free has 57k, Reframe 41k, Sober Time 39k. Monetization: annual subscriptions from $30 to $120, with some apps keeping a free basic tier. The paying audience is concentrated in the alcohol segment and AA programs.",
+   "marketLead": "I Am Sober (quitting any habit, community), Reframe (alcohol reduction, neuroscience plus coaching), Smoke Free (smoking, health stats), Twenty-Four Hours a Day (AA, daily ritual). The weakest points across the market are the relapse flow and vaping-specific support."
+  }
  }
 }
