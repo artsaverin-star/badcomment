@@ -6,8 +6,27 @@ import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import IdeasDeck from "@/components/IdeasDeck";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const lp = ru ? "ru" : "en";
+  const title = ru ? "Идеи приложений под реальный спрос из отзывов" : "App ideas backed by real demand from reviews";
+  const description = ru
+    ? "Готовые идеи приложений под подтверждённый спрос: выведены из реальных отзывов по десяткам ниш, с доказательной цепочкой и понятной моделью денег."
+    : "Ready app ideas backed by proven demand, derived from real user reviews across dozens of niches, each with an evidence trail and a clear money model.";
+  const url = `https://inapp.pro/${lp}/ideas`;
+  return {
+    title, description,
+    alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/ideas", en: "https://inapp.pro/en/ideas", "x-default": "https://inapp.pro/en/ideas" } },
+    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    twitter: { card: "summary_large_image", title, description },
+    robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  };
+}
 
 type FullIdea = {
   slug: string; category: string; title: string; oneLiner: string; gap?: string;
