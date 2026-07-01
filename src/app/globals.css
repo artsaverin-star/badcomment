@@ -66,9 +66,10 @@
    (ui-rounded), the loaded Nunito webfont everywhere else. Scoped to :root so the
    yandex brand override still wins for that brand. */
 :root {
-  /* Crisp modern grotesque (getgems-like) as the primary UI face. */
-  --brand-font-family: var(--font-inter), "SF Pro Text", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  /* Rounded UI face, SF Compact/Pro Rounded style: genuine SF Rounded on Apple
+     via the ui-rounded generic, the loaded Nunito webfont everywhere else. */
+  --brand-font-family: ui-rounded, "SF Pro Rounded", "SF Compact Rounded",
+    var(--font-nunito), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 /* Page chrome is fully token-driven; theme/brand swap via data-theme/data-brand
