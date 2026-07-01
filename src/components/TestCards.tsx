@@ -12,7 +12,7 @@ import type { Locale } from "@/lib/i18n";
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Idea = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score };
+type Idea = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score; category?: string; categorySlug?: string };
 
 const SCORE_META = {
   money: { ru: "Деньги", en: "Money", color: "#30d158" },
@@ -20,11 +20,25 @@ const SCORE_META = {
   demand: { ru: "Спрос", en: "Demand", color: "#ff9f0a" },
 } as const;
 
+const METRIC_GLYPH: Record<"money" | "simplicity" | "demand", React.ReactNode> = {
+  money: <><circle cx="12" cy="12" r="9" /><path d="M12 7v10M14.4 9.2c0-1-1.1-1.7-2.4-1.7s-2.5.8-2.5 1.9c0 2.6 5 1.4 5 4 0 1.1-1.2 1.9-2.5 1.9s-2.5-.8-2.5-1.8" /></>,
+  simplicity: <path d="M15.6 5.4a3.6 3.6 0 00-4.7 4.7l-5.7 5.7a1.6 1.6 0 002.2 2.2l5.7-5.7a3.6 3.6 0 004.7-4.7l-2.1 2.1-1.7-.5-.5-1.7 2.1-2.1z" />,
+  demand: <><path d="M4 16l5-5 3 3 6-6" /><path d="M15 8h4v4" /></>,
+};
+
+function MetricIcon({ k, className, style }: { k: "money" | "simplicity" | "demand"; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className} style={style}>
+      {METRIC_GLYPH[k]}
+    </svg>
+  );
+}
+
 function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value: number; locale: Locale }) {
   const m = SCORE_META[k];
   return (
     <div className="flex items-center gap-1.5" title={`${locale === "en" ? m.en : m.ru}: ${value}/100`}>
-      <span className="w-[52px] shrink-0 text-[11px] text-[var(--color-text-tertiary)]">{locale === "en" ? m.en : m.ru}</span>
+      <span className="flex w-[74px] shrink-0 items-center gap-1.5 text-[11px] text-[var(--color-text-tertiary)]"><MetricIcon k={k} className="size-3.5" style={{ color: m.color }} />{locale === "en" ? m.en : m.ru}</span>
       <span className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
         <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${value}%`, background: m.color }} />
       </span>
@@ -41,10 +55,10 @@ function ScoreChip({ score }: { score: Score }) {
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
         {score.composite}
       </span>
-      <span className="flex items-center gap-1.5 text-[11px] text-[var(--color-text-tertiary)]">
-        <span style={{ color: SCORE_META.money.color }}>●</span>{score.money}
-        <span style={{ color: SCORE_META.simplicity.color }}>●</span>{score.simplicity}
-        <span style={{ color: SCORE_META.demand.color }}>●</span>{score.demand}
+      <span className="flex items-center gap-2.5 text-[12px] tabular-nums text-[var(--color-text-secondary)]">
+        <span className="inline-flex items-center gap-1"><MetricIcon k="money" className="size-3.5" style={{ color: SCORE_META.money.color }} />{score.money}</span>
+        <span className="inline-flex items-center gap-1"><MetricIcon k="simplicity" className="size-3.5" style={{ color: SCORE_META.simplicity.color }} />{score.simplicity}</span>
+        <span className="inline-flex items-center gap-1"><MetricIcon k="demand" className="size-3.5" style={{ color: SCORE_META.demand.color }} />{score.demand}</span>
       </span>
     </div>
   );
@@ -145,12 +159,13 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
   );
 }
 
-function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean }) {
+function CardFace({ icon, title, desc, footer, onClick, locked, kicker }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string }) {
   return (
     <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_160px] ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
+      {kicker && <div className="max-w-[85%] truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
       <div className="flex items-center gap-3">
         <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />
         <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
@@ -260,14 +275,15 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {shown.map((x, i) => (
           <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
-            footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
+            kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
         ))}
       </div>
       {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}
       {!locked && open && (
         <Modal onClose={() => setOpen(null)}>
           <Icon name={open.icon} className="size-9 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
-          <h3 className="mt-3 text-headline text-[var(--color-text-primary)]">{open.title}</h3>
+          {open.category && <div className="mt-3 text-[12px] text-[var(--color-text-tertiary)]">{open.category}</div>}
+          <h3 className="mt-1.5 text-headline text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.score && <div className="mt-4"><ScoreBlock score={open.score} locale={locale} /></div>}
           {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
@@ -286,6 +302,15 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
                 ))}
               </div>
             </Sec>
+          )}
+          {open.categorySlug && (
+            <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="mt-6 flex items-center justify-between gap-3 rounded-[16px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
+              <span className="min-w-0">
+                <span className="block text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Разбор ниши" : "Niche breakdown"}</span>
+                <span className="block truncate text-callout font-medium text-[var(--color-text-primary)]">{open.category ? (ru ? `Открыть разбор: ${open.category}` : `Open breakdown: ${open.category}`) : ru ? "Открыть разбор категории" : "Open the category breakdown"}</span>
+              </span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </a>
           )}
         </Modal>
       )}

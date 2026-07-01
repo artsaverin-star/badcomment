@@ -7,6 +7,7 @@ import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import IdeasDeck from "@/components/IdeasDeck";
 import { scoreFor } from "@/lib/ideaScores";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -59,6 +60,10 @@ export default async function IdeasPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const tr = t(locale);
+  const nameOf = (slug: string): string => {
+    const r = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string }>)[slug];
+    return (ru ? r?.name : r?.nameEn) || r?.name || slug;
+  };
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
   // Lead with the most profitable-and-simple ideas: rank by the composite score
   // (money x simplicity x demand, all from real signals). A founder sees the
@@ -89,6 +94,8 @@ export default async function IdeasPage() {
       reviewGrid: i.reviewGrid,
       icon: ICONS[idx % ICONS.length],
       score: scoreFor(i.slug, locale) ?? undefined,
+      category: nameOf(i.category),
+      categorySlug: i.category,
     };
   });
 
