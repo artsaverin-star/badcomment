@@ -461,12 +461,10 @@ html:not([data-theme="dark"]) .atmosphere {
   border-radius: inherit;
   padding: 1px;
   pointer-events: none;
-  background: linear-gradient(115deg, transparent 32%, color-mix(in srgb, var(--ec, var(--color-accent-brand)) 60%, transparent) 50%, transparent 68%);
-  background-size: 240% 100%;
+  background: linear-gradient(115deg, transparent 34%, color-mix(in srgb, var(--ec, var(--color-accent-brand)) 42%, transparent) 50%, transparent 66%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: edge-shimmer 18s ease-in-out infinite;
 }
 @keyframes edge-shimmer {
   from { background-position: 130% 0; }

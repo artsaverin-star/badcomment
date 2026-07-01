@@ -91,7 +91,7 @@ function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
       <div className="flex items-center gap-3">
-        <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
+        <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />
         <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
       </div>
       <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
