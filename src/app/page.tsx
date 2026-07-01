@@ -8,6 +8,7 @@ import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import IdeasDeck from "@/components/IdeasDeck";
 import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
+import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -66,12 +67,13 @@ const cleanTitle = (s: string) => { const m = (s || "").replace(/^[A-Za-z][A-Za-
 // Homepage: the idea deck, ranked by money x simplicity x demand from real
 // reviews. A sort toggle re-ranks server-side; the gate (6 free -> sign in ->
 // unlock) is preserved. Category breakdowns and the people's rating are in the menu.
-export default async function Home({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
+export default async function Home({ searchParams }: { searchParams: Promise<{ sort?: string; cat?: string }> }) {
   const locale = await getLocale();
   const ru = locale !== "en";
   const sp = await searchParams;
   const sort: SortKey = (["money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "balance") as SortKey;
   const metric = SORT_METRIC[sort];
+  const cat = sp.cat && DOSSIER.has(sp.cat) ? sp.cat : undefined;
 
   const nameOf = (slug: string): string => {
     const r = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string }>)[slug];
@@ -80,11 +82,15 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const totalReviews = Object.values(RATING_BY_SLUG as Record<string, { totalReviews?: number }>).reduce((s, r) => s + (r.totalReviews || 0), 0);
 
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
-  const all = raw.slice().sort((a, b) => {
-    const sa = scoreFor(a.slug)?.[metric] ?? 0, sb = scoreFor(b.slug)?.[metric] ?? 0;
-    if (sb !== sa) return sb - sa;
-    return (CAT_RANK.get(a.category) ?? 999) - (CAT_RANK.get(b.category) ?? 999);
-  });
+  // Category chip strip: every niche that has ideas, in buildability order.
+  const chips = CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)).map((s) => ({ slug: s, name: nameOf(s) }));
+  const all = raw
+    .filter((i) => !cat || i.category === cat)
+    .sort((a, b) => {
+      const sa = scoreFor(a.slug)?.[metric] ?? 0, sb = scoreFor(b.slug)?.[metric] ?? 0;
+      if (sb !== sa) return sb - sa;
+      return (CAT_RANK.get(a.category) ?? 999) - (CAT_RANK.get(b.category) ?? 999);
+    });
 
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
@@ -110,10 +116,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     };
   });
 
+  // A blurred peek of what is behind the gate: the next few ideas, locked.
+  const lockedPreview = gate
+    ? all.slice(limit, limit + 3).map((i, idx) => ({
+        title: cleanTitle(ideaCard(i.slug, locale)?.title ?? i.title),
+        oneLiner: ideaCard(i.slug, locale)?.oneLiner ?? i.oneLiner,
+        icon: ICONS[idx % ICONS.length],
+        score: scoreFor(i.slug, locale) ?? undefined,
+        category: nameOf(i.category),
+      }))
+    : [];
+
   const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="mx-auto w-full max-w-[860px] px-4 pb-24 pt-16 sm:pt-20">
+    <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <header className="text-center">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{ru ? "Идеи приложений" : "App ideas"}</h1>
@@ -133,13 +150,18 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         </div>
 
         <div className="mt-10 border-t border-[var(--color-border-subtle)] pt-8">
-          <IdeaSortTabs current={sort} locale={locale} />
+          <IdeaSortTabs current={sort} cat={cat} locale={locale} />
         </div>
       </header>
 
-      <div className="mt-12">
+      <div className="mt-8">
+        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} />
+      </div>
+
+      <div className="mt-8">
         <IdeasDeck
           ideas={shown}
+          lockedPreview={lockedPreview}
           total={all.length}
           gate={gate}
           loggedIn={loggedIn}

@@ -278,10 +278,12 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
   const shown = ideas.slice(0, count);
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="gap-4 [column-fill:balance] sm:columns-2 lg:columns-3">
         {shown.map((x, i) => (
-          <CardFace key={i} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
-            kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
+          <div key={i} className="mb-4 break-inside-avoid">
+            <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
+              kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
+          </div>
         ))}
       </div>
       {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}

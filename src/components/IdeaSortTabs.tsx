@@ -14,8 +14,15 @@ const TABS: { key: SortKey; ru: string; en: string; dot?: string }[] = [
 
 // Segmented sort control for the ideas home. Each tab is a link to ?sort=<key>
 // so the server re-ranks and re-slices (keeps the gating server-side).
-export default function IdeaSortTabs({ current, locale = "ru" }: { current: SortKey; locale?: Locale }) {
+export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current: SortKey; cat?: string; locale?: Locale }) {
   const ru = locale !== "en";
+  const href = (key: SortKey) => {
+    const p = new URLSearchParams();
+    if (key !== "balance") p.set("sort", key);
+    if (cat) p.set("cat", cat);
+    const q = p.toString();
+    return q ? `/?${q}` : "/";
+  };
   return (
     <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-2">
       {TABS.map((t) => {
@@ -23,7 +30,7 @@ export default function IdeaSortTabs({ current, locale = "ru" }: { current: Sort
         return (
           <Link
             key={t.key}
-            href={t.key === "balance" ? "/" : `/?sort=${t.key}`}
+            href={href(t.key)}
             scroll={false}
             aria-current={active ? "true" : undefined}
             className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-footnote font-medium transition-colors ${
