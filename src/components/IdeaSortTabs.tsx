@@ -9,7 +9,7 @@ const TABS: { key: SortKey; ru: string; en: string; dot?: string }[] = [
   { key: "balance", ru: "Лучший баланс", en: "Best balance" },
   { key: "money", ru: "Самые прибыльные", en: "Most profitable", dot: "#30d158" },
   { key: "simplicity", ru: "Проще всего собрать", en: "Easiest to build", dot: "#0a84ff" },
-  { key: "demand", ru: "Больше всего спроса", en: "Highest demand", dot: "#ff9f0a" },
+  { key: "demand", ru: "Больше всего спроса", en: "Highest demand", dot: "#bf5af2" },
 ];
 
 // Segmented sort control for the ideas home. Each tab is a link to ?sort=<key>

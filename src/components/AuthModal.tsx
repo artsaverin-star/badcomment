@@ -364,7 +364,7 @@ export default function AuthModal({
       </div>
 
       {inApp && (
-        <div className="mb-4 rounded-2xl border border-[color-mix(in_srgb,#f5a623_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,#f5a623_10%,transparent)] p-4 text-left">
+        <div className="mb-4 rounded-2xl border border-[color-mix(in_srgb,var(--color-accent-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-accent-brand)_10%,transparent)] p-4 text-left">
           <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">
             {ru
               ? `Вы во встроенном браузере (Threads/Instagram и т.п.). Google-вход тут блокируется. Войдите ${EMAIL_ON ? "по почте или " : ""}через Telegram, либо откройте сайт в Safari/Chrome (меню ⋯ вверху → «Открыть в браузере»).`

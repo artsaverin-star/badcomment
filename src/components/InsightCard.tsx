@@ -148,7 +148,7 @@ export default function InsightCard({
               >
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                   {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}
-                  <span className="tabular-nums text-caption text-[#f5b301]">
+                  <span className="tabular-nums text-caption text-[#9aa0a6]">
                     {"★".repeat(e.rating)}
                     {"☆".repeat(Math.max(0, 5 - e.rating))}
                   </span>

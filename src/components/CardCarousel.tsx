@@ -141,7 +141,7 @@ export type Slide = CoverSlide | StatsSlide | ShotSlide | ChapterSlide | Insight
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
   down: { glow: "#ff8585", label: { ru: "Не нравится", en: "Disliked" } },
-  mixed: { glow: "#f5b301", label: { ru: "Спорно", en: "Mixed" } },
+  mixed: { glow: "#9aa0a6", label: { ru: "Спорно", en: "Mixed" } },
   info: { glow: "var(--color-text-tertiary)", label: { ru: "Наблюдение", en: "Observation" } },
 } as const;
 
@@ -366,7 +366,7 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
         )}
         {s.avgRating != null && (
           <div className="flex flex-col items-center gap-1">
-            <div className="text-body tabular-nums tracking-tight text-[#f5b301]">
+            <div className="text-body tabular-nums tracking-tight text-[#9aa0a6]">
               {"★".repeat(Math.round(s.avgRating))}
               {"☆".repeat(Math.max(0, 5 - Math.round(s.avgRating)))}
             </div>
@@ -401,7 +401,7 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
   const rows = [5, 4, 3, 2, 1];
   const total = rows.reduce((a, n) => a + (s.hist[String(n)] ?? 0), 0);
   const max = Math.max(1, ...rows.map((n) => s.hist[String(n)] ?? 0));
-  const color = (star: number) => (star <= 2 ? "#ff8585" : star === 3 ? "#f5b301" : "var(--color-text-tertiary)");
+  const color = (star: number) => (star <= 2 ? "#ff8585" : star === 3 ? "#9aa0a6" : "var(--color-text-tertiary)");
   return (
     <Frame glow="var(--color-text-brand)">
       <div className="relative mb-2">
@@ -414,7 +414,7 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
         {s.avg != null && (
           <div className="flex flex-col items-center gap-1">
             <div className="text-stat font-bold leading-none tabular-nums text-[var(--color-text-primary)]">{s.avg.toFixed(1)}</div>
-            <div className="text-subhead tabular-nums tracking-tight text-[#f5b301]">
+            <div className="text-subhead tabular-nums tracking-tight text-[#9aa0a6]">
               {"★".repeat(Math.round(s.avg))}
               {"☆".repeat(Math.max(0, 5 - Math.round(s.avg)))}
             </div>
@@ -565,7 +565,7 @@ function ReviewsDialog({
             <div key={i} className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
               <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                 {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}
-                <span className="tabular-nums text-caption text-[#f5b301]">
+                <span className="tabular-nums text-caption text-[#9aa0a6]">
                   {"★".repeat(e.rating)}
                   {"☆".repeat(Math.max(0, 5 - e.rating))}
                 </span>
@@ -720,7 +720,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
           <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
             <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
               {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
-              <span className="text-caption tabular-nums text-[#f5b301]">
+              <span className="text-caption tabular-nums text-[#9aa0a6]">
                 {"★".repeat(s.quote.rating)}
                 {"☆".repeat(Math.max(0, 5 - s.quote.rating))}
               </span>

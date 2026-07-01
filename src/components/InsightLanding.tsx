@@ -158,7 +158,7 @@ export default function InsightLanding({
                   <div className="text-[44px] font-bold leading-none tabular-nums text-[var(--color-text-primary)]">
                     {avgRating.toFixed(1)}
                   </div>
-                  <div className="tabular-nums tracking-tight text-[#f5b301]">
+                  <div className="tabular-nums tracking-tight text-[#9aa0a6]">
                     {"★".repeat(Math.round(avgRating))}
                     {"☆".repeat(Math.max(0, 5 - Math.round(avgRating)))}
                   </div>

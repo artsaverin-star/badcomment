@@ -12,10 +12,9 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-function SectionPill({ href, label, accent }: { href: string; label: string; accent: string }) {
+function SectionPill({ href, label }: { href: string; label: string }) {
   return (
     <Link href={href} className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
-      <span className="size-1.5 rounded-full" style={{ background: accent }} />
       {label}
       <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </Link>
@@ -129,12 +128,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             : <>All from <span className="tabular-nums text-[var(--color-text-secondary)]">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play.</>}
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
-          <SectionPill href="/categories" label={ru ? "Разбор категорий" : "Category breakdowns"} accent="#c026d3" />
-          <SectionPill href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} accent="#10b981" />
+          <SectionPill href="/categories" label={ru ? "Разбор категорий" : "Category breakdowns"} />
+          <SectionPill href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} />
         </div>
 
         <div className="mt-10 border-t border-[var(--color-border-subtle)] pt-8">
-          <div className="mb-4 text-footnote text-[var(--color-text-tertiary)]">{ru ? "Показать сначала" : "Show first"}</div>
           <IdeaSortTabs current={sort} locale={locale} />
         </div>
       </header>

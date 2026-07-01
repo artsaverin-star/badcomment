@@ -17,7 +17,7 @@ type Idea = { title: string; oneLiner: string; gap?: string; pitch?: string; fea
 const SCORE_META = {
   money: { ru: "Деньги", en: "Money", color: "#30d158" },
   simplicity: { ru: "Простота", en: "Simplicity", color: "#0a84ff" },
-  demand: { ru: "Спрос", en: "Demand", color: "#ff9f0a" },
+  demand: { ru: "Спрос", en: "Demand", color: "#bf5af2" },
 } as const;
 
 const METRIC_GLYPH: Record<"money" | "simplicity" | "demand", React.ReactNode> = {
@@ -47,19 +47,25 @@ function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value
   );
 }
 
-// Compact composite chip for the card footer.
+// Compact score chips for the card footer: composite + one pill per metric.
+function MetricPill({ k, value }: { k: "money" | "simplicity" | "demand"; value: number }) {
+  const c = SCORE_META[k].color;
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[12px] font-medium tabular-nums text-[var(--color-text-secondary)]" style={{ background: `color-mix(in srgb, ${c} 13%, transparent)` }}>
+      <MetricIcon k={k} className="size-3.5" style={{ color: c }} />{value}
+    </span>
+  );
+}
 function ScoreChip({ score }: { score: Score }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center gap-1.5">
       <span className="inline-flex items-center gap-1 rounded-full bg-[color-mix(in_srgb,var(--color-accent-brand)_16%,transparent)] px-2 py-0.5 text-[12px] font-semibold text-[var(--color-text-primary)]">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
         {score.composite}
       </span>
-      <span className="flex items-center gap-2.5 text-[12px] tabular-nums text-[var(--color-text-secondary)]">
-        <span className="inline-flex items-center gap-1"><MetricIcon k="money" className="size-3.5" style={{ color: SCORE_META.money.color }} />{score.money}</span>
-        <span className="inline-flex items-center gap-1"><MetricIcon k="simplicity" className="size-3.5" style={{ color: SCORE_META.simplicity.color }} />{score.simplicity}</span>
-        <span className="inline-flex items-center gap-1"><MetricIcon k="demand" className="size-3.5" style={{ color: SCORE_META.demand.color }} />{score.demand}</span>
-      </span>
+      <MetricPill k="money" value={score.money} />
+      <MetricPill k="simplicity" value={score.simplicity} />
+      <MetricPill k="demand" value={score.demand} />
     </div>
   );
 }
@@ -159,7 +165,7 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
   );
 }
 
-function CardFace({ icon, title, desc, footer, onClick, locked, kicker }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string }) {
+function CardFace({ icon, title, desc, footer, onClick, locked, kicker }: { icon?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string }) {
   return (
     <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_160px] ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
       {locked && (
@@ -167,7 +173,7 @@ function CardFace({ icon, title, desc, footer, onClick, locked, kicker }: { icon
       )}
       {kicker && <div className="max-w-[85%] truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
       <div className="flex items-center gap-3">
-        <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />
+        {icon && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
         <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
       </div>
       <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
@@ -274,15 +280,14 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {shown.map((x, i) => (
-          <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
+          <CardFace key={i} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
             kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
         ))}
       </div>
       {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}
       {!locked && open && (
         <Modal onClose={() => setOpen(null)}>
-          <Icon name={open.icon} className="size-9 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
-          {open.category && <div className="mt-3 text-[12px] text-[var(--color-text-tertiary)]">{open.category}</div>}
+          {open.category && <div className="text-[12px] text-[var(--color-text-tertiary)]">{open.category}</div>}
           <h3 className="mt-1.5 text-headline text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.score && <div className="mt-4"><ScoreBlock score={open.score} locale={locale} /></div>}

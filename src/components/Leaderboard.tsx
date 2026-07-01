@@ -11,7 +11,7 @@ export type Row = {
   whyPay: string; pricePoint: string;
 };
 
-const COLORS = { money: "#30d158", simplicity: "#0a84ff", demand: "#ff9f0a" };
+const COLORS = { money: "#30d158", simplicity: "#0a84ff", demand: "#bf5af2" };
 
 function Bars({ money, simplicity, demand, ru }: { money: number; simplicity: number; demand: number; ru: boolean }) {
   const rows: [string, number, string][] = [
