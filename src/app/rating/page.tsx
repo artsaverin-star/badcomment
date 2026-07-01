@@ -44,6 +44,16 @@ const NICHES = [
   { slug: "plant-care", name: "Уход за растениями", nameEn: "Plant care & identifier apps", blurb: "58 приложений: где полив напоминается умно и диагноз честный, а где накрутка и шаблонные советы." },
   { slug: "baby-tracking", name: "Уход за малышом", nameEn: "Baby tracking apps", blurb: "61 приложение: где лог кормления и сна жмётся одной рукой в 3 ночи и синхронится с партнёром, а где теряются данные." },
   { slug: "ai-writing", name: "ИИ-помощники для текста", nameEn: "AI writing assistant apps", blurb: "87 приложений: где ИИ реально помогает писать, а где тонкая обёртка над ChatGPT с накруткой (36 из 87 накручены)." },
+  { slug: "scanner-pdf", name: "Сканеры документов", nameEn: "Document scanners", blurb: "Где скан чёткий и экспорт не подводит, а где качество хуже камеры и накрутка." },
+  { slug: "ai-chatbot", name: "ИИ-ассистенты", nameEn: "AI assistants", blurb: "Где ассистент реально помогает и помнит контекст, а где обёртка над GPT с накруткой." },
+  { slug: "intermittent-fasting", name: "Интервальное голодание", nameEn: "Intermittent fasting", blurb: "Где таймер и фазы голодания честны, а где накрутка и агрессивный пейволл." },
+  { slug: "flashcards", name: "Флешкарты для учёбы", nameEn: "Study flashcards", blurb: "Где алгоритм повторений реально учит, а где теряется прогресс." },
+  { slug: "translator", name: "Переводчики", nameEn: "Translator apps", blurb: "Где перевод точен и голос понятен, а где пустая обёртка и накрутка." },
+  { slug: "run-tracking", name: "Трекеры бега", nameEn: "Running trackers", blurb: "Где GPS точен и план доводит до 5K, а где дрейф трека и сбои." },
+  { slug: "voice-recorder", name: "Диктофоны и транскрипция", nameEn: "Voice recorders", blurb: "Где запись и расшифровка честны, а где скам-рекордеры звонков с накруткой." },
+  { slug: "resume-builder", name: "Конструкторы резюме", nameEn: "Resume builders", blurb: "Где PDF выходит чисто и без стены оплаты, а где готовое резюме держат в заложниках." },
+  { slug: "invoice-maker", name: "Счета и инвойсы", nameEn: "Invoice makers", blurb: "Где счёт уходит клиенту и статус оплаты виден, а где рвётся синхронизация." },
+  { slug: "sobriety", name: "Трезвость и отказ от привычек", nameEn: "Sobriety & quitting", blurb: "Где счётчик держит и срыв обрабатывается без стыда, а где пустышка." },
 ];
 
 export default async function RatingIndexPage() {
