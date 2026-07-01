@@ -13058,5 +13058,165 @@
    "No watermark on the print file in the base tier"
   ],
   "monetization": "One-time purchase of $3 without ads, or a pack of 30 pages for $5. Teachers and parents pay once before an event or class and do not want a subscription. Additional revenue via themed coloring page packs: Halloween, New Year, animals, superheroes."
+ },
+ "car-maintenance-1": {
+  "categoryName": "Car maintenance",
+  "title": "Mileage tracker for gig drivers with guaranteed recording",
+  "oneLiner": "A miles tracker for couriers and rideshare drivers that does not lose a shift even after eight hours behind the wheel",
+  "gap": "No popular tracker has solved reliable background recording on long shifts. The app stops on its own and the driver only finds out that evening. What is needed is continuous recording with health checks and cache recovery on failure.",
+  "pitch": "A mileage tracker built for gig drivers with one promise: the shift records in full. The app writes GPS points to a local buffer every 30 seconds, syncs them to the main log when connectivity returns, and shows a live status indicator on the lock screen. The driver can confirm tracking is running before they ever pull out of the driveway.",
+  "features": [
+   "Local GPS point buffer: data is not lost on a connection drop or reboot",
+   "Lock screen widget with live tracking status and accumulated shift miles",
+   "Auto-restart tracking when motion is detected after a pause, no driver action needed",
+   "Export a report for any date range as PDF or CSV in two taps",
+   "Split trips by platform: Uber, Lyft, DoorDash, Instacart all in one log"
+  ],
+  "antiFeatures": [
+   "No ads displayed over the interface during an active shift",
+   "No always-on location access with no option to limit it to work hours",
+   "No splitting a single trip into dozens of segments at every red light"
+  ],
+  "monetization": "Subscription at $4 to $6 per month. The audience already pays $100 to $140 per year for MileIQ or Driversnote and still does not get reliability on long shifts. A gig driver recovers the subscription cost from the first month's deduction."
+ },
+ "car-maintenance-2": {
+  "categoryName": "Car maintenance",
+  "title": "A maintenance log that survives a phone upgrade",
+  "oneLiner": "A service log for multiple vehicles with a backup that does not vanish on an update or device switch",
+  "gap": "A service log loses its value at the exact moment it matters most: when selling a car or disputing a repair. Backup mechanisms are either absent or tied to the vendor's own cloud. Users need an independent backup to their own iCloud Drive or Dropbox in an open format.",
+  "pitch": "A service log for one to ten vehicles with automatic backup to the user's iCloud Drive as a human-readable JSON file. On a new phone or a fresh install, the app finds the file and restores the full history in ten seconds. The log and receipt photos survive even if the developer shuts down.",
+  "features": [
+   "Auto-backup to iCloud Drive in JSON format: the file opens without the app",
+   "Receipt photo attached to every maintenance entry, stored in the user's cloud",
+   "Reminders by mileage and time simultaneously: oil change every 5,000 miles or six months",
+   "Multiple vehicles with a quick switcher on the home screen",
+   "Export complete history as a PDF for a buyer or insurer in one tap"
+  ],
+  "antiFeatures": [
+   "No locking data to proprietary servers with no export path",
+   "No resetting records on an app update without a migration check first",
+   "No limiting vehicles on a reasonable plan with a per-car subscription charge"
+  ],
+  "monetization": "One-time purchase at $8 to $12 for the multi-vehicle version. People who have been logging for five to ten years pay once and want nothing to do with a subscription. Extra revenue through a family plan for three to five devices."
+ },
+ "car-maintenance-3": {
+  "categoryName": "Car maintenance",
+  "title": "One-tap tax mileage report",
+  "oneLiner": "An automatic mileage log for the self-employed with a tax-ready annual report at year end",
+  "gap": "Trackers record trips but do not assemble a document for an accountant. The user gets a raw CSV instead of a structured report with category totals, the applied IRS mileage rate, and a deduction amount. What is needed is an automatic annual report with the correct rate and a breakdown by purpose.",
+  "pitch": "A mileage tracker for freelancers, landlords, and realtors focused on the tax output. The app logs trips automatically and in January generates a ready-to-send PDF with the current IRS rate, category totals, and total deduction. An accountant needs exactly one file.",
+  "features": [
+   "Automatic IRS rate lookup for the current year with no manual entry",
+   "Annual report with category totals, the rate, and total deduction in one PDF",
+   "Landlord-specific categories: property address, trip type, date",
+   "Fast trip classification by swipe: business left, personal right",
+   "Send the report directly to an accountant via AirDrop or email from within the app"
+  ],
+  "antiFeatures": [
+   "No locking the annual report behind a paywall after a user has tracked for a full year",
+   "No requiring a paid subscription to view data older than one month",
+   "No delivering a report in twelve pieces instead of one document"
+  ],
+  "monetization": "Subscription at $5 per month or $40 per year. The audience already pays for MileIQ ($140 per year) for the tax deduction and views the subscription as paying for itself on the first client visit. Core users: freelancers, realtors, and landlords with two to five properties."
+ },
+ "car-maintenance-4": {
+  "categoryName": "Car maintenance",
+  "title": "OBD2 companion with no hidden subscription",
+  "oneLiner": "Reads fault codes and explains them in plain English with no surprise $99 charge a year later",
+  "gap": "Existing OBD2 apps either give raw codes with no explanation, or explain codes but hide that feature behind a subscription buried in a confusing onboarding flow. The market needs an app where reading and explaining codes is included in a one-time purchase, with a subscription optional for advanced features.",
+  "pitch": "An OBD2 companion with a one-time payment: buy it once, read codes and get plain-language explanations forever. The app shows the code, what it means, how urgently you need a shop, and a repair cost estimate. No hidden subscriptions and no auto-charge a year out.",
+  "features": [
+   "OBD2 code lookup with plain-language explanation included in the base purchase",
+   "Urgency rating: safe to drive, pull over soon, call a tow truck now",
+   "Live engine data: temperature, RPM, load in real time",
+   "Code history with dates and odometer readings for a mechanic conversation",
+   "Works with any Bluetooth ELM327 adapter, no proprietary hardware required"
+  ],
+  "antiFeatures": [
+   "No auto-enrolling in a subscription without an explicit opt-in on a dedicated confirmation screen",
+   "No hiding code explanations behind a paywall: that is the core reason someone bought the adapter",
+   "No requiring two-factor authentication on every device connection"
+  ],
+  "monetization": "One-time purchase at $12 to $18 for the full version. Optional subscription at $30 per year for extended make-specific diagnostics and upcoming service alerts. The target audience already spent $20 to $50 on an OBD2 adapter and does not want another $100 per year just for the app."
+ },
+ "car-maintenance-5": {
+  "categoryName": "Car maintenance",
+  "title": "Fuel economy tracker with a permanent fill-up history",
+  "oneLiner": "A fill-up log with accurate MPG calculation and multi-year history that does not disappear on an update",
+  "gap": "Fuelly and its peers have the right fuel-logging model, but iOS versions lag behind Android, randomly log users out, and do not let you insert a missed fill-up without recalculating the entire history. The market needs a native iOS fuel tracker with durable history and a correct formula when entries are missing.",
+  "pitch": "A fill-up log for owners who care about real-world fuel economy versus the window sticker. The app calculates MPG correctly even with missed fill-ups, stores history in the user's iCloud, and shows a trend: consumption rises with engine problems and drops after a filter change.",
+  "features": [
+   "Correct MPG calculation with missed fill-ups: flags incomplete entries separately",
+   "Consumption chart over time so you can see when it started rising before a shop visit",
+   "Multiple vehicles and mixed units: km and liters or miles and gallons",
+   "Fast fill-up entry in ten seconds without navigating menus",
+   "Auto-backup to iCloud Drive in open CSV format"
+  ],
+  "antiFeatures": [
+   "No forcing a full history recalculation when inserting a missed entry",
+   "No degrading the iOS version relative to Android: same charts and stats on both platforms",
+   "No logging users out without their action and without a warning"
+  ],
+  "monetization": "One-time purchase at $5 to $8. Fuelly and Road Trip MPG users are used to paying once and resent subscriptions on a fill-up log. Additional revenue through a family plan for two to three vehicles at $12 one-time."
+ },
+ "car-maintenance-6": {
+  "categoryName": "Car maintenance",
+  "title": "Smart maintenance reminders for multiple vehicles",
+  "oneLiner": "Oil change, belt, and tire reminders that fire on real mileage, not on the date you installed the app",
+  "gap": "Maintenance reminders need to fire on mileage or on a combination of mileage and time. Existing apps either work by date only or cap the number of custom reminders without telling you before you enter all your data. The market needs a manager with combined triggers and unlimited custom service items.",
+  "pitch": "A maintenance manager for a household with one to four vehicles where every reminder has two modes: every N miles or every N months after the last service, whichever comes first. The app requests the current odometer reading once a week via a notification and recalculates the forecast automatically.",
+  "features": [
+   "Combined trigger for each service type: by mileage, by time, or whichever comes first",
+   "Weekly odometer check-in via notification, no need to open the app",
+   "Unlimited custom items: timing chain, brake fluid, cabin filter, anything",
+   "Up to four vehicles in one interface with a quick switcher",
+   "Export service history for an insurer or when selling a vehicle"
+  ],
+  "antiFeatures": [
+   "No deleting a vehicle without an explicit confirmation warning about data loss",
+   "No capping custom reminders at one without disclosing the limit before data entry",
+   "No hiding free-tier limits until after the user has entered all their information"
+  ],
+  "monetization": "One-time purchase at $6 to $10 for the multi-vehicle version with custom reminders. Target audience: households with two to four vehicles and small businesses with a company fleet that currently track service schedules in their head or in a notes app."
+ },
+ "car-maintenance-7": {
+  "categoryName": "Car maintenance",
+  "title": "Corporate mileage tracker for field employees",
+  "oneLiner": "A reimbursement mileage tracker for employees that does not log them out or lose weeks of data at the worst possible time",
+  "gap": "Corporate trackers like Motus regularly log users out without any notification, causing weeks of data loss. No corporate app in this class has implemented session auto-renewal that preserves the GPS track through a connectivity drop.",
+  "pitch": "A B2B mileage tracker for teams with field employees: the manager sees reports in a dashboard, the employee just drives. The app never logs the employee out and sends a push alert if tracking stops for any reason, so they can recover data before the end of the workday.",
+  "features": [
+   "Persistent session token with no forced monthly logout",
+   "Push notification to the employee if tracking stops during work hours",
+   "Manager dashboard: team mileage by day, accounting summaries, Excel export",
+   "Personal device mode: tracks only during work hours, personal trips not visible to the employer",
+   "ERP integration via API for automatic reimbursement calculation"
+  ],
+  "antiFeatures": [
+   "No requiring always-on location outside work hours on a personal phone",
+   "No logging out without notification and without a recovery path for the missed period",
+   "No showing the employee ads in a paid corporate app"
+  ],
+  "monetization": "B2B subscription at $8 to $12 per employee per month billed to the company. The corporate buyer already pays for Motus or TripLog and will switch for reliability, not for price. A ten-person pilot covers first-year development."
+ },
+ "car-maintenance-8": {
+  "categoryName": "Car maintenance",
+  "title": "Multi-property mileage tracker for landlords and realtors",
+  "oneLiner": "A mileage log for people who drive to multiple properties in a day and want trip accounting broken out by address",
+  "gap": "Landlords and realtors track mileage across multiple properties or clients, but trackers only offer broad categories like business and personal. What is needed is a trip tagging mechanism by specific property or client so that a per-address report can be pulled separately.",
+  "pitch": "A mileage tracker for landlords, realtors, and consultants with multiple properties or clients. Every trip gets a tag: property address, client name, or project. At the end of the quarter the report shows how many miles went to each property, and it generates a tax summary across all categories.",
+  "features": [
+   "Trip tags: property, client, project, selected from a quick-pick list without typing",
+   "Per-property report: total miles, total trips, deduction value for the quarter or year",
+   "Auto-suggest a tag based on the destination address from trip history",
+   "Multi-entity support: separate tags for different LLCs or sole proprietorships in one app",
+   "Per-property export for Schedule E on a tax return"
+  ],
+  "antiFeatures": [
+   "No dumping all trips into a single business bucket with no property-level detail",
+   "No capping the number of tags or properties on a reasonably priced plan",
+   "No fragmenting a single trip to a property into a dozen segments because of red lights"
+  ],
+  "monetization": "Subscription at $7 to $10 per month or $60 per year. A landlord with five properties pays for mileage deductions that genuinely reduce their tax bill by hundreds of dollars annually. For a realtor logging thousands of client-visit miles, this is direct savings, not a convenience."
  }
 }

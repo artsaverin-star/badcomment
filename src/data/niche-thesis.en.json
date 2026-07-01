@@ -6532,5 +6532,43 @@
     ]
    }
   ]
+ },
+ "car-maintenance": {
+  "governing": "The market has split into two clusters. The first is gig drivers on Uber, Lyft, and DoorDash: they need to log every mile for a tax deduction, and a tracker failure costs real money. Stride zeros out after an 8-hour shift and gives the driver nothing. MileIQ drops trips when you sit in traffic too long. The second cluster is personal vehicle owners tracking gas, oil changes, and maintenance. Their main pain is losing years of history when they switch phones (Fuel MPG Calculator wiped six years of data after the 3.0 update, Vehicle Maintenance Tracker reset all dates to 01/01/1900 after a single patch) and service reminders that quietly stop firing. Road Trip MPG has held the line since 2009 with no ads and no subscriptions, staying reliable where competitors break or double their prices.",
+  "competitorRead": "The field breaks into three types. First, indie apps with a one-time purchase: Road Trip MPG (rating 82), no ads or subscriptions, an active developer, but iOS-only and data gets cut off after three years. Second, subscription-based mainstream apps with automatic trip tracking: MileIQ, Everlance, Driversnote, Hurdlr. All can auto-log trips, but MileIQ raised its price from $60 to $140 per year with no new features and burned its loyal base. Hurdlr splits a single trip into dozens of fragments at every stoplight. Everlance throws a banner over the navigation screen while you are driving. Third, OBD2 scanners (FIXD, Carly, ZUS): hidden auto-renewing subscriptions at $99 to $145 per year, random unauthorized charges, and spotty coverage for brands outside BMW.",
+  "pillars": [
+   {
+    "title": "Automatic trip recording accuracy",
+    "dek": "A gig driver starts a shift and does not look at their phone for six to eight hours. Stride returns zero miles after a long shift. MileIQ cuts a trip when you stop for five minutes. TripLog with a BT beacon misses a third of routes, and the driver only finds out at the end of the month. A manual-entry paper log is more reliable, but it demands discipline.",
+    "match": [
+     "automatic trip detection",
+     "mileage tracking accuracy",
+     "gig driver miles",
+     "trip auto-start"
+    ]
+   },
+   {
+    "title": "Data survival across phone upgrades",
+    "dek": "Users build years of fuel and service history, then switch phones and lose everything. Fuel Tracker Gas lost Pro subscribers' data on transfer. Simply Auto stopped syncing via Google Drive in January 2025. Vehicle Maintenance Tracker reset dates to 01/01/1900 for thousands of users after a single patch. Reliable cloud backup that works silently and does not break on updates is genuinely rare in this category.",
+    "match": [
+     "data backup",
+     "phone upgrade data loss",
+     "cloud sync",
+     "maintenance history backup",
+     "iCloud restore"
+    ]
+   },
+   {
+    "title": "Service reminders by mileage and time",
+    "dek": "A maintenance log is only useful if the app reminds you when to change your oil or schedule service. CARFAX Car Care marks service as overdue even after a dealer receipt is uploaded. Car Cave does not let you set a mileage interval independent of a date. My Car hides the reminder limit behind a paywall after the user has already entered all their vehicle data. A tracker that fires reliably on mileage and never needs manual intervention is worth more than a feature-heavy competitor.",
+    "match": [
+     "service reminders",
+     "maintenance intervals",
+     "oil change reminder",
+     "mileage-based alerts",
+     "scheduled maintenance"
+    ]
+   }
+  ]
  }
 }

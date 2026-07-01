@@ -50478,5 +50478,501 @@
    ],
    "monetization": "Разовая покупка 3 доллара без рекламы или пакет 30 страниц за 5 долларов. Учителя и родители платят разово перед мероприятием или уроком, не хотят подписку. Монетизация через пакеты тематических раскрасок: Хеллоуин, Новый год, животные, супергерои."
   }
+ },
+ {
+  "slug": "car-maintenance-1",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Трекер пробега для гиг-водителей с гарантией записи",
+  "oneLiner": "Трекер миль для курьеров и таксистов, который не теряет смену даже после 8 часов за рулём",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 143
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've been using Stride for a year this has happened before but this week it happened twice where it did not record my mileage for the entire day and it's very important for me because I'm an Uber and Lyft Driver and these lost days can cost me hundreds of dollars",
+    "rating": 2,
+    "app": "Stride: Mileage & Tax Tracker"
+   },
+   {
+    "quote": "Wtf working for 10 hours and then gave me 0 miles. This is ridiculous",
+    "rating": 1,
+    "app": "Stride: Mileage & Tax Tracker"
+   },
+   {
+    "quote": "The app continually logs me out and when I log back in, all my miles for the day are gone. I have to keep a backup record and then manually add my miles. This defeats the purpose of having a mileage tracking app.",
+    "rating": 1,
+    "app": "Stride: Mileage & Tax Tracker"
+   },
+   {
+    "quote": "This app is trash. The mileage tracking works periodically but when your job is to drive you need it to always track your mileage. $15 and it did not work. Was unable to get a refund through the developer or Apple. Scummy.",
+    "rating": 1,
+    "app": "Gridwise: Gig Driver Assistant"
+   },
+   {
+    "quote": "I've been using this app for 2026, I'll turn the app on before I go out to work and by the time I get home, anywhere from 4 to 6 hours later, when I look at my mileage it's at ZERO or barely even a couple miles recorded.",
+    "rating": 3,
+    "app": "Stride: Mileage & Tax Tracker"
+   }
+  ],
+  "mechanisms": [
+   "Фоновый GPS на iOS завершает трекинг после паузы или закрытия приложения",
+   "Курьер не замечает остановку трекинга и обнаруживает нули в конце 8-часовой смены",
+   "Потеря одной смены для Uber или Lyft означает потерю вычета на 20-60 долларов"
+  ],
+  "gap": "Ни один из популярных трекеров не решает проблему надёжности фоновой записи на длинных сменах: приложение самостоятельно останавливается, пользователь узнаёт об этом только вечером. Нужен механизм непрерывной записи с проверкой состояния и восстановлением из кэша при сбое.",
+  "idea": {
+   "pitch": "Трекер пробега для гиг-водителей с одной гарантией: смена записывается целиком. Приложение пишет точки GPS в локальный буфер каждые 30 секунд, автоматически сливает их в основную базу при восстановлении связи и показывает живой индикатор состояния на экране блокировки. Пользователь видит, что запись идёт, ещё до того, как сел за руль.",
+   "features": [
+    "Локальный буфер точек GPS: данные не теряются при сбое соединения или перезагрузке",
+    "Виджет экрана блокировки с живым статусом трекинга и накопленными милями за смену",
+    "Авторестарт трекинга при обнаружении движения после паузы без участия водителя",
+    "Экспорт отчёта за любой период в PDF и CSV за два нажатия",
+    "Разделение поездок по платформам: Uber, Lyft, DoorDash, Instacart в одном журнале"
+   ],
+   "antiFeatures": [
+    "Не показывать рекламу поверх интерфейса во время активной смены",
+    "Не требовать всегда активную геолокацию без возможности ограничить рабочими часами",
+    "Не дробить одну поездку на десятки сегментов при каждой остановке на светофоре"
+   ],
+   "monetization": "Подписка 4-6 долларов в месяц. Аудитория уже платит 100-140 долларов в год за MileIQ или Driversnote и не получает надёжности на длинных сменах. Гиг-водитель возвращает стоимость подписки с первого же вычета за месяц."
+  }
+ },
+ {
+  "slug": "car-maintenance-2",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Журнал обслуживания, который выживает при смене телефона",
+  "oneLiner": "Сервисный журнал для нескольких машин с резервной копией, которая не теряется при обновлении или смене устройства",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 118
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've been using this app to track auto maintenance on five different vehicles for well over eight years now. I've used other apps years ago where I lost the information when the app was not supported anymore.",
+    "rating": 5,
+    "app": "CARFAX Car Care"
+   },
+   {
+    "quote": "Last app update I lost all the dates of service for all cars in the app. VERY DISAPPOINTING. Tell us we will loss it if we don't upgrade. Just a money grab.",
+    "rating": 1,
+    "app": "Vehicle Maintenance Tracker"
+   },
+   {
+    "quote": "Recently, during an update, all the dates were reset. So that's lovely and makes the app not reliable. Will it happen again? Other than that, it's super helpful. I love the ability to attach photos.",
+    "rating": 3,
+    "app": "Vehicle Maintenance Tracker"
+   },
+   {
+    "quote": "I had my data synced with Google and every time the app updated, half of my data disappeared and was unrecoverable.",
+    "rating": 1,
+    "app": "Auto Care Kit"
+   },
+   {
+    "quote": "Great app for keeping up with your auto service records.",
+    "rating": 5,
+    "app": "CARFAX Car Care"
+   }
+  ],
+  "mechanisms": [
+   "Данные хранятся в проприетарной базе без автоматической синхронизации с iCloud",
+   "Крупное обновление приложения сбрасывает локальные данные или меняет формат без миграции",
+   "При смене телефона журнал 5-8 лет исчезает вместе со старым устройством"
+  ],
+  "gap": "Сервисный журнал теряет ценность именно в момент, когда она максимальна: при продаже машины или спорном ремонте. Механизм резервного копирования либо отсутствует, либо привязан к собственному облаку вендора. Нужна независимая резервная копия в iCloud Drive или Dropbox пользователя в открытом формате.",
+  "idea": {
+   "pitch": "Сервисный журнал для 1-10 автомобилей с автоматическим бэкапом в iCloud Drive пользователя в виде читаемого JSON-файла. При смене телефона или переустановке приложение находит файл и восстанавливает всю историю за 10 секунд. История с фотографиями чеков никуда не исчезает, даже если разработчик закроет компанию.",
+   "features": [
+    "Автобэкап в iCloud Drive в формате JSON: файл открывается без приложения",
+    "Прикрепление фото чеков к каждой записи ТО с сохранением в облако пользователя",
+    "Напоминания по пробегу и времени одновременно: масло через 5000 миль или 6 месяцев",
+    "Поддержка нескольких машин с быстрым переключением на главном экране",
+    "Экспорт полной истории в PDF для продавца или страховой одним нажатием"
+   ],
+   "antiFeatures": [
+    "Не хранить данные исключительно на собственных серверах без возможности экспорта",
+    "Не сбрасывать записи при обновлении приложения без предварительной миграции и проверки",
+    "Не ограничивать количество машин на разумном плане подпиской за каждую дополнительную"
+   ],
+   "monetization": "Разовая покупка 8-12 долларов за версию с несколькими машинами. Люди, которые ведут историю 5-10 лет, платят один раз и не хотят подписку. Дополнительный доход через семейный план на 3-5 устройств."
+  }
+ },
+ {
+  "slug": "car-maintenance-3",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Налоговый отчёт по пробегу за один клик",
+  "oneLiner": "Автоматический журнал миль для самозанятых с готовым отчётом для налоговой в конце года",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have been using MileIQ for 8 years now. At the end of the year I simply create my report and send it to my accountant. I highly recommend it.",
+    "rating": 4,
+    "app": "MileIQ: Mileage Tracker & Log"
+   },
+   {
+    "quote": "I've been using TripLog for years and it never fails. I use it in the manual mode because I don't need to use app daily. As a landlord this app suits my needs. It difficult to pull a year end report for mileage",
+    "rating": 3,
+    "app": "Mileage Tracker App by TripLog"
+   },
+   {
+    "quote": "I've been using this app for 5 years now for my taxes. Super easy to use to send to my accountant. However, lately, they don't let you send the whole year's report, instead, month by month. Kinda hassle to keep going back month to month record.",
+    "rating": 1,
+    "app": "Mileage Tracker App by TripLog"
+   },
+   {
+    "quote": "Excellent app to keep track of the miles and to keep records for tax season.",
+    "rating": 5,
+    "app": "MileIQ: Mileage Tracker & Log"
+   },
+   {
+    "quote": "Love all the features tried many other apps on trial this was the best work it saved me over 5k on miles",
+    "rating": 5,
+    "app": "Mileage Tracker by Everlance"
+   }
+  ],
+  "mechanisms": [
+   "Самозанятые и арендодатели ведут журнал миль весь год и вспоминают о налоговом отчёте в январе",
+   "Большинство приложений предлагают только помесячный экспорт, что требует ручной сборки годового отчёта",
+   "Форматы экспорта не соответствуют тому, что хочет бухгалтер: нет итогов по категориям и ставке IRS"
+  ],
+  "gap": "Трекеры записывают поездки, но не собирают готовый документ для бухгалтера. Пользователь получает CSV с сырыми данными вместо структурированного отчёта с итогами по категориям, применённой ставкой пробега и суммой вычета. Нужен автоматический годовой отчёт с корректной ставкой и разбивкой по назначению.",
+  "idea": {
+   "pitch": "Трекер пробега для фрилансеров, арендодателей и риэлторов с акцентом на налоговый выход. Приложение отслеживает поездки автоматически, а в январе генерирует готовый PDF-отчёт с нужной ставкой IRS, итогами по категориям и суммой вычета. Бухгалтеру достаточно одного файла.",
+   "features": [
+    "Автоматическое определение ставки IRS на текущий год без ручного ввода",
+    "Годовой отчёт: итоги по категориям, ставка, общая сумма вычета в одном PDF",
+    "Категории под задачи арендодателя: объект недвижимости, тип поездки, дата",
+    "Быстрая классификация поездок свайпом: бизнес влево, личная вправо",
+    "Отправка отчёта напрямую бухгалтеру через AirDrop или почту из приложения"
+   ],
+   "antiFeatures": [
+    "Не убирать годовой отчёт за пейволл после того, как пользователь год пользовался приложением",
+    "Не требовать платную подписку для просмотра данных старше одного месяца",
+    "Не отправлять отчёт по 12 частям вместо одного документа"
+   ],
+   "monetization": "Подписка 5 долларов в месяц или 40 долларов в год. Аудитория уже платит за MileIQ (140 долларов в год) ради налогового вычета: они считают, что вычет окупает подписку с первой же поездки к объекту. Целевые пользователи: фрилансеры, риэлторы, арендодатели с 2-5 объектами."
+  }
+ },
+ {
+  "slug": "car-maintenance-4",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "OBD2-компаньон без скрытой подписки",
+  "oneLiner": "Читает коды ошибок и объясняет их простым языком без сюрпризного списания 99 долларов через год",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 86
+  },
+  "reviewGrid": [
+   {
+    "quote": "I bought this to have a clue when the idiot lights come up in the dashboard. Could have used it before to find out my gas cap was loose. Instead, paid to have Toyota tell me that. Used a device in each car, and it connects to my app seamlessly.",
+    "rating": 5,
+    "app": "FIXD OBD2 Scanner"
+   },
+   {
+    "quote": "Frequently charged my bank for $99 when I didn't buy any subscription and it wouldn't let me cancel the subscription. Terrible app stealing money",
+    "rating": 1,
+    "app": "FIXD OBD2 Scanner"
+   },
+   {
+    "quote": "The device works, but the subscription practices are extremely misleading. I only used the app to read engine codes and was never clearly informed I was signing up for a $99.99 subscription.",
+    "rating": 3,
+    "app": "FIXD OBD2 Scanner"
+   },
+   {
+    "quote": "I have been using FIXD for over two years now. I bought one for my college age son. It is so nice to be able to see a code with additional information about how frequently that code corresponds to a given problem with the vehicle.",
+    "rating": 5,
+    "app": "FIXD OBD2 Scanner"
+   },
+   {
+    "quote": "Pretty good app overall. The best thing for me is how it tells you how serious a problem is and if it's okay to keep driving or not. I also like the live data stuff and how it explains codes in a way that actually makes sense.",
+    "rating": 4,
+    "app": "FIXD OBD2 Scanner"
+   }
+  ],
+  "mechanisms": [
+   "OBD2-адаптер читает все коды через стандартный протокол, не требуя подписки",
+   "Производители прячут подписку в онбординге так, что пользователь соглашается на автоплатёж без понимания",
+   "Пояснение кода на понятном языке реально нужно владельцу, но это не повод для ежегодной платы"
+  ],
+  "gap": "Существующие OBD2-приложения либо дают сырые коды без объяснений, либо объясняют коды, но прячут эту функцию за подпиской с запутанным онбордингом. Нужно приложение, где чтение кодов и их объяснение включены в разовую покупку, а подписка опциональна для расширенных функций.",
+  "idea": {
+   "pitch": "OBD2-компаньон с разовой оплатой: купил один раз, читаешь коды и получаешь объяснение на человеческом языке навсегда. Приложение показывает код, что он означает, насколько срочно ехать в сервис, и примерную стоимость ремонта. Никаких скрытых подписок и автосписаний через год.",
+   "features": [
+    "Расшифровка OBD2-кодов с объяснением на русском и английском без подписки",
+    "Оценка срочности: можно ли ехать, стоит ли остановиться, надо ли вызывать эвакуатор",
+    "Живые данные двигателя: температура, обороты, нагрузка в реальном времени",
+    "История кодов с датами и пробегом для разговора с механиком",
+    "Совместимость с любым Bluetooth ELM327 адаптером без привязки к проприетарному железу"
+   ],
+   "antiFeatures": [
+    "Не запускать автоподписку без явного выбора пользователя с отдельным экраном подтверждения",
+    "Не прятать расшифровку кодов за пейволл: это базовая функция, ради которой купили адаптер",
+    "Не требовать 2FA при каждом подключении к устройству"
+   ],
+   "monetization": "Разовая покупка 12-18 долларов за полную версию. Опциональная подписка 30 долларов в год за расширенную диагностику конкретных марок и уведомления о будущем ТО. Целевая аудитория уже потратила 20-50 долларов на OBD2-адаптер и не хочет ещё 100 долларов в год за приложение."
+  }
+ },
+ {
+  "slug": "car-maintenance-5",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Трекер расхода топлива с историей заправок",
+  "oneLiner": "Журнал заправок с честным расчётом MPG и многолетней историей, которая не исчезает при обновлении",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 74
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love this app for tracking gas mileage and maintenance",
+    "rating": 5,
+    "app": "Fuelly: MPG & Service Tracker"
+   },
+   {
+    "quote": "I've used Fuelly for well over 10 years. While I find the interface easy to use for the most part, the thing that drives me crazy is the repeated loss of commonly used gas stations from the map.",
+    "rating": 2,
+    "app": "Fuelly: MPG & Service Tracker"
+   },
+   {
+    "quote": "Changing my rating to 1 star because you cannot add a missed fuelup without deleting all of the fuelups after it. The Last odometer field is autofilled and you cannot change it manually. Therefore the mileage calculation will be WRONG.",
+    "rating": 1,
+    "app": "Fuelly: MPG & Service Tracker"
+   },
+   {
+    "quote": "Over the past several years I've saved about $1,500 in fuel costs almost entirely buying required 93 octane for an old Jaguar. I also use it for a Prius which makes an inexpensive car even cheaper to operate.",
+    "rating": 3,
+    "app": "Fuelly: MPG & Service Tracker"
+   },
+   {
+    "quote": "Easy to use, helps me keep track of my vehicle, maintenance, fuel, mileage. All the things!",
+    "rating": 5,
+    "app": "Fuelly: MPG & Service Tracker"
+   }
+  ],
+  "mechanisms": [
+   "MPG рассчитывается только при вводе каждой заправки: пропущенная заправка ломает всю историю",
+   "Пользователи ведут журнал топлива годами ради понимания реального расхода своего авто",
+   "iOS-версии популярных трекеров топлива годами не обновляются и теряют данные при смене телефона"
+  ],
+  "gap": "Fuelly и аналоги предлагают правильную модель учёта заправок, но iOS-версии отстают от Android, периодически выбрасывают из аккаунта и не позволяют вставить пропущенную заправку без перерасчёта всей истории. Нужен нативный iOS-трекер топлива с устойчивой историей и корректной формулой при пропусках.",
+  "idea": {
+   "pitch": "Журнал заправок для владельцев, которым важен реальный расход авто в сравнении с паспортным. Приложение корректно считает MPG даже с пропущенными заправками, хранит историю в iCloud пользователя и показывает тренд: расход растёт при проблемах с двигателем, падает после замены фильтра.",
+   "features": [
+    "Корректный расчёт MPG при пропущенных заправках: помечает неполные записи отдельно",
+    "График расхода по времени: видно, когда расход начал расти, до похода в сервис",
+    "Поддержка нескольких авто и смешанных единиц: км и литры или мили и галлоны",
+    "Быстрый ввод заправки за 10 секунд без навигации по меню",
+    "Автобэкап в iCloud Drive в открытом CSV-формате"
+   ],
+   "antiFeatures": [
+    "Не требовать пересчёта всей истории при вставке пропущенной записи",
+    "Не деградировать iOS-версию относительно Android: одинаковые графики и статистика",
+    "Не разлогинивать пользователя без его действия и без предупреждения"
+   ],
+   "monetization": "Разовая покупка 5-8 долларов. Пользователи Fuelly и Road Trip MPG привыкли платить один раз и не любят подписки на журнал заправок. Дополнительный доход через семейный план на 2-3 машины за 12 долларов разово."
+  }
+ },
+ {
+  "slug": "car-maintenance-6",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Умные напоминания о ТО для нескольких автомобилей",
+  "oneLiner": "Напоминания о замене масла, ремня и шин, которые срабатывают по реальному пробегу, а не по дате установки приложения",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "Wow this is the perfect App for reminders on multiple vehicles",
+    "rating": 4,
+    "app": "My Car - Vehicle Manager"
+   },
+   {
+    "quote": "I use this app to track my cars and understand their operations! I also use this to track maintenance! This app continues to be a great tool in keeping track of my vehicles!",
+    "rating": 5,
+    "app": "My Car - Vehicle Manager"
+   },
+   {
+    "quote": "The app deleted my car when I added a new one without confirming. All that data is gone.",
+    "rating": 1,
+    "app": "My Car - Vehicle Manager"
+   },
+   {
+    "quote": "Love the ability to make custom maintenance reminders, however after adding only ONE custom one it said to add more I had to upgrade.",
+    "rating": 1,
+    "app": "My Car - Vehicle Manager"
+   },
+   {
+    "quote": "I have downloaded, purchased, and used a vast majority of the apps out there for being able to keep logs of my vehicle maintenance, and My Car is the one I keep coming back to. Clean interface, easy to use, customizable maintenance.",
+    "rating": 5,
+    "app": "My Car - Vehicle Manager"
+   }
+  ],
+  "mechanisms": [
+   "Напоминания по дате не учитывают интенсивность эксплуатации: при 200 км в день масло кончится быстрее графика",
+   "Приложения ограничивают количество напоминаний в бесплатной версии, не говорит об этом заранее",
+   "Семьи с 2-4 машинами ведут журнал в голове или в бумажном планшете"
+  ],
+  "gap": "Напоминания о ТО должны срабатывать по пробегу или по сочетанию пробег плюс время. Существующие приложения либо работают только по дате, либо ограничивают число пользовательских напоминаний, не предупредив об этом при вводе данных. Нужен менеджер с комбинированными триггерами и неограниченными кастомными позициями.",
+  "idea": {
+   "pitch": "Менеджер ТО для семьи с 1-4 машинами, где каждое напоминание настраивается двумя способами: через N километров или через N месяцев после последней замены, в зависимости от того, что наступит раньше. Приложение запрашивает текущий пробег раз в неделю через уведомление и пересчитывает прогноз автоматически.",
+   "features": [
+    "Комбинированный триггер для каждого вида ТО: по пробегу, по времени или по первому из двух",
+    "Еженедельный запрос текущего одометра через уведомление без входа в приложение",
+    "Неограниченные кастомные позиции: цепь ГРМ, тормозная жидкость, фильтр салона",
+    "Поддержка 4 машин в одном интерфейсе с быстрым переключением",
+    "Экспорт истории ТО для страховой или при продаже авто"
+   ],
+   "antiFeatures": [
+    "Не удалять машину без явного подтверждения с предупреждением о потере данных",
+    "Не ограничивать кастомные напоминания до 1 штуки без предупреждения при вводе данных",
+    "Не скрывать лимиты бесплатной версии до момента, когда пользователь уже ввёл всё"
+   ],
+   "monetization": "Разовая покупка 6-10 долларов за версию с несколькими машинами и кастомными напоминаниями. Целевая аудитория: семьи с 2-4 машинами и малый бизнес с парком служебных авто, которые сейчас держат расписание ТО в голове или в заметках."
+  }
+ },
+ {
+  "slug": "car-maintenance-7",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Корпоративный пробег для полевых сотрудников",
+  "oneLiner": "Трекер возмещения пробега для сотрудников, который не разлогинивает и не теряет недели данных в самый неудобный момент",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 79
+  },
+  "reviewGrid": [
+   {
+    "quote": "App closes unexpectedly for no reason at all. I have lost days and weeks of unlogged business miles. Not sure what has changed in the last 6+ months? App used to always stay logged in and would auto record miles with ease but now logs off without my knowledge. Very frustrating.",
+    "rating": 2,
+    "app": "Motus - Business Mileage Log"
+   },
+   {
+    "quote": "At least once a month I will get logged out automatically and no notification about it and have to review notes and memory to input the stops. No point in using this as you'll still have to keep a written log of where you go on a daily basis",
+    "rating": 1,
+    "app": "Motus - Business Mileage Log"
+   },
+   {
+    "quote": "Works well when signed in. Used with my company for last 2 years. Now over the last 4 months it logs me out without notification consistently and costing me reimbursement money.",
+    "rating": 1,
+    "app": "Motus - Business Mileage Log"
+   },
+   {
+    "quote": "I am required by my organization to track my mileage and submitted monthly. MOTUS allows me the ease to track my locations and enter the names of the locations I visit. I can easily remove personal trips from the log and submit to my team on a timely basis.",
+    "rating": 5,
+    "app": "Motus - Business Mileage Log"
+   },
+   {
+    "quote": "This app is great for jobs that always have you tracking mileage.",
+    "rating": 4,
+    "app": "Mileage Tracker App by TripLog"
+   }
+  ],
+  "mechanisms": [
+   "Корпоративные приложения разлогинивают сотрудника без уведомления, теряя недели данных",
+   "Полевые сотрудники не отслеживают статус приложения: они просто ездят к клиентам",
+   "Потеря данных означает потерю возмещения из зарплаты, что создаёт трение с работодателем"
+  ],
+  "gap": "Корпоративные трекеры вроде Motus регулярно разлогинивают пользователя без уведомления, из-за чего теряются недели данных. Механизм автопродления сессии без потери GPS-трека при разрыве соединения не реализован ни в одном корпоративном приложении этого класса.",
+  "idea": {
+   "pitch": "B2B-трекер пробега для команд с полевыми сотрудниками: менеджер видит отчёты в дашборде, сотрудник просто ездит. Приложение не разлогинивает сотрудника и присылает уведомление, если трекинг остановился по любой причине, чтобы успеть восстановить данные до конца рабочего дня.",
+   "features": [
+    "Постоянная сессия с токеном без принудительного выхода раз в месяц",
+    "Push-уведомление сотруднику, если трекинг остановился в рабочие часы",
+    "Дашборд менеджера: пробег команды по дням, итоги для бухгалтерии, экспорт в Excel",
+    "Режим личного устройства: трекинг только в рабочие часы, личные поездки не видны работодателю",
+    "Интеграция с корпоративными ERP через API для автоматического расчёта возмещения"
+   ],
+   "antiFeatures": [
+    "Не требовать постоянный доступ к геолокации вне рабочих часов на личном телефоне сотрудника",
+    "Не разлогинивать без уведомления и без возможности восстановить пропущенный период",
+    "Не показывать сотруднику рекламу в платном корпоративном приложении"
+   ],
+   "monetization": "Подписка B2B: 8-12 долларов в месяц на одного сотрудника при оплате от компании. Корпоративный покупатель уже платит за Motus или TripLog: он переключается ради надёжности, а не ради цены. Пилот на 10 сотрудников окупает разработку первого года."
+  }
+ },
+ {
+  "slug": "car-maintenance-8",
+  "category": "car-maintenance",
+  "categoryName": "Уход за авто",
+  "title": "Многомаршрутный трекер для арендодателей и риэлторов",
+  "oneLiner": "Журнал пробега для тех, кто ездит к нескольким объектам в день и хочет учёт по каждому адресу отдельно",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 36,
+   "reviews": 8147,
+   "observations": 52
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've been using Hurdlr for over 5 years now. For my business as a realtor, it has been very effective at helping me track income, expenses, and mileage.",
+    "rating": 5,
+    "app": "Hurdlr Mileage, Expenses & Tax"
+   },
+   {
+    "quote": "Renter with multiple properties need to tag miles per job/property",
+    "rating": 3,
+    "app": "Stride: Mileage & Tax Tracker"
+   },
+   {
+    "quote": "I have several businesses that I need to claim my mileage for and it makes it easy and trackable. I would highly recommend.",
+    "rating": 5,
+    "app": "Mileage Tracker App by TripLog"
+   },
+   {
+    "quote": "Good for tracking business expenses, but please let us make our own categories! There is none for business meals, meaning at the end of each year i have to export the spreadsheet and look back at everything i put in the other category.",
+    "rating": 4,
+    "app": "Stride: Mileage & Tax Tracker"
+   },
+   {
+    "quote": "I've been using it for about a year and a half now. My only complaint is that the reports don't differentiate well between different types of trips when I have multiple businesses.",
+    "rating": 4,
+    "app": "Mile Logger - Mileage tracker"
+   }
+  ],
+  "mechanisms": [
+   "Арендодатель с 5-10 объектами ездит к каждому по-разному: осмотр, ремонт, заезд арендатора",
+   "Стандартные категории трекеров не позволяют разметить пробег по конкретному объекту",
+   "При налоговой проверке арендодатель должен показать, какие мили относятся к какому объекту"
+  ],
+  "gap": "Арендодатели и риэлторы ведут пробег по нескольким объектам или клиентам, но трекеры предлагают только общие категории вроде бизнес и личное. Нужен механизм тегирования поездки конкретным объектом или клиентом, чтобы отчёт по каждому адресу можно было вытащить отдельно.",
+  "idea": {
+   "pitch": "Трекер пробега для арендодателей, риэлторов и консультантов с несколькими объектами или клиентами. Каждой поездке присваивается тег: адрес объекта, имя клиента или проект. В конце квартала отчёт показывает, сколько миль потрачено на каждый объект, а для налоговой формы выводит сводку по всем категориям.",
+   "features": [
+    "Теги для поездок: объект, клиент, проект, выбираются из быстрого списка без набора текста",
+    "Отчёт по объекту: сколько миль, сколько поездок, на какую сумму вычета за квартал или год",
+    "Автоматическое предложение тега по адресу назначения на основе истории поездок",
+    "Мульти-бизнес: разные теги для разных ИП или LLC в одном приложении",
+    "Экспорт по конкретному объекту для налоговой декларации Schedule E"
+   ],
+   "antiFeatures": [
+    "Не сваливать все поездки в единую категорию бизнес без возможности детализировать по объекту",
+    "Не ограничивать количество тегов или объектов в разумном ценовом плане",
+    "Не разбивать одну поездку к объекту на дюжину сегментов из-за остановок на светофоре"
+   ],
+   "monetization": "Подписка 7-10 долларов в месяц или 60 долларов в год. Арендодатель с 5 объектами платит за вычет пробега, который реально уменьшает налог на сотни долларов в год. Риэлтор тратит на клиентские выезды тысячи миль: для него это прямая экономия, а не удобство."
+  }
  }
 ]

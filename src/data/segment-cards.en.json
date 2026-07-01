@@ -7459,5 +7459,69 @@
    }
   ],
   "hygiene": []
+ },
+ "car-maintenance": {
+  "product": [
+   {
+    "title": "Automatic trip detection",
+    "plus": "The best trackers start on their own when you start moving and need no manual tap. MileIQ and Driversnote users say they just get in the car and drive, and the log keeps itself.",
+    "minus": "GPS start has a delay and misses the first few hundred feet. Stopping at a light or a gas station splits the trip and creates a new entry. TripLog via BT beacon silently misses trips. Stride drops an entire shift's mileage after several hours of driving."
+   },
+   {
+    "title": "Personal vs. business trip classification",
+    "plus": "A swipe or a single tap tags a trip as personal or business. MileIQ and TripLog users say the final report can go straight to an accountant with no extra sorting.",
+    "minus": "There is no flexible per-client tagging when you have multiple businesses or platforms. If a trip gets split at a stoplight, every fragment needs its own classification. Everlance's bulk-select marks all unclassified trips instead of just the filtered ones."
+   },
+   {
+    "title": "Data survival across phone upgrades",
+    "plus": "Apps with proper cloud accounts restore full history when you log in on a new device. CARFAX Car Care and AUTOsist users track three to six vehicles for years without losing anything on a new iPhone.",
+    "minus": "Many trackers store data locally: switch phones and the history is gone. Fuel Tracker, Fuel Tracker Gas, Simply Auto, and Mile Logger have all wiped years of accumulated data without warning. Road Trip MPG silently trims history older than three years."
+   },
+   {
+    "title": "Tax deduction mileage report",
+    "plus": "TripLog and MileageWise auto-send a monthly summary report that you can hand to an accountant in seconds. Stride and Everlance have saved users thousands of dollars in business mileage deductions.",
+    "minus": "TripLog removed the annual report and left only monthly exports, forcing you to send twelve files instead of one. Mile Logger crashes on CSV export. Mileage Expense Log stopped emailing files after an update. Outdated IRS rates in Simple Mileage Tracker understate the deduction."
+   },
+   {
+    "title": "Service reminders by mileage and time",
+    "plus": "Fuel Monitor Pro and Road Trip MPG let you set an interval by both mileage and time simultaneously. CARFAX Car Care reminded one user that the transmission fluid had already been changed and saved them $800 on an unnecessary service.",
+    "minus": "Car Cave does not let you set mileage independently from a date: choose 10k miles and the app also locks you into 10 months. My Car hides the free reminder limit until after you have entered all your vehicle data. Vehicle Maintenance Tracker reset all service dates to 01/01/1900 after a single update."
+   },
+   {
+    "title": "Fuel economy and trip cost tracking",
+    "plus": "Road Trip MPG and Fuelly give an accurate real-world MPG compared to the dashboard reading. Pure Gas users with classics and motorcycles find rare ethanol-free stations. Long-term fill-up history lets you catch engine degradation as consumption creeps up.",
+    "minus": "Fuelly does not let you insert a missed fill-up without cascading recalculations on every entry after it. Fuel MPG Calculator's 3.0 update converted thousands of users' odometers from miles to kilometers. Fuel Tracker Gas uses an incorrect MPG formula and returns wrong numbers."
+   },
+   {
+    "title": "OBD2 code reading and clearing",
+    "plus": "FIXD explains a fault code in plain language, shows the likely cause, and gives a repair cost estimate. ZUS runs a diagnostic on every engine start. Carly delivers deep multi-module diagnostics on BMW, including coding.",
+    "minus": "ZUS misses real codes on a Chrysler that a cheap scanner reads without trouble. Carly is nearly useless for anything other than BMW. FIXD has a predictive mileage bug that adds miles the vehicle never drove."
+   },
+   {
+    "title": "Managing multiple vehicles in one account",
+    "plus": "AUTOsist and Car Cave let you keep history for several vehicles with receipt photos attached to each entry. CARFAX Car Care supports five vehicles and surfaces open manufacturer recalls. Users with multiple BMWs use Carly for diagnostics and coding across their whole fleet.",
+    "minus": "AUTOsist offers only one vehicle for free, and the next tier jumps to $100 per month with nothing in between. Auto Care Kit bugs out when adding a fourth vehicle. Everlance does not remember frequent addresses across multiple vehicles as well as MileIQ does."
+   },
+   {
+    "title": "Cloud backup reliability",
+    "plus": "Apps with a proper cloud account let you restore a full log instantly. AUTOsist users with eight years of history and receipt photos switch to a new phone without losing a thing.",
+    "minus": "Auto Care Kit wipes data on every major update: users have lost records going back to 2019. Simply Auto stopped supporting the Google Drive API in January 2025 and never fixed it. Vehicle Maintenance Tracker reset service dates to 01/01/1900 for thousands of users after a single patch."
+   },
+   {
+    "title": "Battery drain from background GPS tracking",
+    "plus": "Motus in Power Supply Only mode runs GPS only when plugged into the car, which eliminates the drain. MileageWise users report minimal battery impact compared to competitors.",
+    "minus": "Driversnote and Motus require always-on location access or tracking simply stops. TripLog and Everlance users report noticeable heat and battery drain over a shift. Corporate employees on personal phones object to constant location monitoring."
+   },
+   {
+    "title": "Receipt and photo documentation for service",
+    "plus": "AUTOsist lets you snap a receipt and attach it directly to a specific maintenance entry. CARFAX Car Care accepts uploaded receipts and syncs them to the VIN history. Users say a photo receipt convinces buyers when selling a car.",
+    "minus": "Road Trip MPG has no receipt attachment for service entries despite six years of user requests. Car Cave does not accept photos at all. AUTOsist compresses uploaded images heavily enough that the text on a receipt becomes hard to read."
+   },
+   {
+    "title": "Silent session logouts",
+    "plus": "Trackers that do not force session expiry work for months without re-login. Hurdlr and Road Trip MPG users who have never hit this problem call the app reliable year after year.",
+    "minus": "Motus logs users out once a month with no notification: drivers discover the missing data only when they try to file a report. TripLog resets all settings after updates and loses up to two months of trips. Fleetio clears an open inspection form when the device switches from Wi-Fi to cellular."
+   }
+  ]
  }
 }
