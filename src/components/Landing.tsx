@@ -28,14 +28,6 @@ export type CatCard = {
   hook: string;
   blurb: string;
 };
-function appsWord(n: number): string {
-  const d = n % 10;
-  const dd = n % 100;
-  if (dd >= 11 && dd <= 14) return "приложений";
-  if (d === 1) return "приложение";
-  if (d >= 2 && d <= 4) return "приложения";
-  return "приложений";
-}
 function obsWord(n: number): string {
   const d = n % 10;
   const dd = n % 100;
@@ -73,27 +65,13 @@ function firstSentence(t?: string) {
   return (m ? m[0] : t).trim();
 }
 
-// Small colourful section pill (All ideas / People's rating).
-function NavPill({ href, label, accent }: { href: string; label: string; accent: string }) {
-  return (
-    <Link
-      href={href}
-      style={{ ["--ec" as string]: accent }}
-      className="edge-glow group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-[var(--color-border-subtle)] px-5 py-2.5 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
-    >
-      {label}
-      <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
-    </Link>
-  );
-}
-
 // Compact tile — headline, small icon row, the hook, quiet stats.
 function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   const icons = c.icons.filter(Boolean).slice(0, 4);
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[hsl(var(--atmo-h,28)_24%_12%_/_0.5)] p-6 transition-colors duration-200 hover:bg-[hsl(var(--atmo-h,28)_26%_16%_/_0.62)]"
+      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[hsl(var(--atmo-h,230)_24%_12%_/_0.5)] p-6 transition-colors duration-200 hover:bg-[hsl(var(--atmo-h,230)_26%_16%_/_0.62)]"
     >
       <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
       {icons.length > 0 && (
@@ -261,12 +239,8 @@ export default function Landing({
           </div>
         </section>
 
-      {/* Small section pills, then every niche with a full dossier. */}
-      <div className="mx-auto mt-7 flex w-full max-w-5xl flex-wrap justify-center gap-2.5 px-4">
-        <NavPill href="/" label={ru ? "Все идеи" : "All ideas"} accent="#c026d3" />
-        <NavPill href="/rating" label={ru ? "Народный рейтинг" : "People's rating"} accent="#10b981" />
-      </div>
-      <div className="mx-auto mt-7 w-full max-w-5xl px-4 sm:mt-9">
+      {/* Every niche with a full dossier. */}
+      <div className="mx-auto mt-9 w-full max-w-5xl px-4 sm:mt-12">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ranked.map((c) => (
             <CardCompact key={c.slug} c={c} ru={ru} />
