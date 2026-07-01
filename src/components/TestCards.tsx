@@ -181,7 +181,6 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
   const sentinel = useRef<HTMLDivElement | null>(null);
   const ru = locale !== "en";
 
-  useEffect(() => { setCount(IDEA_PAGE); }, [ideas]);
   useEffect(() => {
     if (count >= ideas.length) return;
     const el = sentinel.current;
