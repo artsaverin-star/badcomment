@@ -27,8 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const paths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
-    { p: "/ideas", priority: 0.95 },
+    { p: "/categories", priority: 0.95 },
     { p: "/rating", priority: 0.95 },
+    { p: "/ideas/top", priority: 0.8 },
     { p: "/most-wanted", priority: 0.9 },
     { p: "/cards", priority: 0.9 },
     { p: "/apps", priority: 0.6 },

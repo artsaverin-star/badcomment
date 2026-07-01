@@ -68,7 +68,7 @@ export default async function IdeasTopPage() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-16 sm:pt-24">
-      <Link href="/ideas" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href="/" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Все идеи" : "All ideas"}
       </Link>

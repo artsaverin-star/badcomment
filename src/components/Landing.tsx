@@ -263,7 +263,7 @@ export default function Landing({
 
       {/* Small section pills, then every niche with a full dossier. */}
       <div className="mx-auto mt-7 flex w-full max-w-5xl flex-wrap justify-center gap-2.5 px-4">
-        <NavPill href="/ideas" label={ru ? "Все идеи" : "All ideas"} accent="#c026d3" />
+        <NavPill href="/" label={ru ? "Все идеи" : "All ideas"} accent="#c026d3" />
         <NavPill href="/rating" label={ru ? "Народный рейтинг" : "People's rating"} accent="#10b981" />
       </div>
       <div className="mx-auto mt-7 w-full max-w-5xl px-4 sm:mt-9">
