@@ -6,7 +6,8 @@ import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
 import type { Locale } from "@/lib/i18n";
 
-type Card = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string };
+type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
+type Card = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score };
 
 // The /ideas deck: the same idea cards as the niche dossiers, with the
 // progressive gate — first 6 free, sign in for more, then unlock the deck.

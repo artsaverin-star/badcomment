@@ -12,6 +12,7 @@ import AppLinkedText from "@/components/AppLinkedText";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { categoryCards } from "@/lib/regenCards";
+import { marketFor, scoreFor } from "@/lib/ideaScores";
 import ideasAll from "@/data/ideas.json";
 import ideasContentEn from "@/data/ideas-content.en.json";
 import dossierEn from "@/data/dossier.en.json";
@@ -109,6 +110,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       pitch: pitch ? tg(pitch) : undefined, features: features?.map((f) => tg(f)),
       antiFeatures: antiFeatures?.map((f) => tg(f)), monetization: monetization ? tg(monetization) : undefined,
       reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
+      score: scoreFor(x.slug, locale) ?? undefined,
     };
   });
   const grouped = groupFindings(thesis.pillars, cards);
@@ -127,6 +129,11 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
   const leaders = byRatings.slice(0, 3);
   const top3Share = Math.round((100 * leaders.reduce((s, a) => s + (a.ratings || 0), 0)) / (totalRatings || 1));
+
+  // Real market money layer: Google Play install scale + a transparent revenue estimate.
+  const mkt = marketFor(slug);
+  const compactM = (n: number) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} ${ru ? "млрд" : "B"}` : `${Math.round(n / 1e6)} ${ru ? "млн" : "M"}`);
+  const topInstall = mkt?.installs?.top?.[0];
 
   const name = ru ? r.name : r.nameEn ?? r.name;
   const stats = [
@@ -163,6 +170,23 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           <MarketRow k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
           <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
           <MarketRow k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
+          {mkt?.installs && (
+            <MarketRow k={ru ? "Скачивания" : "Downloads"} v={ru
+              ? `около ${compactM(mkt.installs.totalMin)}+ установок у топ-${mkt.installs.matched} приложений на Google Play${topInstall ? `, лидер ${topInstall.title} (${topInstall.installs})` : ""}`
+              : `about ${compactM(mkt.installs.totalMin)}+ installs across the top ${mkt.installs.matched} apps on Google Play${topInstall ? `, led by ${topInstall.title} (${topInstall.installs})` : ""}`} />
+          )}
+          {mkt && mkt.pricesTop.length > 0 && (
+            <MarketRow k={ru ? "Сколько платят" : "What people pay"} v={ru
+              ? `в отзывах называют ${mkt.pricesTop.slice(0, 4).map((p) => p.label).join(", ")}`
+              : `reviews cite ${mkt.pricesTop.slice(0, 4).map((p) => p.label).join(", ")}`} />
+          )}
+          {mkt?.revenue && (
+            <MarketRow k={ru ? "Оценка выручки" : "Revenue estimate"} v={
+              <span>{ru ? `примерно ${mkt.revenue.low}-${mkt.revenue.high} в год у топ-приложений ниши` : `roughly ${mkt.revenue.low}-${mkt.revenue.high} a year for the niche's top apps`}
+                <span className="mt-1 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
+              </span>
+            } />
+          )}
           <MarketRow k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
         </dl>
         <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />

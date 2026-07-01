@@ -6,6 +6,7 @@ import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import IdeasDeck from "@/components/IdeasDeck";
+import { scoreFor } from "@/lib/ideaScores";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -56,18 +57,18 @@ const cleanTitle = (s: string) => {
 // gate (first 6 free, sign in for more, then unlock the whole deck).
 export default async function IdeasPage() {
   const locale = await getLocale();
+  const ru = locale !== "en";
   const tr = t(locale);
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
-  // Lead with the juiciest, most solo-buildable ideas: round-robin one idea per
-  // category in buildability order, so the first cards a founder sees are the top
-  // idea from each of the easiest-to-ship niches (a "this is exactly what I need"
-  // hit), not eight variations of the same category before the next one.
-  const byCat = new Map<string, FullIdea[]>();
-  for (const i of raw) { const a = byCat.get(i.category); if (a) a.push(i); else byCat.set(i.category, [i]); }
-  const cats = [...byCat.keys()].sort((a, b) => (CAT_RANK.get(a) ?? 999) - (CAT_RANK.get(b) ?? 999));
-  const maxLen = cats.reduce((m, c) => Math.max(m, byCat.get(c)!.length), 0);
-  const all: FullIdea[] = [];
-  for (let r = 0; r < maxLen; r++) for (const c of cats) { const arr = byCat.get(c)!; if (r < arr.length) all.push(arr[r]); }
+  // Lead with the most profitable-and-simple ideas: rank by the composite score
+  // (money x simplicity x demand, all from real signals). A founder sees the
+  // "where the money is and I can actually build it" ideas first. Ties fall back
+  // to buildability order so the ordering stays stable.
+  const all = raw.slice().sort((a, b) => {
+    const sa = scoreFor(a.slug)?.composite ?? 0, sb = scoreFor(b.slug)?.composite ?? 0;
+    if (sb !== sa) return sb - sa;
+    return (CAT_RANK.get(a.category) ?? 999) - (CAT_RANK.get(b.category) ?? 999);
+  });
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
   const loggedIn = access.loggedIn;
@@ -87,6 +88,7 @@ export default async function IdeasPage() {
       monetization: i.idea?.monetization,
       reviewGrid: i.reviewGrid,
       icon: ICONS[idx % ICONS.length],
+      score: scoreFor(i.slug, locale) ?? undefined,
     };
   });
 
@@ -97,6 +99,16 @@ export default async function IdeasPage() {
       <header className="text-center">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{tr.ideas.title}</h1>
         <p className="mx-auto mt-6 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tr.ideas.desc}</p>
+        <div className="mx-auto mt-6 flex max-w-[560px] flex-wrap items-center justify-center gap-x-5 gap-y-2 text-footnote text-[var(--color-text-tertiary)]">
+          <span>{ru ? "Отсортированы по деньгам, простоте и спросу." : "Ranked by money, simplicity and demand."}</span>
+          <span className="inline-flex items-center gap-1.5"><span style={{ color: "#30d158" }}>●</span>{ru ? "Деньги" : "Money"}</span>
+          <span className="inline-flex items-center gap-1.5"><span style={{ color: "#0a84ff" }}>●</span>{ru ? "Простота" : "Simplicity"}</span>
+          <span className="inline-flex items-center gap-1.5"><span style={{ color: "#ff9f0a" }}>●</span>{ru ? "Спрос" : "Demand"}</span>
+        </div>
+        <a href={`/${ru ? "ru" : "en"}/ideas/top`} className="mt-4 inline-flex items-center gap-1.5 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+          {ru ? "Топ идей по деньгам" : "Top ideas by money"}
+          <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </a>
       </header>
 
       <div className="mt-12">

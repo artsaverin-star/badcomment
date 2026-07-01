@@ -11,7 +11,68 @@ import type { Locale } from "@/lib/i18n";
 // personas and for ideas.
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
-type Idea = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string };
+type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
+type Idea = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score };
+
+const SCORE_META = {
+  money: { ru: "Деньги", en: "Money", color: "#30d158" },
+  simplicity: { ru: "Простота", en: "Simplicity", color: "#0a84ff" },
+  demand: { ru: "Спрос", en: "Demand", color: "#ff9f0a" },
+} as const;
+
+function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value: number; locale: Locale }) {
+  const m = SCORE_META[k];
+  return (
+    <div className="flex items-center gap-1.5" title={`${locale === "en" ? m.en : m.ru}: ${value}/100`}>
+      <span className="w-[52px] shrink-0 text-[11px] text-[var(--color-text-tertiary)]">{locale === "en" ? m.en : m.ru}</span>
+      <span className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+        <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${value}%`, background: m.color }} />
+      </span>
+      <span className="w-[20px] shrink-0 text-right text-[11px] tabular-nums text-[var(--color-text-secondary)]">{value}</span>
+    </div>
+  );
+}
+
+// Compact composite chip for the card footer.
+function ScoreChip({ score }: { score: Score }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="inline-flex items-center gap-1 rounded-full bg-[color-mix(in_srgb,var(--color-accent-brand)_16%,transparent)] px-2 py-0.5 text-[12px] font-semibold text-[var(--color-text-primary)]">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
+        {score.composite}
+      </span>
+      <span className="flex items-center gap-1.5 text-[11px] text-[var(--color-text-tertiary)]">
+        <span style={{ color: SCORE_META.money.color }}>●</span>{score.money}
+        <span style={{ color: SCORE_META.simplicity.color }}>●</span>{score.simplicity}
+        <span style={{ color: SCORE_META.demand.color }}>●</span>{score.demand}
+      </span>
+    </div>
+  );
+}
+
+// Full score block for the idea detail modal.
+export function ScoreBlock({ score, locale = "ru" }: { score: Score; locale?: Locale }) {
+  const ru = locale !== "en";
+  return (
+    <div className="rounded-[16px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4">
+      <div className="mb-3 flex items-baseline justify-between">
+        <span className="text-[12px] uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Оценка идеи" : "Idea score"}</span>
+        <span className="text-title2 font-semibold tabular-nums text-[var(--color-text-primary)]">{score.composite}<span className="text-footnote font-normal text-[var(--color-text-tertiary)]">/100</span></span>
+      </div>
+      <div className="flex flex-col gap-2">
+        <Bar k="money" value={score.money} locale={locale} />
+        <Bar k="simplicity" value={score.simplicity} locale={locale} />
+        <Bar k="demand" value={score.demand} locale={locale} />
+      </div>
+      {score.whyPay && (
+        <div className="mt-3 border-t border-[var(--color-border-subtle)] pt-3">
+          <div className="text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Кто и сколько платит" : "Who pays and how much"}</div>
+          <p className="mt-1 text-callout text-[var(--color-text-secondary)]">{score.whyPay}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const GLYPHS: Record<string, React.ReactNode> = {
   graduation: <><path d="M12 4l9 4-9 4-9-4 9-4z" /><path d="M6 10v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4" /><path d="M21 8v5" /></>,
@@ -198,7 +259,8 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {shown.map((x, i) => (
-          <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)} />
+          <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
+            footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
         ))}
       </div>
       {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}
@@ -207,6 +269,7 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
           <Icon name={open.icon} className="size-9 text-[var(--color-text-primary)] [filter:drop-shadow(0_0_12px_color-mix(in_srgb,var(--color-accent-brand)_65%,transparent))]" />
           <h3 className="mt-3 text-headline text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
+          {open.score && <div className="mt-4"><ScoreBlock score={open.score} locale={locale} /></div>}
           {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
           {open.pitch && <Sec k={ru ? "Что это" : "What it is"}>{open.pitch}</Sec>}
           {!!open.features?.length && <Sec k={ru ? "Как устроено" : "How it works"}><Bullets items={open.features} /></Sec>}
