@@ -75333,5 +75333,422 @@
    }
   ],
   "hygiene": []
+ },
+ "voice-recorder": {
+  "product": [
+   {
+    "title": "запись в фоне и при заблокированном экране",
+    "kicker": "",
+    "plus": "Часть приложений держит запись активной, когда экран гаснет или пользователь переключается в другое приложение именно это нужно на лекции или длинном интервью.",
+    "minus": "Многие приложения режут запись, как только экран блокируется, или переходят в фон. Пользователи обнаруживают это только после важной встречи.",
+    "count": 28,
+    "apps": [
+     "Voice Recorder, Voice Memos ®",
+     "Voice Recorder & Notes Pro",
+     "Easy Voice Recorder",
+     "Voice Memos & Sound Recorder",
+     "Voice Recorder - Audio Record",
+     "Voice recorder - Voz"
+    ],
+    "evidence": [
+     {
+      "app": "Voice Recorder, Voice Memos ®",
+      "rating": 5,
+      "date": "",
+      "quote": "I like that you can record, pause and continue recording just with one button.save your recordings, and listen to them with headphones on while the screen is off."
+     },
+     {
+      "app": "Voice Recorder & Notes Pro",
+      "rating": 4,
+      "date": "",
+      "quote": "Free version has few features, but sufficient and well selected from the entire set. Easy to use. Does not crash. Very nice that it operates in the background."
+     },
+     {
+      "app": "Easy Voice Recorder",
+      "rating": 3,
+      "date": "",
+      "quote": "I had several recordings that I changed the name to and all of them are gone. Only the ones named 'Recorder' with incrementing numbers stayed. The app is nice and can record even when changing apps or when the screen shuts off."
+     }
+    ]
+   },
+   {
+    "title": "точность транскрипции: реальная vs заявленная",
+    "kicker": "",
+    "plus": "Лучшие приложения (Otter, Transcribe, Wave) дают полезную транскрипцию встреч и лекций с привязкой к тексту, которую реально можно использовать.",
+    "minus": "Большинство пользователей сообщает о пропущенных словах, неверных омофонах и полном срыве при акцентах или фоновом шуме. 'Примерно 75-80%' точности типичная оценка.",
+    "count": 26,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Transcribe - Speech to Text",
+     "Wave AI Note Taker & Recorder",
+     "Minutes: AI Meeting Note Taker",
+     "iRecord: Transcribe Voice Memo",
+     "Speech to Text Dictation AI"
+    ],
+    "evidence": [
+     {
+      "app": "Transcribe - Speech to Text",
+      "rating": 5,
+      "date": "",
+      "quote": "I found the following features very helpful 1. Transcribes m4a audio files very accurately and very fast! 2. It transcribes a 30min audio file in matter of minutes 3. It very accurately identifies different speakers & assigns speech text to them."
+     },
+     {
+      "app": "Minutes: AI Meeting Note Taker",
+      "rating": 3,
+      "date": "",
+      "quote": "Like almost all generative AI products, this one isn't ready for prime time yet. There are some things it does relatively well, like transcribing speech to text. That part of it is maybe 80% there. But that 20% where it doesn't transcribe accurately is important, because it means you'll constantly have to review everything."
+     },
+     {
+      "app": "Wave AI Note Taker & Recorder",
+      "rating": 2,
+      "date": "",
+      "quote": "Needs work. Always needs me to update the app in order to use it. Probably only gets 50% of my meetings correctly."
+     }
+    ]
+   },
+   {
+    "title": "разметка спикеров (diarization)",
+    "kicker": "",
+    "plus": "Когда диаризация работает, пользователь получает готовый транскрипт интервью или встречи с подписанными репликами это экономит часы ручной работы.",
+    "minus": "Большинство приложений теряет привязку к конкретному спикеру при переключении: один и тот же человек становится то Speaker 1, то Speaker 2. Обучить модель своему голосу нельзя.",
+    "count": 18,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "TapeACall: Call Recorder",
+     "Transcribe - Speech to Text",
+     "Wave AI Note Taker & Recorder",
+     "Minutes: AI Meeting Note Taker"
+    ],
+    "evidence": [
+     {
+      "app": "Otter Transcribe Voice Notes",
+      "rating": 3,
+      "date": "",
+      "quote": "Not that great at identifying names of speakers. My hope is that it would identify a voice and give it a speaker number, but you have to go in and label every speaker even when it's the same person and you've already given them a label."
+     },
+     {
+      "app": "TapeACall: Call Recorder",
+      "rating": 3,
+      "date": "",
+      "quote": "Record features work well enough, however, in the transcript window, it DOESN'T label each speaker via phone number (positive identification). It only says 'Speaker 1' and 'Speaker 2'. This is a gross oversight."
+     },
+     {
+      "app": "Transcribe - Speech to Text",
+      "rating": 5,
+      "date": "",
+      "quote": "It very accurately identifies different speakers & assigns speech text to them. 4. Allows me to update the name of the speakers with just a tap."
+     }
+    ]
+   },
+   {
+    "title": "экспорт и облачная синхронизация",
+    "kicker": "",
+    "plus": "Когда экспорт работает, пользователь уходит с встречи и через минуту запись уже в Dropbox или iCloud ничего дополнительно делать не нужно.",
+    "minus": "Экспорт по email ломается после обновлений, Dropbox и iCloud зависают на инициализации, а массовая выгрузка сотен файлов недоступна даже в платных версиях.",
+    "count": 22,
+    "apps": [
+     "Voice Record Pro",
+     "TapeACall Pro: Call Recorder",
+     "Recorder Plus: Voice Recorder",
+     "Voice Recorder - Audio Record",
+     "Wave AI Note Taker & Recorder",
+     "Mp3 Recorder : Voice Recorder"
+    ],
+    "evidence": [
+     {
+      "app": "Voice Record Pro",
+      "rating": 3,
+      "date": "",
+      "quote": "I've been using this app for years. It works and has great quality. Dropbox functionality is broken - it gets stuck when initiating uploading. When I try to sign out of Dropbox in the app, it tells me I've signed out successfully over and over again. It does this same thing for every cloud service."
+     },
+     {
+      "app": "TapeACall Pro: Call Recorder",
+      "rating": 2,
+      "date": "",
+      "quote": "They removed feature to start recording before calling and to DL your calls you have to go through one by one to transfer. No mass exodus feature."
+     },
+     {
+      "app": "Voice Recorder - Audio Record",
+      "rating": 2,
+      "date": "",
+      "quote": "When attached/uploaded to PERPLEXITY.AI or GEMINI at Google, WAV files will not parse for transcription. WAV provides best quality output. Very disappointed. Requires a 2nd step to convert to MP3. This is a drag on my workflow."
+     }
+    ]
+   },
+   {
+    "title": "ИИ-саммари встречи и экшн-пункты",
+    "kicker": "",
+    "plus": "Хорошее саммари позволяет не конспектировать совещание: после записи сразу получаешь список решений, которые можно разослать команде.",
+    "minus": "Генерация саммари занимает долгое время, текст пропадает после обновления приложения или не сохраняется при ручном редактировании.",
+    "count": 16,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Minutes: AI Meeting Note Taker",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "evidence": [
+     {
+      "app": "Otter Transcribe Voice Notes",
+      "rating": 5,
+      "date": "",
+      "quote": "I absolutely love Otter.ai! It has completely changed the way I take notes and keep track of meetings. The transcription is fast, accurate, and saves me so much time. I also love the summaries and how easy it is to search through past conversations."
+     },
+     {
+      "app": "Minutes: AI Meeting Note Taker",
+      "rating": 4,
+      "date": "",
+      "quote": "In the past I was sitting in a meeting and focusing on my notes, not listening to the actual meeting. I dont multi-task. Now I can sit in a meeting, focus on whats being said and when it's over - the notes are there."
+     },
+     {
+      "app": "Wave AI Note Taker & Recorder",
+      "rating": 4,
+      "date": "",
+      "quote": "Everything is great except when I edit the summary of the recording (which is sometimes rigorous) it does not save when I click 'done'. Very frustrating that it cannot be edited effectively."
+     }
+    ]
+   },
+   {
+    "title": "запись звонков через трёхсторонний вызов: архитектурные ограничения iOS",
+    "kicker": "",
+    "plus": "Единственный реально работающий способ записи на iPhone без джейлбрейка пользователи это принимают, если механизм надёжен.",
+    "minus": "Принудительное слияние вызовов добавляет 5-15 секунд задержки в начале, а громкий бип после мёрджа слышен собеседнику и выдаёт факт записи.",
+    "count": 24,
+    "apps": [
+     "TapeACall: Call Recorder",
+     "TapeACall Pro: Call Recorder",
+     "Call Recorder for iPhone ㅤ",
+     "Call Recorder iCall",
+     "Call Recorder for iPhone Calls",
+     "Phone Call Recorder Free of Ad"
+    ],
+    "evidence": [
+     {
+      "app": "Call Recorder for iPhone ㅤ",
+      "rating": 4,
+      "date": "",
+      "quote": "It seems all call recording apps require you to merge calls, which isn't ideal at all.. after merging the call you'll hear a loud beep on both parties phones, literally had a lawyer stop and say 'what was that..' however compared to the rest of the apps this one does the job as far as recording."
+     },
+     {
+      "app": "Call Recorder iCall",
+      "rating": 3,
+      "date": "",
+      "quote": "My problem is the steps and time it takes to start recording. The 5 steps can take up to 10 seconds to begin recording. 1 Answer call 2 Go to Home Screen 3 Open the app 4 Tap record 5 Tap merge call. In the meantime the call has been answered and the person on the other line is expecting a response."
+     },
+     {
+      "app": "TapeACall Pro: Call Recorder",
+      "rating": 4,
+      "date": "",
+      "quote": "The initial merge of TapeACall into the call took several seconds and during that time, there was a slight pause in the conversation."
+     }
+    ]
+   },
+   {
+    "title": "организация записей: поиск, папки, переименование",
+    "kicker": "",
+    "plus": "Приложения с нормальными папками и поиском позволяют хранить сотни записей и находить нужную за секунды по ключевому слову или дате.",
+    "minus": "Поиск работает только по названию файла, а переименование либо не сохраняется, либо удаляет запись. Папки или отсутствуют, или скрыты за пейволом.",
+    "count": 20,
+    "apps": [
+     "Voice Memos",
+     "Otter Transcribe Voice Notes",
+     "TapeACall: Call Recorder",
+     "Voice Recorder - Audio Record",
+     "Wave AI Note Taker & Recorder",
+     "Mp3 Recorder : Voice Recorder"
+    ],
+    "evidence": [
+     {
+      "app": "Otter Transcribe Voice Notes",
+      "rating": 2,
+      "date": "",
+      "quote": "The real deal breaker for me is the lack of practical usability for my needs. The inability to simply move a recording/session into a folder is infuriating."
+     },
+     {
+      "app": "TapeACall: Call Recorder",
+      "rating": 4,
+      "date": "",
+      "quote": "After recording, I changed the file name but it didn't remain there. It's disappeared and I should do that work again to have file name changed. Sometimes I should repeat that boring process even several times. What's the problem?"
+     },
+     {
+      "app": "Voice Recorder - Audio Record",
+      "rating": 3,
+      "date": "",
+      "quote": "I've made many recordings with this app over the years. The clarity and ability to share sound files is great, but locating files is a difficult task."
+     }
+    ]
+   },
+   {
+    "title": "запись с Apple Watch",
+    "kicker": "",
+    "plus": "Запись с запястья без телефона в руках идеально для интервью стоя, лекций и спонтанных заметок. Несколько приложений это реализуют.",
+    "minus": "Файлы с Watch синхронизируются на телефон хаотично или не синхронизируются совсем. Как переносить запись вручную неочевидно.",
+    "count": 14,
+    "apps": [
+     "Voice Record Pro",
+     "Voice Recorder & Notes Pro",
+     "Voice Recorder, Voice Memos ®",
+     "Minutes: AI Meeting Note Taker",
+     "Otter Transcribe Voice Notes",
+     "Voice Recorder - Audio Record"
+    ],
+    "evidence": [
+     {
+      "app": "Voice Record Pro",
+      "rating": 1,
+      "date": "",
+      "quote": "What the heck is going on with the Apple Watch syncing… Recordings from the watch go on to the phone whenever they feel like it… If ever at all!"
+     },
+     {
+      "app": "Voice Record Pro",
+      "rating": 2,
+      "date": "",
+      "quote": "It's nice that this app has a feature to record on my watch, but I can't figure out how to transfer it to my phone, which makes the watch app kind of useless."
+     },
+     {
+      "app": "Voice Recorder, Voice Memos ®",
+      "rating": 5,
+      "date": "",
+      "quote": "This app is so practical for saving mental notes or sending long audio messages to friends. The most amazing option is that I can do it by my apple watch."
+     }
+    ]
+   },
+   {
+    "title": "качество звука и шумоподавление",
+    "kicker": "",
+    "plus": "Лучшие приложения выдают чистый звук в шумной переговорной или на улице, когда встроенный микрофон iPhone без фильтрации записывает всё вокруг.",
+    "minus": "Большинство приложений просто передаёт сырой сигнал микрофона: низкая громкость, фоновый шум сильнее голоса, нет настройки усиления.",
+    "count": 18,
+    "apps": [
+     "Voice Recorder Lite: Record HD",
+     "Voice recorder - Voz",
+     "Voice Recorder - Audio Record",
+     "TapeACall Pro: Call Recorder",
+     "Recorder Plus: Voice Recorder"
+    ],
+    "evidence": [
+     {
+      "app": "Voice Recorder Lite: Record HD",
+      "rating": 3,
+      "date": "",
+      "quote": "Too much background static. Not clear hard to hear the voices!"
+     },
+     {
+      "app": "Voice Recorder - Audio Record",
+      "rating": 2,
+      "date": "",
+      "quote": "Recording on iPhone 15 Pro. Difficult to make a 'clean' recording. Doesn't filter excess noise."
+     },
+     {
+      "app": "TapeACall Pro: Call Recorder",
+      "rating": 4,
+      "date": "",
+      "quote": "The quality of the voice recording was exceptionally good, and it was good even though I was sharing my iPhone on speaker with another participant in the call."
+     }
+    ]
+   },
+   {
+    "title": "длинные записи: лекции и интервью без обрыва",
+    "kicker": "",
+    "plus": "Приложения без лимита длины позволяют включить запись перед двухчасовой лекцией и не думать о том, что она прервётся на полуслове.",
+    "minus": "Бесплатные версии режут запись на 3, 15 или 30 минутах. Часть приложений обрывает длинный звонок молча, без предупреждения.",
+    "count": 16,
+    "apps": [
+     "Call Recorder for iPhone.",
+     "TapeACall: Call Recorder",
+     "Call Recorder for iPhone ㅤ",
+     "Mp3 Recorder : Voice Recorder",
+     "Pro Microphone: Voice Record"
+    ],
+    "evidence": [
+     {
+      "app": "Call Recorder for iPhone.",
+      "rating": 2,
+      "date": "",
+      "quote": "I bought this app specifically to record phone calls due to a restraining order on the first attempt to use it. It only recorded 30 minutes of an hour and a half phone call rendering it completely useless."
+     },
+     {
+      "app": "TapeACall: Call Recorder",
+      "rating": 2,
+      "date": "",
+      "quote": "Had a 2 hour work call and the call didn't merge. More often than not it works but without fail, it glitches when u need it most. No heads up, no 'error' feature, nothing."
+     },
+     {
+      "app": "Mp3 Recorder : Voice Recorder",
+      "rating": 2,
+      "date": "",
+      "quote": "I don't often like to write reviews but for a college assignment, I needed to record a song. Unfortunately, you can only record 3 minutes max unless you conveniently pay their subscription."
+     }
+    ]
+   },
+   {
+    "title": "редактирование и обрезка аудио внутри приложения",
+    "kicker": "",
+    "plus": "Встроенная обрезка позволяет убрать минуты тишины в начале или оговорки в конце, не выходя в другое приложение.",
+    "minus": "В большинстве приложений обрезка либо скрыта за пейволом, либо не имеет undo одно неловкое движение уничтожает запись безвозвратно.",
+    "count": 14,
+    "apps": [
+     "Voice recorder - Voz",
+     "Voice Recorder & Notes Pro",
+     "Conversations: Phone Recorder",
+     "Voice Recorder, Voice Memos ®",
+     "Transcribe - Speech to Text"
+    ],
+    "evidence": [
+     {
+      "app": "Voice recorder - Voz",
+      "rating": 4,
+      "date": "",
+      "quote": "This is actually a great app. The sound quality is excellent. However, the pause button should be bigger. And there should be a way to pause and rewind while recording before saving in order to make changes, Instead of having to save, or delete, and start all over."
+     },
+     {
+      "app": "Voice Recorder & Notes Pro",
+      "rating": 2,
+      "date": "",
+      "quote": "Edit: HUGE flaw, I actually tried to use it. It's extremely frustrating because they don't have an 'undo' they have a 'revert to original' and no way to save the progress. Dude… why don't you have an undo?"
+     },
+     {
+      "app": "Conversations: Phone Recorder",
+      "rating": 5,
+      "date": "",
+      "quote": "A good call recorder app in which you can also edit records, delete unnecessary ones."
+     }
+    ]
+   },
+   {
+    "title": "метки времени и навигация по транскрипту",
+    "kicker": "",
+    "plus": "Кликабельные метки времени позволяют прыгнуть к нужному моменту записи прямо из текста транскрипта не надо перематывать вручную.",
+    "minus": "Большинство приложений даёт только сплошной текст без привязки к аудио. Экспортировать транскрипт с метками времени в другой формат отдельная боль.",
+    "count": 12,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Transcribe - Speech to Text",
+     "iRecord: Transcribe Voice Memo",
+     "Easy Voice Recorder",
+     "Minutes: AI Meeting Note Taker"
+    ],
+    "evidence": [
+     {
+      "app": "iRecord: Transcribe Voice Memo",
+      "rating": 2,
+      "date": "",
+      "quote": "Not very accurate. I like the time stamps though."
+     },
+     {
+      "app": "Easy Voice Recorder",
+      "rating": 3,
+      "date": "",
+      "quote": "I wish there was an option to start playback 5 seconds previous when pausing a recording that you're listening to. This would really help when you're transcribing and you need to make sure the quote is exactly right."
+     },
+     {
+      "app": "Otter Transcribe Voice Notes",
+      "rating": 3,
+      "date": "",
+      "quote": "Cannot export pictures and text together in one file with pictures in the correct time stamp and location - which is how it appears in the app. This makes it very difficult for use for serious user: I don't get what I see in the app."
+     }
+    ]
+   }
+  ],
+  "hygiene": []
  }
 }

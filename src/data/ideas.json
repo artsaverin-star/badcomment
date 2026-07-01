@@ -45601,5 +45601,590 @@
    ],
    "monetization": "Базовый трекинг бесплатно. Map-matching после пробежки, сравнение маршрутов и экспорт GPX подписка 3.99$/мес. Дешевле всех конкурентов, потому что основная ценность одна чёткая функция."
   }
+ },
+ {
+  "slug": "voice-recorder-1",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Надёжный фоновый диктофон для встреч",
+  "oneLiner": "Запись, которая не обрывается при блокировке экрана или переключении приложений",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "The app is nice and can record even when changing apps or when the screen shuts off.",
+    "rating": 3,
+    "app": "Easy Voice Recorder"
+   },
+   {
+    "quote": "I like that you can record, pause and continue recording just with one button.save your recordings, and listen to them with headphones on while the screen is off.",
+    "rating": 5,
+    "app": "Voice Recorder, Voice Memos ®"
+   },
+   {
+    "quote": "Had a 2 hour work call and the call didn't merge. More often than not it works but without fail, it glitches when u need it most. No heads up, no 'error' feature, nothing.",
+    "rating": 2,
+    "app": "TapeACall: Call Recorder"
+   },
+   {
+    "quote": "This app worked great before the IOS 26 update. Yesterday I did the IOS update, today I had an entire day of meetings. This note app let me down. I had to do manual notes.",
+    "rating": 3,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "Free version has few features, but sufficient and well selected from the entire set. Easy to use. Does not crash. Very nice that it operates in the background.",
+    "rating": 4,
+    "app": "Voice Recorder & Notes Pro"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "запись в фоне и при заблокированном экране",
+    "obsCount": 28,
+    "apps": [
+     "Easy Voice Recorder",
+     "Voice Recorder, Voice Memos ®",
+     "Voice Recorder & Notes Pro"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "длинные записи без обрыва",
+    "obsCount": 16,
+    "apps": [
+     "TapeACall: Call Recorder",
+     "Minutes: AI Meeting Note Taker",
+     "Mp3 Recorder : Voice Recorder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все популярные приложения режут запись при блокировке или молча падают на длинных встречах. Пользователь узнаёт об обрыве только после переговоров.",
+  "idea": {
+   "pitch": "Диктофон для профессионалов: запись живёт в фоне неограниченно, восстанавливается после звонка и iOS-обновления, показывает heartbeat-индикатор на экране блокировки.",
+   "features": [
+    "Фоновая запись через AVAudioSession с режимом .record + keep alive ping каждые 30 с",
+    "Heartbeat на экране блокировки через Live Activity (iOS 16+)",
+    "Авто-восстановление записи после входящего звонка с маркером разрыва",
+    "Оповещение если запись прервалась дольше 5 с",
+    "Нет лимита длины даже в базовом тарифе",
+    "История сессий: время начала, длина, число обрывов"
+   ],
+   "antiFeatures": [
+    "Никаких ограничений в 3/15/30 минут на бесплатном тарифе",
+    "Никакого сброса записи при переключении в другое приложение",
+    "Никакого молчаливого падения без уведомления пользователя"
+   ],
+   "monetization": "Подписка 4.99$/мес: транскрипция + ИИ-саммари. Сама запись бесплатна навсегда это главный крюк."
+  }
+ },
+ {
+  "slug": "voice-recorder-2",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Транскрипция с честной точностью и акцентами",
+  "oneLiner": "Модель, которая слышит акцент и не теряет 20% слов в шумной комнате",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "Like almost all generative AI products, this one isn't ready for prime time yet. There are some things it does relatively well, like transcribing speech to text. That part of it is maybe 80% there. But that 20% where it doesn't transcribe accurately is important, because it means you'll constantly have to review everything.",
+    "rating": 3,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "The thing is it's not instantly recorded as a black box. Secondly the transcripts do not transcribe accurately largely because of my accents?",
+    "rating": 4,
+    "app": "TapeACall: Call Recorder"
+   },
+   {
+    "quote": "I transcribes m4a audio files very accurately and very fast! It transcribes a 30min audio file in matter of minutes. It very accurately identifies different speakers & assigns speech text to them.",
+    "rating": 5,
+    "app": "Transcribe - Speech to Text"
+   },
+   {
+    "quote": "Needs work. Always needs me to update the app in order to use it. Probably only gets 50% of my meetings correctly.",
+    "rating": 2,
+    "app": "Wave AI Note Taker & Recorder"
+   },
+   {
+    "quote": "Need option to record in different languages",
+    "rating": 4,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "точность транскрипции: реальная vs заявленная",
+    "obsCount": 26,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Minutes: AI Meeting Note Taker",
+     "Transcribe - Speech to Text",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "метки времени и навигация по транскрипту",
+    "obsCount": 12,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Transcribe - Speech to Text",
+     "iRecord: Transcribe Voice Memo"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Типичный сценарий: пользователь записал час лекции, запустил транскрипцию, получил 75-80% точности и тратит столько же времени на правку, сколько потратил бы на ручной конспект.",
+  "idea": {
+   "pitch": "Транскрипция для конкретной профессии: выбираешь контекст (медицина, юриспруденция, IT-встреча, интервью) и получаешь специализированную модель с правильными терминами и акцентоустойчивостью.",
+   "features": [
+    "Выбор домена перед транскрипцией (медицина, юристы, продажи, IT, академические лекции)",
+    "Whisper large-v3 + fine-tune на доменном словаре",
+    "Встроенный редактор с кликабельными метками времени: клик на слове прыжок в аудио",
+    "Confidence score на каждом слове: подчёркивает неуверенные места красным",
+    "Экспорт в .docx, .srt, .txt с метками времени",
+    "Offline-транскрипция для конфиденциальных встреч"
+   ],
+   "antiFeatures": [
+    "Никаких обещаний '99% точности' без оговорок",
+    "Никакого принудительного облака для локальных файлов",
+    "Никакого сброса транскрипта при обновлении приложения"
+   ],
+   "monetization": "Pay-per-use: 1 час транскрипции = 0.99$. Корпоративный тариф 29$/мес безлимит + приоритетный процессинг."
+  }
+ },
+ {
+  "slug": "voice-recorder-3",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Разметка спикеров, которая помнит голоса",
+  "oneLiner": "Диаризация с обучением на голосах команды один раз настроил, потом всегда 'Иван сказал'",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "Not that great at identifying names of speakers. My hope is that it would identify a voice and give it a speaker number, but you have to go in and label every speaker even when it's the same person and you've already given them a label.",
+    "rating": 3,
+    "app": "Otter Transcribe Voice Notes"
+   },
+   {
+    "quote": "Record features work well enough, however, in the transcript window, it DOESN'T label each speaker via phone number (positive identification). It only says 'Speaker 1' and 'Speaker 2'. This is a gross oversight.",
+    "rating": 3,
+    "app": "TapeACall: Call Recorder"
+   },
+   {
+    "quote": "It very accurately identifies different speakers & assigns speech text to them. Allows me to update the name of the speakers with just a tap.",
+    "rating": 5,
+    "app": "Transcribe - Speech to Text"
+   },
+   {
+    "quote": "I wish we could have a selective voice feature that can isolate and summarize a particular voice more efficiently",
+    "rating": 4,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "разметка спикеров (diarization)",
+    "obsCount": 18,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "TapeACall: Call Recorder",
+     "Transcribe - Speech to Text",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Во всех приложениях диаризация начинается заново на каждой встрече. Один и тот же голос становится то Speaker 1, то Speaker 3. Выучить коллег один раз и не переклеивать ярлыки каждый раз невозможно.",
+  "idea": {
+   "pitch": "Командный диктофон с голосовым профилем: один раз записываешь 30-секундный образец каждого коллеги, и все будущие встречи сразу выходят с именами, не с номерами.",
+   "features": [
+    "Голосовые профили команды: 30 с образца = speaker ID на будущих записях",
+    "Автоматическое совмещение с новыми встречами без ручной разметки",
+    "Tap-to-rename неизвестного спикера с опцией 'сохранить голос'",
+    "Персональные саммари по спикеру: что сказал именно Иван за встречу",
+    "Экспорт с колонкой Speaker в CSV для командных архивов"
+   ],
+   "antiFeatures": [
+    "Никакого сброса speaker ID между сессиями",
+    "Никакой оплаты за увеличение числа профилей в команде до 20 человек",
+    "Никаких 'Speaker 1' в финальном экспорте"
+   ],
+   "monetization": "Командный тариф 9.99$/мес на 5 пользователей, +2$/мес за каждого дополнительного. Соло-план 3.99$/мес голосовые профили до 10 человек."
+  }
+ },
+ {
+  "slug": "voice-recorder-4",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "ИИ-саммари по профессии, не по шаблону",
+  "oneLiner": "После встречи получаешь готовый action list в формате своей работы не Generic Summary",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "I absolutely love Otter.ai! It has completely changed the way I take notes and keep track of meetings. The transcription is fast, accurate, and saves me so much time. I also love the summaries and how easy it is to search through past conversations.",
+    "rating": 5,
+    "app": "Otter Transcribe Voice Notes"
+   },
+   {
+    "quote": "In the past I was sitting in a meeting and focusing on my notes, not listening to the actual meeting. I dont multi-task. Now I can sit in a meeting, focus on whats being said and when it's over - the notes are there.",
+    "rating": 4,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "Everything is great except when I edit the summary of the recording (which is sometimes rigorous) it does not save when I click 'done'. Very frustrating that it cannot be edited effectively.",
+    "rating": 4,
+    "app": "Wave AI Note Taker & Recorder"
+   },
+   {
+    "quote": "This app is worth every penny. If you have ADD/ADHD and struggle during meetings, this will change your life.",
+    "rating": 5,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "If you don't hit transcribe and summarize after recording, then you lose your notes. Would be very beneficial to those using the app to have an auto-save feature so we don't lose audio recordings of notes.",
+    "rating": 3,
+    "app": "Minutes: AI Meeting Note Taker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "ИИ-саммари встречи и экшн-пункты",
+    "obsCount": 16,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Minutes: AI Meeting Note Taker",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Все приложения делают один и тот же generic-саммари с разделами 'Обсуждалось / Решено / Дальнейшие шаги'. Юристу нужен протокол, врачу SOAP-заметка, менеджеру продаж CRM-поля, преподавателю план урока.",
+  "idea": {
+   "pitch": "Диктофон с профессиональными шаблонами вывода: выбрал роль один раз и каждая встреча превращается в документ, который готов отправить без правки.",
+   "features": [
+    "Шаблоны вывода по профессии: Sales Call (CRM fields), Medical (SOAP), Legal (Minutes), Teaching (Lesson Plan), 1-on-1 (feedback + growth areas)",
+    "Кастомный шаблон с переменными в формате Markdown",
+    "Авто-саммари сразу после остановки записи, без ручного нажатия",
+    "Редактируемые поля саммари с автосохранением при каждом изменении",
+    "Отправка ready-to-send email прямо из приложения по шаблону"
+   ],
+   "antiFeatures": [
+    "Никакого generic 'Discussion Points / Action Items'",
+    "Никакой потери саммари при закрытии приложения",
+    "Никакого ожидания: саммари начинается параллельно транскрипции"
+   ],
+   "monetization": "Подписка 7.99$/мес: все шаблоны + кастомные. Базовый план бесплатно только стандартный шаблон, чтобы почувствовать ценность."
+  }
+ },
+ {
+  "slug": "voice-recorder-5",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Поиск по смыслу внутри сотен записей",
+  "oneLiner": "Находишь нужный момент встречи по вопросу, а не по дате файла",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "The real deal breaker for me is the lack of practical usability for my needs. The inability to simply move a recording/session into a folder is infuriating.",
+    "rating": 2,
+    "app": "Otter Transcribe Voice Notes"
+   },
+   {
+    "quote": "I've made many recordings with this app over the years. The clarity and ability to share sound files is great, but locating files is a difficult task.",
+    "rating": 3,
+    "app": "Voice Recorder - Audio Record"
+   },
+   {
+    "quote": "After recording, I changed the file name but it didn't remain there. It's disappeared and I should do that work again to have file name changed.",
+    "rating": 4,
+    "app": "TapeACall: Call Recorder"
+   },
+   {
+    "quote": "How can I search for a recording???",
+    "rating": 2,
+    "app": "Voice Recorder - Audio Record"
+   },
+   {
+    "quote": "I absolutely love Otter.ai! The transcription is fast, accurate, and saves me so much time. I also love the summaries and how easy it is to search through past conversations.",
+    "rating": 5,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "организация записей: поиск, папки, переименование",
+    "obsCount": 20,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "TapeACall: Call Recorder",
+     "Voice Recorder - Audio Record",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Поиск везде работает только по названию файла. Через полгода хранения человек не помнит, как назвал запись помнит только, что на той встрече говорили о бюджете Q3.",
+  "idea": {
+   "pitch": "Диктофон-архив с семантическим поиском: пишешь 'где мы говорили про редизайн главной' и получаешь список моментов с точным тайм-кодом из любой записи за всё время.",
+   "features": [
+    "Семантический поиск по содержимому всех транскриптов через embedding",
+    "Результаты с тайм-кодом: клик воспроизведение с нужного момента",
+    "Авто-теги по теме: приложение само предлагает тег 'бюджет', 'найм', 'техдолг'",
+    "Папки с умным фильтром: участники, дата, теги, длина",
+    "Переименование с автосохранением и историей имён",
+    "Поиск работает offline по локально хранимым транскриптам"
+   ],
+   "antiFeatures": [
+    "Никакого поиска только по названию файла",
+    "Никакой потери имени записи после переименования",
+    "Никакой обязательной синхронизации с облаком для работы поиска"
+   ],
+   "monetization": "Freemium: последние 10 записей ищутся бесплатно. Подписка 5.99$/мес полный архив без ограничений."
+  }
+ },
+ {
+  "slug": "voice-recorder-6",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Диктофон для журналистов и UX-ресёрчеров",
+  "oneLiner": "Запись интервью с автоматическим транскриптом, цитатами и атрибуцией для публикации",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "Over 6 interviews now have been randomly deleted and not by me through your app. I'm a journalist and use this for work. This app has caused me a lot of stress because I record it, know I record it and when I go back and listen it's A: gone B: recording the conversation after I hit stop.",
+    "rating": 3,
+    "app": "Recorder Plus: Voice Recorder"
+   },
+   {
+    "quote": "I transcribes m4a audio files very accurately and very fast! It transcribes a 30min audio file in matter of minutes. It very accurately identifies different speakers & assigns speech text to them. Allows me to update the name of the speakers with just a tap.",
+    "rating": 5,
+    "app": "Transcribe - Speech to Text"
+   },
+   {
+    "quote": "I wish there was an option to start playback 5 seconds previous when pausing a recording that you're listening to. This would really help when you're transcribing and you need to make sure the quote is exactly right.",
+    "rating": 3,
+    "app": "Easy Voice Recorder"
+   },
+   {
+    "quote": "Cannot export pictures and text together in one file with pictures in the correct time stamp and location - which is how it appears in the app. This makes it very difficult for use for serious user: I don't get what I see in the app.",
+    "rating": 3,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "разметка спикеров (diarization)",
+    "obsCount": 18,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Transcribe - Speech to Text",
+     "Wave AI Note Taker & Recorder"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "метки времени и навигация по транскрипту",
+    "obsCount": 12,
+    "apps": [
+     "Otter Transcribe Voice Notes",
+     "Transcribe - Speech to Text",
+     "Easy Voice Recorder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Журналисты и UX-ресёрчеры используют общие диктофоны, потом вручную выписывают цитаты, расставляют атрибуцию и проверяют дословность. Под этот workflow не заточен никто.",
+  "idea": {
+   "pitch": "Профессиональный интервью-рекордер: пишешь интервью, выделяешь лучшие цитаты прямо в транскрипте, экспортируешь готовый документ с дословными репликами и именами спикеров.",
+   "features": [
+    "Highlight-режим в транскрипте: tap на абзаце = цитата с тайм-кодом и спикером",
+    "Автоматическая верификация цитаты: сравниваем выделенный текст с аудио и предупреждаем о расхождениях",
+    "Перемотка назад на 5 с при паузе воспроизведения",
+    "Экспорт 'Цитаты интервью' в .docx с разметкой Speaker: Quote",
+    "Резервная запись на устройстве параллельно с облаком",
+    "Нет удаления файла при переименовании"
+   ],
+   "antiFeatures": [
+    "Никакого удаления записи при любых действиях кроме явного delete",
+    "Никакого экспорта только через iTunes",
+    "Никаких расхождений между тем, что видно в приложении и что в экспорте"
+   ],
+   "monetization": "Подписка 6.99$/мес: диаризация + выделение цитат + экспорт. Без подписки запись и воспроизведение без ограничений."
+  }
+ },
+ {
+  "slug": "voice-recorder-7",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Запись с Apple Watch без потери файла",
+  "oneLiner": "Начал на запястье, закончил и запись уже на телефоне, не 'через 40 минут'",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "What the heck is going on with the Apple Watch syncing… Recordings from the watch go on to the phone whenever they feel like it… If ever at all!",
+    "rating": 1,
+    "app": "Voice Record Pro"
+   },
+   {
+    "quote": "It's nice that this app has a feature to record on my watch, but I can't figure out how to transfer it to my phone, which makes the watch app kind of useless.",
+    "rating": 2,
+    "app": "Voice Record Pro"
+   },
+   {
+    "quote": "This app is so practical for saving mental notes or sending long audio messages to friends. The most amazing option is that I can do it by my apple watch.",
+    "rating": 5,
+    "app": "Voice Recorder, Voice Memos ®"
+   },
+   {
+    "quote": "This app worked brilliantly for about a month. Then suddenly it will not work at all on my Apple Watch for two weeks now. I have deleted the app and reinstalled it on the watch, restarted my watch and iPhone multiple times. Nothing works.",
+    "rating": 2,
+    "app": "Voice Recorder & Notes Pro"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "запись с Apple Watch",
+    "obsCount": 14,
+    "apps": [
+     "Voice Record Pro",
+     "Voice Recorder, Voice Memos ®",
+     "Voice Recorder & Notes Pro",
+     "Minutes: AI Meeting Note Taker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Watch-запись есть у нескольких приложений, но синхронизация файлов не работает надёжно. Пользователь записал спонтанную идею на запястье и не может её найти.",
+  "idea": {
+   "pitch": "Watch-first диктофон: запись начинается одной кнопкой на запястье, передаётся на телефон по завершении за 5 секунд, а если Bluetooth не рядом хранится локально и синхронизируется при соединении.",
+   "features": [
+    "WatchKit Extension с одной большой кнопкой Record/Stop",
+    "Немедленная передача через WCSession singleuse transfer при остановке",
+    "Offline-буфер на Watch: хранит до 30 мин записей без телефона рядом",
+    "Статус синхронизации на телефоне: 'получено с Watch 2 мин назад'",
+    "Комплекция watchOS от 7.x без зависимости от новых API",
+    "Транскрипция запускается автоматически после получения файла"
+   ],
+   "antiFeatures": [
+    "Никакого 'синхронизируется, когда захочет'",
+    "Никакой ручной процедуры переноса файла",
+    "Никакого молчаливого исчезновения записи при переустановке"
+   ],
+   "monetization": "Единоразовая покупка 4.99$ разблокировка Watch-компонента. Транскрипция Watch-записей входит в общий тариф."
+  }
+ },
+ {
+  "slug": "voice-recorder-8",
+  "category": "voice-recorder",
+  "categoryName": "Диктофоны и транскрипция",
+  "title": "Диктофон для студентов: лекция превращается в конспект",
+  "oneLiner": "Записал пару получил структурированный конспект с терминами и вопросами к экзамену",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 28,
+   "reviews": 720,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "It's been a life saver for notes in my masters level classes. But I had to take a class in Spanish and it took notes like a champ. But what blew me away is that somehow it knows when to give me notes in Spanish and when it's necessary to switch to English notes.",
+    "rating": 5,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "I don't often like to write reviews but for a college assignment, I needed to record a song. Unfortunately, you can only record 3 minutes max unless you conveniently pay their subscription.",
+    "rating": 2,
+    "app": "Mp3 Recorder : Voice Recorder"
+   },
+   {
+    "quote": "I can't record my zoom meetings. That is the only time I need to record.",
+    "rating": 1,
+    "app": "Voice Recorder Lite: Record HD"
+   },
+   {
+    "quote": "Used Minutes for the first time tonight for a quick planning meeting. The detail in the notes is great. Summary into small sections made it easy to review notes and share with group.",
+    "rating": 5,
+    "app": "Minutes: AI Meeting Note Taker"
+   },
+   {
+    "quote": "The app works okay. I would say the accuracy is about 75% which isn't bad for a situation where it could be a nosier area. It would be extremely helpful if we could access the recordings via the web for easier searching the transcript.",
+    "rating": 3,
+    "app": "Minutes: AI Meeting Note Taker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "ИИ-саммари встречи и экшн-пункты",
+    "obsCount": 16,
+    "apps": [
+     "Minutes: AI Meeting Note Taker",
+     "Otter Transcribe Voice Notes"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "длинные записи: лекции и интервью без обрыва",
+    "obsCount": 16,
+    "apps": [
+     "Mp3 Recorder : Voice Recorder",
+     "TapeACall: Call Recorder"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Студенты записывают лекции на общие диктофоны, получают голый транскрипт и тратят вечер на конспект. Ни один продукт не закрывает именно образовательный workflow: термины, структура, вопросы к экзамену.",
+  "idea": {
+   "pitch": "Учебный диктофон: после двухчасовой лекции получаешь не транскрипт, а структурированный конспект с определениями, ключевыми тезисами и готовыми вопросами для повторения.",
+   "features": [
+    "Режим 'Лекция': выделяет новые термины и определения автоматически",
+    "Структурированный конспект: введение, основные блоки, выводы по таймингу преподавателя",
+    "Генерация вопросов к экзамену из транскрипта в стиле flashcards",
+    "Поддержка смешанного языка: переключение EN/RU/ES внутри одной лекции",
+    "Веб-версия для доступа с ноутбука перед экзаменом",
+    "Нет ограничения по длине на учебных записях"
+   ],
+   "antiFeatures": [
+    "Никакого 3-минутного лимита на бесплатном тарифе",
+    "Никакого generic 'Action Items' вместо учебного конспекта",
+    "Никакой потери записи при переключении на Zoom или Teams"
+   ],
+   "monetization": "Студенческая подписка 2.99$/мес по .edu email. Базовая запись без ограничений бесплатно платишь за ИИ-конспект."
+  }
  }
 ]
