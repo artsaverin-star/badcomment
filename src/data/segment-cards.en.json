@@ -7210,5 +7210,133 @@
     "minus": "In most apps the numbering is automatic and cannot be changed. After a device switch or reinstall the counter resets, creating duplicate numbers in the archive."
    }
   ]
+ },
+ "qr-scanner": {
+  "product": [
+   {
+    "title": "subscription wall blocks scanning from the start",
+    "plus": "",
+    "minus": "Many apps demand payment before the user can scan a single code. There's either no free mode at all or a 1-3 scan allowance after which a full-screen paywall takes over."
+   },
+   {
+    "title": "ads plastered over the scanner make it unusable",
+    "plus": "Ad-supported apps give away basic scanning for free.",
+    "minus": "Ads appear after every scan, cover action buttons, have deliberately hidden close buttons, or impersonate system notifications. Some users report ads that led to phishing sites."
+   },
+   {
+    "title": "scan recognition reliability",
+    "plus": "The best apps read a code instantly even from an odd angle, with no need to frame it precisely.",
+    "minus": "Some apps regularly fail to read codes or misread them. Users report zero results on ordinary barcodes pulled from packaging, posters, or letters."
+   },
+   {
+    "title": "URL preview before navigating",
+    "plus": "Apps with a preview show the decoded destination URL before opening the browser and let the user decide whether to proceed.",
+    "minus": "Most apps open the link automatically without asking. Users land on unwanted sites or ad pages immediately after scanning."
+   },
+   {
+    "title": "scan history and export",
+    "plus": "Some apps auto-save every scanned code with a timestamp and result, which is handy for inventory work or revisiting a link.",
+    "minus": "Deleted entries can't be recovered. No folder organization and entry limits make the history impractical for work scenarios. Some apps put history behind a paywall."
+   },
+   {
+    "title": "batch and continuous scanning",
+    "plus": "Continuous scan mode lets users read codes back-to-back without extra taps essential for warehouse, retail, or inventory work.",
+    "minus": "After each scan, the app opens a detail screen that must be manually dismissed before the next code. Batch mode exists in very few apps and tends to disappear with updates."
+   },
+   {
+    "title": "QR code generation: static vs dynamic",
+    "plus": "Apps let you create QR codes on your phone for a website, contact, Wi-Fi network, or app link. Some support branding and templates.",
+    "minus": "Dynamic QR codes where the destination URL can be edited after the code is printed are almost universally paywalled. Without that feature, every URL change means printing a new code."
+   },
+   {
+    "title": "auto-action after scan",
+    "plus": "Automatically jumping to the URL after scanning saves steps when you already trust the source.",
+    "minus": "After updates, some apps removed the auto-navigate behavior and now require a manual tap on the link after every scan. Others do the opposite and open the browser without asking, dropping users on unwanted pages."
+   },
+   {
+    "title": "scanning codes from your photo library",
+    "plus": "Reading a QR or barcode from a saved screenshot or photo is essential when a code arrives in an email or chat message.",
+    "minus": "Most apps work only with the live camera. Photo library scanning is either absent or locked behind a paywall."
+   },
+   {
+    "title": "multi-format support: barcodes, PDF417, Wi-Fi",
+    "plus": "Apps that read more than just QR EAN/UPC barcodes, PDF417 from US driver's licenses, Wi-Fi codes, and contacts handle everything a user encounters in daily life.",
+    "minus": "Some apps claim broad format support but don't actually read specific types in practice, or redirect to a Google search instead of decoding the content."
+   },
+   {
+    "title": "privacy: scan data collection and sale",
+    "plus": "",
+    "minus": "Users discover that their scan history including sensitive PDF417 data from documents is collected and may be sold to third parties. This is especially concerning when scanning personal documents or corporate codes."
+   },
+   {
+    "title": "iOS built-in scanner vs third-party apps",
+    "plus": "Users who know about the Camera app's built-in QR scanner use it as a free alternative and see no reason to download a separate app.",
+    "minus": "The built-in iOS scanner doesn't handle barcodes or specialty formats that's the actual gap third-party apps fill. But many users don't know this and end up disappointed by a paid app they don't understand the need for."
+   }
+  ]
+ },
+ "mind-mapping": {
+  "product": [
+   {
+    "title": "Cross-device sync",
+    "plus": "When sync works, you start a map on iPad and pick it up on Mac without manually transferring files.",
+    "minus": "Most apps require a third-party cloud drive, skip iCloud support, or lose changes when versions conflict."
+   },
+   {
+    "title": "Keyboard navigation and input speed",
+    "plus": "Power users want to create and expand nodes without lifting their hands from the keyboard, which speeds up brainstorming dramatically.",
+    "minus": "Most apps ignore keyboard shortcuts entirely: no collapse/expand commands, no Tab/Enter tree navigation."
+   },
+   {
+    "title": "Non-linear links between branches",
+    "plus": "Drawing an arrow between any two nodes in different branches lets you represent real dependencies, not just a hierarchy.",
+    "minus": "Most apps only support parent-child relationships. Cross-branch links are rare, and when they exist, they are hard to use."
+   },
+   {
+    "title": "Map export",
+    "plus": "Exporting to PDF, PNG, or a structured format is essential for sharing results or dropping content into a presentation.",
+    "minus": "Image export frequently breaks or returns an empty file. PDF crops large maps. Emailing a map strips out embedded images."
+   },
+   {
+    "title": "Mobile app vs web app",
+    "plus": "A native mobile app delivers speed and tactility that a tablet browser cannot match.",
+    "minus": "Most dev teams prioritize the web version, leaving the mobile client with a fraction of the features, or locking it out entirely for individual accounts."
+   },
+   {
+    "title": "Apple Pencil and handwriting input",
+    "plus": "Writing notes by hand directly inside nodes or on the canvas turns an iPad into a full-fledged idea sketching tool.",
+    "minus": "In most apps Apple Pencil acts only as a finger replacement, with no handwriting recognition. Sometimes it drags nodes instead of entering text."
+   },
+   {
+    "title": "Templates and starter structures",
+    "plus": "Ready-made templates for specific tasks (SWOT, business plan, lecture notes) remove blank-canvas anxiety and speed up the start.",
+    "minus": "Templates are either too generic or almost entirely locked behind a paywall. Deep technical maps (biochemistry, software architecture) are not covered."
+   },
+   {
+    "title": "Switching between map and outline view",
+    "plus": "The same information in two formats: a visual map for structuring, a linear outline for writing a document or exporting.",
+    "minus": "Round-trip conversion between map and outline exists in only one or two apps. Most support just one view mode."
+   },
+   {
+    "title": "Cross-platform support and data portability",
+    "plus": "Users work across Apple and Windows simultaneously and want one app that runs equally well everywhere.",
+    "minus": "Most apps ship cut-down or separately purchased clients for each platform. File formats are often incompatible."
+   },
+   {
+    "title": "Moving and restructuring nodes",
+    "plus": "Fast drag-and-drop of a branch together with all its children lets you reshape your thinking on the fly.",
+    "minus": "Drag-and-drop is often laggy, snaps to random positions, or does not allow selecting multiple branches at once for a group move."
+   },
+   {
+    "title": "Offline mode",
+    "plus": "Your map is available without internet on a plane, on the subway, or on a spotty connection, then syncs changes automatically when back online.",
+    "minus": "Offline is either not offered or loses unsaved nodes on reconnect. Some apps refuse to launch without a connection at all."
+   },
+   {
+    "title": "Collaborative map editing",
+    "plus": "The team sees changes in real time and can co-structure ideas without passing files back and forth.",
+    "minus": "Collaboration is either gated behind a team plan or limited to a read-only share link with no co-editing."
+   }
+  ]
  }
 }

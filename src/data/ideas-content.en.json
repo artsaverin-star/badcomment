@@ -12202,5 +12202,333 @@
    "No data loss when switching to a new phone"
   ],
   "monetization": "Paid extended stats and PDF export for sharing with a doctor. The core health and money tracker is free."
+ },
+ "qr-scanner-1": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Link preview before you tap: a scanner you can trust",
+  "oneLiner": "Shows you the decoded URL and domain reputation before opening any browser you decide whether to proceed.",
+  "gap": "Most scanners open the link immediately with no warning. A safety preview paired with domain reputation scoring doesn't exist as a standalone product.",
+  "pitch": "A scanner with a mandatory preview: after every scan you see the decoded URL, a domain safety signal (Safe Browsing API), and the hosting country. Nothing happens until you tap. The paying customer is enterprise IT departments that issue phones to employees and can't afford phishing incidents.",
+  "features": [
+   "URL preview with expansion of shortened links (bit.ly, qr.io, etc.)",
+   "domain check via Google Safe Browsing API before any navigation",
+   "hosting country and domain age displayed on the result screen",
+   "enterprise mode: allowed-domain whitelist, all external links blocked",
+   "full scan log with per-entry safety status",
+   "MDM profile for bulk deployment on corporate devices"
+  ],
+  "antiFeatures": [
+   "auto-navigate without confirmation",
+   "ads displayed at the moment the scan result appears",
+   "scan history collected and sold to third parties"
+  ],
+  "monetization": "B2B subscription priced per seat per month for corporate devices. MDM integration and audit log in the Enterprise tier. Individuals pay a one-time purchase with no ads."
+ },
+ "qr-scanner-2": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Warehouse scanner: continuous scanning with a running counter",
+  "oneLiner": "Continuous scan mode built for warehouse and inventory work codes go in one after another, the counter climbs, and you export with one tap.",
+  "gap": "Continuous scanning is the first thing removed when an app pushes a monetization update, turning it back into a basic reader. A purpose-built inventory scanning tool with CSV export barely exists in the App Store.",
+  "pitch": "A tool for small warehouses and retail: start a session, scan your batch each code is logged with a timestamp, a running count, and an optional quantity field. At the end of the session, export CSV or Excel in one tap. The customer is a warehouse owner or shop manager who currently does this in a notebook.",
+  "features": [
+   "continuous mode: scan after scan with no intermediate screens",
+   "counter broken down by unique codes",
+   "quantity field for manual adjustment mid-stream",
+   "named sessions ('Intake July 12', 'Warehouse A audit')",
+   "CSV/Excel export with timestamps and totals",
+   "Google Sheets integration via webhook"
+  ],
+  "antiFeatures": [
+   "confirmation screen after every scan",
+   "cap on the number of entries in the free tier",
+   "auto-navigation to the browser when a URL code is scanned"
+  ],
+  "monetization": "Business subscription, monthly or annual, with unlimited sessions and exports. Free tier allows up to 20 scans per session so users can feel out the workflow."
+ },
+ "qr-scanner-3": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Dynamic QR for small business: update the link, keep the code",
+  "oneLiner": "A QR generator with an editable destination print once, update where it points from your phone anytime.",
+  "gap": "Static QR codes go stale every time a menu, URL, or promotion changes. Dynamic codes exist only in expensive SaaS platforms small businesses pay $30+ per month for a feature that takes ten minutes to explain.",
+  "pitch": "An app for small businesses: create a QR code that points to your editable landing page. When the menu changes, the website moves, or a promo ends update it in the app, and the code on the flyer still works. The customer is a cafe, salon, or small shop that prints flyers and hates reprinting them.",
+  "features": [
+   "dynamic QR with an editable destination URL the code itself never changes",
+   "dashboard: total scans, scan source breakdown, scan time heatmap",
+   "branded code with logo and custom colors",
+   "templates for common use cases: menu, Wi-Fi, contact card, promotion, map link",
+   "built-in mini landing page (name, photo, call-to-action button) no separate website needed",
+   "smart redirect QR for App Store and Google Play simultaneously"
+  ],
+  "antiFeatures": [
+   "static codes with no analytics",
+   "technical setup required to configure redirect behavior",
+   "per-code pricing"
+  ],
+  "monetization": "Business subscription with a flat monthly rate for N active codes. Free tier includes one dynamic code that never expires enough to understand the mechanic before committing."
+ },
+ "qr-scanner-4": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Scan from your camera roll: decode codes in screenshots and photos",
+  "oneLiner": "Reads QR codes and barcodes from any image in your photo library no live camera needed, works with codes from messages and emails.",
+  "gap": "Users receive codes in Telegram, WhatsApp, and email all the time. The screenshot is right there, but most apps can't scan from the photo library without a paid subscription.",
+  "pitch": "One button: 'Choose from library.' Pick a screenshot or photo, the app finds the code, decodes it, and shows the result with a URL preview. The primary scenario is codes from work chats, email attachments, and PDF documents. The paying customer is anyone who regularly receives codes by message for work.",
+  "features": [
+   "photo library picker in a single tap",
+   "multiple code detection within one image",
+   "PDF417 decoding (driver's licenses, boarding passes)",
+   "result preview with decoded URL before any navigation",
+   "decode history with the source filename",
+   "iOS Share Sheet extension: share an image directly from Mail or Telegram"
+  ],
+  "antiFeatures": [
+   "camera-only mode",
+   "cap on the number of library decodes",
+   "account registration required for basic functionality"
+  ],
+  "monetization": "One-time purchase, no subscription. People don't need this tool every day they want to pay once and know it's there."
+ },
+ "qr-scanner-5": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Restaurant QR: a live menu on every table, no reprinting required",
+  "oneLiner": "A turnkey solution for cafes and restaurants: QR codes on tables point to a live menu that updates in seconds from the app.",
+  "gap": "Restaurants need more than a 'QR generator' they need a vertical product with a menu editor, a code, and analytics showing how many guests opened it. That product doesn't exist in the App Store, only horizontal generators do.",
+  "pitch": "A vertical tool for food service: build a digital menu in the app (categories, dishes, photos, prices), get a QR code, print it or put it on a table stand. When an item runs out or a price changes, update it in the app and every guest immediately sees the new menu. The customer is a cafe owner or multi-location manager.",
+  "features": [
+   "menu builder: categories, dishes, photos, prices",
+   "QR code tied to a live menu that updates instantly",
+   "analytics: total opens, which dishes get the most attention",
+   "multilingual menu with a guest-facing language toggle",
+   "86 button (item sold out) in a single tap with no re-save",
+   "PDF export sized for table stands and flyers"
+  ],
+  "antiFeatures": [
+   "static QR generator with no content binding",
+   "requires a separate website to host the menu",
+   "general-purpose interface not designed for food service"
+  ],
+  "monetization": "Per-venue subscription at a flat monthly rate with no limits on dishes or scans. Multi-location clients get a tier that covers several venues under one account."
+ },
+ "qr-scanner-6": {
+  "categoryName": "QR & barcode scanners",
+  "title": "PDF417 and documents: decode licenses, boarding passes, and insurance cards",
+  "oneLiner": "A specialized reader for document barcodes driver's licenses, boarding passes, insurance cards with clean field display and no data sent to third parties.",
+  "gap": "PDF417 barcodes carry complete personal identity data, yet the apps that scan them store your history and sell it. The paying segment is verification services bars, car rentals, medical reception that need an offline reader with no data leakage.",
+  "pitch": "A reader for professional document verification: scan the PDF417 on the back of a driver's license or on a boarding pass, see the name, date of birth, and expiration date cleanly structured, processed entirely on-device. No data leaves the phone. The customer is a bar at the door, a car rental counter, or a medical front desk.",
+  "features": [
+   "PDF417 parsing to the AAMVA standard (US and Canadian driver's licenses)",
+   "BCBP parsing (IATA boarding passes)",
+   "fully offline: no data sent to any server",
+   "structured output: name, DOB, expiration date, address",
+   "age check: instant '21+' or 'Minor' result",
+   "verification log with timestamps for reporting no personal data stored"
+  ],
+  "antiFeatures": [
+   "scan data transmitted to third parties",
+   "personal data stored in the app's scan history",
+   "generic scanner with no document structure parsing"
+  ],
+  "monetization": "Per-location subscription or B2B license per organization. Not for individuals the customer is a business that needs this every single day."
+ },
+ "qr-scanner-7": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Event check-in scanner: register guests by QR with no internet required",
+  "oneLiner": "A guest check-in system for QR ticket events with a full offline mode works in a basement, outdoors, or anywhere with a weak signal.",
+  "gap": "Small event organizers conferences, parties, sports competitions use a generic scanner as a workaround. They need a tool that loads a guest list and validates tickets offline. That simple product doesn't exist in the App Store.",
+  "pitch": "Upload a CSV with your guest list and ticket QR codes, hand the app to door volunteers. Each scan gives an instant result: first entry or already checked in. Everything works offline, data syncs after the event. The organizer pays per event or buys a seasonal subscription.",
+  "features": [
+   "guest list import via CSV or a shared link",
+   "offline validation: the full list lives in device memory",
+   "multi-device mode: several phones at the door, sync after the event",
+   "scan status: 'First entry', 'Already checked in', 'Not on the list'",
+   "real-time attendance counter for the organizer",
+   "post-event report export: who attended, who didn't, entry timestamps"
+  ],
+  "antiFeatures": [
+   "requires a live internet connection for every scan",
+   "generic scanner with no guest list context",
+   "single-device interface at the door"
+  ],
+  "monetization": "Pay-per-event (one-time) or a subscription for organizers who run recurring events. Free tier for up to 25 guests to trial the workflow."
+ },
+ "qr-scanner-8": {
+  "categoryName": "QR & barcode scanners",
+  "title": "Honest scanner, no subscription: pay once, use forever",
+  "oneLiner": "A QR and barcode scanner with a fair one-time purchase no subscription, no ads, no paywall before your first scan.",
+  "gap": "28 of 142 observed complaints are about a subscription blocking basic scanning. Users are willing to pay once the market keeps pushing subscriptions. The app that sells honestly and simply wins trust.",
+  "pitch": "A scanner with a single payment screen pay once, done forever. Open the app, scan. No 3-day trials, no ad banners with a hidden close button. The positioning is built around one line: 'we are not a subscription.' Revenue comes from an honest price and a high App Store rating.",
+  "features": [
+   "QR and all major barcode formats no limits",
+   "scan history with search",
+   "photo library scanning",
+   "basic QR code generation (URL, contact, Wi-Fi)",
+   "URL preview before navigating",
+   "scan history export to CSV"
+  ],
+  "antiFeatures": [
+   "subscription model with a paywall before the first scan",
+   "any form of advertising after purchase",
+   "3-day trial with auto-renewal"
+  ],
+  "monetization": "One-time app purchase at $2.99 or $4.99. Optional corporate license for IT departments via Apple Business Manager no subscription platform required."
+ },
+ "mind-mapping-1": {
+  "categoryName": "Mind mapping",
+  "title": "Native sync, no middleman",
+  "oneLiner": "Start a map on iPad, pick it up on Mac, no manual export, no third-party drives",
+  "gap": "No app offers native iCloud sync out of the box. Users pay for multiple clients, then lose data on version conflicts or cannot open a map on their second device at all.",
+  "pitch": "A mind mapping app built on iCloud Drive at its core: one purchase covers every Apple device, version conflicts resolve automatically by timestamp, and offline mode is on by default.",
+  "features": [
+   "Native iCloud Drive, no intermediate cloud layer: the file lives in Files.app",
+   "Automatic conflict resolution based on last-modified timestamp with version history",
+   "Offline editing with silent sync once a connection is available",
+   "Universal purchase: iPhone, iPad, and Mac in a single transaction",
+   "Lock-screen widget showing recent maps for instant access"
+  ],
+  "antiFeatures": [
+   "Third-party clouds (Dropbox, Google Drive) as the primary storage backend",
+   "Subscription instead of a one-time purchase",
+   "Mandatory account registration to enable basic sync"
+  ],
+  "monetization": "One-time purchase covering all Apple devices. An add-on for team sharing sold as a separate org subscription."
+ },
+ "mind-mapping-2": {
+  "categoryName": "Mind mapping",
+  "title": "Keyboard as the only tool you need",
+  "oneLiner": "Brainstorm without touching the mouse: Tab, Enter, and arrow keys build the map faster than any touch interface",
+  "gap": "No mobile app has implemented a full keyboard-first mode: Tab for a child node, Enter for a sibling, Cmd+Arrow to move a branch, Space to collapse. That is the iThoughts standard that every alternative is still missing.",
+  "pitch": "A mind map editor with first-class keyboard support: a complete shortcut scheme for creating, navigating, and restructuring the tree without lifting your hands from the keys. Built for professionals on iPad with a Magic Keyboard.",
+  "features": [
+   "Tab / Shift+Tab: create a child node or move up a level",
+   "Enter: add a sibling node. Escape: commit and exit",
+   "Cmd+Arrow: move a branch along with all its children",
+   "Cmd+[ / Cmd+]: collapse or expand a subtree",
+   "Cmd+F: search across all nodes with live highlighting"
+  ],
+  "antiFeatures": [
+   "Keyboard used only for text entry while navigation stays touch-only",
+   "Hidden shortcuts with no on-screen reference",
+   "Required edit mode before any keyboard navigation is possible"
+  ],
+  "monetization": "One-time Pro purchase. Free tier capped at 20 nodes, enough to feel the speed difference before buying."
+ },
+ "mind-mapping-3": {
+  "categoryName": "Mind mapping",
+  "title": "Links beyond the hierarchy",
+  "oneLiner": "Draw an arrow between any two nodes in different branches and map real dependencies, not just parent-child trees",
+  "gap": "Most apps enforce strict hierarchy. Non-linear links are rare, and when they exist, they are poorly rendered: arrows overlap nodes, there are no relationship labels, and there is no way to filter by link type.",
+  "pitch": "A mind mapping tool with first-class non-linear links: draw an arrow between any two nodes, add a relationship label, and visually filter the map by link type. Built for architects, researchers, and students.",
+  "features": [
+   "Non-linear arrow between any two nodes via long-press and drag",
+   "Relationship labels: 'depends on', 'conflicts with', 'reinforces', and custom types",
+   "Filter mode: show only a specific link type on the canvas",
+   "Multi-select branches with simultaneous move of all children",
+   "Auto-layout that accounts for non-linear links, no overlapping arrows"
+  ],
+  "antiFeatures": [
+   "Only hierarchical parent-child relationships",
+   "Arrows with no labels or relationship types",
+   "Non-linear links gated behind top-tier plans"
+  ],
+  "monetization": "Freemium: up to 3 non-linear links free. Pro unlock as a one-time purchase. Targeting students and analysts who already pay for Notion and are comfortable with a one-time buy."
+ },
+ "mind-mapping-4": {
+  "categoryName": "Mind mapping",
+  "title": "Export that actually works",
+  "oneLiner": "PNG, PDF, and structured text with no corrupt files and no cropped maps",
+  "gap": "Export is the most common post-purchase disappointment. Broken PNGs, PDFs missing embedded images, server errors on paid plans. On top of that, map-to-outline conversion exists in only one or two apps.",
+  "pitch": "Reliable export with no surprises: render maps to PNG and PDF locally on the device, convert to a structured Markdown outline in one tap, and send directly to Keynote or Notion without intermediate files.",
+  "features": [
+   "Local PNG and PDF rendering, no server dependency, no internet required",
+   "Auto-scaling for large maps: pagination with a table of contents",
+   "Round-trip Markdown outline conversion without losing structure",
+   "Share Extension for direct insertion into Notion, Bear, and Obsidian",
+   "Node images embedded as inline objects in the exported PDF"
+  ],
+  "antiFeatures": [
+   "Server-side rendering with no offline fallback",
+   "Paid export with no guarantee of a usable result",
+   "Silent map cropping on export with no warning"
+  ],
+  "monetization": "One-time purchase for advanced export. Basic PNG up to 50 nodes is free, nudging users to buy once they hit a real project."
+ },
+ "mind-mapping-5": {
+  "categoryName": "Mind mapping",
+  "title": "iPad as the primary screen, not a fallback",
+  "oneLiner": "A mobile client with full feature parity, not a stripped-down copy of the web app",
+  "gap": "Teams find it commercially rational to build web-first, leaving the mobile client perpetually behind. Paying iPad users lose features without warning or have to pay extra for mobile access.",
+  "pitch": "A mind mapping app born on iPad: native SwiftUI, no WebView wrapper, every feature available from the first launch, Apple Pencil recognizes handwriting and converts it to node text.",
+  "features": [
+   "Native SwiftUI rendering, no WebView, the canvas stays smooth on large trees",
+   "Apple Pencil: handwriting input recognized via PencilKit directly inside a node",
+   "One gesture to snap the map canvas into a Keynote slide for presentations",
+   "Sidebar with the node tree, comfortable in Split View",
+   "Full functionality without an account: create and edit offline from day one"
+  ],
+  "antiFeatures": [
+   "WebView wrapper serving a mobile website as a native app",
+   "Features sold as add-ons specifically for iPad users",
+   "Apple Pencil treated as a finger replacement only"
+  ],
+  "monetization": "One-time purchase, no subscription. Positioned as the Lucidchart alternative for individual users that Lucidchart itself pushed away by killing mobile access."
+ },
+ "mind-mapping-6": {
+  "categoryName": "Mind mapping",
+  "title": "Templates built for real work",
+  "oneLiner": "SWOT, JTBD, architecture diagrams, and study maps: ready-made structures for actual professional contexts",
+  "gap": "Templates are either too generic ('project ideas') or locked behind a subscription. No app ships specialized templates for STEM, product management, or legal work. Swapping templates on an already-built map is not possible anywhere.",
+  "pitch": "A professional template library for mind mapping: SWOT, business case, JTBD, lecture notes, software diagrams, plus the ability to apply a different template to an existing map without losing nodes.",
+  "features": [
+   "50+ templates organized by category: business, academia, engineering, law, creative",
+   "Apply a template to an existing map, restructures without losing node content",
+   "Custom template editor with save-to-personal-library",
+   "Template search by task: 'competitive analysis', 'lecture plan'",
+   "Shared template library for a team or a course"
+  ],
+  "antiFeatures": [
+   "Generic empty outlines with no real structure",
+   "All useful templates behind a subscription",
+   "Templates that cannot be changed after the map is created"
+  ],
+  "monetization": "Freemium: 10 basic templates free. Full library plus custom template creation as a one-time purchase. Team access to a shared library sold as an org subscription."
+ },
+ "mind-mapping-7": {
+  "categoryName": "Mind mapping",
+  "title": "Map and document in one flow",
+  "oneLiner": "Same content, two views: a visual map for structuring and a linear outline for writing",
+  "gap": "Maps and outlines live in different apps. A student sketches structure in one, then switches to another to write the actual notes. Two-way sync between views does not exist anywhere: editing the outline does not update the map.",
+  "pitch": "An editor with two views of the same structure: switch between map and outline in one tap, edit in either mode, with changes syncing both ways. Built for people who think non-linearly but write linearly.",
+  "features": [
+   "One file, two views: map and outline switch without any conversion step",
+   "Edits in the outline update the map instantly, and vice versa",
+   "Focus mode: the outline hides sibling branches and shows only the selected one",
+   "Export the outline to Markdown, DOCX, or Bear in one tap",
+   "Section splits for long documents, each chapter becomes a branch"
+  ],
+  "antiFeatures": [
+   "One-way conversion from map to text with no way to edit back",
+   "Outline as a separate standalone document with no link to the map",
+   "Export limited to a proprietary format"
+  ],
+  "monetization": "One-time purchase. Target audience: students and writers who already pay for Bear or Ulysses and are ready to pay for a specialized tool."
+ },
+ "mind-mapping-8": {
+  "categoryName": "Mind mapping",
+  "title": "Team brainstorming without an enterprise contract",
+  "oneLiner": "Collaborative maps for small teams with no 25-seat minimums and no annual contracts",
+  "gap": "Collaboration tools target enterprise: five to twenty-five seat minimums, annual contracts. Small teams of two to five people pay for individual licenses and share maps as files.",
+  "pitch": "Mind mapping with collaboration for up to five people, priced like a personal app: invite by link, real-time co-editing, comments on nodes. No enterprise plan required.",
+  "features": [
+   "Live cursors showing where each participant is on the canvas",
+   "Invite by link, no account required, guests can comment",
+   "Comments and @-mentions anchored to a specific node",
+   "Change history with author name and one-click rollback",
+   "Presentation mode: the host shifts focus for all participants simultaneously"
+  ],
+  "antiFeatures": [
+   "Team plans that require a minimum of 5 or 25 seats",
+   "Collaboration only via email invite with mandatory registration",
+   "Comments available only in the web interface, not the mobile app"
+  ],
+  "monetization": "Personal plan as a one-time purchase. Team plan at a flat monthly rate for two to five members. Positioned directly against Lucidchart, which cut individual users off from mobile access."
  }
 }

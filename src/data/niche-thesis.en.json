@@ -6407,5 +6407,77 @@
     ]
    }
   ]
+ },
+ "qr-scanner": {
+  "governing": "iOS has had a built-in QR scanner in the Camera app for years, so a third-party app has exactly one path to survival: do what the camera cannot, and do it honestly. Instead, 19 of 30 apps in this niche took a different route inflated ratings and subscription traps that block scanning before the user sees a single result. The real quality ceiling in the niche is 62 (Qrafter), nothing breaks 80. That means the market is wide open for a utility that doesn't hide its core function behind a paywall, shows the URL before navigating, and doesn't sell scan history to advertisers. When 19 apps are trading on user trust, not earning it, the product gap is obvious.",
+  "competitorRead": "Qrafter (realScore 62) is the honest leader broad code-type support and a scan history but it inserts ads between the result and the link tap. Free QR Code Reader (58) holds its position on a single advantage: free with no subscription. Functionality is minimal. QR Pro (38) is the only app that shows a URL preview before navigating, but it removed batch mode and auto-grabs the first code it sees in frame. The remaining 27 apps either gate scanning behind a paywall from the first launch (SkyBlueScan, Scan QR Code., QR Code: Reader & Generator) or use dark billing patterns with recurring charges made without clear consent. QR Reader for iPhone has 1.4M ratings and a textAvg of 4.14, but its review corpus is almost entirely restaurant and cafe reviews the rating is fabricated.",
+  "pillars": [
+   {
+    "title": "subscription walls kill the utility before the first scan",
+    "dek": "The niche's core structural flaw: 19 of 30 apps demand payment or trigger a hidden trial before the user ever sees a scan result. The built-in iOS scanner does the same thing for free, which means a paid barrier has to justify itself with real features the camera lacks not just access to a button. Some apps go further: they require a 5-star rating as an unlock condition, embed ads with deliberately hidden close buttons, and continue charging after the app is deleted. That's not monetization it's exploiting inattention. For a founder, this means even a modest product free scanning with no hidden strings looks trustworthy by comparison and immediately owns a clear position.",
+    "match": [
+     "subscription paywall blocks scanning",
+     "iOS built-in scanner vs third-party app",
+     "ads overlaid on scanner interfere with use"
+    ]
+   },
+   {
+    "title": "show what's inside the code and don't pass it on",
+    "dek": "A user scans a QR on a poster with no idea where the link goes. Most apps open the browser automatically, no warning given. One user lost credit card data to a phishing site disguised as a 'Continue' button inside an ad shown by the scanner itself. Privacy is a separate issue: apps that read PDF417 barcodes the 2D barcode on the back of a driver's license collect that data and sell it to third parties. This is documented in their privacy policies and confirmed by users. QR Pro shows a URL preview before navigating, and that single feature drives its positive reviews even when everything else falls short. The mechanic is simple: let the user see the destination before the app does anything on their behalf. For enterprise use, that's not a nice-to-have it's a requirement.",
+    "match": [
+     "URL preview before navigation",
+     "privacy: scan data collection and sale",
+     "auto-action after scan"
+    ]
+   },
+   {
+    "title": "barcodes, PDF417, and continuous scanning what the camera cannot do",
+    "dek": "The iPhone's built-in camera reads QR codes but doesn't handle EAN/UPC barcodes, doesn't decode PDF417 from driver's licenses, can't scan from a saved screenshot, and has no continuous-fire mode scan one, keep going. That is the real opportunity for a third-party app. The problem is that most apps either lock these features behind a paywall or advertise format support that doesn't hold up in practice: hit rates of 10-20% on ordinary retail barcodes based on user reviews. Batch mode gets quietly removed in updates warehouse workers who scan 100+ items per shift lose their workflow with no warning. Dynamic QR code generation, the one feature that creates repeat return visits, is also almost universally paywalled, and even after paying, some apps break it.",
+    "match": [
+     "scan recognition reliability",
+     "multi-format support: barcode, PDF417, Wi-Fi",
+     "scan history and CSV export",
+     "batch and continuous scanning",
+     "scan from photo library",
+     "QR code generation: static vs dynamic"
+    ]
+   }
+  ]
+ },
+ "mind-mapping": {
+  "governing": "Mind mapping is a small niche (XMind 72, SimpleMind 70/68, nobody clears 80) packed with compromises: leaders either draw great maps but handle cross-device transfer poorly, or support real-time collaboration but cripple the mobile client. A founder who solves one combination (fast input plus reliable sync plus clean export) steps into space that XMind and MindMeister left wide open. MindMeister loses data on sync, Mindomo's mobile app delivers half the web experience, and VisualMind's inflated 4.5 rating against a real textAvg of 1.93 shows that even AI-generated maps are nowhere near a solved problem.",
+  "competitorRead": "XMind leads on structure variety (fishbone, matrix, timeline) but cross-platform sync requires a manual export. SimpleMind Pro wins with a one-time purchase and non-linear links, though it skips iCloud and its Android fork breaks Bluetooth keyboard support. MindMeister is the only app with live collaboration, but undo is unstable enough to erase text and maps occasionally vanish on sync. Lucidchart dropped its mobile client for individual accounts, handing over an unclaimed segment. AYOA carries the iMindMap legacy, but its mobile app is a stripped-down copy of the web version, something new users only discover after paying.",
+  "pillars": [
+   {
+    "title": "capture speed: input that keeps up with thought",
+    "dek": "A mind map works as a thinking tool only when there is no delay between an idea and a node. Neither XMind nor Mindomo support keyboard tree navigation: Tab/Enter to add child nodes, arrow keys to move between branches. SimpleMind is heading in the right direction, but collapsing nodes from the keyboard is still missing. Non-linear links (arrows between any two nodes, not just parent-to-child) are essential for anyone mapping real dependencies rather than a hierarchy, and SimpleMind Pro gets this right. Dragging branches with all their children in Mindomo and MindMeister is jerky, and snapping is unpredictable. Switching between map and outline view exists in only a handful of apps, even though nearly everyone needs it: sketch the structure visually, then jump to outline mode to write the text. Task-specific templates (SWOT, business model, lecture notes) remove blank-canvas fear, but XMind ships roughly ten and they all target generic use cases.",
+    "match": [
+     "keyboard navigation and fast input",
+     "non-linear links between branches",
+     "moving and restructuring nodes",
+     "switching between map and outline view",
+     "templates and starter structures"
+    ]
+   },
+   {
+    "title": "continuity: one map across all devices with zero manual steps",
+    "dek": "Most mind mapping apps require a third-party cloud drive or a manual export/import to pick up work on another device. XMind offers no way to open on Mac what you started on iPad without saving a file first. SimpleMind Pro routes through Dropbox or Google Drive and skips iCloud Drive entirely. MindMeister drops maps on sync, and that is not an edge case. Offline mode is either unadvertised or loses unsaved nodes when reconnecting. True cross-platform support between Apple and Windows exists in practice only with SimpleMind Pro's shared file format and Lucidchart via the browser. Lucidchart killed its native mobile app for solo users. The mobile-vs-web gap is a systemic pain point: Mindomo and AYOA deliver roughly a third of the web feature set in their apps, and users find this out only after paying.",
+    "match": [
+     "cross-device sync",
+     "cross-platform support and data portability",
+     "offline mode",
+     "mobile app vs web app"
+    ]
+   },
+   {
+    "title": "output: the map leaves the app without losing anything",
+    "dek": "A mind map does not end in someone's head or in the app. It ends in a presentation, a document, or a colleague's hands. XMind exports to JPEG and PNG, but files often come back empty or fail to load. PDF crops large maps. MindMeister sells export as a paid feature and returns 500 Internal Server Error. Apple Pencil in most apps acts as a finger substitute with no handwriting recognition: neither SimpleMind, miMind, nor AYOA support handwritten input directly into a node, and in Mindomo the stylus moves nodes instead of typing text. Real-time collaboration exists only in MindMeister and Lucidchart, but both require a team plan to edit. Solo users get a read-only link. All of this means a founder who needs to show a map to an investor or run a team brainstorm has no reliable path in this niche today.",
+    "match": [
+     "map export",
+     "Apple Pencil and handwriting input",
+     "collaborative map editing"
+    ]
+   }
+  ]
  }
 }

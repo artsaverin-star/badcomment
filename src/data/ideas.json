@@ -47488,5 +47488,1264 @@
    ],
    "monetization": "Платная расширенная статистика и экспорт в PDF для врача. Базовый трекер здоровья и денег бесплатен."
   }
+ },
+ {
+  "slug": "qr-scanner-1",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Превью ссылки до перехода: сканер, которому доверяешь",
+  "oneLiner": "Показывает расшифрованный URL и репутацию домена до того, как открыть браузер пользователь сам решает, переходить ли.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "This takes the mystery out of what you are scanning. Does not blindly jump to a web page, but lets you review what the code actually says. The fact that they do not collect your personal data is the cherry on top.",
+    "rating": 5,
+    "app": "QR Pro - QR Code Scanner"
+   },
+   {
+    "quote": "It shows me what the code says before it does anything. That is what I was looking for. Unfortunately though, it grabs the first code it sees and it does not wait for the matrix to be fully on the screen.",
+    "rating": 3,
+    "app": "QR Pro - QR Code Scanner"
+   },
+   {
+    "quote": "I've had this product for a few years. I used to like it, but more recently when you scan a code, a random advertisement link pops up before your desired URL. These ads can be maliciously deceptive, making you think you're on the page of the QR code you scanned, but they trick you into signing up for something.",
+    "rating": 1,
+    "app": "Qrafter: QR Code Reader"
+   },
+   {
+    "quote": "Has only one ad, which consists of what looks very much like a button marked continue. Managed to use it many times without being fooled into hitting it, but finally did, at a distracted moment. Led directly to a phish website called Cinema something that conned me into giving it my cc info.",
+    "rating": 1,
+    "app": "QR Code Reader: Quick Scan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "превью ссылки до перехода",
+    "obsCount": 12,
+    "apps": [
+     "QR Pro - QR Code Scanner",
+     "Qrafter: QR Code Reader",
+     "QR Code & Barcode Scanner ・"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "автопереход без предупреждения ведёт на нежелательные страницы",
+    "obsCount": 8,
+    "apps": [
+     "QR Code Reader/QR Scanner App",
+     "QR Code Reader & Code Scanner",
+     "Qrafter: QR Code Reader"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "конфиденциальность: сбор и продажа данных сканирования",
+    "obsCount": 6,
+    "apps": [
+     "Barcode Scanner - Price Finder",
+     "QR Code Generator - MQRG",
+     "QR Pro - QR Code Scanner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большинство сканеров открывают ссылку сразу пользователь не знает, куда попадёт. Безопасный превью со скором репутации домена не существует как самостоятельный продукт.",
+  "idea": {
+   "pitch": "Сканер с обязательным превью: после скана показывается расшифрованный URL, значок безопасности домена (Safe Browsing API) и страна хостинга. Переход только по явному тапу. Платит бизнес IT-отделы компаний, которые выдают телефоны сотрудникам и не хотят инцидентов с фишингом.",
+   "features": [
+    "превью URL с расшифровкой сокращённых ссылок (bit.ly, qr.io и т.д.)",
+    "проверка домена по Google Safe Browsing API перед переходом",
+    "отображение страны хостинга и возраста домена",
+    "корпоративный режим: whitelist доменов, все переходы за пределы заблокированы",
+    "журнал всех сканов с пометками о статусе безопасности",
+    "MDM-профиль для массового деплоя на корпоративные устройства"
+   ],
+   "antiFeatures": [
+    "автопереход без подтверждения",
+    "реклама в момент показа результата скана",
+    "сбор истории сканирований для продажи третьим сторонам"
+   ],
+   "monetization": "B2B подписка: за seat/месяц для корпоративных устройств. MDM-интеграция и аудит-лог в Enterprise-тире. Физлица разовая покупка без рекламы."
+  }
+ },
+ {
+  "slug": "qr-scanner-2",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Складской сканер: потоковое сканирование и счётчик без остановок",
+  "oneLiner": "Режим непрерывного сканирования для склада и инвентаризации коды идут один за другим, счётчик растёт, файл экспортируется в один клик.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "I used this app to batch scan QR codes up until the last update. Now it has no batch feature and it opens every scan into a page you have to close to scan the next thing which is unhelpful.",
+    "rating": 1,
+    "app": "QR Pro - QR Code Scanner"
+   },
+   {
+    "quote": "Not very happy with the app I scans multiple items for work and have to go back and manually count them wouldn't be a problem if I was scanning 10 parts or less but it is 100 plus definitely need an update had this app for over a year and not one single update.",
+    "rating": 1,
+    "app": "QR Code Reader + QR Scanner"
+   },
+   {
+    "quote": "Used to create a textbook inventory master list.",
+    "rating": 4,
+    "app": "Barcode Scanner QR Code Reader"
+   },
+   {
+    "quote": "I'm on a 3 day trial. Working really well and I can print QR code credit card size and read with iPhone photos or app. with No problems. I want to use to record members attending walking group for Covid track & trace. QR code would be printed on membership card. Need a quick way to send all scans o",
+    "rating": 4,
+    "app": "QR, Barcode Scanner for iPhone"
+   },
+   {
+    "quote": "Would really like to see folders and higher limit of scans",
+    "rating": 3,
+    "app": "Barcode Scanner - Price Finder"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "пакетное и непрерывное сканирование",
+    "obsCount": 9,
+    "apps": [
+     "QR Pro - QR Code Scanner",
+     "QR Code Reader + QR Scanner",
+     "QR, Barcode Scanner for iPhone"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "история сканов и экспорт",
+    "obsCount": 10,
+    "apps": [
+     "QR Code Reader + QR Scanner",
+     "Barcode Scanner QR Code Reader",
+     "Barcode Scanner - Price Finder"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "надёжность распознавания кода",
+    "obsCount": 18,
+    "apps": [
+     "Barcode Scanner - Price Finder",
+     "QR Code Reader/QR Scanner App",
+     "QR Code Reader＊Barcode Scanner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Режим непрерывного сканирования убирается первым же обновлением приложение превращается в обычный читалку. Продуктового решения для складского потока с экспортом в таблицу на рынке почти нет.",
+  "idea": {
+   "pitch": "Инструмент для мелкого склада и розницы: включаешь сессию, сканируешь партию каждый код фиксируется с временной меткой, счётчиком и опциональным полем количества. В конце сессии CSV/Excel одним тапом. Платит владелец склада или магазина, который сейчас делает это в блокноте.",
+   "features": [
+    "потоковый режим: скан за сканом без промежуточных экранов",
+    "счётчик с разбивкой по уникальным кодам",
+    "поле 'количество' для ручной корректировки прямо в потоке",
+    "именованные сессии (приёмка 12.07, ревизия склад А)",
+    "экспорт CSV/Excel с timestamp и суммами",
+    "интеграция с Google Sheets через webhook"
+   ],
+   "antiFeatures": [
+    "экран-подтверждение после каждого скана",
+    "лимит на количество записей в бесплатном режиме",
+    "автопереход в браузер при сканировании URL-кода"
+   ],
+   "monetization": "Подписка для бизнеса: месяц или год, без ограничений на сессии и экспорт. Бесплатно до 20 сканов в сессии, чтобы понять сценарий."
+  }
+ },
+ {
+  "slug": "qr-scanner-3",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Динамический QR для малого бизнеса: меняй ссылку, не переделывай код",
+  "oneLiner": "Генератор QR-кодов с редактируемой ссылкой напечатал один раз, обновляешь куда ведёт в любой момент из телефона.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "Other than static QR code only choice. Please have option for Dynamic QR code. Also, please add qr code features for download link to apps store/google play. I'll give 5star when that feature available in the future",
+    "rating": 4,
+    "app": "QR Code Generator, QR Template"
+   },
+   {
+    "quote": "We purchased the VIP membership but can't figure out how to edit the link associated with the QR code generated. Please help!",
+    "rating": 2,
+    "app": "QR Code Generator, QR Template"
+   },
+   {
+    "quote": "I've been using this for years. No tricks. No gimmicks. Never expire. Sometimes if I create too many in a day, I have to watch an ad or two but still worth it. I work for non-profit and use for so many applications.",
+    "rating": 5,
+    "app": "QR Code & Barcode Scanner ・"
+   },
+   {
+    "quote": "This app is the best! I'm making my own restaurant so, this helps me ALOT",
+    "rating": 5,
+    "app": "QR Code Generator, QR Template"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "генерация QR-кодов: статика против динамики",
+    "obsCount": 9,
+    "apps": [
+     "QR Code Generator, QR Template",
+     "QR Code Generator - MQRG",
+     "Qrafter: QR Code Reader"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "превью ссылки до перехода",
+    "obsCount": 12,
+    "apps": [
+     "QR Pro - QR Code Scanner",
+     "QR Code & Barcode Scanner ・"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Статические QR-коды устаревают при смене меню, акции или URL. Динамические есть только в дорогих SaaS-платформах малый бизнес платит $30+/мес за фичу, которую нужно объяснять 10 минут.",
+  "idea": {
+   "pitch": "Приложение для малого бизнеса: создаёшь QR-код, который ведёт на твой редируемый лендинг. Когда сменилось меню, адрес сайта или ссылка на акцию меняешь в приложении, код на флаере тот же. Платит кафе, салон, небольшой магазин все, кто печатает флаеры и не хочет перепечатывать каждый раз.",
+   "features": [
+    "динамический QR с изменяемой ссылкой без смены самого кода",
+    "дашборд: сколько раз отсканировали, откуда, в какое время",
+    "брендированный код с логотипом и фирменными цветами",
+    "шаблоны под задачу: меню, Wi-Fi, визитка, акция, ссылка на карту",
+    "встроенный мини-лендинг (название, фото, кнопка) без отдельного сайта",
+    "QR для App Store и Google Play одновременно (умный редирект по платформе)"
+   ],
+   "antiFeatures": [
+    "статические коды без аналитики",
+    "требование технических знаний для настройки редиректа",
+    "ценообразование за каждый код отдельно"
+   ],
+   "monetization": "Подписка для бизнеса: фиксированная оплата за N активных кодов в месяц. Пробный период 1 динамический код бесплатно навсегда, чтобы почувствовать механику."
+  }
+ },
+ {
+  "slug": "qr-scanner-4",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Сканирование из галереи: читаем коды с скриншотов и фото",
+  "oneLiner": "Распознаёт QR и штрихкод из любого изображения в галерее не нужна живая камера, работает с кодами из мессенджеров и писем.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "I found this app from a sponsored ad on safari and all I want is to scan a code from a screenshot, idk how much it takes to build a feature that does that but that should not cost more then 1 penny let alone a subscription",
+    "rating": 1,
+    "app": "QR Code Reader, Barcode Scan"
+   },
+   {
+    "quote": "I'm on a 3 day trial. Working really well and I can print QR code credit card size and read with iPhone photos or app. with No problems.",
+    "rating": 4,
+    "app": "QR, Barcode Scanner for iPhone"
+   },
+   {
+    "quote": "I tried with ever qr scanner and none of them work cause the purple watermark is getting in the way by a little, make it transparent or a little bit more smaller, other than that everything is great.",
+    "rating": 2,
+    "app": "QR Code Generator - MQRG"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "сканирование изображений из галереи",
+    "obsCount": 7,
+    "apps": [
+     "QR Code Reader, Barcode Scan",
+     "QR, Barcode Scanner for iPhone",
+     "Barcode Scanner QR Code Reader"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "надёжность распознавания кода",
+    "obsCount": 18,
+    "apps": [
+     "Barcode Scanner - Price Finder",
+     "QR Code Reader/QR Scanner App",
+     "QR Code Reader＊Barcode Scanner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Пользователи получают коды в Telegram, WhatsApp, email снимок экрана есть, но сканировать с галереи большинство приложений не умеет без платной подписки.",
+  "idea": {
+   "pitch": "Инструмент с одной кнопкой: 'Выбрать из галереи'. Загружаешь скриншот или фото, приложение находит код, расшифровывает и показывает результат с превью ссылки. Основной сценарий коды из переписки, вложения в письма, PDF-документы. Платит тот, кто регулярно получает коды в мессенджерах по работе.",
+   "features": [
+    "выбор изображения из галереи одним тапом",
+    "детекция нескольких кодов на одном изображении",
+    "расшифровка PDF417 (водительские удостоверения, посадочные талоны)",
+    "превью результата с расшифрованным URL перед переходом",
+    "история расшифровок с именем файла-источника",
+    "виджет iOS Share Sheet: поделиться изображением прямо из почты или Telegram"
+   ],
+   "antiFeatures": [
+    "только режим камеры",
+    "лимит на количество расшифровок из галереи",
+    "требование регистрации для базовой функции"
+   ],
+   "monetization": "Разовая покупка без подписки. Людям не нужен этот инструмент каждый день они хотят заплатить один раз и знать, что он есть."
+  }
+ },
+ {
+  "slug": "qr-scanner-5",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "QR для ресторана: меню на телефоне без перепечатки флаеров",
+  "oneLiner": "Готовое решение для кафе и ресторанов: QR-код на столиках ведёт на живое меню, которое обновляется за секунды прямо в приложении.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is the best! I'm making my own restaurant so, this helps me ALOT",
+    "rating": 5,
+    "app": "QR Code Generator, QR Template"
+   },
+   {
+    "quote": "I Canceled a previous sub with another provider because the URL in their website link showed <myqrcode/afr456> for example that when clicked linked to my desired site. I felt this might cause visitors to escape as the random url provided by their link just looked suspicious instead of the actual URL",
+    "rating": 5,
+    "app": "QR Code Scanner · Barcode"
+   },
+   {
+    "quote": "I've been using this for years. No tricks. No gimmicks. Never expire. Sometimes if I create too many in a day, I have to watch an ad or two but still worth it. I work for non-profit and use for so many applications.",
+    "rating": 5,
+    "app": "QR Code & Barcode Scanner ・"
+   },
+   {
+    "quote": "OK, seriously as a tech designer and someone local in the San Francisco who's been desperately looking for a better QR code technology this is absolutely incredible!!! so useful so creative with the different features like the multi link and tremendous cost-effective value for the cost",
+    "rating": 5,
+    "app": "QR Code Generator - MQRG"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "генерация QR-кодов: статика против динамики",
+    "obsCount": 9,
+    "apps": [
+     "QR Code Generator, QR Template",
+     "QR Code Generator - MQRG",
+     "Qrafter: QR Code Reader"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "история сканов и экспорт",
+    "obsCount": 10,
+    "apps": [
+     "QR Code Reader + QR Scanner",
+     "Barcode Scanner - Price Finder"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Ресторану нужен не 'генератор QR', а готовое вертикальное решение: редактор меню плюс код плюс аналитика сколько гостей открыли. Таких продуктов в App Store нет есть только горизонтальные генераторы.",
+  "idea": {
+   "pitch": "Вертикальный инструмент для общепита: создаёшь цифровое меню прямо в приложении (название, цена, фото блюда), получаешь QR распечатываешь или ставишь на подставку. Когда блюдо кончилось или цена изменилась обновляешь в приложении, у всех гостей сразу новое меню. Платит владелец кафе или управляющий сетью.",
+   "features": [
+    "конструктор меню: категории, блюда, фото, цены",
+    "QR-код привязан к живому меню, обновляется мгновенно",
+    "аналитика: сколько раз открыли, какие блюда смотрели дольше",
+    "многоязычное меню (переключатель языка для гостя)",
+    "отметка '86' (блюдо закончилось) в один тап без пересохранения",
+    "генерация PDF для печати на подставки и флаеры"
+   ],
+   "antiFeatures": [
+    "генератор статических QR без привязки к контенту",
+    "необходимость иметь свой сайт для размещения меню",
+    "сложный интерфейс не для общепита"
+   ],
+   "monetization": "Подписка на заведение: фиксированная сумма в месяц, без лимитов на блюда и сканирования. Сетевым клиентам тир с несколькими локациями под одним аккаунтом."
+  }
+ },
+ {
+  "slug": "qr-scanner-6",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "PDF417 и документы: читаем удостоверения, посадочные, страховки",
+  "oneLiner": "Специализированный читалка документарных штрихкодов водительских удостоверений, посадочных талонов, страховых карт с чётким показом полей без отправки данных третьим сторонам.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "Be careful scanning PDF417 barcodes, like the kind found on the back of your driver's license (common in USA). These contain all the same personal details printed on the license. According to the app's privacy policy your search history is part of the data that the developers collect.",
+    "rating": 1,
+    "app": "Barcode Scanner - Price Finder"
+   },
+   {
+    "quote": "I read that my data IS sold, and it CAN be linked to my identity! Dude, I LOVE supporting small businesses! I AM one but I would MUCH rather PAY a monthly or yearly fee than to have my personal identity SOLD to the highest bidder!!",
+    "rating": 3,
+    "app": "QR Code Generator - MQRG"
+   },
+   {
+    "quote": "This takes the mystery out of what you are scanning. Does not blindly jump to a web page, but lets you review what the code actually says. The fact that they do not collect your personal data is the cherry on top.",
+    "rating": 5,
+    "app": "QR Pro - QR Code Scanner"
+   },
+   {
+    "quote": "I searched pdf417 generator and this came up first. It does not let you make your own codes at all in any form you have to pick from a list ex. Contacts, Wi-Fi, Facebook etc.",
+    "rating": 1,
+    "app": "QR Code Scanner · Barcode"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "конфиденциальность: сбор и продажа данных сканирования",
+    "obsCount": 6,
+    "apps": [
+     "Barcode Scanner - Price Finder",
+     "QR Code Generator - MQRG",
+     "QR Pro - QR Code Scanner"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "поддержка разных типов кодов (штрих, PDF417, Wi-Fi)",
+    "obsCount": 7,
+    "apps": [
+     "Barcode Scanner - Price Finder",
+     "QR Code & Barcode Scanner ・",
+     "Qrafter: QR Code Reader"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "безопасность: превью ссылки до перехода",
+    "obsCount": 12,
+    "apps": [
+     "QR Pro - QR Code Scanner",
+     "Qrafter: QR Code Reader"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "PDF417 содержит полные личные данные из документов, но приложения хранят историю сканов и продают её. Платящий сегмент верификационные сервисы (бары, прокат, медицина), которым нужен offline-ридер без утечки.",
+  "idea": {
+   "pitch": "Ридер для профессиональной верификации документов: сканируешь PDF417 на обороте водительского удостоверения или посадочного талона, видишь имя, дату рождения и срок действия структурированно, без отправки на сервер. Данные не покидают устройство. Платит бар у входа, прокат авто, медицинский ресепшн.",
+   "features": [
+    "парсинг PDF417 по стандарту AAMVA (водительские удостоверения США/Канады)",
+    "парсинг BCBP (посадочные талоны IATA)",
+    "offline-работа: данные не отправляются на сервер",
+    "структурированный вывод: имя, DOB, дата истечения, адрес",
+    "проверка возраста: сразу показывает '21+' или 'несовершеннолетний'",
+    "журнал проверок с timestamp для отчётности (без хранения персональных данных)"
+   ],
+   "antiFeatures": [
+    "передача данных сканирования третьим сторонам",
+    "хранение персональных данных в истории приложения",
+    "обобщённый сканер без парсинга структуры документа"
+   ],
+   "monetization": "Подписка на точку продаж или B2B-лицензия на организацию. Физлицам не нужен платит бизнес, которому это нужно ежедневно."
+  }
+ },
+ {
+  "slug": "qr-scanner-7",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Сканер для ивентов: регистрация участников по QR без интернета",
+  "oneLiner": "Система регистрации гостей по QR-билетам с offline-режимом работает в подвале, на улице, в зоне со слабым сигналом.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "I'm on a 3 day trial. Working really well and I can print QR code credit card size and read with iPhone photos or app. with No problems. I want to use to record members attending walking group for Covid track & trace. QR code would be printed on membership card. Need a quick way to send all scans o",
+    "rating": 4,
+    "app": "QR, Barcode Scanner for iPhone"
+   },
+   {
+    "quote": "I used this app to batch scan QR codes up until the last update. Now it has no batch feature and it opens every scan into a page you have to close to scan the next thing which is unhelpful.",
+    "rating": 1,
+    "app": "QR Pro - QR Code Scanner"
+   },
+   {
+    "quote": "Scans quickly & keeps a record of past scans. Picks up UPC code, doesn't have to be perfectly squared or lined up.",
+    "rating": 5,
+    "app": "QR Code Reader & Code Scanner"
+   },
+   {
+    "quote": "So here's all I need to do...I want to pack a box, then make a text list of what's in the box, then print a QR code to stick on the box, so I can scan it at a later date and know what's in the box. Simple, right?",
+    "rating": 3,
+    "app": "Qrafter: QR Code Reader"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "пакетное и непрерывное сканирование",
+    "obsCount": 9,
+    "apps": [
+     "QR Pro - QR Code Scanner",
+     "QR Code Reader + QR Scanner",
+     "QR, Barcode Scanner for iPhone"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "история сканов и экспорт",
+    "obsCount": 10,
+    "apps": [
+     "Barcode Scanner QR Code Reader",
+     "QR, Barcode Scanner for iPhone"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Организаторы небольших ивентов конференций, вечеринок, спортивных соревнований используют обычный сканер как костыль. Нужен инструмент с загруженным списком гостей и offline-валидацией, которого в App Store нет в простом виде.",
+  "idea": {
+   "pitch": "Загружаешь CSV со списком гостей и QR-кодами билетов, раздаёшь приложение волонтёрам на входе. Каждый скан мгновенная проверка: впервые или повторно. Всё работает без интернета, данные синхронизируются после события. Платит организатор раз в ивент или по подписке на сезон.",
+   "features": [
+    "импорт списка гостей из CSV или через ссылку",
+    "offline-валидация: полный список в памяти устройства",
+    "многоустройственный режим: несколько телефонов на входе, синхронизация после",
+    "статус скана: 'впервые', 'уже зарегистрирован', 'не в списке'",
+    "счётчик посещаемости в реальном времени для организатора",
+    "экспорт отчёта: кто пришёл, кто нет, время прохода"
+   ],
+   "antiFeatures": [
+    "требование постоянного интернета для каждого скана",
+    "универсальный сканер без контекста списка гостей",
+    "интерфейс под одно устройство на входе"
+   ],
+   "monetization": "Оплата за ивент (разовая) или подписка для организаторов с регулярными мероприятиями. Бесплатно до 25 гостей для теста."
+  }
+ },
+ {
+  "slug": "qr-scanner-8",
+  "category": "qr-scanner",
+  "categoryName": "QR и штрих-код сканеры",
+  "title": "Честный сканер без подписки: раз заплатил пользуешься всегда",
+  "oneLiner": "Сканер QR и штрихкодов с честной разовой покупкой, без подписки, без рекламы и без пейволла перед первым сканом.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 30,
+   "reviews": 5054,
+   "observations": 142
+  },
+  "reviewGrid": [
+   {
+    "quote": "EVERYTHING is behind a subscription service paywall. Yes, even the simple act of scanning barcodes (which is what this app was made for????)",
+    "rating": 1,
+    "app": "QR Code Reader, Barcode Scan"
+   },
+   {
+    "quote": "Can't even use it to review it! Go to scan and immediately offers premium or trial as only choices. So can't even try basic. Relaunch and same thing. Negative 1 because can't even use basic version.",
+    "rating": 1,
+    "app": "QR Code: Reader & Generator"
+   },
+   {
+    "quote": "The barcode function works (earning the one star) but the spam and popups to get you to subscribe is abysmal UX. Hiding the x using color matching to the background image is disgusting, anti-consumeristic and downright delete-worthy.",
+    "rating": 1,
+    "app": "QR Code Reader，Barcode Scanner"
+   },
+   {
+    "quote": "This app is easy to use. It saves a picture of the item and you can export the records.",
+    "rating": 5,
+    "app": "Barcode Scanner QR Code Reader"
+   },
+   {
+    "quote": "Need it to be a one shot price not a subscription imho",
+    "rating": 2,
+    "app": "Qr-Code Scanner & Creator App"
+   },
+   {
+    "quote": "I downloaded and paid the $6 for this app because I hate ads when I'm trying to look up a simple QR code. The app appears to work fine and does exactly what I need but if I pay for no ads, that's what I expect to get.",
+    "rating": 1,
+    "app": "QR Code Reader + QR Scanner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "подписка-стена блокирует само сканирование",
+    "obsCount": 28,
+    "apps": [
+     "Barcode Scanner - QR Scanner",
+     "QR Code Reader, Barcode Scan",
+     "QR Code: Reader & Generator",
+     "SkyBlueScan: QR Code Scanner"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "реклама поверх сканера мешает использовать приложение",
+    "obsCount": 22,
+    "apps": [
+     "QR Code Reader ·",
+     "QR Code Reader，Barcode Scanner",
+     "QR, Barcode Scanner for iPhone"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "встроенный сканер iOS против стороннего приложения",
+    "obsCount": 6,
+    "apps": [
+     "QR Code Reader & Code Scanner",
+     "Free QR Code Reader simply to scan a QR Code",
+     "Scan QR Code Now"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "28 из 142 наблюдений о блокировке базового сканирования подпиской. Пользователи готовы платить разово, но рынок давит на подписку. Тот, кто продаёт честно и просто, выигрывает доверие.",
+  "idea": {
+   "pitch": "Сканер с одним экраном оплаты разовый платёж, навсегда. Открываешь приложение, сканируешь. Никаких трёхдневных триалов, никаких X в углу рекламного баннера. Позиционирование строится вокруг одного тезиса: 'мы не подписка'. Зарабатываем на честной цене и высоком рейтинге в App Store.",
+   "features": [
+    "сканирование QR и всех основных форматов штрихкодов без ограничений",
+    "история сканов с поиском",
+    "сканирование из галереи",
+    "генерация базовых QR-кодов (URL, контакт, Wi-Fi)",
+    "превью ссылки перед переходом",
+    "экспорт истории в CSV"
+   ],
+   "antiFeatures": [
+    "подписочная модель с пейволлом перед первым сканом",
+    "реклама в любом виде после оплаты",
+    "трёхдневный триал с автопродлением"
+   ],
+   "monetization": "Разовая покупка приложения $2.99 или $4.99. Дополнительно: корпоративная лицензия для IT-отделов через Apple Business Manager без платформы подписок."
+  }
+ },
+ {
+  "slug": "mind-mapping-1",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Нативный синк без посредников",
+  "oneLiner": "Карта стартует на iPad, продолжается на Mac без ручного экспорта и сторонних дисков",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "There is no syncing feature in this app, and I'm not sure why. It seems with the ability to collaborate on a mind map, I should also be able to seamlessly work on a map on my iPad, then when I get home, be able to work on it on my desktop without needing to manually upload then download using a 3rd",
+    "rating": 2,
+    "app": "Xmind: AI Mind Map, Brainstorm"
+   },
+   {
+    "quote": "This is the best and easiest to use tool until you want share your work across devices. No iCloud support? Ridiculous.",
+    "rating": 2,
+    "app": "SimpleMind Pro - Mind Mapping"
+   },
+   {
+    "quote": "I would've given it 5-star rating if it had supported synchronization among different platforms.",
+    "rating": 4,
+    "app": "Xmind: AI Mind Map, Brainstorm"
+   },
+   {
+    "quote": "There are multiple bugs that have not been resolved. The most damaging is the sync bug, I'll work on iPad at home then when I need the info when at work it is not on my iPhone.",
+    "rating": 1,
+    "app": "SimpleMind Pro - Mind Mapping"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "синхронизация между устройствами",
+    "obsCount": 22,
+    "apps": [
+     "Xmind: AI Mind Map, Brainstorm",
+     "SimpleMind Pro - Mind Mapping",
+     "SimpleMind - Mind Mapping",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "кросс-платформенность и перенос данных",
+    "obsCount": 9,
+    "apps": [
+     "Xmind: AI Mind Map, Brainstorm",
+     "Lucidchart",
+     "SimpleMind Pro - Mind Mapping"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "оффлайн-режим",
+    "obsCount": 7,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "Mind Mapping - MindMeister",
+     "SimpleMind Pro - Mind Mapping"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ни одно приложение не предлагает нативный iCloud-синк без дополнительных настроек. Пользователи платят за несколько клиентов, но теряют данные при конфликте версий или вовсе не могут открыть карту на другом устройстве.",
+  "idea": {
+   "pitch": "Приложение для карт мыслей с нативным iCloud Drive в основе: одна покупка все устройства Apple, конфликты версий решаются автоматически по timestamp, оффлайн-режим включён по умолчанию.",
+   "features": [
+    "Нативный iCloud Drive без промежуточного облака файл живёт в Files.app",
+    "Автоматическое разрешение конфликтов по последнему изменению с историей версий",
+    "Оффлайн-редактирование с тихой синхронизацией при появлении сети",
+    "Универсальная покупка: iPhone + iPad + Mac одной транзакцией",
+    "Виджет 'последние карты' на экране блокировки для быстрого старта"
+   ],
+   "antiFeatures": [
+    "Сторонние облака (Dropbox, Google Drive) как основное хранилище",
+    "Подписка вместо разовой покупки",
+    "Принудительная регистрация аккаунта для базовой синхронизации"
+   ],
+   "monetization": "Разовая покупка ~999 руб, включает все устройства Apple. Дополнительный пакет для командного шаринга отдельная подписка на организацию."
+  }
+ },
+ {
+  "slug": "mind-mapping-2",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Клавиатура как единственный инструмент",
+  "oneLiner": "Брейншторм без мыши: Tab, Enter и стрелки строят карту быстрее, чем любой тач-интерфейс",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "You lack the simple keyboard navigation to expand and condense nodes (or topics), and you lack the keyboard based resizing of the map to zoom in and out with ease.",
+    "rating": 4,
+    "app": "SimpleMind - Mind Mapping"
+   },
+   {
+    "quote": "Unless I'm mistaken though, there are no keyboard shortcuts? To quickly brainstorm, I have to be able to mind map without touching the screen. If there aren't keyboard shortcuts implemented, I can't really use it.",
+    "rating": 3,
+    "app": "Mind Map Maker - Mindomo"
+   },
+   {
+    "quote": "Doesn't work with my bluetooth keyboard making it kind of useless to me. I was so excited to keep using it too.",
+    "rating": 3,
+    "app": "miMind - Mind Map, Brainstorm"
+   },
+   {
+    "quote": "I've been using this app for about a year now. It's simple to use and can be customized, but it takes many clicks to change colors and fonts, so for my purposes of note taking and learning, it's inefficient.",
+    "rating": 4,
+    "app": "Mind Mapping - MindMeister"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "клавиатурная навигация и скорость ввода",
+    "obsCount": 18,
+    "apps": [
+     "SimpleMind - Mind Mapping",
+     "Mind Map Maker - Mindomo",
+     "miMind - Mind Map, Brainstorm",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "перемещение и реструктуризация узлов",
+    "obsCount": 9,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "VisualMind: AI MindMap/Chatbot",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ни одно мобильное приложение не реализовало полный keyboard-first режим: Tab для дочернего узла, Enter для соседнего, Cmd+стрелки для перемещения ветки, пробел для разворачивания. Это стандарт iThoughts, которого не хватает всем альтернативам.",
+  "idea": {
+   "pitch": "Mind-map редактор с первоклассной поддержкой клавиатуры: полная схема шорткатов для создания, навигации и реструктуризации дерева без отрыва рук от клавиш для профессионалов на iPad с Magic Keyboard.",
+   "features": [
+    "Tab / Shift+Tab создать дочерний или выйти на уровень выше",
+    "Enter добавить узел-сосед, Escape завершить ввод",
+    "Cmd+стрелки переместить ветку вместе с потомками",
+    "Cmd+[ / Cmd+] свернуть/развернуть поддерево",
+    "Cmd+F поиск по всем узлам с живым выделением"
+   ],
+   "antiFeatures": [
+    "Клавиатура только как ввод текста, навигация только тач",
+    "Скрытые шорткаты без экранной справки",
+    "Обязательный режим редактирования перед навигацией"
+   ],
+   "monetization": "Разовая покупка Pro-версии ~799 руб. Бесплатная версия ограничена 20 узлами достаточно, чтобы почувствовать скорость."
+  }
+ },
+ {
+  "slug": "mind-mapping-3",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Связи поверх иерархии",
+  "oneLiner": "Стрелка между любыми двумя узлами из разных веток реальные зависимости, не только родитель-потомок",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "I was looking for a mind map app that showed for non hierarchical relationships (so not just parent-child) and that didn't require a subscription and this has proved to be excellent. App is very fast, and good for taking notes on books, timelines of history, plotting out systems.",
+    "rating": 5,
+    "app": "SimpleMind Pro - Mind Mapping"
+   },
+   {
+    "quote": "Its a very good mind mapping piece of software. I feel you've got a lot of control over how the data is presented, and its much better than many other min map software for linking nodes/elements together.",
+    "rating": 3,
+    "app": "miMind - Mind Map, Brainstorm"
+   },
+   {
+    "quote": "Please consider following suggestion: include an option to multi-select branches, sub-branches to be able to move items around. It is very frustrating to spend much time rearranging out of place branches.",
+    "rating": 4,
+    "app": "VisualMind: AI MindMap/Chatbot"
+   },
+   {
+    "quote": "When you move blocks, the motion is jittery and it snaps to the most random places",
+    "rating": 1,
+    "app": "Mind Map Maker - Mindomo"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "нелинейные связи между ветками",
+    "obsCount": 14,
+    "apps": [
+     "SimpleMind Pro - Mind Mapping",
+     "SimpleMind - Mind Mapping",
+     "miMind - Mind Map, Brainstorm",
+     "Mind Map Maker - Mindomo"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "перемещение и реструктуризация узлов",
+    "obsCount": 9,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "VisualMind: AI MindMap/Chatbot",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большинство приложений поддерживает только строгую иерархию. Нелинейные связи редкость, а если и есть, то плохо отрисованы: стрелки наезжают на узлы, нет подписей к связям, нет фильтрации по типу отношения.",
+  "idea": {
+   "pitch": "Mind-map инструмент с первоклассными нелинейными связями: провести стрелку между любыми узлами, добавить метку отношения, визуально отфильтровать карту по типам связей для архитекторов, исследователей и студентов.",
+   "features": [
+    "Нелинейная стрелка между любыми двумя узлами через long-press + drag",
+    "Метки связей: 'зависит от', 'конфликтует', 'усиливает' и пользовательские",
+    "Режим фильтра: показать только определённый тип связей на карте",
+    "Мультиселект ветки с одновременным перемещением всех потомков",
+    "Автолейаут с учётом нелинейных связей без наезжающих стрелок"
+   ],
+   "antiFeatures": [
+    "Только иерархические связи родитель-потомок",
+    "Стрелки без подписей и типов",
+    "Нелинейные связи только в топовых тарифах"
+   ],
+   "monetization": "Freemium: до 3 нелинейных связей бесплатно. Pro-разблокировка ~599 руб. Упор на студентов и аналитиков они уже платят за Notion и готовы к разовой покупке."
+  }
+ },
+ {
+  "slug": "mind-mapping-4",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Экспорт, который работает",
+  "oneLiner": "PNG, PDF и структурированный текст без битых файлов и обрезанных карт",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "Exporting as a jpg or a png fails to load, like the file is corrupted. I did have success with a PDF export, though.",
+    "rating": 2,
+    "app": "Xmind: AI Mind Map, Brainstorm"
+   },
+   {
+    "quote": "I paid for export capability and the image export only gives a 500 internal server error.",
+    "rating": 1,
+    "app": "Mind Mapping - MindMeister"
+   },
+   {
+    "quote": "Sending it as a pdf in an email doesn't send the included pictures in a box.",
+    "rating": 3,
+    "app": "Mind Map Maker - Mindomo"
+   },
+   {
+    "quote": "I wish this app has a backup feature or a way to make the map into a pdf or something.",
+    "rating": 1,
+    "app": "Mind Map Maker - Mindomo"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "экспорт карты",
+    "obsCount": 13,
+    "apps": [
+     "Xmind: AI Mind Map, Brainstorm",
+     "Mind Mapping - MindMeister",
+     "SimpleMind - Mind Mapping",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "переключение между картой и аутлайном",
+    "obsCount": 9,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "SimpleMind Pro - Mind Mapping",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Экспорт самое частое разочарование после покупки. Битые PNG, PDF без изображений, сервер-ошибки при экспорте в платном тарифе. Параллельно: конвертация карты в аутлайн-список есть только в одном-двух приложениях.",
+  "idea": {
+   "pitch": "Надёжный экспорт без сюрпризов: локальный рендер карты в PNG/PDF прямо на устройстве, конвертация в структурированный Markdown-аутлайн одним тапом, отправка в Keynote и Notion без промежуточных файлов.",
+   "features": [
+    "Рендер PNG/PDF локально не через сервер, нет зависимости от интернета",
+    "Авто-масштабирование больших карт: разбивка на страницы с оглавлением",
+    "Конвертация карты в Markdown-аутлайн и обратно без потери структуры",
+    "Share Extension для прямой вставки в Notion, Bear, Obsidian",
+    "Включение изображений из узлов в PDF как встроенных объектов"
+   ],
+   "antiFeatures": [
+    "Серверный рендер без fallback на оффлайн",
+    "Платный экспорт без гарантии результата",
+    "Обрезка карты при экспорте без предупреждения"
+   ],
+   "monetization": "Разовая покупка ~499 руб за расширенный экспорт. Базовый PNG до 50 узлов бесплатно, подталкивает к покупке на реальном проекте."
+  }
+ },
+ {
+  "slug": "mind-mapping-5",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "iPad как первый экран, а не второй",
+  "oneLiner": "Мобильный клиент с полным паритетом функций, а не урезанная версия веб-приложения",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "You removed my ability to use the iPad app even with a PAID account. There for, you lost a 5+ year paid user. Horrible decision you made, and you blame Apple for hurting your loyal customers, when the decision was yours.",
+    "rating": 1,
+    "app": "Lucidchart"
+   },
+   {
+    "quote": "The iOS Ayoa application is not ready primetime use. No clear way to clean up a Map. Navigation with the Apple Pencil is poor. Most of the menu options available in the web application are not available.",
+    "rating": 2,
+    "app": "AYOA - Mind Mapping"
+   },
+   {
+    "quote": "Often more frustrating to use than helpful. You can't do half of what you can on the web version or it is at least very unclear how to",
+    "rating": 3,
+    "app": "Mind Map Maker - Mindomo"
+   },
+   {
+    "quote": "So I bought this with the intention of using it to give presentations. I develop mindmaps on the Mac and use iPad to present. After trying it on the Mac I like the features and made the purchase, assuming that the iPad version would be similarly feature rich. How wrong I was.",
+    "rating": 1,
+    "app": "AYOA - Mind Mapping"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "мобильный клиент против веба",
+    "obsCount": 13,
+    "apps": [
+     "Lucidchart",
+     "AYOA - Mind Mapping",
+     "Mind Map Maker - Mindomo",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Apple Pencil и рукописный ввод",
+    "obsCount": 10,
+    "apps": [
+     "SimpleMind - Mind Mapping",
+     "AYOA - Mind Mapping",
+     "miMind - Mind Map, Brainstorm",
+     "Mind Map Maker - Mindomo"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Командам выгодно строить web-first, и мобильный клиент вечно догоняет. Платящие пользователи iPad лишаются функций без предупреждения или вынуждены платить дополнительно за мобильный доступ.",
+  "idea": {
+   "pitch": "Mind-map приложение, рождённое на iPad: нативный SwiftUI без WebView-обёртки, все функции доступны с первого запуска, Apple Pencil распознаёт рукопись и конвертирует в текст узла.",
+   "features": [
+    "Нативный SwiftUI-рендер, нет WebView карта не лагает на больших деревьях",
+    "Apple Pencil: рукописный ввод с распознаванием через PencilKit прямо в узле",
+    "Скрин карты в Keynote-слайд одним жестом для презентаций",
+    "Боковая панель с деревом узлов удобна при работе в Split View",
+    "Полная функциональность без аккаунта: создавай и редактируй офлайн"
+   ],
+   "antiFeatures": [
+    "WebView с мобильной версией сайта под видом приложения",
+    "Функции за отдельную плату для iPad-пользователей",
+    "Apple Pencil только как замена пальцу"
+   ],
+   "monetization": "Разовая покупка ~1299 руб, нет подписки. Позиционирование: альтернатива Lucidchart для индивидуальных пользователей, которых Lucid отрезал от мобильного доступа."
+  }
+ },
+ {
+  "slug": "mind-mapping-6",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Шаблоны под профессиональный контекст",
+  "oneLiner": "SWOT, JTBD, архитектурные диаграммы и учебные карты готовые структуры для реальной работы",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "Got the free trial in hopes of making mind maps in preparation for my studies (I'm a STEM grad student). This app really is designed for small bits of information not complex biochemical concepts. It's a good idea in practice, but it does need a lot of work. I think there was 10? templates and no sh",
+    "rating": 3,
+    "app": "Xmind: AI Mind Map, Brainstorm"
+   },
+   {
+    "quote": "The templates are helpful tools, and it is also very simple to create your own maps.",
+    "rating": 5,
+    "app": "Mind Map Maker - Mindomo"
+   },
+   {
+    "quote": "My biggest complaints are: Couldn't find the way to switch the template in existing map",
+    "rating": 4,
+    "app": "miMind - Mind Map, Brainstorm"
+   },
+   {
+    "quote": "I use it all the time for brainstorming/free flow of ideas regarding my business. It really helps to put ideas on the canvass.",
+    "rating": 5,
+    "app": "miMind - Mind Map, Brainstorm"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "шаблоны и стартовые структуры",
+    "obsCount": 10,
+    "apps": [
+     "Xmind: AI Mind Map, Brainstorm",
+     "Mind Map Maker - Mindomo",
+     "Mind Mapping",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "переключение между картой и аутлайном",
+    "obsCount": 9,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "SimpleMind Pro - Mind Mapping",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Шаблоны либо слишком общие ('идеи проекта'), либо все закрыты за подпиской. Специализированных шаблонов для STEM, product management или права нет ни в одном приложении. Смена шаблона на уже готовой карте невозможна.",
+  "idea": {
+   "pitch": "Библиотека профессиональных шаблонов для mind-mapping: SWOT, бизнес-кейс, JTBD, учебный конспект, схема ПО и возможность применить другой шаблон к уже существующей карте.",
+   "features": [
+    "50+ шаблонов по категориям: бизнес, учёба, техника, право, творчество",
+    "Применение шаблона к готовой карте реструктурирование без потери узлов",
+    "Редактор собственных шаблонов с сохранением в личную библиотеку",
+    "Поиск шаблонов по задаче: 'анализ конкурентов', 'план лекции'",
+    "Совместная библиотека шаблонов для команды или курса"
+   ],
+   "antiFeatures": [
+    "Общие пустые заготовки без реальной структуры",
+    "Все полезные шаблоны только за подписку",
+    "Шаблон нельзя поменять после создания карты"
+   ],
+   "monetization": "Freemium: 10 базовых шаблонов бесплатно. Полная библиотека + создание своих разовая покупка ~699 руб. Командный доступ к общей библиотеке подписка на организацию."
+  }
+ },
+ {
+  "slug": "mind-mapping-7",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Карта и документ в одном потоке",
+  "oneLiner": "Одни данные, два вида: визуальная карта для структурирования и линейный аутлайн для написания текста",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "There is no option for converting an existing mind map to outline format",
+    "rating": 2,
+    "app": "Mind Map Maker - Mindomo"
+   },
+   {
+    "quote": "I have a map in in form of outline... I couldn't find the way to switch the template in existing map",
+    "rating": 4,
+    "app": "miMind - Mind Map, Brainstorm"
+   },
+   {
+    "quote": "I used to be an avid user of MindMeister, and Mindjet before that. Both programs took turns for the worst when it came to fluid mind mapping, making the process rigid and creatively stifling. After 30 seconds of using this app, I felt the return of what those other apps lost the plot on.",
+    "rating": 4,
+    "app": "Mind Mapping"
+   },
+   {
+    "quote": "I've been using this app for about a year now. It's simple to use and can be customized, but it takes many clicks to change colors and fonts, so for my purposes of note taking and learning, it's inefficient.",
+    "rating": 4,
+    "app": "Mind Mapping - MindMeister"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "переключение между картой и аутлайном",
+    "obsCount": 9,
+    "apps": [
+     "Mind Map Maker - Mindomo",
+     "SimpleMind Pro - Mind Mapping",
+     "miMind - Mind Map, Brainstorm",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "шаблоны и стартовые структуры",
+    "obsCount": 10,
+    "apps": [
+     "Xmind: AI Mind Map, Brainstorm",
+     "Mind Map Maker - Mindomo",
+     "miMind - Mind Map, Brainstorm"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Карта и аутлайн живут в разных приложениях. Студент рисует структуру в одном, переключается в другое для написания конспекта. Двусторонней синхронизации нет нигде: изменение в аутлайне не отражается на карте.",
+  "idea": {
+   "pitch": "Редактор с двумя видами одной структуры: переключайся между картой и аутлайном в одном тапе, редактируй в любом режиме изменения двусторонние. Для тех, кто думает нелинейно, но пишет линейно.",
+   "features": [
+    "Один и тот же файл: карта-вид и аутлайн-вид переключаются без конвертации",
+    "Редактирование в аутлайне мгновенно отражается на карте и наоборот",
+    "Режим фокуса: аутлайн скрывает боковые ветки, оставляя только выбранную",
+    "Экспорт аутлайна в Markdown, DOCX, Bear одним тапом",
+    "Разбивка карты на секции для длинных документов каждая ветка = раздел"
+   ],
+   "antiFeatures": [
+    "Односторонняя конвертация карты в текст без возможности редактировать обратно",
+    "Аутлайн как отдельный документ без связи с картой",
+    "Экспорт только в проприетарный формат"
+   ],
+   "monetization": "Разовая покупка ~899 руб. Целевая аудитория: студенты и авторы, уже платящие за Bear или Ulysses готовы платить за специализированный инструмент."
+  }
+ },
+ {
+  "slug": "mind-mapping-8",
+  "category": "mind-mapping",
+  "categoryName": "Карты мыслей",
+  "title": "Командный брейншторм без тарифа Enterprise",
+  "oneLiner": "Совместная карта для малой команды без минимум 25 мест и годовой подписки",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 10,
+   "reviews": 2023,
+   "observations": 141
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've been using Lucid for years and constraining tablets and mobile now to teams/organization and removing the application from supporting individual (paid) account was a terrible decision.",
+    "rating": 3,
+    "app": "Lucidchart"
+   },
+   {
+    "quote": "We have been a paying client for 4 years now with 25 employees. The software is great for tasks and projects.",
+    "rating": 3,
+    "app": "AYOA - Mind Mapping"
+   },
+   {
+    "quote": "I like this app, however when I try to share the mind map picture that's made out. People have trouble opening it.",
+    "rating": 4,
+    "app": "VisualMind: AI MindMap/Chatbot"
+   },
+   {
+    "quote": "I've used a few apps, this is the best one I've used that's truly cross platform, web, Mac, PC, iOS.",
+    "rating": 5,
+    "app": "Lucidchart"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "совместная работа над картой",
+    "obsCount": 7,
+    "apps": [
+     "Lucidchart",
+     "AYOA - Mind Mapping",
+     "Mind Mapping - MindMeister",
+     "Xmind: AI Mind Map, Brainstorm"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "мобильный клиент против веба",
+    "obsCount": 13,
+    "apps": [
+     "Lucidchart",
+     "AYOA - Mind Mapping",
+     "Mind Map Maker - Mindomo",
+     "Mind Mapping - MindMeister"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Инструменты с коллаборацией нацелены на Enterprise: минимум 5-25 пользователей, годовые контракты. Малые команды (2-5 человек) платят за индивидуальные лицензии и передают карты через файлы.",
+  "idea": {
+   "pitch": "Mind-map с коллаборацией до 5 человек без Enterprise-ценника: приглашение по ссылке, совместное редактирование в реальном времени, комментарии на узлах всё доступно с ценником как у личного приложения.",
+   "features": [
+    "Реальное время: видно, где сейчас курсор каждого участника",
+    "Приглашение по ссылке без регистрации гость может комментировать",
+    "Комментарии и @-упоминания на конкретном узле",
+    "История изменений с именем автора и возможностью откатиться",
+    "Режим презентации: ведущий переключает фокус у всех участников"
+   ],
+   "antiFeatures": [
+    "Минимальный командный тариф от 5 или 25 мест",
+    "Коллаборация только через email-инвайт с обязательной регистрацией",
+    "Комментарии только в отдельном веб-интерфейсе, не в мобильном приложении"
+   ],
+   "monetization": "Личный план: разовая покупка ~899 руб. Командный: 299 руб/мес за 2-5 участников. Позиционирование против Lucidchart, который отрезал индивидуальных пользователей от мобильного доступа."
+  }
  }
 ]

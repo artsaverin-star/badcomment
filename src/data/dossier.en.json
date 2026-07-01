@@ -2936,5 +2936,133 @@
    "money": "The market for digital sobriety and mindful-reduction tools. The leader I Am Sober has 181k App Store ratings, Smoke Free has 57k, Reframe 41k, Sober Time 39k. Monetization: annual subscriptions from $30 to $120, with some apps keeping a free basic tier. The paying audience is concentrated in the alcohol segment and AA programs.",
    "marketLead": "I Am Sober (quitting any habit, community), Reframe (alcohol reduction, neuroscience plus coaching), Smoke Free (smoking, health stats), Twenty-Four Hours a Day (AA, daily ritual). The weakest points across the market are the relapse flow and vaping-specific support."
   }
+ },
+ "qr-scanner": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Warehouse and inventory",
+     "job": "Scan batches of products, barcodes, and QR codes on boxes quickly and without interruption often 100+ items in a row",
+     "payLevel": "pays readily",
+     "payNote": "The app saves hours of manual tracking. One user scans '100+ items per shift' and complains specifically about the missing batch mode. Another built a textbook inventory master list. A thrift store checks prices via barcode at intake. Time lost costs more than the subscription.",
+     "servedBy": [
+      "Barcode Scanner QR Code Reader",
+      "Qrafter: QR Code Reader",
+      "QR Pro - QR Code Scanner",
+      "Barcode Scanner - Price Finder",
+      "QR Code & Barcode Scanner ・"
+     ],
+     "gap": "No app delivers a true batch mode: scan a stream of codes continuously, build up a list, export as CSV. QR Pro removed the batch feature in its last update and lost this segment entirely. There is no item counter, no template-based export, and no Google Sheets integration."
+    },
+    {
+     "name": "Small business QR generation",
+     "job": "Create QR codes for their location: guest Wi-Fi, menus, business cards, social links, promotional coupons with click analytics",
+     "payLevel": "pays selectively",
+     "payNote": "They pay for a specific feature but leave immediately if it breaks after purchase. A typical complaint: 'Paid for VIP to add a logo worked once, then it asked for money again.' A nonprofit creates 'a lot of QR codes per day' and tolerates ads. Businesses will pay, but only for a tool that works reliably.",
+     "servedBy": [
+      "Qrafter: QR Code Reader",
+      "QR Code Generator - MQRG",
+      "QR Code Generator, QR Template",
+      "QR Code Reader & Code Scanner",
+      "QR Code & Barcode Scanner ・"
+     ],
+     "gap": "Templates don't persist between sessions users have to re-enter data every time. Dynamic QR codes (redirect without reprinting) are almost universally paywalled and work inconsistently. There's no straightforward way to tie a QR to a UTM parameter and see analytics inside the app. Free-tier watermarks sometimes block the code from scanning."
+    },
+    {
+     "name": "Link skeptics",
+     "job": "Verify where a QR code leads before tapping through worried about phishing, unwilling to open an unknown URL blind",
+     "payLevel": "pays reluctantly",
+     "payNote": "Looking for a free tool with one job: show the URL before clicking. One user chose an app specifically for 'preview and no data collection' and left a detailed positive review. Another explicitly reports that an ad button labeled 'Continue' sent them to a phishing site. Awareness of the risk is real, but very few have learned to pay for protection.",
+     "servedBy": [
+      "QR Pro - QR Code Scanner",
+      "Free QR Code Reader simply to scan a QR Code",
+      "Qrafter: QR Code Reader",
+      "QR Code & Barcode Scanner ・"
+     ],
+     "gap": "No app offers real link reputation scoring: phishing database lookups, domain age, registrar country. Showing the URL is the bare minimum every app claims it but nobody builds it into a full safety feature. Yet users in this segment would happily pay for a genuine sense of control."
+    },
+    {
+     "name": "Casual users one-off scans",
+     "job": "Scan a QR code once at a restaurant, on a ticket, or in a product manual",
+     "payLevel": "pays reluctantly",
+     "payNote": "They use the iPhone Camera app a standalone scanner isn't needed for 90% of their tasks. They download one only when the camera falls short: an old barcode, a tiny code, a screenshot. They don't understand what they'd be paying for. Top complaint: 'iOS camera does the exact same thing for free.' Nearly the entire mass market sits here not a paying audience for a premium product.",
+     "servedBy": [
+      "Free QR Code Reader simply to scan a QR Code",
+      "QR Reader for iPhone",
+      "QR Code Reader ·",
+      "QR, Barcode Scanner for iPhone",
+      "QR Code Reader/QR Scanner App"
+     ]
+    }
+   ],
+   "takeaway": "The real money in this niche is in two segments: warehouse/inventory professionals and small businesses that generate QR codes. Both pay but for different things. The first pays for scan throughput and export. The second pays for a reliable creation tool with logo support and analytics. Link skeptics are potentially willing to pay but the market hasn't trained them to yet. Casual users never pay: the iOS Camera app handles their job without any additional app at all. Build for the first two segments, ignore the fourth. The biggest unmet mechanic is continuous scanning with list accumulation and export precisely what the best apps removed in monetization-driven updates."
+  },
+  "market": {
+   "money": "The paying audience is narrow: professional scanners (warehouses, retail, nonprofits) and small businesses creating QR codes for their locations. The mass market is not monetizable iOS Camera intercepts it at the OS level. Most players try to monetize mass users anyway with aggressive subscriptions and lose: 19 of 30 apps in the sample have inflated ratings or use dark billing patterns.",
+   "marketLead": "No player dominates on genuine quality. The best real scores belong to Qrafter (realScore 62) and Free QR Code Reader (58) both hold their position through reliability and honest monetization. The generator segment has no clear leader: MQRG and QR Template have the features but are broken at the UX and billing level. The window for an honest B2B tool with batch scanning and QR generation is open."
+  }
+ },
+ "mind-mapping": {
+  "audience": {
+   "segments": [
+    {
+     "name": "Students and grad students",
+     "job": "Take lecture notes and organize material for exams",
+     "payLevel": "pays selectively",
+     "payNote": "Willing to pay once but not on a recurring subscription. They look for a one-time purchase or an honest free tier that does not cut off at 10 nodes. STEM grad students are especially sensitive to nesting depth.",
+     "servedBy": [
+      "Xmind: AI Mind Map, Brainstorm",
+      "SimpleMind - Mind Mapping",
+      "Mind Mapping - MindMeister",
+      "Mind Map Maker - Mindomo"
+     ],
+     "gap": "No app supports handwriting input with Apple Pencil directly inside nodes. Students want to sketch a map on a tablet the way they would on paper, not click through a touchpad interface."
+    },
+    {
+     "name": "Project managers and teams",
+     "job": "Run brainstorms and align task structure with the team in real time",
+     "payLevel": "pays readily",
+     "payNote": "Will pay for a team plan without negotiating, as long as the tool genuinely speeds up meetings. MindMeister and Lucidchart both extract money from this segment.",
+     "servedBy": [
+      "Mind Mapping - MindMeister",
+      "Lucidchart",
+      "AYOA - Mind Mapping",
+      "Mind Map Maker - Mindomo"
+     ],
+     "gap": "Collaborative brainstorming exists but breaks on mobile: Lucidchart dropped individual mobile access, MindMeister was losing maps on sync. There is no tool that works equally well in a browser and on a tablet on the go."
+    },
+    {
+     "name": "Writers and authors",
+     "job": "Build the structure of a book, screenplay, or article before writing",
+     "payLevel": "pays selectively",
+     "payNote": "Value non-linear links and large maps with hundreds of nodes. Prefer a one-time purchase and treat subscriptions as a tax on their creative process.",
+     "servedBy": [
+      "SimpleMind Pro - Mind Mapping",
+      "miMind - Mind Map, Brainstorm",
+      "SimpleMind - Mind Mapping",
+      "Xmind: AI Mind Map, Brainstorm"
+     ],
+     "gap": "No drill-down mode: once a map grows past 200 nodes the canvas becomes unreadable. Writers want to collapse entire topic branches and work on one chapter without seeing the whole novel."
+    },
+    {
+     "name": "Visual thinkers with ADHD",
+     "job": "Keep the chaos of tasks and ideas in one place without losing the thread between them",
+     "payLevel": "pays readily",
+     "payNote": "Willing to pay generously for a tool that actually helps. They typically cycle through several apps before landing on the one that clicks. They mention ADHD explicitly in reviews and directly connect mind mapping to their productivity.",
+     "servedBy": [
+      "Xmind: AI Mind Map, Brainstorm",
+      "AYOA - Mind Mapping",
+      "SimpleMind Pro - Mind Mapping",
+      "miMind - Mind Map, Brainstorm"
+     ],
+     "gap": "Apps offer no quick entry from a widget or notification: you have to open the app, find the right map, and scroll to the right node. There is no one-tap idea capture that attaches to an already-open map."
+    }
+   ],
+   "takeaway": "Money concentrates at two poles: teams pay readily for collaborative brainstorming, but no player has nailed the mobile scenario. Visual thinkers and writers are also willing to pay, as long as the tool is not broken on tablet. The biggest unfilled slot is an iPad app with Apple Pencil handwriting input and honest branch drill-down. Building for a paying founder means targeting teams of two to ten people with a live mobile client, not a stripped-down copy of the web version."
+  },
+  "market": {
+   "money": "The market runs on two models: subscription for teams (MindMeister, Lucidchart, AYOA from $8 to $100 per month) and one-time purchase for solo users (SimpleMind Pro, miMind). The subscription segment is wealthier, but Lucidchart and MindMeister dominate it. One-time purchases do not scale to ARR, but they build loyalty.",
+   "marketLead": "XMind leads on quality and format variety. Lucidchart leads in enterprise reach but killed mobile access for individuals. SimpleMind Pro owns the 'no subscription, all platforms' niche. There is no clear leader in the mobile market for individual users."
+  }
  }
 }

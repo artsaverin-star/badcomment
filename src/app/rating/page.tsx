@@ -54,6 +54,8 @@ const NICHES = [
   { slug: "resume-builder", name: "Конструкторы резюме", nameEn: "Resume builders", blurb: "Где PDF выходит чисто и без стены оплаты, а где готовое резюме держат в заложниках." },
   { slug: "invoice-maker", name: "Счета и инвойсы", nameEn: "Invoice makers", blurb: "Где счёт уходит клиенту и статус оплаты виден, а где рвётся синхронизация." },
   { slug: "sobriety", name: "Трезвость и отказ от привычек", nameEn: "Sobriety & quitting", blurb: "Где счётчик держит и срыв обрабатывается без стыда, а где пустышка." },
+  { slug: "qr-scanner", name: "QR и штрих-код сканеры", nameEn: "QR & barcode scanners", blurb: "Где скан быстрый и ссылка видна до перехода, а где подписочная ловушка и накрутка." },
+  { slug: "mind-mapping", name: "Карты мыслей", nameEn: "Mind mapping", blurb: "Где узлы создаются быстро и синк не теряет карту, а где урезанная мобилка." },
 ];
 
 export default async function RatingIndexPage() {
