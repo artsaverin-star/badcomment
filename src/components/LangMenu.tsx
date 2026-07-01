@@ -8,13 +8,33 @@ const ORDER: Locale[] = ["ru", "en"];
 const SHORT: Record<Locale, string> = { en: "EN", ru: "RU" };
 const FULL: Record<Locale, string> = { en: "English", ru: "Русский" };
 
+type Theme = "light" | "dark";
+const SunIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.6" /><path d="M10 1.5v2M10 16.5v2M3.5 3.5l1.4 1.4M15.1 15.1l1.4 1.4M1.5 10h2M16.5 10h2M3.5 16.5l1.4-1.4M15.1 4.9l1.4-1.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+);
+const MoonIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 11.5A7 7 0 0 1 8.5 3a7 7 0 1 0 8.5 8.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+);
+
 // Compact language control: a round chip showing the current locale; click it to
 // open a small picker. Closes on outside click / Escape.
 export default function LangMenu({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const ru = locale !== "en";
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>(() =>
+    typeof document !== "undefined" ? ((document.documentElement.dataset.theme as Theme) || "light") : "dark",
+  );
   const box = useRef<HTMLDivElement>(null);
+
+  function setThemePref(next: Theme) {
+    if (next === theme) return;
+    // eslint-disable-next-line react-hooks/immutability
+    document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
+    // eslint-disable-next-line react-hooks/immutability
+    document.documentElement.dataset.theme = next;
+    setTheme(next);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -70,6 +90,27 @@ export default function LangMenu({ locale }: { locale: Locale }) {
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="text-[var(--color-text-brand)]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 ) : (
                   <span className="text-[12px] font-bold text-[var(--color-text-tertiary)]">{SHORT[l]}</span>
+                )}
+              </button>
+            );
+          })}
+
+          <div className="my-1.5 h-px bg-[var(--color-border-subtle)]" />
+          {([["light", ru ? "Светлая" : "Light", SunIcon], ["dark", ru ? "Тёмная" : "Dark", MoonIcon]] as [Theme, string, () => React.ReactElement][]).map(([t, label, Icon]) => {
+            const active = t === theme;
+            return (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setThemePref(t)}
+                aria-pressed={active}
+                className={`flex w-full items-center justify-between gap-2 rounded-[14px] px-3 py-2.5 text-[14px] font-semibold transition-colors ${
+                  active ? "bg-[var(--color-surface-card)] text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <span className="flex items-center gap-2.5"><Icon />{label}</span>
+                {active && (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="text-[var(--color-text-brand)]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 )}
               </button>
             );
