@@ -44957,5 +44957,649 @@
    ],
    "monetization": "Подписка $8.99/мес для частных лиц. B2B: лицензия для иммиграционных юристов, медицинских офисов, технических отделов с зарубежными поставщиками. Пробный период 3 документа бесплатно, без кредитной карты."
   }
+ },
+ {
+  "slug": "run-tracking-1",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Адаптивный c-t-5k: план под конкретную физподготовку",
+  "oneLiner": "Не жёсткие 9 недель, а план, который пересчитывает себя после каждой пробежки на основе пульса и обратной связи.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 34
+  },
+  "reviewGrid": [
+   {
+    "quote": "I started the New To Running Plan and stuck with it for 10 weeks. It started out great, but after about a month the distances started increasing faster than I could keep up. Despite providing feedback after each run by either putting 'it's too hard' or 'distance too long', the app just continued to increase.",
+    "rating": 2,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "Progresses way too quickly!!! Jumps from 5 min intervals to 8 to 20 in one week. Ridiculous. Should increase running intervals from 2 to 3, 4, 5, 6, 7, 8, 9 and decrease walk intervals from 2 to 1 minute to 30 seconds.",
+    "rating": 1,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "The reason I am giving this app a 3 star is because of week 4 and 7. Please be careful with these weeks because there is a major jump without any training. Week 3-4 there is a 7 minute jump in running with no increase to rest time.",
+    "rating": 3,
+    "app": "Just Run: Zero to 5K (+10K)"
+   },
+   {
+    "quote": "I am not a runner and this app is turning me into one! It's hard to run but the way this program eases you into it has made this achievable! I'm 57 and I'm on week 5, run 2 and it's getting easier and easier.",
+    "rating": 5,
+    "app": "None to Run: Beginner, 5K, 10K"
+   },
+   {
+    "quote": "Not really adaptive and better tuned for the 5k distance because it isn't a smart adapt.",
+    "rating": 2,
+    "app": "10K Runner, Couch to 10K Run"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Жёсткий скачок прогрессии без промежуточных шагов ломает новичков",
+    "obsCount": 34,
+    "apps": [
+     "Couch to 5K® - Run training",
+     "Just Run: Zero to 5K (+10K)",
+     "Runna: Running Plans & Coach",
+     "10K Runner, Couch to 10K Run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Плавная адаптация под пользователя удерживает его до финиша",
+    "obsCount": 18,
+    "apps": [
+     "None to Run: Beginner, 5K, 10K",
+     "10K Runner, Couch to 10K Run"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Ни одно c-t-5k приложение не адаптирует следующую тренировку на основе того, как прошла текущая. Пользователь говорит 'слишком тяжело' план всё равно идёт вперёд. Нужен алгоритм, который вставляет промежуточные сессии, а не просто откатывает неделю назад.",
+  "idea": {
+   "pitch": "C-t-5k коуч, который пересчитывает следующую тренировку в реальном времени: данные пульса + оценка после сессии формируют персональную ступеньку прогресса, а не общий для всех шаблон.",
+   "features": [
+    "После каждой пробежки приложение спрашивает одно число: RPE 1-10 (насколько тяжело), пересчитывает следующий интервал без участия пользователя",
+    "Если пульс в последние 5 минут выше 85% план вставляет дополнительную восстановительную сессию перед следующим шагом",
+    "Прозрачный прогресс-бар: 'до 5 км тебе осталось X тренировок при текущем темпе' число обновляется каждый раз",
+    "Пользователь видит, почему план изменился: мини-объяснение в 1 строку после каждой пересборки",
+    "Автоперенос тренировки на другой день без потери прогресса пропустил, план сдвигается сам",
+    "Режим 'ускорить': если несколько сессий подряд лёгкие, план пропускает промежуточные шаги"
+   ],
+   "antiFeatures": [
+    "Не анализировать данные здоровья глубже RPE и ЧСС переусложнение пугает новичков",
+    "Не предлагать смену цели на 10 км до завершения 5 км у пользователя есть договорённость с собой",
+    "Не требовать заполнять анкету каждые две недели один ввод после пробежки, не больше"
+   ],
+   "monetization": "Подписка 7-9$/мес: базовый план бесплатно, адаптивный алгоритм и история прогресса платно. Lifetime за 39$."
+  }
+ },
+ {
+  "slug": "run-tracking-2",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Apple Watch-only трекер без телефона рядом",
+  "oneLiner": "Полноценный c-t-5k на запястье: часы пишут трек, голосом ведут по интервалам, синхронизируют данные после пробежки.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 36
+  },
+  "reviewGrid": [
+   {
+    "quote": "It is difficult to rate this app. I bought it due to the shameful lack of run apps that have a lap feature. In my excitement to purchase I neglected to see in the reviews - not in the description- that to use the Apple Watch you need to carry your phone. I bought the Apple Watch so I could run without",
+    "rating": 3,
+    "app": "Runmeter Running & Walking GPS"
+   },
+   {
+    "quote": "This is such a great idea, and the guided runs really are amazing, but it's missing a key feature: a downloads folder in the Apple Watch app. Even if you download the run on your Apple Watch, you can't get any of the collections to load when you open the app without your phone nearby.",
+    "rating": 2,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "The fact that I have to run with my phone is annoying and unpleasant. I'm not sure why I can't just connect it to my Apple Watch and go on my run then come back and look at the results is beyond me.",
+    "rating": 2,
+    "app": "Running Trainer: Tracker&Coach"
+   },
+   {
+    "quote": "I recently got a Apple Watch and it's unfortunate that I can't start or be tracked on my Apple Watch instead of my phone.",
+    "rating": 3,
+    "app": "Zombies, Run!"
+   },
+   {
+    "quote": "I want to run without carrying my phone! I love that it works on Apple Watch and gives me audio cues right from the watch.",
+    "rating": 4,
+    "app": "Watch to 5K－Couch to 5km coach"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Большинство приложений требуют телефон рядом даже с Apple Watch покупка часов теряет смысл",
+    "obsCount": 36,
+    "apps": [
+     "Runmeter Running & Walking GPS",
+     "Nike Run Club: Running Coach",
+     "Running Trainer: Tracker&Coach",
+     "Zombies, Run!",
+     "5K Runner: couch potato to 5K"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Приложения с настоящей автономией на часах получают отдельные восторженные отзывы именно за это",
+    "obsCount": 14,
+    "apps": [
+     "Watch to 5K－Couch to 5km coach",
+     "C25K® 5K Running Coach & Map"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Watch to 5K единственный нишевый игрок, но у него нет пульсовых зон и сложный интерфейс на маленьком экране. NRC не даёт запустить guided run без телефона рядом. Рынок открыт для приложения, которое с нуля спроектировано под watchOS как первичную платформу.",
+  "idea": {
+   "pitch": "Приложение-коуч только для Apple Watch: полный c-t-5k план хранится в часах, GPS и пульс пишутся на часах, голосовые интервалы в наушнике. Телефон нужен только для первичной настройки и просмотра итогов недели.",
+   "features": [
+    "Весь c-t-5k план загружается на Watch заранее интернет не нужен во время пробежки",
+    "Голосовые команды прямо в AirPods/Bluetooth-наушник без участия телефона",
+    "Компактный watch-экран: только три числа текущий темп, оставшееся время интервала, ЧСС",
+    "После возврата домой автосинхронизация в iPhone-приложение за 10 секунд",
+    "Тапковое управление без экрана: один тап на корону = пауза, два = следующий интервал",
+    "Пульсовые зоны прямо на экране часов во время бега без телефона"
+   ],
+   "antiFeatures": [
+    "Не пытаться показывать карту на часах экран слишком мал, отвлекает от бега",
+    "Не требовать постоянное подключение к iPhone во время активности",
+    "Не делать из телефонного приложения главный экран он вторичен по дизайну"
+   ],
+   "monetization": "Разовая покупка 4.99$ (без подписок пользователи часов ценят честное ценообразование) плюс опциональный план за 5K → 10K → полумарафон по 2.99$ за каждый."
+  }
+ },
+ {
+  "slug": "run-tracking-3",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Трекер для беговой дорожки с точным подсчётом дистанции",
+  "oneLiner": "GPS здесь не работает поэтому приложение использует акселерометр и данные дорожки, чтобы история пробежек не обнулялась зимой.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "If you use this app running outdoors, it works fine. Records everything properly, sends notifications to headphones, etc. However if you use it indoors on a treadmill it does not record distance or steps properly, and it does not share information with the watch.",
+    "rating": 3,
+    "app": "C25K® 5K Running Coach & Map"
+   },
+   {
+    "quote": "I really like this app. I do wish there was some way to input distance from treadmill runs. I'd like the mileage accounted for.",
+    "rating": 4,
+    "app": "5K Runner: couch potato to 5K"
+   },
+   {
+    "quote": "This app has everything needed in a running app. Cool design and cool features except one massive flaw. Whenever im running on the treadmill in gym, i choose the treadmill option on the app and run. Then after my session i get speed error saying im going too fast.",
+    "rating": 2,
+    "app": "PUMATRAC Run, Train, Fitness"
+   },
+   {
+    "quote": "When it rains, I run on an indoor track. Unfortunately, the app loses almost all accuracy. The distance is usually less than half of my actual distance. And the route looks like a 2 yr old with a red crayon drew it.",
+    "rating": 3,
+    "app": "Map My Run GPS Running Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Режим беговой дорожки либо отсутствует, либо показывает нулевую или неверную дистанцию",
+    "obsCount": 26,
+    "apps": [
+     "C25K® 5K Running Coach & Map",
+     "5K Runner: couch potato to 5K",
+     "PUMATRAC Run, Train, Fitness",
+     "Start Running For Beginners",
+     "5K Run: Beginner Training plan"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пользователи хотят сохранять зимние тренировки в той же истории, что и уличные",
+    "obsCount": 12,
+    "apps": [
+     "Map My Run GPS Running Tracker",
+     "5K Runner: couch potato to 5K"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "C-t-5k приложения проектировались для улицы. Треть пользователей бегает в зале зимой и хочет, чтобы план продолжался без разрыва в истории. Нет ни одного c-t-5k инструмента, который честно решает задачу indoor без GPS.",
+  "idea": {
+   "pitch": "C-t-5k коуч, в котором indoor-режим первоклассный гражданин: скорость дорожки вводится один раз, акселерометр Apple Watch уточняет темп, дистанция считается честно и сохраняется в ту же историю, что и уличные пробежки.",
+   "features": [
+    "Ввод скорости дорожки в начале одно число, один тап. Приложение пересчитывает дистанцию само",
+    "Акселерометр Watch как fallback: если дорожка ускоряется или тормозит, шаговая частота корректирует счётчик",
+    "Единая история: уличные и indoor пробежки в одном графике без пометок 'неточно'",
+    "Голосовые интервалы работают одинаково на дорожке и на улице один и тот же UX",
+    "Автоопределение дорожки по отсутствию GPS-сигнала не нужно переключать режим вручную",
+    "Экспорт в HealthKit с правильным типом активности (Indoor Run)"
+   ],
+   "antiFeatures": [
+    "Не строить карту маршрута в indoor-режиме это вводит в заблуждение",
+    "Не блокировать доступ к плану до получения GPS-сигнала",
+    "Не требовать подключение к Bluetooth-консоли дорожки большинство залов этого не позволяют"
+   ],
+   "monetization": "Подписка 4.99$/мес: indoor-режим с историей часть базового плана, расширенная аналитика (VO2max-оценка, зоны ЧСС) премиум. Сезонная пауза на лето опция сохранить подписку в 'спящем' режиме за 1$/мес."
+  }
+ },
+ {
+  "slug": "run-tracking-4",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Аудиокоуч без перебивания музыки",
+  "oneLiner": "Подсказки тренера через боковой канал музыка не прерывается, не глушится, голос встраивается между тактами.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 32
+  },
+  "reviewGrid": [
+   {
+    "quote": "I am not happy whenever i am using the app and the voice comes on to tell me 'i'm half way through', my music volume reduces significantly and i won't be able to increase it till i'm done using the app at that moment. This experience affects my run experience significantly.",
+    "rating": 3,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "I really like the gradual progression of this walk/run app. And I like that I can listen to my own music and still hear the prompts! The only thing is... I hate that terrible ROBOT VOICE. It sounds so impersonal. I wish None to Run could fix that and then it would be perfect.",
+    "rating": 3,
+    "app": "None to Run: Beginner, 5K, 10K"
+   },
+   {
+    "quote": "Genuinely great coaching and custom plans that helped me get into running and training for long-distance races. However, the main coach's guided runs are laced with cheap, low-effort dad jokes that often kill the momentum.",
+    "rating": 3,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "My music either shuts off when using your app, or it runs at low volume. Do not respond to this review with a (we'd love to help please message us). You can 'help' by fixing the issue.",
+    "rating": 1,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "I got no audio cues when using. Not sure if this is because I use Spotify, but other apps like Couch to 5k do cue over Spotify.",
+    "rating": 2,
+    "app": "Watch to 5K－Couch to 5km coach"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Голосовые подсказки резко снижают громкость музыки или полностью её обрывают",
+    "obsCount": 32,
+    "apps": [
+     "Runna: Running Plans & Coach",
+     "None to Run: Beginner, 5K, 10K",
+     "Couch to 5K® - Run training",
+     "Watch to 5K－Couch to 5km coach"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Роботизированный или фамильярный голос тренера раздражает даже лояльных пользователей",
+    "obsCount": 14,
+    "apps": [
+     "None to Run: Beginner, 5K, 10K",
+     "Nike Run Club: Running Coach",
+     "Runna: Running Plans & Coach"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Технически проблема решается через AVAudioSession с ducking вместо прерывания, но ни один массовый трекер не сделал это корректно. Параллельно никто не предложил пользователю выбрать 'голос' тренера из набора человеческих голосов разного характера.",
+  "idea": {
+   "pitch": "Трекер, где аудиокоучинг основная фича: музыка не прерывается, подсказки встраиваются как тихий голос поверх трека. Три голоса тренера на выбор лаконичный, мотивирующий, молчаливый (только тапы на часах).",
+   "features": [
+    "Ducking вместо прерывания: голос идёт поверх музыки на -12 дБ, Spotify/Apple Music не паузируется",
+    "Три режима голоса: только факты (темп/дистанция), с подбадриванием, беззвучный (только haptics на часах)",
+    "Выбор человеческого голоса из 4 вариантов при первой настройке",
+    "Совместимость с Spotify проверяется при первом запуске, пользователь сразу видит что работает",
+    "Настройка частоты подсказок: каждую минуту, каждый км, только при смене интервала",
+    "Предпросмотр голоса до начала пробежки 10-секундный семпл"
+   ],
+   "antiFeatures": [
+    "Не давить на пользователя мотивационными фразами по умолчанию по умолчанию только факты",
+    "Не использовать TTS с очевидным роботизированным акцентом",
+    "Не поддерживать кастомные плейлисты внутри приложения интеграция, не замена музыкального сервиса"
+   ],
+   "monetization": "Подписка 5.99$/мес: бесплатно один голос + базовые подсказки, платно выбор голоса, Spotify-совместимость, haptics-only режим. Ядро аудиоопыта продаётся как апгрейд тем, кто уже попробовал бесплатный голос и хочет лучше."
+  }
+ },
+ {
+  "slug": "run-tracking-5",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Темп в реальном времени для начинающих бегунов",
+  "oneLiner": "Не средний темп после финиша, а текущий темп прямо сейчас с цветовым сигналом 'слишком быстро / слишком медленно'.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is OK at best. If you follow it you will get to where you want to be. However, it does not give you split paces in real time or in the summary, everything is an average. There is also no update when running miles vs time, which is super frustrating.",
+    "rating": 2,
+    "app": "10K Trainer by C25K®"
+   },
+   {
+    "quote": "My only suggestion that would improve the app is to be able to see my pace during each section, I would like to know what pace I am keeping during the run portions. I've used another run app that allowed me to do this.",
+    "rating": 4,
+    "app": "5K Runner: couch potato to 5K"
+   },
+   {
+    "quote": "Training means nothing if you don't have advise about pace. This may as well be a zone 2 trainer",
+    "rating": 1,
+    "app": "10K Runner, Couch to 10K Run"
+   },
+   {
+    "quote": "I love the app for the training programs. It will tell me if I need to speed up, slow down, or I'm on pace. It doesn't give some of the lap and some breakdowns that other apps do.",
+    "rating": 4,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "Overall I like the app, but no ability to use other music platforms (Spotify) and no way to see pace is a bit of a miss.",
+    "rating": 3,
+    "app": "5K Runner: couch potato to 5K"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "C-t-5k приложения не показывают темп в реальном времени только средний по итогу тренировки",
+    "obsCount": 24,
+    "apps": [
+     "10K Trainer by C25K®",
+     "5K Runner: couch potato to 5K",
+     "10K Runner, Couch to 10K Run",
+     "Running Trainer: Tracker&Coach"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Голосовой сигнал 'ускорься / притормози' во время пробежки ценится выше, чем данные после",
+    "obsCount": 11,
+    "apps": [
+     "Runna: Running Plans & Coach",
+     "Map My Run GPS Running Tracker"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Начинающие бегают слишком быстро в начале интервала и выдыхаются к середине. Ни одно c-t-5k приложение не решает это системно: нет целевого темпа на интервал, нет голосового предупреждения о перепаке. Runna говорит 'ускорься/притормози', но не даёт конкретного числа.",
+  "idea": {
+   "pitch": "Трекер с целевым темпом на каждый интервал: перед началом бегового отрезка голос называет целевой диапазон, экран часов меняет цвет по мере отклонения. Новичок видит и слышит, когда замедлиться, не смотря на телефон.",
+   "features": [
+    "Целевой темп для каждого бегового интервала рассчитывается при настройке плана по результатам первой тренировки",
+    "Экран часов: три цвета зелёный (в зоне), жёлтый (чуть быстро), красный (слишком быстро) без цифр, одним взглядом",
+    "Голосовой сигнал при выходе из зоны темпа дольше 30 секунд: 'притормози, ты слишком быстро'",
+    "Разбивка по интервалам после пробежки: средний темп каждого бегового отрезка отдельно, не общее среднее",
+    "Настройка зоны: жёсткая (±5 сек/км) или мягкая (±15 сек/км) для тех, кто только начинает",
+    "Сравнение темпа по неделям: виден ли прогресс в ускорении без субъективного ощущения"
+   ],
+   "antiFeatures": [
+    "Не показывать ВО2макс и лактатные пороги это не аудитория инструмента",
+    "Не требовать ввод целевого финишного времени на 5 км рано для новичка, пугает",
+    "Не уведомлять о темпе чаще раза в 30 секунд частые прерывания раздражают"
+   ],
+   "monetization": "Базово темп в реальном времени бесплатен это крючок. Цветовые зоны, история разбивки по интервалам и сравнение по неделям премиум за 6.99$/мес."
+  }
+ },
+ {
+  "slug": "run-tracking-6",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Гибкое расписание: пропустил день план сдвинулся, а не сломался",
+  "oneLiner": "Болезнь, командировка, ленивая среда план перекладывается сам, без потери прогресса и без ощущения провала.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 20
+  },
+  "reviewGrid": [
+   {
+    "quote": "So what ever time you start running on the first day you have to run at that time every day. I have a very diverse schedule just cause I have time at 4pm today doesn't mean I will have time tomorrow. I might need to run at noon.",
+    "rating": 1,
+    "app": "iRun. Couch to Runner : Run 5k"
+   },
+   {
+    "quote": "Very inflexible training program. If i do the workout tuesday instead of monday i cant log that run and have to enter everything manually. Runna is way more flexible.",
+    "rating": 3,
+    "app": "Run With Hal"
+   },
+   {
+    "quote": "Using app for marathon training has taken the guess work out of 'what do i need to do today'. Love the calendar so I can see ahead and plan accordingly....or rearrange if needed.",
+    "rating": 4,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "This is a great plan for as long as you're injury free. There's no clear mechanism to pause or adapt workouts if you have significant pain or injury. The vacation mode workaround is clunky and doesn't provide guidance on adapting the plan.",
+    "rating": 3,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "Works great, my only issue is that I would love to have some sort of sick option. I keep getting notifications, but I'm terribly sick and my lungs are filling with fluid. I lost my streak and I would love to have a way to pause notifications as well as my running streak.",
+    "rating": 4,
+    "app": "adidas Running: Run tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Жёсткая привязка к конкретным дням недели блокирует пользователей с переменным расписанием",
+    "obsCount": 20,
+    "apps": [
+     "iRun. Couch to Runner : Run 5k",
+     "Run With Hal",
+     "5K Run: Beginner Training plan",
+     "C25K® 5K Running Coach & Map",
+     "10K Runner, Couch to 10K Run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Гибкий календарь с перестановкой тренировок ключевая причина выбрать платный план",
+    "obsCount": 10,
+    "apps": [
+     "Runna: Running Plans & Coach"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Runna гибче остальных, но и у неё vacation mode неудобный, а болезнь-режима нет. Для людей с нерегулярным расписанием (родители, shift workers, фрилансеры) нет ни одного c-t-5k инструмента, который честно говорит: 'пропустил ничего страшного, вот когда лучше наверстать'.",
+  "idea": {
+   "pitch": "Беговой план, который живёт в реальном времени пользователя: три тренировки в любые три дня недели, умный перенос при пропуске, режим болезни без потери стрика, уведомления в то время, которое задал сам пользователь.",
+   "features": [
+    "При настройке пользователь выбирает 3 предпочтительных дня, но без строгой привязки любой из них можно поменять в ту же неделю",
+    "Пропустил тренировку: на следующий день приложение предлагает два варианта сдвинуть весь план или пропустить эту сессию и продолжить",
+    "Режим болезни: один тап план уходит в паузу, стрик не обнуляется, уведомления замолкают",
+    "Уведомление 'напомни мне сегодня в X' время меняется каждый раз без входа в настройки",
+    "История гибких переносов: пользователь видит, что план был перенесён 3 раза и это нормально",
+    "Прогноз даты финиша 5 км с учётом реального ритма пользователя, а не идеального расписания"
+   ],
+   "antiFeatures": [
+    "Не наказывать за пропуски никаких красных плашек 'пропущено', только нейтральный перенос",
+    "Не требовать объяснять причину пропуска один тап 'перенести', без анкет",
+    "Не сбрасывать прогресс при повторе недели сохранять все пробежки в истории"
+   ],
+   "monetization": "Базовый план бесплатно. Гибкое расписание, болезнь-режим, прогноз даты финиша подписка 4.99$/мес или lifetime 19.99$."
+  }
+ },
+ {
+  "slug": "run-tracking-7",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Нарративный c-t-5k: пробежка как глава истории",
+  "oneLiner": "Каждая тренировка двигает сюжет вперёд не зомби, а документальный нарратив о городе, природе или реальных историях обычных людей, которые начали бегать.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 16
+  },
+  "reviewGrid": [
+   {
+    "quote": "I returned to Zombies, Run! a few months ago after time off. It quickly has gotten me running six days a week. It keeps it fun and the writing is really engaging. And I'm getting faster. A lot faster.",
+    "rating": 5,
+    "app": "Zombies, Run!"
+   },
+   {
+    "quote": "There are a lot of beginner 5k programs, this one gives you a story to invest in while you do it. Save the town, gather supplies, run from zombies.",
+    "rating": 5,
+    "app": "Zombies, Run! 5k Training"
+   },
+   {
+    "quote": "This app has changed my relationship to running from chore to treat!",
+    "rating": 5,
+    "app": "INTVL"
+   },
+   {
+    "quote": "I encountered issues where my steps don't get counted when I run on a treadmill and I recently got a Apple Watch and it's unfortunate that I can't start or be tracked on my Apple Watch instead of my phone.",
+    "rating": 3,
+    "app": "Zombies, Run!"
+   },
+   {
+    "quote": "The narrative gets old without the ability to listen to your own music or when the story moves too slowly.",
+    "rating": 2,
+    "app": "Zombies, Run!"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Нарратив и геймификация превращают бег из рутины в мотивированное действие",
+    "obsCount": 16,
+    "apps": [
+     "Zombies, Run!",
+     "Zombies, Run! 5k Training",
+     "INTVL",
+     "Runtopia-Reward RunningTracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Нарратив надоедает если нельзя слушать свою музыку параллельно",
+    "obsCount": 9,
+    "apps": [
+     "Zombies, Run!"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Zombies Run монополист в нише, но жанр зомби-апокалипсиса не универсален. Аудитория c-t-5k шире: люди от 30 до 55, которым зомби не близки, но идея 'история разворачивается пока ты бежишь' близка. Никто не пробовал реальные истории реальных людей как нарративный формат.",
+  "idea": {
+   "pitch": "C-t-5k с документальным подкастом как коучингом: каждая тренировка 20-30 минут реальной истории человека, который начал бегать в 40, после болезни, с лишним весом. Интервалы встроены в ритм рассказа.",
+   "features": [
+    "9 эпизодов = 9 недель c-t-5k. Каждый эпизод история одного человека, разбитая на интервалы ходьбы и бега через монтаж",
+    "Музыка играет в фоне, голос ведущего встраивается поверх с ducking без прерывания",
+    "В конце каждого эпизода небольшой факт или совет от героя истории",
+    "Библиотека дополнительных эпизодов после завершения программы: новые истории каждый месяц",
+    "Пользователь может отправить свою историю лучшие попадают в следующий сезон",
+    "Apple Watch-совместимость: нарратив идёт в наушник без телефона рядом"
+   ],
+   "antiFeatures": [
+    "Не делать истории вымышленными вся сила в реальности и узнаваемости",
+    "Не вставлять рекламу или брендированные сообщения внутрь нарратива",
+    "Не делать каждый эпизод мотивационной речью это отталкивает, нужна честная история с трудностями"
+   ],
+   "monetization": "Первые три эпизода (3 недели) бесплатно. Полный сезон 9.99$, новые сезоны по 4.99$/сезон. Подписка 4.99$/мес для тех, кто хочет все сезоны."
+  }
+ },
+ {
+  "slug": "run-tracking-8",
+  "category": "run-tracking",
+  "categoryName": "Трекеры бега",
+  "title": "Антидрейф GPS: трек, который совпадает с реальностью",
+  "oneLiner": "Алгоритм сшивки GPS-точек убирает прыжки и дрейф трека каждый маршрут отображается точно, а дистанция не гуляет от пробежки к пробежке.",
+  "asOf": "2026-07-01",
+  "stats": {
+   "apps": 49,
+   "reviews": 18118,
+   "observations": 42
+  },
+  "reviewGrid": [
+   {
+    "quote": "GPS not accurate. I rode the same exact route and turned at my mile marker that told me on my ride the day before was my 2 mile mark so round trip should have been 4 miles. When I did it next day, my mark was off by .2 of a mile. Putting my round trip at 3.8 and not 4 miles.",
+    "rating": 2,
+    "app": "Map My Run GPS Running Tracker"
+   },
+   {
+    "quote": "It is actual garbage. Just went on a 1.5 mile walk - it cut a whole mile off. Seriously just using my garmin from now on",
+    "rating": 2,
+    "app": "Strava: Run, Bike, Walk"
+   },
+   {
+    "quote": "Great app and I'm now completing week 3... Only downside is that the GPS location isn't brilliant, I've just completed week 3 day 2 33 minutes of exercise and covered 0.02 miles.",
+    "rating": 4,
+    "app": "5K Run - Train to 5K"
+   },
+   {
+    "quote": "Distance inaccurate. Every time I pause at a stoplight when I restart it automatically adds several seconds to my time. Also, I run the exact same 5 mile route all the time. Sometimes it will say 4.8 miles up to 5.1 miles.",
+    "rating": 2,
+    "app": "Map My Run GPS Running Tracker"
+   },
+   {
+    "quote": "Used to be ok. Now it tells me I've run a mile at the 3/4 mark. Consistently inaccurate on every route",
+    "rating": 1,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "Records one mile for every 1.3 miles run",
+    "rating": 3,
+    "app": "Map My Run GPS Running Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "GPS дрейфует, показывает разную дистанцию на одном маршруте, тупик в городских кварталах",
+    "obsCount": 42,
+    "apps": [
+     "Map My Run GPS Running Tracker",
+     "Strava: Run, Bike, Walk",
+     "5K Run - Train to 5K",
+     "Nike Run Club: Running Coach",
+     "ASICS Runkeeper Run Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Работа приложения с заблокированным экраном часть той же проблемы: теряет сигнал при блокировке",
+    "obsCount": 38,
+    "apps": [
+     "5K Run - Train to 5K",
+     "Running App - Run Tracker",
+     "Map My Run GPS Running Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все крупные приложения используют стандартный CoreLocation без постобработки. Map-matching к известным дорогам (как делает Garmin) никто из c-t-5k игроков не реализовал. Это не вопрос железа это вопрос алгоритма сглаживания на уровне приложения.",
+  "idea": {
+   "pitch": "Трекер, где GPS-трек обрабатывается после пробежки: точки прилипают к реальным дорогам и тропинкам, выбросы отсекаются, дистанция на одном маршруте одинакова в любую погоду. Точность как у Garmin без покупки Garmin.",
+   "features": [
+    "Post-run map-matching: трек прилипает к ближайшей дороге из OpenStreetMap за 2 секунды после финиша",
+    "Фильтр выбросов: точки с ускорением > 10 м/с² автоматически отсекаются как GPS-прыжки",
+    "Сравнение маршрута по пробежкам: 'сегодня тот же маршрут = X км, расхождение с прошлым разом 0.03 км'",
+    "Работа в фоне с явным индикатором в status bar пользователь видит, что приложение активно",
+    "Fallback на шагомер Apple Watch при потере сигнала в тоннеле или лесу",
+    "Экспорт GPX с исправленным треком в Strava/Garmin Connect"
+   ],
+   "antiFeatures": [
+    "Не строить маршрут только по дорогам если пользователь бежит по грунту нужен режим 'тропинки/бездорожье'",
+    "Не пересчитывать дистанцию в реальном времени через map-matching это тормозит и сбивает",
+    "Не позиционировать как замену Garmin по всем функциям конкурировать только по точности трека"
+   ],
+   "monetization": "Базовый трекинг бесплатно. Map-matching после пробежки, сравнение маршрутов и экспорт GPX подписка 3.99$/мес. Дешевле всех конкурентов, потому что основная ценность одна чёткая функция."
+  }
  }
 ]
