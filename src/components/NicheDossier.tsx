@@ -175,41 +175,56 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
         <dl className="mt-8 grid gap-3 sm:grid-cols-2">
-          <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
-          <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
-          <MarketRow wide k={ru ? "Лидеры" : "Leaders"} v={
-            <span className="flex flex-col gap-2.5">
+          <Tile k={ru ? "Размер" : "Size"}>
+            <BigStat value={NF(totalRatings)} sub={ru ? `оценок на ${r.count} приложений · ${NF(r.totalReviews)} отзывов прочитано` : `ratings across ${r.count} apps · ${NF(r.totalReviews)} reviews read`} />
+          </Tile>
+          <Tile k={ru ? "Концентрация" : "Concentration"}>
+            <BigStat value={`${top3Share}%`} sub={ru ? "всех оценок у трёх лидеров" : "of all ratings held by the top three"} />
+          </Tile>
+          <Tile wide k={ru ? "Лидеры" : "Leaders"}>
+            <span className="flex flex-col gap-3">
               {leaders.map((a) => (
-                <span key={a.id} className="flex items-center gap-2.5">
+                <span key={a.id} className="flex items-center gap-3">
                   {a.icon
                     // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-7 shrink-0 rounded-[8px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                    : <span className="size-7 shrink-0 rounded-[8px] bg-[var(--color-bg-muted)]" />}
+                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                    : <span className="size-9 shrink-0 rounded-[10px] bg-[var(--color-bg-muted)]" />}
                   <span className="min-w-0 flex-1 truncate text-callout font-medium text-[var(--color-text-primary)]">{a.title}</span>
                   <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{NF(a.ratings || 0)} {ru ? ratingsWord(a.ratings || 0) : "ratings"}</span>
                 </span>
               ))}
             </span>
-          } />
-          <MarketRow wide k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
+          </Tile>
+          <Tile wide k={ru ? "Деньги" : "Money"}>
+            <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
+          </Tile>
           {mkt?.installs && (
-            <MarketRow k={ru ? "Скачивания" : "Downloads"} v={ru
-              ? `около ${compactM(mkt.installs.totalMin)}+ установок у топ-${mkt.installs.matched} приложений на Google Play${topInstall ? `, лидер ${topInstall.title} (${topInstall.installs})` : ""}`
-              : `about ${compactM(mkt.installs.totalMin)}+ installs across the top ${mkt.installs.matched} apps on Google Play${topInstall ? `, led by ${topInstall.title} (${topInstall.installs})` : ""}`} />
+            <Tile k={ru ? "Скачивания" : "Downloads"}>
+              <BigStat value={`${compactM(mkt.installs.totalMin)}+`} sub={ru
+                ? `установок у топ-${mkt.installs.matched} на Google Play${topInstall ? `, лидер ${topInstall.title}` : ""}`
+                : `installs across the top ${mkt.installs.matched} on Google Play${topInstall ? `, led by ${topInstall.title}` : ""}`} />
+            </Tile>
           )}
           {mkt && mkt.pricesTop.length > 0 && (
-            <MarketRow k={ru ? "Сколько платят" : "What people pay"} v={ru
-              ? `в отзывах называют ${mkt.pricesTop.slice(0, 4).map((p) => p.label).join(", ")}`
-              : `reviews cite ${mkt.pricesTop.slice(0, 4).map((p) => p.label).join(", ")}`} />
+            <Tile k={ru ? "Сколько платят" : "What people pay"}>
+              <span className="flex flex-wrap gap-1.5">
+                {mkt.pricesTop.slice(0, 4).map((p, i) => (
+                  <span key={i} className="inline-flex items-center rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-footnote font-semibold tabular-nums text-[var(--color-text-primary)]">{p.label}</span>
+                ))}
+              </span>
+              <span className="mt-3 block text-footnote text-[var(--color-text-secondary)]">{ru ? "цены из реальных отзывов" : "prices cited in real reviews"}</span>
+            </Tile>
           )}
           {mkt?.revenue && (
-            <MarketRow wide k={ru ? "Оценка выручки" : "Revenue estimate"} v={
-              <span>{ru ? `примерно ${mkt.revenue.low}-${mkt.revenue.high} в год у топ-приложений ниши` : `roughly ${mkt.revenue.low}-${mkt.revenue.high} a year for the niche's top apps`}
-                <span className="mt-1 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
-              </span>
-            } />
+            <Tile wide k={ru ? "Оценка выручки" : "Revenue estimate"}>
+              <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{mkt.revenue.low}-{mkt.revenue.high}</span>
+              <span className="mt-1.5 block text-footnote text-[var(--color-text-secondary)]">{ru ? "в год у топ-приложений ниши" : "a year for the niche's top apps"}</span>
+              <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
+            </Tile>
           )}
-          <MarketRow wide k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
+          <Tile wide k={ru ? "Доверие" : "Trust"}>
+            <BigStat value={ru ? `${broken} из 100` : `${broken} of 100`} sub={ru ? `приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `apps have an inflated or doubtful star, only ${great} are genuinely good`} />
+          </Tile>
         </dl>
         <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
       </Block>
@@ -318,12 +333,23 @@ function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; ch
   );
 }
 
-function MarketRow({ k, v, wide }: { k: string; v: ReactNode; wide?: boolean }) {
+// Bento tile for the market overview: quiet caption label on top, content below
+// (a big stat, chip row, icon rows or prose) — Apple-widget-style density mix.
+function Tile({ k, wide, children }: { k: string; wide?: boolean; children: ReactNode }) {
   return (
-    <div className={`card-min rounded-[18px] p-5 ${wide ? "sm:col-span-2" : ""}`}>
+    <div className={`card-min flex flex-col rounded-[22px] p-5 sm:p-6 ${wide ? "sm:col-span-2" : ""}`}>
       <dt className="text-caption text-[var(--color-text-tertiary)]">{k}</dt>
-      <dd className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{v}</dd>
+      <dd className="mt-2.5 flex-1">{children}</dd>
     </div>
+  );
+}
+
+function BigStat({ value, sub }: { value: string; sub: string }) {
+  return (
+    <>
+      <span className="block text-stat tabular-nums text-[var(--color-text-primary)]">{value}</span>
+      <span className="mt-2 block text-footnote text-[var(--color-text-secondary)]">{sub}</span>
+    </>
   );
 }
 
