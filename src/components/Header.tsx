@@ -46,6 +46,19 @@ export default function Header({
           <Logo iconSize={26} textClassName="text-[23px]" />
         </Link>
 
+        {/* Section nav lives here (not as hero buttons); collapses away with the
+            pill on small screens — the footer keeps the same links reachable. */}
+        {!scrolled && (
+          <nav className="ml-5 hidden items-center gap-4 md:flex">
+            <Link href="/categories" className="text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              {locale === "en" ? "Breakdowns" : "Разборы"}
+            </Link>
+            <Link href="/rating" className="text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              {locale === "en" ? "Rating" : "Рейтинг"}
+            </Link>
+          </nav>
+        )}
+
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />

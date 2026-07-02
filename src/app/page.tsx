@@ -13,11 +13,12 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-function SectionPill({ href, label }: { href: string; label: string }) {
+// Quiet inline text link for the hero meta row (replaces the old pill buttons).
+function MetaLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+    <Link href={href} className="group inline-flex items-center gap-1 font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
       {label}
-      <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </Link>
   );
 }
@@ -133,32 +134,32 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <header className="text-center">
-        <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{ru ? "Идеи приложений" : "App ideas"}</h1>
-        <p className="mx-auto mt-6 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]">
+        <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Идеи приложений" : "App ideas"}</h1>
+        <p className="mx-auto mt-5 max-w-[52ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Каждая идея выросла из реальных отзывов на работающие приложения. Люди сами пишут, что бесит, чего не хватает и за что готовы платить, а мы превращаем это в готовый продукт под уже существующий спрос. По каждой идее видно, что строить, для кого и как на этом заработать."
-            : "Every idea grew out of real reviews of working apps. People say what annoys them, what is missing and what they will pay for, and we turn that into a ready product for demand that already exists. Each idea shows what to build, for whom and how to make money."}
+            ? "Каждая идея выросла из реальных отзывов на работающие приложения: видно, что строить, для кого и как на этом заработать."
+            : "Every idea grew out of real reviews of working apps: what to build, for whom and how to make money."}
         </p>
-        <p className="mx-auto mt-4 max-w-[52ch] text-footnote text-[var(--color-text-tertiary)]">
+        <p className="mx-auto mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-footnote text-[var(--color-text-tertiary)]">
           {ru
-            ? <>Всё это из <span className="tabular-nums text-[var(--color-text-secondary)]">{totalReviews.toLocaleString("ru-RU")}</span> отзывов в App Store и Google Play.</>
-            : <>All from <span className="tabular-nums text-[var(--color-text-secondary)]">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play.</>}
+            ? <span>Из <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> отзывов в App Store и Google Play</span>
+            : <span>From <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play</span>}
+          <span aria-hidden="true">·</span>
+          <MetaLink href="/categories" label={ru ? "Разбор категорий" : "Category breakdowns"} />
+          <span aria-hidden="true">·</span>
+          <MetaLink href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} />
         </p>
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
-          <SectionPill href="/categories" label={ru ? "Разбор категорий" : "Category breakdowns"} />
-          <SectionPill href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} />
-        </div>
 
-        <div className="mt-10 border-t border-[var(--color-border-subtle)] pt-8">
+        <div className="mt-10">
           <IdeaSortTabs current={sort} cat={cat} locale={locale} />
         </div>
       </header>
 
-      <div className="mt-8">
+      <div className="mt-4">
         <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
       </div>
 
-      <div className="mt-8">
+      <div className="mt-7">
         <IdeasDeck
           ideas={shown}
           lockedPreview={lockedPreview}

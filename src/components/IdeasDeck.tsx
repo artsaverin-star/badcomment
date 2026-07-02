@@ -33,7 +33,7 @@ export default function IdeasDeck({
           )}
 
           <div className={`${lockedPreview.length > 0 ? "absolute inset-x-0 top-[8%]" : "relative"} flex justify-center px-4`}>
-            <div className="flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[24px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_88%,transparent)] p-8 text-center shadow-[0_30px_80px_-30px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+            <div className="flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[24px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_88%,transparent)] p-8 text-center shadow-[0_24px_64px_-24px_rgba(18,18,22,0.28)] backdrop-blur-xl">
               <span className="flex size-12 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.4" stroke="currentColor" strokeWidth="1.7" /><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
               </span>

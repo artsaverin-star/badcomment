@@ -47,19 +47,20 @@ function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value
   );
 }
 
-// Compact score chips for the card footer: composite + one pill per metric.
+// Quiet score row for the card footer: composite in a grey chip, then plain
+// metric numbers whose tiny icons carry the colour — no coloured pills.
 function MetricPill({ k, value }: { k: "money" | "simplicity" | "demand"; value: number }) {
   const c = SCORE_META[k].color;
   return (
-    <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[12px] font-medium tabular-nums text-[var(--color-text-secondary)]" style={{ background: `color-mix(in srgb, ${c} 13%, transparent)` }}>
+    <span className="inline-flex items-center gap-1 text-[12px] font-medium tabular-nums text-[var(--color-text-tertiary)]">
       <MetricIcon k={k} className="size-3.5" style={{ color: c }} />{value}
     </span>
   );
 }
 function ScoreChip({ score }: { score: Score }) {
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <span className="inline-flex items-center gap-1 rounded-full bg-[color-mix(in_srgb,var(--color-accent-brand)_16%,transparent)] px-2 py-0.5 text-[12px] font-semibold text-[var(--color-text-primary)]">
+    <div className="flex flex-wrap items-center gap-2.5">
+      <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-primary)]">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
         {score.composite}
       </span>
@@ -165,19 +166,29 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
   );
 }
 
-function CardFace({ icon, title, desc, footer, onClick, locked, kicker }: { icon?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string }) {
+// A gallery card. With `art` set it gets a cover zone on top — a quiet grey
+// canvas with a centred SF-style glyph, the placeholder until each idea gets a
+// real illustration. Without `art` it stays the compact text card (personas).
+function CardFace({ icon, art, title, desc, footer, onClick, locked, kicker }: { icon?: string; art?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string }) {
   return (
-    <button type="button" onClick={onClick} className={`edge-glow group/c relative flex h-full flex-col items-start gap-3 overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] p-6 text-left transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_160px] ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)]"}`}>
+    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full flex-col items-start overflow-hidden rounded-[22px] text-left [content-visibility:auto] ${art ? "p-2.5 [contain-intrinsic-size:auto_280px]" : "gap-3 p-6 [contain-intrinsic-size:auto_160px]"} ${locked ? "cursor-default" : ""}`}>
       {locked && (
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
-      {kicker && <div className="max-w-[85%] truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
-      <div className="flex items-center gap-3">
-        {icon && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
-        <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
+      {art && (
+        <div className="flex aspect-[2/1] w-full items-center justify-center rounded-[15px] bg-[var(--color-bg-muted)]">
+          <Icon name={art} className="size-10 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover/c:scale-105" />
+        </div>
+      )}
+      <div className={`flex w-full flex-1 flex-col items-start ${art ? "gap-2.5 px-2.5 pb-3 pt-4" : "gap-3"}`}>
+        {kicker && <div className="max-w-[85%] truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
+        <div className="flex items-center gap-3">
+          {icon && !art && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
+          <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
+        </div>
+        <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
+        {footer && <div className="mt-auto pt-1">{footer}</div>}
       </div>
-      <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
-      {footer && <div className="mt-auto pt-1">{footer}</div>}
     </button>
   );
 }
@@ -282,7 +293,7 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
         {shown.map((x, i) => (
           <div key={i} className="mb-4 break-inside-avoid">
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
-              kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
+              art={x.icon} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
         ))}
       </div>
