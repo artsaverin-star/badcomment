@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import BackLink from "@/components/BackLink";
 import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
@@ -155,10 +155,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
-      <Link href="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback="/categories" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        {ru ? "Все ниши" : "All niches"}
-      </Link>
+        {ru ? "Назад" : "Back"}
+      </BackLink>
 
       <header className="mt-12">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>

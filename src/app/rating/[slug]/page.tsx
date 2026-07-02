@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -94,10 +95,10 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href={`/${ru ? "ru" : "en"}`} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback="/rating" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        {ru ? "На главную" : "Home"}
-      </Link>
+        {ru ? "Назад" : "Back"}
+      </BackLink>
 
       <header className="mt-12">
         <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>

@@ -21,7 +21,11 @@ export default function BackLink({
       type="button"
       className={className}
       onClick={() => {
-        if (window.history.length > 1) router.back();
+        // Pop history only when we arrived from our own site — otherwise
+        // (direct load, external link) history.back() would leave the site.
+        let internal = false;
+        try { internal = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch { /* ignore */ }
+        if (internal && window.history.length > 1) router.back();
         else router.push(fallback);
       }}
     >

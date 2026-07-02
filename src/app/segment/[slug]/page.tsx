@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BackLink from "@/components/BackLink";
 import { getCategoryBySlug, listDomains } from "@/lib/researchCategories";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
@@ -401,10 +402,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <AtmosphereSetter hue={hueFromSlug(slug)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback="/categories" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        {ru ? "Все ниши" : "All niches"}
-      </Link>
+        {ru ? "Назад" : "Back"}
+      </BackLink>
 
       {/* HERO */}
       <header className="ld-fade mt-12">
