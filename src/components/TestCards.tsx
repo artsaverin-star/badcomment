@@ -265,7 +265,7 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
 
 const IDEA_PAGE = 24;
 
-export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; locked?: boolean; locale?: Locale }) {
+export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas: Idea[]; locked?: boolean; locale?: Locale; columns?: 2 | 3 }) {
   const [open, setOpen] = useState<Idea | null>(null);
   // Render in pages and grow on scroll. Owners get the whole deck (600+ cards);
   // mounting all at once — each with an animated edge-glow ring — pins the GPU
@@ -289,7 +289,7 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
   const shown = ideas.slice(0, count);
   return (
     <>
-      <div className="gap-4 [column-fill:balance] sm:columns-2 lg:columns-3">
+      <div className={`gap-4 [column-fill:balance] sm:columns-2 ${columns === 3 ? "lg:columns-3" : ""}`}>
         {shown.map((x, i) => (
           <div key={i} className="mb-4 break-inside-avoid">
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}

@@ -415,6 +415,10 @@ html:not([data-theme="dark"]) .atmosphere {
 .glow-sweep {
   animation: glow-sweep 3.2s ease-out 0.15s 1 both;
 }
+/* The glow is a dark-theme effect; on the light gallery it reads as a smudge. */
+html:not([data-theme="dark"]) .glow-sweep {
+  animation: none;
+}
 @media (prefers-reduced-motion: reduce) {
   .glow-sweep { animation: none; }
 }

@@ -145,7 +145,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
-      <Link href="/" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Все ниши" : "All niches"}
       </Link>
@@ -165,11 +165,11 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       </header>
 
       <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
-        <dl className="mt-8 border-t border-[var(--color-border-subtle)]">
+        <dl className="mt-8 grid gap-3 sm:grid-cols-2">
           <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
-          <MarketRow k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
           <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
-          <MarketRow k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
+          <MarketRow wide k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
+          <MarketRow wide k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
           {mkt?.installs && (
             <MarketRow k={ru ? "Скачивания" : "Downloads"} v={ru
               ? `около ${compactM(mkt.installs.totalMin)}+ установок у топ-${mkt.installs.matched} приложений на Google Play${topInstall ? `, лидер ${topInstall.title} (${topInstall.installs})` : ""}`
@@ -181,13 +181,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
               : `reviews cite ${mkt.pricesTop.slice(0, 4).map((p) => p.label).join(", ")}`} />
           )}
           {mkt?.revenue && (
-            <MarketRow k={ru ? "Оценка выручки" : "Revenue estimate"} v={
+            <MarketRow wide k={ru ? "Оценка выручки" : "Revenue estimate"} v={
               <span>{ru ? `примерно ${mkt.revenue.low}-${mkt.revenue.high} в год у топ-приложений ниши` : `roughly ${mkt.revenue.low}-${mkt.revenue.high} a year for the niche's top apps`}
                 <span className="mt-1 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
               </span>
             } />
           )}
-          <MarketRow k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
+          <MarketRow wide k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
         </dl>
         <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
       </Block>
@@ -238,7 +238,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       </Block>
 
       <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши." : "Every idea is a real business, built on reading all the reviews in the niche."}>
-        <div className="mt-6"><IdeaCards ideas={ideaCards} locale={locale} /></div>
+        <div className="mt-6"><IdeaCards ideas={ideaCards} locale={locale} columns={2} /></div>
       </Block>
         </>
       ) : (
@@ -296,11 +296,11 @@ function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; ch
   );
 }
 
-function MarketRow({ k, v }: { k: string; v: ReactNode }) {
+function MarketRow({ k, v, wide }: { k: string; v: ReactNode; wide?: boolean }) {
   return (
-    <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] py-3.5 sm:flex-row sm:gap-6">
-      <dt className="w-32 shrink-0 text-callout font-medium text-[var(--color-text-tertiary)]">{k}</dt>
-      <dd className="text-callout text-[var(--color-text-secondary)]">{v}</dd>
+    <div className={`card-min rounded-[18px] p-5 ${wide ? "sm:col-span-2" : ""}`}>
+      <dt className="text-caption text-[var(--color-text-tertiary)]">{k}</dt>
+      <dd className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{v}</dd>
     </div>
   );
 }

@@ -26,39 +26,6 @@ const AUTH_EN: Record<string, { w: string; c: string }> = {
   "Накручен": { w: "inflated", c: "#ff6961" },
 };
 
-const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
-
-const ICONS: Record<string, React.ReactNode> = {
-  star: <path d="M6 1.3l1.45 2.94 3.25.47-2.35 2.29.55 3.24L6 8.71 3.1 10.23l.55-3.24L1.3 4.7l3.25-.47L6 1.3z" />,
-  bars: <path d="M2.5 10V6.5M6 10V2.5M9.5 10V7.5" />,
-  spark: <path d="M6 1.6l1.1 2.9 2.9 1.1-2.9 1.1L6 9.6 4.9 6.7 2 5.6l2.9-1.1L6 1.6z" />,
-  seal: <><circle cx="6" cy="6" r="4.4" /><path d="M4.2 6l1.25 1.25L7.9 4.6" /></>,
-};
-
-function ChipIcon({ name }: { name: string }) {
-  return (
-    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">{ICONS[name]}</svg>
-  );
-}
-
-function MetricChip({ icon, value, label, active }: { icon: string; value: string; label: string; active?: boolean }) {
-  return (
-    <span className={`inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption ${active ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
-      <ChipIcon name={icon} />
-      <span className={active ? "font-semibold" : "font-medium"}>{value}</span>
-      <span className="opacity-70">{label}</span>
-    </span>
-  );
-}
-
-function AuthChip({ color, word }: { color: string; word: string }) {
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-caption" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
-      <ChipIcon name="seal" />{word}
-    </span>
-  );
-}
-
 export default function RatingToggleList({ apps, limit = 8, more, moreHref, locale = "ru" }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string; locale?: Locale }) {
   const ru = locale !== "en";
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
@@ -81,27 +48,37 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
       </div>
 
       <div className="mt-6 flex flex-col gap-3">
-        {shown.map((a, i) => {
+        {shown.map((a) => {
           const au = auth[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
           const sentiment = mode === "sentiment";
+          // The row leads with ONE number — the metric the list is sorted by —
+          // big on the right. Everything else is a quiet meta line, not chips.
+          const big = sentiment ? `${a.realScore ?? "—"}` : (a.storeAvg?.toFixed(1) ?? "—");
+          const bigLabel = sentiment ? (ru ? "наш балл" : "our score") : (ru ? "в сторе" : "in store");
+          const other = sentiment
+            ? `${a.storeAvg?.toFixed(1) ?? "—"} ${ru ? "в сторе" : "in store"}`
+            : `${a.realScore ?? "—"}/100 ${ru ? "наш балл" : "our score"}`;
           return (
-            <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
+            <details key={a.id} className="group/f card-min rounded-[20px] px-5">
               <summary className="flex cursor-pointer list-none flex-col gap-3 py-4 [&::-webkit-details-marker]:hidden">
-                <span className="flex w-full items-center gap-3">
+                <span className="flex w-full items-center gap-3.5">
                   {a.icon
                     // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-14 shrink-0 rounded-[14px] object-cover" />
-                    : <span className="size-14 shrink-0 rounded-[14px] bg-[var(--color-bg-muted)]" />}
+                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[12px] object-cover" />
+                    : <span className="size-12 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
                   <span className="min-w-0 flex-1">
-                    <span className="block text-body text-[var(--color-text-primary)]">{a.title}</span>
-                    <span className="mt-2 flex flex-wrap items-center gap-1.5">
-                      <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label={ru ? "В сторе" : "In store"} active={!sentiment} />
-                      {au.w && <AuthChip color={au.c} word={cap(au.w)} />}
-                      <MetricChip icon="bars" value={nf(a.ratings || 0)} label={ru ? "Оценок" : "Ratings"} />
-                      <MetricChip icon="spark" value={`${a.realScore}/100`} label={ru ? "Наш балл" : "Our score"} active={sentiment} />
+                    <span className="block truncate text-body font-semibold text-[var(--color-text-primary)]">{a.title}</span>
+                    <span className="mt-0.5 block text-footnote text-[var(--color-text-tertiary)]">
+                      {other}
+                      {au.w && <> · <span style={{ color: au.c }}>{au.w}</span></>}
+                      {" · "}{nf(a.ratings || 0)} {ru ? "оценок" : "ratings"}
                     </span>
                   </span>
-                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 self-start text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <span className="shrink-0 text-right">
+                    <span className="block text-title3 font-bold tabular-nums text-[var(--color-text-primary)]">{big}</span>
+                    <span className="block text-caption text-[var(--color-text-tertiary)]">{bigLabel}</span>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
                 {a.verdict && <span className="block text-footnote text-[var(--color-text-secondary)]">{a.verdict}</span>}
               </summary>
