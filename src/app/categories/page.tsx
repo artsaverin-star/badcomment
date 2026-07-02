@@ -1,10 +1,6 @@
 import { getLocale } from "@/lib/i18n.server";
 import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
-import { getAccess } from "@/lib/access";
-import { ownsDeck } from "@/lib/unlocks";
-import { buildFeed } from "@/lib/ideaFeed";
-import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { getCatalogData } from "@/lib/catalogData";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { categoryCards } from "@/lib/regenCards";
@@ -48,30 +44,18 @@ export default async function CategoriesPage() {
   const loggedIn = !!(await getSessionUser());
   const { totalReviews } = getCatalogData(locale, premium);
 
-  const access = await getAccess();
-  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
-  const { items: feedItems } = buildFeed(locale, true);
-  const bot = process.env.BOT_USERNAME || "inAppProBot";
-  const feed = {
-    items: feedItems,
-    hasAccess: owner,
-    loggedIn: access.loggedIn,
-    deckPrice: DECK_PRICE_RUB,
-    starsHref: access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined,
-    starsLabel: `${DECK_STARS} ⭐ Telegram`,
-    lifetimeStarsHref: access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined,
-    lifetimePrice: LIFETIME.rub,
-  };
-
   type RApp = { icon?: string | null; ratings?: number };
   type RFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
   const ideasAll = ideasData as { category: string }[];
   const catCards = Object.entries(RATING_BY_SLUG as Record<string, RFile>).map(([slug, r]) => {
     const cards = categoryCards(slug, locale)?.product ?? [];
+    // Only the four icons the tile actually renders — shipping all ~100 per
+    // niche bloated the flight payload to megabytes.
     const icons = [...r.apps]
       .sort((a, b) => (b.ratings ?? 0) - (a.ratings ?? 0))
       .map((a) => a.icon)
-      .filter((x): x is string => !!x);
+      .filter((x): x is string => !!x)
+      .slice(0, 4);
     return {
       slug,
       name: ru ? r.name : r.nameEn || r.name,
@@ -107,7 +91,7 @@ export default async function CategoriesPage() {
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-2 sm:px-4 pb-10 pt-2">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} feed={feed} />
+      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
     </main>
   );
 }

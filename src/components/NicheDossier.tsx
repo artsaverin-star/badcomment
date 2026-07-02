@@ -42,7 +42,8 @@ const cleanTitle = (t: string) => {
   const m = t.replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
   return m.charAt(0).toUpperCase() + m.slice(1);
 };
-const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+// Capitalize the first letter, keeping brand casings (iPhone, iOS, macOS, eBay).
+const cap = (s: string) => (!s || /^(mac|watch|tv|i|e)[A-Z]/.test(s) ? s : s.charAt(0).toUpperCase() + s.slice(1));
 
 function ratingsWord(n: number): string {
   const dd = n % 100, d = n % 10;
@@ -132,7 +133,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
     const e = ru ? undefined : a.en;
     return {
       id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
-      authenticity: a.authenticity, verdict: tg((e?.verdict ?? a.verdict) || ""), loved: tg((e?.loved ?? a.loved) || ""), weak: tg((e?.weak ?? a.weak) || ""), whoFor: (e?.whoFor ?? a.whoFor) ? tg((e?.whoFor ?? a.whoFor) as string) : null,
+      authenticity: a.authenticity, verdict: cap(tg((e?.verdict ?? a.verdict) || "")), loved: cap(tg((e?.loved ?? a.loved) || "")), weak: cap(tg((e?.weak ?? a.weak) || "")), whoFor: (e?.whoFor ?? a.whoFor) ? cap(tg((e?.whoFor ?? a.whoFor) as string)) : null,
     };
   });
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
@@ -247,7 +248,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
-              <h3 className="text-title3 text-[var(--color-text-primary)]">{tg(p.title)}</h3>
+              <h3 className="text-title3 text-[var(--color-text-primary)]">{cap(tg(p.title))}</h3>
               <AppLinkedText as="p" className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(p.dek)} apps={ratingApps} locale={locale} />
               {grouped[pi].length > 0 && (
                 <div className="mt-7 border-t border-[var(--color-border-subtle)]">
@@ -256,7 +257,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                       key={k}
                       head={
                         <>
-                          <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{tg(f.title)}</span>
+                          <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{cap(tg(f.title))}</span>
                           <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
                         </>
                       }

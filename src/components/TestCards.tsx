@@ -327,6 +327,7 @@ const IDEA_PAGE = 12;
 
 export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas: Idea[]; locked?: boolean; locale?: Locale; columns?: 2 | 3 }) {
   const [open, setOpen] = useState<Idea | null>(null);
+  const [depthLoading, setDepthLoading] = useState(false);
   // Render in pages and grow on scroll. Owners get the whole deck (600+ cards);
   // mounting all at once — each with an animated edge-glow ring — pins the GPU
   // and heats the phone. Rendering ~24 at a time keeps active animations bounded.
@@ -347,6 +348,21 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
   }, [count, ideas.length]);
 
   const shown = ideas.slice(0, count);
+
+  // Preview-only cards (the owner's deck ships without bodies to stay light)
+  // pull their depth from the API when opened.
+  const openCard = (x: Idea) => {
+    setOpen(x);
+    if (!x.gap && !x.pitch && x.slug) {
+      setDepthLoading(true);
+      fetch(`/api/idea-depth/${x.slug}?l=${ru ? "ru" : "en"}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (d) setOpen((prev) => (prev && prev.slug === x.slug ? { ...prev, ...d } : prev)); })
+        .catch(() => {})
+        .finally(() => setDepthLoading(false));
+    }
+  };
+
   return (
     <>
       <div className={`gap-4 [column-fill:balance] sm:columns-2 ${columns === 3 ? "lg:columns-3" : ""}`}>
@@ -354,7 +370,7 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
           // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
           <div key={i} className="card-fade mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
-            <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
+            <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => openCard(x)}
               art={x.icon} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
         ))}
@@ -373,6 +389,9 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
           <h3 className="mt-1.5 text-title3 text-balance text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.score && <div className="mt-5"><ScoreBlock score={open.score} locale={locale} /></div>}
+          {depthLoading && !open.gap && (
+            <div className="mt-3 rounded-[18px] bg-[var(--color-surface-card)] p-5 text-center text-footnote text-[var(--color-text-tertiary)]">{ru ? "Загружаю разбор…" : "Loading the breakdown…"}</div>
+          )}
           {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
           {open.pitch && <Sec k={ru ? "Что это" : "What it is"}>{open.pitch}</Sec>}
           {!!open.features?.length && <Sec k={ru ? "Как устроено" : "How it works"}><Bullets items={open.features} /></Sec>}

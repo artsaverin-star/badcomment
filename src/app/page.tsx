@@ -101,20 +101,27 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
   const shown = all.slice(0, limit).map((i, idx) => {
     const ov = ideaCard(i.slug, locale);
-    return {
+    const base = {
       slug: i.slug,
       title: cleanTitle(ov?.title ?? i.title),
       oneLiner: ov?.oneLiner ?? i.oneLiner,
+      icon: ICONS[idx % ICONS.length],
+      score: scoreFor(i.slug, locale) ?? undefined,
+      category: nameOf(i.category),
+      categorySlug: i.category,
+    };
+    // Owners see the whole deck (400+ cards): embedding every idea's body made
+    // the page weigh megabytes, so their modal fetches /api/idea-depth on open.
+    // Non-owners get their handful of free cards inline, as before.
+    if (owner) return base;
+    return {
+      ...base,
       gap: i.gap,
       pitch: i.idea?.pitch,
       features: i.idea?.features,
       antiFeatures: i.idea?.antiFeatures,
       monetization: i.idea?.monetization,
       reviewGrid: i.reviewGrid,
-      icon: ICONS[idx % ICONS.length],
-      score: scoreFor(i.slug, locale) ?? undefined,
-      category: nameOf(i.category),
-      categorySlug: i.category,
     };
   });
 

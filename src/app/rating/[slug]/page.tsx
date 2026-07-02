@@ -133,7 +133,10 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         {set.apps.map((a, i) => {
           const av = authVerdict(a.authenticity, ru);
           // On EN, prefer the translated overlay; fall back to RU if missing.
-          const tx = (k: "verdict" | "loved" | "weak" | "whoFor" | "authNote") => (ru ? a[k] : a.en?.[k] ?? a[k]) ?? "";
+          // cap(): source texts occasionally start lowercase — headline-adjacent
+          // prose must not. Brand casings (iPhone, iOS, macOS, eBay) stay intact.
+          const capFirst = (s: string) => (!s || /^(mac|watch|tv|i|e)[A-Z]/.test(s) ? s : s.charAt(0).toUpperCase() + s.slice(1));
+          const tx = (k: "verdict" | "loved" | "weak" | "whoFor" | "authNote") => capFirst(((ru ? a[k] : a.en?.[k] ?? a[k]) ?? "") as string);
           return (
             <li key={a.id} className="card-min rounded-[22px] p-6 sm:p-7">
               <div className="flex items-center gap-3.5">
