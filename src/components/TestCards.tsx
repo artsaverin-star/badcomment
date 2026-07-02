@@ -363,11 +363,14 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
 
   return (
     <>
-      <div className={`gap-4 [column-fill:balance] sm:columns-2 ${columns === 3 ? "lg:columns-3" : ""}`}>
+      {/* A row-wise grid, not CSS columns: columns re-balance on every autoload
+          (cards jump and fragments smear at column edges) and read top-to-bottom,
+          hiding the ranking. Rows stretch, so footers align across a row. */}
+      <div className={`grid gap-4 sm:grid-cols-2 ${columns === 3 ? "lg:grid-cols-3" : ""}`}>
         {shown.map((x, i) => (
           // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
-          <div key={i} className="card-fade mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
+          <div key={i} className="card-fade h-full" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => openCard(x)}
               art={x.icon} hue={x.hue} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
