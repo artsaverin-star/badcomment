@@ -22,9 +22,13 @@ const favListeners = new Set<() => void>();
 function favRead(id: string): boolean {
   try { return (JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]).includes(id); } catch { return false; }
 }
-function favSubscribe(cb: () => void) {
+export function favSubscribe(cb: () => void) {
   favListeners.add(cb);
   return () => { favListeners.delete(cb); };
+}
+// Current saved-slug list as a stable JSON string (for useSyncExternalStore).
+export function favSnapshot(): string {
+  try { return localStorage.getItem("favIdeas") || "[]"; } catch { return "[]"; }
 }
 function favFlip(id: string) {
   try {

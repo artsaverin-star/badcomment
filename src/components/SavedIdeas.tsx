@@ -1,45 +1,48 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { IdeaCards, favSubscribe, favSnapshot } from "./TestCards";
 import type { Locale } from "@/lib/i18n";
 
-export type SavedPreview = { category: string; categoryName: string; title: string; oneLiner: string };
+type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
+export type SavedPreview = {
+  category: string; categoryName: string; title: string; oneLiner: string;
+  gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string;
+  reviewGrid?: { quote: string; rating: number; app: string }[];
+  icon: string; hue?: number; cover?: string; score?: Score;
+};
 
-// «Избранное» — the ideas bookmarked on the cards (localStorage favIdeas,
-// written by the deck's FavButton). Legacy hearts from the old feed
-// (feed:saved, array of objects) are merged into favIdeas once on load, so
-// nothing a visitor saved before the redesign is lost.
+// «Избранное» — the ideas bookmarked on the cards (localStorage favIdeas). Uses
+// the very same IdeaCards deck as the homepage/dossier, so a saved idea looks and
+// opens exactly like everywhere else. Removing = unbookmark on the card itself,
+// and the list reacts live via the shared favIdeas store. Legacy hearts from the
+// old feed (feed:saved) are merged in once, so nothing saved before is lost.
 export default function SavedIdeas({ items, locale = "ru" }: { items: Record<string, SavedPreview>; locale?: Locale }) {
   const ru = locale !== "en";
-  const [slugs, setSlugs] = useState<string[] | null>(null);
 
+  // One-time migration of legacy hearts into favIdeas.
+  const [migrated, setMigrated] = useState(false);
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       try {
         const fav = new Set<string>(JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]);
         const legacy = JSON.parse(localStorage.getItem("feed:saved") || "[]") as { slug?: string }[];
-        let migrated = false;
-        for (const s of Array.isArray(legacy) ? legacy : []) {
-          if (s?.slug && !fav.has(s.slug)) { fav.add(s.slug); migrated = true; }
-        }
-        if (migrated) localStorage.setItem("favIdeas", JSON.stringify([...fav]));
-        setSlugs([...fav]);
-      } catch { setSlugs([]); }
+        let changed = false;
+        for (const s of Array.isArray(legacy) ? legacy : []) if (s?.slug && !fav.has(s.slug)) { fav.add(s.slug); changed = true; }
+        if (changed) localStorage.setItem("favIdeas", JSON.stringify([...fav]));
+      } catch { /* ignore */ }
+      setMigrated(true);
     });
     return () => cancelAnimationFrame(id);
   }, []);
 
-  function remove(slug: string) {
-    setSlugs((prev) => {
-      const next = (prev || []).filter((s) => s !== slug);
-      try { localStorage.setItem("favIdeas", JSON.stringify(next)); } catch { /* ignore */ }
-      return next;
-    });
-  }
-
-  if (slugs === null) return null;
+  const snap = useSyncExternalStore(favSubscribe, favSnapshot, () => "[]");
+  let slugs: string[] = [];
+  try { slugs = JSON.parse(snap) as string[]; } catch { /* ignore */ }
   const shown = slugs.filter((s) => items[s]);
+
+  if (!migrated) return null;
 
   if (shown.length === 0) {
     return (
@@ -53,25 +56,16 @@ export default function SavedIdeas({ items, locale = "ru" }: { items: Record<str
     );
   }
 
-  return (
-    <div className="flex flex-col gap-3">
-      {shown.map((slug) => {
-        const s = items[slug];
-        return (
-          <div key={slug} className="card-min flex items-start gap-3 rounded-[20px] p-5">
-            <Link href={`/segment/${s.category}`} className="min-w-0 flex-1">
-              <span className="block text-caption text-[var(--color-text-tertiary)]">{s.categoryName}</span>
-              <span className="mt-1 block text-headline text-[var(--color-text-primary)]">{s.title}</span>
-              <span className="mt-1.5 line-clamp-2 block text-callout text-[var(--color-text-secondary)]">{s.oneLiner}</span>
-            </Link>
-            <button type="button" onClick={() => remove(slug)} aria-label={ru ? "Убрать из избранного" : "Remove from saved"} className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] transition-colors hover:text-[var(--color-text-tertiary)]">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M6 4.9c0-.5.4-.9.9-.9h10.2c.5 0 .9.4.9.9v14.6c0 .34-.39.53-.65.32L12 16.2l-5.35 3.62c-.26.21-.65.02-.65-.32V4.9z" />
-              </svg>
-            </button>
-          </div>
-        );
-      })}
-    </div>
-  );
+  const cards = shown.map((slug) => {
+    const s = items[slug];
+    return {
+      slug,
+      title: s.title, oneLiner: s.oneLiner, gap: s.gap, pitch: s.pitch, features: s.features,
+      antiFeatures: s.antiFeatures, monetization: s.monetization, reviewGrid: s.reviewGrid,
+      icon: s.icon, hue: s.hue, cover: s.cover, score: s.score,
+      category: s.categoryName, categorySlug: s.category,
+    };
+  });
+
+  return <IdeaCards ideas={cards} locale={locale} />;
 }
