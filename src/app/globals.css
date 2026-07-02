@@ -339,6 +339,20 @@ html:not([data-theme="dark"]) {
   }
 }
 
+/* Bookmark toggle pop — a springy scale bounce on tap. */
+@keyframes fav-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.35); }
+  65% { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+.fav-pop {
+  animation: fav-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fav-pop { animation: none; }
+}
+
 /* Neutral near-black palette with clear elevation steps (getgems-like).
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {

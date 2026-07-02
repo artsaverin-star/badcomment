@@ -106,6 +106,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
     const monetization = e?.monetization ?? x.idea?.monetization;
     const gap = e?.gap ?? x.gap;
     return {
+      slug: x.slug,
       title: cleanTitle(e?.title ?? x.title), oneLiner: tg(e?.oneLiner ?? x.oneLiner), gap: gap ? tg(gap) : undefined,
       pitch: pitch ? tg(pitch) : undefined, features: features?.map((f) => tg(f)),
       antiFeatures: antiFeatures?.map((f) => tg(f)), monetization: monetization ? tg(monetization) : undefined,

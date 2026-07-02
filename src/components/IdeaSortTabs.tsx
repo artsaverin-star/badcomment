@@ -23,27 +23,33 @@ export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current:
     const q = p.toString();
     return q ? `/?${q}` : "/";
   };
+  // One segmented control in a white pill container (matches the rating toggle),
+  // horizontally scrollable where four labels don't fit.
   return (
-    <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-2">
-      {TABS.map((t) => {
-        const active = t.key === current;
-        return (
-          <Link
-            key={t.key}
-            href={href(t.key)}
-            scroll={false}
-            aria-current={active ? "true" : undefined}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-footnote font-medium transition-colors ${
-              active
-                ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
-                : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-card)] hover:text-[var(--color-text-primary)]"
-            }`}
-          >
-            {t.dot && <span className="size-1.5 rounded-full" style={{ background: t.dot }} />}
-            {ru ? t.ru : t.en}
-          </Link>
-        );
-      })}
+    <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="flex w-max min-w-full justify-center">
+        <div className="inline-flex shrink-0 items-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0.5 shadow-[0_1px_2px_rgba(18,18,22,0.04)]">
+          {TABS.map((t) => {
+            const active = t.key === current;
+            return (
+              <Link
+                key={t.key}
+                href={href(t.key)}
+                scroll={false}
+                aria-current={active ? "true" : undefined}
+                className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-1.5 text-footnote font-medium transition-colors ${
+                  active
+                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                {t.dot && <span className="size-1.5 rounded-full" style={{ background: t.dot }} />}
+                {ru ? t.ru : t.en}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

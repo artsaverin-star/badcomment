@@ -102,6 +102,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const shown = all.slice(0, limit).map((i, idx) => {
     const ov = ideaCard(i.slug, locale);
     return {
+      slug: i.slug,
       title: cleanTitle(ov?.title ?? i.title),
       oneLiner: ov?.oneLiner ?? i.oneLiner,
       gap: i.gap,

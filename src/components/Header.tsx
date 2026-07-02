@@ -50,6 +50,9 @@ export default function Header({
             pill on small screens — the footer keeps the same links reachable. */}
         {!scrolled && (
           <nav className="ml-5 hidden items-center gap-4 md:flex">
+            <Link href="/" className="text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              {locale === "en" ? "Ideas" : "Идеи"}
+            </Link>
             <Link href="/categories" className="text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
               {locale === "en" ? "Breakdowns" : "Разборы"}
             </Link>

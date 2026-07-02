@@ -24,7 +24,9 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
   const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   const base = "shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-footnote font-medium transition-colors inline-flex items-center gap-1.5";
-  const cls = (active: boolean) => `${base} ${active ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-card)] hover:text-[var(--color-text-primary)]"}`;
+  const cls = (active: boolean) => `${base} ${active
+    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+    : "border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_1px_2px_rgba(18,18,22,0.04)] hover:text-[var(--color-text-primary)]"}`;
 
   return (
     <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
