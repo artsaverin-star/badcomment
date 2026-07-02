@@ -252,8 +252,8 @@ function CardFace({ icon, art, title, desc, footer, onClick, locked, kicker, fav
 function Sec({ k, children }: { k: string; children: React.ReactNode }) {
   return (
     <section className="mt-3 rounded-[18px] bg-[var(--color-surface-card)] p-5">
-      <h4 className="text-caption text-[var(--color-text-tertiary)]">{k}</h4>
-      <div className="mt-2 text-callout text-[var(--color-text-secondary)]">{children}</div>
+      <h4 className="text-subhead text-[var(--color-text-primary)]">{k}</h4>
+      <div className="mt-2.5 text-callout text-[var(--color-text-secondary)]">{children}</div>
     </section>
   );
 }
