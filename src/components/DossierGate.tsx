@@ -16,7 +16,7 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
 
   return (
     <section className="mt-24">
-      <div className="rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-12 sm:py-20">
+      <div className="card-min rounded-[28px] px-6 py-14 text-center sm:px-12 sm:py-20">
         <h2 className="text-title1 text-[var(--color-text-primary)]">
           {ru ? "Открыть весь разбор" : "Open the full breakdown"}
         </h2>
@@ -28,7 +28,7 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
 
         <div className="mx-auto mt-9 flex max-w-[420px] flex-col gap-2.5 text-left">
           {items.map((it, i) => (
-            <div key={i} className="flex items-center gap-3 rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">
+            <div key={i} className="flex items-center gap-3 rounded-[14px] bg-[var(--color-bg-muted)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">
               <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[#30d158]"><circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.8 9.2l2.1 2.1 4.3-4.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               {it}
             </div>

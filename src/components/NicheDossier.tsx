@@ -236,8 +236,12 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
-        <h3 className="mt-12 text-headline text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-        <AppLinkedText as="p" className="mt-3 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(aud.takeaway)} apps={ratingApps} locale={locale} />
+        {/* The money takeaway is THE conclusion of the audience section — an
+            inverted tile, the page's single strong accent. */}
+        <div className="mt-6 rounded-[22px] bg-[var(--color-text-primary)] p-6 sm:p-7">
+          <h3 className="text-caption text-[color-mix(in_srgb,var(--color-bg-page)_65%,transparent)]">{ru ? "Где деньги" : "Where the money is"}</h3>
+          <p className="mt-2.5 max-w-[62ch] text-lead text-pretty text-[var(--color-bg-page)]">{tg(aud.takeaway)}</p>
+        </div>
       </Block>
 
       {loggedIn ? (
@@ -255,7 +259,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
               <h3 className="text-title3 text-[var(--color-text-primary)]">{cap(tg(p.title))}</h3>
               <AppLinkedText as="p" className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(p.dek)} apps={ratingApps} locale={locale} />
               {grouped[pi].length > 0 && (
-                <div className="mt-7 border-t border-[var(--color-border-subtle)]">
+                <div className="card-min mt-7 rounded-[22px] px-5 sm:px-6">
                   {grouped[pi].map((f, k) => (
                     <Disclosure
                       key={k}
@@ -285,7 +289,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </>
       ) : (
         <section className="mt-24">
-          <div className="rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-10 sm:py-16">
+          <div className="card-min rounded-[24px] px-6 py-14 text-center sm:px-10 sm:py-16">
             <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `Выводы по отзывам и ${ideas.length} идей` : `Conclusions from reviews and ${ideas.length} ideas`}</h3>
             <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
               {ru
@@ -328,7 +332,7 @@ function Block({ title, lead, children }: { title: string; lead?: ReactNode; chi
 
 function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; children: ReactNode; defaultOpen?: boolean; card?: boolean }) {
   return (
-    <details open={defaultOpen} className={card ? "group/f rounded-[16px] border border-[var(--color-border-subtle)] px-5" : "group/f border-b border-[var(--color-border-subtle)]"}>
+    <details open={defaultOpen} className={card ? "group/f rounded-[16px] border border-[var(--color-border-subtle)] px-5" : "group/f border-b border-[var(--color-border-subtle)] last:border-b-0"}>
       <summary className="flex cursor-pointer list-none items-start gap-4 py-4 [&::-webkit-details-marker]:hidden">
         {head}
         <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
