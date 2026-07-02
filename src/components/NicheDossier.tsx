@@ -13,6 +13,7 @@ import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { categoryCards } from "@/lib/regenCards";
 import { marketFor, scoreFor } from "@/lib/ideaScores";
+import { hueFromSlug } from "@/lib/categoryGradient";
 import ideasAll from "@/data/ideas.json";
 import ideasContentEn from "@/data/ideas-content.en.json";
 import dossierEn from "@/data/dossier.en.json";
@@ -120,6 +121,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       pitch: pitch ? tg(pitch) : undefined, features: features?.map((f) => tg(f)),
       antiFeatures: antiFeatures?.map((f) => tg(f)), monetization: monetization ? tg(monetization) : undefined,
       reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
+      hue: hueFromSlug(slug),
       score: scoreFor(x.slug, locale) ?? undefined,
     };
   });

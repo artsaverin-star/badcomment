@@ -12,7 +12,7 @@ import type { Locale } from "@/lib/i18n";
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score; category?: string; categorySlug?: string };
+type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; hue?: number; score?: Score; category?: string; categorySlug?: string };
 
 // Bookmark toggle on an idea card: pops on tap and persists to localStorage
 // (favIdeas, keyed by idea slug). State lives in localStorage and reaches
@@ -99,24 +99,16 @@ function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value
 // Score row for the card footer: clean white bordered chips (gallery style),
 // a tiny coloured glyph carries the metric, the number stays neutral.
 const CHIP = "inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-[12px] tabular-nums shadow-[0_1px_2px_rgba(18,18,22,0.04)]";
-function MetricPill({ k, value }: { k: "money" | "simplicity" | "demand"; value: number }) {
-  const c = SCORE_META[k].color;
-  return (
-    <span className={`${CHIP} font-medium text-[var(--color-text-secondary)]`}>
-      <MetricIcon k={k} className="size-3.5" style={{ color: c }} />{value}
-    </span>
-  );
-}
+// The card footer shows ONE number — the composite. The full money/simplicity/
+// demand breakdown lives in the modal's ScoreBlock; four numbers per card made
+// the wall read as noise.
 function ScoreChip({ score }: { score: Score }) {
   return (
     <div className="flex flex-wrap items-center gap-1.5">
       <span className={`${CHIP} font-semibold text-[var(--color-text-primary)]`}>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
-        {score.composite}
+        {score.composite}<span className="font-normal text-[var(--color-text-tertiary)]">/100</span>
       </span>
-      <MetricPill k="money" value={score.money} />
-      <MetricPill k="simplicity" value={score.simplicity} />
-      <MetricPill k="demand" value={score.demand} />
     </div>
   );
 }
@@ -221,15 +213,21 @@ function Modal({ onClose, action, children }: { onClose: () => void; action?: Re
 // A gallery card. With `art` set it gets a cover zone on top — a quiet grey
 // canvas with a centred SF-style glyph, the placeholder until each idea gets a
 // real illustration. Without `art` it stays the compact text card (personas).
-function CardFace({ icon, art, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
+function CardFace({ icon, art, hue, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; hue?: number; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
   return (
     <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full flex-col items-start overflow-hidden rounded-[22px] text-left ${art ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
       {art && (
-        <div className="relative flex aspect-[2/1] w-full items-center justify-center rounded-[15px] bg-[var(--color-bg-muted)]">
-          <Icon name={art} className="size-10 text-[var(--color-text-tertiary)]" />
+        // The cover: a soft pastel wash in the niche's own hue (grey until each
+        // idea gets a real illustration) — the colour gives the wall of cards
+        // its rhythm. Light/dark variants live in CSS (.art-wash).
+        <div
+          className={`relative flex aspect-[2/1] w-full items-center justify-center rounded-[15px] ${hue != null ? "art-wash" : "bg-[var(--color-bg-muted)]"}`}
+          style={hue != null ? ({ "--art-h": hue } as React.CSSProperties) : undefined}
+        >
+          <Icon name={art} className={`size-10 ${hue != null ? "art-glyph" : "text-[var(--color-text-tertiary)]"}`} />
           {favId && !locked && <FavButton id={favId} />}
         </div>
       )}
@@ -371,7 +369,7 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
           // autoloaded cards cascade in instead of popping the layout at once.
           <div key={i} className="card-fade mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => openCard(x)}
-              art={x.icon} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
+              art={x.icon} hue={x.hue} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
         ))}
       </div>

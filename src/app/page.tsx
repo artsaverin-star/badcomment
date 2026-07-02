@@ -6,6 +6,7 @@ import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { hueFromSlug } from "@/lib/categoryGradient";
 import IdeasDeck from "@/components/IdeasDeck";
 import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
@@ -106,6 +107,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       title: cleanTitle(ov?.title ?? i.title),
       oneLiner: ov?.oneLiner ?? i.oneLiner,
       icon: ICONS[idx % ICONS.length],
+      hue: hueFromSlug(i.category),
       score: scoreFor(i.slug, locale) ?? undefined,
       category: nameOf(i.category),
       categorySlug: i.category,
@@ -158,13 +160,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           <MetaLink href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} />
         </p>
 
-        <div className="mt-10">
-          <IdeaSortTabs current={sort} cat={cat} locale={locale} />
-        </div>
       </header>
 
-      <div className="mt-4">
-        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
+      {/* One control row: the sort select, then the niche chips scrolling away. */}
+      <div className="mt-10 flex items-center gap-2">
+        <IdeaSortTabs current={sort} cat={cat} locale={locale} />
+        <div className="min-w-0 flex-1">
+          <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
+        </div>
       </div>
 
       <div className="mt-7">

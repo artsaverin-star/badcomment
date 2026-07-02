@@ -337,6 +337,22 @@ html:not([data-theme="dark"]) {
   }
 }
 
+/* Idea-card cover wash: a quiet pastel in the niche's hue (set via --art-h).
+   Saturation stays low so a wall of covers reads as a calm gallery, not confetti. */
+.art-wash {
+  background: hsl(var(--art-h, 240) 55% 94.5%);
+}
+.art-wash .art-glyph,
+.art-glyph {
+  color: hsl(var(--art-h, 240) 30% 50%);
+}
+[data-theme="dark"] .art-wash {
+  background: hsl(var(--art-h, 240) 26% 16%);
+}
+[data-theme="dark"] .art-glyph {
+  color: hsl(var(--art-h, 240) 32% 72%);
+}
+
 /* Fade-only entrance for cards inside CSS columns. The deal-in translate is
    NOT usable there: a transformed element inside a multicol container gets
    mispainted at column boundaries (sliced card ghosts), so only opacity moves. */
