@@ -119,9 +119,9 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
           ))}
         </div>
 
-        <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-          <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Как считаем" : "How we score"}</div>
-          <p className="mt-3 max-w-[64ch] text-callout text-[var(--color-text-secondary)]">
+        <div className="card-min mt-12 rounded-[22px] p-6">
+          <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Как считаем" : "How we score"}</div>
+          <p className="mt-2 max-w-[64ch] text-callout text-[var(--color-text-secondary)]">
             {ru
               ? "Читаем до 500 реальных отзывов на каждое приложение и оцениваем качество самого продукта. Смотрим на точность, глубину, авторские тексты против общей ИИ-воды. Жалобы на цену и баги игнорируем как шум. Подлинность звезды это сверка витринного рейтинга с тем, что люди пишут на деле."
               : "We read up to 500 real reviews per app and rate the product itself. We look at accuracy, depth and original writing versus generic AI filler. Price and bug complaints we ignore as noise. Star authenticity compares the storefront rating with what people actually write."}
@@ -129,35 +129,38 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         </div>
       </header>
 
-      <ol className="mt-16 flex flex-col border-t border-[var(--color-border-subtle)]">
+      <ol className="mt-12 flex flex-col gap-4">
         {set.apps.map((a, i) => {
           const av = authVerdict(a.authenticity, ru);
           // On EN, prefer the translated overlay; fall back to RU if missing.
           const tx = (k: "verdict" | "loved" | "weak" | "whoFor" | "authNote") => (ru ? a[k] : a.en?.[k] ?? a[k]) ?? "";
           return (
-            <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-9">
-              <div className="flex items-center gap-3">
-                <span className="w-4 shrink-0 self-start text-right text-footnote tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
+            <li key={a.id} className="card-min rounded-[22px] p-6 sm:p-7">
+              <div className="flex items-center gap-3.5">
                 {a.icon
                   // eslint-disable-next-line @next/next/no-img-element
-                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-16 shrink-0 rounded-[16px] object-cover" />
-                  : <span className="size-16 shrink-0 rounded-[16px] bg-[var(--color-bg-muted)]" />}
-                <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-14 shrink-0 rounded-[14px] object-cover" />
+                  : <span className="size-14 shrink-0 rounded-[14px] bg-[var(--color-bg-muted)]" />}
+                <div className="min-w-0 flex-1">
                   <h2 className="text-headline text-[var(--color-text-primary)]">{a.title}</h2>
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-tertiary)]"><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</span> {ru ? "в сторе" : "store"}</span>
-                    <span className="inline-flex items-center rounded-full px-2.5 py-1 text-caption font-medium" style={{ background: `color-mix(in srgb, ${av.fg} 15%, transparent)`, color: av.fg }}>{av.word}</span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-tertiary)]"><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{nf(a.ratings)}</span> {ru ? "оценок" : "ratings"}</span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]"><span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}/100</span> {ru ? "народный" : "people's"}</span>
+                  <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
+                    <span className="tabular-nums">№{i + 1}</span>
+                    {" · "}<span className="tabular-nums">{a.storeAvg?.toFixed(1) ?? "—"}★</span> {ru ? "в сторе" : "in store"}
+                    {" · "}<span style={{ color: av.fg }}>{av.word.toLowerCase()}</span>
+                    {" · "}<span className="tabular-nums">{nf(a.ratings)}</span> {ru ? "оценок" : "ratings"}
                   </div>
+                </div>
+                <div className="shrink-0 text-right">
+                  <span className="block text-title3 font-bold tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}</span>
+                  <span className="block text-caption text-[var(--color-text-tertiary)]">{ru ? "наш балл" : "our score"}</span>
                 </div>
               </div>
 
-              <p className="mt-4 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(tx("verdict"))}</p>
+              <p className="mt-4 max-w-[62ch] text-callout text-pretty text-[var(--color-text-secondary)]">{tg(tx("verdict"))}</p>
 
               {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
 
-              <div className="mt-5 flex flex-col gap-3.5">
+              <div className="mt-5 flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pt-4">
                 <Field label={ru ? "Сильное" : "Strong"}>{tg(tx("loved"))}</Field>
                 <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
                 {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
@@ -167,8 +170,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         })}
       </ol>
 
-      <Link href={`/${ru ? "ru" : "en"}/segment/${slug}`} className="group mt-12 block border-t border-[var(--color-border-subtle)] pt-8">
-        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
+      <Link href={`/${ru ? "ru" : "en"}/segment/${slug}`} className="card-min group mt-6 block rounded-[22px] p-6 sm:p-7">
+        <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
         <p className="mt-2 max-w-[40ch] text-title3 text-[var(--color-text-primary)]">
           {ru ? <>Разбор категории и идеи под подтверждённый спрос <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></> : <>The category breakdown and ideas backed by proven demand <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></>}
         </p>

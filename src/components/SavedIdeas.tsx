@@ -2,64 +2,76 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import MessageIcon from "./MessageIcon";
 import type { Locale } from "@/lib/i18n";
 
-type Saved = { slug: string; category: string; categoryName: string; title: string; oneLiner: string; demand: number };
+export type SavedPreview = { category: string; categoryName: string; title: string; oneLiner: string };
 
-// «Избранное» — the ideas a visitor hearted in the feed, kept in localStorage
-// (feed:saved). Lives in the profile area now, not in the feed itself.
-export default function SavedIdeas({ locale = "ru" }: { locale?: Locale }) {
+// «Избранное» — the ideas bookmarked on the cards (localStorage favIdeas,
+// written by the deck's FavButton). Legacy hearts from the old feed
+// (feed:saved, array of objects) are merged into favIdeas once on load, so
+// nothing a visitor saved before the redesign is lost.
+export default function SavedIdeas({ items, locale = "ru" }: { items: Record<string, SavedPreview>; locale?: Locale }) {
   const ru = locale !== "en";
-  const [items, setItems] = useState<Saved[] | null>(null);
+  const [slugs, setSlugs] = useState<string[] | null>(null);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       try {
-        const s = JSON.parse(localStorage.getItem("feed:saved") || "[]");
-        setItems(Array.isArray(s) ? s : []);
-      } catch { setItems([]); }
+        const fav = new Set<string>(JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]);
+        const legacy = JSON.parse(localStorage.getItem("feed:saved") || "[]") as { slug?: string }[];
+        let migrated = false;
+        for (const s of Array.isArray(legacy) ? legacy : []) {
+          if (s?.slug && !fav.has(s.slug)) { fav.add(s.slug); migrated = true; }
+        }
+        if (migrated) localStorage.setItem("favIdeas", JSON.stringify([...fav]));
+        setSlugs([...fav]);
+      } catch { setSlugs([]); }
     });
     return () => cancelAnimationFrame(id);
   }, []);
 
   function remove(slug: string) {
-    setItems((prev) => {
-      const next = (prev || []).filter((s) => s.slug !== slug);
-      try { localStorage.setItem("feed:saved", JSON.stringify(next)); } catch { /* ignore */ }
+    setSlugs((prev) => {
+      const next = (prev || []).filter((s) => s !== slug);
+      try { localStorage.setItem("favIdeas", JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
   }
 
-  if (items === null) return null;
+  if (slugs === null) return null;
+  const shown = slugs.filter((s) => items[s]);
 
-  if (items.length === 0) {
+  if (shown.length === 0) {
     return (
-      <div className="rounded-[22px] border border-dashed border-[var(--color-border-subtle)] p-10 text-center">
-        <div className="text-[40px]">🤍</div>
-        <p className="mt-3 text-[15px] text-[var(--color-text-secondary)]">{ru ? "Пока пусто. Листай ленту идей и жми ♥ на тех, что стоит построить." : "Empty for now. Browse the idea feed and tap ♥ on the ones worth building."}</p>
-        <Link href="/cards" className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-[14px] font-semibold text-[var(--color-button-primary-text)]">{ru ? "В ленту идей" : "To the idea feed"}</Link>
+      <div className="card-min rounded-[22px] p-10 text-center">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mx-auto text-[var(--color-text-tertiary)]">
+          <path d="M6 4.9c0-.5.4-.9.9-.9h10.2c.5 0 .9.4.9.9v14.6c0 .34-.39.53-.65.32L12 16.2l-5.35 3.62c-.26.21-.65.02-.65-.32V4.9z" />
+        </svg>
+        <p className="mx-auto mt-4 max-w-[36ch] text-callout text-[var(--color-text-secondary)]">{ru ? "Пока пусто. Жми закладку на карточках идей, и они соберутся здесь." : "Empty for now. Tap the bookmark on idea cards and they will collect here."}</p>
+        <Link href="/" className="mt-6 inline-flex rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">{ru ? "К идеям" : "To the ideas"}</Link>
       </div>
     );
   }
 
   return (
     <div className="flex flex-col gap-3">
-      {items.map((s) => (
-        <div key={s.slug} className="flex items-start gap-3 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4">
-          <Link href={`/segment/${s.category}`} className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-2">
-              <span className="line-clamp-1 text-[11px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{s.categoryName}</span>
-              <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-semibold tabular-nums text-[var(--color-text-tertiary)]"><MessageIcon size={12} /> {s.demand}</span>
-            </div>
-            <div className="mt-1.5 text-[16px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</div>
-            <div className="mt-1 line-clamp-2 text-[13px] leading-[1.45] text-[var(--color-text-secondary)]">{s.oneLiner}</div>
-          </Link>
-          <button type="button" onClick={() => remove(s.slug)} aria-label={ru ? "Убрать" : "Remove"} className="shrink-0 text-[#ff3b5c]">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" /></svg>
-          </button>
-        </div>
-      ))}
+      {shown.map((slug) => {
+        const s = items[slug];
+        return (
+          <div key={slug} className="card-min flex items-start gap-3 rounded-[20px] p-5">
+            <Link href={`/segment/${s.category}`} className="min-w-0 flex-1">
+              <span className="block text-caption text-[var(--color-text-tertiary)]">{s.categoryName}</span>
+              <span className="mt-1 block text-headline text-[var(--color-text-primary)]">{s.title}</span>
+              <span className="mt-1.5 line-clamp-2 block text-callout text-[var(--color-text-secondary)]">{s.oneLiner}</span>
+            </Link>
+            <button type="button" onClick={() => remove(slug)} aria-label={ru ? "Убрать из избранного" : "Remove from saved"} className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] transition-colors hover:text-[var(--color-text-tertiary)]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M6 4.9c0-.5.4-.9.9-.9h10.2c.5 0 .9.4.9.9v14.6c0 .34-.39.53-.65.32L12 16.2l-5.35 3.62c-.26.21-.65.02-.65-.32V4.9z" />
+              </svg>
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }

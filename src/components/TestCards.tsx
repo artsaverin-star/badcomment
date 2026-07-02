@@ -188,7 +188,7 @@ function Icon({ name, className }: { name: string; className?: string }) {
   );
 }
 
-function Modal({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
+function Modal({ onClose, action, children }: { onClose: () => void; action?: React.ReactNode; children: React.ReactNode }) {
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
@@ -208,7 +208,8 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
       >
         <div className="mx-auto mt-3 h-1 w-9 shrink-0 rounded-full bg-[var(--color-border-strong)] sm:hidden" />
         <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 sm:pt-7">{children}</div>
-        <div className="shrink-0 border-t border-[var(--color-border-subtle)] p-4">
+        <div className="flex shrink-0 flex-col gap-2 border-t border-[var(--color-border-subtle)] p-4">
+          {action}
           <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
         </div>
       </div>
@@ -322,7 +323,7 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
   );
 }
 
-const IDEA_PAGE = 24;
+const IDEA_PAGE = 12;
 
 export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas: Idea[]; locked?: boolean; locale?: Locale; columns?: 2 | 3 }) {
   const [open, setOpen] = useState<Idea | null>(null);
@@ -350,7 +351,9 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
     <>
       <div className={`gap-4 [column-fill:balance] sm:columns-2 ${columns === 3 ? "lg:columns-3" : ""}`}>
         {shown.map((x, i) => (
-          <div key={i} className="mb-4 break-inside-avoid">
+          // deck-deal runs once on mount, staggered within the page — freshly
+          // autoloaded cards cascade in instead of popping the layout at once.
+          <div key={i} className="deck-card mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
               art={x.icon} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
@@ -358,7 +361,14 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
       </div>
       {count < ideas.length && <div ref={sentinel} className="h-4 w-full" aria-hidden="true" />}
       {!locked && open && (
-        <Modal onClose={() => setOpen(null)}>
+        <Modal
+          onClose={() => setOpen(null)}
+          action={open.categorySlug ? (
+            <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
+              {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
+            </a>
+          ) : undefined}
+        >
           {open.category && <div className="text-caption text-[var(--color-text-tertiary)]">{open.category}</div>}
           <h3 className="mt-1.5 text-title3 text-balance text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
@@ -379,15 +389,6 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
                 ))}
               </div>
             </Sec>
-          )}
-          {open.categorySlug && (
-            <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="mt-3 flex items-center justify-between gap-3 rounded-[18px] bg-[var(--color-surface-card)] px-5 py-4 transition-opacity hover:opacity-80">
-              <span className="min-w-0">
-                <span className="block text-caption text-[var(--color-text-tertiary)]">{ru ? "Разбор ниши" : "Niche breakdown"}</span>
-                <span className="block truncate text-callout font-medium text-[var(--color-text-primary)]">{open.category ? (ru ? `Открыть разбор: ${open.category}` : `Open breakdown: ${open.category}`) : ru ? "Открыть разбор категории" : "Open the category breakdown"}</span>
-              </span>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </a>
           )}
         </Modal>
       )}
