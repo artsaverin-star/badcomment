@@ -44,6 +44,14 @@ const cleanTitle = (t: string) => {
 };
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
+function ratingsWord(n: number): string {
+  const dd = n % 100, d = n % 10;
+  if (dd >= 11 && dd <= 14) return "оценок";
+  if (d === 1) return "оценка";
+  if (d >= 2 && d <= 4) return "оценки";
+  return "оценок";
+}
+
 // Route every finding under its best-matching pillar. Findings that match no
 // pillar keyword used to all dump into pillar 0 and then get sliced off (lost) —
 // now they go to whichever pillar is currently lightest, so EVERY finding is
@@ -169,7 +177,20 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <dl className="mt-8 grid gap-3 sm:grid-cols-2">
           <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
           <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
-          <MarketRow wide k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
+          <MarketRow wide k={ru ? "Лидеры" : "Leaders"} v={
+            <span className="flex flex-col gap-2.5">
+              {leaders.map((a) => (
+                <span key={a.id} className="flex items-center gap-2.5">
+                  {a.icon
+                    // eslint-disable-next-line @next/next/no-img-element
+                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-7 shrink-0 rounded-[8px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                    : <span className="size-7 shrink-0 rounded-[8px] bg-[var(--color-bg-muted)]" />}
+                  <span className="min-w-0 flex-1 truncate text-callout font-medium text-[var(--color-text-primary)]">{a.title}</span>
+                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{NF(a.ratings || 0)} {ru ? ratingsWord(a.ratings || 0) : "ratings"}</span>
+                </span>
+              ))}
+            </span>
+          } />
           <MarketRow wide k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
           {mkt?.installs && (
             <MarketRow k={ru ? "Скачивания" : "Downloads"} v={ru
