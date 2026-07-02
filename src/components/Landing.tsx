@@ -71,7 +71,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[hsl(var(--atmo-h,230)_24%_12%_/_0.5)] p-6 transition-colors duration-200 hover:bg-[hsl(var(--atmo-h,230)_26%_16%_/_0.62)]"
+      className="card-min group flex h-full flex-col rounded-[22px] p-6"
     >
       <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
       {icons.length > 0 && (

@@ -1,6 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
+
+type RApp = { icon: string | null; ratings: number };
+type RFile = { count?: number; apps?: RApp[] };
+const RATING = RATING_BY_SLUG as Record<string, RFile>;
+
+// Top app icons of a niche for the card strip, biggest first.
+function iconsFor(slug: string): string[] {
+  return (RATING[slug]?.apps ?? [])
+    .slice()
+    .sort((a, b) => (b.ratings || 0) - (a.ratings || 0))
+    .map((a) => a.icon)
+    .filter((x): x is string => !!x)
+    .slice(0, 4);
+}
+
+function appsWord(n: number, ru: boolean): string {
+  if (!ru) return "apps";
+  const dd = n % 100, d = n % 10;
+  if (dd >= 11 && dd <= 14) return "приложений";
+  if (d === 1) return "приложение";
+  if (d >= 2 && d <= 4) return "приложения";
+  return "приложений";
+}
 
 export const dynamic = "force-dynamic";
 
@@ -89,16 +113,31 @@ export default async function RatingIndexPage() {
         </p>
       </header>
 
-      <div className="mt-12 flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
-        {NICHES.map((n) => (
-          <Link key={n.slug} href={`/rating/${n.slug}`} className="group flex items-center gap-4 py-5 transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-primary)_4%,transparent)]">
-            <div className="min-w-0 flex-1">
-              <h2 className="text-subhead text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
-              {ru && <p className="mt-1 text-callout text-[var(--color-text-secondary)]">{n.blurb}</p>}
-            </div>
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </Link>
-        ))}
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        {NICHES.map((n) => {
+          const icons = iconsFor(n.slug);
+          const count = RATING[n.slug]?.count ?? 0;
+          return (
+            <Link key={n.slug} href={`/rating/${n.slug}`} className="card-min group flex h-full flex-col rounded-[22px] p-6">
+              <h2 className="text-headline text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
+              {icons.length > 0 && (
+                <div className="mt-4 flex items-center gap-1.5">
+                  {icons.map((src, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-8 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                  ))}
+                </div>
+              )}
+              {ru && <p className="mt-4 line-clamp-2 text-callout text-[var(--color-text-secondary)]">{n.blurb}</p>}
+              <div className="mt-auto flex items-center justify-between pt-5">
+                {count > 0
+                  ? <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{count} {appsWord(count, ru)}</p>
+                  : <span />}
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </main>
   );

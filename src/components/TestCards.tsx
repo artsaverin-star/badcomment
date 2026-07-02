@@ -222,13 +222,13 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
 // real illustration. Without `art` it stays the compact text card (personas).
 function CardFace({ icon, art, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
   return (
-    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full flex-col items-start overflow-hidden rounded-[22px] text-left [content-visibility:auto] ${art ? "p-2.5 [contain-intrinsic-size:auto_280px]" : "gap-3 p-6 [contain-intrinsic-size:auto_160px]"} ${locked ? "cursor-default" : ""}`}>
+    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full flex-col items-start overflow-hidden rounded-[22px] text-left ${art ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
       {art && (
         <div className="relative flex aspect-[2/1] w-full items-center justify-center rounded-[15px] bg-[var(--color-bg-muted)]">
-          <Icon name={art} className="size-10 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover/c:scale-105" />
+          <Icon name={art} className="size-10 text-[var(--color-text-tertiary)]" />
           {favId && !locked && <FavButton id={favId} />}
         </div>
       )}
