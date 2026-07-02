@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
@@ -46,6 +47,12 @@ const cleanTitle = (t: string) => {
 };
 // Capitalize the first letter, keeping brand casings (iPhone, iOS, macOS, eBay).
 const cap = (s: string) => (!s || /^(mac|watch|tv|i|e)[A-Z]/.test(s) ? s : s.charAt(0).toUpperCase() + s.slice(1));
+
+function firstSentence(t?: string): string {
+  if (!t) return "";
+  const m = t.match(/^.*?[.!?…](\s|$)/);
+  return (m ? m[0] : t).trim();
+}
 
 function ratingsWord(n: number): string {
   const dd = n % 100, d = n % 10;
@@ -125,6 +132,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       hue: hueFromSlug(slug),
       cover: (ideaCovers as Record<string, string>)[x.slug],
       score: scoreFor(x.slug, locale) ?? undefined,
+      // The kicker ties the idea back to its paying persona from the audience
+      // section (on the homepage this slot shows the niche name instead).
+      category: scoreFor(x.slug, locale)?.targetSegment,
     };
   });
   const grouped = groupFindings(thesis.pillars, cards);
@@ -157,6 +167,37 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
     { n: `${ideas.length}`, l: ru ? "идей" : "ideas" },
   ];
 
+  // Freshness: the newest asOf among the niche's ideas — research without a
+  // date reads as stale.
+  const asOf = ideas.map((x) => (x as { asOf?: string }).asOf).filter(Boolean).sort().pop();
+  const updated = asOf
+    ? new Date(asOf).toLocaleDateString(ru ? "ru-RU" : "en-US", { day: "numeric", month: "long", year: "numeric" })
+    : null;
+
+  // Personas who habitually don't pay — the honest "don't build for them" list.
+  const weakSegs = audSegments.filter((s) => s.payLevel.includes("слабо"));
+
+  // Hand-grouped neighbouring niches (same shopping intent), for the footer.
+  const GROUPS: string[][] = [
+    ["workout-fitness", "run-tracking", "nutrition-calories", "intermittent-fasting", "water-hydration", "sleep-tracking"],
+    ["meditation-mindfulness", "journaling-mood", "habit-tracking", "sobriety", "focus-productivity", "astrology"],
+    ["baby-tracking", "period-cycle", "pet-care", "plant-care"],
+    ["notes-pkm", "calendars-tasks", "mind-mapping", "flashcards", "language-learning", "ai-writing"],
+    ["ai-image-generation", "ai-avatars-headshots", "ai-chatbot", "photo-editing", "wallpapers-widgets"],
+    ["scanner-pdf", "qr-scanner", "voice-recorder", "translator", "password-manager", "weather-apps"],
+    ["personal-finance", "crypto-investing", "invoice-maker", "resume-builder", "car-maintenance"],
+    ["meal-prep-grocery", "recipes-meal-planning", "wardrobe-outfit", "shopping-ecommerce", "food-delivery"],
+    ["music-streaming", "video-streaming", "messaging-apps", "dating-apps", "travel-planning", "ride-hailing"],
+  ];
+  const related = (GROUPS.find((g) => g.includes(slug)) ?? [])
+    .filter((s) => s !== slug && RATING[s])
+    .slice(0, 5)
+    .map((s) => {
+      const rr = RATING[s];
+      const top = [...rr.apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).find((a) => a.icon);
+      return { slug: s, name: ru ? rr.name : rr.nameEn ?? rr.name, icon: top?.icon ?? null };
+    });
+
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
       <BackLink fallback="/categories" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
@@ -167,6 +208,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       <header className="mt-12">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
         <AppLinkedText as="p" className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.governing)} apps={ratingApps} locale={locale} />
+        {updated && <div className="mt-5 text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</div>}
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
@@ -236,6 +278,20 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
+        {weakSegs.length > 0 && (
+          <div className="card-min mt-4 rounded-[22px] p-6">
+            <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Кто не заплатит" : "Who won't pay"}</h3>
+            <p className="mt-1.5 text-footnote text-[var(--color-text-tertiary)]">{ru ? "Эти аудитории пользуются, но платят слабо. Строить на них бизнес не стоит." : "These audiences use the apps but rarely pay. Don't build a business on them."}</p>
+            <ul className="mt-3 divide-y divide-[var(--color-border-subtle)]">
+              {weakSegs.map((s, i) => (
+                <li key={i} className="flex gap-3 py-3 first:pt-0 last:pb-0">
+                  <span className="mt-px shrink-0 text-[15px] leading-[1.4] text-[var(--color-text-tertiary)]">×</span>
+                  <span className="text-callout text-[var(--color-text-secondary)]"><span className="font-medium text-[var(--color-text-primary)]">{s.name}.</span> {firstSentence(s.payNote)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {/* The money takeaway is THE conclusion of the audience section — an
             inverted tile, the page's single strong accent. */}
         <div className="mt-6 rounded-[22px] bg-[var(--color-text-primary)] p-6 sm:p-7">
@@ -285,6 +341,28 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши." : "Every idea is a real business, built on reading all the reviews in the niche."}>
         <div className="mt-6"><IdeaCards ideas={ideaCards} locale={locale} columns={2} /></div>
+        <div className="card-min mt-6 rounded-[22px] p-6 sm:p-7">
+          <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "С чего начать" : "Where to start"}</h3>
+          <ol className="mt-3 divide-y divide-[var(--color-border-subtle)]">
+            {(ru
+              ? [
+                  "Выбери идею с самым высоким итогом и прочитай, кто и сколько за это уже платит.",
+                  "Проверь спрос сам: открой цитаты идеи и посмотри в рейтинге, как с этой работой справляются нынешние лидеры.",
+                  "Собери минимальную версию вокруг одного механизма из идеи и покажи её людям из раздела «Аудитория».",
+                ]
+              : [
+                  "Pick the idea with the highest score and read who already pays for this and how much.",
+                  "Verify the demand yourself: open the idea's quotes and check in the rating how today's leaders handle this job.",
+                  "Build a minimal version around one mechanism from the idea and show it to the people from the Audience section.",
+                ]
+            ).map((step, i) => (
+              <li key={i} className="flex gap-3.5 py-3 first:pt-0 last:pb-0">
+                <span className="mt-px flex size-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-caption font-semibold tabular-nums text-[var(--color-text-primary)]">{i + 1}</span>
+                <span className="text-callout text-[var(--color-text-secondary)]">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Block>
         </>
       ) : (
@@ -315,6 +393,22 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </>
       ) : (
         <DossierGate ideasCount={ideas.length} locale={locale} />
+      )}
+
+      {related.length > 0 && (
+        <Block title={ru ? "Соседние ниши" : "Nearby niches"} lead={ru ? "Разборы рядом: та же аудитория, соседние работы." : "Breakdowns next door: same audience, adjacent jobs."}>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {related.map((n) => (
+              <Link key={n.slug} href={`/segment/${n.slug}`} className="card-min inline-flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+                {n.icon
+                  // eslint-disable-next-line @next/next/no-img-element
+                  ? <img src={n.icon} alt="" loading="lazy" decoding="async" className="size-7 rounded-[8px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                  : <span className="size-7 rounded-[8px] bg-[var(--color-bg-muted)]" />}
+                {n.name}
+              </Link>
+            ))}
+          </div>
+        </Block>
       )}
     </main>
   );
