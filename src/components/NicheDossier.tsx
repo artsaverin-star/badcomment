@@ -198,6 +198,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       return { slug: s, name: ru ? rr.name : rr.nameEn ?? rr.name, icon: top?.icon ?? null };
     });
 
+  // Niche banner art = the cover of its highest-scored idea, if generated yet.
+  const nicheArt = ideaCards.find((c) => c.cover)?.cover;
+
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
       <BackLink fallback="/categories" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
@@ -219,6 +222,15 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           ))}
         </div>
       </header>
+
+      {/* A wide pencil-sketch banner for the niche — the cover of its strongest
+          idea doubles as the section's illustration. Shows only once art exists. */}
+      {nicheArt && (
+        <div className="mt-12 overflow-hidden rounded-[22px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={nicheArt} alt="" loading="lazy" decoding="async" className="aspect-[16/7] w-full object-cover" />
+        </div>
+      )}
 
       <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
         <dl className="mt-8 grid gap-3 sm:grid-cols-2">
