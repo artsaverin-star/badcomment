@@ -38,31 +38,25 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
       <span className="art-wash flex size-9 items-center justify-center rounded-[10px]" style={c.hue != null ? ({ "--art-h": c.hue } as React.CSSProperties) : undefined} />
     );
 
+  // No "all niches" tile: tapping the active tile again clears the filter.
   return (
     <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex w-max items-stretch gap-2.5">
-        <Link href={href()} scroll={false} className={tile(!current)}>
-          <span className={`flex size-9 items-center justify-center rounded-[10px] ${!current ? "bg-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)]" : "bg-[var(--color-bg-muted)]"}`}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={!current ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)]"}>
-              <rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" /><rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" />
-            </svg>
-          </span>
-          <span className={label(!current)}>{ru ? "Все ниши" : "All niches"}</span>
-        </Link>
-        {chips.map((c) =>
-          locked ? (
+        {chips.map((c) => {
+          const active = c.slug === current;
+          return locked ? (
             <button key={c.slug} type="button" onClick={toGate} className={tile(false)}>
               {art(c)}
               <span className={label(false)}>{c.name}</span>
               <span className="absolute right-2 top-2 text-[var(--color-text-tertiary)]"><Lock /></span>
             </button>
           ) : (
-            <Link key={c.slug} href={href(c.slug)} scroll={false} className={tile(c.slug === current)}>
+            <Link key={c.slug} href={href(active ? undefined : c.slug)} scroll={false} className={tile(active)}>
               {art(c)}
-              <span className={label(c.slug === current)}>{c.name}</span>
+              <span className={label(active)}>{c.name}</span>
             </Link>
-          ),
-        )}
+          );
+        })}
       </div>
     </div>
   );

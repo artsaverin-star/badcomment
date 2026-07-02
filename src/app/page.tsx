@@ -169,10 +169,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
       </header>
 
-      {/* One control row: the sort select, then the niche chips scrolling away. */}
-      <div className="mt-10 flex items-center gap-2">
-        <IdeaSortTabs current={sort} cat={cat} locale={locale} />
-        <div className="min-w-0 flex-1">
+      {/* The niche tiles own the control area; the sort is a quiet text control
+          tucked above them on the right. */}
+      <div className="mt-9">
+        <div className="flex justify-end">
+          <IdeaSortTabs current={sort} cat={cat} locale={locale} />
+        </div>
+        <div className="mt-2">
           <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
         </div>
       </div>

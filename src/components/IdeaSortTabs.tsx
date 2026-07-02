@@ -25,19 +25,21 @@ export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current:
     const q = p.toString();
     return q ? `/?${q}` : "/";
   };
+  // A quiet inline text control, not a pill — it must not compete with the
+  // niche tiles for attention.
   return (
-    <label className="relative inline-flex shrink-0 items-center">
-      <span className="sr-only">{ru ? "Сортировка идей" : "Sort ideas"}</span>
+    <label className="relative inline-flex shrink-0 items-center gap-1 text-footnote text-[var(--color-text-tertiary)]">
+      {ru ? "Сортировка:" : "Sort:"}
       <select
         value={current}
         onChange={(e) => router.push(href(e.target.value as SortKey), { scroll: false })}
-        className="appearance-none rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1.5 pl-3.5 pr-8 text-footnote font-medium text-[var(--color-text-primary)] shadow-[0_1px_2px_rgba(18,18,22,0.04)] outline-none"
+        className="appearance-none bg-transparent py-1 pr-5 font-medium text-[var(--color-text-secondary)] outline-none transition-colors hover:text-[var(--color-text-primary)]"
       >
         {OPTIONS.map((o) => (
           <option key={o.key} value={o.key}>{ru ? o.ru : o.en}</option>
         ))}
       </select>
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="pointer-events-none absolute right-3 text-[var(--color-text-tertiary)]"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="pointer-events-none absolute right-0 text-[var(--color-text-tertiary)]"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </label>
   );
 }
