@@ -3,15 +3,15 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 
-export type Chip = { slug: string; name: string };
+export type Chip = { slug: string; name: string; icon?: string | null; hue?: number };
 
 const Lock = () => (
-  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="-ml-0.5 shrink-0 opacity-70"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>
+  <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>
 );
 
-// Horizontal, scrollable category filter strip (gallery-style). "All niches" is
-// free; filtering by a specific niche is a premium feature — for non-owners the
-// niche chips show a lock and send them to the unlock gate instead of filtering.
+// Niche filter strip as square tiles (60fps-style): the niche's top-app icon
+// on top, the label below. "All niches" is free; filtering by a specific niche
+// is premium — for non-owners tiles show a lock and scroll to the unlock gate.
 export default function CategoryChips({ chips, current, sort, locale = "ru", locked = false }: { chips: Chip[]; current?: string; sort?: string; locale?: Locale; locked?: boolean }) {
   const ru = locale !== "en";
   const href = (cat?: string) => {
@@ -23,22 +23,44 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
   };
   const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  const base = "shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-footnote font-medium transition-colors inline-flex items-center gap-1.5";
-  const cls = (active: boolean) => `${base} ${active
-    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
-    : "border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_1px_2px_rgba(18,18,22,0.04)] hover:text-[var(--color-text-primary)]"}`;
+  const tile = (active: boolean) =>
+    `relative flex w-[104px] shrink-0 flex-col items-center gap-2 rounded-[18px] p-3 pt-3.5 text-center transition-colors ${
+      active ? "bg-[var(--color-text-primary)]" : "card-min"
+    }`;
+  const label = (active: boolean) =>
+    `line-clamp-2 w-full text-caption leading-[1.25] ${active ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)]"}`;
+
+  const art = (c: Chip) =>
+    c.icon ? (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-9 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+    ) : (
+      <span className="art-wash flex size-9 items-center justify-center rounded-[10px]" style={c.hue != null ? ({ "--art-h": c.hue } as React.CSSProperties) : undefined} />
+    );
 
   return (
     <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex w-max items-center gap-2">
-        <Link href={href()} scroll={false} className={cls(!current)}>{ru ? "Все ниши" : "All niches"}</Link>
+      <div className="flex w-max items-stretch gap-2.5">
+        <Link href={href()} scroll={false} className={tile(!current)}>
+          <span className={`flex size-9 items-center justify-center rounded-[10px] ${!current ? "bg-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)]" : "bg-[var(--color-bg-muted)]"}`}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={!current ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)]"}>
+              <rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" /><rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" />
+            </svg>
+          </span>
+          <span className={label(!current)}>{ru ? "Все ниши" : "All niches"}</span>
+        </Link>
         {chips.map((c) =>
           locked ? (
-            <button key={c.slug} type="button" onClick={toGate} className={cls(false)}>
-              <Lock />{c.name}
+            <button key={c.slug} type="button" onClick={toGate} className={tile(false)}>
+              {art(c)}
+              <span className={label(false)}>{c.name}</span>
+              <span className="absolute right-2 top-2 text-[var(--color-text-tertiary)]"><Lock /></span>
             </button>
           ) : (
-            <Link key={c.slug} href={href(c.slug)} scroll={false} className={cls(c.slug === current)}>{c.name}</Link>
+            <Link key={c.slug} href={href(c.slug)} scroll={false} className={tile(c.slug === current)}>
+              {art(c)}
+              <span className={label(c.slug === current)}>{c.name}</span>
+            </Link>
           ),
         )}
       </div>

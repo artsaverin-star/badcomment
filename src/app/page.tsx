@@ -7,6 +7,7 @@ import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
+import ideaCovers from "@/data/ideaCovers.json";
 import IdeasDeck from "@/components/IdeasDeck";
 import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
@@ -84,8 +85,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const totalReviews = Object.values(RATING_BY_SLUG as Record<string, { totalReviews?: number }>).reduce((s, r) => s + (r.totalReviews || 0), 0);
 
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
-  // Category chip strip: every niche that has ideas, in buildability order.
-  const chips = CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)).map((s) => ({ slug: s, name: nameOf(s) }));
+  // Niche tile strip: every niche that has ideas, in buildability order, with
+  // its biggest app's icon as the tile art.
+  const chips = CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)).map((s) => {
+    const apps = ((RATING_BY_SLUG as Record<string, { apps?: { icon?: string | null; ratings?: number }[] }>)[s]?.apps ?? []);
+    const top = [...apps].sort((a, b) => (b.ratings ?? 0) - (a.ratings ?? 0)).find((a) => a.icon);
+    return { slug: s, name: nameOf(s), icon: top?.icon ?? null, hue: hueFromSlug(s) };
+  });
   const all = raw
     .filter((i) => !cat || i.category === cat)
     .sort((a, b) => {
@@ -108,6 +114,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       oneLiner: ov?.oneLiner ?? i.oneLiner,
       icon: ICONS[idx % ICONS.length],
       hue: hueFromSlug(i.category),
+      cover: (ideaCovers as Record<string, string>)[i.slug],
       score: scoreFor(i.slug, locale) ?? undefined,
       category: nameOf(i.category),
       categorySlug: i.category,
