@@ -351,9 +351,9 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
     <>
       <div className={`gap-4 [column-fill:balance] sm:columns-2 ${columns === 3 ? "lg:columns-3" : ""}`}>
         {shown.map((x, i) => (
-          // deck-deal runs once on mount, staggered within the page — freshly
+          // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
-          <div key={i} className="deck-card mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
+          <div key={i} className="card-fade mb-4 break-inside-avoid" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)}
               art={x.icon} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
