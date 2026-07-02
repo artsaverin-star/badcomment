@@ -9,7 +9,7 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import ideaCovers from "@/data/ideaCovers.json";
 import IdeasDeck from "@/components/IdeasDeck";
-import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
+import { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Link from "next/link";
@@ -169,15 +169,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
       </header>
 
-      {/* The niche tiles own the control area; the sort is a quiet text control
-          tucked above them on the right. */}
+      {/* The niche tiles are the only control; sorting stays fixed on the
+          composite score (other orders still work via ?sort= links). */}
       <div className="mt-9">
-        <div className="flex justify-end">
-          <IdeaSortTabs current={sort} cat={cat} locale={locale} />
-        </div>
-        <div className="mt-2">
-          <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
-        </div>
+        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
       </div>
 
       <div className="mt-7">
