@@ -63,41 +63,7 @@ function FavButton({ id }: { id: string }) {
   );
 }
 
-const SCORE_META = {
-  money: { ru: "Деньги", en: "Money", color: "#30d158" },
-  simplicity: { ru: "Простота", en: "Simplicity", color: "#0a84ff" },
-  demand: { ru: "Спрос", en: "Demand", color: "#bf5af2" },
-} as const;
-
-const METRIC_GLYPH: Record<"money" | "simplicity" | "demand", React.ReactNode> = {
-  money: <><circle cx="12" cy="12" r="9" /><path d="M12 7v10M14.4 9.2c0-1-1.1-1.7-2.4-1.7s-2.5.8-2.5 1.9c0 2.6 5 1.4 5 4 0 1.1-1.2 1.9-2.5 1.9s-2.5-.8-2.5-1.8" /></>,
-  simplicity: <path d="M15.6 5.4a3.6 3.6 0 00-4.7 4.7l-5.7 5.7a1.6 1.6 0 002.2 2.2l5.7-5.7a3.6 3.6 0 004.7-4.7l-2.1 2.1-1.7-.5-.5-1.7 2.1-2.1z" />,
-  demand: <><path d="M4 16l5-5 3 3 6-6" /><path d="M15 8h4v4" /></>,
-};
-
-function MetricIcon({ k, className, style }: { k: "money" | "simplicity" | "demand"; className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className} style={style}>
-      {METRIC_GLYPH[k]}
-    </svg>
-  );
-}
-
-function Bar({ k, value, locale }: { k: "money" | "simplicity" | "demand"; value: number; locale: Locale }) {
-  const m = SCORE_META[k];
-  return (
-    <div className="flex items-center gap-1.5" title={`${locale === "en" ? m.en : m.ru}: ${value}/100`}>
-      <span className="flex w-[74px] shrink-0 items-center gap-1.5 text-[11px] text-[var(--color-text-tertiary)]"><MetricIcon k={k} className="size-3.5" style={{ color: m.color }} />{locale === "en" ? m.en : m.ru}</span>
-      <span className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-        <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${value}%`, background: m.color }} />
-      </span>
-      <span className="w-[20px] shrink-0 text-right text-[11px] tabular-nums text-[var(--color-text-secondary)]">{value}</span>
-    </div>
-  );
-}
-
-// Score row for the card footer: clean white bordered chips (gallery style),
-// a tiny coloured glyph carries the metric, the number stays neutral.
+// Score row for the card footer: a clean white bordered chip (gallery style).
 const CHIP = "inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-[12px] tabular-nums shadow-[0_1px_2px_rgba(18,18,22,0.04)]";
 // The card footer shows ONE number — the composite. The full money/simplicity/
 // demand breakdown lives in the modal's ScoreBlock; four numbers per card made
@@ -113,20 +79,25 @@ function ScoreChip({ score }: { score: Score }) {
   );
 }
 
-// Full score block for the idea detail modal — an inset group, like the rest
-// of the modal sections.
+// Full score block for the idea detail modal — App-Store-style stat columns
+// (label above, number below, hairline separators), no bars and no colour.
 export function ScoreBlock({ score, locale = "ru" }: { score: Score; locale?: Locale }) {
   const ru = locale !== "en";
+  const cols = [
+    { l: ru ? "Итог" : "Score", v: score.composite, strong: true },
+    { l: ru ? "Деньги" : "Money", v: score.money },
+    { l: ru ? "Простота" : "Simplicity", v: score.simplicity },
+    { l: ru ? "Спрос" : "Demand", v: score.demand },
+  ];
   return (
     <div className="rounded-[18px] bg-[var(--color-surface-card)] p-5">
-      <div className="mb-3 flex items-baseline justify-between">
-        <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка идеи" : "Idea score"}</span>
-        <span className="text-title2 font-semibold tabular-nums text-[var(--color-text-primary)]">{score.composite}<span className="text-footnote font-normal text-[var(--color-text-tertiary)]">/100</span></span>
-      </div>
-      <div className="flex flex-col gap-2">
-        <Bar k="money" value={score.money} locale={locale} />
-        <Bar k="simplicity" value={score.simplicity} locale={locale} />
-        <Bar k="demand" value={score.demand} locale={locale} />
+      <div className="grid grid-cols-4 divide-x divide-[var(--color-border-subtle)] text-center">
+        {cols.map((c, i) => (
+          <div key={i} className="px-1">
+            <div className="truncate text-caption text-[var(--color-text-tertiary)]">{c.l}</div>
+            <div className={`mt-1 text-title3 tabular-nums ${c.strong ? "text-[var(--color-text-primary)]" : "font-medium text-[var(--color-text-secondary)]"}`}>{c.v}</div>
+          </div>
+        ))}
       </div>
       {score.whyPay && (
         <div className="mt-4 border-t border-[var(--color-border-subtle)] pt-3.5">
