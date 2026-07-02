@@ -309,36 +309,32 @@ html:not([data-theme="dark"]) {
   --color-border-strong: #cbcbd1;
 }
 
-/* Minimal gallery card: white surface, soft two-layer shadow, gentle lift on
-   hover. In dark the shadow is invisible, so a subtle border carries the edge. */
+/* Minimal gallery card: white surface, soft two-layer shadow that deepens on
+   hover. No transform on hover — a card that moves under the cursor drops out
+   of its own hover state at the edges and flickers. In dark the shadow is
+   invisible, so a subtle border carries the edge. */
 .card-min {
   background: var(--color-surface-card);
   border: 1px solid transparent;
   box-shadow:
     0 1px 1px rgba(18, 18, 22, 0.03),
     0 12px 32px -16px rgba(18, 18, 22, 0.14);
-  transition:
-    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
 }
 .card-min:hover {
-  transform: translateY(-2px);
   box-shadow:
     0 2px 3px rgba(18, 18, 22, 0.04),
-    0 22px 44px -18px rgba(18, 18, 22, 0.18);
+    0 22px 44px -18px rgba(18, 18, 22, 0.2);
 }
 [data-theme="dark"] .card-min {
   border-color: var(--color-border-subtle);
   box-shadow: none;
 }
 [data-theme="dark"] .card-min:hover {
-  transform: none;
   border-color: var(--color-border-strong);
 }
 @media (prefers-reduced-motion: reduce) {
-  .card-min,
-  .card-min:hover {
-    transform: none;
+  .card-min {
     transition: none;
   }
 }
