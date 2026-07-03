@@ -67,10 +67,11 @@ function firstSentence(t?: string) {
 
 // Compact tile — headline, small icon row, the hook, quiet stats.
 function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
+  const lp = ru ? "/ru" : "/en";
   const icons = c.icons.filter(Boolean).slice(0, 4);
   return (
     <Link
-      href={`/segment/${c.slug}`}
+      href={`${lp}/segment/${c.slug}`}
       className="card-min group flex h-full flex-col rounded-[22px] p-6"
     >
       <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>

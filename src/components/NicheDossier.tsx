@@ -89,6 +89,7 @@ function groupFindings(pillars: Pillar[], cards: Finding[]) {
 
 export default async function NicheDossier({ slug, locale = "ru" }: { slug: string; locale?: Locale }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const NF = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const r = RATING[slug];
   // Dossier (market + audience) and thesis are localized; rating verdicts overlay
@@ -412,7 +413,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <Block title={ru ? "Соседние ниши" : "Nearby niches"} lead={ru ? "Разборы рядом: та же аудитория, соседние работы." : "Breakdowns next door: same audience, adjacent jobs."}>
           <div className="mt-6 flex flex-wrap gap-2.5">
             {related.map((n) => (
-              <Link key={n.slug} href={`/segment/${n.slug}`} className="card-min inline-flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              <Link key={n.slug} href={`${lp}/segment/${n.slug}`} className="card-min inline-flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
                 {n.icon
                   // eslint-disable-next-line @next/next/no-img-element
                   ? <img src={n.icon} alt="" loading="lazy" decoding="async" className="size-7 rounded-[8px] object-cover ring-1 ring-[var(--color-border-subtle)]" />

@@ -31,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AppsDirectory() {
   const locale = await getLocale();
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
 
   const groups = (active as string[])
     .map((cs) => {
@@ -59,7 +60,7 @@ export default async function AppsDirectory() {
       <div className="mt-10 flex flex-col gap-9">
         {groups.map((g) => (
           <section key={g.slug}>
-            <Link href={`/segment/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
+            <Link href={`${lp}/segment/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
               {g.name}
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">

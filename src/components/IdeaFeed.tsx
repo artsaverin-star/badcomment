@@ -39,6 +39,7 @@ export default function IdeaFeed({
   compact?: boolean;
 }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const CARD_H = compact ? "h-[clamp(330px,38dvh,392px)]" : "h-[clamp(400px,52dvh,452px)]";
   const VIEWPORT_H = compact ? "h-[clamp(380px,45dvh,448px)]" : "h-[clamp(480px,64dvh,544px)]";
 
@@ -314,7 +315,7 @@ export default function IdeaFeed({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`/segment/${curIdea.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
+                <Link href={`${lp}/segment/${curIdea.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

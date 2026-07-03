@@ -39,6 +39,7 @@ export default function IdeaGrid({
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
 }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [modalSlug, setModalSlug] = useState<string | null>(null);
   const [auth, setAuth] = useState(false);
@@ -175,7 +176,7 @@ export default function IdeaGrid({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`/segment/${cur.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
+                <Link href={`${lp}/segment/${cur.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

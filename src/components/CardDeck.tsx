@@ -77,6 +77,7 @@ export default function CardDeck({
   guestCap?: number;
 }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const [auth, setAuth] = useState(false);
   const [round, setRound] = useState(0);
   const [hand, setHand] = useState<Slot[]>([]);
@@ -329,7 +330,7 @@ export default function CardDeck({
             <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(null)} className="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-md" />
             <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
               <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
-                <Link href={`/segment/${modal.category}`} className="text-footnote font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{modal.categoryName}</Link>
+                <Link href={`${lp}/segment/${modal.category}`} className="text-footnote font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{modal.categoryName}</Link>
                 <button type="button" onClick={() => setModal(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
                 </button>
@@ -353,7 +354,7 @@ export default function CardDeck({
                       </div>
                     )}
                     {modal.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={modal.monetization} />}
-                    <Link href={`/segment/${modal.category}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 text-body font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`}</Link>
+                    <Link href={`${lp}/segment/${modal.category}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 text-body font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`}</Link>
                   </div>
                 ) : (
                   <div className="mt-7 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-center">

@@ -190,6 +190,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
 
   if (DOSSIER_SLUGS.has(slug)) return <NicheDossier slug={slug} locale={locale} />;
 
@@ -483,7 +484,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           <h2 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Похожие ниши" : "Related niches"}</h2>
           <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {relatedTop.map((r) => (
-              <Link key={r.slug} href={`/segment/${r.slug}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
+              <Link key={r.slug} href={`${lp}/segment/${r.slug}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
                 <span className="text-callout font-medium text-[var(--color-text-primary)]">{r.name}</span>
               </Link>
             ))}

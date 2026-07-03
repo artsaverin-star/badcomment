@@ -93,6 +93,7 @@ const NICHES = [
 export default async function RatingIndexPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
 
   return (
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
@@ -112,7 +113,7 @@ export default async function RatingIndexPage() {
           const icons = iconsFor(n.slug);
           const count = RATING[n.slug]?.count ?? 0;
           return (
-            <Link key={n.slug} href={`/rating/${n.slug}`} className="card-min group flex h-full flex-col rounded-[22px] p-6">
+            <Link key={n.slug} href={`${lp}/rating/${n.slug}`} className="card-min group flex h-full flex-col rounded-[22px] p-6">
               <h2 className="text-headline text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
               {icons.length > 0 && (
                 <div className="mt-4 flex items-center gap-1.5">
