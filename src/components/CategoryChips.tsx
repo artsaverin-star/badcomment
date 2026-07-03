@@ -28,8 +28,9 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
     `relative flex w-[104px] shrink-0 flex-col items-center gap-2 rounded-[18px] p-3 pt-3.5 text-center transition-colors ${
       active ? "bg-[var(--color-text-primary)]" : "card-min"
     }`;
+  // Reserve two lines so every tile is the same height regardless of label length.
   const label = (active: boolean) =>
-    `line-clamp-2 w-full text-caption leading-[1.25] ${active ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)]"}`;
+    `line-clamp-2 block min-h-[2.5em] w-full text-caption leading-[1.25] ${active ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-secondary)]"}`;
 
   const art = (c: Chip) =>
     c.icon ? (
@@ -39,19 +40,24 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
       <span className="art-wash flex size-9 items-center justify-center rounded-[10px]" style={c.hue != null ? ({ "--art-h": c.hue } as React.CSSProperties) : undefined} />
     );
 
-  // Show a desktop scroll-right affordance while there's more strip to the right.
+  // Desktop scroll affordances: arrows on either side while there's more strip
+  // that direction, each over a soft fade so tiles melt out instead of clipping.
   const scroller = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
-    const update = () => setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8);
+    const update = () => {
+      setAtStart(el.scrollLeft <= 8);
+      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8);
+    };
     update();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     return () => { el.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
   }, [chips.length]);
-  const scrollRight = () => scroller.current?.scrollBy({ left: 320, behavior: "smooth" });
+  const scrollBy = (dir: 1 | -1) => scroller.current?.scrollBy({ left: dir * 320, behavior: "smooth" });
 
   // "All niches" = the unfiltered deck; tapping an active niche tile also
   // clears the filter.
@@ -84,17 +90,33 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
         })}
       </div>
       </div>
-      {/* Desktop-only scroll-right button, sitting just off the strip's right
-          edge (no fade over tile text), hidden once scrolled to the end. */}
+      {/* Left affordance: fade + back arrow, shown once scrolled off the start. */}
+      {!atStart && (
+        <>
+          <div className="pointer-events-none absolute inset-y-0 -left-4 hidden w-16 bg-gradient-to-r from-[var(--color-bg-page)] to-transparent md:block" />
+          <button
+            type="button"
+            onClick={() => scrollBy(-1)}
+            aria-label={ru ? "Назад" : "Back"}
+            className="absolute -left-3 top-[26px] z-[1] hidden size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_4px_12px_-3px_rgba(18,18,22,0.25)] transition-colors hover:text-[var(--color-text-primary)] md:flex"
+          >
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M12 4l-5 5 5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+        </>
+      )}
+      {/* Right affordance: fade + forward arrow, hidden once at the end. */}
       {!atEnd && (
-        <button
-          type="button"
-          onClick={scrollRight}
-          aria-label={ru ? "Ещё ниши" : "More niches"}
-          className="absolute -right-3 top-[26px] z-[1] hidden size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_4px_12px_-3px_rgba(18,18,22,0.25)] transition-colors hover:text-[var(--color-text-primary)] md:flex"
-        >
-          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        </button>
+        <>
+          <div className="pointer-events-none absolute inset-y-0 -right-4 hidden w-16 bg-gradient-to-l from-[var(--color-bg-page)] to-transparent md:block" />
+          <button
+            type="button"
+            onClick={() => scrollBy(1)}
+            aria-label={ru ? "Ещё ниши" : "More niches"}
+            className="absolute -right-3 top-[26px] z-[1] hidden size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_4px_12px_-3px_rgba(18,18,22,0.25)] transition-colors hover:text-[var(--color-text-primary)] md:flex"
+          >
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+        </>
       )}
     </div>
   );
