@@ -364,6 +364,12 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
             </a>
           ) : undefined}
         >
+          {open.cover && (
+            <div className="mb-4 overflow-hidden rounded-[16px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={open.cover} alt="" loading="lazy" decoding="async" className="aspect-[2/1] w-full object-cover" />
+            </div>
+          )}
           {open.category && <div className="text-caption text-[var(--color-text-tertiary)]">{open.category}</div>}
           <h3 className="mt-1.5 text-title3 text-balance text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>

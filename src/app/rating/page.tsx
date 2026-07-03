@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 
@@ -97,12 +96,7 @@ export default async function RatingIndexPage() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-16 sm:pt-24">
-      <BackLink fallback="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        {ru ? "Назад" : "Back"}
-      </BackLink>
-
-      <header className="mt-12">
+      <header>
         <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
         <h1 className="glow-sweep mt-5 text-display text-balance text-[var(--color-text-primary)]">
           {ru ? "Рейтинг приложений по реальным отзывам" : "App ratings by real reviews"}

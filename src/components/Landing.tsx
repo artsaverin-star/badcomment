@@ -225,15 +225,15 @@ export default function Landing({
             ))}
           </div>
           <div className="relative z-10 mx-auto max-w-3xl text-center">
-            <h1 className="glow-sweep ld-fade text-display text-[var(--color-text-primary)] text-balance" style={{ animationDelay: "0.05s" }}>
-              {ru ? "Знай, что построить" : "Know what to build"}
+            <h1 className="ld-fade text-display text-[var(--color-text-primary)] text-balance" style={{ animationDelay: "0.05s" }}>
+              {ru ? "Разбор категорий" : "Category breakdowns"}
             </h1>
 
-            <p className="ld-fade mx-auto mt-3.5 max-w-[48ch] text-lead text-[var(--color-text-secondary)] sm:mt-4" style={{ animationDelay: "0.1s" }}>
+            <p className="ld-fade mx-auto mt-3.5 max-w-[52ch] text-lead text-[var(--color-text-secondary)] sm:mt-4" style={{ animationDelay: "0.1s" }}>
               {ru ? (
-                <>Народный рейтинг приложений, разбор категорий и&nbsp;готовые идеи под&nbsp;реальный спрос из&nbsp;<span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов в&nbsp;App&nbsp;Store и&nbsp;Google&nbsp;Play.</>
+                <>Каждая ниша разобрана по&nbsp;реальным отзывам из&nbsp;<span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов App&nbsp;Store и&nbsp;Google&nbsp;Play: что хвалят, на&nbsp;что злятся, каких приложений не&nbsp;хватает и&nbsp;какие идеи напрашиваются.</>
               ) : (
-                <>A people&rsquo;s app rating, category breakdowns and ready ideas backed by real demand, from <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews.</>
+                <>Every niche broken down from <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> real App&nbsp;Store and Google&nbsp;Play reviews: what users love and hate, which apps are missing, and which ideas are worth building.</>
               )}
             </p>
           </div>
