@@ -211,7 +211,7 @@ export default function Landing({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-x-clip pb-3 pt-12 sm:pb-4 sm:pt-7">
+      <section className="relative overflow-x-clip pb-3 pt-0 sm:pb-4">
           <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
             {floats.map((src, i) => (
               // eslint-disable-next-line @next/next/no-img-element
@@ -240,7 +240,7 @@ export default function Landing({
         </section>
 
       {/* Every niche with a full dossier. */}
-      <div className="mx-auto mt-9 w-full max-w-5xl px-4 sm:mt-12">
+      <div className="mx-auto mt-9 w-full px-0 sm:mt-12">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ranked.map((c) => (
             <CardCompact key={c.slug} c={c} ru={ru} />

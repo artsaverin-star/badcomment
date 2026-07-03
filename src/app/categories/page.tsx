@@ -88,7 +88,7 @@ export default async function CategoriesPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl overflow-x-clip px-2 sm:px-4 pb-10 pt-2">
+    <main className="mx-auto w-full max-w-[1080px] overflow-x-clip px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />

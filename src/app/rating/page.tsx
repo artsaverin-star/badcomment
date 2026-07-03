@@ -95,7 +95,7 @@ export default async function RatingIndexPage() {
   const ru = locale !== "en";
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-16 sm:pt-24">
+    <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
       <header className="text-center">
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">
           {ru ? "Рейтинг приложений" : "App ratings"}
@@ -107,7 +107,7 @@ export default async function RatingIndexPage() {
         </p>
       </header>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {NICHES.map((n) => {
           const icons = iconsFor(n.slug);
           const count = RATING[n.slug]?.count ?? 0;
