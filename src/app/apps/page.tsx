@@ -65,7 +65,7 @@ export default async function AppsDirectory() {
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
               {g.apps.map((a) => (
-                <Link key={a.slug} href={`/${a.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
+                <Link key={a.slug} href={`${lp}/${a.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
                   {a.name}
                 </Link>
               ))}

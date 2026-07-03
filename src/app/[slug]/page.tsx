@@ -163,7 +163,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav className="text-[13px] text-[var(--color-text-tertiary)]">
-        <Link href={`/segment/${ctx.catSlug}`} className="hover:text-[var(--color-text-secondary)]">{ctx.catName}</Link>
+        <Link href={`/${lp}/segment/${ctx.catSlug}`} className="hover:text-[var(--color-text-secondary)]">{ctx.catName}</Link>
         <span className="mx-1.5">/</span>
         <span>{ctx.name}</span>
       </nav>
@@ -202,7 +202,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       {/* Funnel into the niche — the whole point of this landing page. */}
       <Link
-        href={`/segment/${ctx.catSlug}`}
+        href={`/${lp}/segment/${ctx.catSlug}`}
         className="mt-12 flex flex-col gap-1 rounded-[20px] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] p-6 transition-colors hover:border-[var(--color-text-brand)]"
       >
         <span className="text-[13px] font-medium tracking-[0.06em] text-[var(--color-text-brand)]">{ru ? "Вся ниша" : "The whole niche"}</span>

@@ -18,6 +18,7 @@ type Me = {
 // avatar that opens an account dropdown (name, status, admin, sign-out).
 export default function AuthButton({ compact = false, locale = "ru" }: { compact?: boolean; locale?: Locale }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const [me, setMe] = useState<Me | null>(null);
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -106,17 +107,17 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           {name}
         </span>
         <span className="flex items-center gap-2.5">
-          <Link href="/library" className="text-caption font-medium text-[var(--color-text-secondary)]">
+          <Link href={`${lp}/library`} className="text-caption font-medium text-[var(--color-text-secondary)]">
             {ru ? "Купленное" : "Library"}
           </Link>
-          <Link href="/saved" className="text-caption font-medium text-[var(--color-text-secondary)]">
+          <Link href={`${lp}/saved`} className="text-caption font-medium text-[var(--color-text-secondary)]">
             {ru ? "Избранное" : "Saved"}
           </Link>
-          <Link href="/tokens" className="text-caption font-medium text-[var(--color-text-brand)]">
+          <Link href={`${lp}/tokens`} className="text-caption font-medium text-[var(--color-text-brand)]">
             {ru ? "Доступ" : "Access"}
           </Link>
           {me.user.isAdmin && (
-            <Link href="/admin" className="text-caption font-medium text-[var(--color-text-brand)]">
+            <Link href={`${lp}/admin`} className="text-caption font-medium text-[var(--color-text-brand)]">
               {ru ? "Админка" : "Admin"}
             </Link>
           )}
@@ -159,7 +160,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           </div>
           <div className="border-t border-[var(--color-border-subtle)] p-2">
             <Link
-              href="/tokens"
+              href={`${lp}/tokens`}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -176,7 +177,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               </span>
             </Link>
             <Link
-              href="/library"
+              href={`${lp}/library`}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -186,7 +187,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               {ru ? "Купленное" : "Library"}
             </Link>
             <Link
-              href="/saved"
+              href={`${lp}/saved`}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -197,7 +198,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             </Link>
             {me.user.isAdmin && (
               <Link
-                href="/admin"
+                href={`${lp}/admin`}
                 onClick={() => setMenu(false)}
                 className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
               >

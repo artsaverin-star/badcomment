@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
+import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 
 // Public requisites/contacts page (required by ЮKassa). Data comes from
 // src/data/legal.json.
-export default function ContactsPage() {
+export default async function ContactsPage() {
+  const locale = await getLocale();
+  const lp = locale === "en" ? "/en" : "/ru";
   const l = getLegal();
   const rows: Array<[string, string]> = [
     ["Исполнитель", l.selfEmployed ? `${legalValue(l.fullName)} (самозанятый, НПД)` : legalValue(l.fullName)],
@@ -30,7 +33,7 @@ export default function ContactsPage() {
       </dl>
       <p className="mt-6 text-caption text-[var(--color-text-tertiary)]">
         Обновлено: {l.updated}. Публичная оферта — на странице{" "}
-        <Link href="/offer" className="text-[var(--color-text-brand)] hover:underline">/offer</Link>.
+        <Link href={`${lp}/offer`} className="text-[var(--color-text-brand)] hover:underline">/offer</Link>.
       </p>
     </main>
   );

@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
+import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 
 // Public offer (публичная оферта) — required by ЮKassa for accepting card
 // payments. Requisites come from src/data/legal.json.
-export default function OfferPage() {
+export default async function OfferPage() {
+  const locale = await getLocale();
+  const lp = locale === "en" ? "/en" : "/ru";
   const l = getLegal();
   const seller = `${legalValue(l.fullName)}${l.selfEmployed ? ", самозанятый (плательщик НПД)" : ""}, ИНН ${legalValue(l.inn)}`;
 
@@ -30,7 +33,7 @@ export default function OfferPage() {
       "3. Стоимость и порядок оплаты",
       <>
         Стоимость и сроки указаны на странице{" "}
-        <Link href="/premium" className="text-[var(--color-text-brand)] hover:underline">«Премиум»</Link>: 1000 ₽ за 1 месяц
+        <Link href={`${lp}/tokens`} className="text-[var(--color-text-brand)] hover:underline">«Премиум»</Link>: 1000 ₽ за 1 месяц
         или 3000 ₽ за 6 месяцев. Оплата производится онлайн банковской картой через платёжный сервис ЮKassa
         (ООО НКО «ЮМани») либо через Telegram Stars. Цены фиксированные и указаны в рублях РФ.
       </>,
@@ -57,7 +60,7 @@ export default function OfferPage() {
         {legalValue(l.fullName)}
         {l.selfEmployed ? " (самозанятый, НПД)" : ""}, ИНН {legalValue(l.inn)}. E-mail: {legalValue(l.email)}
         {l.phone ? `, телефон: ${l.phone}` : ""}. Полные контакты — на странице{" "}
-        <Link href="/contacts" className="text-[var(--color-text-brand)] hover:underline">«Контакты»</Link>.
+        <Link href={`${lp}/contacts`} className="text-[var(--color-text-brand)] hover:underline">«Контакты»</Link>.
       </>,
     ],
   ];
