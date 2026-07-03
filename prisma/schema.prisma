@@ -140,6 +140,20 @@ model User {
   unlocks   Unlock[]
   ledger    TokenLedger[]
   pageViews PageView[]
+  favorites Favorite[]
+}
+
+// An idea a user bookmarked. Server-side so it survives across devices and cache
+// clears (localStorage stays a mirror for instant UI and for logged-out guests).
+model Favorite {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  slug      String // idea slug
+  createdAt DateTime @default(now())
+
+  @@unique([userId, slug])
+  @@index([userId])
 }
 
 // A permanent unlock: once bought, the user owns this item forever. Buying a

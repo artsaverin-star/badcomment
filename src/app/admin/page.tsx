@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { isFriendIdentity } from "@/lib/friends";
 import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_STARS, CATEGORY_STARS } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
+import ideasData from "@/data/ideas.json";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,16 @@ export default async function AdminPage() {
   if (!me || !me.isAdmin) notFound();
 
   const users = await prisma.user.findMany({ orderBy: { createdAt: "desc" } });
+
+  // Favorites per user (server-side bookmarks). Map slug -> idea title for display.
+  const favRows = await prisma.favorite.findMany({ orderBy: { createdAt: "desc" }, select: { userId: true, slug: true } });
+  const ideaTitle = new Map<string, string>((ideasData as { slug: string; title: string }[]).map((i) => [i.slug, i.title]));
+  const favBy = new Map<string, string[]>();
+  for (const f of favRows) {
+    const arr = favBy.get(f.userId) ?? [];
+    arr.push(ideaTitle.get(f.slug) ?? f.slug);
+    favBy.set(f.userId, arr);
+  }
   const now = new Date();
   const isActive = (u: { premiumUntil: Date | null }) => !!(u.premiumUntil && new Date(u.premiumUntil) > now);
   const isFriend = (u: { telegramId: string | null; username: string | null; email: string | null }) =>
@@ -107,6 +118,7 @@ export default async function AdminPage() {
               <th className="px-4 py-2.5 font-semibold">Вход</th>
               <th className="px-4 py-2.5 font-semibold">Оплата</th>
               <th className="px-4 py-2.5 font-semibold">Премиум</th>
+              <th className="px-4 py-2.5 font-semibold">Избранное</th>
               <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Регистрация (МСК)</th>
             </tr>
           </thead>
@@ -167,6 +179,17 @@ export default async function AdminPage() {
                     <span className="text-[var(--color-text-tertiary)]">—</span>
                   )}
                 </td>
+                <td className="px-4 py-2.5">
+                  {(() => {
+                    const f = favBy.get(u.id);
+                    if (!f || !f.length) return <span className="text-[var(--color-text-tertiary)]">—</span>;
+                    return (
+                      <span className="font-medium text-[var(--color-text-primary)]" title={f.join("\n")}>
+                        {f.length} <span className="font-normal text-[var(--color-text-tertiary)]">· {f.slice(0, 2).join(", ")}{f.length > 2 ? "…" : ""}</span>
+                      </span>
+                    );
+                  })()}
+                </td>
                 <td className="whitespace-nowrap px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">
                   {fmtDateTime(u.createdAt)}
                 </td>
@@ -174,7 +197,7 @@ export default async function AdminPage() {
             ))}
             {users.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-8 text-center text-callout text-[var(--color-text-tertiary)]">
+                <td colSpan={7} className="px-4 py-8 text-center text-callout text-[var(--color-text-tertiary)]">
                   Пока нет зарегистрированных пользователей.
                 </td>
               </tr>

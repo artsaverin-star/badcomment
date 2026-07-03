@@ -31,12 +31,37 @@ export function favSnapshot(): string {
   try { return localStorage.getItem("favIdeas") || "[]"; } catch { return "[]"; }
 }
 function favFlip(id: string) {
+  let on = false;
   try {
     const cur = new Set<string>(JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]);
-    if (cur.has(id)) cur.delete(id); else cur.add(id);
+    if (cur.has(id)) cur.delete(id); else { cur.add(id); on = true; }
     localStorage.setItem("favIdeas", JSON.stringify([...cur]));
   } catch {}
   favListeners.forEach((l) => l());
+  // Mirror to the server (durable, cross-device). No-op for guests server-side.
+  fetch("/api/favorites", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ slug: id, on }), keepalive: true,
+  }).catch(() => {});
+}
+
+// Merge localStorage favorites with the server's on load (login-time sync), so a
+// signed-in user sees the same bookmarks on every device. Guests get {slugs:[]}.
+export async function favSyncWithServer() {
+  let local: string[] = [];
+  try { local = JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]; } catch {}
+  try {
+    const res = await fetch("/api/favorites", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slugs: local }),
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!Array.isArray(data.slugs)) return;
+    const merged = [...new Set<string>([...local, ...(data.slugs as string[])])];
+    localStorage.setItem("favIdeas", JSON.stringify(merged));
+    favListeners.forEach((l) => l());
+  } catch {}
 }
 
 // A span with role=button because it lives inside the card's own <button>.
