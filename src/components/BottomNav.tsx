@@ -25,6 +25,7 @@ export default function BottomNav({ locale }: { locale: Locale }) {
   const ru = locale !== "en";
   const raw = usePathname() || "/";
   const path = raw.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
+  const lp = ru ? "/ru" : "/en";
   const active =
     path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : path.startsWith("/rating") ? "rating"
@@ -39,7 +40,7 @@ export default function BottomNav({ locale }: { locale: Locale }) {
           return (
             <Link
               key={t.key}
-              href={t.href}
+              href={`${lp}${t.href === "/" ? "" : t.href}`}
               aria-current={on ? "page" : undefined}
               className={`flex flex-1 flex-col items-center gap-1 py-2 text-caption transition-colors ${
                 on ? "font-semibold text-[var(--color-text-primary)]" : "font-medium text-[var(--color-text-tertiary)]"

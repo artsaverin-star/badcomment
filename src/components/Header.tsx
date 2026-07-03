@@ -40,6 +40,9 @@ export default function Header({
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() || "/";
   const ru = locale !== "en";
+  // Prefix nav links with the active locale so navigation never falls back to
+  // the cookie's language (which caused sections to flip to Russian on click).
+  const lp = ru ? "/ru" : "/en";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -65,7 +68,7 @@ export default function Header({
             : "max-w-6xl border border-transparent bg-transparent pl-1 shadow-none sm:pl-1"
         }`}
       >
-        <Link href="/" aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
+        <Link href={lp} aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
           <Logo iconSize={26} textClassName="text-[23px]" />
         </Link>
 
@@ -77,7 +80,7 @@ export default function Header({
             return (
               <Link
                 key={n.key}
-                href={n.href}
+                href={`${lp}${n.href === "/" ? "" : n.href}`}
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active

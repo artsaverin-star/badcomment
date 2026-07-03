@@ -17,13 +17,14 @@ const OPTIONS: { key: SortKey; ru: string; en: string }[] = [
 // Changing it navigates to ?sort=<key>, keeping the ranking server-side.
 export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current: SortKey; cat?: string; locale?: Locale }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const router = useRouter();
   const href = (key: SortKey) => {
     const p = new URLSearchParams();
     if (key !== "balance") p.set("sort", key);
     if (cat) p.set("cat", cat);
     const q = p.toString();
-    return q ? `/?${q}` : "/";
+    return q ? `${lp}?${q}` : lp;
   };
   // A quiet inline text control, not a pill — it must not compete with the
   // niche tiles for attention.

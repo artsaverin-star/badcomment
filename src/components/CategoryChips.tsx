@@ -15,12 +15,13 @@ const Lock = () => (
 // is premium — for non-owners tiles show a lock and scroll to the unlock gate.
 export default function CategoryChips({ chips, current, sort, locale = "ru", locked = false }: { chips: Chip[]; current?: string; sort?: string; locale?: Locale; locked?: boolean }) {
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const href = (cat?: string) => {
     const p = new URLSearchParams();
     if (cat) p.set("cat", cat);
     if (sort && sort !== "balance") p.set("sort", sort);
     const q = p.toString();
-    return q ? `/?${q}` : "/";
+    return q ? `${lp}?${q}` : lp;
   };
   const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
 
