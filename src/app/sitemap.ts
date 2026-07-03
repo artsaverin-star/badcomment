@@ -38,7 +38,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
   ];
 
-  const lastModified = new Date("2026-06-25");
+  // Fresh timestamp so search engines see the site is actively maintained
+  // (a fixed date reads as "abandoned"). Content force-dynamic + rebuilt weekly.
+  const lastModified = new Date();
   return paths.map(({ p, priority }) => ({
     url: `${BASE}/ru${p || "/"}`,
     lastModified,

@@ -12,6 +12,7 @@ import IdeasDeck from "@/components/IdeasDeck";
 import { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
+import FaqSection from "@/components/FaqSection";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -169,6 +170,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           lifetimePrice={LIFETIME.rub}
         />
       </div>
+
+      <FaqSection locale={locale} />
     </main>
   );
 }

@@ -27,7 +27,7 @@ export async function GET() {
   }
   const urlList: string[] = [];
   for (const loc of ["ru", "en"]) {
-    urlList.push(`https://${HOST}/${loc}`, `https://${HOST}/${loc}/most-wanted`, `https://${HOST}/${loc}/cards`, `https://${HOST}/${loc}/catalog`, `https://${HOST}/${loc}/apps`);
+    urlList.push(`https://${HOST}/${loc}`, `https://${HOST}/${loc}/categories`, `https://${HOST}/${loc}/rating`, `https://${HOST}/${loc}/ideas/top`, `https://${HOST}/${loc}/most-wanted`, `https://${HOST}/${loc}/cards`, `https://${HOST}/${loc}/catalog`, `https://${HOST}/${loc}/apps`);
     cats.forEach((s) => urlList.push(`https://${HOST}/${loc}/segment/${s}`));
     PEOPLES_RATING_SLUGS.forEach((s) => urlList.push(`https://${HOST}/${loc}/rating/${s}`));
     appSlugs.forEach((s) => urlList.push(`https://${HOST}/${loc}/${s}`));
