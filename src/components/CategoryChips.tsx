@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 
@@ -38,10 +39,25 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
       <span className="art-wash flex size-9 items-center justify-center rounded-[10px]" style={c.hue != null ? ({ "--art-h": c.hue } as React.CSSProperties) : undefined} />
     );
 
+  // Show a desktop scroll-right affordance while there's more strip to the right.
+  const scroller = useRef<HTMLDivElement>(null);
+  const [atEnd, setAtEnd] = useState(false);
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    const update = () => setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8);
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => { el.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, [chips.length]);
+  const scrollRight = () => scroller.current?.scrollBy({ left: 320, behavior: "smooth" });
+
   // "All niches" = the unfiltered deck; tapping an active niche tile also
   // clears the filter.
   return (
-    <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="relative">
+      <div ref={scroller} className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex w-max items-stretch gap-2.5">
         <Link href={href()} scroll={false} className={tile(!current)}>
           <span className={`flex size-9 items-center justify-center rounded-[10px] ${!current ? "bg-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)]" : "bg-[var(--color-bg-muted)]"}`}>
@@ -67,6 +83,21 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
           );
         })}
       </div>
+      </div>
+      {/* Desktop-only scroll-right button with a fade, hidden once at the end. */}
+      {!atEnd && (
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center pr-1 md:flex">
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[var(--color-bg-page)] to-transparent" />
+          <button
+            type="button"
+            onClick={scrollRight}
+            aria-label={ru ? "Ещё ниши" : "More niches"}
+            className="pointer-events-auto relative flex size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_2px_8px_-2px_rgba(18,18,22,0.15)] transition-colors hover:text-[var(--color-text-primary)]"
+          >
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
