@@ -45,21 +45,32 @@ function favFlip(id: string) {
   }).catch(() => {});
 }
 
-// Merge localStorage favorites with the server's on load (login-time sync), so a
-// signed-in user sees the same bookmarks on every device. Guests get {slugs:[]}.
+// Sync favorites with the server on load. The SERVER is the source of truth for
+// a signed-in user, so deletes on any device stick: localStorage becomes a
+// mirror (replaced on every load), never a union. The very first sync after
+// signing in pushes the guest's localStorage bookmarks up once (so nothing saved
+// before logging in is lost); after that we just pull and replace.
 export async function favSyncWithServer() {
   let local: string[] = [];
   try { local = JSON.parse(localStorage.getItem("favIdeas") || "[]") as string[]; } catch {}
+  const migrated = (() => { try { return localStorage.getItem("favMigrated") === "1"; } catch { return false; } })();
   try {
-    const res = await fetch("/api/favorites", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slugs: local }),
-    });
-    if (!res.ok) return;
-    const data = await res.json();
-    if (!Array.isArray(data.slugs)) return;
-    const merged = [...new Set<string>([...local, ...(data.slugs as string[])])];
-    localStorage.setItem("favIdeas", JSON.stringify(merged));
+    let slugs: string[] | null = null;
+    if (!migrated && local.length) {
+      // One-time: merge guest bookmarks into the account, take the union back.
+      const res = await fetch("/api/favorites", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slugs: local }),
+      });
+      if (res.ok) { const d = await res.json(); if (Array.isArray(d.slugs)) slugs = d.slugs; }
+    } else {
+      // Server is truth: pull and replace (applies deletes from other devices).
+      const res = await fetch("/api/favorites");
+      if (res.ok) { const d = await res.json(); if (Array.isArray(d.slugs)) slugs = d.slugs; }
+    }
+    if (slugs === null) return;
+    localStorage.setItem("favIdeas", JSON.stringify(slugs));
+    try { localStorage.setItem("favMigrated", "1"); } catch {}
     favListeners.forEach((l) => l());
   } catch {}
 }
