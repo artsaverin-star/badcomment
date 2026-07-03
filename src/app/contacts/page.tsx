@@ -16,11 +16,11 @@ export default function ContactsPage() {
   ];
   return (
     <main className="mx-auto w-full max-w-[680px] px-4 py-14">
-      <h1 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Контакты и реквизиты</h1>
+      <h1 className="text-title1 text-[var(--color-text-primary)]">Контакты и реквизиты</h1>
       <p className="mt-3 text-callout text-[var(--color-text-secondary)]">
-        {l.brand} — сервис разборов отзывов мобильных приложений с выводами. По вопросам подписки и оплаты пишите на e-mail ниже.
+        {l.brand} — готовые идеи приложений под реальный спрос: выведены из отзывов App Store и Google Play, с разбором ниш и народным рейтингом. По вопросам оплаты и доступа пишите на e-mail ниже.
       </p>
-      <dl className="mt-8 flex flex-col divide-y divide-[var(--color-border-subtle)] rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5">
+      <dl className="card-min mt-8 flex flex-col divide-y divide-[var(--color-border-subtle)] rounded-[22px] px-5">
         {rows.map(([k, v]) => (
           <div key={k} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-4">
             <dt className="w-40 shrink-0 text-footnote text-[var(--color-text-tertiary)]">{k}</dt>
