@@ -39,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const NICHES = [
+  { slug: "pregnancy-tracker", name: "Беременность", nameEn: "Pregnancy", blurb: "43 приложения: где счётчик недель и срок точны, а тревога отступает, а где накрутка и слетают данные.", blurbEn: "43 apps: where the week counter and due date are accurate and the anxiety eases, and where it's fake reviews and lost data." },
   { slug: "astrology", name: "Астрология", nameEn: "Astrology", blurb: "Честная оценка и проверка на накрутку звезды.", blurbEn: "An honest score and a check for fake-star inflation." },
   { slug: "dating-apps", name: "Знакомства", nameEn: "Dating", blurb: "Где реальные люди, а где боты и накрученные звёзды.", blurbEn: "Where the people are real, and where it's bots and inflated stars." },
   { slug: "ai-avatars-headshots", name: "ИИ-фото", nameEn: "AI photo", blurb: "Где результат правда похож на тебя, а где обман в рекламе.", blurbEn: "Where the result really looks like you, and where the ads lie." },

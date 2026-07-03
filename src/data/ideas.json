@@ -56078,5 +56078,743 @@
    ],
    "monetization": "Подписка около 30 долларов в год на дом. ReciMe берёт годовую плату, и люди в отзывах пишут «happy to pay the annual fee», а Recipe Keeper теряет пары, которым нужен общий доступ. Платит семья, которая уже копит рецепты из соцсетей и хочет одну коллекцию вместо четырёх вразнобой."
   }
+ },
+ {
+  "slug": "pregnancy-tracker-1",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Счётчик недель, который считает правильно и даёт исправить",
+  "oneLiner": "Точный срок беременности с ручной правкой даты и понятной сеткой недель и дней, без сдвига на неделю вперёд.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 71
+  },
+  "reviewGrid": [
+   {
+    "quote": "I put my due date in and it tracks me a week ahead????",
+    "rating": 1,
+    "app": "Pregnancy Tracker: Baby Bump"
+   },
+   {
+    "quote": "it’s say you are 9 weeks 1 day and it’ll be like you’re in week 10. huh it does this the whole time you are 7W 0 days and it’s like you’re currently 8 W.",
+    "rating": 3,
+    "app": "My Pregnancy | Tracker & App"
+   },
+   {
+    "quote": "I decided to purchase this app, but I am in regret over doing so. I am currently 8 weeks pregnant, but the app says I’m in week 9. This isn’t just one spot of error on the app, it states I’m 9 weeks on my calendar and at the top where it says current week.",
+    "rating": 3,
+    "app": "Pregnancy Tracker・App by Moms"
+   },
+   {
+    "quote": "Developers should adjust the term settings so you can manually enter all information. When I adjust my last period date, it ‘decides’ the date of conception and when I adjust the conception date, it ‘decides’ the day of my last period",
+    "rating": 3,
+    "app": "My Pregnancy | Tracker & App"
+   },
+   {
+    "quote": "Baby is not here on time, but app set to “newborn” mode and unable to change. Ended up deleting all the baby’s info and now no way to reset it with actual timing.",
+    "rating": 1,
+    "app": "BabyCenter Pregnancy Tracker"
+   },
+   {
+    "quote": "The app changed by due date somehow and started randomly jumping a week ahead of where i actually was in my pregnancy. Make sure you keep track of what week you are on independent of this app",
+    "rating": 2,
+    "app": "Pregnancy Tracker: Baby Bump"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Счётчик недель, который считает правильно и даёт исправить",
+    "obsCount": 41,
+    "apps": [
+     "Pregnancy Tracker: Baby Bump",
+     "My Pregnancy | Tracker & App",
+     "Pregnancy Tracker・App by Moms"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Дата вводится тремя способами и не переписывает сама себя",
+    "obsCount": 18,
+    "apps": [
+     "My Pregnancy | Tracker & App",
+     "amma: Pregnancy & Baby Tracker",
+     "Ovia Cycle & Pregnancy Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Врач как источник правды, срок сверяют с УЗИ",
+    "obsCount": 12,
+    "apps": [
+     "Pregnancy Tracker: Baby Bump",
+     "Hello Belly: Pregnancy Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Почти в каждом трекере счётчик недель врёт на неделю вперёд и его нельзя поправить. Женщина знает точный срок по УЗИ и по врачу, а приложение упрямо показывает 8 недель как 9 и подсовывает картинки на неделю раньше. Дату часто нельзя ввести напрямую, приложение само пересчитывает то день последних месячных, то дату зачатия, и путается. После родов трекеры сами переключаются в режим новорождённого и стирают данные, хотя роды бывают и на 41 неделе. Не хватает простого честного счётчика, где ты вводишь то, что сказал врач, и оно показывает ровно это.",
+  "idea": {
+   "pitch": "Маленькое приложение, которое делает одну вещь безупречно, показывает точный срок беременности. Ты вводишь дату по УЗИ, по последним месячным или по дате зачатия, и оно считает ровно так, как считает твой врач, до дня. Никакого сдвига на неделю, любую дату можно поправить руками в любой момент. За такую надёжность платят, потому что срок это то, вокруг чего крутится вся беременность, а существующие приложения тут регулярно ошибаются и бесят.",
+   "features": [
+    "Ввод срока тремя способами на выбор, по УЗИ с указанием недель и дней на дату скана, по последним месячным, по дате зачатия",
+    "Правка даты и текущей недели вручную в один тап, без пересчёта задним числом",
+    "Показ и недель, и дней, и календарной даты каждой недели, чтобы сверять с врачом",
+    "Режим переношенной беременности, обновления продолжаются на 41 и 42 неделе, а не обрываются на 40",
+    "Виджет на домашний экран со сроком и картинкой размера малыша",
+    "Отметки визитов к врачу и УЗИ с заметками, что сказал доктор"
+   ],
+   "antiFeatures": [
+    "Не делаем ленту общения и модерацию чужих постов",
+    "Не заваливаем статьями и рекламой товаров",
+    "Не переключаемся сами в режим новорождённого и не стираем данные"
+   ],
+   "monetization": "Разовая покупка около 199 рублей за виджет и заметки визитов, базовый счётчик бесплатный. Люди в отзывах прямо просят разовую оплату вместо подписки, женщина писала, что охотно сделала бы одноразовую покупку за такое простое приложение."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-2",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Таймер схваток без рекламы и оплаты во время родов",
+  "oneLiner": "Считает схватки одной кнопкой, даёт править записи и работает на часах, никаких платных стен и всплывающих окон в разгар схваток.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 58
+  },
+  "reviewGrid": [
+   {
+    "quote": "I was actively using this to time contractions and then I hit start timer for contraction number 7 or 8 and the app prompted me to pay money. Seriously. Don’t let me use the timing feature at all if you then tell me to pay money after I’ve been relying on it to time contractions.",
+    "rating": 1,
+    "app": "Contraction Timer ＆ Tracker"
+   },
+   {
+    "quote": "It is very frustrating that this app doesn’t allow you to alter or edit a contraction unless you pay for the app. It’s easy to get distracted and you mess up one timing because you forget to turn off the timer and your numbers are all skewed.",
+    "rating": 2,
+    "app": "Contraction Timer & Counter 9m"
+   },
+   {
+    "quote": "Invasive fullscreen ads between contractions are very frustrating - especially since many of them are phishing scams",
+    "rating": 2,
+    "app": "Contraction Timer & Counter 9m"
+   },
+   {
+    "quote": "Weekly 2.99 subscription when you are in active labor feels predatory, highly recommend looking elsewhere. This is a company where preying on people who are in a trying time in their life.",
+    "rating": 1,
+    "app": "Contraction Timer & Counter 9m"
+   },
+   {
+    "quote": "I was really wanting a contractions timer with an Apple Watch app so I wouldn’t have to use my phone to time all the contractions. This one has a great Watch App and it helped me so much!",
+    "rating": 4,
+    "app": "Contraction Timer ＆ Tracker"
+   },
+   {
+    "quote": "I wanted to see the history of my contractions from labor with my 2nd baby. The new update completely wiped my data. I was saving it to go back to as a memory so I could write everything down.",
+    "rating": 1,
+    "app": "Contraction Timer ＆ Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Таймер схваток без рекламы и оплаты во время родов",
+    "obsCount": 34,
+    "apps": [
+     "Contraction Timer & Counter 9m",
+     "Contraction Timer ＆ Tracker",
+     "Full Term - Contraction Timer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Возможность поправить запись, если забыла остановить таймер",
+    "obsCount": 14,
+    "apps": [
+     "Contraction Timer & Counter 9m",
+     "Contraction Timer ＆ Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Таймер на часах, чтобы не хвататься за телефон в схватку",
+    "obsCount": 9,
+    "apps": [
+     "Contraction Timer ＆ Tracker",
+     "Full Term - Contraction Timer"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Таймеры схваток берут людей в самый уязвимый момент. Женщина считает схватки, а на седьмой ей выкидывает окно с недельной подпиской и не даёт нажать старт. Реклама вылезает между схватками во весь экран, крестик закрытия в углу, промахнуться легко. Запись нельзя поправить, если забыла выключить таймер, а именно это и случается, когда тебе больно. История родов стирается после обновления, хотя женщины хотят сохранить её как память. Нужен честный таймер, который просто работает в родах, даёт править записи, живёт на часах и не вымогает деньги.",
+  "idea": {
+   "pitch": "Таймер схваток, который делает ровно то, что нужно, и не подводит в родах. Одна большая кнопка старт и стоп, показывает частоту и длительность, подсказывает по правилу когда пора в роддом. Любую схватку можно поправить или добавить руками, история сохраняется и её можно выгрузить. Есть приложение для часов. Продаём один раз, а не подпиской, потому что именно недельные списания в родах люди называют хищными и бегут искать другое.",
+   "features": [
+    "Одна кнопка старт и стоп, крупная, под большой палец",
+    "Правка и ручное добавление схваток, если забыла выключить таймер",
+    "Подсказка когда ехать в роддом по правилу схваток по частоте и длительности",
+    "Приложение для часов, чтобы не брать телефон во время схватки",
+    "История родов сохраняется и выгружается в файл на память и для врача",
+    "Тёмная тема для ночных схваток"
+   ],
+   "antiFeatures": [
+    "Не ставим рекламу и всплывающие окна между схватками",
+    "Не прячем сам таймер за оплату",
+    "Не просим войти в аккаунт, чтобы начать считать"
+   ],
+   "monetization": "Разовая покупка около 149 рублей за выгрузку истории и приложение для часов, сам таймер бесплатный и всегда доступный. В отзывах люди прямо говорят, что заплатили бы разово, но недельная подписка в родах отвращает."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-3",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Счётчик шевелений, который не гасит экран и не теряет сессии",
+  "oneLiner": "Считаешь шевеления малыша спокойно, экран не тухнет, сессия сохраняется без входа в аккаунт и без запроса лишних данных.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 44
+  },
+  "reviewGrid": [
+   {
+    "quote": "The app is easy to use, but the kick counter timer keeps restarting on its own, which causes me to lose track of my baby’s kicks. It makes it difficult to complete an accurate kick count.",
+    "rating": 3,
+    "app": "Count the Kicks!"
+   },
+   {
+    "quote": "Easy to use app but frustrating when screen keeps turning off. Should add a setting that keeps screen on when counting. Just like recipe webpages having “cook mode”, this app should have “count mode”.",
+    "rating": 4,
+    "app": "Count the Kicks!"
+   },
+   {
+    "quote": "I also don’t like that you need my zip code to allow me to use the app I don’t feel comfortable with that. It should be an option to not put that.",
+    "rating": 2,
+    "app": "Count the Kicks!"
+   },
+   {
+    "quote": "I just wish it would keep the kick counting open for as long as I’m kick counting. My current hack has been to play a youtube video in the corner while I count kicks so I don’t have to unlock my phone with every kick.",
+    "rating": 4,
+    "app": "Pregnancy App."
+   },
+   {
+    "quote": "Once you finish a session it does not record it in session history and there is not button to finalize a session you have to use voice activation but even then it does not record the session.",
+    "rating": 1,
+    "app": "Count the Kicks!"
+   },
+   {
+    "quote": "This app represents that it works and does more than it actually does. It’s very basic. Features don’t even work like kick counter, for example, times out unless you stay in app.",
+    "rating": 1,
+    "app": "Kicksy: Track Pregnancy"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Счётчик шевелений, который не гасит экран и не теряет сессии",
+    "obsCount": 26,
+    "apps": [
+     "Count the Kicks!",
+     "Kicksy: Track Pregnancy",
+     "Pregnancy App."
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Спокойствие от вида регулярных шевелений малыша",
+    "obsCount": 12,
+    "apps": [
+     "Count the Kicks!",
+     "Kicksy: Track Pregnancy"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Не спрашивать аккаунт и личные данные ради простого счёта",
+    "obsCount": 8,
+    "apps": [
+     "Count the Kicks!"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Счёт шевелений это ритуал, который даёт спокойствие в третьем триместре, но приложения тут регулярно ломаются. Таймер сам перезапускается и сбивает счёт, экран гаснет посреди сессии, и женщины идут на хаки вроде запущенного в углу видео с ютуба, лишь бы экран не тух. Сессия не сохраняется в историю без входа в аккаунт, а для простого счёта ещё зачем то просят индекс. Нужен спокойный счётчик, который держит экран включённым в режиме подсчёта, сохраняет каждую сессию локально и не требует ничего лишнего.",
+  "idea": {
+   "pitch": "Тихий счётчик шевелений, который просто работает. Открыла, тапаешь на каждое движение, экран не гаснет, пока идёт подсчёт, сессия сама сохраняется в историю на телефоне без всякого входа. Видно график по дням, чтобы замечать привычный ритм малыша и спокойно показать врачу. Спокойствие от регулярной картины движений это то, за что женщины ценят такие приложения, и за надёжную версию без сбоев они готовы заплатить.",
+   "features": [
+    "Режим подсчёта, который держит экран включённым, пока считаешь",
+    "Тап по крупной кнопке на каждое шевеление, сессия сохраняется сама",
+    "История сессий по дням и график, чтобы видеть привычный ритм",
+    "Всё хранится на телефоне, без обязательного аккаунта и без запроса индекса",
+    "Мягкое напоминание посчитать шевеления в удобное время",
+    "Выгрузка истории для показа врачу"
+   ],
+   "antiFeatures": [
+    "Не требуем создать аккаунт и войти, чтобы начать считать",
+    "Не просим индекс и лишние личные данные",
+    "Не ставим медицинских диагнозов и тревожных выводов"
+   ],
+   "monetization": "Разовая покупка около 149 рублей за историю, графики и выгрузку, сам счётчик бесплатный. Приложения такого рода часто рекомендует врач, а надёжная версия без потери сессий это ровно то, за что заплатят разово."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-4",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Проверка косметики и еды на безопасность при беременности",
+  "oneLiner": "Сканируешь состав или штрихкод, и приложение говорит, что безопасно при беременности и кормлении, а что стоит отложить.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 39
+  },
+  "reviewGrid": [
+   {
+    "quote": "Started using this during my first pregnancy with all the skin care and food I put in my body I was able to eliminate products that is not safe for me and my baby.",
+    "rating": 5,
+    "app": "Little Bean: Pregnancy Skin"
+   },
+   {
+    "quote": "I wish this scanned barcodes (which I thought it did until I purchased and opened it) so I could be confident that it was picking up the ingredients list accurately.",
+    "rating": 2,
+    "app": "Little Bean: Pregnancy Skin"
+   },
+   {
+    "quote": "It failed to pick up on a medium risk ingredient (octinoxate) because it was listed under a different name (ethylhexyl methoxycinnamate).",
+    "rating": 3,
+    "app": "Little Bean: Pregnancy Skin"
+   },
+   {
+    "quote": "Would have given 5 stars if there was an option to switch to “Breastfeeding mode”",
+    "rating": 4,
+    "app": "Little Bean: Pregnancy Skin"
+   },
+   {
+    "quote": "I love this app but cross reference the facts, because they said pregnant women can’t have honey and I looked into it and that’s not true.",
+    "rating": 4,
+    "app": "BabyCenter Pregnancy Tracker"
+   },
+   {
+    "quote": "It would be even better if it also was able to scan product barcodes and allowed you too type in food names as well.",
+    "rating": 4,
+    "app": "Little Bean: Pregnancy Skin"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Проверка косметики и еды на безопасность при беременности",
+    "obsCount": 24,
+    "apps": [
+     "Little Bean: Pregnancy Skin",
+     "BabyCenter Pregnancy Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Спокойствие от того, что состав проверен, а не гуглишь каждый ингредиент",
+    "obsCount": 11,
+    "apps": [
+     "Little Bean: Pregnancy Skin"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Один и тот же ингредиент под разными названиями должен находиться",
+    "obsCount": 7,
+    "apps": [
+     "Little Bean: Pregnancy Skin"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Женщины на беременности перепроверяют каждую баночку крема и каждый продукт, и приложение, которое берёт эту тревогу на себя, они прямо называют спасением. Но единственный заметный игрок сканирует только фото состава, а не штрихкод, база тонкая, один и тот же ингредиент под другим химическим названием не находит и режим кормления просят добавить. Отдельно люди путаются в еде, где даже трекеры дают противоречивые советы вроде запрета мёда. Не хватает надёжного справочника, который по штрихкоду или составу честно скажет, что безопасно, а что отложить, и различает беременность и кормление.",
+  "idea": {
+   "pitch": "Приложение, которое снимает тревогу вопроса безопасно ли это мне сейчас. Наводишь на штрихкод или на список состава, и оно разбирает ингредиенты по уровням риска и объясняет простым языком, почему что то стоит отложить. Работает и для косметики, и для еды, различает беременность и кормление. За снятую тревогу и сэкономленное время на гугление каждого названия платят охотно, женщины прямо пишут, что такое приложение изменило им жизнь.",
+   "features": [
+    "Скан штрихкода и распознавание состава по фото",
+    "Разбор ингредиентов по уровням риска с простым объяснением по каждому",
+    "Словарь синонимов, чтобы один ингредиент под разными названиями находился",
+    "Режим беременности и режим кормления с разными правилами",
+    "Поиск по названию продукта или ингредиента вручную",
+    "История проверок, чтобы вернуться к списку покупок"
+   ],
+   "antiFeatures": [
+    "Не заменяем врача и не даём медицинских диагнозов",
+    "Не пугаем и не стыдим за съеденное печенье",
+    "Не продаём и не советуем конкретные бренды за деньги"
+   ],
+   "monetization": "Подписка около 299 рублей в год или разовая покупка около 399 рублей за полную базу и режим кормления, базовый скан бесплатный. Похожее приложение люди хвалят даже за 4 доллара и жалеют только о тонкой базе, так что за полноту заплатят."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-5",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Дневник беременности с фото живота, который не пропадает",
+  "oneLiner": "Снимаешь живот и заметки по неделям, всё хранится у тебя и не исчезает после обновления, легко собрать в память о беременности.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "I started using this app back in 2018. I have all my old baby bump photos saved in here for all of my pregnancies now I cannot get any of them off because they decided to delete everything. It sucks because I truly wanted my photos.",
+    "rating": 2,
+    "app": "Nurture Pregnancy Week by Week"
+   },
+   {
+    "quote": "Once I put a picture I’m not able to change it no matter how much I tried. I tried contacting support multiple times and they have not gotten back to me",
+    "rating": 1,
+    "app": "Nurture Pregnancy Week by Week"
+   },
+   {
+    "quote": "The app keeps logging me out, which is really frustrating.",
+    "rating": 1,
+    "app": "The Bump: Baby & Pregnancy App"
+   },
+   {
+    "quote": "I also can’t add my latest bumpie it just won’t save. It’s super glitchy and getting more annoying by the week.",
+    "rating": 3,
+    "app": "Nurture Pregnancy Week by Week"
+   },
+   {
+    "quote": "I do like that it has a nice way to document photos of your",
+    "rating": 3,
+    "app": "BabyCenter Pregnancy Tracker"
+   },
+   {
+    "quote": "I was saving it to go back to as a memory so I could write everything down. All I have is one screenshot",
+    "rating": 1,
+    "app": "Contraction Timer ＆ Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Дневник беременности с фото живота, который не пропадает",
+    "obsCount": 21,
+    "apps": [
+     "Nurture Pregnancy Week by Week",
+     "The Bump: Baby & Pregnancy App",
+     "BabyCenter Pregnancy Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Собрать беременность в память, а не потерять при обновлении",
+    "obsCount": 10,
+    "apps": [
+     "Nurture Pregnancy Week by Week",
+     "Contraction Timer ＆ Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Заметки после визита к врачу в одном месте",
+    "obsCount": 6,
+    "apps": [
+     "My Pregnancy | Tracker & App"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Фото живота по неделям это то, что женщины хотят сохранить на всю жизнь, и именно эти снимки приложения теряют чаще всего. Обновление стирает все дневники, старые фото невозможно достать, новую фотографию не удаётся сохранить. Люди годами копят снимки, а потом теряют их разом, и это боль сильнее любых багов. Отдельно просят место для заметок после визита к врачу. Нужен простой дневник, где фото и записи хранятся у тебя на телефоне, переживают обновления и легко собираются в память о беременности.",
+  "idea": {
+   "pitch": "Дневник, который бережёт снимки живота и заметки так, будто это семейный альбом. Каждую неделю добавляешь фото и пару строк, всё хранится на твоём телефоне и в твоём облаке, ничего не пропадает после обновления. В конце собираешь красивую раскадровку роста живота и историю беременности, которую можно распечатать или показать ребёнку через годы. За сохранность этих воспоминаний платят, потеря именно этих фото в отзывах называется самой обидной.",
+   "features": [
+    "Фото живота по неделям с наложением рамки недели",
+    "Короткие заметки к каждой неделе, что чувствовала и что было",
+    "Раздел заметок после визита к врачу и результатов",
+    "Сборка раскадровки роста живота в одно видео или коллаж",
+    "Хранение на телефоне и в личном облаке, экспорт всех фото одним архивом",
+    "Напоминание сделать снимок недели"
+   ],
+   "antiFeatures": [
+    "Не держим фото на своём сервере так, что их нельзя забрать",
+    "Не стираем дневник при обновлении",
+    "Не превращаем дневник в ленту и рекламу товаров"
+   ],
+   "monetization": "Разовая покупка около 249 рублей за сборку раскадровки и экспорт архивом, добавление фото и заметок бесплатное. Люди годами хранят снимки и теряют их, а надёжное сохранение и красивый итог это ровно та ценность, за которую отдадут деньги."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-6",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Приложение для будущего папы без кринжа и с честной информацией",
+  "oneLiner": "Понятно объясняет папе, что происходит с малышом и партнёршей и чем реально помочь, без макушек про пещерного мужика.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "I honestly cringed so hard it made me wanna throw up",
+    "rating": 1,
+    "app": "Dad Pregnancy Guide: Daddy Up"
+   },
+   {
+    "quote": "The tone of this app is condescending and the daily tips are really not for people who are full partners.",
+    "rating": 2,
+    "app": "Dad Pregnancy Guide: Daddy Up"
+   },
+   {
+    "quote": "I wish there was a serious version, or a slider to turn off the “men are idiots and need things explained in sports terms” type nonsense.",
+    "rating": 3,
+    "app": "Dad Pregnancy Guide: Daddy Up"
+   },
+   {
+    "quote": "As a Dad to be- I wanted something that would help me keep up with my child’s progress and clue me In about what’s happening with my wife’s body. This app kind of does that? It’s not very informative, to me.",
+    "rating": 3,
+    "app": "Dad Pregnancy Guide: Daddy Up"
+   },
+   {
+    "quote": "The dates are not synced up with my wife’s app, even though it specifically says they are. Sometimes, it asks me to purchase, even though my wife already bought it.",
+    "rating": 2,
+    "app": "HiDaddy - pregnancy for Dads"
+   },
+   {
+    "quote": "I do like this app, it does need more detail and info daily. Maybe a tip per region like what mom should be feeling and needing, eating, more tips on how to help mom out.",
+    "rating": 3,
+    "app": "HiDaddy - pregnancy for Dads"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Приложение для будущего папы без кринжа и с честной информацией",
+    "obsCount": 22,
+    "apps": [
+     "Dad Pregnancy Guide: Daddy Up",
+     "HiDaddy - pregnancy for Dads"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Конкретные подсказки, чем реально помочь партнёрше на этой неделе",
+    "obsCount": 11,
+    "apps": [
+     "Dad Pregnancy Guide: Daddy Up",
+     "HiDaddy - pregnancy for Dads"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Срок совпадает с приложением партнёрши, а не расходится",
+    "obsCount": 6,
+    "apps": [
+     "HiDaddy - pregnancy for Dads"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Мужчины хотят понимать, что происходит, и быть полезными, но приложения для пап разговаривают с ними как с тупыми пещерными самцами. Тон снисходительный, шутки про альфа самца и спорт вместо сути, а полезной информации мало. Те, кто хочет всерьёз разобраться, не находят серьёзной версии и удаляют приложение через пару минут. Ещё срок в папином приложении расходится с приложением партнёрши, хотя обещана синхронизация. Не хватает уважительного приложения, которое честно объясняет папе развитие малыша и состояние партнёрши и даёт конкретные шаги помощи.",
+  "idea": {
+   "pitch": "Приложение для будущего папы, которое уважает его ум. Каждую неделю коротко и по делу, что происходит с малышом, что чувствует и в чём нуждается партнёрша, и три конкретных дела, которыми реально помочь именно сейчас. Никаких шуток про пещерного мужика и спорт, обычный человеческий тон. Срок задаётся тем же способом, что у партнёрши, и совпадает. Мужчины платят за то, чтобы не чувствовать себя идиотом и быть по настоящему полезными, а именно этого им не дают.",
+   "features": [
+    "Понятное объяснение по неделям, что с малышом и что с телом партнёрши",
+    "Три конкретных дела на неделю, чем помочь, а не общие банальности",
+    "Спокойный уважительный тон без шуток про самца и спорт",
+    "Срок вводится вручную и совпадает с приложением партнёрши",
+    "Подсказки к визитам и родам, что взять и как поддержать",
+    "Напоминания без навязчивости, раз в неделю, а не дважды в день"
+   ],
+   "antiFeatures": [
+    "Не разговариваем с папой как с недоразвитым мужиком",
+    "Не сыпем рекламой и не разваливаемся от неё",
+    "Не обещаем синхронизацию, которой нет, лучше честный ручной ввод"
+   ],
+   "monetization": "Разовая покупка около 299 рублей за полную версию, первые недели бесплатно для пробы. Мужчины в отзывах платят и за подписку в конкурентах, но злятся на тон и расхождение срока, честный уважительный продукт заберёт эту готовность платить."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-7",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Трекер беременности двойней с двумя малышами и правильными нормами",
+  "oneLiner": "Отдельно ведёт двух малышей, свои размеры и шевеления, и подстраивает нормы веса и сроков под многоплодную беременность.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 27
+  },
+  "reviewGrid": [
+   {
+    "quote": "Allows you to specify a twin pregnancy but doesn’t customize any of the language or information to be more customized to twins.",
+    "rating": 3,
+    "app": "Ovia Cycle & Pregnancy Tracker"
+   },
+   {
+    "quote": "It allows you to select that you’re having twins in the set up, but doesn’t show two babies in the 3D images, there are also not as many twin articles.",
+    "rating": 4,
+    "app": "The Bump: Baby & Pregnancy App"
+   },
+   {
+    "quote": "Great app for singleton mom. Wish apps would have more information/options for moms of multiple.",
+    "rating": 3,
+    "app": "Pregnancy App."
+   },
+   {
+    "quote": "App is overall great however, for tracking purposes, it would be better there were an option for twins/multiples. Kick counts, weight, etc. will always be tracked different with multiples.",
+    "rating": 3,
+    "app": "Pregnancy App."
+   },
+   {
+    "quote": "I really like this tracker but with their was an option for twins. I paid for the app prior to knowing we are expecting twins",
+    "rating": 3,
+    "app": "Pregnancy Tracker 3D by Sprout"
+   },
+   {
+    "quote": "I love this app, I do wish you had a feature to add twins but over all this is a really good app and helps with my anxiety about my baby",
+    "rating": 5,
+    "app": "Musa: Period & Pregnancy"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Трекер беременности двойней с двумя малышами и правильными нормами",
+    "obsCount": 18,
+    "apps": [
+     "Ovia Cycle & Pregnancy Tracker",
+     "The Bump: Baby & Pregnancy App",
+     "Pregnancy App."
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Отдельно вести размеры и шевеления каждого малыша",
+    "obsCount": 9,
+    "apps": [
+     "Pregnancy App.",
+     "The Bump: Baby & Pregnancy App"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Тревога за малышей, которую снимает подходящая информация",
+    "obsCount": 6,
+    "apps": [
+     "Musa: Period & Pregnancy",
+     "Pregnancy Tracker 3D by Sprout"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Мамы двойни и тройни везде на обочине. Приложения дают галочку двойня при настройке, но дальше всё как для одного, язык, картинки, нормы веса и сроков не меняются, второго малыша не видно, статей про многоплодную беременность почти нет. Женщины прямо просят вести двух малышей отдельно, потому что шевеления и вес считаются иначе. Кто то даже заплатил за приложение до того, как узнал про двойню, и остался ни с чем. Не хватает трекера, который с самого начала сделан под двойню, ведёт каждого малыша своим и подстраивает нормы под многоплодную беременность.",
+  "idea": {
+   "pitch": "Трекер, сделанный специально под двойню и тройню, а не с прикрученной галочкой. Каждый малыш ведётся отдельно, свои размеры и своя картинка развития, шевеления считаются по каждому. Нормы прибавки веса и ожидаемые сроки подстроены под многоплодную беременность, а не под одного. Есть понятные объяснения того, чем такая беременность отличается. Это узкая, но точно очерченная аудитория, которую все игнорируют, и она готова платить за приложение, которое наконец про неё.",
+   "features": [
+    "Ведение двух и трёх малышей отдельно, свои карточки развития",
+    "Шевеления и заметки по каждому малышу отдельно",
+    "Нормы прибавки веса и сроков, подстроенные под многоплодную беременность",
+    "Понятные материалы, чем беременность двойней отличается",
+    "Счётчик недель с ручной правкой, важный при более ранних родах",
+    "Заметки к визитам, которых при двойне обычно больше"
+   ],
+   "antiFeatures": [
+    "Не выдаём контент для одного малыша за контент про двойню",
+    "Не пугаем осложнениями, а спокойно объясняем отличия",
+    "Не прячем базовое ведение малышей за оплату"
+   ],
+   "monetization": "Разовая покупка около 349 рублей за полное ведение всех малышей и материалы про двойню, базовый счётчик недель бесплатный. Люди из этой аудитории уже платили конкурентам и остались без нужного, узкий точный продукт соберёт эту готовность платить."
+  }
+ },
+ {
+  "slug": "pregnancy-tracker-8",
+  "category": "pregnancy-tracker",
+  "categoryName": "Беременность",
+  "title": "Бережный трекер, который умеет про потерю беременности",
+  "oneLiner": "Спокойно ведёт беременность и при потере не стирает всё разом и не шлёт бодрые уведомления про малыша, а бережно закрывает.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 43,
+   "reviews": 1028,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "If you have any factors that make your risk of pregnancy loss higher, you should avoid this app. It was very sad to not have any kind or empathic words after I had a miscarriage at 10 weeks. The app permanently deleted my pregnancy like it never existed!",
+    "rating": 2,
+    "app": "Pregnancy App."
+   },
+   {
+    "quote": "The pregnancy ended in loss and the loss was reported in the app. 2 months before what would have been my due date, a box of formula samples showed up.",
+    "rating": 2,
+    "app": "Pregnancy Baby Tracker - WTE"
+   },
+   {
+    "quote": "I was in “get pregnant” mode, had a miscarriage and it still was prompting me with “you baby is now able to do blablabla”",
+    "rating": 1,
+    "app": "Femia - Fertility & Pregnancy"
+   },
+   {
+    "quote": "there needs to be an update for women to report an ectopic pregnancy",
+    "rating": 3,
+    "app": "Hello Belly: Pregnancy Tracker"
+   },
+   {
+    "quote": "1-there is NO WAY to adjust the start of a pregnancy",
+    "rating": 4,
+    "app": "Hello Belly: Pregnancy Tracker"
+   },
+   {
+    "quote": "I started using this app when I found out I was pregnant. I miscarried and now I am receiving free samples of baby formula. Feels like I’m being punched in the face whenever I get the mail.",
+    "rating": 1,
+    "app": "Pregnancy Baby Tracker - WTE"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Бережный трекер, который умеет про потерю беременности",
+    "obsCount": 17,
+    "apps": [
+     "Pregnancy App.",
+     "Pregnancy Baby Tracker - WTE",
+     "Femia - Fertility & Pregnancy"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Не слать бодрые уведомления про малыша после потери",
+    "obsCount": 8,
+    "apps": [
+     "Femia - Fertility & Pregnancy",
+     "Pregnancy Baby Tracker - WTE"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Возможность отметить потерю и бережно закрыть, а не стереть всё",
+    "obsCount": 6,
+    "apps": [
+     "Hello Belly: Pregnancy Tracker",
+     "Pregnancy App."
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Потеря беременности случается часто, а приложения ведут себя в этот момент жестоко. Одни стирают всю беременность, будто её не было, ни слова поддержки. Другие продолжают слать бодрые уведомления твой малыш теперь умеет то то, уже после выкидыша. Третьи через дом присылают бесплатные образцы смеси за пару месяцев до бывшей даты родов. Отметить потерю или внематочную беременность обычно просто негде. Это тема, которой все избегают, поэтому её никто не делает по человечески. Нужен бережный трекер, который умеет спокойно закрыть беременность, выключить всё лишнее и сохранить то, что женщина захочет оставить.",
+  "idea": {
+   "pitch": "Спокойный и бережный трекер беременности, который единственный на рынке достойно ведёт себя при потере. Если случается потеря, приложение не стирает всё разом, а мягко предлагает отметить это, тут же выключает все весёлые уведомления про малыша и убирает рекламу товаров для новорождённых. Данные, дневник и фото остаются у женщины, если она хочет их сохранить, или удаляются полностью по её выбору. Есть спокойные слова поддержки и бережный путь дальше. За человеческое отношение в самый тяжёлый момент остаются лояльны и платят.",
+   "features": [
+    "Спокойное ведение беременности по неделям с ручной правкой срока",
+    "Бережная отметка потери или внематочной, без стирания всего разом",
+    "Мгновенное отключение всех уведомлений про малыша после потери",
+    "Данные и дневник остаются у женщины или удаляются полностью по её выбору",
+    "Спокойные слова поддержки и бережный путь дальше без давления",
+    "Никакой передачи адреса и никаких образцов товаров для новорождённых"
+   ],
+   "antiFeatures": [
+    "Не стираем беременность молча, будто её не было",
+    "Не шлём бодрые уведомления про малыша после потери",
+    "Не передаём данные партнёрам ради рекламы и образцов"
+   ],
+   "monetization": "Разовая покупка около 249 рублей за полное ведение и сохранный дневник, базовый счётчик бесплатный, разделы про потерю всегда бесплатны и открыты. Женщины остаются верны приложению, которое не ранило их в тяжёлый момент, и рекомендуют его, а это и есть основа спокойных продаж."
+  }
  }
 ]
