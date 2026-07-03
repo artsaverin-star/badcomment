@@ -31,15 +31,29 @@ export type NicheMarket = {
 };
 
 const RU = scores as unknown as Record<string, IdeaScore>;
-const EN = scoresEn as unknown as Record<string, { whyPay?: string }>;
+const EN = scoresEn as unknown as Record<string, { whyPay?: string; targetSegment?: string }>;
 const MKT = market as unknown as Record<string, NicheMarket>;
+
+// Prices are baked as RU strings ("$4-6/мес", "$60/год", "$12 разово"); the
+// numbers are universal, so on EN we only swap the unit tokens.
+export function localizePrice(s: string | undefined, locale: Locale): string | undefined {
+  if (!s || locale !== "en") return s;
+  return s
+    .replace(/\/мес/g, "/mo").replace(/\/год/g, "/yr").replace(/\/нед/g, "/wk").replace(/\/день/g, "/day")
+    .replace(/разово/g, "one-time").replace(/\bили\b/g, "or").replace(/бесплатно/g, "free");
+}
 
 export function scoreFor(slug: string, locale: Locale = "ru"): IdeaScore | null {
   const s = RU[slug];
   if (!s) return null;
   if (locale === "en") {
     const en = EN[slug];
-    if (en?.whyPay) return { ...s, whyPay: en.whyPay };
+    return {
+      ...s,
+      whyPay: en?.whyPay ?? s.whyPay,
+      targetSegment: en?.targetSegment ?? s.targetSegment,
+      pricePoint: localizePrice(s.pricePoint, locale) ?? s.pricePoint,
+    };
   }
   return s;
 }

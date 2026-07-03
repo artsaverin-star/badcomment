@@ -13,7 +13,7 @@ import AppLinkedText from "@/components/AppLinkedText";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { categoryCards } from "@/lib/regenCards";
-import { marketFor, scoreFor } from "@/lib/ideaScores";
+import { marketFor, scoreFor, localizePrice } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import ideaCovers from "@/data/ideaCovers.json";
 import personaCovers from "@/data/personaCovers.json";
@@ -272,7 +272,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             <Tile k={ru ? "Сколько платят" : "What people pay"}>
               <span className="flex flex-wrap gap-1.5">
                 {mkt.pricesTop.slice(0, 4).map((p, i) => (
-                  <span key={i} className="inline-flex items-center rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-footnote font-semibold tabular-nums text-[var(--color-text-primary)]">{p.label}</span>
+                  <span key={i} className="inline-flex items-center rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-footnote font-semibold tabular-nums text-[var(--color-text-primary)]">{localizePrice(p.label, locale)}</span>
                 ))}
               </span>
               <span className="mt-3 block text-footnote text-[var(--color-text-secondary)]">{ru ? "цены из реальных отзывов" : "prices cited in real reviews"}</span>
