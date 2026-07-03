@@ -190,7 +190,7 @@ function Modal({ onClose, action, children }: { onClose: () => void; action?: Re
 // real illustration. Without `art` it stays the compact text card (personas).
 function CardFace({ icon, art, hue, cover, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; hue?: number; cover?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
   return (
-    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full flex-col items-start overflow-hidden rounded-[22px] text-left ${art ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
+    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full w-full min-w-0 flex-col items-start overflow-hidden rounded-[22px] text-left ${art ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
@@ -209,13 +209,13 @@ function CardFace({ icon, art, hue, cover, title, desc, footer, onClick, locked,
           {favId && !locked && <FavButton id={favId} />}
         </div>
       )}
-      <div className={`flex w-full flex-1 flex-col items-start ${art ? "gap-2.5 px-2.5 pb-3 pt-4" : "gap-3"}`}>
-        {kicker && <div className="max-w-[85%] truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
-        <div className="flex items-center gap-3">
+      <div className={`flex w-full min-w-0 flex-1 flex-col items-start ${art ? "gap-2.5 px-2.5 pb-3 pt-4" : "gap-3"}`}>
+        {kicker && <div className="w-full truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
+        <div className="flex w-full min-w-0 items-center gap-3">
           {icon && !art && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
-          <div className="text-headline text-[var(--color-text-primary)]">{title}</div>
+          <div className="min-w-0 text-balance break-words text-headline text-[var(--color-text-primary)]">{title}</div>
         </div>
-        <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
+        <div className="w-full break-words text-callout text-[var(--color-text-secondary)]">{desc}</div>
         {footer && <div className="mt-auto pt-1">{footer}</div>}
       </div>
     </button>
@@ -348,7 +348,7 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
         {shown.map((x, i) => (
           // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
-          <div key={i} className="card-fade h-full" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
+          <div key={i} className="card-fade h-full min-w-0" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => openCard(x)}
               art={x.icon} hue={x.hue} cover={x.cover} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
