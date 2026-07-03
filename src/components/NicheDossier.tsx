@@ -159,6 +159,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   // Real market money layer: Google Play install scale + a transparent revenue estimate.
   const mkt = marketFor(slug);
   const compactM = (n: number) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} ${ru ? "млрд" : "B"}` : `${Math.round(n / 1e6)} ${ru ? "млн" : "M"}`);
+  // Revenue low/high are baked RU strings ("$149 млн"); swap the unit tokens on EN.
+  const revLoc = (s: string) => (ru ? s : s.replace(/\s*млрд/g, "B").replace(/\s*млн/g, "M").replace(/\s*тыс/g, "K"));
   const topInstall = mkt?.installs?.top?.[0];
 
   const name = ru ? r.name : r.nameEn ?? r.name;
@@ -278,7 +280,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           )}
           {mkt?.revenue && (
             <Tile wide k={ru ? "Оценка выручки" : "Revenue estimate"}>
-              <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{mkt.revenue.low}-{mkt.revenue.high}</span>
+              <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{revLoc(mkt.revenue.low)}-{revLoc(mkt.revenue.high)}</span>
               <span className="mt-1.5 block text-footnote text-[var(--color-text-secondary)]">{ru ? "в год у топ-приложений ниши" : "a year for the niche's top apps"}</span>
               <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
             </Tile>

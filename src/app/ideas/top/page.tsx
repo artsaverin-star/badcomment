@@ -1,6 +1,6 @@
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
-import { ideaCard } from "@/lib/regenCards";
+import { ideaCard, ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
@@ -56,9 +56,10 @@ export default async function IdeasTopPage() {
 
   const rows: Row[] = ranked.slice(0, limit).map(({ i, s }) => {
     const ov = ideaCard(i.slug, locale);
+    const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
     return {
-      title: cleanTitle(ov?.title ?? i.title),
-      oneLiner: ov?.oneLiner ?? i.oneLiner,
+      title: cleanTitle(ov?.title ?? en?.title ?? i.title),
+      oneLiner: ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
       category: i.category, categoryName: nameOf(i.category),
       money: s!.money, simplicity: s!.simplicity, demand: s!.demand, composite: s!.composite,
       whyPay: s!.whyPay, pricePoint: s!.pricePoint,

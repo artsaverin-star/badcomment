@@ -98,10 +98,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
   const shown = all.slice(0, limit).map((i, idx) => {
     const ov = ideaCard(i.slug, locale);
+    // idea-cards.en.json (share-card overlay) is sparse; ideas-content.en.json
+    // covers every idea, so fall back to it for the localized title/oneLiner.
+    const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
     const base = {
       slug: i.slug,
-      title: cleanTitle(ov?.title ?? i.title),
-      oneLiner: ov?.oneLiner ?? i.oneLiner,
+      title: cleanTitle(ov?.title ?? en?.title ?? i.title),
+      oneLiner: ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
       icon: ICONS[idx % ICONS.length],
       hue: hueFromSlug(i.category),
       cover: (ideaCovers as Record<string, string>)[i.slug],
@@ -113,9 +116,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     // the page weigh megabytes, so their modal fetches /api/idea-depth on open.
     // Non-owners get their handful of free cards inline, as before.
     if (owner) return base;
-    // Non-owners get the idea body inline, so it must be localized here (the
-    // owner path fetches /api/idea-depth, which localizes itself).
-    const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
     return {
       ...base,
       gap: en?.gap ?? i.gap,
@@ -129,13 +129,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
   // A blurred peek of what is behind the gate: the next few ideas, locked.
   const lockedPreview = gate
-    ? all.slice(limit, limit + 3).map((i, idx) => ({
-        title: cleanTitle(ideaCard(i.slug, locale)?.title ?? i.title),
-        oneLiner: ideaCard(i.slug, locale)?.oneLiner ?? i.oneLiner,
+    ? all.slice(limit, limit + 3).map((i, idx) => {
+        const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
+        return {
+        title: cleanTitle(ideaCard(i.slug, locale)?.title ?? en?.title ?? i.title),
+        oneLiner: ideaCard(i.slug, locale)?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
         icon: ICONS[idx % ICONS.length],
         score: scoreFor(i.slug, locale) ?? undefined,
         category: nameOf(i.category),
-      }))
+      };
+      })
     : [];
 
   const bot = process.env.BOT_USERNAME || "inAppProBot";

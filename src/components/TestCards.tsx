@@ -191,7 +191,8 @@ function Icon({ name, className }: { name: string; className?: string }) {
   );
 }
 
-function Modal({ onClose, action, children }: { onClose: () => void; action?: React.ReactNode; children: React.ReactNode }) {
+function Modal({ onClose, action, children, locale = "ru" }: { onClose: () => void; action?: React.ReactNode; children: React.ReactNode; locale?: Locale }) {
+  const ru = locale !== "en";
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
@@ -213,7 +214,7 @@ function Modal({ onClose, action, children }: { onClose: () => void; action?: Re
         <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 sm:pt-7">{children}</div>
         <div className="flex shrink-0 flex-col gap-2 border-t border-[var(--color-border-subtle)] p-4">
           {action}
-          <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
+          <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">{ru ? "Закрыть" : "Close"}</button>
         </div>
       </div>
     </div>,
@@ -327,7 +328,7 @@ export function PersonaCards({ segments, covers, hue, locked, locale = "ru" }: {
       </div>
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
       {open && (
-        <Modal onClose={() => setOpen(null)}>
+        <Modal onClose={() => setOpen(null)} locale={locale}>
           <h3 className="text-headline text-[var(--color-text-primary)]">{open.name}</h3>
           <div className="mt-2.5"><PayPill level={open.payLevel} locale={locale} /></div>
           <p className="mt-3 text-callout text-[var(--color-text-secondary)]">{open.job}</p>
@@ -399,6 +400,7 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
       {!locked && open && (
         <Modal
           onClose={() => setOpen(null)}
+          locale={locale}
           action={open.categorySlug ? (
             <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
               {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
