@@ -1,6 +1,6 @@
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
-import { ideaCard } from "@/lib/regenCards";
+import { ideaCard, ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
@@ -113,13 +113,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     // the page weigh megabytes, so their modal fetches /api/idea-depth on open.
     // Non-owners get their handful of free cards inline, as before.
     if (owner) return base;
+    // Non-owners get the idea body inline, so it must be localized here (the
+    // owner path fetches /api/idea-depth, which localizes itself).
+    const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
     return {
       ...base,
-      gap: i.gap,
-      pitch: i.idea?.pitch,
-      features: i.idea?.features,
-      antiFeatures: i.idea?.antiFeatures,
-      monetization: i.idea?.monetization,
+      gap: en?.gap ?? i.gap,
+      pitch: en?.pitch ?? i.idea?.pitch,
+      features: en?.features ?? i.idea?.features,
+      antiFeatures: en?.antiFeatures ?? i.idea?.antiFeatures,
+      monetization: en?.monetization ?? i.idea?.monetization,
       reviewGrid: i.reviewGrid,
     };
   });

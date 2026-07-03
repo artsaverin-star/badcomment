@@ -22,7 +22,7 @@ export default function IdeasDeck({
 
   return (
     <>
-      <IdeaCards ideas={ideas} />
+      <IdeaCards ideas={ideas} locale={locale} />
 
       {gate && (
         <div id="idea-gate" className="relative mt-4 scroll-mt-24">
