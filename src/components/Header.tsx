@@ -79,10 +79,10 @@ export default function Header({
                 key={n.key}
                 href={n.href}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-footnote font-medium transition-colors ${
+                className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active
-                    ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)]"
-                    : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+                    : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{n.icon}</svg>

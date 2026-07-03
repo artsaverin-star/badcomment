@@ -41,11 +41,13 @@ export default function BottomNav({ locale }: { locale: Locale }) {
               key={t.key}
               href={t.href}
               aria-current={on ? "page" : undefined}
-              className={`flex flex-1 flex-col items-center gap-1 py-2 text-caption font-medium transition-colors ${
-                on ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"
+              className={`flex flex-1 flex-col items-center gap-1 py-2 text-caption transition-colors ${
+                on ? "font-semibold text-[var(--color-text-primary)]" : "font-medium text-[var(--color-text-tertiary)]"
               }`}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={on ? 2 : 1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{t.icon}</svg>
+              <span className={`flex h-7 w-12 items-center justify-center rounded-full transition-colors ${on ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]" : ""}`}>
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={on ? 2 : 1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{t.icon}</svg>
+              </span>
               {ru ? t.ru : t.en}
             </Link>
           );

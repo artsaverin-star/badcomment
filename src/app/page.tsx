@@ -141,17 +141,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       <AtmosphereSetter random />
       <header className="text-center">
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Идеи приложений" : "App ideas"}</h1>
-        <p className="mx-auto mt-5 max-w-[52ch] text-lead text-pretty text-[var(--color-text-secondary)]">
+        <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Каждая идея выросла из реальных отзывов на работающие приложения: видно, что строить, для кого и как на этом заработать."
-            : "Every idea grew out of real reviews of working apps: what to build, for whom and how to make money."}
+            ? <>Каждая идея выросла из&nbsp;<span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов App Store и Google Play: видно, что строить, для кого и как на этом заработать.</>
+            : <>Every idea grew out of <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews: what to build, for whom and how to make money.</>}
         </p>
-        <p className="mx-auto mt-4 text-footnote text-[var(--color-text-tertiary)]">
-          {ru
-            ? <>Из <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> отзывов в App Store и Google Play</>
-            : <>From <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play</>}
-        </p>
-
       </header>
 
       {/* The niche tiles are the only control; sorting stays fixed on the

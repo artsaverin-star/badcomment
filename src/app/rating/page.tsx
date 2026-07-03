@@ -96,12 +96,11 @@ export default async function RatingIndexPage() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-16 sm:pt-24">
-      <header>
-        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
-        <h1 className="glow-sweep mt-5 text-display text-balance text-[var(--color-text-primary)]">
-          {ru ? "Рейтинг приложений по реальным отзывам" : "App ratings by real reviews"}
+      <header className="text-center">
+        <h1 className="text-display text-balance text-[var(--color-text-primary)]">
+          {ru ? "Рейтинг приложений" : "App ratings"}
         </h1>
-        <p className="mt-6 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]">
+        <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
             ? "100 приложений на нишу, оценённых по реальному качеству из отзывов, а не по витринной звезде. Плюс проверка, у кого рейтинг накручен."
             : "100 apps per niche scored by real quality from reviews, not the storefront star. Plus a check on whose rating is gamed."}
