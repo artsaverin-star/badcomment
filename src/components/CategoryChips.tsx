@@ -84,19 +84,17 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
         })}
       </div>
       </div>
-      {/* Desktop-only scroll-right button with a fade, hidden once at the end. */}
+      {/* Desktop-only scroll-right button, sitting just off the strip's right
+          edge (no fade over tile text), hidden once scrolled to the end. */}
       {!atEnd && (
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center pr-1 md:flex">
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[var(--color-bg-page)] to-transparent" />
-          <button
-            type="button"
-            onClick={scrollRight}
-            aria-label={ru ? "Ещё ниши" : "More niches"}
-            className="pointer-events-auto relative flex size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_2px_8px_-2px_rgba(18,18,22,0.15)] transition-colors hover:text-[var(--color-text-primary)]"
-          >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={scrollRight}
+          aria-label={ru ? "Ещё ниши" : "More niches"}
+          className="absolute -right-3 top-[26px] z-[1] hidden size-9 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-[0_4px_12px_-3px_rgba(18,18,22,0.25)] transition-colors hover:text-[var(--color-text-primary)] md:flex"
+        >
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>
       )}
     </div>
   );
