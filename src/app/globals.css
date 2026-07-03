@@ -337,6 +337,13 @@ html:not([data-theme="dark"]) {
   }
 }
 
+/* Leave room for the fixed bottom tab bar on phones so it never covers content. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+}
+
 /* Idea-card cover wash: a quiet pastel in the niche's hue (set via --art-h).
    Saturation stays low so a wall of covers reads as a calm gallery, not confetti. */
 .art-wash {

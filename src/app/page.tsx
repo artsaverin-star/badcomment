@@ -12,18 +12,7 @@ import IdeasDeck from "@/components/IdeasDeck";
 import { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
-import Link from "next/link";
 import type { Metadata } from "next";
-
-// Quiet inline text link for the hero meta row (replaces the old pill buttons).
-function MetaLink({ href, label }: { href: string; label: string }) {
-  return (
-    <Link href={href} className="group inline-flex items-center gap-1 font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
-      {label}
-      <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-    </Link>
-  );
-}
 
 export const dynamic = "force-dynamic";
 
@@ -157,14 +146,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             ? "Каждая идея выросла из реальных отзывов на работающие приложения: видно, что строить, для кого и как на этом заработать."
             : "Every idea grew out of real reviews of working apps: what to build, for whom and how to make money."}
         </p>
-        <p className="mx-auto mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-footnote text-[var(--color-text-tertiary)]">
+        <p className="mx-auto mt-4 text-footnote text-[var(--color-text-tertiary)]">
           {ru
-            ? <span>Из <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> отзывов в App Store и Google Play</span>
-            : <span>From <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play</span>}
-          <span aria-hidden="true">·</span>
-          <MetaLink href="/categories" label={ru ? "Разбор категорий" : "Category breakdowns"} />
-          <span aria-hidden="true">·</span>
-          <MetaLink href="/rating" label={ru ? "Рейтинг приложений" : "App rating"} />
+            ? <>Из <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> отзывов в App Store и Google Play</>
+            : <>From <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> reviews across the App Store and Google Play</>}
         </p>
 
       </header>

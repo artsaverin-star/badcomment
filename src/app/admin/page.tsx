@@ -5,6 +5,7 @@ import { isFriendIdentity } from "@/lib/friends";
 import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_STARS, CATEGORY_STARS } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
 import ideasData from "@/data/ideas.json";
+import FavoritesCell from "@/components/FavoritesCell";
 
 export const dynamic = "force-dynamic";
 
@@ -180,15 +181,7 @@ export default async function AdminPage() {
                   )}
                 </td>
                 <td className="px-4 py-2.5">
-                  {(() => {
-                    const f = favBy.get(u.id);
-                    if (!f || !f.length) return <span className="text-[var(--color-text-tertiary)]">—</span>;
-                    return (
-                      <span className="font-medium text-[var(--color-text-primary)]" title={f.join("\n")}>
-                        {f.length} <span className="font-normal text-[var(--color-text-tertiary)]">· {f.slice(0, 2).join(", ")}{f.length > 2 ? "…" : ""}</span>
-                      </span>
-                    );
-                  })()}
+                  <FavoritesCell titles={favBy.get(u.id) ?? []} name={u.firstName || u.username || u.email || u.id.slice(0, 8)} />
                 </td>
                 <td className="whitespace-nowrap px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">
                   {fmtDateTime(u.createdAt)}

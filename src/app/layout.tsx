@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTracker from "@/components/PageTracker";
 import FavSync from "@/components/FavSync";
+import BottomNav from "@/components/BottomNav";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 
@@ -95,6 +96,7 @@ export default async function RootLayout({
         <FavSync enabled={access.loggedIn} />
         {children}
         <Footer locale={locale} />
+        <BottomNav locale={locale} />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer
