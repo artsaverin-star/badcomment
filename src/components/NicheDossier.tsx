@@ -16,6 +16,7 @@ import { categoryCards } from "@/lib/regenCards";
 import { marketFor, scoreFor } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import ideaCovers from "@/data/ideaCovers.json";
+import personaCovers from "@/data/personaCovers.json";
 import ideasAll from "@/data/ideas.json";
 import ideasContentEn from "@/data/ideas-content.en.json";
 import dossierEn from "@/data/dossier.en.json";
@@ -289,7 +290,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
-        <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
+        <div className="mt-6"><PersonaCards segments={audSegments} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} /></div>
         {weakSegs.length > 0 && (
           <div className="card-min mt-4 rounded-[22px] p-6">
             <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Кто не заплатит" : "Who won't pay"}</h3>

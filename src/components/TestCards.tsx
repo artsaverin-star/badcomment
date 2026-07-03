@@ -213,13 +213,16 @@ function Modal({ onClose, action, children }: { onClose: () => void; action?: Re
 // A gallery card. With `art` set it gets a cover zone on top — a quiet grey
 // canvas with a centred SF-style glyph, the placeholder until each idea gets a
 // real illustration. Without `art` it stays the compact text card (personas).
-function CardFace({ icon, art, hue, cover, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; hue?: number; cover?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
+function CardFace({ icon, art, banner, hue, cover, title, desc, footer, onClick, locked, kicker, favId }: { icon?: string; art?: string; banner?: boolean; hue?: number; cover?: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean; kicker?: string; favId?: string }) {
+  // The card has a top illustration zone when it has real art, a cover image, or
+  // is explicitly a banner card (personas) — a pastel canvas, no glyph.
+  const hasArt = !!(art || cover || banner);
   return (
-    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full w-full min-w-0 flex-col items-start overflow-hidden rounded-[22px] text-left ${art ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
+    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full w-full min-w-0 flex-col items-start overflow-hidden rounded-[22px] text-left ${hasArt ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
-      {art && (
+      {hasArt && (
         // The cover: a soft pastel wash in the niche's own hue (grey until each
         // idea gets a real illustration) — the colour gives the wall of cards
         // its rhythm. Light/dark variants live in CSS (.art-wash).
@@ -230,11 +233,13 @@ function CardFace({ icon, art, hue, cover, title, desc, footer, onClick, locked,
           {cover
             // eslint-disable-next-line @next/next/no-img-element
             ? <img src={cover} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-            : <Icon name={art} className={`size-10 ${hue != null ? "art-glyph" : "text-[var(--color-text-tertiary)]"}`} />}
+            : art
+              ? <Icon name={art} className={`size-10 ${hue != null ? "art-glyph" : "text-[var(--color-text-tertiary)]"}`} />
+              : null}
           {favId && !locked && <FavButton id={favId} />}
         </div>
       )}
-      <div className={`flex w-full min-w-0 flex-1 flex-col items-start ${art ? "gap-2.5 px-2.5 pb-3 pt-4" : "gap-3"}`}>
+      <div className={`flex w-full min-w-0 flex-1 flex-col items-start ${hasArt ? "gap-2.5 px-2.5 pb-3 pt-4" : "gap-3"}`}>
         {kicker && <div className="w-full truncate text-[12px] text-[var(--color-text-tertiary)]">{kicker}</div>}
         <div className="flex w-full min-w-0 items-center gap-3">
           {icon && !art && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
@@ -278,9 +283,7 @@ function Bullets({ items, cross }: { items: string[]; cross?: boolean }) {
   );
 }
 
-const PERSONA_ICONS = ["graduation", "compass", "cards", "moon", "person"];
-
-export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Persona[]; locked?: boolean; locale?: Locale }) {
+export function PersonaCards({ segments, covers, hue, locked, locale = "ru" }: { segments: Persona[]; covers?: (string | undefined)[]; hue?: number; locked?: boolean; locale?: Locale }) {
   const [open, setOpen] = useState<Persona | null>(null);
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
@@ -291,7 +294,9 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
           {segments.map((s, i) => (
             <CardFace
               key={i}
-              icon={PERSONA_ICONS[i % PERSONA_ICONS.length]}
+              banner
+              cover={covers?.[i]}
+              hue={hue}
               title={s.name}
               desc={s.job}
               onClick={() => setOpen(s)}
