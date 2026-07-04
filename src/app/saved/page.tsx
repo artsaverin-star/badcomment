@@ -27,7 +27,7 @@ const iconFor = (slug: string) => {
 type FullIdea = {
   slug: string; category: string; title: string; oneLiner: string; gap?: string;
   idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string };
-  reviewGrid?: { quote: string; rating: number; app: string }[];
+  reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[];
 };
 
 export default async function SavedPage() {
@@ -60,7 +60,7 @@ export default async function SavedPage() {
       base.features = en?.features ?? i.idea?.features;
       base.antiFeatures = en?.antiFeatures ?? i.idea?.antiFeatures;
       base.monetization = en?.monetization ?? i.idea?.monetization;
-      base.reviewGrid = i.reviewGrid;
+      base.reviewGrid = i.reviewGrid?.map((q) => ({ ...q, quote: ru && q.quoteRu ? q.quoteRu : q.quote }));
     }
     items[i.slug] = base;
   }

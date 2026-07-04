@@ -10,6 +10,7 @@ export type IdeaQuote = {
   quote: string;
   rating: number;
   app: string;
+  quoteRu?: string;
 };
 
 export type IdeaMechanism = {

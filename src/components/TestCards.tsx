@@ -12,7 +12,7 @@ import type { Locale } from "@/lib/i18n";
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categorySlug?: string };
+type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categorySlug?: string };
 
 // Bookmark toggle on an idea card: pops on tap and persists to localStorage
 // (favIdeas, keyed by idea slug). State lives in localStorage and reaches

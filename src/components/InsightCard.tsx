@@ -154,7 +154,7 @@ export default function InsightCard({
                   </span>
                   <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
                 </span>
-                <p className="text-footnote italic leading-relaxed text-[var(--color-text-secondary)]">{e.quoteRu ?? e.quote}</p>
+                <p className="text-footnote italic leading-relaxed text-[var(--color-text-secondary)]">{ru ? e.quoteRu ?? e.quote : e.quote}</p>
               </div>
             ))}
           </div>

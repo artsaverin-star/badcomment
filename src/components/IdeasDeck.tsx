@@ -7,7 +7,7 @@ import BuyButton from "./BuyButton";
 import type { Locale } from "@/lib/i18n";
 
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Card = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string }[]; icon: string; score?: Score; category?: string; categorySlug?: string };
+type Card = { title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; score?: Score; category?: string; categorySlug?: string };
 
 // The idea deck with a premium gate: free cards, then a blurred peek of what is
 // behind the gate with a centred lock + unlock action on top.

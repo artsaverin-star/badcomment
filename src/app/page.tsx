@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 type FullIdea = {
   slug: string; category: string; title: string; oneLiner: string; gap?: string;
   idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string };
-  reviewGrid?: { quote: string; rating: number; app: string }[];
+  reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[];
 };
 
 // Buildability order, used only as a stable tie-breaker within a sort.
@@ -123,7 +123,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       features: en?.features ?? i.idea?.features,
       antiFeatures: en?.antiFeatures ?? i.idea?.antiFeatures,
       monetization: en?.monetization ?? i.idea?.monetization,
-      reviewGrid: i.reviewGrid,
+      reviewGrid: i.reviewGrid?.map((q) => ({ ...q, quote: ru && q.quoteRu ? q.quoteRu : q.quote })),
     };
   });
 

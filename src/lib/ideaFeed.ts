@@ -38,9 +38,9 @@ export type FeedIdea = {
 // 0 — browsing previews is free, but opening ANY breakdown requires access.
 export const FEED_FREE_DEPTH = 0;
 
-function quoteOf(q?: { quote: string; app: string; rating: number }): FeedQuote | null {
+function quoteOf(q?: { quote: string; app: string; rating: number; quoteRu?: string }, ru?: boolean): FeedQuote | null {
   if (!q || !q.quote) return null;
-  return { text: q.quote, app: q.app, rating: q.rating };
+  return { text: ru && q.quoteRu ? q.quoteRu : q.quote, app: q.app, rating: q.rating };
 }
 
 // Stable "idea of the day" index from the date — no Math.random so it's the same
@@ -86,14 +86,14 @@ export function buildFeed(locale: Locale, owner: boolean): { items: FeedIdea[]; 
       title: en?.title ?? i.title,
       oneLiner: en?.oneLiner ?? i.oneLiner,
       demand: i.stats?.observations ?? 0,
-      quote: quoteOf(i.reviewGrid?.[0]),
+      quote: quoteOf(i.reviewGrid?.[0], ru),
       depth: showDepth
         ? {
             gap: en?.gap ?? i.gap,
             pitch: en?.pitch ?? i.idea?.pitch ?? "",
             features: en?.features ?? i.idea?.features ?? [],
             monetization: en?.monetization ?? i.idea?.monetization ?? "",
-            quotes: (i.reviewGrid ?? []).slice(0, 5).map((q) => ({ text: q.quote, app: q.app, rating: q.rating })),
+            quotes: (i.reviewGrid ?? []).slice(0, 5).map((q) => ({ text: ru && q.quoteRu ? q.quoteRu : q.quote, app: q.app, rating: q.rating })),
           }
         : null,
     };

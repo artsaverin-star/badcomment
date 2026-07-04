@@ -277,7 +277,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       features: en?.features?.length ? en.features : idea.idea.features,
       monetization: en?.monetization || idea.idea.monetization,
       gapApps: [...new Set(idea.mechanisms.flatMap((m) => m.apps))].slice(0, 8),
-      quotes: idea.reviewGrid.slice(0, 8).map((q) => ({ app: q.app, rating: q.rating, text: q.quote })),
+      quotes: idea.reviewGrid.slice(0, 8).map((q) => ({ app: q.app, rating: q.rating, text: ru && q.quoteRu ? q.quoteRu : q.quote })),
     };
   });
 

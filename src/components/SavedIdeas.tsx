@@ -9,7 +9,7 @@ type Score = { money: number; simplicity: number; demand: number; composite: num
 export type SavedPreview = {
   category: string; categoryName: string; title: string; oneLiner: string;
   gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string;
-  reviewGrid?: { quote: string; rating: number; app: string }[];
+  reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[];
   icon: string; hue?: number; cover?: string; score?: Score;
 };
 

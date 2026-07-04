@@ -33,9 +33,9 @@ import { DOSSIER_BY_SLUG } from "@/data/dossier";
 type AppEn = { verdict?: string; loved?: string; weak?: string; whoFor?: string };
 type RApp = { id: string; title: string; icon: string | null; storeAvg: number | null; ratings: number; nrev: number; realScore: number | null; authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null; en?: AppEn };
 type RatingFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
-type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string }[] };
+type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string; quoteRu?: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
-type Idea = { slug: string; category: string; title: string; oneLiner: string; gap?: string; idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }; reviewGrid?: { quote: string; rating: number; app: string }[] };
+type Idea = { slug: string; category: string; title: string; oneLiner: string; gap?: string; idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[] };
 type Segment = { name: string; job: string; payLevel: string; payNote: string; servedBy: string[]; gap: string };
 type Dossier = { audience: { segments: Segment[]; takeaway: string }; market: { money: string; marketLead: string } };
 
@@ -130,7 +130,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       title: cleanTitle(e?.title ?? x.title), oneLiner: tg(e?.oneLiner ?? x.oneLiner), gap: gap ? tg(gap) : undefined,
       pitch: pitch ? tg(pitch) : undefined, features: features?.map((f) => tg(f)),
       antiFeatures: antiFeatures?.map((f) => tg(f)), monetization: monetization ? tg(monetization) : undefined,
-      reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
+      reviewGrid: x.reviewGrid?.map((q) => ({ ...q, quote: ru && q.quoteRu ? q.quoteRu : q.quote })), icon: ideaIcons[i % ideaIcons.length],
       hue: hueFromSlug(slug),
       cover: (ideaCovers as Record<string, string>)[x.slug],
       score: scoreFor(x.slug, locale) ?? undefined,
@@ -348,7 +348,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                     >
                       {(f.plus || f.minus) && <AppLinkedText as="p" className="text-callout text-[var(--color-text-secondary)]" text={tg([f.plus, f.minus].filter(Boolean).join(" "))} apps={ratingApps} locale={locale} />}
                       <div className="mt-5 flex flex-col gap-2.5">
-                        {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={q.quote} />)}
+                        {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
                       </div>
                     </Disclosure>
                   ))}
