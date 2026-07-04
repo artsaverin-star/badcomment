@@ -91,7 +91,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
   );
 
   return (
-    <main className="relative mx-auto w-full max-w-2xl overflow-x-clip px-4 pb-16 pt-6">
+    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 

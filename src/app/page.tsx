@@ -183,9 +183,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           ].map((s, i) => (
             <span key={i} className="flex items-center gap-2">
               {i > 0 && <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="hidden text-[var(--color-text-tertiary)] sm:block"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
-              <a href={s.href} className="flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1.5 pl-3.5 pr-2 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              <a href={s.href} className="flex items-baseline gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
                 {s.label}
-                <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${s.free ? "bg-[color-mix(in_srgb,#30d158_14%,transparent)] text-[#1f9d44]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"}`}>
+                <span className="text-caption font-normal text-[var(--color-text-tertiary)]">
                   {s.free ? (ru ? "бесплатно" : "free") : "990 ₽"}
                 </span>
               </a>
@@ -205,7 +205,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       {showcase.length > 0 && (
         <section className="mt-9">
           <div className="flex items-baseline justify-between gap-3 px-1">
-            <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Открыты сегодня целиком" : "Fully open today"}</h2>
+            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Открыты сегодня целиком" : "Fully open today"}</h2>
             <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Завтра откроются другие" : "A new set opens tomorrow"}</span>
           </div>
           <div className="mt-4">
@@ -217,7 +217,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       <div className="mt-7">
         {gate && (
           <div className="mb-4 px-1">
-            <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Весь каталог по рейтингу" : "The full ranked catalog"}</h2>
+            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Весь каталог по рейтингу" : "The full ranked catalog"}</h2>
           </div>
         )}
         <IdeasDeck

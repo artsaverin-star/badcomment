@@ -11,23 +11,20 @@ export type Row = {
   whyPay: string; pricePoint: string;
 };
 
-const COLORS = { money: "#30d158", simplicity: "#0a84ff", demand: "#bf5af2" };
-
-function Bars({ money, simplicity, demand, ru }: { money: number; simplicity: number; demand: number; ru: boolean }) {
-  const rows: [string, number, string][] = [
-    [ru ? "Деньги" : "Money", money, COLORS.money],
-    [ru ? "Простота" : "Simplicity", simplicity, COLORS.simplicity],
-    [ru ? "Спрос" : "Demand", demand, COLORS.demand],
+// The three axes as quiet stat columns — the same App-Store-style language as
+// ScoreBlock in the idea modal: label above, number below, no bars, no colour.
+function Axes({ money, simplicity, demand, ru }: { money: number; simplicity: number; demand: number; ru: boolean }) {
+  const rows: [string, number][] = [
+    [ru ? "Деньги" : "Money", money],
+    [ru ? "Простота" : "Simplicity", simplicity],
+    [ru ? "Спрос" : "Demand", demand],
   ];
   return (
-    <div className="flex w-full flex-col gap-1 sm:w-[190px]">
-      {rows.map(([label, v, c]) => (
-        <div key={label} className="flex items-center gap-2">
-          <span className="w-[58px] shrink-0 text-[11px] text-[var(--color-text-tertiary)]">{label}</span>
-          <span className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-            <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${v}%`, background: c }} />
-          </span>
-          <span className="w-[20px] shrink-0 text-right text-[11px] tabular-nums text-[var(--color-text-secondary)]">{v}</span>
+    <div className="flex shrink-0 items-center gap-5 sm:justify-end">
+      {rows.map(([label, v]) => (
+        <div key={label} className="min-w-[52px] text-left sm:text-center">
+          <div className="text-caption text-[var(--color-text-tertiary)]">{label}</div>
+          <div className="mt-0.5 text-subhead tabular-nums text-[var(--color-text-secondary)]">{v}</div>
         </div>
       ))}
     </div>
@@ -46,25 +43,25 @@ export default function Leaderboard({
 
   return (
     <>
-      <ol className="flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
+      <ol className="card-min flex flex-col divide-y divide-[var(--color-border-subtle)] rounded-[22px] px-5 sm:px-6">
         {rows.map((r, i) => (
           <li key={i}>
-            <a href={`/${lp}/segment/${r.category}`} className="group flex flex-col gap-3 py-5 transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-primary)_4%,transparent)] sm:flex-row sm:items-center sm:gap-5">
-              <div className="flex items-start gap-3.5 sm:flex-1">
+            <a href={`/${lp}/segment/${r.category}`} className="group flex flex-col gap-3 py-5 sm:gap-2">
+              <div className="flex items-start gap-3.5">
                 <span className="mt-0.5 w-6 shrink-0 text-right text-subhead font-semibold tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[color-mix(in_srgb,var(--color-accent-brand)_16%,transparent)] px-2 py-0.5 text-[12px] font-semibold text-[var(--color-text-primary)]">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M3 20h18" /></svg>{r.composite}
+                    <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2 py-0.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-primary)] shadow-[0_1px_2px_rgba(18,18,22,0.04)]">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M4 20V11M10 20V5M16 20v-6M3 20h18" /></svg>{r.composite}
                     </span>
-                    <span className="truncate text-[12px] text-[var(--color-text-tertiary)]">{r.categoryName}</span>
-                    {r.pricePoint && <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]">{r.pricePoint}</span>}
+                    <span className="truncate text-caption text-[var(--color-text-tertiary)]">{r.categoryName}</span>
+                    {r.pricePoint && <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-caption text-[var(--color-text-secondary)]">{r.pricePoint}</span>}
                   </div>
-                  <h3 className="mt-1.5 text-headline text-[var(--color-text-primary)]">{r.title}</h3>
+                  <h3 className="mt-1.5 text-headline text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-text-secondary)]">{r.title}</h3>
                   {r.whyPay && <p className="mt-1 text-callout text-[var(--color-text-secondary)]">{r.whyPay}</p>}
+                  <div className="mt-3"><Axes money={r.money} simplicity={r.simplicity} demand={r.demand} ru={ru} /></div>
                 </div>
               </div>
-              <Bars money={r.money} simplicity={r.simplicity} demand={r.demand} ru={ru} />
             </a>
           </li>
         ))}
