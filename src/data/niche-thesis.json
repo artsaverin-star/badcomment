@@ -6029,5 +6029,92 @@
     ]
    }
   ]
+ },
+ "blood-pressure-log": {
+  "governing": "Ниша живёт на одном сценарии: врач сказал «меряйте давление дома и приносите цифры», и человек ищет, куда эти цифры складывать. Дальше рынок раскалывается на три несовместимых кластера спроса. Первый кластер, владельцы железных тонометров, которым нужен просто компаньон к манжете: Withings, OMRON connect, iHealth MyVitals, Hello Heart, Equate Heart Chart, A&D Heart Track, MedM. У них измерение уже точное, но софт-обвязка рушится ровно там, где начинается ценность. OMRON после редизайна закопал список отдельных замеров под бесполезный график и заставляет логиниться каждый второй раз, у Withings замеры мужа и жены слиплись в одну ленту, iHealth и Hello Heart молча перестают писать данные в Apple Health при неизменных разрешениях, у всех ломается выгрузка отчёта для врача, ради которого приложение и ставили. Второй кластер, люди без гаджета, которым нужен честный ручной дневник: BP diary, iBP, Feeltracker, Blood Pressure Companion, My Blood Pressure Journal, SmartBP. Их любят за то, что заменяют бумажку и дают PDF доктору, но добивают три вещи, которые повторяются дословно из отзыва в отзыв: отчёт и график режутся 30 днями («everything older than a month is locked in the App»), данные пропадают после апдейта или смены телефона, и нет ведения второго человека, той же жены или матери. Фримиумные из них ещё и тонут в рекламе: после каждого сохранения замера прилетает полноэкранная реклама, которую нельзя закрыть иначе как перезапуском. Третий кластер, самый большой и самый гнилой, камерные и пальцевые «измерители» (InPulse, Wellmy, Heartica, Health Scan, Blood Pressure Level Checker, десятки клонов «finger on the camera»). Они обещают померить давление и сахар пальцем через камеру, чего физически не бывает, выдают одно и то же 120/80 или 80 сахара каждый раз, расходятся с манжетой на 30-50 пунктов и держатся на подписке-ловушке. Их отзывы, это стена «scam», «not free», «doesn't measure, just a log». Именно они выжигают доверие ко всей нише: честный ручной дневник вынужден на входе оправдываться «this app does NOT measure BP», потому что пользователь уже обжёгся на фейке.",
+  "competitorRead": "Три типа игроков. Компаньоны железных тонометров (Withings, OMRON, iHealth, Hello Heart, Equate, A&D, MedM) берут точностью манжеты и доверием бренда, но проседают на софте: синк в Apple Health отваливается, редизайны прячут историю замеров, форсят логин, ломают экспорт для врача, не умеют вести двоих. Честные ручные дневники (BP diary, iBP, Feeltracker, Companion, My BP Journal, SmartBP) берут простотой ввода и PDF для доктора, iBP держат по 14 лет ежедневных замеров, но упираются в потолок 30 дней в отчётах, теряют данные при апдейте и смене телефона, не синхронятся между устройствами и не дают вести второго человека, а бесплатные захлёбываются в рекламе поверх кнопки сохранения. Скам-измерители без манжеты (камерные и пальцевые клоны) берут ложным обещанием «померь пальцем» и подпиской-ловушкой, но не измеряют ничего кроме пульса, выдают одинаковые числа и опасно расходятся с реальным давлением, оставляя после себя выжженное доверие.",
+  "pillars": [
+   {
+    "title": "Дневник, который переживает смену телефона и растёт вместе с историей",
+    "dek": "Люди меряют давление годами по указанию врача, а приложение режет отчёт 30 днями и теряет всё при апдейте или новом телефоне. Ценность дневника в длинном тренде, а не в последнем месяце.",
+    "match": [
+     "everything older than a month is locked",
+     "30 days",
+     "30 day",
+     "past 30 days",
+     "lost all my data",
+     "lost all data",
+     "changed phone",
+     "new iPhone",
+     "data was not backed up",
+     "can't export",
+     "export more than 30 days",
+     "trends over longer periods",
+     "used this for years",
+     "14 years",
+     "since 2012",
+     "since 2013",
+     "share with my doctor",
+     "PDF report",
+     "print out",
+     "take to my doctor",
+     "sync between devices",
+     "doesn't sync my daily readings"
+    ]
+   },
+   {
+    "title": "Веду не только себя: второй человек и контекст замера",
+    "dek": "Пользователь отслеживает давление жены, матери, себя после операции и хочет пометить руку, позу и время суток. Один профиль без мультипользователя и без заметок делает дневник бесполезным ровно для тех, кому он нужнее всего.",
+    "match": [
+     "track multiple users",
+     "track both my mother and myself",
+     "no way to track multiple",
+     "multiple users",
+     "two users",
+     "second user",
+     "add any notes",
+     "which extremity was used",
+     "sitting standing",
+     "position you were in",
+     "add a note",
+     "notes feature",
+     "notes in each entry",
+     "after a recent surgery",
+     "triple bypass",
+     "cardiac rehab",
+     "for my cardiologist",
+     "pregnant",
+     "monitoring my blood pressure while pregnant"
+    ]
+   },
+   {
+    "title": "Честный вход без фейкового измерения и рекламной стены",
+    "dek": "Нишу выжгли камерные скам-измерители и реклама поверх кнопки сохранения. Прямое обещание «мы не меряем пальцем, мы аккуратно ведём то, что намерил ваш тонометр, без рекламы после каждого замера» само по себе продающий аргумент.",
+    "match": [
+     "does not measure",
+     "doesn't measure blood pressure",
+     "just a log",
+     "it's just a journal",
+     "finger on the camera",
+     "finger over the camera",
+     "same reading every time",
+     "exact same reading",
+     "120/80",
+     "scam",
+     "not free",
+     "false advertising",
+     "misleading",
+     "too many ads",
+     "ad every time",
+     "full screen",
+     "can't close the ad",
+     "no ads",
+     "close the app and reopen",
+     "off from what I get with a cuff",
+     "30-50 points",
+     "waste of money"
+    ]
+   }
+  ]
  }
 }

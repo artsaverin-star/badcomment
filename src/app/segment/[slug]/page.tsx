@@ -31,6 +31,7 @@ import NicheDossier from "@/components/NicheDossier";
 // rating + breakdown + idea cards). Rolled out one niche at a time.
 const DOSSIER_SLUGS = new Set([
   "pregnancy-tracker",
+  "blood-pressure-log",
   "astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing",
   "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing", "weather-apps", "travel-planning", "sleep-tracking", "focus-productivity", "journaling-mood", "workout-fitness", "recipes-meal-planning", "plant-care", "baby-tracking", "ai-writing", "scanner-pdf", "ai-chatbot", "intermittent-fasting", "flashcards", "translator", "run-tracking", "voice-recorder", "resume-builder", "invoice-maker", "sobriety", "qr-scanner", "mind-mapping", "wallpapers-widgets", "water-hydration", "pet-care", "password-manager", "ai-image-generation", "car-maintenance", "wardrobe-outfit", "meal-prep-grocery",
 ]);

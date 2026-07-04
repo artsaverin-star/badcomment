@@ -6727,5 +6727,92 @@
     ]
    }
   ]
+ },
+ "blood-pressure-log": {
+  "governing": "The niche runs on a single scenario: the doctor said \"measure your blood pressure at home and bring me the numbers,\" and the person is looking for somewhere to put those numbers. From there the market splits into three incompatible demand clusters. The first cluster, owners of real cuff monitors who just need a companion to the hardware: Withings, OMRON connect, iHealth MyVitals, Hello Heart, Equate Heart Chart, A&D Heart Track, MedM. Their measurement is already accurate, but the software wrapper collapses exactly where the value begins. After its redesign OMRON buried the list of individual readings under a useless chart and forces a login every other time, Withings mashed the husband's and wife's readings into a single feed, iHealth and Hello Heart silently stop writing data into Apple Health even though permissions never changed, and everyone breaks the doctor report export that was the whole reason the app got installed. The second cluster, people without a gadget who need an honest manual journal: BP diary, iBP, Feeltracker, Blood Pressure Companion, My Blood Pressure Journal, SmartBP. They are loved for replacing a scrap of paper and handing the doctor a PDF, but three things repeated word for word from review to review finish them off: the report and chart are cut off at 30 days (\"everything older than a month is locked in the App\"), data disappears after an update or a phone switch, and there is no way to track a second person, the same wife or mother. The freemium ones among them also drown in ads: after every saved reading a full-screen ad shows up that you can only close by restarting. The third cluster, the largest and the rottenest, camera and finger \"measurers\" (InPulse, Wellmy, Heartica, Health Scan, Blood Pressure Level Checker, dozens of \"finger on the camera\" clones). They promise to measure blood pressure and sugar with a finger through the camera, which is physically impossible, spit out the same 120/80 or a sugar of 80 every time, diverge from a cuff by 30 to 50 points, and survive on a subscription trap. Their reviews are a wall of \"scam,\" \"not free,\" \"doesn't measure, just a log.\" It is precisely these that burn down trust across the whole niche: an honest manual journal is forced to justify itself right at the door with \"this app does NOT measure BP,\" because the user has already been burned by a fake.",
+  "competitorRead": "Three types of players. Cuff-monitor companions (Withings, OMRON, iHealth, Hello Heart, Equate, A&D, MedM) win on cuff accuracy and brand trust but sag on software: the Apple Health sync falls off, redesigns hide the reading history, they force logins, break the doctor export, and cannot track two people. Honest manual journals (BP diary, iBP, Feeltracker, Companion, My BP Journal, SmartBP) win on simple entry and a PDF for the doctor, iBP holds 14 years of daily readings, but they hit the 30-day ceiling in reports, lose data on updates and phone switches, do not sync across devices, and offer no second person, while the free ones choke on ads on top of the save button. Cuffless scam measurers (camera and finger clones) win on the false promise of \"measure with your finger\" and a subscription trap, but measure nothing beyond a pulse, hand out identical numbers, and diverge dangerously from real blood pressure, leaving scorched trust behind them.",
+  "pillars": [
+   {
+    "title": "A journal that survives a phone switch and grows with the history",
+    "dek": "People measure blood pressure for years on doctor's orders, and the app cuts the report at 30 days and loses everything on an update or a new phone. A journal's value is in the long trend, not the last month.",
+    "match": [
+     "everything older than a month is locked",
+     "30 days",
+     "30 day",
+     "past 30 days",
+     "lost all my data",
+     "lost all data",
+     "changed phone",
+     "new iPhone",
+     "data was not backed up",
+     "can't export",
+     "export more than 30 days",
+     "trends over longer periods",
+     "used this for years",
+     "14 years",
+     "since 2012",
+     "since 2013",
+     "share with my doctor",
+     "PDF report",
+     "print out",
+     "take to my doctor",
+     "sync between devices",
+     "doesn't sync my daily readings"
+    ]
+   },
+   {
+    "title": "Not just me: a second person and the reading's context",
+    "dek": "The user tracks a wife's, a mother's, or their own post-surgery blood pressure and wants to mark the arm, the posture, and the time of day. A single profile with no multi-user and no notes makes the journal useless for exactly those who need it most.",
+    "match": [
+     "track multiple users",
+     "track both my mother and myself",
+     "no way to track multiple",
+     "multiple users",
+     "two users",
+     "second user",
+     "add any notes",
+     "which extremity was used",
+     "sitting standing",
+     "position you were in",
+     "add a note",
+     "notes feature",
+     "notes in each entry",
+     "after a recent surgery",
+     "triple bypass",
+     "cardiac rehab",
+     "for my cardiologist",
+     "pregnant",
+     "monitoring my blood pressure while pregnant"
+    ]
+   },
+   {
+    "title": "An honest entrance with no fake measurement and no ad wall",
+    "dek": "The niche was scorched by camera scam measurers and ads on top of the save button. A direct promise, \"we don't measure with a finger, we carefully log what your cuff measured, with no ad after every reading,\" is a selling argument all by itself.",
+    "match": [
+     "does not measure",
+     "doesn't measure blood pressure",
+     "just a log",
+     "it's just a journal",
+     "finger on the camera",
+     "finger over the camera",
+     "same reading every time",
+     "exact same reading",
+     "120/80",
+     "scam",
+     "not free",
+     "false advertising",
+     "misleading",
+     "too many ads",
+     "ad every time",
+     "full screen",
+     "can't close the ad",
+     "no ads",
+     "close the app and reopen",
+     "off from what I get with a cuff",
+     "30-50 points",
+     "waste of money"
+    ]
+   }
+  ]
  }
 }
