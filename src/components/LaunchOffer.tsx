@@ -56,8 +56,8 @@ export default function LaunchOffer({
   }
 
   const benefits = ru
-    ? ["Все разборы категорий — открыты навсегда", "Все идеи и спец-статьи", "Каждая новая публикация и ниша тоже входит", "Один платёж — больше никогда"]
-    : ["Every category breakdown — open forever", "All ideas and special reports", "Every future publication and niche included", "One payment — never again"];
+    ? ["Все разборы категорий открыты навсегда", "Все идеи и спец-статьи", "Каждая новая публикация и ниша тоже входит", "Один платёж, больше никогда"]
+    : ["Every category breakdown, open forever", "All ideas and special reports", "Every future publication and niche included", "One payment, never again"];
 
   return (
     <>

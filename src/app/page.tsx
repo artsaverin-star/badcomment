@@ -182,7 +182,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             { href: "#idea-gate", label: ru ? "Идеи, за которые платят" : "Ideas people pay for", free: false },
           ].map((s, i) => (
             <span key={i} className="flex items-center gap-2">
-              {i > 0 && <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+              {i > 0 && <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="hidden text-[var(--color-text-tertiary)] sm:block"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
               <a href={s.href} className="flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1.5 pl-3.5 pr-2 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
                 {s.label}
                 <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${s.free ? "bg-[color-mix(in_srgb,#30d158_14%,transparent)] text-[#1f9d44]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"}`}>

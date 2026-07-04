@@ -82,7 +82,7 @@ export default async function IdeasTopPage() {
         </h1>
         <p className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Каждая идея оценена по трём осям из реальных данных: деньги (кто уже платит и сколько, из цен в отзывах), простота сборки для соло-фаундера и спрос. Итог — их взвешенная сумма."
+            ? "Каждая идея оценена по трём осям из реальных данных: деньги (кто уже платит и сколько, из цен в отзывах), простота сборки для соло-фаундера и спрос. Итог считается как их взвешенная сумма."
             : "Every idea is scored on three axes from real data: money (who already pays and how much, from prices in reviews), buildability for a solo founder, and demand. The score is their weighted sum."}
         </p>
       </header>

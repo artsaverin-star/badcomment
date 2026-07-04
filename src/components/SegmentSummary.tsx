@@ -88,7 +88,7 @@ export default function SegmentSummaryView({
                   {ru ? "База: оплата, стабильность, аккаунт" : "Basics: billing, stability, account"}
                 </span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
-                  {ru ? "Базовая гигиена категории" : "Category housekeeping"} — {hygieneTotal} {ru?"наблюдений":"observations"}
+                  {ru ? "Базовая гигиена категории:" : "Category housekeeping:"} {hygieneTotal} {ru?"наблюдений":"observations"}
                 </span>
               </span>
               <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-180">
