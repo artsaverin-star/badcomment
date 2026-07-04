@@ -183,9 +183,12 @@ export default function Landing({
     "ai-writing": "87 apps: where AI really helps you write, and where it's a thin ChatGPT wrapper with gamed reviews (36 of 87 inflated).",
   };
   const HOOKS = ru ? BLURB : BLURB_EN;
-  const ranked = ULTRA
-    .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: HOOKS[s] ?? c.hook } : null; })
-    .filter((c): c is CatCard => !!c);
+  // The page order comes from the caller (niches by money on the table);
+  // ULTRA only gates which niches are shown at all.
+  const ultraSet = new Set(ULTRA);
+  const ranked = catCards
+    .filter((c) => ultraSet.has(c.slug))
+    .map((c) => ({ ...c, hook: HOOKS[c.slug] ?? c.hook }));
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
   // floated in the left/right margins behind the headline (never over the text).
