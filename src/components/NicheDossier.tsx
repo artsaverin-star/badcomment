@@ -214,7 +214,11 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <header className="mt-12">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
-        <AppLinkedText as="p" className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.governing)} apps={ratingApps} locale={locale} />
+        <div className="mt-6 max-w-[60ch] space-y-4">
+          {tg(thesis.governing).split(/\n{2,}/).map((para, i) => (
+            <AppLinkedText key={i} as="p" className="text-lead text-pretty text-[var(--color-text-secondary)]" text={para.trim()} apps={ratingApps} locale={locale} />
+          ))}
+        </div>
         {updated && <div className="mt-5 text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</div>}
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
