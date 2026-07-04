@@ -6814,5 +6814,51 @@
     ]
    }
   ]
+ },
+ "step-counter": {
+  "governing": "The step-counter market splits into three demands that barely overlap, and each one breaks in its own way. The first and most massive cluster is the simple accurate counter built on CoreMotion, where a person wants one number for the day and a widget on the lock screen. People flat-out write «Apple fitness counts steps but doesn't have a widget somehow? Super lame», find Steps - Simple Pedometer through Reddit for «Simple, easy to use and shows me my Apple fitness steps», and leave Pedometer++ when «The old Pedometer++ that helped me set goals... That is gone». Here everything rests on trust in the number, and the leaders wreck exactly that: with StepsApp «steps are not live... steps go back to less and have a delayed update», with Pedometer++ «over counts steps, iphone health says 7k and watch says 10k but this says 25k», and Steps - Simple Pedometer gets compared to Health and comes out «almost 2,000 steps higher» on the Apple Watch. A separate sore point is that the counter doesn't count until you open the app: «it doesn't add your steps unless you open the app. I passed my 10,000 step goal but it didn't notify me». The second cluster is gamification and pets: Walkr with planets («I love that it's like a video game»), the Wokamon tamagotchi, StepDog with a dog on the watch face, Fantasy Hike with an adventure route, Social Steps and Stompers with family and friend competition. People genuinely fall in love («This has made exercise so fun!!!», «My parents and my parents friends started playing... one of the most fun and addictive»), but two things kill the game: a paywall that cuts out the whole point (Fantasy Hike «free version is limited to tracking 1 mile per day», «you have to pay to keep track of your friends' progress»), and a slow reward loop (Walkr «It takes me 44 days to earn a planet... I'm less motivated»). The third cluster is walk-to-earn with coins: Sweatcoin, WeWard, CashWalk, Scrambly, Moneywalk, where the promise of money for steps breaks at cashout. Here there's a wall of complaints: «Gift cards are always out of stock», «I cashed out for a gift card. Never got the email... Scammed me», «you have until midnight to convert your steps and I got home very late and lost all my steps», the coins don't add up «I was at 386 wards. I walked 5,000 steps... It never gives you the amount of wards you're supposed to get», and it's all drowned in ads «forcing you to use coins to even see the possible rewards».",
+  "competitorRead": "The players fall into three types. Pure tools (Pedometer++, StepsApp, Pedometer α, ActivityTracker, Steps - Simple Pedometer, Accupedo) win on accuracy, history and the widget, but sag on live number updates, phone-watch discrepancy and the fact that steps don't count in the background without opening the app, while older ones like Accupedo lag behind the new iOS widgets. Gamification (Walkr, Wokamon, StepDog, Fantasy Hike, Stompers, Social Steps) wins on emotion and motivation, but chokes itself with a paywall that cuts out the game's core, rare rewards, and the fact that many don't read steps from the Apple Watch at all and pull only phone data («Does not use actual accurate steps data from wearables... simply uses phone step data»). The cashback players (Sweatcoin, WeWard, CashWalk, Scrambly, Noom Vibe, Moneywalk) win on the promise of money, but it's exactly on payout and crediting accuracy that they hold the lowest text ratings in the niche, and on top of that sit aggressive ads and silent support «I've literally never received a response or resolution». The through-line failure across all three types is syncing with Apple Watch and Health and trusting that every step got counted.",
+  "pillars": [
+   {
+    "title": "The number has to be trusted without double-checking",
+    "dek": "The core value of a step counter is one number you don't have to re-verify in Health. The moment the counter lags, rolls back or diverges from the watch, trust collapses and the person leaves.",
+    "match": [
+     "steps are not live",
+     "steps go back to less and have a delayed update",
+     "over counts steps, iphone health says 7k and watch says 10k",
+     "almost 2,000 steps higher",
+     "it only logged 124 steps",
+     "it doesn’t add your steps unless you open the app",
+     "different mileage and data - not reliable"
+    ]
+   },
+   {
+    "title": "Steps count in the background and live on the lock screen",
+    "dek": "People don't want to open the app just to see the count. The work of motivation is background counting, a widget and a meaningful tie-in with the Apple Watch, not one more screen you have to tap.",
+    "match": [
+     "doesn’t add your steps unless you open the app",
+     "have to open app then close it again to get it to work",
+     "doesn’t have a widget somehow",
+     "Can you please add a widget",
+     "add to lock screen",
+     "won’t sync with my watch",
+     "complication for the watch"
+    ]
+   },
+   {
+    "title": "The game and the reward have to live inside the walking itself",
+    "dek": "Pets, routes and competition pull people in, but only if the loop is fast and the core isn't behind a paywall. A slow reward, a free-version limit and money-for-steps without payout kill the very motivation people installed it for.",
+    "match": [
+     "This has made exercise so fun",
+     "one of the most fun and addictive",
+     "free version is limited to tracking 1 mile per day",
+     "you have to pay to keep track of your friends’ progress",
+     "It takes me 44 days to earn a planet",
+     "you have until midnight to convert your steps",
+     "It never gives you the amount of wards you’re supposed to get",
+     "Gift cards are always out of stock"
+    ]
+   }
+  ]
  }
 }

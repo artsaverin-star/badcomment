@@ -6116,5 +6116,51 @@
     ]
    }
   ]
+ },
+ "step-counter": {
+  "governing": "Рынок шагомеров распадается на три спроса, которые почти не пересекаются, и каждый ломается по-своему. Первый и самый массовый кластер это простой точный счётчик на CoreMotion, где человек хочет одно число за день и виджет на экране блокировки. Люди прямо пишут «Apple fitness counts steps but doesn’t have a widget somehow? Super lame», нашли Steps - Simple Pedometer через Reddit ради «Simple, easy to use and shows me my Apple fitness steps», и уходят от Pedometer++, когда «The old Pedometer++ that helped me set goals... That is gone». Здесь всё держится на доверии к цифре, и лидеры рушат именно его: у StepsApp «steps are not live... steps go back to less and have a delayed update», у Pedometer++ «over counts steps, iphone health says 7k and watch says 10k but this says 25k», Steps - Simple Pedometer сравнивают с Health и находят разницу «almost 2,000 steps higher» на Apple Watch. Отдельная больная тема, что счётчик не считает, пока не откроешь приложение: «it doesn’t add your steps unless you open the app. I passed my 10,000 step goal but it didn’t notify me». Второй кластер это геймификация и питомцы: Walkr с планетами («I love that it’s like a video game»), Wokamon-тамагочи, StepDog с собакой на циферблате часов, Fantasy Hike с маршрутом-приключением, Social Steps и Stompers с соревнованием в семье и с друзьями. Люди реально влюбляются («This has made exercise so fun!!!», «My parents and my parents friends started playing... one of the most fun and addictive»), но игру убивают две вещи: пейволл, который вырезает саму суть (Fantasy Hike «free version is limited to tracking 1 mile per day», «you have to pay to keep track of your friends’ progress»), и медленная петля вознаграждения (Walkr «It takes me 44 days to earn a planet... I’m less motivated»). Третий кластер это «ходи-зарабатывай» с монетами: Sweatcoin, WeWard, CashWalk, Scrambly, Moneywalk, где обещание денег за шаги ломается на выводе. Тут стена жалоб: «Gift cards are always out of stock», «I cashed out for a gift card. Never got the email... Scammed me», «you have until midnight to convert your steps and I got home very late and lost all my steps», монеты не сходятся «I was at 386 wards. I walked 5,000 steps... It never gives you the amount of wards you’re supposed to get», и всё утоплено в рекламе «forcing you to use coins to even see the possible rewards».",
+  "competitorRead": "Игроки делятся на три типа. Чистые инструменты (Pedometer++, StepsApp, Pedometer α, ActivityTracker, Steps - Simple Pedometer, Accupedo) берут точностью, историей и виджетом, но проседают на живом обновлении цифры, расхождении телефон-часы и на том, что шаги не идут в фоне без открытия приложения, а старые типа Accupedo отстают от новых виджетов iOS. Геймификация (Walkr, Wokamon, StepDog, Fantasy Hike, Stompers, Social Steps) берёт эмоцией и мотивацией, но душит себя пейволлом, который режет ядро игры, редкими наградами и тем, что многие вообще не читают шаги с Apple Watch, а тянут только данные телефона («Does not use actual accurate steps data from wearables... simply uses phone step data»). Кэшбек-игроки (Sweatcoin, WeWard, CashWalk, Scrambly, Noom Vibe, Moneywalk) берут обещанием денег, но именно на выплате и точности начислений держат самые низкие текстовые оценки в нише, а поверх этого агрессивная реклама и молчащая поддержка «I’ve literally never received a response or resolution». Общий сквозной провал у всех трёх типов это синхронизация с Apple Watch и Health и доверие к тому, что засчитаны все шаги.",
+  "pillars": [
+   {
+    "title": "Цифре должны верить без проверки",
+    "dek": "Главная ценность шагомера это одно число, которому не надо перепроверять в Health. Как только счётчик отстаёт, откатывает или расходится с часами, доверие рушится и человек уходит.",
+    "match": [
+     "steps are not live",
+     "steps go back to less and have a delayed update",
+     "over counts steps, iphone health says 7k and watch says 10k",
+     "almost 2,000 steps higher",
+     "it only logged 124 steps",
+     "it doesn’t add your steps unless you open the app",
+     "different mileage and data - not reliable"
+    ]
+   },
+   {
+    "title": "Шаги идут в фоне и живут на экране блокировки",
+    "dek": "Люди не хотят открывать приложение ради счёта. Работа мотивации это фоновый подсчёт, виджет и осмысленная связка с Apple Watch, а не ещё один экран, который надо тапать.",
+    "match": [
+     "doesn’t add your steps unless you open the app",
+     "have to open app then close it again to get it to work",
+     "doesn’t have a widget somehow",
+     "Can you please add a widget",
+     "add to lock screen",
+     "won’t sync with my watch",
+     "complication for the watch"
+    ]
+   },
+   {
+    "title": "Игра и награда должны быть внутри самой ходьбы",
+    "dek": "Питомцы, маршруты и соревнование затягивают, но только если петля быстрая и ядро не за пейволлом. Медленная награда, лимит бесплатной версии и деньги-за-шаги без выплаты убивают ту самую мотивацию, ради которой ставили.",
+    "match": [
+     "This has made exercise so fun",
+     "one of the most fun and addictive",
+     "free version is limited to tracking 1 mile per day",
+     "you have to pay to keep track of your friends’ progress",
+     "It takes me 44 days to earn a planet",
+     "you have until midnight to convert your steps",
+     "It never gives you the amount of wards you’re supposed to get",
+     "Gift cards are always out of stock"
+    ]
+   }
+  ]
  }
 }

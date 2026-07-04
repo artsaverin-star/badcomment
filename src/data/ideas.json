@@ -57511,5 +57511,700 @@
    ],
    "monetization": "Дневник и одно базовое дыхательное упражнение бесплатны, набор ритмов дыхания и спокойные голосовые подсказки по подписке около 199 рублей в месяц или 1290 рублей в год. Отзывы BreathNow показывают, что за дыхание в этой нише охотно платят."
   }
+ },
+ {
+  "slug": "step-counter-1",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Шагомер, который сверяет счётчики и не спорит с Health",
+  "oneLiner": "Одно честное число шагов вместо трёх разных из телефона, часов и Apple Health",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "I trusted that this app was accurately counting my steps and today I happened to open my Health app and see the step count my Apple Watch got was almost 2,000 steps higher.",
+    "rating": 1,
+    "app": "Steps - Simple Pedometer"
+   },
+   {
+    "quote": "But can never understand the step count discrepancy between watch and phone app. Pedometer++ app matches neither Pedometer++ watch complication or Health.",
+    "rating": 4,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "I have another step counter app and they both say different step numbers so this app may be wrong or the other app.",
+    "rating": 3,
+    "app": "Steps - Activity Tracker"
+   },
+   {
+    "quote": "It logged only 8 steps for a day where I walked over 5,000, and have health data to back it up. Tried to import it into the app and it doesn't show up as out of sync.",
+    "rating": 3,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "Really love the app, but when data is imported into the Health app calories are doubled, so no longer sure which is accurate.",
+    "rating": 1,
+    "app": "StepsApp Pedometer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Шагомер, который сверяет счётчики и не спорит с Health",
+    "obsCount": 97,
+    "apps": [
+     "Steps - Simple Pedometer",
+     "Pedometer++",
+     "Steps - Activity Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Часы, телефон и приложение дают три разных числа за один день",
+    "obsCount": 44,
+    "apps": [
+     "Pedometer++",
+     "StepsApp Pedometer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Импорт из Health не чинит расхождение, а удваивает его",
+    "obsCount": 21,
+    "apps": [
+     "StepsApp Pedometer",
+     "Pedometer++"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди держат телефон в кармане, носят часы и заглядывают в Apple Health и получают три разных числа за один и тот же день. Ни одно приложение не берётся объяснить, откуда взялась разница в две тысячи шагов, и просто показывает своё значение как истину. Нет инструмента, который взял бы все источники, показал их рядом и вывел одно объяснимое число, которому можно доверять.",
+  "idea": {
+   "pitch": "Приложение, которое не заводит свой собственный счётчик, а становится арбитром над теми, что уже есть у человека. Оно тянет шаги из Apple Health, с часов и из встроенного датчика телефона, показывает их рядом за каждый день и подсвечивает, где и почему разошлось: телефон лежал на столе, часы засчитали жесты руками, был двойной импорт. Итог это одно согласованное число с понятной историей, а не ещё одна цифра в общей путанице.",
+   "features": [
+    "Экран сверки: шаги из Health, часов и телефона за день стоят рядом с разницей между ними",
+    "Автоопределение причины расхождения (телефон не с собой, дубль импорта, жесты руками)",
+    "Одно согласованное дневное число с пометкой, из какого источника оно взято",
+    "Дедупликация при импорте, чтобы калории и шаги не удваивались",
+    "История сверок по неделям, видно в какие дни каким источником стоит верить"
+   ],
+   "antiFeatures": [
+    "Не заводит собственный конкурирующий счётчик поверх Health",
+    "Не переписывает данные в Apple Health молча за спиной пользователя",
+    "Без соцленты и лидербордов, это диагностический инструмент"
+   ],
+   "monetization": "Разовая покупка 399 рублей за снятие лимита на глубину истории сверок. Базовая сверка за сегодня и вчера бесплатна навсегда, платится только длинная ретроспектива и экспорт отчёта."
+  }
+ },
+ {
+  "slug": "step-counter-2",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Шаги на экране блокировки без единого рекламного попапа",
+  "oneLiner": "Виджет и экран блокировки со свежим числом шагов, ради которого не надо открывать приложение",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 46
+  },
+  "reviewGrid": [
+   {
+    "quote": "Great app. Can you please add a widget?",
+    "rating": 5,
+    "app": "Social Steps"
+   },
+   {
+    "quote": "My friends and I love the concepts!! I'd love to see how this expands and really like to see a widget for it as well!",
+    "rating": 3,
+    "app": "Social Steps"
+   },
+   {
+    "quote": "Apple fitness counts steps but doesn't have a widget somehow? Super lame. I found this app via Reddit and it's perfect. Simple, easy to use and shows me my steps with no fluff.",
+    "rating": 5,
+    "app": "Steps - Simple Pedometer"
+   },
+   {
+    "quote": "To many ads Lock Screen so can't see your results.",
+    "rating": 3,
+    "app": "Accupedo Pedometer"
+   },
+   {
+    "quote": "As of today the widgets on this app no longer work. Developer has had since ios14 to update to modern widgets.",
+    "rating": 1,
+    "app": "Accupedo Pedometer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Шаги на экране блокировки без единого рекламного попапа",
+    "obsCount": 46,
+    "apps": [
+     "Social Steps",
+     "Steps - Simple Pedometer",
+     "Accupedo Pedometer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Просят виджет годами, а его так и нет или он сломан",
+    "obsCount": 28,
+    "apps": [
+     "Social Steps",
+     "Accupedo Pedometer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Чтобы узнать шаги, приходится открывать приложение и ловить попап",
+    "obsCount": 17,
+    "apps": [
+     "StepsApp Pedometer",
+     "Accupedo Pedometer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди хотят видеть шаги мельком, не заходя в приложение, но виджеты либо отсутствуют, либо застряли на старом iOS, либо перекрыты рекламой на самом экране блокировки. Даже те, кто любит своё приложение, годами в отзывах просят простой виджет. Свободна ниша шагомера, чей единственный смысл жизни это красивый живой виджет и экран блокировки, а не экран приложения с попапами.",
+  "idea": {
+   "pitch": "Шагомер, у которого главный экран это ваш домашний и заблокированный экран, а не окно приложения. Набор виджетов всех размеров и кольцо на Lock Screen, которые обновляются в фоне и показывают шаги, цель и прогресс кольца без единого запуска. Само приложение это только настройки внешнего вида. Ноль рекламы на экране блокировки как принцип, а не как платная опция.",
+   "features": [
+    "Виджеты всех размеров и живое кольцо на экране блокировки, работают из коробки",
+    "Фоновое обновление, число всегда свежее без открытия приложения",
+    "Несколько тем и цветов кольца под обои пользователя",
+    "Виджет цели дня с процентом и остатком шагов до нормы",
+    "Поддержка актуального формата виджетов iOS, а не наследие с 2014 года"
+   ],
+   "antiFeatures": [
+    "Никакой рекламы на экране блокировки и в виджетах, вообще",
+    "Не заставляет открыть приложение, чтобы засчитались шаги",
+    "Без ленты, наград и монеток, только цифра и кольцо"
+   ],
+   "monetization": "Бесплатно один виджет и базовое кольцо. Платный набор тем и все размеры виджетов разовой покупкой 299 рублей, без подписки."
+  }
+ },
+ {
+  "slug": "step-counter-3",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Серия шагов, которую не убьёт один сбойный день",
+  "oneLiner": "Мягкая система целей и серий, где технический недосчёт не обнуляет ваш прогресс",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 77
+  },
+  "reviewGrid": [
+   {
+    "quote": "Constantly losing streaks due to mistracking of steps. It logged only 8 steps for a day where I walked over 5,000.",
+    "rating": 3,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "I miss my set targets often. But I am encouraged to keep trying.",
+    "rating": 5,
+    "app": "StepsApp Pedometer"
+   },
+   {
+    "quote": "Love this app. Motivates you with digital confetti upon completing the steps!",
+    "rating": 5,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "I passed my 10,000 step goal but it didn't notify me until I opened the app to check.",
+    "rating": 3,
+    "app": "StepsApp Pedometer"
+   },
+   {
+    "quote": "I'm 71 years old and this app keeps me going. I enjoy the walking experience and the outdoors.",
+    "rating": 3,
+    "app": "StepUp Pedometer Step Counter"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Серия шагов, которую не убьёт один сбойный день",
+    "obsCount": 77,
+    "apps": [
+     "Pedometer++",
+     "StepsApp Pedometer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Обнуление серии из-за недосчёта убивает мотивацию",
+    "obsCount": 31,
+    "apps": [
+     "Pedometer++"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Празднование цели и серия реально держат привычку",
+    "obsCount": 46,
+    "apps": [
+     "Pedometer++",
+     "StepsApp Pedometer",
+     "StepUp Pedometer Step Counter"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Серия дней подряд это самый сильный крючок привычки, но приложения обнуляют её при первом же техническом сбое: телефон недосчитал, человек забыл его дома, датчик заглючил. Один такой день стирает месяц прогресса, и мотивация рушится. Никто не строит серию, которая прощает сбой, разрешает восстановить день по данным Health и подтверждает достижение цели уведомлением сразу, а не когда откроешь приложение.",
+  "idea": {
+   "pitch": "Приложение о серии шагов, устроенной по-человечески. Серия не рвётся мгновенно: есть заморозка на день пропуска и восстановление дня по данным Apple Health, если телефон явно недосчитал. Цель дня подтверждается уведомлением и маленьким праздником в момент, когда вы её взяли, а не постфактум. Смысл в том, чтобы держать привычку неделями, а не наказывать за глюк датчика.",
+   "features": [
+    "Серия с заморозкой на пропущенный день, чтобы не рвалась из-за одного сбоя",
+    "Восстановление дня по данным Health, если счётчик явно недосчитал",
+    "Уведомление и празднование в момент достижения цели, а не при открытии",
+    "Гибкая цель: будни и выходные с разной нормой шагов",
+    "Календарь серий с честной пометкой, какие дни восстановлены вручную",
+    "Спокойные напоминания вечером, если до нормы осталось немного"
+   ],
+   "antiFeatures": [
+    "Не обнуляет месяц прогресса из-за одного недосчитанного дня",
+    "Без денежных наград и монеток за серию",
+    "Не давит чувством вины и агрессивными пушами"
+   ],
+   "monetization": "Бесплатно серия и одна цель. Подписка 199 рублей в месяц или 990 рублей в год за несколько параллельных целей, длинную историю серий и настройку заморозок."
+  }
+ },
+ {
+  "slug": "step-counter-4",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Зачёт шагов за беговую дорожку, велотренажёр и коляску",
+  "oneLiner": "Честно засчитывает активность, когда шаги не считаются: дорожка, велосипед, каяк, тележка в магазине",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 39
+  },
+  "reviewGrid": [
+   {
+    "quote": "I wish there was some way to get credit for kayaking and other exercising. If I can't get credit for it I feel like I wasted my time.",
+    "rating": 4,
+    "app": "StepUp Pedometer Step Counter"
+   },
+   {
+    "quote": "I can't edit the data to account for how long I actually walked because it doesn't track when you walk on a treadmill. Please fix this.",
+    "rating": 3,
+    "app": "Weight Loss Walking Step Count"
+   },
+   {
+    "quote": "App is not good with stationary bike.",
+    "rating": 1,
+    "app": "Map My Walk: Walking Tracker"
+   },
+   {
+    "quote": "I can't add steps without proof and need your phone on you at all times. I had a trip in Canada where I didn't bring my phone and wanted to add steps.",
+    "rating": 4,
+    "app": "StepsApp Pedometer"
+   },
+   {
+    "quote": "I did over 10,000 steps today and ran a mile at the gym after an active day and none of that registered.",
+    "rating": 1,
+    "app": "Pedometer & Step Counter"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Зачёт шагов за беговую дорожку, велотренажёр и коляску",
+    "obsCount": 39,
+    "apps": [
+     "StepUp Pedometer Step Counter",
+     "Weight Loss Walking Step Count",
+     "Map My Walk: Walking Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Дорожка и велотренажёр не дают ни одного шага, хотя нагрузка была",
+    "obsCount": 22,
+    "apps": [
+     "Weight Loss Walking Step Count",
+     "Map My Walk: Walking Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Ручной ввод либо заблокирован, либо требует носить телефон всегда",
+    "obsCount": 14,
+    "apps": [
+     "StepsApp Pedometer",
+     "Pedometer & Step Counter"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Огромный кусок активности пролетает мимо счётчика: беговая дорожка, велотренажёр, каяк, толкание коляски или тележки, тренировка в зале без телефона в кармане. Люди в отзывах прямо говорят, что чувствуют время потраченным зря, потому что усилие не засчиталось. Приложения либо запрещают ручной ввод, либо требуют носить телефон всегда. Никто не даёт честно и просто дозачесть эту нагрузку в дневную норму.",
+  "idea": {
+   "pitch": "Шагомер, который признаёт, что человек двигается не только с телефоном в кармане. Помимо обычного счёта он умеет дозачесть сессию на дорожке или тренажёре по времени и темпу, конвертировать другую нагрузку в эквивалент шагов и принять ручную запись за прогулку без телефона. Цель дня становится честной: усилие в зале или на каяке не пропадает, но и не превращается в накрутку без границ.",
+   "features": [
+    "Сессия на дорожке или тренажёре: ввод времени и темпа, пересчёт в шаги",
+    "Каталог активностей с честным коэффициентом в эквивалент шагов",
+    "Ручная запись прогулки без телефона с указанием длительности",
+    "Отдельная пометка дозачтённых шагов, чтобы отличать от датчика",
+    "Дневная норма учитывает и датчик, и дозачтённую активность"
+   ],
+   "antiFeatures": [
+    "Без безлимитной накрутки, дозачёт ограничен разумным дневным потолком",
+    "Не выдаёт дозачтённое за показания датчика, всегда помечает источник",
+    "Без денежных наград, чтобы не было мотива приписывать шаги"
+   ],
+   "monetization": "Бесплатно ручной ввод и одна активность. Разовая покупка 449 рублей за полный каталог активностей с коэффициентами и историю дозачётов."
+  }
+ },
+ {
+  "slug": "step-counter-5",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Карта пройденного маршрута, которую хочется пересматривать",
+  "oneLiner": "Каждая прогулка сохраняется линией на карте, а не растворяется в одном числе шагов",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 39
+  },
+  "reviewGrid": [
+   {
+    "quote": "Love seeing the map at the end of my walk. Gives me more visual motivation to keep going.",
+    "rating": 5,
+    "app": "Map My Walk: Walking Tracker"
+   },
+   {
+    "quote": "This app has allowed me to see how far I go in whatever time I carve out and I enjoy being able to see it on a map.",
+    "rating": 5,
+    "app": "Running Walking Tracker Goals"
+   },
+   {
+    "quote": "Really like the way it outlines your route in blue detail overlaying a map of the location you're hiking in. Very handy.",
+    "rating": 3,
+    "app": "Pacer Pedometer Step Counter"
+   },
+   {
+    "quote": "I like the accuracy of the GPS but hate that it shuts down without warning and you lose miles of walking.",
+    "rating": 2,
+    "app": "Running Walking Tracker Goals"
+   },
+   {
+    "quote": "Gps kicks out. I walk same route every day with very inconsistent results.",
+    "rating": 2,
+    "app": "Map My Walk: Walking Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Карта пройденного маршрута, которую хочется пересматривать",
+    "obsCount": 39,
+    "apps": [
+     "Map My Walk: Walking Tracker",
+     "Running Walking Tracker Goals",
+     "Pacer Pedometer Step Counter"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Вид маршрута на карте сам по себе мотивирует идти дальше",
+    "obsCount": 21,
+    "apps": [
+     "Map My Walk: Walking Tracker",
+     "Running Walking Tracker Goals"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "GPS отваливается посреди прогулки и стирает пройденное",
+    "obsCount": 18,
+    "apps": [
+     "Running Walking Tracker Goals",
+     "Map My Walk: Walking Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди в восторге, когда в конце прогулки видят свой путь линией на карте: это дарит смысл, которого не даёт голое число шагов. Но у трекеров с картой две беды: GPS отваливается и стирает пройденное, а сама карта живёт одну сессию и не собирается в личную коллекцию маршрутов. Нет простого приложения, где каждая прогулка надёжно сохраняется линией на карте и копится в личный атлас, куда приятно возвращаться.",
+  "idea": {
+   "pitch": "Приложение, которое превращает каждую прогулку в сохранённую линию на карте и складывает их в ваш личный атлас. Запись устойчива к тому, что GPS моргнул: трек достраивается и не теряется целиком при потере сигнала. Со временем накапливается коллекция маршрутов с датами, дистанцией и шагами, а любимые пути можно отмечать и сравнивать. Смысл не в соревновании, а в удовольствии видеть, где вы прошли за месяц.",
+   "features": [
+    "Запись маршрута линией на карте с дистанцией, временем и шагами",
+    "Устойчивость к потере GPS: трек достраивается, а не обнуляется",
+    "Личный атлас всех прогулок с датами и итогами по неделям",
+    "Избранные маршруты и сравнение одного пути в разные дни",
+    "Красивая карточка прогулки с картой для сохранения в галерею"
+   ],
+   "antiFeatures": [
+    "Без соревновательных лидербордов и публичной ленты",
+    "Не требует держать приложение открытым весь маршрут",
+    "Без денежных наград за пройденные километры"
+   ],
+   "monetization": "Бесплатно запись и просмотр последних прогулок. Подписка 249 рублей в месяц или 1490 рублей в год за безлимитный атлас, экспорт и сравнение маршрутов."
+  }
+ },
+ {
+  "slug": "step-counter-6",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Крупный спокойный шагомер для тех, кому за 65",
+  "oneLiner": "Большие цифры, ноль тревожных попапов и ничего лишнего для пожилого пользователя",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 71
+  },
+  "reviewGrid": [
+   {
+    "quote": "I'm 71 years old and this app keeps me going. I have actually met a lot of neighbors in my neighborhood.",
+    "rating": 3,
+    "app": "StepUp Pedometer Step Counter"
+   },
+   {
+    "quote": "Some of the pop up ads are very suspicious. Things like your iPhone has been infected with a virus.",
+    "rating": 2,
+    "app": "StepUp Pedometer Step Counter"
+   },
+   {
+    "quote": "I love the no-fuss design on this app. Simple, easy to use and shows me my steps with no fluff, ads, or million popups.",
+    "rating": 5,
+    "app": "Steps - Simple Pedometer"
+   },
+   {
+    "quote": "I love this simple app! No upgrade needed. Just the basics.",
+    "rating": 5,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "The app is simple and easy to use, however it doesn't add your steps unless you open the app.",
+    "rating": 3,
+    "app": "StepsApp Pedometer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Крупный спокойный шагомер для тех, кому за 65",
+    "obsCount": 71,
+    "apps": [
+     "StepUp Pedometer Step Counter",
+     "Steps - Simple Pedometer",
+     "Pedometer++"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пугающие попапы про вирус отпугивают именно пожилых",
+    "obsCount": 19,
+    "apps": [
+     "StepUp Pedometer Step Counter"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Простой шагомер без лишнего искренне любят",
+    "obsCount": 52,
+    "apps": [
+     "Steps - Simple Pedometer",
+     "Pedometer++",
+     "Pedometer α - Step Counter"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Пожилые люди это огромная и лояльная аудитория ходьбы: они пишут, что шагомер держит их в тонусе и выводит на улицу к соседям. Но им достаётся тот же интерфейс с мелкими цифрами, множеством вкладок и тревожными попапами про вирус, которые пугают именно эту аудиторию. Нет шагомера, спроектированного вокруг крупного текста, одного экрана и полного отсутствия пугающих и агрессивных элементов.",
+  "idea": {
+   "pitch": "Шагомер, сделанный под пожилого пользователя как под главного, а не как под исключение. Один экран с очень крупным числом шагов и простой целью, без вкладок, без ленты, без единого попапа. Крупные кнопки, высокий контраст, понятные слова вместо иконок. Опционально можно раз в день отправлять число шагов близкому человеку, чтобы родные видели, что бабушка вышла на прогулку.",
+   "features": [
+    "Один экран с очень крупным числом шагов и простой дневной целью",
+    "Крупный шрифт, высокий контраст, большие понятные кнопки",
+    "Ноль попапов и рекламы, тем более пугающих про вирус",
+    "Мягкое напоминание выйти на прогулку в удобное время",
+    "Опция ежедневно отправлять число шагов близкому человеку"
+   ],
+   "antiFeatures": [
+    "Без множества вкладок, графиков и настроек, только суть",
+    "Без тревожных и обманных попапов в принципе",
+    "Без соцсети, монеток и наград"
+   ],
+   "monetization": "Бесплатно основной экран и цель. Разовая покупка 349 рублей за отправку сводки близкому и снятие любых напоминаний о покупке, никаких подписок для пожилого пользователя."
+  }
+ },
+ {
+  "slug": "step-counter-7",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Семейный зачёт шагов без монеток и подначек на деньги",
+  "oneLiner": "Общая доска шагов для семьи и друзей, где мотивация это забота, а не денежный приз",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 75
+  },
+  "reviewGrid": [
+   {
+    "quote": "Being in a group that encourages and challenges you is a big plus. Great app. I love it!",
+    "rating": 5,
+    "app": "StepUp Pedometer Step Counter"
+   },
+   {
+    "quote": "This has been quite the inspirational tool for when I don't have family around to harp on me.",
+    "rating": 5,
+    "app": "WeWard - Walking Rewards App"
+   },
+   {
+    "quote": "Love how you can interact with friends to keep them motivated.",
+    "rating": 5,
+    "app": "Noom Vibe: Steps with Friends"
+   },
+   {
+    "quote": "Our group is loving this app. I do wish there was a widget as well as alerts when someone has taken the lead.",
+    "rating": 4,
+    "app": "Social Steps"
+   },
+   {
+    "quote": "I used it in my classroom and had challenges with my students. Used to. This app used to be good.",
+    "rating": 1,
+    "app": "Argus: Pedometer Step Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Семейный зачёт шагов без монеток и подначек на деньги",
+    "obsCount": 75,
+    "apps": [
+     "StepUp Pedometer Step Counter",
+     "Noom Vibe: Steps with Friends",
+     "Social Steps"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Общая доска и подначки близких держат мотивацию сильнее призов",
+    "obsCount": 40,
+    "apps": [
+     "StepUp Pedometer Step Counter",
+     "WeWard - Walking Rewards App"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Просят уведомление, когда кто-то вырвался вперёд",
+    "obsCount": 12,
+    "apps": [
+     "Social Steps"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Совместная ходьба работает: люди пишут, что группа и подначки близких мотивируют сильнее любых наград. Но эта механика прибита либо к денежным приложениям с монетками и мутными выплатами, либо к тяжёлым платформам вроде Noom. Простого семейного шагомера, где мама, сын и внук видят одну доску, устраивают дружеские вызовы и получают уведомление, когда кто-то вырвался вперёд, без всякой денежной темы, на рынке нет.",
+  "idea": {
+   "pitch": "Шагомер для семьи и близких друзей, где мотивация это внимание друг к другу, а не денежный приз. Создаёте небольшой круг, все видят общую доску шагов за день и неделю, запускаете простые вызовы вроде кто больше пройдёт до воскресенья. Приходит уведомление, когда кто-то обошёл вас, и можно отправить лёгкую подначку или похвалу. Никаких монеток и выплат, только совместная привычка ходить.",
+   "features": [
+    "Круг из семьи или друзей с общей доской шагов за день и неделю",
+    "Простые дружеские вызовы на несколько дней с общим итогом",
+    "Уведомление, когда кто-то из круга вырвался вперёд",
+    "Лёгкие реакции и подначки внутри круга",
+    "Приватность: круг закрытый, шаги видны только своим"
+   ],
+   "antiFeatures": [
+    "Без монеток, наград и вывода денег",
+    "Без глобальных публичных лидербордов с незнакомцами",
+    "Без коуч-подписки и тяжёлой платформы здоровья"
+   ],
+   "monetization": "Бесплатно круг до трёх человек. Подписка 199 рублей в месяц или 1290 рублей в год за большие круги, историю вызовов и совместные цели на неделю."
+  }
+ },
+ {
+  "slug": "step-counter-8",
+  "category": "step-counter",
+  "categoryName": "Шагомер",
+  "title": "Шаги как продвижение по карте приключения",
+  "oneLiner": "Реальные шаги двигают вас по нарисованному маршруту с остановками, целями и историей впереди",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 64,
+   "reviews": 1536,
+   "observations": 65
+  },
+  "reviewGrid": [
+   {
+    "quote": "Good concept. Could be better if the map was interactive and able to see progress more clearly. See what's coming up, distances to next stop, so you can push a little harder.",
+    "rating": 3,
+    "app": "Fantasy Hike"
+   },
+   {
+    "quote": "Love this app. Motivates you with digital confetti upon completing the steps!",
+    "rating": 5,
+    "app": "Pedometer++"
+   },
+   {
+    "quote": "It's definitely a motivator to try and best active bot! As long as I'm moving, I'm grateful.",
+    "rating": 5,
+    "app": "StepUp Pedometer Step Counter"
+   },
+   {
+    "quote": "This app has kept me motivated and made me walk more.",
+    "rating": 5,
+    "app": "Steps - Activity Tracker"
+   },
+   {
+    "quote": "Chill bot used to get only 1000 or so steps a day and now it averages 5000 to 12000, which is deflating.",
+    "rating": 4,
+    "app": "StepUp Pedometer Step Counter"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Шаги как продвижение по карте приключения",
+    "obsCount": 65,
+    "apps": [
+     "Fantasy Hike",
+     "Pedometer++",
+     "StepUp Pedometer Step Counter"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Хочется видеть, что впереди, и расстояние до следующей точки",
+    "obsCount": 18,
+    "apps": [
+     "Fantasy Hike"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Игровая цель и празднование прогресса реально гонят ходить",
+    "obsCount": 47,
+    "apps": [
+     "Pedometer++",
+     "StepUp Pedometer Step Counter",
+     "Steps - Activity Tracker"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Превращение шагов в путешествие по карте зажигает людей: они ходят больше, чтобы дойти до следующей точки. Но существующие версии либо не показывают, что впереди и сколько до следующей остановки, либо ломают ощущение честности непонятной подкруткой соперника-бота. Нет чистого приключения, где реальные шаги прозрачно двигают вас по нарисованному маршруту с внятными этапами, историей и предвкушением того, что ждёт дальше.",
+  "idea": {
+   "pitch": "Шагомер, где ваши настоящие шаги двигают героя по нарисованной карте приключения: тропа знаменитого маршрута, вымышленный мир, кругосветка. Всегда видно, где вы, сколько шагов до следующей остановки и что за история вас там ждёт. Прогресс честный, шаг к шагу, без непонятных ботов и подкруток. Каждая достигнутая точка открывает кусочек сюжета или вид, ради которого хочется пройти ещё немного.",
+   "features": [
+    "Карта маршрута, по которой герой двигается на ваши реальные шаги",
+    "Всегда видно расстояние до следующей остановки и что там откроется",
+    "Этапы с кусочками истории или видами за каждую взятую точку",
+    "Несколько маршрутов разной длины: неделя, месяц, большой поход",
+    "Честный прозрачный прогресс без соперников-ботов и подкруток"
+   ],
+   "antiFeatures": [
+    "Без непрозрачных ботов, у которых меняется алгоритм шагов",
+    "Без денежных наград и монеток за прохождение",
+    "Не требует держать приложение открытым, шаги берутся из Health"
+   ],
+   "monetization": "Бесплатно первый маршрут целиком. Разовые покупки новых маршрутов и миров по 249 рублей за штуку либо набор всех маршрутов за 990 рублей."
+  }
  }
 ]

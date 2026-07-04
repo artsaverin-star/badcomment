@@ -13979,5 +13979,206 @@
    "We don't pretend to measure blood pressure with a camera"
   ],
   "monetization": "The journal and one basic breathing exercise are free, the set of breathing rhythms and calm voice prompts by subscription of around 199 rubles a month or 1290 rubles a year. BreathNow's reviews show that people in this niche pay willingly for breathing."
+ },
+ "step-counter-1": {
+  "categoryName": "Step counter",
+  "title": "A step counter that reconciles the counts and doesn't argue with Health",
+  "oneLiner": "One honest step number instead of three different ones from the phone, watch and Apple Health",
+  "gap": "People keep the phone in a pocket, wear a watch and glance into Apple Health, and get three different numbers for the very same day. Not one app takes on explaining where a two-thousand-step difference came from, and simply shows its own value as truth. There's no tool that would take all the sources, show them side by side and derive one explainable number you can trust.",
+  "mechanisms": [
+   "A step counter that reconciles the counts and doesn't argue with Health",
+   "Watch, phone and app give three different numbers for one day",
+   "Importing from Health doesn't fix the discrepancy, it doubles it"
+  ],
+  "pitch": "An app that doesn't start its own counter but becomes the arbiter over the ones a person already has. It pulls steps from Apple Health, the watch and the phone's built-in sensor, shows them side by side for each day and highlights where and why they diverged: the phone was lying on the desk, the watch counted hand gestures, there was a double import. The result is one reconciled number with a clear story, not one more figure in the general muddle.",
+  "features": [
+   "A reconciliation screen: steps from Health, watch and phone for the day stand side by side with the difference between them",
+   "Auto-detection of the cause of a discrepancy (phone not on you, duplicate import, hand gestures)",
+   "One reconciled daily number tagged with which source it came from",
+   "Deduplication on import, so calories and steps don't double",
+   "A history of reconciliations by week, showing which days to trust which source on"
+  ],
+  "antiFeatures": [
+   "Doesn't start its own competing counter on top of Health",
+   "Doesn't silently rewrite data in Apple Health behind the user's back",
+   "No social feed or leaderboards, this is a diagnostic tool"
+  ],
+  "monetization": "A one-time purchase of 399 rubles to lift the limit on reconciliation history depth. Basic reconciliation for today and yesterday is free forever, you pay only for the long retrospective and report export."
+ },
+ "step-counter-2": {
+  "categoryName": "Step counter",
+  "title": "Steps on the lock screen without a single ad popup",
+  "oneLiner": "A widget and lock screen with a fresh step number you don't have to open the app for",
+  "gap": "People want to see their steps at a glance without opening the app, but widgets are either missing, stuck on old iOS, or blocked by ads right on the lock screen. Even those who love their app spend years asking for a simple widget in reviews. There's an open niche for a step counter whose only reason to exist is a beautiful live widget and lock screen, not an app screen with popups.",
+  "mechanisms": [
+   "Steps on the lock screen without a single ad popup",
+   "People ask for a widget for years and there still isn't one or it's broken",
+   "To learn your steps you have to open the app and catch a popup"
+  ],
+  "pitch": "A step counter whose main screen is your home and lock screen, not the app window. A set of widgets in every size and a ring on the Lock Screen that refresh in the background and show steps, goal and ring progress without a single launch. The app itself is only appearance settings. Zero ads on the lock screen as a principle, not as a paid option.",
+  "features": [
+   "Widgets in every size and a live ring on the lock screen, working out of the box",
+   "Background refresh, the number is always fresh without opening the app",
+   "Several themes and ring colors to match the user's wallpaper",
+   "A daily-goal widget with the percentage and steps left to target",
+   "Support for the current iOS widget format, not a legacy from 2014"
+  ],
+  "antiFeatures": [
+   "No ads on the lock screen or in the widgets, at all",
+   "Doesn't force you to open the app for steps to count",
+   "No feed, rewards or coins, just the number and the ring"
+  ],
+  "monetization": "One widget and a basic ring are free. A paid set of themes and all widget sizes as a one-time purchase of 299 rubles, no subscription."
+ },
+ "step-counter-3": {
+  "categoryName": "Step counter",
+  "title": "A step streak that one glitchy day won't kill",
+  "oneLiner": "A gentle system of goals and streaks where a technical undercount doesn't zero out your progress",
+  "gap": "A streak of days in a row is the strongest habit hook, but apps zero it out at the very first technical glitch: the phone undercounted, the person left it at home, the sensor glitched. One such day erases a month of progress, and motivation collapses. Nobody builds a streak that forgives a glitch, lets you restore a day from Health data, and confirms hitting the goal with a notification right away instead of when you open the app.",
+  "mechanisms": [
+   "A step streak that one glitchy day won't kill",
+   "Zeroing the streak over an undercount kills motivation",
+   "Celebrating the goal and the streak genuinely hold the habit"
+  ],
+  "pitch": "An app about a step streak built the human way. The streak doesn't break instantly: there's a freeze for a missed day and restoration of a day from Apple Health data if the phone clearly undercounted. The daily goal is confirmed with a notification and a small celebration the moment you hit it, not after the fact. The point is to hold the habit for weeks, not to punish a sensor glitch.",
+  "features": [
+   "A streak with a freeze for a missed day, so it doesn't break over one glitch",
+   "Restoring a day from Health data if the counter clearly undercounted",
+   "A notification and celebration the moment you hit the goal, not on opening the app",
+   "A flexible goal: weekdays and weekends with different step targets",
+   "A streak calendar with an honest mark of which days were restored manually",
+   "Calm evening reminders if you're a little short of target"
+  ],
+  "antiFeatures": [
+   "Doesn't zero out a month of progress over one undercounted day",
+   "No money rewards or coins for a streak",
+   "Doesn't guilt-trip or push aggressive notifications"
+  ],
+  "monetization": "The streak and one goal are free. A subscription of 199 rubles a month or 990 rubles a year for several parallel goals, a long streak history and freeze settings."
+ },
+ "step-counter-4": {
+  "categoryName": "Step counter",
+  "title": "Credit for steps on the treadmill, stationary bike and stroller",
+  "oneLiner": "Honestly credits activity when steps don't register: treadmill, bike, kayak, shopping cart",
+  "gap": "A huge chunk of activity flies right past the counter: the treadmill, the stationary bike, the kayak, pushing a stroller or a cart, a gym workout with no phone in a pocket. In reviews people say outright that they feel their time was wasted because the effort didn't count. Apps either forbid manual entry or demand you carry the phone at all times. Nobody lets you honestly and simply credit that load toward the daily target.",
+  "mechanisms": [
+   "Credit for steps on the treadmill, stationary bike and stroller",
+   "Treadmill and stationary bike give not a single step, though there was a load",
+   "Manual entry is either blocked or demands you always carry the phone"
+  ],
+  "pitch": "A step counter that acknowledges a person moves not only with a phone in a pocket. Beyond ordinary counting, it can credit a treadmill or machine session by time and pace, convert other load into a step equivalent, and accept a manual entry for a walk without the phone. The daily target becomes honest: effort at the gym or on a kayak isn't lost, but it doesn't turn into limitless inflation either.",
+  "features": [
+   "A treadmill or machine session: enter time and pace, convert to steps",
+   "A catalog of activities with an honest coefficient into a step equivalent",
+   "A manual entry for a walk without the phone with the duration noted",
+   "A separate tag for credited steps, to tell them apart from the sensor",
+   "The daily target accounts for both the sensor and credited activity"
+  ],
+  "antiFeatures": [
+   "No unlimited inflation, credit is capped at a reasonable daily ceiling",
+   "Doesn't pass credited steps off as sensor readings, always tags the source",
+   "No money rewards, so there's no motive to pad steps"
+  ],
+  "monetization": "Manual entry and one activity are free. A one-time purchase of 449 rubles for the full activity catalog with coefficients and the credit history."
+ },
+ "step-counter-5": {
+  "categoryName": "Step counter",
+  "title": "A map of the route walked that you want to look back on",
+  "oneLiner": "Every walk is saved as a line on a map, not dissolved into a single step number",
+  "gap": "People are delighted when they see their path as a line on a map at the end of a walk: it gives a meaning that a bare step number doesn't. But trackers with a map have two troubles: GPS drops out and erases what you walked, and the map itself lives for one session and doesn't gather into a personal collection of routes. There's no simple app where each walk is reliably saved as a line on a map and builds up into a personal atlas you're glad to come back to.",
+  "mechanisms": [
+   "A map of the route walked that you want to look back on",
+   "The sight of the route on a map motivates you to keep going on its own",
+   "GPS drops out mid-walk and erases what you covered"
+  ],
+  "pitch": "An app that turns each walk into a saved line on a map and stacks them into your personal atlas. Recording is resilient to a GPS blink: the track fills back in and isn't lost whole on signal loss. Over time a collection of routes builds up with dates, distance and steps, and you can flag favorite paths and compare them. The point isn't competition but the pleasure of seeing where you walked over a month.",
+  "features": [
+   "Recording a route as a line on a map with distance, time and steps",
+   "Resilience to GPS loss: the track fills back in rather than zeroing out",
+   "A personal atlas of all walks with dates and weekly totals",
+   "Favorite routes and comparing one path across different days",
+   "A pretty walk card with the map to save to the gallery"
+  ],
+  "antiFeatures": [
+   "No competitive leaderboards or public feed",
+   "Doesn't require keeping the app open for the whole route",
+   "No money rewards for the kilometers walked"
+  ],
+  "monetization": "Recording and viewing recent walks are free. A subscription of 249 rubles a month or 1490 rubles a year for an unlimited atlas, export and route comparison."
+ },
+ "step-counter-6": {
+  "categoryName": "Step counter",
+  "title": "A big, calm step counter for those over 65",
+  "oneLiner": "Big numbers, zero alarming popups and nothing extra for an older user",
+  "gap": "Older people are a huge and loyal walking audience: they write that a step counter keeps them in tone and gets them outside to their neighbors. But they get the same interface with tiny numbers, a pile of tabs and alarming virus popups that scare exactly this audience. There's no step counter designed around large text, one screen and a complete absence of scary and aggressive elements.",
+  "mechanisms": [
+   "A big, calm step counter for those over 65",
+   "Scary virus popups frighten older people in particular",
+   "A simple step counter with nothing extra is genuinely loved"
+  ],
+  "pitch": "A step counter built for the older user as the main one, not as an exception. One screen with a very large step number and a simple goal, no tabs, no feed, not a single popup. Large buttons, high contrast, plain words instead of icons. Optionally you can send the step number to a loved one once a day, so family can see grandma went for a walk.",
+  "features": [
+   "One screen with a very large step number and a simple daily goal",
+   "Large font, high contrast, big clear buttons",
+   "Zero popups and ads, let alone scary virus ones",
+   "A gentle reminder to go for a walk at a convenient time",
+   "An option to send the step number to a loved one daily"
+  ],
+  "antiFeatures": [
+   "No pile of tabs, charts and settings, only the essentials",
+   "No alarming or deceptive popups, on principle",
+   "No social network, coins or rewards"
+  ],
+  "monetization": "The main screen and the goal are free. A one-time purchase of 349 rubles for sending a summary to a loved one and removing any purchase reminders, no subscriptions for an older user."
+ },
+ "step-counter-7": {
+  "categoryName": "Step counter",
+  "title": "A family step scoreboard with no coins or money nudges",
+  "oneLiner": "A shared step board for family and friends, where motivation is care, not a cash prize",
+  "gap": "Walking together works: people write that a group and the ribbing of loved ones motivate more strongly than any reward. But this mechanic is nailed either to money apps with coins and murky payouts, or to heavy platforms like Noom. There's no simple family step counter on the market where mom, son and grandson see one board, run friendly challenges and get a notification when someone pulls ahead, with no money angle at all.",
+  "mechanisms": [
+   "A family step scoreboard with no coins or money nudges",
+   "A shared board and the ribbing of loved ones hold motivation stronger than prizes",
+   "People ask for a notification when someone pulls ahead"
+  ],
+  "pitch": "A step counter for family and close friends, where motivation is attention to each other, not a cash prize. You create a small circle, everyone sees the shared step board for the day and week, and you launch simple challenges like who walks more by Sunday. A notification comes when someone passes you, and you can send a light ribbing or praise. No coins or payouts, just the shared habit of walking.",
+  "features": [
+   "A circle of family or friends with a shared step board for the day and week",
+   "Simple friendly challenges over a few days with a shared total",
+   "A notification when someone in the circle pulls ahead",
+   "Light reactions and ribbing within the circle",
+   "Privacy: the circle is closed, steps are visible only to your own"
+  ],
+  "antiFeatures": [
+   "No coins, rewards or cash withdrawals",
+   "No global public leaderboards with strangers",
+   "No coach subscription or heavy health platform"
+  ],
+  "monetization": "A circle of up to three people is free. A subscription of 199 rubles a month or 1290 rubles a year for larger circles, a challenge history and shared weekly goals."
+ },
+ "step-counter-8": {
+  "categoryName": "Step counter",
+  "title": "Steps as progress along an adventure map",
+  "oneLiner": "Real steps move you along a drawn route with stops, goals and a story ahead",
+  "gap": "Turning steps into a journey across a map lights people up: they walk more to reach the next point. But existing versions either don't show what's ahead and how far to the next stop, or break the sense of fairness with an opaque rigging of a bot rival. There's no clean adventure where real steps transparently move you along a drawn route with clear stages, a story and the anticipation of what's next.",
+  "mechanisms": [
+   "Steps as progress along an adventure map",
+   "People want to see what's ahead and the distance to the next point",
+   "A game goal and celebrating progress genuinely drive walking"
+  ],
+  "pitch": "A step counter where your real steps move a hero along a drawn adventure map: the trail of a famous route, a fictional world, a trip around the globe. You always see where you are, how many steps to the next stop and what story awaits there. Progress is honest, step by step, with no obscure bots or rigging. Each point reached opens a piece of the plot or a view worth walking a little more for.",
+  "features": [
+   "A route map along which a hero moves on your real steps",
+   "You always see the distance to the next stop and what will open there",
+   "Stages with pieces of story or views for each point reached",
+   "Several routes of different lengths: a week, a month, a big trek",
+   "Honest, transparent progress with no bot rivals or rigging"
+  ],
+  "antiFeatures": [
+   "No opaque bots whose step algorithm changes",
+   "No money rewards or coins for completing it",
+   "Doesn't require keeping the app open, steps are taken from Health"
+  ],
+  "monetization": "The first route in full is free. One-time purchases of new routes and worlds at 249 rubles each, or a set of all routes for 990 rubles."
  }
 }

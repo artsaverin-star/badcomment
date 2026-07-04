@@ -39,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const NICHES = [
+  { slug: "step-counter", name: "Шагомер", nameEn: "Step counter", blurb: "64 приложения: где счётчик шагов честен и точен, а где скам ходи-зарабатывай и накрутка (14 из 64 накручены).", blurbEn: "64 apps: where the step counter is honest and accurate, and where walk-to-earn scams and juiced reviews take over (14 of 64 are fake)." },
   { slug: "blood-pressure-log", name: "Давление", nameEn: "Blood pressure", blurb: "52 приложения: где дневник давления честный и отчёт врачу под рукой, а где замер пальцем по камере и накрутка (25 из 52 накручены).", blurbEn: "52 apps: where the BP diary is honest and the doctor report is one tap away, and where it's finger-on-camera fakery and juiced reviews (25 of 52 are fake)." },
   { slug: "pregnancy-tracker", name: "Беременность", nameEn: "Pregnancy", blurb: "43 приложения: где счётчик недель и срок точны, а тревога отступает, а где накрутка и слетают данные.", blurbEn: "43 apps: where the week counter and due date are accurate and the anxiety eases, and where it's fake reviews and lost data." },
   { slug: "astrology", name: "Астрология", nameEn: "Astrology", blurb: "Честная оценка и проверка на накрутку звезды.", blurbEn: "An honest score and a check for fake-star inflation." },

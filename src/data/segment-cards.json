@@ -71078,5 +71078,310 @@
    }
   ],
   "hygiene": []
+ },
+ "step-counter": {
+  "product": [
+   {
+    "title": "фоновый подсчёт шагов по датчику телефона",
+    "kicker": "",
+    "plus": "Когда счётчик честно копит шаги в фоне, люди возвращаются годами. Pacer хвалят за совпадение с часами «шаг в шаг», ActivityTracker и Step Counter Maipo ловят каждый день без запуска приложения, а Accupedo держат «потому что телефон всегда со мной, часы не нужны».",
+    "minus": "Массовая беда: счётчик считает только пока приложение открыто. У Stepz по 8 дней подряд стоит ноль, StepsApp обновляет шаги с задержкой и откатывает число назад, а у StepUp и Pedometer α шаги просто застревают на месте посреди прогулки.",
+    "count": 61,
+    "apps": [
+     "Pacer Pedometer Step Counter",
+     "ActivityTracker Pedometer",
+     "Step Counter Maipo - Pedometer",
+     "Accupedo Pedometer",
+     "Stepz - Step Counter & Tracker",
+     "StepsApp Pedometer",
+     "StepUp Pedometer Step Counter",
+     "Pedometer α - Step Counter"
+    ],
+    "evidence": [
+     {
+      "quote": "Accurate with watch step count within a step or two.",
+      "rating": 5,
+      "app": "Pacer Pedometer Step Counter"
+     },
+     {
+      "quote": "the app has recorded ZERO steps for up to 8 days at a time",
+      "rating": 1,
+      "app": "Stepz - Step Counter & Tracker"
+     },
+     {
+      "quote": "steps are not live. Also steps go back to less and have a delayed update.",
+      "rating": 3,
+      "app": "StepsApp Pedometer"
+     },
+     {
+      "quote": "I keep walking and my steps don’t update. It seems like the app gets stuck and doesn’t show all my actual steps",
+      "rating": 4,
+      "app": "StepUp Pedometer Step Counter"
+     }
+    ]
+   },
+   {
+    "title": "часы и телефон как источник правды",
+    "kicker": "",
+    "plus": "Люди хотят, чтобы счётчик брал шаги с часов, а не пересчитывал заново. Duffy хвалят как спасение для владельцев Apple Watch, ушедших с Fitbit, Pedometer++ ставят «совпадает с Health app», а Accupedo держат ради надёжной синхронизации с iwatch.",
+    "minus": "Постоянный разнобой в трёх числах: у Duffy часы показывают 10 984, а приложение 12 682. StepUp даёт 600 шагов при 6 000 на часах. А Fitbit и Garmin тянутся только через Apple Health, и там теряется по 5 000 шагов, как жалуются в Stompers и Social Steps.",
+    "count": 58,
+    "apps": [
+     "Duffy - Steps Complication",
+     "Pedometer++",
+     "Accupedo Pedometer",
+     "StepUp Pedometer Step Counter",
+     "Stompers: Step Counter Friends",
+     "Social Steps",
+     "Pedometer Plus",
+     "Walkr - Gamified Fitness Walk"
+    ],
+    "evidence": [
+     {
+      "quote": "This app has helped me to gain my confidence in the Apple Watch again. I loved my Fitbit because it counted steps more closely.",
+      "rating": 5,
+      "app": "Duffy - Steps Complication"
+     },
+     {
+      "quote": "Today my Apple Watch and iPhone shows 10,984 step count and the Duffy app shows 12,682. That’s quite a big discrepancy.",
+      "rating": 1,
+      "app": "Duffy - Steps Complication"
+     },
+     {
+      "quote": "My watch says 1 step # & my phone app says a different #",
+      "rating": 3,
+      "app": "StepUp Pedometer Step Counter"
+     },
+     {
+      "quote": "I find this app does not sync directly to my Garmin Viviosmart 5, it syncs directly through Apple Health. I had missing steps up to 5K or more.",
+      "rating": 2,
+      "app": "StepUp Pedometer Step Counter"
+     }
+    ]
+   },
+   {
+    "title": "рубеж полуночи и защита серии",
+    "kicker": "",
+    "plus": "Ежедневная серия и сброс в полночь держат привычку: люди закрывают цель каждый день и радуются, когда счётчик сам обнуляется к новому дню и копит историю по неделям и месяцам.",
+    "minus": "Тот же рубеж всё и рушит. Pedometer++ теряет серию из-за сбоя подсчёта и переписывает уже закрытые дни после перелёта из Турции в Россию. У Pedometer & Step Counter пройденное за день обнуляется ровно в полночь, а Track My Steps при смене часового пояса не сохраняет шаги за целый день.",
+    "count": 34,
+    "apps": [
+     "Pedometer++",
+     "Pedometer & Step Counter",
+     "Track My Steps - Pedometer",
+     "Steps: Step Counter, Pedometer",
+     "Macadam, The Step Counter.",
+     "Steps - Activity Tracker"
+    ],
+    "evidence": [
+     {
+      "quote": "after I traveled to Turkey and then returned to Russia, the step count for three already completed days cha",
+      "rating": 3,
+      "app": "Pedometer++"
+     },
+     {
+      "quote": "Step counter would count and display steps during the day, then at midnight it would wipe all data to a zero.",
+      "rating": 2,
+      "app": "Pedometer & Step Counter"
+     },
+     {
+      "quote": "The step counter resets at midnight. When I looked at my step counter history several thorns step were not credited to my daily step history.",
+      "rating": 3,
+      "app": "Track My Steps - Pedometer"
+     },
+     {
+      "quote": "So the app has been down over a week for everybody, are they going to restore our streak? I was over 200 days & now it reset back to 0.",
+      "rating": 2,
+      "app": "Macadam, The Step Counter."
+     }
+    ]
+   },
+   {
+    "title": "монетизация ходьбы через награды",
+    "kicker": "",
+    "plus": "Обещание денег за шаги реально поднимает людей с дивана и держит ежедневно. В CashWalk радуются полученной карте Amazon, WeWard превращает здоровье в игру, а в Sweatcoin довольны, когда доходят до первых выплат.",
+    "minus": "Петля выплат душит мотивацию. WeWard даёт 11 wards за 11 000 шагов, Sweatcoin насчитал 1,75 доллара за 2 миллиона шагов, а у CashWalk баллы сгорают каждый месяц. Хуже всего барьер перед кэшаутом: PaceFit, JoyPace и WiseLife требуют собрать «фрагменты» или «пазл», которые перестают выпадать ровно на 49 из 50.",
+    "count": 96,
+    "apps": [
+     "CashWalk - Daily Step Counter",
+     "WeWard - Walking Rewards App",
+     "Sweatcoin Walking Step Counter",
+     "PaceFit",
+     "JoyPace",
+     "WiseLife: Step & Health",
+     "Moneywalk Step Counter&Rewards",
+     "Scrambly: Money for Walking"
+    ],
+    "evidence": [
+     {
+      "quote": "i have 11,000 steps and i literally got 11 wards.",
+      "rating": 4,
+      "app": "WeWard - Walking Rewards App"
+     },
+     {
+      "quote": "Walked over 2,000,000 steps on this app and only have a $1.75 worth of sweat coin don't waste your time",
+      "rating": 1,
+      "app": "Sweatcoin Walking Step Counter"
+     },
+     {
+      "quote": "you need to reach $30 in buds and 50 fragments to cash out. Getting to the $30 is straightforward enough, but to get that 50 fragments you’ll have to watch like 400-600 ads.",
+      "rating": 3,
+      "app": "PaceFit"
+     },
+     {
+      "quote": "I have 49 fragments and I still have yet to get another fragment piece so I can cash out.",
+      "rating": 2,
+      "app": "JoyPace"
+     }
+    ]
+   },
+   {
+    "title": "соревнование с друзьями и семьёй",
+    "kicker": "",
+    "plus": "Лидерборд с близкими превращает шаги в азарт. В Stompers семьи и друзья каждый день «бьют друг друга бананами» и не бросают месяцами, Social Steps сплачивает семью на соревнованиях, а Outwalk запускает корпоративный забег на 400 человек.",
+    "minus": "Честность рейтинга ломается на синхронизации. В Stompers Health насчитал 13 000 шагов, а приложение показало 124, и человек проигрывает соревнование. Outwalk у людей внезапно списывает по 10 000 шагов, а фото-апдейт в Stompers дарит халявные шаги и «убивает весь смысл».",
+    "count": 41,
+    "apps": [
+     "Stompers: Step Counter Friends",
+     "Social Steps",
+     "Outwalk",
+     "Noom Vibe: Steps with Friends",
+     "StepUp Pedometer Step Counter"
+    ],
+    "evidence": [
+     {
+      "quote": "I got 13k steps on my health app and it only logged 124 steps on the stompers app. It is causing me losses in my competition. I MUST WIN.",
+      "rating": 2,
+      "app": "Stompers: Step Counter Friends"
+     },
+     {
+      "quote": "when you take a photo of your update it gives you free steps like that defines the whole point of the whole app",
+      "rating": 2,
+      "app": "Stompers: Step Counter Friends"
+     },
+     {
+      "quote": "it’s very frustrating to suddenly loose 10,000 (!) steps every now and then.",
+      "rating": 3,
+      "app": "Outwalk"
+     },
+     {
+      "quote": "My family & I use Social Steps for accountability & competition. It makes it fun getting our steps in.",
+      "rating": 5,
+      "app": "Social Steps"
+     }
+    ]
+   },
+   {
+    "title": "игровой персонаж и путешествие за шаги",
+    "kicker": "",
+    "plus": "Обёртка ходьбы в игру создаёт крючок сильнее счётчика. Walkr держат по 10 лет, потому что «надо идти, чтобы кормить ракету», StepDog заставляет гулять ради счастья пёсика на циферблате, а Fantasy Hike превращает прогулки в поход по Средиземью для фанатов Толкина.",
+    "minus": "Игровой слой рвётся, когда шаги перестают доходить. Wokamon неделями не синхронизируется, и «играть невозможно». Walkr принципиально не берёт данные с часов и требует носить телефон, а Fantasy Hike в бесплатной версии засчитывает лишь 1 милю в день и растягивает поход до 2036 года.",
+    "count": 44,
+    "apps": [
+     "Walkr - Gamified Fitness Walk",
+     "Wokamon: pedometer tamagotchi",
+     "Fantasy Hike",
+     "StepDog: Step Counter with Dog",
+     "Macadam, The Step Counter."
+    ],
+    "evidence": [
+     {
+      "quote": "I need to walk to fuel my Rocket! I am not sure what keeps me coming back every day, but there is something very",
+      "rating": 4,
+      "app": "Walkr - Gamified Fitness Walk"
+     },
+     {
+      "quote": "the app is broken. You currently cannot sync it to count your steps, so it’s unplayable.",
+      "rating": 1,
+      "app": "Wokamon: pedometer tamagotchi"
+     },
+     {
+      "quote": "the free version is limited to tracking 1 mile per day. Be aware!",
+      "rating": 1,
+      "app": "Fantasy Hike"
+     },
+     {
+      "quote": "I want to make this little guy happy. Every day I look forward to petting my dog and hearing his little barks once I reach my goal",
+      "rating": 5,
+      "app": "StepDog: Step Counter with Dog"
+     }
+    ]
+   },
+   {
+    "title": "gps-карта маршрута прогулки",
+    "kicker": "",
+    "plus": "Карта пройденного пути даёт визуальную мотивацию сверх голых цифр. В Map My Walk любят видеть маршрут в конце прогулки, Pacer рисует синюю линию поверх карты местности для походов, а Map My Tracks в реальном времени показывает дистанцию, скорость и набор высоты.",
+    "minus": "Дистанция по GPS расходится с шагами и врёт при паузах. Map My Walk на одном и том же маршруте выдаёт разный километраж, а при медленной ходьбе накидывает лишнее. Running Walking Tracker вылетает и теряет мили, а Steps Tracker после закрытия сессии показывает абсурдные 1124 мили.",
+    "count": 38,
+    "apps": [
+     "Map My Walk: Walking Tracker",
+     "Pacer Pedometer Step Counter",
+     "Map My Tracks: walking tracker",
+     "Running Walking Tracker Goals",
+     "Steps Tracker - Walkmeter",
+     "Steps - Activity Tracker"
+    ],
+    "evidence": [
+     {
+      "quote": "Love seeing the map at the end of my walk. Gives me more visual motivation to keep going.",
+      "rating": 5,
+      "app": "Map My Walk: Walking Tracker"
+     },
+     {
+      "quote": "I walk the same distance down my quarter mile long driveway and back. The slower I walk, the longer the distance becomes according to the app.",
+      "rating": 2,
+      "app": "Map My Walk: Walking Tracker"
+     },
+     {
+      "quote": "If I cancel it and go to my Home Screen it says something ridiculous like 1124 miles.",
+      "rating": 3,
+      "app": "Steps Tracker - Walkmeter"
+     },
+     {
+      "quote": "hate that it shuts down without warning and you lose miles of walking or biking",
+      "rating": 2,
+      "app": "Running Walking Tracker Goals"
+     }
+    ]
+   },
+   {
+    "title": "виджет и осложнение на циферблат",
+    "kicker": "",
+    "plus": "Вся ценность многих приложений в шагах одним взглядом. Steps - Simple Pedometer выбирают на Reddit ради чистого виджета без рекламы, Pedometer Plus хвалят как идеальное осложнение с кольцами цели, а Daily Steps держат ради виджета для владельцев без часов.",
+    "minus": "Осложнение не обновляется в фоне и обесценивает смысл. У Duffy на циферблате висит ноль, пока не откроешь приложение. GO Club и Pedometer Plus обновляют виджет только при запуске, хотя фоновое обновление включено, а StepDog после апдейта iOS показывает вместо пёсика белый силуэт.",
+    "count": 39,
+    "apps": [
+     "Duffy - Steps Complication",
+     "Pedometer Plus",
+     "Steps - Simple Pedometer",
+     "Daily Steps: Step Counter",
+     "GO Club: Steps + Water",
+     "StepDog: Step Counter with Dog"
+    ],
+    "evidence": [
+     {
+      "quote": "This is a perfect watch complication. It shows total step count and rings for goal completion for day and week. It’s simple and slick.",
+      "rating": 5,
+      "app": "Pedometer Plus"
+     },
+     {
+      "quote": "It doesn’t update in real time. So what’s the point ? I can just click the option on my watch to see my steps",
+      "rating": 1,
+      "app": "Duffy - Steps Complication"
+     },
+     {
+      "quote": "The widget doesn’t update step count in the background it only refreshes when the app is opened. All background permissions are granted, but it still doesn’t work properly.",
+      "rating": 3,
+      "app": "GO Club: Steps + Water"
+     },
+     {
+      "quote": "after the most recent update, the pet just shows up as a white silhouette on my apple watch",
+      "rating": 2,
+      "app": "StepDog: Step Counter with Dog"
+     }
+    ]
+   }
+  ],
+  "hygiene": []
  }
 }
