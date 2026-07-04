@@ -22,7 +22,7 @@ export default function IdeasDeck({
 
   return (
     <>
-      <IdeaCards ideas={ideas} locale={locale} />
+      <IdeaCards ideas={ideas} loggedIn={loggedIn} locale={locale} />
 
       {gate && (
         <div id="idea-gate" className="relative mt-4 scroll-mt-24">
@@ -39,14 +39,14 @@ export default function IdeasDeck({
               </span>
               {gate === "auth" ? (
                 <>
-                  <div className="text-title3 font-semibold text-[var(--color-text-primary)]">{ru ? "Войди и смотри все идеи" : "Sign in to see every idea"}</div>
-                  <p className="max-w-[42ch] text-callout text-[var(--color-text-secondary)]">{ru ? `Это первые ${ideas.length} из ${total}. За входом ещё десятки идей под спрос по всем нишам. Вход бесплатный, пара секунд.` : `These are the first ${ideas.length} of ${total}. Sign in for dozens more demand-backed ideas across every niche. Free, takes seconds.`}</p>
+                  <div className="text-title3 font-semibold text-[var(--color-text-primary)]">{ru ? "Войди, будет больше" : "Sign in for more"}</div>
+                  <p className="max-w-[42ch] text-callout text-[var(--color-text-secondary)]">{ru ? `Это верх рейтинга из ${total} идей. Вход бесплатный: сегодняшняя подборка открытых идей вырастет с 3 до 6, а избранное начнёт жить в аккаунте.` : `That's the top of ${total} ranked ideas. Signing in is free: today's open sample grows from 3 to 6 and your saved ideas live in your account.`}</p>
                   <button type="button" onClick={() => setAuth(true)} className="mt-1 rounded-full bg-[var(--color-button-primary-bg)] px-8 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
                 </>
               ) : (
                 <>
                   <div className="text-title3 font-semibold text-[var(--color-text-primary)]">{ru ? "Открой весь сайт" : "Unlock the whole site"}</div>
-                  <p className="max-w-[42ch] text-callout text-[var(--color-text-secondary)]">{ru ? `Это первые ${ideas.length} из ${total}. Один платёж открывает все идеи, разборы всех категорий и народный рейтинг. Навсегда.` : `These are the first ${ideas.length} of ${total}. One payment unlocks every idea, all category breakdowns and the people's rating. Forever.`}</p>
+                  <p className="max-w-[42ch] text-callout text-[var(--color-text-secondary)]">{ru ? `Здесь ${total} идей с полными разборами: чего не хватает, как устроено, кто платит и пруф из отзывов. Один платёж открывает всё и навсегда.` : `${total} ideas with full write-ups live here: the gap, the mechanics, who pays and the proof from reviews. One payment opens everything, forever.`}</p>
                   <BuyButton kind="deck" price={deckPrice} loggedIn={loggedIn} locale={locale} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
                 </>
               )}

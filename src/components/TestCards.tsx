@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
+import BuyButton from "./BuyButton";
 import type { Locale } from "@/lib/i18n";
 
 // Playing-card style decks for the /test prototype: portrait cards with a
@@ -12,7 +13,7 @@ import type { Locale } from "@/lib/i18n";
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categorySlug?: string };
+type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categorySlug?: string; locked?: boolean };
 
 // Bookmark toggle on an idea card: pops on tap and persists to localStorage
 // (favIdeas, keyed by idea slug). State lives in localStorage and reaches
@@ -230,7 +231,7 @@ function CardFace({ icon, art, banner, hue, cover, title, desc, footer, onClick,
   // is explicitly a banner card (personas) — a pastel canvas, no glyph.
   const hasArt = !!(art || cover || banner);
   return (
-    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full w-full min-w-0 flex-col items-start overflow-hidden rounded-[22px] text-left ${hasArt ? "p-2.5" : "gap-3 p-6"} ${locked ? "cursor-default" : ""}`}>
+    <button type="button" onClick={onClick} className={`card-min group/c relative flex h-full w-full min-w-0 flex-col items-start overflow-hidden rounded-[22px] text-left ${hasArt ? "p-2.5" : "gap-3 p-6"}`}>
       {locked && (
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 z-[1] text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
@@ -343,8 +344,9 @@ export function PersonaCards({ segments, covers, hue, locked, locale = "ru" }: {
 
 const IDEA_PAGE = 12;
 
-export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas: Idea[]; locked?: boolean; locale?: Locale; columns?: 2 | 3 }) {
+export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", columns = 3 }: { ideas: Idea[]; locked?: boolean; loggedIn?: boolean; locale?: Locale; columns?: 2 | 3 }) {
   const [open, setOpen] = useState<Idea | null>(null);
+  const [lockedOpen, setLockedOpen] = useState<Idea | null>(null);
   const [depthLoading, setDepthLoading] = useState(false);
   // Render in pages and grow on scroll. Owners get the whole deck (600+ cards);
   // mounting all at once — each with an animated edge-glow ring — pins the GPU
@@ -391,7 +393,7 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
           // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
           <div key={i} className="card-fade h-full min-w-0" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
-            <CardFace title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => openCard(x)}
+            <CardFace title={x.title} desc={x.oneLiner} locked={locked || x.locked} onClick={locked ? () => {} : x.locked ? () => setLockedOpen(x) : () => openCard(x)}
               art={x.icon} hue={x.hue} cover={x.cover} favId={x.slug} kicker={x.category} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>
         ))}
@@ -437,6 +439,30 @@ export function IdeaCards({ ideas, locked, locale = "ru", columns = 3 }: { ideas
               </div>
             </Sec>
           )}
+        </Modal>
+      )}
+      {/* Contextual paywall: a locked card opens the same sheet, shows what the
+          full write-up contains and funnels into the single lifetime offer. */}
+      {!locked && lockedOpen && (
+        <Modal onClose={() => setLockedOpen(null)} locale={locale}>
+          {lockedOpen.category && <div className="text-caption text-[var(--color-text-tertiary)]">{lockedOpen.category}</div>}
+          <h3 className="mt-1.5 text-title3 text-balance text-[var(--color-text-primary)]">{lockedOpen.title}</h3>
+          <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{lockedOpen.oneLiner}</p>
+          {lockedOpen.score && <div className="mt-5"><ScoreBlock score={lockedOpen.score} locale={locale} /></div>}
+          <Sec k={ru ? "Полный разбор идеи закрыт" : "The full write-up is locked"}>
+            <ul className="flex flex-col gap-2">
+              {(ru
+                ? ["Чего не хватает в нише и почему это дыра", "Как устроен продукт: механика и анти-фичи", "Деньги: кто уже платит и сколько", "Пруф: живые цитаты из отзывов"]
+                : ["What the niche is missing and why it's a gap", "How the product works: mechanics and anti-features", "Money: who already pays and how much", "Proof: real quotes from reviews"]
+              ).map((t, j) => (
+                <li key={j} className="flex items-start gap-2.5">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-[3px] shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </Sec>
+          <div className="mt-5 flex justify-center"><BuyButton loggedIn={loggedIn} locale={locale} /></div>
         </Modal>
       )}
     </>

@@ -9,6 +9,7 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import ideaCovers from "@/data/ideaCovers.json";
 import IdeasDeck from "@/components/IdeasDeck";
+import { IdeaCards } from "@/components/TestCards";
 import { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -96,12 +97,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const limit = owner ? all.length : loggedIn ? 12 : 6;
   const gate: "auth" | "paywall" | null = owner ? null : loggedIn ? "paywall" : "auth";
 
-  const shown = all.slice(0, limit).map((i, idx) => {
+  const cardOf = (i: (typeof all)[number], idx: number) => {
     const ov = ideaCard(i.slug, locale);
     // idea-cards.en.json (share-card overlay) is sparse; ideas-content.en.json
     // covers every idea, so fall back to it for the localized title/oneLiner.
     const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
-    const base = {
+    return {
       slug: i.slug,
       title: cleanTitle(ov?.title ?? en?.title ?? i.title),
       oneLiner: ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
@@ -112,12 +113,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       category: nameOf(i.category),
       categorySlug: i.category,
     };
-    // Owners see the whole deck (400+ cards): embedding every idea's body made
-    // the page weigh megabytes, so their modal fetches /api/idea-depth on open.
-    // Non-owners get their handful of free cards inline, as before.
-    if (owner) return base;
+  };
+  const depthOf = (i: (typeof all)[number]) => {
+    const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
     return {
-      ...base,
       gap: en?.gap ?? i.gap,
       pitch: en?.pitch ?? i.idea?.pitch,
       features: en?.features ?? i.idea?.features,
@@ -125,7 +124,28 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       monetization: en?.monetization ?? i.idea?.monetization,
       reviewGrid: i.reviewGrid?.map((q) => ({ ...q, quote: ru && q.quoteRu ? q.quoteRu : q.quote })),
     };
-  });
+  };
+
+  // The ranked top of the deck is a teaser for everyone but owners: titles,
+  // one-liners and scores stay visible, the paid body stays server-side.
+  // Owners get bare previews too — their modal fetches /api/idea-depth on open
+  // (embedding 400+ full bodies made the page weigh megabytes).
+  const shown = all.slice(0, limit).map((i, idx) => (owner ? cardOf(i, idx) : { ...cardOf(i, idx), locked: true }));
+
+  // The free taste: a few fully open ideas that rotate daily, drawn from the
+  // strong middle of the ranking so the crown of the leaderboard stays paid.
+  // Signing in widens today's sample — the free step of the ladder stays real.
+  const showcasePool = all.length > limit + 3 ? all.slice(limit, limit + 120) : all.slice(2);
+  const showcaseCount = Math.min(loggedIn ? 6 : 3, showcasePool.length);
+  // Server component on a force-dynamic route: the day index picks today's
+  // rotation and is stable within a render.
+  // eslint-disable-next-line react-hooks/purity
+  const day = Math.floor(Date.now() / 86400000);
+  const showcaseStart = showcasePool.length > 0 ? (day * 3) % showcasePool.length : 0;
+  const showcase = owner
+    ? []
+    : Array.from({ length: showcaseCount }, (_, k) => showcasePool[(showcaseStart + k) % showcasePool.length])
+        .map((i, idx) => ({ ...cardOf(i, idx), ...depthOf(i) }));
 
   // A blurred peek of what is behind the gate: the next few ideas, locked.
   const lockedPreview = gate
@@ -153,6 +173,25 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             ? <>Каждая идея выросла из&nbsp;<span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов App Store и Google Play: видно, что строить, для кого и как на этом заработать.</>
             : <>Every idea grew out of <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews: what to build, for whom and how to make money.</>}
         </p>
+        {/* The three-step map of the site for a cold visitor: where the free
+            proof lives and what the one payment opens. */}
+        <nav className="mx-auto mt-7 flex max-w-full flex-wrap items-center justify-center gap-2" aria-label={ru ? "Как устроен сайт" : "How the site works"}>
+          {[
+            { href: `/${ru ? "ru" : "en"}/rating`, label: ru ? "Рейтинг без накрутки" : "Rating without fake reviews", free: true },
+            { href: `/${ru ? "ru" : "en"}/categories`, label: ru ? "Разбор каждой ниши" : "Every niche, broken down", free: true },
+            { href: "#idea-gate", label: ru ? "Идеи, за которые платят" : "Ideas people pay for", free: false },
+          ].map((s, i) => (
+            <span key={i} className="flex items-center gap-2">
+              {i > 0 && <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+              <a href={s.href} className="flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1.5 pl-3.5 pr-2 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+                {s.label}
+                <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${s.free ? "bg-[color-mix(in_srgb,#30d158_14%,transparent)] text-[#1f9d44]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"}`}>
+                  {s.free ? (ru ? "бесплатно" : "free") : "990 ₽"}
+                </span>
+              </a>
+            </span>
+          ))}
+        </nav>
       </header>
 
       {/* The niche tiles are the only control; sorting stays fixed on the
@@ -161,7 +200,26 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
       </div>
 
+      {/* Today's free sample: a few ideas fully open, rotating daily. The taste
+          of the paid depth without giving away the top of the leaderboard. */}
+      {showcase.length > 0 && (
+        <section className="mt-9">
+          <div className="flex items-baseline justify-between gap-3 px-1">
+            <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Открыты сегодня целиком" : "Fully open today"}</h2>
+            <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Завтра откроются другие" : "A new set opens tomorrow"}</span>
+          </div>
+          <div className="mt-4">
+            <IdeaCards ideas={showcase} loggedIn={loggedIn} locale={locale} />
+          </div>
+        </section>
+      )}
+
       <div className="mt-7">
+        {gate && (
+          <div className="mb-4 px-1">
+            <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Весь каталог по рейтингу" : "The full ranked catalog"}</h2>
+          </div>
+        )}
         <IdeasDeck
           ideas={shown}
           lockedPreview={lockedPreview}
