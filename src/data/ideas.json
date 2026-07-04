@@ -58206,5 +58206,696 @@
    ],
    "monetization": "Бесплатно первый маршрут целиком. Разовые покупки новых маршрутов и миров по 249 рублей за штуку либо набор всех маршрутов за 990 рублей."
   }
+ },
+ {
+  "slug": "driving-test-prep-1",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Банк вопросов, собранный с реальных экзаменов штата",
+  "oneLiner": "Вопросы не из общего пула, а из отчётов сдававших в конкретном штате, чтобы практика совпадала с настоящим тестом",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 640
+  },
+  "reviewGrid": [
+   {
+    "quote": "I aced every test for my state on the app, then when I tested none of the questions were ones I’d seen before.",
+    "rating": 1,
+    "app": "DMV: Practice Test 2026 Permit"
+   },
+   {
+    "quote": "I just had the test and I failed after 20 questions. Using the App I was doing 1/2 errors max, I felt ready for the test… the truth is that there are completely different questions ..",
+    "rating": 2,
+    "app": "DMV Practice Test・2026"
+   },
+   {
+    "quote": "I studied the tests till i consistently got a 95% then went to go take my test and failed twice in a row",
+    "rating": 1,
+    "app": "CA DMV Permit Test Now"
+   },
+   {
+    "quote": "Real exam has 1 of 2 questions from those proposed in this app. Not relevant",
+    "rating": 1,
+    "app": "Massachusetts RMV Permit test"
+   },
+   {
+    "quote": "The questions given are very close to the actual test, I used the app 2 days before my test and passed it first try thanks to this app.",
+    "rating": 5,
+    "app": "DMV Practice Test - 2026"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Банк вопросов, собранный с реальных экзаменов штата",
+    "obsCount": 410,
+    "apps": [
+     "DMV: Practice Test 2026 Permit",
+     "CA DMV Permit Test Now",
+     "Massachusetts RMV Permit test",
+     "DMV Practice Test・2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Ложная уверенность: 95% в приложении и провал на месте",
+    "obsCount": 150,
+    "apps": [
+     "DMV 2026 Permit Practice Test",
+     "DMV Driving Permit Test Prep"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Совпадение с настоящим тестом хвалят громче всего",
+    "obsCount": 80,
+    "apps": [
+     "DMV Practice Test - 2026",
+     "New York DMV NY - Permit test"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Почти каждое приложение тянет вопросы из одного общего пула и добавляет generic-сценарии, которых на экзамене в конкретном штате нет. Люди набивают 95-100% на практике, идут в DMV и видят совсем другие формулировки, а на провал остаётся всего 5-6 лишних ошибок. Никто не строит банк от того, что реально спрашивают: не хватает механизма, где вопросы приходят из свежих отчётов недавно сдавших в этом штате, помечены датой и штатом, а расхождения с настоящим экзаменом отслеживаются и правятся.",
+  "idea": {
+   "pitch": "Приложение под один экзамен: человек выбирает штат и тип прав, и получает банк вопросов, собранный не из абстрактного пула, а из структурированных отчётов людей, которые уже сдали в этом штате за последние месяцы. После каждого настоящего экзамена пользователь отмечает, какие темы и формулировки встретились, а какие нет, и этот поток чинит банк. Ставка на одно: практика должна ощущаться как настоящий тест, а не как похожая викторина.",
+   "features": [
+    "Разбивка по штату и типу прав, без общего кросс-штатного мешка вопросов",
+    "Метка свежести у каждого блока: когда вопрос последний раз подтверждён сдавшими",
+    "Форма после экзамена: что встретилось, что нет, какие темы удивили",
+    "Приоритет тем, которые чаще всего застают врасплох по отчётам этого штата",
+    "Режим предэкзаменационного прогона с формулировками, максимально близкими к реальным"
+   ],
+   "antiFeatures": [
+    "Не смешивать вопросы разных штатов в одну ленту",
+    "Не выдумывать вопросы генератором без сверки с реальными отчётами",
+    "Не завышать процент готовности, если тем в банке заведомо меньше, чем на экзамене"
+   ],
+   "monetization": "Бесплатно первый штат и базовый прогон, доступ к полному банку и предэкзаменационному режиму разовой покупкой около 5-7 долларов на штат, без подписки, потому что тест сдают один раз"
+  }
+ },
+ {
+  "slug": "driving-test-prep-2",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Отработка ошибок вместо повторения одних и тех же вопросов",
+  "oneLiner": "Приложение показывает те вопросы, где вы путаетесь, а не крутит по кругу десяток одинаковых",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 300
+  },
+  "reviewGrid": [
+   {
+    "quote": "There's a challenge bank to practice questions you've missed but it will give you the same questions over and over again anyways which makes the challenge bank useless.",
+    "rating": 1,
+    "app": "DMV Genie: Permit Test 2026"
+   },
+   {
+    "quote": "It repeated the same question 15 out of the 30 questions on the practice test… half of the questions in the practice test were the same one.",
+    "rating": 2,
+    "app": "CDL Permit: Practice Test 2026"
+   },
+   {
+    "quote": "I just took 8 tests in the app and i notice that it’s all the same questions. A lot of duplicates of the same question even within one test. One of the tests had 6 duplicates!",
+    "rating": 3,
+    "app": "DMV Permit Practice Test 2026+"
+   },
+   {
+    "quote": "It doesnt give me the option to retake the same questions if i have some of the wrong after im done with the 10 or 20 questions it gives me different questions instead of letting me correct the ones i have wrong",
+    "rating": 3,
+    "app": "CDL Prep Practice Test: 2026"
+   },
+   {
+    "quote": "App keeps track of what you know and what you don’t know so you can focus on the latter.",
+    "rating": 5,
+    "app": "Official CDL Test Prep: Iowa"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Отработка ошибок вместо повторения одних и тех же вопросов",
+    "obsCount": 190,
+    "apps": [
+     "DMV Genie: Permit Test 2026",
+     "CDL Permit: Practice Test 2026",
+     "DMV Permit Practice Test 2026+"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Нельзя вернуться к вопросам, которые только что провалил",
+    "obsCount": 70,
+    "apps": [
+     "CDL Prep Practice Test: 2026",
+     "DMV Driving Permit Test Prep"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Учёт того, что уже знаешь, а что нет, ценят как главную функцию",
+    "obsCount": 40,
+    "apps": [
+     "Official CDL Test Prep: Iowa"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Приложения выдают случайные вопросы из маленького пула, и в одном тесте одна и та же карточка повторяется по 5-6 раз, а якобы отдельная работа над ошибками крутит те же самые вопросы. При этом когда человек хочет сразу переделать проваленные, ему подсовывают новые. Ни у кого нет честного механизма интервального повторения: показывать реже то, что усвоено, и чаще то, где человек стабильно ошибается, вплоть до полной проработки слабых тем.",
+  "idea": {
+   "pitch": "Тренажёр, который строится вокруг ваших ошибок, а не вокруг случайной выборки. Каждый провал попадает в личную очередь и возвращается, пока не будет уверенно закрыт, а хорошо усвоенное отходит на второй план. Внутри теста нет дублей: система следит, чтобы одна и та же карточка не приходила дважды. Цель не набить количество, а довести до нуля список того, в чём вы путаетесь.",
+   "features": [
+    "Личная очередь ошибок с интервальным повторением, а не случайной выдачей",
+    "Гарантия отсутствия дублей в пределах одного теста",
+    "Кнопка сразу переделать именно проваленные вопросы после прогона",
+    "Карта слабых тем: где ошибок больше всего, туда и ведёт приоритет",
+    "Отметка усвоенных вопросов, чтобы они не отнимали время"
+   ],
+   "antiFeatures": [
+    "Не добивать тест повторами одного вопроса ради нужного числа",
+    "Не считать тему пройденной после одного правильного ответа",
+    "Не прятать список ошибок за платный доступ"
+   ],
+   "monetization": "Бесплатно тренировка и очередь ошибок, разовая покупка около 6 долларов открывает полный банк тем и расширенную статистику слабых мест, без ежемесячной подписки"
+  }
+ },
+ {
+  "slug": "driving-test-prep-3",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Проверенные ответы с объяснением, а не спорные и противоречивые",
+  "oneLiner": "Каждый ответ выверен по актуальному руководству штата и объяснён, без вопросов с двумя правильными вариантами",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 380
+  },
+  "reviewGrid": [
+   {
+    "quote": "Several questions in the pool will mark your answer incorrect then proceed to explain the reasons the answer is correct.",
+    "rating": 2,
+    "app": "CDL Prep"
+   },
+   {
+    "quote": "Sometimes the answers are wrong and it messed with my studying.",
+    "rating": 2,
+    "app": "DMV Genie: Permit Test 2026"
+   },
+   {
+    "quote": "The description has the correct answer but when you choose the wrong answer it shows another incorrect answer as correct.",
+    "rating": 4,
+    "app": "DMV Permit Prep 2026 - Exam"
+   },
+   {
+    "quote": "it keeps saying the license suspension for underage drink and drive is 1 year while the website and manual all says half a year. Similarly, there are multiple choices whose answer is simple wrong.",
+    "rating": 4,
+    "app": "DMV Practice Test・2026"
+   },
+   {
+    "quote": "Questions are good-worded and follow real exam logic!",
+    "rating": 5,
+    "app": "DMV 2026 Permit Practice Test"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Проверенные ответы с объяснением, а не спорные и противоречивые",
+    "obsCount": 250,
+    "apps": [
+     "CDL Prep",
+     "DMV Genie: Permit Test 2026",
+     "DMV Practice Test・2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Вопросы с двумя верными вариантами заставляют угадывать",
+    "obsCount": 90,
+    "apps": [
+     "DMV Permit Prep 2026 - Exam",
+     "CDL Permit: Practice Test 2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Понятное объяснение после ответа отмечают отдельно",
+    "obsCount": 40,
+    "apps": [
+     "DMV WRITTEN TEST",
+     "DMV Practice Test 2026 myDMV"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Люди жалуются, что приложение помечает верный ответ как ошибку, а потом в объяснении подтверждает именно его, что попадаются вопросы с двумя правильными вариантами и что цифры вроде срока лишения прав или дистанции противоречат официальному руководству. Такие ошибки не просто раздражают: человек заучивает неправильное и проваливает экзамен. Никто не делает ставку на выверенный ответ с ссылкой на конкретный пункт руководства штата и на честное объяснение, почему остальные варианты неверны.",
+  "idea": {
+   "pitch": "База вопросов, где главная ценность не количество, а достоверность. Каждый ответ привязан к конкретному пункту действующего руководства штата, у каждого есть объяснение, почему он верный и почему остальные нет. Вопросов с несколькими правильными вариантами нет по определению. Пользователь может пометить сомнительный вопрос, и он уходит на проверку, а не остаётся годами вводить людей в заблуждение.",
+   "features": [
+    "Ссылка на пункт руководства штата под каждым ответом",
+    "Объяснение, почему неверные варианты неверны, а не только правильный",
+    "Жалоба на вопрос в один тап с быстрой ручной проверкой",
+    "Отметка версии руководства, чтобы устаревшие цифры не жили вечно",
+    "Проверка на единственный верный вариант перед добавлением вопроса"
+   ],
+   "antiFeatures": [
+    "Не публиковать вопрос без сверки с официальным источником",
+    "Не оставлять вопросы с двумя одинаково верными ответами",
+    "Не игнорировать жалобы пользователей на ошибки"
+   ],
+   "monetization": "Бесплатный доступ к части выверенной базы, полный банк с объяснениями разово около 5 долларов, отдельно можно предложить работу над ошибками как платный модуль"
+  }
+ },
+ {
+  "slug": "driving-test-prep-4",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Знаки дорог, которые всегда видно на экране",
+  "oneLiner": "Вопросы про знаки с картинкой, которая грузится всегда и офлайн, без пустых мест вместо знака",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 260
+  },
+  "reviewGrid": [
+   {
+    "quote": "the “What does this sign mean?” questions are glitched out to where you can’t see the sign and there’s nothing i can do but get the question wrong",
+    "rating": 2,
+    "app": "DMV Permit Prep 2026 - Exam"
+   },
+   {
+    "quote": "i cannot see pictures, like it keeps asking me what the sign means. there no sign to look at.",
+    "rating": 3,
+    "app": "Pass Permit Test DMV -Drivify"
+   },
+   {
+    "quote": "almost all of images provided on the app aren’t available to see. At this point i just have to guess what the photo is when answering questions.",
+    "rating": 3,
+    "app": "DMV Practice Test 2026: Permit"
+   },
+   {
+    "quote": "the practice tests are missing the sign that you're supposed to interpret.",
+    "rating": 3,
+    "app": "DMV Driving Permit Test Prep"
+   },
+   {
+    "quote": "the graphics made the questions more understandable.",
+    "rating": 5,
+    "app": "Pass Permit Test DMV -Drivify"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Знаки дорог, которые всегда видно на экране",
+    "obsCount": 200,
+    "apps": [
+     "DMV Permit Prep 2026 - Exam",
+     "Pass Permit Test DMV -Drivify",
+     "DMV Practice Test 2026: Permit"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пустое место вместо знака делает вопрос угадайкой",
+    "obsCount": 50,
+    "apps": [
+     "DMV Driving Permit Test Prep",
+     "DMV 2026 Permit Practice Test"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Понятная картинка знака помогает разобраться",
+    "obsCount": 10,
+    "apps": [
+     "Pass Permit Test DMV -Drivify"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Огромная доля экзамена это распознавание знаков и разметки, а у приложений картинка знака регулярно не грузится, и вместо неё пустой квадрат или знак вопроса. Человек вынужден угадывать, ставит неверный ответ, а главное не запоминает сам знак. Причина в том, что картинки тянутся с сервера на лету. Никто не сделал справочник знаков, где изображения зашиты в приложение и показываются всегда, в том числе без интернета.",
+  "idea": {
+   "pitch": "Приложение целиком про визуальную часть экзамена: знаки, разметка, сигналы, приборная панель. Все изображения зашиты внутрь и всегда на экране, даже офлайн, так что вопроса без картинки не бывает. Кроме тестов есть справочник, где знаки сгруппированы по смыслу, с короткой подписью, что делать при виде каждого. Тренировка построена на узнавании, потому что именно на этом валятся люди.",
+   "features": [
+    "Все изображения знаков и разметки внутри приложения, работает офлайн",
+    "Справочник знаков по группам с пояснением, что делать",
+    "Тренировка на узнавание знака и его значения в обе стороны",
+    "Отдельный блок про сигналы рукой и приборную панель",
+    "Режим предэкзаменационного прогона только по знакам"
+   ],
+   "antiFeatures": [
+    "Не грузить картинки знаков с сервера в момент вопроса",
+    "Не задавать вопрос про знак без самого знака на экране",
+    "Не смешивать знаки других стран с американскими"
+   ],
+   "monetization": "Бесплатно справочник и базовая тренировка, полный набор тестов и предэкзаменационный режим разово около 4 долларов, недорого из-за узкой темы"
+  }
+ },
+ {
+  "slug": "driving-test-prep-5",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Темы, которые проваливают на экзамене, но пропускают приложения",
+  "oneLiner": "Тренажёр по ограничениям для юных водителей, штрафам и алкоголю, которых нет в обычных приложениях, но которые массово спрашивают",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 220
+  },
+  "reviewGrid": [
+   {
+    "quote": "the app never goes into full detail about penalties like JOL restrictions and what happens when you disobey them. These appear a lot on the exam and make up atleast the majority of the questions.",
+    "rating": 3,
+    "app": "Zutobi: Permit & Driving Prep"
+   },
+   {
+    "quote": "many questions about probationary driving permit are not covered. Not recommended.",
+    "rating": 2,
+    "app": "DMV Practice Test・2026"
+   },
+   {
+    "quote": "very little about JOL violations and associated fines as well as specifics about calculating alcohol content",
+    "rating": 2,
+    "app": "Massachusetts RMV Permit test"
+   },
+   {
+    "quote": "this app does not go over hand signals, nor when to turn headlights on things like that. Those were on the permit test at the DMV",
+    "rating": 4,
+    "app": "CA DMV Permit Test Now"
+   },
+   {
+    "quote": "I failed because I was unfamiliar with ALL the topics that never came up in practice",
+    "rating": 2,
+    "app": "DMV Permit Practice Test: Luma"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Темы, которые проваливают на экзамене, но пропускают приложения",
+    "obsCount": 160,
+    "apps": [
+     "Zutobi: Permit & Driving Prep",
+     "Massachusetts RMV Permit test",
+     "DMV Practice Test・2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Штрафы, ограничения и подсчёт алкоголя выпадают из практики",
+    "obsCount": 50,
+    "apps": [
+     "Massachusetts RMV Permit test",
+     "CA DMV Permit Test Now"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Разбор конкретных сценариев ценят выше зубрёжки",
+    "obsCount": 10,
+    "apps": [
+     "DMV Practice Test 2026 myDMV"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Приложения хорошо гоняют по знакам и лимитам скорости, но целые пласты экзамена остаются за бортом: ограничения для юных водителей и испытательного периода, штрафы и последствия за их нарушение, подсчёт содержания алкоголя, сигналы рукой, когда включать фары. Именно на этих темах люди валятся, потому что практика создала ложное ощущение готовности. Никто не собрал целенаправленный тренажёр по темам, которые массово встречаются на экзамене, но систематически пропускаются.",
+  "idea": {
+   "pitch": "Дополняющий тренажёр по тем самым темам, на которых люди проваливаются: ограничения для юных водителей и испытательного периода, штрафы и последствия нарушений, подсчёт допустимого алкоголя, сигналы рукой, правила включения фар. По каждой теме короткое объяснение и разбор типовых сценариев, а не просто карточка. Приложение можно использовать поверх любого другого, чтобы закрыть слепые зоны перед экзаменом.",
+   "features": [
+    "Отдельные блоки по ограничениям юных водителей и испытательному периоду",
+    "Штрафы и последствия нарушений с разбором конкретных ситуаций",
+    "Подсчёт допустимого содержания алкоголя по шагам",
+    "Сигналы рукой и правила включения фар, которых нет в других приложениях",
+    "Чек-лист слепых зон перед экзаменом по выбранному штату"
+   ],
+   "antiFeatures": [
+    "Не дублировать базовые знаки и лимиты, которых и так везде полно",
+    "Не подавать тему одной карточкой без разбора сценария",
+    "Не обещать полный экзамен, это именно добивка слабых тем"
+   ],
+   "monetization": "Одна тема бесплатно как проба, полный набор тем-добивок разово около 5 долларов, позиционирование как второе приложение к основному тренажёру"
+  }
+ },
+ {
+  "slug": "driving-test-prep-6",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Подготовка на испанском, написанная людьми, а не машинным переводом",
+  "oneLiner": "Вопросы и объяснения на нормальном испанском, с формулировками как в экзамене штата, а не кривой автоперевод",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 180
+  },
+  "reviewGrid": [
+   {
+    "quote": "La traducción al español es muy pésima no tiene ningún sentido nada de lo que redacta las preguntas del libro deben mejorar en ese aspecto “el español no es el traductor google “",
+    "rating": 1,
+    "app": "DMV Driver License Permit Test"
+   },
+   {
+    "quote": "The Spanish translation is just really bad.",
+    "rating": 3,
+    "app": "DMV Driver License Permit Test"
+   },
+   {
+    "quote": "No está en otros idiomas, MVC te permite tomar el examen en otros idiomas !!",
+    "rating": 3,
+    "app": "CDL Prep Practice Test: 2026"
+   },
+   {
+    "quote": "Questions Jumps from English to Spanish",
+    "rating": 4,
+    "app": "CDL Study · Practice Test 2026"
+   },
+   {
+    "quote": "Me parece una manera excelente de mejorar el puntaje a la hora del examen y una manera práctica de aprender, aunque se puede mejorar algunos errores",
+    "rating": 5,
+    "app": "CDL Study · Practice Test 2026"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Подготовка на испанском, написанная людьми, а не машинным переводом",
+    "obsCount": 120,
+    "apps": [
+     "DMV Driver License Permit Test",
+     "CDL Study · Practice Test 2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Приложение прыгает между английским и испанским в одном тесте",
+    "obsCount": 40,
+    "apps": [
+     "CDL Study · Practice Test 2026",
+     "DMV Practice Test 2026 | Max"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Испаноязычные благодарят, когда язык сделан по-человечески",
+    "obsCount": 20,
+    "apps": [
+     "CDL Study · Practice Test 2026",
+     "DMV Driver License Permit Test"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Экзамен во многих штатах можно сдавать на испанском, и огромная часть аудитории готовится именно на нём, но приложения дают либо машинный перевод, который теряет смысл вопроса, либо прыгают между английским и испанским прямо внутри теста. Человек не понимает, что от него хотят, и заучивает бессмыслицу. Никто не сделал подготовку, где испанский это не автоперевод английской базы, а нормально написанные вопросы с формулировками, близкими к тому, как экзамен звучит на испанском.",
+  "idea": {
+   "pitch": "Приложение для испаноязычной аудитории, где испанский первичен, а не приклеен переводчиком. Вопросы и объяснения написаны по-человечески, термины совпадают с тем, как их формулирует экзамен штата на испанском. Язык не скачет посреди теста. Тот же тренажёр доступен и на английском для тех, кто учит оба, но качество испанского здесь главный смысл продукта.",
+   "features": [
+    "Вопросы и объяснения на живом испанском, а не автопереводе",
+    "Термины совпадают с испанской версией экзамена штата",
+    "Единый язык в пределах теста, без скачков на английский",
+    "Параллельный английский для изучающих оба языка",
+    "Пометка штатов, где экзамен реально сдаётся на испанском"
+   ],
+   "antiFeatures": [
+    "Не прогонять английскую базу через машинный переводчик",
+    "Не мешать два языка внутри одного прогона",
+    "Не оставлять испанский как второстепенную забытую версию"
+   ],
+   "monetization": "Бесплатный базовый доступ, полный банк на испанском разово около 5 долларов, с оплатой картой и локальными способами для аудитории без привязанных карт"
+  }
+ },
+ {
+  "slug": "driving-test-prep-7",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "CDL по конкретному дополнению, а не общий пул из FMCSA",
+  "oneLiner": "Отдельные банки под air brakes, hazmat, passenger, doubles и triples по руководству вашего штата, без чужих тем",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 240
+  },
+  "reviewGrid": [
+   {
+    "quote": "with hazmat more than half of the questions that were on the test weren’t in the app. Still a great app for general knowledge but I recommend looking somewhere else for hazmat.",
+    "rating": 3,
+    "app": "CDL Prep"
+   },
+   {
+    "quote": "I am not able to change to Texas specific topics using the Texas cdl handbook nor am I able to change my topics. All of the questions are coming from the FMCSA manual",
+    "rating": 1,
+    "app": "CDL Test Prep 2026"
+   },
+   {
+    "quote": "The moto test questions are full of typos and contradictory questions/answers and many questions that don’t even apply to your state.",
+    "rating": 1,
+    "app": "DMV Permit Practice Test 2026+"
+   },
+   {
+    "quote": "I downloaded it for my tanker and double triple endorsement and it was waste of my time",
+    "rating": 2,
+    "app": "CDL Prep Practice Test: 2026"
+   },
+   {
+    "quote": "I used this app to study for my California School Bus test, and it really helped. The questions and explanations made things easier to understand",
+    "rating": 5,
+    "app": "CDL Prep Practice Test - 2026"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "CDL по конкретному дополнению, а не общий пул из FMCSA",
+    "obsCount": 170,
+    "apps": [
+     "CDL Prep",
+     "CDL Test Prep 2026",
+     "CDL Prep Practice Test: 2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Эндорсменты вроде hazmat и passenger покрыты хуже общих знаний",
+    "obsCount": 60,
+    "apps": [
+     "CDL Prep",
+     "CDL Prep Practice Test: 2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Разбор конкретного эндорсмента с картинками узлов хвалят",
+    "obsCount": 10,
+    "apps": [
+     "CDL Prep Practice Test - 2026"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Водители грузовиков сдают отдельные тесты под каждое дополнение: air brakes, combination, hazmat, passenger, tanker, doubles и triples, school bus. Приложения неплохо гоняют общие знания, но по эндорсментам покрытие рыхлое, а вопросы часто тянутся из общего федерального руководства и игнорируют руководство штата. Человек готовится к hazmat или passenger и видит на экзамене половину незнакомого. Никто не сделал тренажёр, где каждый эндорсмент это отдельный выверенный банк по руководству нужного штата.",
+  "idea": {
+   "pitch": "Тренажёр CDL, устроенный не как общая куча, а как набор отдельных банков под каждый тест: general knowledge, air brakes, combination, hazmat, passenger, tanker, doubles и triples, school bus. Каждый банк выверен по руководству выбранного штата, а не только по федеральному. Человек берёт ровно то дополнение, которое сдаёт, и готовится без чужих тем. Для сложных узлов вроде воздушных тормозов есть картинки деталей.",
+   "features": [
+    "Отдельный выверенный банк под каждый эндорсмент",
+    "Сверка с руководством конкретного штата, а не только с федеральным",
+    "Картинки узлов для air brakes и combination",
+    "Выбор только нужных тестов без навязывания общих знаний",
+    "Предэкзаменационный прогон по одному выбранному эндорсменту"
+   ],
+   "antiFeatures": [
+    "Не подмешивать общий федеральный пул, когда выбран штат",
+    "Не заставлять проходить general knowledge ради доступа к эндорсменту",
+    "Не оставлять hazmat и passenger с рыхлым покрытием"
+   ],
+   "monetization": "Бесплатно один эндорсмент как проба, каждый следующий банк разово около 6 долларов или все сразу пакетом около 15 долларов, ставка на работающего водителя, для которого сдача это доступ к заработку"
+  }
+ },
+ {
+  "slug": "driving-test-prep-8",
+  "category": "driving-test-prep",
+  "categoryName": "Экзамен на права",
+  "title": "Прогресс, который не сбрасывается при выходе",
+  "oneLiner": "Тренировку можно прервать и вернуться на то же место, без потери результатов при закрытии или входе",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 44,
+   "reviews": 12060,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "Every time I have to login, I lose my progress and have to start at lesson 1",
+    "rating": 2,
+    "app": "DMV Practice Test 2026 myDMV"
+   },
+   {
+    "quote": "it doesn’t save my progress in the individual tests and i wish it would do this",
+    "rating": 3,
+    "app": "DMV: Practice Test 2026 Permit"
+   },
+   {
+    "quote": "At work trying to sharpen my skills and closed the app to do work come back abs have to start over from 8 correct questions in",
+    "rating": 2,
+    "app": "CDL Study · Practice Test 2026"
+   },
+   {
+    "quote": "after finishing practice tests I re open the app and all my progress is erased as if I haven’t done any tests",
+    "rating": 4,
+    "app": "DMV Practice Test - 2026"
+   },
+   {
+    "quote": "This app makes it way easier to understand the rules of the road by giving us chances to fix our mistake and improving our memorization skills.",
+    "rating": 4,
+    "app": "Pass Permit Test DMV -Drivify"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Прогресс, который не сбрасывается при выходе",
+    "obsCount": 120,
+    "apps": [
+     "DMV Practice Test 2026 myDMV",
+     "CDL Study · Practice Test 2026",
+     "DMV Practice Test - 2026"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Вход в аккаунт обнуляет пройденное до первого урока",
+    "obsCount": 30,
+    "apps": [
+     "DMV Practice Test 2026 myDMV",
+     "DMV: Practice Test 2026 Permit"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Возможность вернуться к пройденному и переделать ценят",
+    "obsCount": 10,
+    "apps": [
+     "Pass Permit Test DMV -Drivify"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Люди готовятся урывками: в очереди, на работе, в дороге. Но приложения теряют прогресс при закрытии, обнуляют результаты при входе в аккаунт и не дают прервать длинный прогон вопросов, чтобы вернуться на то же место. Человек проходит десятки вопросов, выходит на минуту и начинает с нуля. Это ломает саму привычку заниматься понемногу. Никто не сделал ставку на то, чтобы состояние сохранялось локально мгновенно, а любой прогон можно было поставить на паузу и продолжить.",
+  "idea": {
+   "pitch": "Тренажёр под занятия урывками, где прогресс не теряется ни при каких условиях. Любой прогон можно прервать на середине и вернуться ровно на тот же вопрос. Состояние хранится на устройстве и сохраняется мгновенно, вход в аккаунт ничего не обнуляет, а лишь синхронизирует. Смысл в том, чтобы человек мог заниматься по пять минут между делами и накапливать результат, а не начинать заново каждый раз.",
+   "features": [
+    "Мгновенное локальное сохранение после каждого ответа",
+    "Пауза и возврат к тому же вопросу в длинном прогоне",
+    "Вход в аккаунт синхронизирует, но не обнуляет прогресс",
+    "История пройденного и слабых тем без сброса при обновлении",
+    "Работа офлайн, чтобы заниматься в дороге и без сети"
+   ],
+   "antiFeatures": [
+    "Не хранить прогресс только на сервере, чтобы вход его не стирал",
+    "Не заставлять начинать урок заново после выхода",
+    "Не сбрасывать статистику при обновлении приложения"
+   ],
+   "monetization": "Бесплатно тренировка с сохранением прогресса, синхронизация между устройствами и расширенная статистика разово около 4 долларов, без подписки"
+  }
  }
 ]

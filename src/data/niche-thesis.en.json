@@ -6860,5 +6860,47 @@
     ]
    }
   ]
+ },
+ "driving-test-prep": {
+  "governing": "The market rests on one user job: walk into the DMV and confidently pass the written test on the first try, because failing means another trip, another wait, and more money. Demand splits into four clusters. The first and largest is the regular passenger-car permit: 16-year-olds and adults who are getting behind the wheel for the first time or relicensing in a new state, and they need not a driving course but a set of sign and rule questions for their specific DMV. They are served by aggregators like DMV Genie, Zutobi, DMV WRITTEN TEST, Aceable, myDMV, and dozens of clones with the same DMV Practice Test 2026 name. The second cluster is commercial licenses (CDL), where the logic is different: here truckers and bus drivers take general knowledge, air brakes, and separate endorsements (hazmat, tanker, class a, passenger), often retaking to renew or add an endorsement, and accuracy against FMCSA and the state manual is critical for them. They are covered by CDL Test Prep 2026, CDL Prep, CDL Prep Genie, and clones. The third cluster is state-specific apps (New York DMV, Pennsylvania, Georgia DDS, Massachusetts RMV, California DMV, Alabama) that sell the promise that the questions are exactly for your state. The fourth, narrow cluster is motorcycle (DMV Motorcycle Permit Test). The leaders all break at one point: the app gives a high practice score, the person feels ready, and on the real test the questions are different. People write that they cleared every section five times at 90 percent, then at the DMV barely saw a single familiar question (DMV Genie, DMV: Practice Test Permit, CA DMV Permit Test Now). There are two reasons. The question bank is small and stagnant: California DMV serves 100 of its 400-plus questions, Official CDL Test Prep: Iowa is capped at 350 questions against 3,000 on the real exam, and the questions themselves repeat within a single test five or six times (CDL Prep Test 2026: Drivers ed, DMV Permit Practice Test 2026+). And the content goes stale or diverges from the official manual: Florida is on the 2022 manual version, Kentucky following distance is listed as 3 seconds instead of 4, and CDL apps confuse the sleep-clock reset as 8 versus 10 (DMV Practice Test 2026 myDMV, DMV Practice Test | Max, CDL Test Prep 2026). State-specific apps ask for the state and still serve a general pool: the user picked Mississippi and got Texas questions, picked motorcycle in their state and got questions about nothing (CDL Test Prep 2026, DMV Motorcycle Permit Test).",
+  "competitorRead": "The players split into three types. Course platforms (Aceable, Zutobi, DriverEdToGo) win on learning structure: step-by-step lessons, explanations, gamification, and they work when someone is learning from scratch. They sag on drifting into entertainment instead of substance (Aceable inserts jokes on every page), glossing over the important stuff with a read the manual or ask your parent, and requiring a subscription before letting you try it (Zutobi soft-locks at the paywall after you pick a state). Question banks (DMV Genie, DMV WRITTEN TEST, myDMV, dozens of DMV Practice Test 2026) win on volume of reps and the exam mode: their strength is repetition and showing the correct answer after you respond and explaining why (DMV WRITTEN TEST, DMV Permit Prep 2026 - Exam). They sag on the narrowness and staleness of the bank, on duplicates within a test, and on the exam mode not shuffling questions. CDL specialists (CDL Test Prep 2026, CDL Prep, CDL Prep Genie) are strong when they are accurate on air brakes and combinations, but they collapse on trust in the answer key: the app marks the chosen answer wrong and then in the explanation justifies exactly that answer, so the person memorizes the mistake (CDL Prep, CDL Test Prep 2026). A pain shared by all types is AI generation with broken grammar and mixed-up states, which undermines trust that a question is even real.",
+  "pillars": [
+   {
+    "title": "A high score in the app does not equal readiness for the real test",
+    "dek": "People clear every section at 90 percent and feel ready, then meet different questions at the DMV and fail. The value is not in practice scores but in an honest readiness signal for the specific state exam.",
+    "match": [
+     "different from what",
+     "weren’t on the app",
+     "aced",
+     "not on the actual test",
+     "match up with the",
+     "false confidence",
+     "false sense of security",
+     "felt ready",
+     "my state"
+    ]
+   },
+   {
+    "title": "They memorize the answer, not the understanding, and break on a wrong key",
+    "dek": "The prep mechanism is memorization. When there is no explanation or the key contradicts itself and justifies the very answer it flagged as wrong, the person memorizes the mistake. Trust stays with whoever tells you why the answer is right.",
+    "match": [
+     "explanation",
+     "memorize those mistakes",
+     "outdated",
+     "endorsement",
+     "class a"
+    ]
+   },
+   {
+    "title": "A small stagnant bank creates the illusion of coverage",
+    "dek": "The same questions repeat within a test and across tests, the bank is narrow (100 of 400, capped at 350). Having run through everything, the person thinks they covered the material, when they saw only a small fraction. The value is in breadth and freshness of the pool, not in endless repetition.",
+    "match": [
+     "same question",
+     "over and over",
+     "repetitive",
+     "duplicates of the same question"
+    ]
+   }
+  ]
  }
 }

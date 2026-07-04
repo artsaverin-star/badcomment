@@ -14180,5 +14180,205 @@
    "Doesn't require keeping the app open, steps are taken from Health"
   ],
   "monetization": "The first route in full is free. One-time purchases of new routes and worlds at 249 rubles each, or a set of all routes for 990 rubles."
+ },
+ "driving-test-prep-1": {
+  "categoryName": "Driving test prep",
+  "title": "A question bank built from real state exams",
+  "oneLiner": "Questions not from a general pool but from reports by people who took the test in your specific state, so practice matches the real thing",
+  "gap": "Almost every app pulls questions from one general pool and adds generic scenarios that aren't on the exam in a specific state. People rack up 95-100% in practice, go to the DMV, and see completely different wording, and only 5-6 extra mistakes stand between them and a fail. Nobody builds the bank from what is actually asked: there's no mechanism where questions come from fresh reports of people who recently passed in that state, tagged by date and state, with divergences from the real exam tracked and fixed.",
+  "mechanisms": [
+   "A question bank built from real state exams",
+   "False confidence: 95% in the app and a fail on site",
+   "Matching the real test is the most praised thing"
+  ],
+  "pitch": "An app for one exam: the person picks a state and license type and gets a question bank built not from an abstract pool but from structured reports by people who already passed in that state over the last few months. After every real exam, the user notes which topics and phrasings showed up and which didn't, and that stream repairs the bank. The bet is on one thing: practice should feel like the real test, not like a similar quiz.",
+  "features": [
+   "Broken out by state and license type, no general cross-state grab bag of questions",
+   "A freshness tag on each block: when a question was last confirmed by passers",
+   "A post-exam form: what showed up, what didn't, which topics surprised you",
+   "Priority for topics that most often catch people off guard per this state's reports",
+   "A pre-exam run-through mode with phrasing as close to the real thing as possible"
+  ],
+  "antiFeatures": [
+   "Don't mix questions from different states into one feed",
+   "Don't invent questions with a generator without checking against real reports",
+   "Don't inflate the readiness percentage when the bank knowingly has fewer topics than the exam"
+  ],
+  "monetization": "First state and a basic run-through free, access to the full bank and pre-exam mode for a one-time purchase around 5-7 dollars per state, no subscription, because the test is taken once"
+ },
+ "driving-test-prep-2": {
+  "categoryName": "Driving test prep",
+  "title": "Drilling mistakes instead of repeating the same questions",
+  "oneLiner": "The app shows you the questions you keep confusing, not the same dozen spun in circles",
+  "gap": "Apps serve random questions from a small pool, and within one test the same card repeats 5-6 times, while the supposedly separate mistake-review spins the very same questions. And when a person wants to redo the ones they failed right away, they get served new ones. Nobody has an honest spaced-repetition mechanism: showing what's learned less often and what you consistently get wrong more often, all the way to fully working through the weak topics.",
+  "mechanisms": [
+   "Drilling mistakes instead of repeating the same questions",
+   "You can't go back to the questions you just failed",
+   "Tracking what you know and don't is valued as the key feature"
+  ],
+  "pitch": "A trainer built around your mistakes, not around a random sample. Every miss goes into a personal queue and comes back until it's confidently closed, while what's well learned fades to the background. Within a test there are no duplicates: the system makes sure the same card doesn't come up twice. The goal isn't to rack up a count but to drive the list of things you confuse down to zero.",
+  "features": [
+   "A personal mistake queue with spaced repetition, not random serving",
+   "A guarantee of no duplicates within a single test",
+   "A button to redo exactly the failed questions right after a run",
+   "A weak-topic map: priority goes where there are the most mistakes",
+   "A learned-question flag so they don't eat up your time"
+  ],
+  "antiFeatures": [
+   "Don't pad a test with repeats of one question to hit the required count",
+   "Don't count a topic as passed after a single correct answer",
+   "Don't hide the mistake list behind paid access"
+  ],
+  "monetization": "Practice and the mistake queue free, a one-time purchase around 6 dollars opens the full topic bank and expanded weak-spot stats, no monthly subscription"
+ },
+ "driving-test-prep-3": {
+  "categoryName": "Driving test prep",
+  "title": "Verified answers with an explanation, not disputed and contradictory ones",
+  "oneLiner": "Every answer checked against the current state manual and explained, with no questions that have two correct options",
+  "gap": "People complain that the app marks the correct answer as a mistake and then in the explanation confirms exactly that one, that questions come up with two correct options, and that numbers like a suspension term or a distance contradict the official manual. Such errors aren't just annoying: the person memorizes the wrong thing and fails the exam. Nobody bets on a verified answer with a reference to a specific manual clause and an honest explanation of why the other options are wrong.",
+  "mechanisms": [
+   "Verified answers with an explanation, not disputed and contradictory ones",
+   "Questions with two right options force you to guess",
+   "A clear explanation after the answer is noted separately"
+  ],
+  "pitch": "A question base where the main value is not quantity but reliability. Every answer is tied to a specific clause of the current state manual, and each has an explanation of why it's right and why the others aren't. Questions with multiple correct options don't exist by design. The user can flag a doubtful question, and it goes for review rather than staying up for years misleading people.",
+  "features": [
+   "A reference to the state manual clause under every answer",
+   "An explanation of why the wrong options are wrong, not just the right one",
+   "One-tap flag on a question with a fast manual review",
+   "A manual-version tag so outdated numbers don't live forever",
+   "A single-correct-option check before a question is added"
+  ],
+  "antiFeatures": [
+   "Don't publish a question without checking it against the official source",
+   "Don't leave questions with two equally correct answers",
+   "Don't ignore user reports about errors"
+  ],
+  "monetization": "Free access to part of the verified base, the full bank with explanations for a one-time purchase around 5 dollars, with mistake-review optionally offered as a paid module"
+ },
+ "driving-test-prep-4": {
+  "categoryName": "Driving test prep",
+  "title": "Road signs that are always visible on screen",
+  "oneLiner": "Sign questions with an image that always loads and works offline, no empty spaces where the sign should be",
+  "gap": "A huge share of the exam is recognizing signs and road markings, and in apps the sign image regularly fails to load, leaving an empty square or a question mark instead. The person is forced to guess, marks a wrong answer, and, worse, doesn't memorize the sign itself. The cause is that images are pulled from a server on the fly. Nobody has built a sign reference where the images are baked into the app and always shown, including without internet.",
+  "mechanisms": [
+   "Road signs that are always visible on screen",
+   "An empty space instead of a sign turns the question into a guessing game",
+   "A clear sign image helps you figure it out"
+  ],
+  "pitch": "An app entirely about the visual part of the exam: signs, markings, signals, the dashboard. All images are baked in and always on screen, even offline, so a question without an image never happens. Besides the tests there's a reference where signs are grouped by meaning, with a short caption on what to do when you see each one. Practice is built on recognition, because that's exactly where people fail.",
+  "features": [
+   "All sign and marking images inside the app, works offline",
+   "A sign reference grouped by type with an explanation of what to do",
+   "Recognition practice on a sign and its meaning both ways",
+   "A separate block on hand signals and the dashboard",
+   "A pre-exam run-through mode on signs only"
+  ],
+  "antiFeatures": [
+   "Don't load sign images from a server at the moment of the question",
+   "Don't ask about a sign without the sign itself on screen",
+   "Don't mix signs from other countries with American ones"
+  ],
+  "monetization": "The reference and basic practice free, the full set of tests and the pre-exam mode for a one-time purchase around 4 dollars, cheap because of the narrow topic"
+ },
+ "driving-test-prep-5": {
+  "categoryName": "Driving test prep",
+  "title": "The topics that fail people on the exam but get skipped by apps",
+  "oneLiner": "A trainer on junior driver restrictions, fines, and alcohol that aren't in the usual apps but get asked constantly",
+  "gap": "Apps drill signs and speed limits well, but whole layers of the exam are left out: junior driver and probationary period restrictions, fines and consequences for breaking them, calculating alcohol content, hand signals, when to turn headlights on. It's exactly these topics that fail people, because practice created a false sense of readiness. Nobody has assembled a targeted trainer on the topics that come up on the exam en masse but get systematically skipped.",
+  "mechanisms": [
+   "The topics that fail people on the exam but get skipped by apps",
+   "Fines, restrictions, and alcohol calculation fall out of practice",
+   "Breaking down concrete scenarios is valued over cramming"
+  ],
+  "pitch": "A complementary trainer on the very topics that fail people: junior driver and probationary period restrictions, fines and consequences of violations, calculating allowable alcohol, hand signals, headlight rules. Each topic gets a short explanation and a walk-through of typical scenarios, not just a card. The app can be used on top of any other to close the blind spots before the exam.",
+  "features": [
+   "Separate blocks on junior driver and probationary period restrictions",
+   "Fines and consequences of violations with concrete-situation walk-throughs",
+   "Calculating allowable alcohol content step by step",
+   "Hand signals and headlight rules that other apps don't have",
+   "A blind-spot checklist before the exam for your chosen state"
+  ],
+  "antiFeatures": [
+   "Don't duplicate the basic signs and limits that are everywhere already",
+   "Don't present a topic as a single card without a scenario walk-through",
+   "Don't promise a full exam, this is specifically topping up the weak topics"
+  ],
+  "monetization": "One topic free as a trial, the full set of top-up topics for a one-time purchase around 5 dollars, positioned as a second app alongside the main trainer"
+ },
+ "driving-test-prep-6": {
+  "categoryName": "Driving test prep",
+  "title": "Prep in Spanish, written by people, not machine translation",
+  "oneLiner": "Questions and explanations in proper Spanish, with wording like the state exam, not a garbled auto-translation",
+  "gap": "In many states the exam can be taken in Spanish, and a huge part of the audience preps in it, but apps give either machine translation that loses the meaning of the question, or jump between English and Spanish right inside a test. The person can't tell what's being asked and memorizes nonsense. Nobody has made prep where Spanish isn't an auto-translation of the English base but properly written questions with wording close to how the exam sounds in Spanish.",
+  "mechanisms": [
+   "Prep in Spanish, written by people, not machine translation",
+   "The app jumps between English and Spanish in one test",
+   "Spanish speakers give thanks when the language is done like a human's"
+  ],
+  "pitch": "An app for the Spanish-speaking audience where Spanish comes first, not glued on by a translator. Questions and explanations are written like a human's, and the terms match how the state exam phrases them in Spanish. The language doesn't jump mid-test. The same trainer is also available in English for those learning both, but the quality of the Spanish is the whole point of the product here.",
+  "features": [
+   "Questions and explanations in living Spanish, not auto-translation",
+   "Terms match the Spanish version of the state exam",
+   "One language within a test, no jumps to English",
+   "Parallel English for those learning both languages",
+   "A tag for states where the exam is actually taken in Spanish"
+  ],
+  "antiFeatures": [
+   "Don't run the English base through a machine translator",
+   "Don't mix two languages within one run",
+   "Don't leave Spanish as a secondary, forgotten version"
+  ],
+  "monetization": "Free basic access, the full Spanish bank for a one-time purchase around 5 dollars, with card and local payment methods for an audience without linked cards"
+ },
+ "driving-test-prep-7": {
+  "categoryName": "Driving test prep",
+  "title": "CDL by specific endorsement, not a general FMCSA pool",
+  "oneLiner": "Separate banks for air brakes, hazmat, passenger, doubles, and triples per your state's manual, with no unrelated topics",
+  "gap": "Truck drivers take separate tests for each endorsement: air brakes, combination, hazmat, passenger, tanker, doubles and triples, school bus. Apps drill general knowledge decently, but endorsement coverage is patchy, and questions often come from the general federal manual and ignore the state manual. The person preps for hazmat or passenger and sees half of it unfamiliar on the exam. Nobody has made a trainer where each endorsement is a separate verified bank per the right state's manual.",
+  "mechanisms": [
+   "CDL by specific endorsement, not a general FMCSA pool",
+   "Endorsements like hazmat and passenger are covered worse than general knowledge",
+   "Breaking down a specific endorsement with part images is praised"
+  ],
+  "pitch": "A CDL trainer built not as a general pile but as a set of separate banks for each test: general knowledge, air brakes, combination, hazmat, passenger, tanker, doubles and triples, school bus. Each bank is verified against the chosen state's manual, not just the federal one. The person takes exactly the endorsement they're testing for and preps without unrelated topics. For complex assemblies like air brakes there are part images.",
+  "features": [
+   "A separate verified bank for each endorsement",
+   "Checked against a specific state's manual, not just the federal one",
+   "Part images for air brakes and combination",
+   "Pick only the tests you need without forcing general knowledge",
+   "A pre-exam run-through on one chosen endorsement"
+  ],
+  "antiFeatures": [
+   "Don't mix in the general federal pool when a state is selected",
+   "Don't force you through general knowledge to reach an endorsement",
+   "Don't leave hazmat and passenger with patchy coverage"
+  ],
+  "monetization": "One endorsement free as a trial, each additional bank for a one-time purchase around 6 dollars or all at once as a bundle around 15 dollars, betting on the working driver for whom passing is access to a paycheck"
+ },
+ "driving-test-prep-8": {
+  "categoryName": "Driving test prep",
+  "title": "Progress that doesn't reset when you leave",
+  "oneLiner": "You can interrupt practice and come back to the same spot, with no loss of results on close or login",
+  "gap": "People prep in snatches: in a line, at work, on the road. But apps lose progress on close, wipe results on account login, and don't let you pause a long run of questions to return to the same spot. A person goes through dozens of questions, steps away for a minute, and starts from scratch. This breaks the very habit of studying a little at a time. Nobody has bet on saving state locally and instantly, with any run pausable and resumable.",
+  "mechanisms": [
+   "Progress that doesn't reset when you leave",
+   "Account login zeroes out what you've done back to the first lesson",
+   "Being able to go back and redo what you've covered is valued"
+  ],
+  "pitch": "A trainer for studying in snatches, where progress isn't lost under any conditions. Any run can be interrupted mid-way and resumed on the exact same question. State is stored on the device and saved instantly, account login zeroes out nothing and only syncs. The point is for the person to study for five minutes between things and accumulate results, not start over every time.",
+  "features": [
+   "Instant local saving after each answer",
+   "Pause and return to the same question in a long run",
+   "Account login syncs but doesn't zero out progress",
+   "History of what's covered and weak topics with no reset on update",
+   "Works offline, so you can study on the road and without a network"
+  ],
+  "antiFeatures": [
+   "Don't store progress only on the server, so login can't erase it",
+   "Don't force starting a lesson over after leaving",
+   "Don't reset stats when the app updates"
+  ],
+  "monetization": "Practice with progress saving free, cross-device sync and expanded stats for a one-time purchase around 4 dollars, no subscription"
  }
 }
