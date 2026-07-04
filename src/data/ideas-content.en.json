@@ -14588,5 +14588,213 @@
    "No aggressive ad pop-ups over the input"
   ],
   "monetization": "The calculator is free with ads in one unobtrusive spot. A one-time purchase at 299 rubles removes the ads and unlocks the BMI chart over time. Ads in BMI apps enrage people, so the advertising is modest, and removing it is cheap and one-time."
+ },
+ "stock-investing-1": {
+  "categoryName": "Stocks",
+  "title": "Consolidated portfolio across all brokers",
+  "oneLiner": "One screen with positions and returns from every brokerage account at once",
+  "gap": "A person keeps accounts in several places: a retirement account at one broker, a brokerage account at another, something with an employer. Each app shows only its own slice, and attempts to pull it all together through account links keep dropping and demand reconnecting once a week. Nobody gives an honest single screen with the total across all positions, the return since inception and a breakdown by sector, where you can also exclude a joint account with a partner from your personal net worth.",
+  "mechanisms": [
+   "Consolidated portfolio across all brokers",
+   "Manual split of personal and joint capital",
+   "Positions vanish after broker updates"
+  ],
+  "pitch": "An app just for watching a portfolio. The user enters positions by hand or pulls them in through an account aggregator, and in return gets what no single broker gives: a unified picture of all assets on one screen. The total, the return since purchase, the weight of each holding and sector, the history of how the capital changed. No trades and no regulation, just a mirror of what the person already has in different places.",
+  "features": [
+   "Manual position entry plus import from a broker CSV report",
+   "One total and return across all accounts on a single screen",
+   "Breakdown by sector, country and asset type",
+   "Chart of how capital changed by day and month",
+   "A personal-or-joint flag to exclude accounts from the personal total",
+   "Instant offline snapshot of the portfolio with no wait for a sync"
+  ],
+  "antiFeatures": [
+   "We do not execute trades and do not become a broker",
+   "We do not give trading signals or recommendations on what to buy",
+   "We do not hide the basic portfolio total behind a subscription"
+  ],
+  "monetization": "Free up to three accounts and manual entry. Pro at 4.99 dollars a month or 39 dollars a year unlocks CSV import, unlimited accounts, capital history and the sector breakdown."
+ },
+ "stock-investing-2": {
+  "categoryName": "Stocks",
+  "title": "An honest dividend tracker",
+  "oneLiner": "An accurate payout calendar and annual dividend income with no made-up numbers",
+  "gap": "A dividend investor wants exactly one thing: to know precisely how much and when they will be paid. The existing trackers overstate payouts, show wrong dates, and sometimes say there is no dividend where there is one. Payout data surfaces only a couple of days after the fact and is not tied to the holding. Yield on cost, the return on what was invested, nobody calculates properly, and brokers bury the payouts deep in the interface.",
+  "mechanisms": [
+   "An honest dividend tracker",
+   "Yield on cost as the headline metric",
+   "Forecast of annual payout income"
+  ],
+  "pitch": "A tracker that does one thing flawlessly: it counts dividends correctly. The user enters positions, and the app shows a verified calendar of upcoming payouts, an annual income forecast and the yield on cost for each holding and for the whole portfolio. The data is cross-checked against several sources so there are no discrepancies with reality of the kind that drive people away from competitors.",
+  "features": [
+   "A payout calendar with record dates and the payment date itself",
+   "An annual income forecast by portfolio and by each holding",
+   "Yield on cost separate from current yield",
+   "Reinvestment of payouts modeled with a chart of income growth",
+   "Cross-checking amounts across several data sources",
+   "A month-by-month history of payouts already received"
+  ],
+  "antiFeatures": [
+   "We do not pick which dividend stocks to buy",
+   "We do not let you trade inside the app",
+   "We do not hide the basic calendar and annual income behind a subscription"
+  ],
+  "monetization": "Free up to twenty holdings and a calendar a month ahead. A subscription at 3.99 dollars a month or 29 dollars a year lifts the holding limit and adds the income forecast, yield on cost and the reinvestment model."
+ },
+ "stock-investing-3": {
+  "categoryName": "Stocks",
+  "title": "Tracking profit and cost basis",
+  "oneLiner": "Realized profit, tax lots and cost basis by position in plain language",
+  "gap": "When a person sells part of a position, the broker takes the first lot bought by default and does not let you choose which shares are most tax-efficient to sell. Realized profit on each trade has to be counted by hand, and some apps have removed the overall profit percentage from the mobile version entirely. An investor has nowhere to see their cost basis, their realized result for the year, and how the choice of lot changes the future tax.",
+  "mechanisms": [
+   "Tracking profit and cost basis",
+   "Realized profit on each trade",
+   "Choosing a tax lot before selling"
+  ],
+  "pitch": "An app for tracking your result and cost basis. The user enters buys and sells, and it shows the basis for each position, realized profit for the year and unrealized profit on open lots. Before selling, you can see which lot is more advantageous to close and understand the rough tax effect. Everything is explained in plain language, without the formulas from the broker's back office.",
+  "features": [
+   "Cost basis and average price for each position",
+   "Realized profit on each trade and for the year",
+   "A split into short and long lots by holding period",
+   "A hint on which lot is better to sell by holding period",
+   "Import of trades from a broker CSV report",
+   "An annual summary to prepare for tax season"
+  ],
+  "antiFeatures": [
+   "We do not file a return and do not replace a tax advisor",
+   "We do not execute trades and do not hold money",
+   "We do not hide basic realized profit behind a subscription"
+  ],
+  "monetization": "Free current basis and profit by position. A subscription at 4.99 dollars a month or 39 dollars a year adds the split by lot holding period, the lot-choice hint, CSV import and the annual summary."
+ },
+ "stock-investing-4": {
+  "categoryName": "Stocks",
+  "title": "Calm price alerts",
+  "oneLiner": "Accurate price notifications with no spam and no staring at the screen",
+  "gap": "An investor does not want to watch a chart all day, they need an alert when a stock reaches their price. But the apps either flood notifications with ads for their own subscriptions three a day, or break the alert sound after an update, or send you to the wrong place on tap. As a result people sit and manually refresh a screener because they do not trust the alerts.",
+  "mechanisms": [
+   "Calm price alerts",
+   "Promotional pushes drown out useful notifications",
+   "The notification leads somewhere other than promised"
+  ],
+  "pitch": "An app with one honest job: to reliably alert you when the price reaches a set level. The user sets a target on a stock, a percent threshold for the day or a volume level, and gets exactly the notification they asked for, with a tap straight to the right stock. No promotional pushes, no spam, only the signals the person set themselves.",
+  "features": [
+   "An alert on price above and below a set level",
+   "A threshold on the move in percent for the day",
+   "A notification on a volume spike",
+   "A tap on the notification opens exactly that stock",
+   "Quiet hours so it does not wake you at night",
+   "Only user alerts with no marketing pushes"
+  ],
+  "antiFeatures": [
+   "We do not send ads or promo notifications",
+   "We do not give trading signals on what to buy",
+   "We do not force you to sit in the app for an alert to fire"
+  ],
+  "monetization": "Free up to five active alerts. A subscription at 2.99 dollars a month or 19 dollars a year lifts the limit and adds volume alerts, quiet hours and alert sync across devices."
+ },
+ "stock-investing-5": {
+  "categoryName": "Stocks",
+  "title": "Investing without jargon for the beginner",
+  "oneLiner": "Clear explanations and first steps without the terms brokers scare you with",
+  "gap": "A beginner opens a broker app and drowns in terms: options, greeks, limit orders, tax lots. Professional platforms say outright that they are not for regular people, and the rest have no decent tutorial free of buzzwords. The person needs someone to explain what each number on their screen means, in plain language and at the very moment they are looking at it.",
+  "mechanisms": [
+   "Investing without jargon for the beginner",
+   "Learning right at the moment of action",
+   "A simple tone takes away the fear of starting"
+  ],
+  "pitch": "A learning companion for the beginner. Not a broker but a translator from Wall Street into plain language. Short lessons explain the basics step by step, and a built-in glossary unpacks any term on a tap. You can run a practice portfolio with no money to try out decisions and understand how the market behaves before risking your own money with a real broker.",
+  "features": [
+   "Short lessons from what a stock is to how to read an earnings report",
+   "A glossary of terms with an explanation on a tap",
+   "A practice portfolio on virtual money",
+   "A breakdown of what the numbers on the portfolio screen mean",
+   "A checklist of an investor's first steps",
+   "A short daily breakdown of one concept"
+  ],
+  "antiFeatures": [
+   "We do not give trading recommendations or advise what to buy",
+   "We do not open a brokerage account and do not hold money",
+   "We do not throw terms around without explaining them"
+  ],
+  "monetization": "Free basic course and glossary. A subscription at 4.99 dollars a month or 34 dollars a year unlocks advanced lessons, an unlimited practice portfolio and the daily breakdowns."
+ },
+ "stock-investing-6": {
+  "categoryName": "Stocks",
+  "title": "A breakdown of fees and subscriptions",
+  "oneLiner": "Shows how much you really pay brokers, funds and services",
+  "gap": "The cost of investing is smeared out and invisible: a fixed broker subscription, a per-trade fee, a fund's charge built into the price, a penalty for closing or transferring an account. People learn about the charges after the fact and get angry that they pay for what is free next door. Nobody gathers all these payments into one picture and shows what it really costs to keep money at this particular broker and in these particular funds.",
+  "mechanisms": [
+   "A breakdown of fees and subscriptions",
+   "A surprise charge for closing and transferring an account",
+   "Subscriptions charged after cancellation"
+  ],
+  "pitch": "A real-cost-of-ownership calculator app. The user enters their accounts, broker subscriptions and the funds in their portfolio, and it shows how much money leaks out each year on fees, subscriptions and funds' internal charges. It compares against cheaper equivalents by asset class and warns about transfer and account-closure penalties in advance, not when it is already too late.",
+  "features": [
+   "The annual total of all fees and subscriptions in one place",
+   "A fund's internal charge on each position and its cost in dollars",
+   "A comparison with a cheaper equivalent in the same class",
+   "A database of transfer and account-closure penalties at brokers",
+   "A reminder of subscriptions it is time to cancel",
+   "A forecast of how much the charges will eat over ten years"
+  ],
+  "antiFeatures": [
+   "We do not sell a switch to a specific broker for an affiliate fee",
+   "We do not advise what to buy or sell",
+   "The idea is not that everything should be free but that it should be transparent"
+  ],
+  "monetization": "Free one-time fee breakdown for a single portfolio. A subscription at 3.99 dollars a month or 24 dollars a year adds tracking of all accounts, subscription reminders and a forecast of charges years ahead."
+ },
+ "stock-investing-7": {
+  "categoryName": "Stocks",
+  "title": "A calendar of earnings and payouts for your holdings",
+  "oneLiner": "Earnings dates, dividends and events only for your portfolio",
+  "gap": "An investor wants to know in advance when their companies report and when the record date for a dividend closes, because these are the days the price swings the most. But the major apps either have no calendar in the mobile version, or the dates for the current period lag and turn out wrong. And most of all, the calendars are general across the whole market, whereas the person needs events for exactly their holdings, not a thousand others.",
+  "mechanisms": [
+   "A calendar of earnings and payouts for your holdings",
+   "The record date at hand next to the holding",
+   "All events in one place saves time"
+  ],
+  "pitch": "A personal calendar of portfolio events. The user adds their holdings, and the app gathers their earnings dates, dividend record dates, payment days and corporate events into a single feed and reminds you in advance. Not general market noise but only what concerns their specific positions, with accurate and timely dates.",
+  "features": [
+   "An earnings calendar only for your holdings",
+   "Dividend record and payment dates next to the position",
+   "A reminder a day before an event",
+   "A feed of the portfolio's upcoming events a week ahead",
+   "A note of earnings expectations before a report",
+   "Sorting holdings by the date of the nearest event"
+  ],
+  "antiFeatures": [
+   "We do not predict where the price will go after a report",
+   "We do not let you trade and do not advise what to buy",
+   "We do not flood you with events for holdings not in the portfolio"
+  ],
+  "monetization": "Free calendar a week ahead for ten holdings. A subscription at 2.99 dollars a month or 19 dollars a year lifts the holding limit, opens a quarter-long horizon and reminders."
+ },
+ "stock-investing-8": {
+  "categoryName": "Stocks",
+  "title": "A clean watchlist with no ads",
+  "oneLiner": "Fast quotes and watchlists with no pop-up banners",
+  "gap": "Many people just need a simple watchlist: a few stocks, the price, the change for the day, a quick jump to the chart. But at free quote apps the ads have grown to the point that pop-up banners hang the screen and you have to restart the app, and sometimes an ad completely covers the news section. A smooth and fast pass through a watchlist, with no jerks and no banners over the chart, barely exists anywhere.",
+  "mechanisms": [
+   "A clean watchlist with no ads",
+   "A fast pass through the watchlist",
+   "Ads hang and break the app"
+  ],
+  "pitch": "A fast and clean watchlist. Several watchlists, delayed or real-time quotes, a simple chart and an instant swipe between stocks. No ads over the interface, no freezes. An app that honestly charges a small fee instead of stuffing the screen with banners that break how it works.",
+  "features": [
+   "Several watchlists with fast switching",
+   "A swipe between stocks right on the chart screen",
+   "The change for the day, week and year at a glance",
+   "A mini watchlist widget for the home screen",
+   "A dark and light theme with no flashing banners",
+   "Export of the stock list to CSV"
+  ],
+  "antiFeatures": [
+   "No ads over charts and sections",
+   "We do not let you trade and do not advise what to buy",
+   "We do not hang the app with pop-ups"
+  ],
+  "monetization": "Free one list of up to fifteen stocks with delayed quotes. A one-time Pro purchase at 9.99 dollars forever or a subscription at 1.99 dollars a month unlocks unlimited lists, widgets and real-time quotes."
  }
 }

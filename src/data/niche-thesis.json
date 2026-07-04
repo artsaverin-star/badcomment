@@ -6249,5 +6249,58 @@
     ]
    }
   ]
+ },
+ "stock-investing": {
+  "governing": "Ниша акций в США распадается на четыре кластера спроса, и в каждом лидеры ломаются в одном и том же месте: в момент, когда на кону реальные деньги. Первый кластер это новички-геймификация: Robinhood и Webull затягивают простым интерфейсом (пользователи хвалят easy to use, learn how to trade), но именно здесь люди пишут, что приложение crashes all the time и особенно when you try to exit, что оно freezes after you purchase и заставляет lose money in a trade, а Robinhood ещё и упрекают в shady fill prices. Второй кластер это серьёзные брокеры Fidelity, Schwab, IBKR, E*TRADE, thinkorswim: их держат за глубину, но у Fidelity жалуются, что app can't accurately show current cash totals и position data врут, у Schwab и E*TRADE app freezes and crashes, а thinkorswim теряет доверие продвинутых трейдеров глюками в исполнении. Третий кластер это робо-эдвайзеры и раунд-апы Betterment, Wealthfront, Acorns, M1, Alinea: сюда идут за режимом hands-off (round up, automated, recurring), но ломается доверие на выходе денег, люди месяцами не могут withdraw my money, у Acorns аккаунт внезапно placed under review, у Alinea вывод obscure. Четвёртый кластер это трекеры портфеля, скринеры и AI-сигналы TradingView, Seeking Alpha, Stocktwits и десятки мелких Stock Signal / AI Scan: сюда приходят за единой правдивой картиной и подсказкой, но данные бывают incorrect и doesn't update, а сигналам и социальной толпе (gamblers making bad guesses) не верят. Сквозной механизм всей ниши: приложение открывают в напряжённый момент (сделка, вывод, падение рынка when markets are volatile), и именно тогда оно должно быть быстрым, честным по числам и понятным, а лидеры проседают ровно на этом.",
+  "competitorRead": "Геймификация-брокеры (Robinhood, Webull) берут лёгким входом и обучением, но проседают в надёжности исполнения и доверии: freezes after you purchase, crashes when you try to exit, shady fill prices, аккаунт может быть restricted. Классические брокеры (Fidelity, Schwab, IBKR, E*TRADE, thinkorswim, Merrill Edge, Vanguard) берут глубиной и охватом, но проседают в актуальности и стабильности мобильного приложения: current cash totals и position data показываются неверно, app freezes and crashes, интерфейс feels slow and outdated. Робо-эдвайзеры и раунд-апы (Betterment, Wealthfront, Acorns, M1, Alinea, Stash) берут режимом do it for me (round up, automated), но проседают на выходе денег и прозрачности: месяцами не удаётся withdraw my money, счёт placed under review, ликвидация obscure. Трекеры, скринеры и AI-сигналы (TradingView, Seeking Alpha, Stocktwits, moomoo, множество Stock Signal / AI Scan) берут аналитикой и подсказками, но проседают в точности данных (incorrect, doesn't update) и в доверии к сигналам и социальной толпе (gamblers making bad guesses).",
+  "pillars": [
+   {
+    "title": "Не подведи, когда на кону деньги",
+    "dek": "Инвестор открывает приложение в самый напряжённый момент: провести сделку, вывести средства, среагировать на падение рынка. Именно тогда лидеры зависают, глотают заявки и блокируют доступ к деньгам. Работа продукта не выглядеть красиво в спокойный день, а быть непробиваемо надёжным ровно в ту секунду, когда цена ошибки максимальна.",
+    "match": [
+     "crashes all the time",
+     "when you try to exit",
+     "freezes after you purchase",
+     "lose money in a trade",
+     "when markets are volatile",
+     "money on the line",
+     "stops working",
+     "withdraw my money",
+     "transfer out",
+     "restricted",
+     "auto locked"
+    ]
+   },
+   {
+    "title": "Веди новичка за руку, а не просто дай кнопку",
+    "dek": "Люди приходят учиться инвестировать, а не только тапать по кнопке купить. Их хвала звучит как forgiving and easy для beginners, а обиды как непонимание, что происходит с их деньгами, и нехватка объяснений. Работа продукта превращать каждое действие в шаг обучения: показывать, зачем ты держишь то, что держишь, и что означают числа, чтобы человек рос как инвестор, а не гадал.",
+    "match": [
+     "easy to use",
+     "beginners",
+     "learn how to trade",
+     "learn how to",
+     "new to this",
+     "understand how",
+     "forgiving and easy",
+     "instructions",
+     "watchlist",
+     "round up"
+    ]
+   },
+   {
+    "title": "Одна правдивая картина вместо разрозненных цифр",
+    "dek": "Смысл открыть приложение это за секунду увидеть честное состояние портфеля. Но числа врут и отстают: неверный кэш, устаревшие позиции, расходящийся прогноз. Когда data are incorrect и quotes do not update в real time, ломается сама причина заходить в приложение. Работа продукта давать одну актуальную и согласованную картину холдингов, которой можно верить без перепроверки.",
+    "match": [
+     "data that are incorrect",
+     "quotes do not update",
+     "real time",
+     "current cash totals",
+     "position data",
+     "track my portfolio",
+     "inaccurate",
+     "fill prices"
+    ]
+   }
+  ]
  }
 }

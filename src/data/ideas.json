@@ -59632,5 +59632,719 @@
    ],
    "monetization": "Калькулятор бесплатно с рекламой в одном ненавязчивом месте. Разовая покупка 299 рублей убирает рекламу и открывает график BMI во времени. Ads в BMI-приложениях бесят людей, поэтому реклама скромная, а снятие её дёшево и разово."
   }
+ },
+ {
+  "slug": "stock-investing-1",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Сводный портфель по всем брокерам",
+  "oneLiner": "Один экран с позициями и доходностью сразу из всех брокерских счетов",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "I like being able to see all of my accounts in one place, and Wealthfront accomplishes this successfully with about 70% of my accounts. The others are stuck in “update link.” I’ve gone through multiple iterations of trying to update these links for months on end",
+    "rating": 3,
+    "app": "Wealthfront: Save and Invest"
+   },
+   {
+    "quote": "The switch to Plaid to pull account information means account info is no longer updating regularly in the app and worse, I’m having the reauthenticate multiple accounts weekly. One of the draws of the app was being able to track all accounts in one place",
+    "rating": 2,
+    "app": "Wealthfront: Save and Invest"
+   },
+   {
+    "quote": "The app is absolutely awful if you have more than one account or multiple stock holdings",
+    "rating": 1,
+    "app": "Vanguard: Save, Invest, Retire"
+   },
+   {
+    "quote": "The Fidelity app is frequently in a semi broken state. Sometimes it can’t accurately show current cash totals. Today it shows stock I own, but all of the position data and cost basis data are not rendering",
+    "rating": 1,
+    "app": "Fidelity Investments"
+   },
+   {
+    "quote": "I generally love using this app but I’d really like the function to exclude some accounts from total net worth",
+    "rating": 5,
+    "app": "Betterment Invest & Save Money"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Сводный портфель по всем брокерам",
+    "obsCount": 34,
+    "apps": [
+     "Wealthfront: Save and Invest",
+     "Vanguard: Save, Invest, Retire",
+     "Fidelity Investments"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Ручное разделение личного и общего капитала",
+    "obsCount": 14,
+    "apps": [
+     "Betterment Invest & Save Money",
+     "Wealthfront: Save and Invest"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Позиции пропадают после обновлений брокера",
+    "obsCount": 13,
+    "apps": [
+     "Fidelity Investments",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Человек держит счета в нескольких местах: пенсионный в одном брокере, брокерский в другом, что-то у работодателя. Каждое приложение показывает только свою часть, а попытки собрать всё вместе через связки со счетами постоянно отваливаются и требуют переподключения раз в неделю. Никто не даёт честный единый экран с суммой по всем позициям, доходностью с начала и раскладкой по секторам, где можно ещё и исключить общий с партнёром счёт из личного капитала.",
+  "idea": {
+   "pitch": "Приложение только для наблюдения за портфелем. Пользователь заводит позиции руками или подтягивает их через агрегатор счетов, а взамен получает то, чего не даёт ни один отдельный брокер: единую картину всех активов на одном экране. Сумма, доходность с момента покупки, вес каждой бумаги и сектора, история изменения капитала. Никаких сделок и никакого регулирования, только зеркало того, что уже есть у человека в разных местах.",
+   "features": [
+    "Ввод позиций руками плюс импорт из CSV брокерского отчёта",
+    "Единая сумма и доходность по всем счетам на одном экране",
+    "Раскладка по секторам, странам и типам активов",
+    "График изменения капитала по дням и месяцам",
+    "Флаг «личное или общее» чтобы исключать счета из личного итога",
+    "Мгновенный офлайн-снимок портфеля без ожидания синка"
+   ],
+   "antiFeatures": [
+    "Не исполняем сделки и не становимся брокером",
+    "Не даём торговых сигналов и рекомендаций что купить",
+    "Не прячем базовую сумму портфеля за подписку"
+   ],
+   "monetization": "Бесплатно до трёх счетов и ручного ввода. Pro за 4.99 доллара в месяц или 39 долларов в год открывает импорт CSV, безлимит счетов, историю капитала и раскладку по секторам."
+  }
+ },
+ {
+  "slug": "stock-investing-2",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Честный трекер дивидендов",
+  "oneLiner": "Точный календарь выплат и годовой доход с дивидендов без выдуманных цифр",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 47
+  },
+  "reviewGrid": [
+   {
+    "quote": "It tracks dividends fairly inaccurately though. The app overestimates dividend payouts consistently to the point where it says I receive 23k in dividends a year",
+    "rating": 3,
+    "app": "Dividend Tracker - DivTracker"
+   },
+   {
+    "quote": "Example - dividend date was wrong for one of my holdings. Dividend rate is wrong for another. It says no dividend- but I do get dividend for that holding. The support is responsive in general.",
+    "rating": 4,
+    "app": "Dividend Tracker - DivTracker"
+   },
+   {
+    "quote": "Information regarding dividend payments are buried deep in the app. Dividend payout info is not associated with the paying stock and only available 2 - 3 days after the payment.",
+    "rating": 2,
+    "app": "moomoo: Investing & Trading"
+   },
+   {
+    "quote": "Why should I have to pay for basic insights into my dividends when other apps offer it for free including my own brokerage app",
+    "rating": 2,
+    "app": "Blossom: Social Investing"
+   },
+   {
+    "quote": "The big missing component is info about dividends. You can screen for dividends by yield, but there is no dividend info provided",
+    "rating": 4,
+    "app": "Stock Screener by StockScan.io"
+   },
+   {
+    "quote": "How ever can’t seem to be able to see my yield on cost",
+    "rating": 4,
+    "app": "Dividend Tracker - DivTracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный трекер дивидендов",
+    "obsCount": 26,
+    "apps": [
+     "Dividend Tracker - DivTracker",
+     "moomoo: Investing & Trading",
+     "Schwab Mobile"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Доходность на вложенное как главная метрика",
+    "obsCount": 12,
+    "apps": [
+     "Dividend Tracker - DivTracker",
+     "Stock Screener by StockScan.io"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Прогноз годового дохода с выплат",
+    "obsCount": 9,
+    "apps": [
+     "Dividend Tracker - DivTracker",
+     "Schwab Mobile"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Дивидендный инвестор хочет ровно одно: точно знать, сколько и когда ему заплатят. Существующие трекеры завышают выплаты, показывают неверные даты, а иногда пишут что дивиденда нет там, где он есть. Данные о выплате всплывают только через пару дней после факта и не привязаны к бумаге. Доходность на вложенное, то есть yield on cost, никто нормально не считает, а брокеры прячут выплаты глубоко в интерфейсе.",
+  "idea": {
+   "pitch": "Трекер, который делает одну вещь безупречно: считает дивиденды правильно. Пользователь заводит позиции, а приложение показывает выверенный календарь ближайших выплат, годовой прогноз дохода и доходность на вложенное по каждой бумаге и по всему портфелю. Данные сверяются с несколькими источниками, чтобы не было расхождений с реальностью, из-за которых люди уходят от конкурентов.",
+   "features": [
+    "Календарь выплат с датами закрытия реестра и самой выплаты",
+    "Годовой прогноз дохода по портфелю и по каждой бумаге",
+    "Доходность на вложенное отдельно от текущей доходности",
+    "Реинвестирование выплат в модели и график роста дохода",
+    "Сверка сумм по нескольким источникам данных",
+    "История уже полученных выплат помесячно"
+   ],
+   "antiFeatures": [
+    "Не подбираем какие дивидендные акции купить",
+    "Не даём торговать внутри приложения",
+    "Не прячем базовый календарь и годовой доход за подписку"
+   ],
+   "monetization": "Бесплатно до двадцати бумаг и календарь на месяц вперёд. Подписка 3.99 доллара в месяц или 29 долларов в год снимает лимит бумаг, добавляет прогноз дохода, доходность на вложенное и модель реинвеста."
+  }
+ },
+ {
+  "slug": "stock-investing-3",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Учёт прибыли и налоговой базы",
+  "oneLiner": "Реализованная прибыль, налоговые лоты и база по позициям простым языком",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 39
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app desperately needs the ability to view your tax lots when you’re selling. The app defaults to FIFO for the sale of partial positions",
+    "rating": 5,
+    "app": "Merrill Edge"
+   },
+   {
+    "quote": "Please make an option to see realized P&L% on each individual stock that has been traded, other than that it’s an outstanding broker",
+    "rating": 4,
+    "app": "Webull: Investing & Trading"
+   },
+   {
+    "quote": "They just removed the calculated % gain/loss value, the best and easier way to assess how is your overall portfolio is doing. Having to calculate on my own the gain/loss is ridiculous",
+    "rating": 2,
+    "app": "Stash: Investing made easy"
+   },
+   {
+    "quote": "Basic info like your total net percentage gain/loss has been removed, and is now only viewable on the website",
+    "rating": 1,
+    "app": "Stash: Investing made easy"
+   },
+   {
+    "quote": "All of the position data and cost basis data are not rendering",
+    "rating": 1,
+    "app": "Fidelity Investments"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Учёт прибыли и налоговой базы",
+    "obsCount": 21,
+    "apps": [
+     "Merrill Edge",
+     "Webull: Investing & Trading",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Реализованная прибыль по каждой сделке",
+    "obsCount": 11,
+    "apps": [
+     "Webull: Investing & Trading",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Выбор налогового лота перед продажей",
+    "obsCount": 7,
+    "apps": [
+     "Merrill Edge",
+     "Fidelity Investments"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Когда человек продаёт часть позиции, брокер по умолчанию берёт первый купленный лот и не даёт выбрать, какие именно акции продать выгоднее по налогам. Реализованную прибыль по каждой сделке приходится считать вручную, а некоторые приложения вообще убрали общий процент прибыли из мобильной версии. Инвестору негде увидеть свою налоговую базу, реализованный результат за год и то, как выбор лота меняет будущий налог.",
+  "idea": {
+   "pitch": "Приложение для учёта результата и налоговой базы. Пользователь заносит покупки и продажи, а оно показывает базу по каждой позиции, реализованную прибыль за год и нереализованную по открытым лотам. Перед продажей можно посмотреть, какой лот выгоднее закрыть, и понять примерный налоговый эффект. Всё объясняется человеческим языком, без формул из брокерского кабинета.",
+   "features": [
+    "База и средняя цена по каждой позиции",
+    "Реализованная прибыль по каждой сделке и за год",
+    "Разбивка на короткие и долгие лоты по сроку владения",
+    "Подсказка какой лот выгоднее продать по сроку",
+    "Импорт сделок из CSV брокерского отчёта",
+    "Годовая сводка для подготовки к налоговому сезону"
+   ],
+   "antiFeatures": [
+    "Не подаём декларацию и не заменяем налогового консультанта",
+    "Не исполняем сделки и не храним деньги",
+    "Не прячем базовую реализованную прибыль за подписку"
+   ],
+   "monetization": "Бесплатно текущая база и прибыль по позициям. Подписка 4.99 доллара в месяц или 39 долларов в год добавляет разбивку по срокам лотов, подсказку выбора лота, импорт CSV и годовую сводку."
+  }
+ },
+ {
+  "slug": "stock-investing-4",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Спокойные ценовые алерты",
+  "oneLiner": "Точные оповещения по цене без спама и без сидения над экраном",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 44
+  },
+  "reviewGrid": [
+   {
+    "quote": "I need a scanner that will alert me and show me low float stocks with a catalyst that start experiencing unusually high volume. I can just sit there refreshing a screener over and over",
+    "rating": 5,
+    "app": "Stock Signal: AI Stocks Watch"
+   },
+   {
+    "quote": "I would like to be able to set notifications up for price action and stock movement",
+    "rating": 4,
+    "app": "Acorns: Save & Invest Money"
+   },
+   {
+    "quote": "In recent updates it no longer gives alerts sounds. Extremely important as I relied on it",
+    "rating": 3,
+    "app": "MarketSurge - Stock Research"
+   },
+   {
+    "quote": "You get the pop-up about some news article or a stock or something interesting and click on it and it goes to their app but not the thing that the notification was for",
+    "rating": 2,
+    "app": "Stock Signal: AI Stocks Watch"
+   },
+   {
+    "quote": "I’m already a paid premium member of one of your services. Getting 2-3 notifications per day to try to get me upgrade to a second service is really annoying.",
+    "rating": 3,
+    "app": "Penny Stocks Screener: AI Scan"
+   },
+   {
+    "quote": "Probably one of the chattiest apps as far as notifications go",
+    "rating": 3,
+    "app": "Investing.com: Stock Market"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Спокойные ценовые алерты",
+    "obsCount": 24,
+    "apps": [
+     "Stock Signal: AI Stocks Watch",
+     "MarketSurge - Stock Research",
+     "Acorns: Save & Invest Money"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Рекламные пуши забивают полезные оповещения",
+    "obsCount": 12,
+    "apps": [
+     "Penny Stocks Screener: AI Scan",
+     "Investing.com: Stock Market"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Оповещение ведёт не туда, куда обещал",
+    "obsCount": 8,
+    "apps": [
+     "Stock Signal: AI Stocks Watch",
+     "MarketSurge - Stock Research"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Инвестор не хочет весь день смотреть на график, ему нужно оповещение, когда бумага дошла до его цены. Но приложения либо забивают уведомления рекламой своих подписок по три штуки в день, либо ломают звук алертов после обновления, либо ведут по тапу не туда. В итоге люди сидят и вручную обновляют скринер, потому что доверия к оповещениям нет.",
+  "idea": {
+   "pitch": "Приложение с одной честной задачей: надёжно оповестить, когда цена дошла до заданного уровня. Пользователь ставит цель по бумаге, порог по проценту за день или уровень по объёму, и получает ровно то оповещение, которое просил, с тапом прямо на нужную бумагу. Никаких рекламных пушей, никакого спама, только сигналы, которые человек сам настроил.",
+   "features": [
+    "Алерт по цене выше и ниже заданного уровня",
+    "Порог по движению в процентах за день",
+    "Оповещение по всплеску объёма",
+    "Тап по уведомлению открывает именно ту бумагу",
+    "Тихие часы чтобы не будило ночью",
+    "Только пользовательские алерты без маркетинговых пушей"
+   ],
+   "antiFeatures": [
+    "Не шлём рекламные и промо-уведомления",
+    "Не даём торговых сигналов «что купить»",
+    "Не заставляем сидеть в приложении чтобы алерт сработал"
+   ],
+   "monetization": "Бесплатно до пяти активных алертов. Подписка 2.99 доллара в месяц или 19 долларов в год снимает лимит, добавляет алерты по объёму, тихие часы и синхронизацию алертов между устройствами."
+  }
+ },
+ {
+  "slug": "stock-investing-5",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Инвестиции без жаргона для новичка",
+  "oneLiner": "Понятные объяснения и первые шаги без терминов, которыми пугают брокеры",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 41
+  },
+  "reviewGrid": [
+   {
+    "quote": "Briefly: the interface for thinker swim is confusing unless you’re a broker or a very sophisticated full-time user of thinkorswim and all of its multiple options. If you want simple, this is not it",
+    "rating": 1,
+    "app": "thinkorswim: Trade. Invest."
+   },
+   {
+    "quote": "A well written simple (no jargon, no cute “in” buzz words to show writer is with the “in” crowd and on the forefront of the art) TUTORIAL might help Vanguard investors",
+    "rating": 4,
+    "app": "Vanguard: Save, Invest, Retire"
+   },
+   {
+    "quote": "I do wish that it had more support and or instructions to understand how to set up things. How things are working",
+    "rating": 3,
+    "app": "Acorns: Save & Invest Money"
+   },
+   {
+    "quote": "Every update comes new obstacles as If they intentionally made to be confusing",
+    "rating": 2,
+    "app": "Fidelity Investments"
+   },
+   {
+    "quote": "This platform is very educational and easy to get you started investing in the stock market",
+    "rating": 5,
+    "app": "Acorns: Save & Invest Money"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Инвестиции без жаргона для новичка",
+    "obsCount": 22,
+    "apps": [
+     "thinkorswim: Trade. Invest.",
+     "Vanguard: Save, Invest, Retire",
+     "Fidelity Investments"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Обучение прямо в момент действия",
+    "obsCount": 11,
+    "apps": [
+     "Acorns: Save & Invest Money",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Простой тон снимает страх начать",
+    "obsCount": 8,
+    "apps": [
+     "Acorns: Save & Invest Money",
+     "Vanguard: Save, Invest, Retire"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Новичок открывает брокерское приложение и тонет в терминах: опционы, греки, лимитные заявки, налоговые лоты. Профессиональные платформы прямо говорят, что они не для простых людей, а у остальных нет нормального тьюториала без модных словечек. Человеку нужно, чтобы кто-то объяснил, что значит каждая цифра на его экране, простым языком и в тот момент, когда он на неё смотрит.",
+  "idea": {
+   "pitch": "Обучающий спутник для новичка. Не брокер, а переводчик с языка Уолл-стрит на человеческий. Короткие уроки объясняют базу шаг за шагом, а встроенный словарь раскрывает любой термин по тапу. Можно вести учебный портфель без денег, чтобы попробовать решения и понять, как ведёт себя рынок, прежде чем рисковать своими деньгами в настоящем брокере.",
+   "features": [
+    "Короткие уроки от «что такое акция» до «как читать отчёт»",
+    "Словарь терминов с объяснением по тапу",
+    "Учебный портфель на виртуальные деньги",
+    "Разбор что значат цифры на экране портфеля",
+    "Чек-лист первых шагов инвестора",
+    "Ежедневный короткий разбор одного понятия"
+   ],
+   "antiFeatures": [
+    "Не даём торговых рекомендаций и не советуем что купить",
+    "Не открываем брокерский счёт и не храним деньги",
+    "Не сыплем терминами без объяснения"
+   ],
+   "monetization": "Бесплатно базовый курс и словарь. Подписка 4.99 доллара в месяц или 34 доллара в год открывает продвинутые уроки, учебный портфель без лимитов и ежедневные разборы."
+  }
+ },
+ {
+  "slug": "stock-investing-6",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Разбор комиссий и подписок",
+  "oneLiner": "Показывает сколько вы реально платите брокерам, фондам и сервисам",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 36
+  },
+  "reviewGrid": [
+   {
+    "quote": "They charge extra for everything that’s FREE on Robinhood. My last draw was when I had a trade placed to buy at 8:30am & they charged be 2.99 for an early morning trade!",
+    "rating": 5,
+    "app": "Webull: Investing & Trading"
+   },
+   {
+    "quote": "If you cancel your subscription, they continue to charge you if you don’t use the app for long enough. I cancelled my subscription 3 months ago (confirmation emails saying it was cancelled and everything) and checked my bank statements for this past month and they charged me again",
+    "rating": 1,
+    "app": "Acorns: Save & Invest Money"
+   },
+   {
+    "quote": "Good app. For beginners it’s an ok app. $12 /month doesn’t sound appealing when in fidelity robinhood etc offers the services are completely free",
+    "rating": 3,
+    "app": "Stash: Investing made easy"
+   },
+   {
+    "quote": "One note, and the reason for four stars, they charge you 100 bucks to transfer your money out to another brokerage",
+    "rating": 4,
+    "app": "Stash: Investing made easy"
+   },
+   {
+    "quote": "I closed my account since I wanted to consolidate all my retirement accounts with the one offered by my employer. I can’t withdraw all my funds since M1 is charging $100 for Roth IRA account closures",
+    "rating": 3,
+    "app": "M1: Invest & Bank Smarter"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Разбор комиссий и подписок",
+    "obsCount": 19,
+    "apps": [
+     "Webull: Investing & Trading",
+     "Acorns: Save & Invest Money",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Плата за закрытие и перевод счёта врасплох",
+    "obsCount": 10,
+    "apps": [
+     "Stash: Investing made easy",
+     "M1: Invest & Bank Smarter"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Подписки списываются после отмены",
+    "obsCount": 7,
+    "apps": [
+     "Acorns: Save & Invest Money",
+     "Stash: Investing made easy"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Плата за инвестиции размазана и незаметна: фиксированная подписка брокера, комиссия за сделку, сбор фонда внутри цены, штраф за закрытие или перевод счёта. Люди узнают о списаниях постфактум и злятся, что платят за то, что у соседа бесплатно. Никто не собирает все эти платежи в одну картину и не показывает, во сколько на самом деле обходится держать деньги именно у этого брокера и в этих фондах.",
+  "idea": {
+   "pitch": "Приложение-калькулятор реальной стоимости владения. Пользователь заносит свои счета, подписки брокеров и фонды из портфеля, а оно показывает, сколько денег в год утекает на комиссии, подписки и внутренние сборы фондов. Сравнивает с более дешёвыми аналогами по классу активов и предупреждает о штрафах за перевод и закрытие счёта заранее, а не когда уже поздно.",
+   "features": [
+    "Годовая сумма всех комиссий и подписок в одном месте",
+    "Внутренний сбор фонда по каждой позиции и его цена в деньгах",
+    "Сравнение с более дешёвым аналогом того же класса",
+    "База штрафов за перевод и закрытие счёта у брокеров",
+    "Напоминание о подписках которые пора отменить",
+    "Прогноз сколько сборы съедят за десять лет"
+   ],
+   "antiFeatures": [
+    "Не продаём переход к конкретному брокеру за партнёрку",
+    "Не советуем что купить или продать",
+    "Идея не в том чтобы всё было бесплатно, а в прозрачности"
+   ],
+   "monetization": "Бесплатно разовый разбор комиссий по одному портфелю. Подписка 3.99 доллара в месяц или 24 доллара в год добавляет отслеживание всех счетов, напоминания о подписках и прогноз сборов на годы вперёд."
+  }
+ },
+ {
+  "slug": "stock-investing-7",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Календарь отчётов и выплат по вашим бумагам",
+  "oneLiner": "Даты отчётностей, дивидендов и событий только по вашему портфелю",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "Perfect place to see all data at one place for people following fundamental and earnings",
+    "rating": 5,
+    "app": "Earnings Hub and Calendar"
+   },
+   {
+    "quote": "No calendar on the app but the website does",
+    "rating": 3,
+    "app": "TradingView: Track All Markets"
+   },
+   {
+    "quote": "The dividend calendar is laggy. I can see accurate dates for the last month or quarter, but the dates for the current month or quarter are simply missing in many cases",
+    "rating": 3,
+    "app": "Seeking Alpha: News & Analysis"
+   },
+   {
+    "quote": "I would like to see dividend info (yield and ex date) in list of all stocks and be able to sort by this info",
+    "rating": 3,
+    "app": "Merrill Edge"
+   },
+   {
+    "quote": "And this app is extremely easy to use to monitor your stocks and needs, with the events calendar and the heat map",
+    "rating": 3,
+    "app": "Stocks Tracker:Real-time stock"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Календарь отчётов и выплат по вашим бумагам",
+    "obsCount": 18,
+    "apps": [
+     "Earnings Hub and Calendar",
+     "TradingView: Track All Markets",
+     "Seeking Alpha: News & Analysis"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Дата отсечки под рукой рядом с бумагой",
+    "obsCount": 9,
+    "apps": [
+     "Merrill Edge",
+     "Seeking Alpha: News & Analysis"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Все события в одном месте экономят время",
+    "obsCount": 6,
+    "apps": [
+     "Earnings Hub and Calendar",
+     "Stocks Tracker:Real-time stock"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Инвестор хочет заранее знать, когда его компании выходят с отчётом и когда закрывается реестр под дивиденд, потому что это дни, когда цена дёргается сильнее всего. Но у крупных приложений либо календаря нет в мобильной версии, либо даты текущего периода отстают и оказываются неверными. А главное, календари общие по всему рынку, тогда как человеку нужны события ровно по его бумагам, а не по тысяче чужих.",
+  "idea": {
+   "pitch": "Персональный календарь событий по портфелю. Пользователь добавляет свои бумаги, а приложение собирает по ним даты отчётностей, дни отсечки под дивиденд, дни выплаты и корпоративные события в единую ленту и напоминает заранее. Не общий рыночный шум, а только то, что касается конкретно его позиций, с точными и вовремя обновляемыми датами.",
+   "features": [
+    "Календарь отчётностей только по вашим бумагам",
+    "Даты отсечки и выплаты дивидендов рядом с позицией",
+    "Напоминание за день до события",
+    "Лента ближайших событий портфеля на неделю вперёд",
+    "Отметка ожиданий по прибыли перед отчётом",
+    "Сортировка бумаг по дате ближайшего события"
+   ],
+   "antiFeatures": [
+    "Не предсказываем куда пойдёт цена после отчёта",
+    "Не даём торговать и не советуем что купить",
+    "Не заваливаем событиями по бумагам которых нет в портфеле"
+   ],
+   "monetization": "Бесплатно календарь на неделю вперёд по десяти бумагам. Подписка 2.99 доллара в месяц или 19 долларов в год снимает лимит бумаг, открывает горизонт на квартал и напоминания."
+  }
+ },
+ {
+  "slug": "stock-investing-8",
+  "category": "stock-investing",
+  "categoryName": "Акции",
+  "title": "Чистый вотчлист без рекламы",
+  "oneLiner": "Быстрые котировки и списки наблюдения без всплывающих баннеров",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 73,
+   "reviews": 1752,
+   "observations": 38
+  },
+  "reviewGrid": [
+   {
+    "quote": "I understand seller needs to make money but these constant pop up ads out of nowhere when checking charts, options pricing, etc. and some are not easy to get rid of",
+    "rating": 1,
+    "app": "Stock Master: Investing Stocks"
+   },
+   {
+    "quote": "Now ads hijack complete sections. Went to Market News it’s on loop with advertisements you will never see news",
+    "rating": 2,
+    "app": "Stock Master: Investing Stocks"
+   },
+   {
+    "quote": "The ads have gotten so bad it’s time to find another app",
+    "rating": 3,
+    "app": "Stocks Tracker:Real-time stock"
+   },
+   {
+    "quote": "You can create a watchlist of stocks but to quickly go through every stock chart in that watchlist is neither intuitive nor easy",
+    "rating": 2,
+    "app": "TradingView: Track All Markets"
+   },
+   {
+    "quote": "The ads make it feel really unprofessional",
+    "rating": 3,
+    "app": "Stocks"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Чистый вотчлист без рекламы",
+    "obsCount": 20,
+    "apps": [
+     "Stock Master: Investing Stocks",
+     "Stocks Tracker:Real-time stock",
+     "Stocks"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Быстрый проход по списку наблюдения",
+    "obsCount": 10,
+    "apps": [
+     "TradingView: Track All Markets",
+     "Stocks Tracker:Real-time stock"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Реклама подвешивает и ломает приложение",
+    "obsCount": 8,
+    "apps": [
+     "Stock Master: Investing Stocks",
+     "Stocks Tracker:Real-time stock"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Многим нужен простой список наблюдения: несколько бумаг, цена, изменение за день, быстрый переход к графику. Но у бесплатных котировочных приложений реклама выросла до того, что всплывающие баннеры подвешивают экран и приходится перезапускать приложение, а иногда реклама наглухо перекрывает раздел новостей. Плавного и быстрого прохода по вотчлисту, без рывков и без баннеров поверх графика, почти нигде нет.",
+  "idea": {
+   "pitch": "Быстрый и чистый вотчлист. Несколько списков наблюдения, котировки с задержкой или в реальном времени, простой график и мгновенный свайп между бумагами. Никакой рекламы поверх интерфейса, никаких зависаний. Приложение, которое честно берёт небольшую плату вместо того, чтобы забивать экран баннерами, ломающими работу.",
+   "features": [
+    "Несколько списков наблюдения с быстрым переключением",
+    "Свайп между бумагами прямо на экране графика",
+    "Изменение за день, неделю и год одним взглядом",
+    "Мини-виджет вотчлиста на домашний экран",
+    "Тёмная и светлая тема без мигающих баннеров",
+    "Экспорт списка бумаг в CSV"
+   ],
+   "antiFeatures": [
+    "Никакой рекламы поверх графиков и разделов",
+    "Не даём торговать и не советуем что купить",
+    "Не подвешиваем приложение всплывающими окнами"
+   ],
+   "monetization": "Бесплатно один список до пятнадцати бумаг с задержкой котировок. Разовая покупка Pro за 9.99 доллара навсегда или подписка 1.99 доллара в месяц открывает безлимит списков, виджеты и котировки в реальном времени."
+  }
  }
 ]

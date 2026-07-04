@@ -30,6 +30,7 @@ import NicheDossier from "@/components/NicheDossier";
 // Categories migrated to the new dossier layout (market + audience + honest
 // rating + breakdown + idea cards). Rolled out one niche at a time.
 const DOSSIER_SLUGS = new Set([
+  "stock-investing",
   "weight-tracker",
   "driving-test-prep",
   "pregnancy-tracker",

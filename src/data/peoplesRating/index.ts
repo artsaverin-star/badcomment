@@ -56,7 +56,10 @@ import drivingTestPrep from "./driving-test-prep.json";
 
 import weightTracker from "./weight-tracker.json";
 
+import stockInvesting from "./stock-investing.json";
+
 export const RATING_BY_SLUG: Record<string, unknown> = {
+  "stock-investing": stockInvesting,
   "weight-tracker": weightTracker,
   "driving-test-prep": drivingTestPrep,
   "pregnancy-tracker": pregnancyTracker, "blood-pressure-log": bloodPressureLog, "step-counter": stepCounter,
