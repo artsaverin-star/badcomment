@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
+import { LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
@@ -17,7 +18,7 @@ export default async function OfferPage() {
       "1. Общие положения",
       <>
         Настоящий документ является публичной офертой {seller} (далее — «Исполнитель») и адресован любому
-        дееспособному физическому лицу (далее — «Пользователь»). Оплачивая подписку на сервисе {l.brand} ({l.site}),
+        дееспособному физическому лицу (далее — «Пользователь»). Оплачивая доступ на сервисе {l.brand} ({l.site}),
         Пользователь полностью и безоговорочно принимает условия настоящей оферты (акцепт).
       </>,
     ],
@@ -32,18 +33,19 @@ export default async function OfferPage() {
     [
       "3. Стоимость и порядок оплаты",
       <>
-        Стоимость и сроки указаны на странице{" "}
-        <Link href={`${lp}/tokens`} className="text-[var(--color-text-brand)] hover:underline">«Премиум»</Link>: 1000 ₽ за 1 месяц
-        или 3000 ₽ за 6 месяцев. Оплата производится онлайн банковской картой через платёжный сервис ЮKassa
-        (ООО НКО «ЮМани») либо через Telegram Stars. Цены фиксированные и указаны в рублях РФ.
+        Доступ предоставляется за разовый платёж. Актуальная стоимость указана на странице{" "}
+        <Link href={`${lp}/tokens`} className="text-[var(--color-text-brand)] hover:underline">«Доступ»</Link> и на момент
+        оплаты: {LIFETIME.rub} ₽ за бессрочный доступ ко всем материалам сервиса{LAUNCH_PROMO ? <>, в период запуска действует
+        промо-цена {FRIEND_PRICE_RUB} ₽</> : null}. Оплата производится онлайн банковской картой или через СБП через платёжный
+        сервис ЮKassa (ООО НКО «ЮМани») либо через Telegram Stars. Цены указаны в рублях РФ.
       </>,
     ],
     [
       "4. Порядок предоставления доступа",
       <>
         Премиум-доступ активируется в аккаунте Пользователя на сайте {l.brand} <b>автоматически сразу после
-        успешной оплаты</b> и действует в течение оплаченного периода (30 или 180 дней). Никакой доставки или
-        отправки физических носителей не требуется — услуга предоставляется в электронном виде на сайте.
+        успешной оплаты</b> и действует бессрочно. Никакой доставки или отправки физических носителей не
+        требуется — услуга предоставляется в электронном виде на сайте.
       </>,
     ],
     [
@@ -67,7 +69,7 @@ export default async function OfferPage() {
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 py-14">
-      <h1 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+      <h1 className="text-title1 text-[var(--color-text-primary)]">
         Публичная оферта
       </h1>
       <p className="mt-2 text-caption text-[var(--color-text-tertiary)]">Редакция от {l.updated}</p>
