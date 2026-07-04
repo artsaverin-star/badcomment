@@ -7,7 +7,9 @@ import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
+import { byNicheMoney } from "@/lib/nicheMoney";
 import ideaCovers from "@/data/ideaCovers.json";
+import Link from "next/link";
 import IdeasDeck from "@/components/IdeasDeck";
 import { IdeaCards } from "@/components/TestCards";
 import { type SortKey } from "@/components/IdeaSortTabs";
@@ -65,7 +67,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const locale = await getLocale();
   const ru = locale !== "en";
   const sp = await searchParams;
-  const sort: SortKey = (["money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "balance") as SortKey;
+  const sort: SortKey = (["money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "money") as SortKey;
   const metric = SORT_METRIC[sort];
   const cat = sp.cat && DOSSIER.has(sp.cat) ? sp.cat : undefined;
 
@@ -78,7 +80,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
   // Niche tile strip: every niche that has ideas, in buildability order, with
   // its biggest app's icon as the tile art.
-  const chips = CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)).map((s) => {
+  const chips = byNicheMoney(CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)), (x) => x).map((s) => {
     const apps = ((RATING_BY_SLUG as Record<string, { apps?: { icon?: string | null; ratings?: number }[] }>)[s]?.apps ?? []);
     const top = [...apps].sort((a, b) => (b.ratings ?? 0) - (a.ratings ?? 0)).find((a) => a.icon);
     return { slug: s, name: nameOf(s), icon: top?.icon ?? null, hue: hueFromSlug(s) };
@@ -177,13 +179,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         <p className="mx-auto mt-5 max-w-[52ch] text-footnote text-pretty text-[var(--color-text-tertiary)]">
           {ru ? (
             <>
-              Честный <a href={`/${ru ? "ru" : "en"}/rating`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">рейтинг приложений</a> и{" "}
-              <a href={`/${ru ? "ru" : "en"}/categories`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">разборы ниш</a> бесплатны. Полные идеи открывает один платёж.
+              Честный <Link href={`/${ru ? "ru" : "en"}/rating`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">рейтинг приложений</Link> и{" "}
+              <Link href={`/${ru ? "ru" : "en"}/categories`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">разборы ниш</Link> бесплатны. Полные идеи открывает один платёж.
             </>
           ) : (
             <>
-              The honest <a href="/en/rating" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">app rating</a> and{" "}
-              <a href="/en/categories" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">niche breakdowns</a> are free. One payment opens the full ideas.
+              The honest <Link href="/en/rating" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">app rating</Link> and{" "}
+              <Link href="/en/categories" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">niche breakdowns</Link> are free. One payment opens the full ideas.
             </>
           )}
         </p>

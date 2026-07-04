@@ -46,7 +46,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const NICHES = [
+import { byNicheMoney } from "@/lib/nicheMoney";
+
+const NICHES_RAW = [
   { slug: "stock-investing", name: "Акции", nameEn: "Stock investing", blurb: "73 приложения: где брокер и трекер надёжны в момент сделки, а где блок вывода средств, фейковые AI-сигналы и накрутка.", blurbEn: "73 apps: where the broker and tracker hold up when it matters, and where it is frozen withdrawals, fake AI signals and juiced reviews." },
   { slug: "weight-tracker", name: "Вес", nameEn: "Weight tracker", blurb: "27 приложений: где дневник веса честный и не стыдит, а где потеря истории, подписочные ловушки и накрутка.", blurbEn: "27 apps: where the weight diary is honest and shame-free, and where it is lost history, subscription traps and juiced reviews." },
   { slug: "driving-test-prep", name: "Экзамен на права", nameEn: "Driving test prep", blurb: "43 приложения: где вопросы совпадают с реальным экзаменом DMV, а где устаревшая база, пейвол-ловушки и накрутка.", blurbEn: "43 apps: where the questions match the real DMV exam, and where it is a stale question bank, paywall traps and juiced reviews." },
@@ -103,6 +105,7 @@ const NICHES = [
   { slug: "wardrobe-outfit", name: "Гардероб и образы", nameEn: "Wardrobe & outfits", blurb: "28 приложений: где каталог собирается быстро и подбор идёт из твоих вещей, а где ИИ-стилист зациклен на 3 вещах и списывает без спроса.", blurbEn: "28 apps: where the catalog builds fast and outfits come from your own clothes, and where the AI stylist loops on 3 items and charges without asking." },
   { slug: "meal-prep-grocery", name: "Меню и списки покупок", nameEn: "Meal planning & grocery", blurb: "44 приложения: где рецепт превращается в список и синк с семьёй держится в магазине, а где синхронизация рвётся и теряет позиции.", blurbEn: "44 apps: where a recipe becomes a list and family sync holds up in the store, and where sync breaks and drops items." },
 ];
+const NICHES = byNicheMoney(NICHES_RAW, (n) => n.slug);
 
 export default async function RatingIndexPage() {
   const locale = await getLocale();

@@ -8,6 +8,7 @@ import ideasData from "@/data/ideas.json";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
+import { byNicheMoney } from "@/lib/nicheMoney";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -47,7 +48,7 @@ export default async function CategoriesPage() {
   type RApp = { icon?: string | null; ratings?: number };
   type RFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
   const ideasAll = ideasData as { category: string }[];
-  const catCards = Object.entries(RATING_BY_SLUG as Record<string, RFile>).map(([slug, r]) => {
+  const catCardsRaw = Object.entries(RATING_BY_SLUG as Record<string, RFile>).map(([slug, r]) => {
     const cards = categoryCards(slug, locale)?.product ?? [];
     // Only the four icons the tile actually renders — shipping all ~100 per
     // niche bloated the flight payload to megabytes.
@@ -70,6 +71,8 @@ export default async function CategoriesPage() {
   });
 
   const lp = ru ? "ru" : "en";
+  const catCards = byNicheMoney(catCardsRaw, (c) => c.slug);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
