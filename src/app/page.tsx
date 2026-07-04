@@ -135,7 +135,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   // The free taste: a few fully open ideas that rotate daily, drawn from the
   // strong middle of the ranking so the crown of the leaderboard stays paid.
   // Signing in widens today's sample — the free step of the ladder stays real.
-  const showcasePool = all.length > limit + 3 ? all.slice(limit, limit + 120) : all.slice(2);
+  const showcasePool = cat ? [] : all.slice(limit, limit + 120);
   const showcaseCount = Math.min(loggedIn ? 6 : 3, showcasePool.length);
   // Server component on a force-dynamic route: the day index picks today's
   // rotation and is stable within a render.
@@ -167,46 +167,35 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <header className="text-center">
-        <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Идеи приложений" : "App ideas"}</h1>
+        <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Хватит гадать, что строить" : "Stop guessing what to build"}</h1>
         <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <>Каждая идея выросла из&nbsp;<span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов App Store и Google Play: видно, что строить, для кого и как на этом заработать.</>
-            : <>Every idea grew out of <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews: what to build, for whom and how to make money.</>}
+            ? <>Мы прочитали <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов App Store и Google Play и вывели идеи, за которые уже платят: чего людям не хватает, кто платит и сколько, и что по силам собрать одному.</>
+            : <>We read <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews and distilled the ideas people already pay for: what is missing, who pays and how much, and what one person can build.</>}
         </p>
-        {/* The three-step map of the site for a cold visitor: where the free
-            proof lives and what the one payment opens. */}
-        <nav className="mx-auto mt-7 flex max-w-full flex-wrap items-center justify-center gap-2" aria-label={ru ? "Как устроен сайт" : "How the site works"}>
-          {[
-            { href: `/${ru ? "ru" : "en"}/rating`, label: ru ? "Рейтинг без накрутки" : "Rating without fake reviews", free: true },
-            { href: `/${ru ? "ru" : "en"}/categories`, label: ru ? "Разбор каждой ниши" : "Every niche, broken down", free: true },
-            { href: "#idea-gate", label: ru ? "Идеи, за которые платят" : "Ideas people pay for", free: false },
-          ].map((s, i) => (
-            <span key={i} className="flex items-center gap-2">
-              {i > 0 && <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="hidden text-[var(--color-text-tertiary)] sm:block"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
-              <a href={s.href} className="flex items-baseline gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
-                {s.label}
-                <span className="text-caption font-normal text-[var(--color-text-tertiary)]">
-                  {s.free ? (ru ? "бесплатно" : "free") : "990 ₽"}
-                </span>
-              </a>
-            </span>
-          ))}
-        </nav>
+        {/* One quiet line tells the free/paid story — no pills, no badges. */}
+        <p className="mx-auto mt-5 max-w-[52ch] text-footnote text-pretty text-[var(--color-text-tertiary)]">
+          {ru ? (
+            <>
+              Честный <a href={`/${ru ? "ru" : "en"}/rating`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">рейтинг приложений</a> и{" "}
+              <a href={`/${ru ? "ru" : "en"}/categories`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">разборы ниш</a> бесплатны. Полные идеи открывает один платёж.
+            </>
+          ) : (
+            <>
+              The honest <a href="/en/rating" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">app rating</a> and{" "}
+              <a href="/en/categories" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">niche breakdowns</a> are free. One payment opens the full ideas.
+            </>
+          )}
+        </p>
       </header>
-
-      {/* The niche tiles are the only control; sorting stays fixed on the
-          composite score (other orders still work via ?sort= links). */}
-      <div className="mt-9">
-        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!!gate} />
-      </div>
 
       {/* Today's free sample: a few ideas fully open, rotating daily. The taste
           of the paid depth without giving away the top of the leaderboard. */}
       {showcase.length > 0 && (
         <section className="mt-9">
-          <div className="flex items-baseline justify-between gap-3 px-1">
-            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Открыты сегодня целиком" : "Fully open today"}</h2>
-            <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Завтра откроются другие" : "A new set opens tomorrow"}</span>
+          <div className="flex flex-col gap-1 px-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Идеи дня" : "Ideas of the day"}</h2>
+            <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? `${showcase.length} полных разбора бесплатно, завтра набор сменится` : `${showcase.length} full write-ups free, a new set tomorrow`}</span>
           </div>
           <div className="mt-4">
             <IdeaCards ideas={showcase} loggedIn={loggedIn} locale={locale} />
@@ -214,10 +203,17 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         </section>
       )}
 
+      {/* The niche tiles filter the catalog below; sorting stays fixed on the
+          composite score (other orders still work via ?sort= links). */}
+      <div className="mt-12">
+        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} />
+      </div>
+
       <div className="mt-7">
         {gate && (
-          <div className="mb-4 px-1">
-            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Весь каталог по рейтингу" : "The full ranked catalog"}</h2>
+          <div className="mb-4 flex flex-col gap-1 px-1">
+            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Весь каталог" : "The full catalog"}</h2>
+            <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? `${all.length} идей по рейтингу денег, простоты и спроса` : `${all.length} ideas ranked by money, buildability and demand`}</span>
           </div>
         )}
         <IdeasDeck
