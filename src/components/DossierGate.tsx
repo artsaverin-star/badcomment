@@ -4,26 +4,26 @@ import { useState } from "react";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
-// Minimal sign-in wall for the niche dossier. The market overview and audience
-// are shown above it for free; the honest rating, the review breakdown and the
-// ideas live behind a free login.
+// Minimal sign-in wall for the niche dossier. The market, audience and honest
+// rating are shown above it for free; the review findings live behind a free
+// login, and the ideas behind the one payment after that.
 export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount: number; locale?: Locale }) {
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
   const items = ru
-    ? ["Честный рейтинг 100 приложений по отзывам", "Выводы по реальным отзывам с цитатами", `${ideasCount} готовых идей под спрос`]
-    : ["Honest rating of 100 apps by reviews", "Findings from real reviews with quotes", `${ideasCount} ready ideas backed by demand`];
+    ? ["Выводы по реальным отзывам с прямыми цитатами", "Наблюдения, разложенные по опорам тезиса", `Дальше ${ideasCount} готовых идей под спрос (один платёж)`]
+    : ["Findings from real reviews with direct quotes", "Observations grouped by the pillars of the thesis", `Then ${ideasCount} ready demand-backed ideas (one payment)`];
 
   return (
     <section className="mt-24">
       <div className="card-min rounded-[28px] px-6 py-14 text-center sm:px-12 sm:py-20">
         <h2 className="text-title1 text-[var(--color-text-primary)]">
-          {ru ? "Открыть весь разбор" : "Open the full breakdown"}
+          {ru ? "Дальше выводы по отзывам" : "Next: the review findings"}
         </h2>
         <p className="mx-auto mt-4 max-w-[48ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Рынок и аудиторию ты уже видишь. За бесплатным входом — честный рейтинг, выводы по отзывам и готовые идеи под спрос."
-            : "You already see the market and audience. A free sign-in opens the honest rating, the review findings and ready ideas."}
+            ? "Рынок, аудиторию и честный рейтинг ты уже видишь. Бесплатный вход открывает выводы: что людям ценно, что их бесит и почему, с цитатами."
+            : "You already see the market, the audience and the honest rating. A free sign-in opens the findings: what people value, what drives them away and why, with quotes."}
         </p>
 
         <div className="mx-auto mt-9 flex max-w-[420px] flex-col gap-2.5 text-left">

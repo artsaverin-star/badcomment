@@ -320,12 +320,16 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </div>
       </Block>
 
-      {loggedIn ? (
-        <>
+      {/* The honest rating is free proof for everyone — it is already public
+          at /rating/[slug], so hiding it behind sign-in here only broke the
+          descent. The ladder: rating free -> findings for a free sign-in ->
+          ideas for the one payment. */}
       <Block title={ru ? "Честный рейтинг" : "Honest rating"} lead={ru ? "Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах." : "The same hundred apps in two scoring systems. Switch and watch the storefront star diverge from what people actually write in reviews."}>
         <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
 
+      {loggedIn ? (
+        <>
       {unlocked ? (
         <>
       <Block title={ru ? "Что показывают отзывы" : "What the reviews show"} lead={ru ? `Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.` : `Patterns from ${NF(totalObs)} observations, grouped by the pillars of the thesis.`}>
