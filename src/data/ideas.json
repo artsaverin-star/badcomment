@@ -58897,5 +58897,740 @@
    ],
    "monetization": "Бесплатно тренировка с сохранением прогресса, синхронизация между устройствами и расширенная статистика разово около 4 долларов, без подписки"
   }
+ },
+ {
+  "slug": "weight-tracker-1",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "Сглаженный тренд веса без ежедневных качелей",
+  "oneLiner": "Показывает линию тренда, а не скачки в плюс-минус пару фунтов",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 41
+  },
+  "reviewGrid": [
+   {
+    "quote": "Weighing daily and paying attention to trend has helped me stay on track with my eating and walking goals for three years now! Thank you!",
+    "rating": 5,
+    "app": "Weight Tracker Scelta"
+   },
+   {
+    "quote": "It shows me previous weight loss trends that motivate me in the next cycle. It’s an essential tool in my weight loss arsenal.",
+    "rating": 5,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "Even though I have an app for my scale I find this one is still helpful with long term trends.",
+    "rating": 5,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "Looks like all the other apps, a plot of one year’s data just shows the monthly averages. meh.",
+    "rating": 3,
+    "app": "WeightDrop Weight Loss Tracker"
+   },
+   {
+    "quote": "I simply wanted an app that tracks loss. Lots of apps average the ups and downs.",
+    "rating": 5,
+    "app": "Weight Diary Lite"
+   },
+   {
+    "quote": "The app does not provide a predicted value or weight for a given period of time. It has a line, but no numbers.",
+    "rating": 3,
+    "app": "Weight Diary Lite"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Сглаженный тренд веса без ежедневных качелей",
+    "obsCount": 18,
+    "apps": [
+     "Weight Tracker Scelta",
+     "Monitor Your Weight",
+     "WeightDrop Weight Loss Tracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Ежедневное взвешивание пугает скачками воды",
+    "obsCount": 12,
+    "apps": [
+     "Weight Diary Lite",
+     "Weight Diary",
+     "WeightDrop Weight Loss Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Хотят прогноз даты достижения цели, а не голую линию",
+    "obsCount": 9,
+    "apps": [
+     "Weight Diary Lite",
+     "Weight Loss Tracker - BMI"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди взвешиваются каждый день и видят прыжки на пару фунтов от воды и соли, из-за этого бросают. Тем, кто дошёл до идеи тренда, он реально помогает держаться годами, но большинство приложений либо показывают сырые точки, либо схлопывают всё в месячные средние и теряют детализацию. Никто честно не объясняет, что вчерашний плюс это вода, и не рисует спокойную скользящую среднюю рядом с прогнозом даты цели.",
+  "idea": {
+   "pitch": "Трекер, который берёт ваши ежедневные взвешивания и рисует не зубчатую пилу, а спокойную линию тренда по скользящей средней. Каждое утро вы вводите число, а приложение говорит одно из двух: тренд идёт вниз или это просто вода. Прогноз даты цели пересчитывается по наклону тренда, а не по последней случайной точке. Цель одна: снять тревогу от ежедневных качелей и дать увидеть настоящее движение.",
+   "features": [
+    "Скользящая средняя поверх сырых точек, наклон подписан числом",
+    "Метка каждого дня: настоящий тренд или колебание воды",
+    "Прогноз даты достижения цели по наклону тренда",
+    "Диапазоны обзора от недели до всей истории на одном экране",
+    "Одно поле ввода утром, ничего лишнего",
+    "Экспорт линии тренда в картинку и CSV"
+   ],
+   "antiFeatures": [
+    "Никаких планов питания и подсчёта калорий",
+    "Не давит уведомлениями за пропуск взвешивания",
+    "Без коуча и чатов"
+   ],
+   "monetization": "Бесплатно ввод и базовый график, разовая покупка Pro 499 рублей за прогноз даты цели, длинные диапазоны и экспорт. Годовой вариант держать нельзя, люди в отзывах злятся именно на подписки за то, что должно быть простым."
+  }
+ },
+ {
+  "slug": "weight-tracker-2",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "Дневник GLP-1: укол, доза и вес в одном месте",
+  "oneLiner": "Ведёт инъекции, места уколов, побочки и смену дозы рядом с весом",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 34
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love Shotsy for tracking my shots and injection sites. It reliably logs doses and helps me stay consistent.",
+    "rating": 4,
+    "app": "Shotsy GLP-1 Tracker"
+   },
+   {
+    "quote": "I switched meds per Dr and tried to update. Now it says mg shot is 9 days overdue. It’s not.",
+    "rating": 3,
+    "app": "Shotsy GLP-1 Tracker"
+   },
+   {
+    "quote": "It mentions tracking your symptoms after shots but will not allow you to choose more than 1.",
+    "rating": 2,
+    "app": "Glowise: GLP-1 Tracker & Diary"
+   },
+   {
+    "quote": "There's just so much to keep track of and before this I was jumping between different apps. I can put in my shots, protein, water, side effects, and see my weight trend all in one place.",
+    "rating": 5,
+    "app": "Glowise: GLP-1 Tracker & Diary"
+   },
+   {
+    "quote": "Software should be updated to include the new oral Wegovy medication.",
+    "rating": 2,
+    "app": "Glowise: GLP-1 Tracker & Diary"
+   },
+   {
+    "quote": "Great way to track Mounjaro weight loss (80 lbs).",
+    "rating": 5,
+    "app": "Weight Diary"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Дневник GLP-1: укол, доза и вес в одном месте",
+    "obsCount": 15,
+    "apps": [
+     "Shotsy GLP-1 Tracker",
+     "Glowise: GLP-1 Tracker & Diary"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Смена дозы и оральных форм ломает напоминания",
+    "obsCount": 11,
+    "apps": [
+     "Shotsy GLP-1 Tracker",
+     "Glowise: GLP-1 Tracker & Diary"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Дают отметить только один побочный эффект после укола",
+    "obsCount": 8,
+    "apps": [
+     "Glowise: GLP-1 Tracker & Diary"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди на GLP-1 сейчас склеивают несколько приложений: одно для уколов, другое для веса, третье для белка и воды. Когда врач меняет дозу или переводит на оральную форму, напоминания слетают и показывают просрочку, которой нет. Побочки после укола дают отметить только одну, хотя их обычно несколько. Никто не собрал спокойный дневник, где укол, место инъекции, доза, набор побочек и вес лежат рядом и переживают смену схемы лечения.",
+  "idea": {
+   "pitch": "Дневник для тех, кто на GLP-1. Отмечаете укол, место инъекции и дозу, ставите несколько побочек сразу, а рядом видите линию веса за весь курс. Смена дозы или переход на оральную форму это отдельное событие в истории, а не поломка напоминаний. Всё в одном месте, чтобы не прыгать между тремя приложениями и не терять картину.",
+   "features": [
+    "Журнал уколов с ротацией мест инъекции",
+    "Событие смены дозы и формы без сброса напоминаний",
+    "Несколько побочек за один день с заметкой",
+    "Линия веса и белок с водой рядом с уколами",
+    "Напоминание о следующем уколе, привязанное к вашей схеме",
+    "Экспорт истории для показа врачу"
+   ],
+   "antiFeatures": [
+    "Никаких медицинских советов и подбора дозы",
+    "Не блокирует базовый журнал за платёж",
+    "Без продажи БАДов и порошков"
+   ],
+   "monetization": "Журнал уколов и веса бесплатно навсегда. Pro 399 рублей в месяц или 2490 рублей в год за расширенную аналитику побочек, несколько препаратов и экспорт для врача. Ключевое: не прятать сам факт логирования укола за платёж, на этом ловят злость в отзывах Glowise."
+  }
+ },
+ {
+  "slug": "weight-tracker-3",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "Трекер веса без стыда и осуждающих аватаров",
+  "oneLiner": "Цифры и график без толстых аватаров и пассивной агрессии",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 37
+  },
+  "reviewGrid": [
+   {
+    "quote": "It is always body shaming me I would not recommend",
+    "rating": 1,
+    "app": "Weight Loss Simple Tracker App"
+   },
+   {
+    "quote": "As you enter your weight it shows a picture or an icon of how big they think you are and that’s not right. It makes me feel discouraged as I get heavier.",
+    "rating": 2,
+    "app": "Weight Loss Simple Tracker App"
+   },
+   {
+    "quote": "I don’t like that they take the Duolingo route of passive aggressive notifications. If I needed passive aggressive nagging about my weight I would have a relationship with my mother.",
+    "rating": 2,
+    "app": "Weight Monitor, BMI Calculator"
+   },
+   {
+    "quote": "It sends another notification that literally says I guess the reminders aren't working so I'll turn them off. Wow. I was not expecting that tone.",
+    "rating": 3,
+    "app": "Weight Monitor, BMI Calculator"
+   },
+   {
+    "quote": "i like that there is an option for a passcode. i don’t like to see my weight glaring at me when i forget to close the app.",
+    "rating": 3,
+    "app": "Weight Diary Lite"
+   },
+   {
+    "quote": "This app really doesn’t help with that and I wish there were more features. The avatar is two of me. I am not that big.",
+    "rating": 3,
+    "app": "Weight Loss Simple Tracker App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Трекер веса без стыда и осуждающих аватаров",
+    "obsCount": 16,
+    "apps": [
+     "Weight Loss Simple Tracker App",
+     "Weight Monitor, BMI Calculator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пассивно-агрессивные уведомления отталкивают",
+    "obsCount": 12,
+    "apps": [
+     "Weight Monitor, BMI Calculator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Хотят приватность: пароль и скрытие числа",
+    "obsCount": 9,
+    "apps": [
+     "Weight Diary Lite",
+     "Weight loss tracker - BMI"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Куча трекеров рисуют толстый аватар, который пухнет при наборе веса, и шлют пассивно-агрессивные напоминания в духе твоей мамы. Для людей с непростыми отношениями с телом это удар по мотивации, они прямо пишут, что бросили из-за этого. При этом многим важна приватность: пароль на вход и возможность не видеть большое число сразу при открытии. Спокойного, уважительного трекера без осуждения почти нет.",
+  "idea": {
+   "pitch": "Трекер веса, который относится к вам как ко взрослому. Никаких аватаров, которые толстеют, никакой пассивной агрессии в уведомлениях. Просто ваши цифры, спокойный график и нейтральные формулировки. По желанию число скрыто при открытии и защищено паролем, чтобы вес не бросался в глаза, когда телефон видит кто-то ещё. Тон приложения ровный в любую сторону движения веса.",
+   "features": [
+    "Только цифры и график, без фигурок тела",
+    "Нейтральные уведомления без нытья и вины",
+    "Пароль или Face ID на вход",
+    "Режим скрытого числа, вес показывается по тапу",
+    "Мягкие формулировки и для роста, и для снижения веса",
+    "Отметка целей без обратного отсчёта фунтов"
+   ],
+   "antiFeatures": [
+    "Никаких аватаров и картинок тела",
+    "Не стыдит и не давит виной за пропуски",
+    "Без публичных рейтингов и сравнений с другими"
+   ],
+   "monetization": "Ядро бесплатно. Разовая покупка 599 рублей за пароль, тему и виджеты. Осознанно не подписка: аудитория чувствительна к деньгам и к давлению, разовый платёж честнее для этой темы."
+  }
+ },
+ {
+  "slug": "weight-tracker-4",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "Синхронизация с умными весами и Apple Health",
+  "oneLiner": "Вес с любых весов и часов подтягивается сам, без ручного ввода",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "It's frustrating to manually input my weight when my smart scale already syncs that data seamlessly with Apple Health.",
+    "rating": 2,
+    "app": "BetterTogether: Weight Loss"
+   },
+   {
+    "quote": "I bought the paid version and it is not currently syncing with my Withings scale. It did at first, but is not now.",
+    "rating": 1,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "Just wish it was compatible with more scales than the 5 that are listed in the app. I’d love to see Wyze scales added.",
+    "rating": 4,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "Wanted to view historical data from Health as well as enter new data. Only works with new data you enter, apparently. Even after hitting sync.",
+    "rating": 2,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "I wish there is a facility to link it with the iOS health application to automatically sync the weight?",
+    "rating": 4,
+    "app": "BMI Calculator‰"
+   },
+   {
+    "quote": "Good app. Easy to use. But it no longer updates to the health app which is disappointing.",
+    "rating": 4,
+    "app": "Monitor Your Weight"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Синхронизация с умными весами и Apple Health",
+    "obsCount": 17,
+    "apps": [
+     "Monitor Your Weight",
+     "BetterTogether: Weight Loss",
+     "BMI Calculator‰"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Синк ломается после обновления телефона или приложения",
+    "obsCount": 11,
+    "apps": [
+     "Monitor Your Weight",
+     "Weight Monitor, BMI Calculator"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Хотят вытянуть старую историю из Health, а не только новое",
+    "obsCount": 7,
+    "apps": [
+     "Monitor Your Weight"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Умные весы у людей уже есть и льют вес в Apple Health, но трекеры либо не читают эти данные, либо тянут только новые записи и игнорируют накопленную историю. Синк постоянно отваливается после смены телефона или обновления, причём даже в платных версиях. Поддержка ограничена пятью моделями весов из списка. Нужен трекер, который просто читает Health как источник правды и переживает переезды.",
+  "idea": {
+   "pitch": "Трекер, который не заставляет вводить вес руками, если у вас есть умные весы или часы. Он читает Apple Health как единый источник, включая всю накопленную историю, а не только свежие записи. Синк не завязан на конкретный бренд весов: подходит всё, что пишет в Health. После смены телефона данные на месте, потому что источник это Health, а не хрупкая внутренняя база.",
+   "features": [
+    "Чтение всей истории веса из Apple Health, не только новых точек",
+    "Двусторонний синк: запись руками уходит обратно в Health",
+    "Совместимость с любыми весами, которые пишут в Health",
+    "Восстановление данных после смены телефона из Health",
+    "График тренда поверх подтянутых данных",
+    "Понятный статус синка, видно когда последний раз обновилось"
+   ],
+   "antiFeatures": [
+    "Не держит единственную копию данных внутри себя",
+    "Без ручного парного подключения каждой модели весов",
+    "Не прячет синхронизацию за платёж, если данные уже в Health"
+   ],
+   "monetization": "Синк и график бесплатно. Pro 699 рублей разово за расширенную аналитику тренда, виджеты и экспорт. Платить за сам синк нельзя: в отзывах Monitor Your Weight люди в ярости, что купили версию, а синхронизация со скейлом отвалилась."
+  }
+ },
+ {
+  "slug": "weight-tracker-5",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "История веса, которую не сотрёт обновление",
+  "oneLiner": "Годы записей переживают апдейт, смену телефона и переход Android → iOS",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 44
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app has just deleted past 2 years of my recordings. It is so frustrating!",
+    "rating": 1,
+    "app": "Monitor Your Weight"
+   },
+   {
+    "quote": "This morning when I logged in after the latest upgrade it was ALL gone. I am livid. There was no warning to back up data.",
+    "rating": 1,
+    "app": "Progress Body Tracker: My BMI"
+   },
+   {
+    "quote": "I lost all of my data when switching from Android to Apple. They confirmed the two systems are not connected at all and all the data is lost forever.",
+    "rating": 3,
+    "app": "Shotsy GLP-1 Tracker"
+   },
+   {
+    "quote": "This app randomly deletes data. I opened my app today to discover 2 YEARS of daily information gone.",
+    "rating": 3,
+    "app": "Weight loss tracker - BMI"
+   },
+   {
+    "quote": "It doesn’t automatically transfer months of data. No way to import backups either.",
+    "rating": 1,
+    "app": "Weight Diary"
+   },
+   {
+    "quote": "So disappointed that the new version doesn’t transfer any of my information. I tracked my weight loss for the past 3 years and now all of it has disappeared.",
+    "rating": 1,
+    "app": "WeightDrop Weight Loss Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "История веса, которую не сотрёт обновление",
+    "obsCount": 22,
+    "apps": [
+     "Monitor Your Weight",
+     "Progress Body Tracker: My BMI",
+     "Weight loss tracker - BMI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Переход Android → iOS теряет всё навсегда",
+    "obsCount": 10,
+    "apps": [
+     "Shotsy GLP-1 Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Апгрейд до новой версии не переносит данные",
+    "obsCount": 12,
+    "apps": [
+     "Weight Diary",
+     "WeightDrop Weight Loss Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Самая громкая боль ниши: люди ведут вес годами, а потом обновление приложения или смена телефона стирает всё без предупреждения. Переход с Android на iOS теряет данные навсегда, потому что базы не связаны. Резервных копий и импорта часто просто нет. Для того, кто три года взвешивался каждое утро, потеря истории это катастрофа и мгновенная единица в отзыве. Нужен трекер, где сохранность данных это главная фича.",
+  "idea": {
+   "pitch": "Трекер, построенный вокруг одной обещания: ваша история веса не пропадёт. Данные лежат в вашем облаке и в Apple Health, есть автоматический бэкап и ручной экспорт в CSV в любой момент. Переезд между телефонами и с Android на iOS проходит через файл экспорта, а не теряется. Обновления версий никогда не трут историю, старые записи всегда импортируются. Годы взвешиваний в безопасности.",
+   "features": [
+    "Автобэкап в iCloud и запись в Apple Health",
+    "Экспорт и импорт CSV в один тап для переезда",
+    "Кросс-платформенный перенос через файл, включая Android",
+    "Гарантия, что новая версия импортирует старые данные",
+    "История без ограничения по срокам хранения",
+    "Понятная страница со статусом последнего бэкапа"
+   ],
+   "antiFeatures": [
+    "Не хранит данные только в локальной базе без копии",
+    "Не выкатывает редизайн, который стирает историю",
+    "Без принудительной регистрации ради доступа к своим записям"
+   ],
+   "monetization": "Ввод, график и локальный экспорт бесплатно. Облачный бэкап и мультиустройство 990 рублей в год. Ценность подписки честная: люди уже теряли годы данных и готовы платить именно за сохранность, а не за то, чтобы вообще увидеть свой вес."
+  }
+ },
+ {
+  "slug": "weight-tracker-6",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "Фотодневник прогресса с честным сравнением",
+  "oneLiner": "Фото до и после в одной рамке, одинаковый ракурс и масштаб",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 29
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app makes it easy for me to keep track of my progress all in one place and it helps keep me motivated to see the side by side comparisons of my fat loss journey.",
+    "rating": 5,
+    "app": "Progress Body Tracker: My BMI"
+   },
+   {
+    "quote": "The photo progress feature zooms in on some pictures and out on others making it hard to actually compare.",
+    "rating": 4,
+    "app": "Progress Body Tracker: My BMI"
+   },
+   {
+    "quote": "It fails on the main goal: photo comparison. Such MASSIVE borders around each photo. It makes it difficult to compare even side by side.",
+    "rating": 3,
+    "app": "Progress Body Tracker: My BMI"
+   },
+   {
+    "quote": "I’ve been searching for an app that does comparison/progress photos of at least 3 angles finally found this app.",
+    "rating": 5,
+    "app": "Weight Monitor, BMI Calculator"
+   },
+   {
+    "quote": "My photos somehow stopped working. All I get is a black image.",
+    "rating": 4,
+    "app": "Progress Body Tracker: My BMI"
+   },
+   {
+    "quote": "This app has a passcode. I add my weight daily along with pictures. If you like your privacy add a passcode.",
+    "rating": 5,
+    "app": "Weight loss tracker - BMI"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Фотодневник прогресса с честным сравнением",
+    "obsCount": 14,
+    "apps": [
+     "Progress Body Tracker: My BMI",
+     "Weight Monitor, BMI Calculator"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Сравнение врёт: разный зум и толстые рамки",
+    "obsCount": 10,
+    "apps": [
+     "Progress Body Tracker: My BMI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Фото и приватность важны вместе, нужен замок",
+    "obsCount": 8,
+    "apps": [
+     "Weight loss tracker - BMI",
+     "Progress Body Tracker: My BMI"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Фото до и после мотивируют людей сильнее цифр, но существующие приложения портят главное: сравнение. Одно фото приближено, другое отдалено, между ними толстые рамки, и понять реальную разницу невозможно. Иногда фото просто чернеют после обновления. При этом снимки тела интимны и требуют пароля, который есть не везде. Нужен фотодневник, где силуэт выравнивается по одинаковому ракурсу и масштабу, а галерея под замком.",
+  "idea": {
+   "pitch": "Фотодневник тела, заточенный под честное сравнение. При съёмке показывается полупрозрачный контур предыдущего фото, чтобы встать в тот же ракурс и масштаб. Снимки до и после кладутся рядом без разного зума и без толстых рамок, разницу видно сразу. Вся галерея под паролем или Face ID, потому что это снимки тела. Рядом линия веса, чтобы фото и цифры совпадали по датам.",
+   "features": [
+    "Контур предыдущего кадра при съёмке для одинакового ракурса",
+    "Сравнение до и после без разного масштаба и рамок",
+    "Несколько ракурсов: спереди, сбоку, сзади",
+    "Пароль и Face ID на галерею",
+    "Привязка фото к дате и весу",
+    "Сборка коллажа прогресса для себя"
+   ],
+   "antiFeatures": [
+    "Никакой обязательной выгрузки фото в общую ленту",
+    "Не хранит снимки без защиты паролем",
+    "Без бьюти-фильтров, искажающих реальную разницу"
+   ],
+   "monetization": "Пара ракурсов и базовое сравнение бесплатно. Pro 799 рублей разово за все ракурсы, коллажи и облачный бэкап под шифрованием. Разовая покупка уместнее подписки: фото тела это личное, и доверие важнее регулярного списания."
+  }
+ },
+ {
+  "slug": "weight-tracker-7",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "График веса за всё время, а не окно в 30 дней",
+  "oneLiner": "Виден путь с самого старта, а не последние семь или тридцать дней",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "Only allows you to track in a current 7 day or selected 30 day window, no way to track overall progress.",
+    "rating": 1,
+    "app": "Weight loss tracker - BMI"
+   },
+   {
+    "quote": "It’s reinforcing to have a graph that shows your beginning weight and how you are progressing over months not just the last thirty day window.",
+    "rating": 1,
+    "app": "Weight loss tracker - BMI"
+   },
+   {
+    "quote": "Add me to the list of many reviewers who’d like to see more than just 7 or 30 days at a time. I’d even pay a couple bucks a month to see all time.",
+    "rating": 2,
+    "app": "Weight loss tracker - BMI"
+   },
+   {
+    "quote": "I want a cleaner view of my progress for just the past month. This version won't let you go back to any timeframe shorter than 3 months.",
+    "rating": 3,
+    "app": "WeightDrop Weight Loss Tracker"
+   },
+   {
+    "quote": "Wish there were a way to see all my logs at once on the graph instead of a few weeks at once.",
+    "rating": 4,
+    "app": "Weight Diary Lite"
+   },
+   {
+    "quote": "I would like to see all time progress or other larger date ranges for a more clear picture.",
+    "rating": 3,
+    "app": "Weight loss tracker - BMI"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "График веса за всё время, а не окно в 30 дней",
+    "obsCount": 19,
+    "apps": [
+     "Weight loss tracker - BMI",
+     "WeightDrop Weight Loss Tracker",
+     "Weight Diary Lite"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Окно нельзя выбрать: то слишком узко, то слишком широко",
+    "obsCount": 9,
+    "apps": [
+     "WeightDrop Weight Loss Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Итоговое число потерянного веса мотивирует",
+    "obsCount": 8,
+    "apps": [
+     "Weight Diary Lite",
+     "Weight Loss Simple Tracker App"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Очень частая жалоба: приложение показывает только последние семь или тридцать дней и не даёт увидеть весь путь с самого старта. Люди прямо говорят, что смысл трекинга в том, чтобы видеть линию от начала до сегодня, и без этого приложение бесполезно. Другие наоборот застревают на минимальном окне в три месяца и не могут посмотреть один чистый месяц. Никто не даёт свободно менять диапазон от дня до всей истории.",
+  "idea": {
+   "pitch": "Трекер, где график можно растянуть на любой отрезок: день, месяц, год, всё время. Линия всегда начинается от вашего стартового веса, чтобы виден был весь путь, а не последние тридцать дней. На видном месте одно большое число: сколько сброшено с начала. Диапазон переключается щипком, без ухода в настройки. Ничего лишнего, просто честная картина прогресса на любом масштабе.",
+   "features": [
+    "Диапазоны от одного дня до всей истории",
+    "Линия всегда от стартового веса",
+    "Большое число суммарно потерянного веса",
+    "Переключение масштаба щипком прямо на графике",
+    "Сохранение выбранного диапазона между сессиями",
+    "Экспорт графика картинкой"
+   ],
+   "antiFeatures": [
+    "Не ограничивает обзор фиксированным окном",
+    "Без месячного усреднения, скрывающего детали",
+    "Не сбрасывает выбранный диапазон при каждом открытии"
+   ],
+   "monetization": "Все диапазоны и суммарное число бесплатно, это база и прятать её нельзя. Pro 490 рублей разово за виджеты, темы и экспорт. Люди в отзывах прямо пишут, что готовы платить за обзор всего времени, но злятся, когда это базовая функция за подпиской."
+  }
+ },
+ {
+  "slug": "weight-tracker-8",
+  "category": "weight-tracker",
+  "categoryName": "Вес",
+  "title": "BMI-калькулятор с возрастом, полом и без пугалок",
+  "oneLiner": "Честные диапазоны по возрасту и полу, отдельный расчёт для подростков",
+  "asOf": "2026-07-04",
+  "stats": {
+   "apps": 26,
+   "reviews": 9500,
+   "observations": 36
+  },
+  "reviewGrid": [
+   {
+    "quote": "a bmi under 18 is underweight but my bmi was 16.5 and in the normal section. so please fix it because it can be hurting people with ED.",
+    "rating": 2,
+    "app": "BMI Calculator Weight Loss"
+   },
+   {
+    "quote": "It’s good but it doesn’t ask your age so it thinks you underweight or overweight.",
+    "rating": 3,
+    "app": "BMI Calculator for Weight Loss"
+   },
+   {
+    "quote": "I’m 11 years old, 5’2, and 124 pounds but it called me overweight. When I switched the gender from girl to boy it called 124 underweight?",
+    "rating": 1,
+    "app": "BMI Calculator for Weight Loss"
+   },
+   {
+    "quote": "hospitals generally have healthy bmi ranges for teenagers between 18.5-24.9. so the fact 15.7 is considered healthy is actually kind of atrocious.",
+    "rating": 2,
+    "app": "BMI Calculator Weight Loss"
+   },
+   {
+    "quote": "There is no specification for age. Also, standards for weight categories do not match ones found in other sources.",
+    "rating": 2,
+    "app": "BMI Calculator for Weight Loss"
+   },
+   {
+    "quote": "It could incorporate additional options for male female as factors that effect the bmi results.",
+    "rating": 4,
+    "app": "BMI Calculator‰"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "BMI-калькулятор с возрастом, полом и без пугалок",
+    "obsCount": 18,
+    "apps": [
+     "BMI Calculator for Weight Loss",
+     "BMI Calculator Weight Loss"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Подростковый BMI считают по взрослой шкале, диапазоны врут",
+    "obsCount": 12,
+    "apps": [
+     "BMI Calculator Weight Loss",
+     "BMI Calculator for Weight Loss"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Резкие ярлыки бьют по самооценке и подпитывают ED",
+    "obsCount": 10,
+    "apps": [
+     "BMI Calculator Weight Loss",
+     "BMI Calculator ~"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "BMI-калькуляторы массово считают по одной взрослой формуле и игнорируют возраст и пол. Для подростков это выдаёт дикие результаты: нормальный вес называют ожирением, а опасно низкий BMI отмечают как норму, что напрямую подпитывает расстройства пищевого поведения. Ярлыки резкие и без контекста. Нужен калькулятор, который спрашивает возраст и пол, считает подростковый BMI по перцентилям и подаёт результат осторожно, без пугающих формулировок.",
+  "idea": {
+   "pitch": "BMI-калькулятор, который наконец учитывает возраст и пол. Для подростков считает по возрастным перцентилям, а не по взрослой шкале, поэтому не называет здоровый вес ожирением и не помечает опасно низкий как норму. Результат подаётся спокойно, с диапазоном и оговоркой про мышцы и телосложение, без резких ярлыков, которые бьют по самооценке. Точный ввод роста в долях дюйма и сантиметрах.",
+   "features": [
+    "Учёт возраста и пола в расчёте",
+    "Подростковый BMI по возрастным перцентилям",
+    "Мягкая подача результата с диапазоном и оговоркой про мышцы",
+    "Точный ввод роста в долях единиц",
+    "Понятное объяснение, что BMI не учитывает состав тела",
+    "Сохранение замеров и график BMI во времени"
+   ],
+   "antiFeatures": [
+    "Никаких резких ярлыков без контекста",
+    "Не выдаёт заниженные здоровые границы, опасные при ED",
+    "Без агрессивных рекламных попапов поверх ввода"
+   ],
+   "monetization": "Калькулятор бесплатно с рекламой в одном ненавязчивом месте. Разовая покупка 299 рублей убирает рекламу и открывает график BMI во времени. Ads в BMI-приложениях бесят людей, поэтому реклама скромная, а снятие её дёшево и разово."
+  }
  }
 ]

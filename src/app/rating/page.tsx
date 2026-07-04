@@ -39,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const NICHES = [
+  { slug: "weight-tracker", name: "Вес", nameEn: "Weight tracker", blurb: "27 приложений: где дневник веса честный и не стыдит, а где потеря истории, подписочные ловушки и накрутка.", blurbEn: "27 apps: where the weight diary is honest and shame-free, and where it is lost history, subscription traps and juiced reviews." },
   { slug: "driving-test-prep", name: "Экзамен на права", nameEn: "Driving test prep", blurb: "43 приложения: где вопросы совпадают с реальным экзаменом DMV, а где устаревшая база, пейвол-ловушки и накрутка.", blurbEn: "43 apps: where the questions match the real DMV exam, and where it is a stale question bank, paywall traps and juiced reviews." },
   { slug: "step-counter", name: "Шагомер", nameEn: "Step counter", blurb: "64 приложения: где счётчик шагов честен и точен, а где скам ходи-зарабатывай и накрутка (14 из 64 накручены).", blurbEn: "64 apps: where the step counter is honest and accurate, and where walk-to-earn scams and juiced reviews take over (14 of 64 are fake)." },
   { slug: "blood-pressure-log", name: "Давление", nameEn: "Blood pressure", blurb: "52 приложения: где дневник давления честный и отчёт врачу под рукой, а где замер пальцем по камере и накрутка (25 из 52 накручены).", blurbEn: "52 apps: where the BP diary is honest and the doctor report is one tap away, and where it's finger-on-camera fakery and juiced reviews (25 of 52 are fake)." },

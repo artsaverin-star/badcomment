@@ -14380,5 +14380,213 @@
    "Don't reset stats when the app updates"
   ],
   "monetization": "Practice with progress saving free, cross-device sync and expanded stats for a one-time purchase around 4 dollars, no subscription"
+ },
+ "weight-tracker-1": {
+  "categoryName": "Weight tracker",
+  "title": "A smoothed weight trend without daily swings",
+  "oneLiner": "Shows a trend line, not jumps of a pound or two either way",
+  "gap": "People weigh in every day and see jumps of a couple of pounds from water and salt, and they quit because of it. For those who reach the idea of a trend it genuinely helps them stick with it for years, but most apps either show raw dots or collapse everything into monthly averages and lose the detail. Nobody honestly explains that yesterday's gain is water, or draws a calm moving average next to a date prediction.",
+  "mechanisms": [
+   "A smoothed weight trend without daily swings",
+   "Daily weigh-ins scare people with water swings",
+   "They want a goal-date prediction, not a bare line"
+  ],
+  "pitch": "A tracker that takes your daily weigh-ins and draws not a jagged sawtooth but a calm trend line from a moving average. Every morning you enter a number, and the app tells you one of two things: the trend is going down, or that's just water. The goal-date prediction is recalculated from the slope of the trend, not from the last random point. The single aim: remove the anxiety of daily swings and let you see the real movement.",
+  "features": [
+   "A moving average over the raw dots, with the slope labeled as a number",
+   "A tag for each day: real trend or water fluctuation",
+   "A goal-date prediction based on the trend slope",
+   "View ranges from a week to the entire history on one screen",
+   "One input field in the morning, nothing extra",
+   "Export of the trend line as an image and CSV"
+  ],
+  "antiFeatures": [
+   "No meal plans and no calorie counting",
+   "Doesn't nag with notifications for a missed weigh-in",
+   "No coach and no chats"
+  ],
+  "monetization": "Free input and a basic chart, a one-time Pro purchase at 499 rubles for the goal-date prediction, long ranges and export. A yearly plan won't hold: in reviews people are angry precisely at subscriptions for what should be simple."
+ },
+ "weight-tracker-2": {
+  "categoryName": "Weight tracker",
+  "title": "A GLP-1 diary: shot, dose and weight in one place",
+  "oneLiner": "Logs injections, injection sites, side effects and dose changes next to weight",
+  "gap": "People on GLP-1 right now glue several apps together: one for shots, another for weight, a third for protein and water. When the doctor changes the dose or moves them to an oral form, the reminders slip and show an overdue that isn't there. After a shot they let you mark only one side effect, though there are usually several. Nobody has built a calm diary where the shot, injection site, dose, a set of side effects and weight sit side by side and survive a change in the treatment plan.",
+  "mechanisms": [
+   "A GLP-1 diary: shot, dose and weight in one place",
+   "A dose or oral-form change breaks the reminders",
+   "They let you mark only one side effect after a shot"
+  ],
+  "pitch": "A diary for people on GLP-1. You mark the shot, injection site and dose, set several side effects at once, and see the weight line across the whole course right next to it. A dose change or a move to an oral form is a separate event in the history, not a broken reminder. Everything in one place, so you don't hop between three apps and lose the picture.",
+  "features": [
+   "A shot log with rotation of injection sites",
+   "A dose- and form-change event without resetting reminders",
+   "Several side effects on one day with a note",
+   "The weight line and protein with water next to the shots",
+   "A next-shot reminder tied to your regimen",
+   "Export of the history to show a doctor"
+  ],
+  "antiFeatures": [
+   "No medical advice and no dose selection",
+   "Doesn't lock the basic log behind a payment",
+   "No selling of supplements and powders"
+  ],
+  "monetization": "The shot and weight log is free forever. Pro at 399 rubles a month or 2490 rubles a year for extended side-effect analytics, multiple drugs and export for a doctor. The key: don't hide the act of logging a shot itself behind a payment, that's what catches anger in Glowise reviews."
+ },
+ "weight-tracker-3": {
+  "categoryName": "Weight tracker",
+  "title": "A weight tracker without shame or judging avatars",
+  "oneLiner": "Numbers and a chart with no fat avatars and no passive aggression",
+  "gap": "Plenty of trackers draw a fat avatar that swells as you gain weight and send passive-aggressive reminders in the spirit of your mother. For people with a complicated relationship with their body this is a blow to motivation, and they flat out write that they quit because of it. Meanwhile many care about privacy: a passcode on entry and the option not to see the big number right away when they open the app. A calm, respectful tracker without judgment barely exists.",
+  "mechanisms": [
+   "A weight tracker without shame or judging avatars",
+   "Passive-aggressive notifications push people away",
+   "They want privacy: a passcode and hiding the number"
+  ],
+  "pitch": "A weight tracker that treats you like an adult. No avatars that get fatter, no passive aggression in the notifications. Just your numbers, a calm chart and neutral wording. Optionally the number is hidden on open and protected with a passcode, so your weight doesn't jump out when someone else sees the phone. The app's tone stays even whichever way the weight moves.",
+  "features": [
+   "Only numbers and a chart, no body figures",
+   "Neutral notifications with no whining or guilt",
+   "A passcode or Face ID on entry",
+   "A hidden-number mode, weight shown on tap",
+   "Gentle wording for both gains and losses in weight",
+   "Goal marking without a countdown of pounds"
+  ],
+  "antiFeatures": [
+   "No avatars and no body images",
+   "Doesn't shame or guilt you for missed days",
+   "No public leaderboards or comparisons with others"
+  ],
+  "monetization": "The core is free. A one-time purchase at 599 rubles for a passcode, a theme and widgets. Deliberately not a subscription: the audience is sensitive to money and to pressure, and a one-time payment is more honest for this topic."
+ },
+ "weight-tracker-4": {
+  "categoryName": "Weight tracker",
+  "title": "Sync with smart scales and Apple Health",
+  "oneLiner": "Weight from any scale or watch pulls in on its own, no manual entry",
+  "gap": "People already have smart scales and pour weight into Apple Health, but the trackers either don't read that data or pull only new entries and ignore the accumulated history. Sync keeps dropping after a phone swap or an update, even in paid versions. Support is limited to five scale models from a list. What's needed is a tracker that simply reads Health as the source of truth and survives moves.",
+  "mechanisms": [
+   "Sync with smart scales and Apple Health",
+   "Sync breaks after a phone or app update",
+   "They want to pull old history from Health, not just new"
+  ],
+  "pitch": "A tracker that doesn't make you enter weight by hand if you have a smart scale or watch. It reads Apple Health as the single source, including the entire accumulated history, not just the fresh entries. Sync isn't tied to a specific scale brand: anything that writes to Health works. After a phone swap the data is intact, because the source is Health, not a fragile internal database.",
+  "features": [
+   "Reading the entire weight history from Apple Health, not just new points",
+   "Two-way sync: a manual entry goes back into Health",
+   "Compatibility with any scale that writes to Health",
+   "Data recovery after a phone swap from Health",
+   "A trend chart over the pulled-in data",
+   "A clear sync status, showing when it last updated"
+  ],
+  "antiFeatures": [
+   "Doesn't keep the only copy of the data inside itself",
+   "No manual pairing of every scale model",
+   "Doesn't hide sync behind a payment if the data is already in Health"
+  ],
+  "monetization": "Sync and the chart are free. Pro at 699 rubles one-time for extended trend analytics, widgets and export. Paying for sync itself isn't allowed: in Monitor Your Weight reviews people are furious that they bought the version and the sync with the scale dropped."
+ },
+ "weight-tracker-5": {
+  "categoryName": "Weight tracker",
+  "title": "Weight history that an update won't erase",
+  "oneLiner": "Years of records survive an update, a phone swap and an Android → iOS move",
+  "gap": "The loudest pain of the niche: people track their weight for years, and then an app update or a phone swap wipes it all with no warning. A move from Android to iOS loses the data forever, because the databases aren't connected. Backups and imports often simply don't exist. For someone who weighed in every morning for three years, losing the history is a catastrophe and an instant one-star review. What's needed is a tracker where data safety is the main feature.",
+  "mechanisms": [
+   "Weight history that an update won't erase",
+   "An Android → iOS move loses everything forever",
+   "An upgrade to a new version doesn't carry data over"
+  ],
+  "pitch": "A tracker built around one promise: your weight history won't be lost. Data lives in your cloud and in Apple Health, there is an automatic backup and a manual CSV export at any moment. A move between phones and from Android to iOS goes through the export file rather than being lost. Version updates never wipe the history, and old records are always imported. Years of weigh-ins are safe.",
+  "features": [
+   "Auto-backup to iCloud and writing to Apple Health",
+   "One-tap CSV export and import for a move",
+   "Cross-platform transfer via a file, including Android",
+   "A guarantee that a new version imports old data",
+   "History with no time limit on storage",
+   "A clear page with the status of the last backup"
+  ],
+  "antiFeatures": [
+   "Doesn't keep data only in a local database with no copy",
+   "Doesn't ship a redesign that erases the history",
+   "No forced sign-up just to access your own records"
+  ],
+  "monetization": "Input, the chart and local export are free. Cloud backup and multi-device at 990 rubles a year. The subscription's value is honest: people have already lost years of data and are ready to pay precisely for safety, not to see their weight at all."
+ },
+ "weight-tracker-6": {
+  "categoryName": "Weight tracker",
+  "title": "A progress photo diary with honest comparison",
+  "oneLiner": "Before-and-after photos in one frame, the same angle and scale",
+  "gap": "Before-and-after photos motivate people more strongly than numbers, but existing apps ruin the main thing: the comparison. One photo is zoomed in, another zoomed out, thick borders between them, and it's impossible to see the real difference. Sometimes the photos simply go black after an update. Meanwhile body shots are intimate and need a passcode, which isn't everywhere. What's needed is a photo diary where the silhouette lines up to the same angle and scale, and the gallery is under lock.",
+  "mechanisms": [
+   "A progress photo diary with honest comparison",
+   "The comparison lies: different zoom and thick borders",
+   "Photos and privacy matter together, a lock is needed"
+  ],
+  "pitch": "A body photo diary built for honest comparison. When shooting, a semi-transparent outline of the previous photo appears, so you can stand at the same angle and scale. Before and after shots are placed side by side without different zoom and without thick borders, and the difference is visible at once. The whole gallery is behind a passcode or Face ID, because these are body shots. The weight line sits next to it, so photos and numbers line up by date.",
+  "features": [
+   "An outline of the previous shot while shooting, for the same angle",
+   "Before-and-after comparison without different scale and borders",
+   "Several angles: front, side, back",
+   "A passcode and Face ID on the gallery",
+   "Tying a photo to a date and weight",
+   "Building a progress collage for yourself"
+  ],
+  "antiFeatures": [
+   "No mandatory upload of photos to a shared feed",
+   "Doesn't store shots without passcode protection",
+   "No beauty filters that distort the real difference"
+  ],
+  "monetization": "A couple of angles and basic comparison are free. Pro at 799 rubles one-time for all angles, collages and encrypted cloud backup. A one-time purchase fits better than a subscription: body photos are personal, and trust matters more than a recurring charge."
+ },
+ "weight-tracker-7": {
+  "categoryName": "Weight tracker",
+  "title": "An all-time weight chart, not a 30-day window",
+  "oneLiner": "The path is visible from the very start, not the last seven or thirty days",
+  "gap": "A very common complaint: the app shows only the last seven or thirty days and won't let you see the whole path from the very start. People flat out say the point of tracking is to see the line from the beginning to today, and without it the app is useless. Others, on the contrary, get stuck at a minimum three-month window and can't view one clean month. Nobody lets you freely change the range from a day to the entire history.",
+  "mechanisms": [
+   "An all-time weight chart, not a 30-day window",
+   "You can't pick the window: too narrow or too wide",
+   "The total number of weight lost motivates people"
+  ],
+  "pitch": "A tracker where the chart can be stretched to any span: a day, a month, a year, all time. The line always starts from your starting weight, so the whole path is visible, not the last thirty days. Front and center is one big number: how much has been lost since the start. The range switches with a pinch, without going into settings. Nothing extra, just an honest picture of progress at any scale.",
+  "features": [
+   "Ranges from a single day to the entire history",
+   "The line always from the starting weight",
+   "A big number for total weight lost",
+   "Scale switching with a pinch right on the chart",
+   "Saving the chosen range between sessions",
+   "Export of the chart as an image"
+  ],
+  "antiFeatures": [
+   "Doesn't limit the view to a fixed window",
+   "No monthly averaging that hides the detail",
+   "Doesn't reset the chosen range on every open"
+  ],
+  "monetization": "All ranges and the total number are free, that's the base and hiding it isn't allowed. Pro at 490 rubles one-time for widgets, themes and export. In reviews people flat out write they're ready to pay for an all-time view, but get angry when it's a base feature behind a subscription."
+ },
+ "weight-tracker-8": {
+  "categoryName": "Weight tracker",
+  "title": "A BMI calculator with age, sex and no scare tactics",
+  "oneLiner": "Honest ranges by age and sex, a separate calculation for teens",
+  "gap": "BMI calculators en masse compute by a single adult formula and ignore age and sex. For teens that gives wild results: a normal weight is called obesity, and a dangerously low BMI is marked as normal, which directly feeds eating disorders. The labels are harsh and without context. What's needed is a calculator that asks for age and sex, computes teen BMI by percentiles, and delivers the result carefully, without scary wording.",
+  "mechanisms": [
+   "A BMI calculator with age, sex and no scare tactics",
+   "Teen BMI is computed on an adult scale, the ranges lie",
+   "Harsh labels hit self-esteem and feed EDs"
+  ],
+  "pitch": "A BMI calculator that finally accounts for age and sex. For teens it computes by age percentiles rather than an adult scale, so it doesn't call a healthy weight obesity or mark a dangerously low one as normal. The result is delivered calmly, with a range and a caveat about muscle and build, without harsh labels that hit self-esteem. Precise height input in fractions of an inch and in centimeters.",
+  "features": [
+   "Accounting for age and sex in the calculation",
+   "Teen BMI by age percentiles",
+   "Gentle delivery of the result with a range and a caveat about muscle",
+   "Precise height input in fractional units",
+   "A clear explanation that BMI doesn't account for body composition",
+   "Saving measurements and a BMI chart over time"
+  ],
+  "antiFeatures": [
+   "No harsh labels without context",
+   "Doesn't give lowered healthy limits that are dangerous with an ED",
+   "No aggressive ad pop-ups over the input"
+  ],
+  "monetization": "The calculator is free with ads in one unobtrusive spot. A one-time purchase at 299 rubles removes the ads and unlocks the BMI chart over time. Ads in BMI apps enrage people, so the advertising is modest, and removing it is cheap and one-time."
  }
 }

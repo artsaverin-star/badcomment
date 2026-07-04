@@ -54,7 +54,10 @@ import stepCounter from "./step-counter.json";
 
 import drivingTestPrep from "./driving-test-prep.json";
 
+import weightTracker from "./weight-tracker.json";
+
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
+  "weight-tracker": weightTracker,
   "driving-test-prep": drivingTestPrep,
   "pregnancy-tracker": pregnancyTracker,
   "blood-pressure-log": bloodPressureLog,

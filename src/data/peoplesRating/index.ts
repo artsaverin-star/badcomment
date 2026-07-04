@@ -54,7 +54,10 @@ import stepCounter from "./step-counter.json";
 
 import drivingTestPrep from "./driving-test-prep.json";
 
+import weightTracker from "./weight-tracker.json";
+
 export const RATING_BY_SLUG: Record<string, unknown> = {
+  "weight-tracker": weightTracker,
   "driving-test-prep": drivingTestPrep,
   "pregnancy-tracker": pregnancyTracker, "blood-pressure-log": bloodPressureLog, "step-counter": stepCounter,
   "scanner-pdf": scannerPdf, "ai-chatbot": aiChatbot, "intermittent-fasting": intermittentFasting, flashcards, translator, "run-tracking": runTracking, "voice-recorder": voiceRecorder, "resume-builder": resumeBuilder, "invoice-maker": invoiceMaker, sobriety, "qr-scanner": qrScanner, "mind-mapping": mindMapping, "wallpapers-widgets": wallpapersWidgets, "water-hydration": waterHydration, "pet-care": petCare, "password-manager": passwordManager, "ai-image-generation": aiImageGeneration, "car-maintenance": carMaintenance, "wardrobe-outfit": wardrobeOutfit, "meal-prep-grocery": mealPrepGrocery,
