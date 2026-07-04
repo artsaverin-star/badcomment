@@ -68,6 +68,10 @@ export default async function RootLayout({
                   "@type": "Organization",
                   "@id": "https://inapp.pro/#org",
                   name: "inApp",
+                  alternateName: "inApp.pro",
+                  logo: "https://inapp.pro/api/og?logo=1",
+                  image: "https://inapp.pro/api/og?logo=1",
+                  sameAs: ["https://t.me/inAppProBot"],
                   url: "https://inapp.pro",
                   description:
                     locale === "en"

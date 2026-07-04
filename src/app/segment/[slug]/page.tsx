@@ -128,8 +128,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         "x-default": `https://inapp.pro/en/segment/${slug}`,
       },
     },
-    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}&slug=${slug}`] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}&slug=${slug}`] },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };
 }

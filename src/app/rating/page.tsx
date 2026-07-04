@@ -35,7 +35,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = ru
     ? "100 приложений на нишу, оценённых по реальным отзывам, а не по витринной звезде, плюс проверка на накрутку рейтинга."
     : "100 apps per niche scored by real reviews, not the storefront star, plus a rating-authenticity check.";
-  return { title, description, alternates: { canonical: `https://inapp.pro/${ru ? "ru" : "en"}/rating` } };
+  const url = `https://inapp.pro/${ru ? "ru" : "en"}/rating`;
+  const og = `https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`;
+  return {
+    title, description,
+    alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/rating", en: "https://inapp.pro/en/rating", "x-default": "https://inapp.pro/en/rating" } },
+    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [og] },
+    twitter: { card: "summary_large_image", title, description, images: [og] },
+    robots: { index: true, follow: true },
+  };
 }
 
 const NICHES = [
@@ -100,9 +108,21 @@ export default async function RatingIndexPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", name: ru ? "Народный рейтинг приложений" : "People\u2019s app rating", url: `https://inapp.pro${lp}/rating`, inLanguage: ru ? "ru" : "en", isPartOf: { "@id": "https://inapp.pro/#website" } },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: ru ? "Главная" : "Home", item: `https://inapp.pro${lp}` },
+        { "@type": "ListItem", position: 2, name: ru ? "Рейтинг" : "Ratings", item: `https://inapp.pro${lp}/rating` } ] },
+      { "@type": "ItemList", name: ru ? "Ниши народного рейтинга" : "People\u2019s rating niches", numberOfItems: NICHES.length,
+        itemListElement: NICHES.map((n, i) => ({ "@type": "ListItem", position: i + 1, name: ru ? n.name : n.nameEn, url: `https://inapp.pro${lp}/rating/${n.slug}` })) },
+    ],
+  };
 
   return (
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="text-center">
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">
           {ru ? "Рейтинг приложений" : "App ratings"}
