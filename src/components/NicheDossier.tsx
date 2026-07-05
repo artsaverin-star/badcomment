@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
 import { promoScore } from "@/lib/promoScore";
+import channelsData from "@/data/channels.json";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
@@ -160,6 +161,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   // Real market money layer: Google Play install scale + a transparent revenue estimate.
   const mkt = marketFor(slug);
   const promo = promoScore(slug);
+  type Channel = { name: string; note: string; count: number; quotes: { app: string; quote: string; quoteRu?: string }[] };
+  const channels: Channel[] = ((channelsData as Record<string, { channels?: Channel[] }>)[slug]?.channels ?? []).slice(0, 4);
   const compactM = (n: number) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} ${ru ? "млрд" : "B"}` : `${Math.round(n / 1e6)} ${ru ? "млн" : "M"}`);
   // Revenue low/high are baked RU strings ("$149 млн"); swap the unit tokens on EN.
   const revLoc = (s: string) => (ru ? s : s.replace(/\s*млрд/g, "B").replace(/\s*млн/g, "M").replace(/\s*тыс/g, "K"));
@@ -336,6 +339,30 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           at /rating/[slug], so hiding it behind sign-in here only broke the
           descent. The ladder: rating free -> findings for a free sign-in ->
           ideas for the one payment. */}
+      {channels.length > 0 && (
+        <Block title={ru ? "Откуда приходят пользователи" : "Where users come from"} lead={ru ? "Каналы, которые видны прямо в отзывах: люди сами пишут, как нашли приложение и почему поставили. Это и есть дистрибуция ниши." : "Channels visible right in the reviews: people say themselves how they found the app and why they installed it. This is the niche's distribution."}>
+          <div className="card-min mt-7 rounded-[22px] px-5 sm:px-6">
+            {channels.map((ch, i) => (
+              <Disclosure
+                key={i}
+                defaultOpen={i === 0}
+                head={
+                  <>
+                    <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{cap(tg(ch.name))}</span>
+                    <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{ch.count}</span>
+                  </>
+                }
+              >
+                <p className="text-callout text-[var(--color-text-secondary)]">{tg(ch.note)}</p>
+                <div className="mt-4 flex flex-col gap-2.5">
+                  {ch.quotes.slice(0, 2).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
+                </div>
+              </Disclosure>
+            ))}
+          </div>
+        </Block>
+      )}
+
       <Block title={ru ? "Честный рейтинг" : "Honest rating"} lead={ru ? "Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах." : "The same hundred apps in two scoring systems. Switch and watch the storefront star diverge from what people actually write in reviews."}>
         <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
