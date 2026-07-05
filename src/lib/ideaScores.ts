@@ -62,11 +62,20 @@ export function marketFor(slug: string): NicheMarket | null {
   return MKT[slug] ?? null;
 }
 
+// "Hot" = ideas people loudly ask for AND already pay for: the geometric mean
+// of money and demand. Simplicity is a builder's concern, not hype, so it
+// stays out. The mean is geometric so one loud-but-free (or paid-but-quiet)
+// score can't carry an idea to the top alone.
+export function hotScore(s: IdeaScore): number {
+  return Math.round(Math.sqrt(s.money * s.demand) * 10) / 10;
+}
+
 // All scored ideas sorted by a mode, for the leaderboard.
-export type SortMode = "composite" | "money" | "simplicity" | "demand";
+export type SortMode = "composite" | "money" | "simplicity" | "demand" | "hot";
 export function rankedSlugs(mode: SortMode = "composite"): string[] {
+  const val = (s: IdeaScore) => (mode === "hot" ? hotScore(s) : s[mode]);
   return Object.entries(RU)
-    .sort((a, b) => b[1][mode] - a[1][mode])
+    .sort((a, b) => val(b[1]) - val(a[1]))
     .map(([slug]) => slug);
 }
 

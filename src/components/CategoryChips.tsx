@@ -19,7 +19,7 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
   const href = (cat?: string) => {
     const p = new URLSearchParams();
     if (cat) p.set("cat", cat);
-    if (sort && sort !== "balance") p.set("sort", sort);
+    if (sort && sort !== "hot") p.set("sort", sort);
     const q = p.toString();
     return q ? `${lp}?${q}` : lp;
   };

@@ -1,7 +1,7 @@
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
 import { ideaCard, ideaContentEn } from "@/lib/regenCards";
-import { scoreFor } from "@/lib/ideaScores";
+import { scoreFor, hotScore } from "@/lib/ideaScores";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
@@ -12,7 +12,7 @@ import ideaCovers from "@/data/ideaCovers.json";
 import Link from "next/link";
 import IdeasDeck from "@/components/IdeasDeck";
 import { IdeaCards } from "@/components/TestCards";
-import { type SortKey } from "@/components/IdeaSortTabs";
+import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
 import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import FaqSection from "@/components/FaqSection";
@@ -53,8 +53,18 @@ const CATEGORY_ORDER = [
 const DOSSIER = new Set(CATEGORY_ORDER);
 const CAT_RANK = new Map(CATEGORY_ORDER.map((s, i) => [s, i]));
 
-const SORT_METRIC: Record<SortKey, "composite" | "money" | "simplicity" | "demand"> = {
+const SORT_METRIC: Record<Exclude<SortKey, "hot">, "composite" | "money" | "simplicity" | "demand"> = {
   balance: "composite", money: "money", simplicity: "simplicity", demand: "demand",
+};
+
+// One honest line under the catalog title explaining what the current order
+// means — the "hottest" default is a formula, not vibes, so say it out loud.
+const SORT_HINT: Record<SortKey, { ru: string; en: string }> = {
+  hot: { ru: "наверху самые горячие: громкий спрос и живые деньги разом", en: "hottest first: loud demand and real money at once" },
+  money: { ru: "наверху те, где уже платят больше всего", en: "biggest money first" },
+  demand: { ru: "наверху самый громкий спрос из отзывов", en: "loudest demand from reviews first" },
+  simplicity: { ru: "наверху те, что проще всего собрать одному", en: "easiest for one person to build first" },
+  balance: { ru: "наверху лучший баланс денег, простоты и спроса", en: "best balance of money, buildability and demand first" },
 };
 
 const ICONS = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
@@ -67,8 +77,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const locale = await getLocale();
   const ru = locale !== "en";
   const sp = await searchParams;
-  const sort: SortKey = (["money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "money") as SortKey;
-  const metric = SORT_METRIC[sort];
+  const sort: SortKey = (["hot", "money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "hot") as SortKey;
+  const metricOf = (slug: string): number => {
+    const s = scoreFor(slug);
+    if (!s) return 0;
+    return sort === "hot" ? hotScore(s) : s[SORT_METRIC[sort]];
+  };
   const cat = sp.cat && DOSSIER.has(sp.cat) ? sp.cat : undefined;
 
   const nameOf = (slug: string): string => {
@@ -88,7 +102,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const all = raw
     .filter((i) => !cat || i.category === cat)
     .sort((a, b) => {
-      const sa = scoreFor(a.slug)?.[metric] ?? 0, sb = scoreFor(b.slug)?.[metric] ?? 0;
+      const sa = metricOf(a.slug), sb = metricOf(b.slug);
       if (sb !== sa) return sb - sa;
       return (CAT_RANK.get(a.category) ?? 999) - (CAT_RANK.get(b.category) ?? 999);
     });
@@ -132,7 +146,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   // one-liners and scores stay visible, the paid body stays server-side.
   // Owners get bare previews too — their modal fetches /api/idea-depth on open
   // (embedding 400+ full bodies made the page weigh megabytes).
-  const shown = all.slice(0, limit).map((i, idx) => (owner ? cardOf(i, idx) : { ...cardOf(i, idx), locked: true }));
+  // The top 3 of the full catalog wear an animated flame crown; inside a niche
+  // filter three of eight cards on fire would read as noise, so no crowns there.
+  const shown = all.slice(0, limit).map((i, idx) => {
+    const card = owner ? cardOf(i, idx) : { ...cardOf(i, idx), locked: true };
+    return !cat && idx < 3 ? { ...card, rank: idx + 1 } : card;
+  });
 
   // The free taste: a few fully open ideas that rotate daily, drawn from the
   // strong middle of the ranking so the crown of the leaderboard stays paid.
@@ -205,19 +224,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         </section>
       )}
 
-      {/* The niche tiles filter the catalog below; sorting stays fixed on the
-          composite score (other orders still work via ?sort= links). */}
+      {/* The niche tiles filter the catalog below; the sort control lives in
+          the catalog header and re-ranks server-side via ?sort=. */}
       <div className="mt-12">
         <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} />
       </div>
 
       <div className="mt-7">
-        {gate && (
-          <div className="mb-4 flex flex-col gap-1 px-1">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 px-1">
+          <div className="flex flex-col gap-1">
             <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Весь каталог" : "The full catalog"}</h2>
-            <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? `${all.length} идей по рейтингу денег, простоты и спроса` : `${all.length} ideas ranked by money, buildability and demand`}</span>
+            <span className="text-footnote text-[var(--color-text-tertiary)]">{`${all.length} ${ru ? "идей" : "ideas"}, ${ru ? SORT_HINT[sort].ru : SORT_HINT[sort].en}`}</span>
           </div>
-        )}
+          <IdeaSortTabs current={sort} cat={cat} locale={locale} />
+        </div>
         <IdeasDeck
           ideas={shown}
           lockedPreview={lockedPreview}
