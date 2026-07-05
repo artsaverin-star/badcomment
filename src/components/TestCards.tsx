@@ -409,7 +409,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
         {shown.map((x, i) => (
           // card-fade runs once on mount, staggered within the page — freshly
           // autoloaded cards cascade in instead of popping the layout at once.
-          <div key={i} className="card-fade h-full min-w-0" style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
+          <div key={i} className={`card-fade h-full min-w-0 ${x.rank != null && x.rank <= 3 ? "flame-ring" : ""}`} style={{ animationDelay: `${(i % IDEA_PAGE) * 35}ms` }}>
             <CardFace title={x.title} desc={x.oneLiner} locked={locked || x.locked} onClick={locked ? () => {} : x.locked ? () => setLockedOpen(x) : () => openCard(x)}
               art={x.icon} hue={x.hue} cover={x.cover} favId={x.slug} kicker={x.category} rank={x.rank} ru={ru} footer={x.score ? <ScoreChip score={x.score} /> : undefined} />
           </div>

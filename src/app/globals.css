@@ -398,6 +398,40 @@ html:not([data-theme="dark"]) {
   .flame-inner { animation: none; }
 }
 
+/* Fiery edges for the top-3 idea cards, Duolingo-streak style: a warm
+   gradient rim peeking out around the card plus a flickering outer glow.
+   Both pseudo-elements sit behind the card (tree order), only the glow
+   layer animates and only its opacity, so three burning cards stay cheap. */
+.flame-ring {
+  position: relative;
+}
+.flame-ring::before,
+.flame-ring::after {
+  content: "";
+  position: absolute;
+  inset: -2.5px;
+  border-radius: 24.5px;
+  pointer-events: none;
+}
+.flame-ring::before {
+  background: linear-gradient(175deg, #ffcc00 0%, #ff9500 32%, #ff6a00 68%, #ffb700 100%);
+}
+.flame-ring::after {
+  box-shadow:
+    0 0 16px 1px rgba(255, 140, 0, 0.38),
+    0 0 42px -6px rgba(255, 106, 0, 0.34);
+  animation: flame-ring-flicker 1.7s ease-in-out infinite;
+}
+@keyframes flame-ring-flicker {
+  0%, 100% { opacity: 0.55; }
+  28% { opacity: 1; }
+  55% { opacity: 0.68; }
+  80% { opacity: 0.92; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flame-ring::after { animation: none; }
+}
+
 /* Bookmark toggle pop — a springy scale bounce on tap. */
 @keyframes fav-pop {
   0% { transform: scale(1); }

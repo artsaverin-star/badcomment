@@ -27,21 +27,23 @@ export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current:
     const q = p.toString();
     return q ? `${lp}?${q}` : lp;
   };
-  // A quiet inline text control, not a pill — it must not compete with the
-  // niche tiles for attention.
+  // One centred pill showing the current order; the native select sits
+  // invisible on top so the pill hugs its label and the dropdown stays native.
+  const cur = OPTIONS.find((o) => o.key === current) ?? OPTIONS[0];
   return (
-    <label className="relative inline-flex shrink-0 items-center gap-1 text-footnote text-[var(--color-text-tertiary)]">
-      {ru ? "Сортировка:" : "Sort:"}
+    <span className="relative inline-flex shrink-0 items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2.5 pl-5 pr-4 shadow-[0_1px_2px_rgba(18,18,22,0.06)] transition-shadow hover:shadow-[0_4px_14px_-4px_rgba(18,18,22,0.18)]">
+      <span className="text-callout font-semibold text-[var(--color-text-primary)]">{ru ? cur.ru : cur.en}</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
       <select
+        aria-label={ru ? "Сортировка идей" : "Sort ideas"}
         value={current}
         onChange={(e) => router.push(href(e.target.value as SortKey), { scroll: false })}
-        className="appearance-none bg-transparent py-1 pr-5 font-medium text-[var(--color-text-secondary)] outline-none transition-colors hover:text-[var(--color-text-primary)]"
+        className="absolute inset-0 size-full cursor-pointer appearance-none opacity-0"
       >
         {OPTIONS.map((o) => (
           <option key={o.key} value={o.key}>{ru ? o.ru : o.en}</option>
         ))}
       </select>
-      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="pointer-events-none absolute right-0 text-[var(--color-text-tertiary)]"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-    </label>
+    </span>
   );
 }

@@ -57,16 +57,6 @@ const SORT_METRIC: Record<Exclude<SortKey, "hot">, "composite" | "money" | "simp
   balance: "composite", money: "money", simplicity: "simplicity", demand: "demand",
 };
 
-// One honest line under the catalog title explaining what the current order
-// means — the "hottest" default is a formula, not vibes, so say it out loud.
-const SORT_HINT: Record<SortKey, { ru: string; en: string }> = {
-  hot: { ru: "наверху самые горячие: громкий спрос и живые деньги разом", en: "hottest first: loud demand and real money at once" },
-  money: { ru: "наверху те, где уже платят больше всего", en: "biggest money first" },
-  demand: { ru: "наверху самый громкий спрос из отзывов", en: "loudest demand from reviews first" },
-  simplicity: { ru: "наверху те, что проще всего собрать одному", en: "easiest for one person to build first" },
-  balance: { ru: "наверху лучший баланс денег, простоты и спроса", en: "best balance of money, buildability and demand first" },
-};
-
 const ICONS = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
 const cleanTitle = (s: string) => { const m = (s || "").replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, ""); return m.charAt(0).toUpperCase() + m.slice(1); };
 
@@ -231,11 +221,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       </div>
 
       <div className="mt-7">
-        <div className="mb-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 px-1">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Весь каталог" : "The full catalog"}</h2>
-            <span className="text-footnote text-[var(--color-text-tertiary)]">{`${all.length} ${ru ? "идей" : "ideas"}, ${ru ? SORT_HINT[sort].ru : SORT_HINT[sort].en}`}</span>
-          </div>
+        {/* No headings, no counters — just the sort pill, centred over the deck. */}
+        <div className="mb-6 flex justify-center">
           <IdeaSortTabs current={sort} cat={cat} locale={locale} />
         </div>
         <IdeasDeck
