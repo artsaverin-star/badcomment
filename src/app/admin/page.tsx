@@ -111,26 +111,6 @@ export default async function AdminPage() {
         </b>
       </p>
 
-      {/* The friends allowlist lives in friends.json (code, not DB): a friend
-          shows up in the user table only after their first sign-in. This block
-          makes the allowlist itself visible so granted-but-not-yet-signed-in
-          friends are not invisible. */}
-      <div className="mt-5 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] p-4">
-        <div className="text-caption font-semibold tracking-wide text-[var(--color-text-tertiary)]">Друзья (allowlist)</div>
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {(friendsList as string[]).map((f) => {
-            const key = f.trim().toLowerCase();
-            const seen = users.some((u) => [u.telegramId, u.username, u.email].some((v) => v && String(v).trim().toLowerCase() === key));
-            return (
-              <span key={f} className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-caption ${seen ? "bg-[color-mix(in_srgb,#30d158_14%,transparent)] text-[#1f9d44]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]"}`}>
-                {f}
-                <span className="text-[10px] opacity-80">{seen ? "входил" : "ещё не входил"}</span>
-              </span>
-            );
-          })}
-        </div>
-      </div>
-
       <div className="mt-6 overflow-x-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
         <table className="w-full text-left">
           <thead className="bg-[var(--color-bg-muted)] text-caption tracking-wide text-[var(--color-text-tertiary)]">
@@ -209,6 +189,28 @@ export default async function AdminPage() {
                 </td>
               </tr>
             ))}
+            {/* Allowlist friends who have not signed in yet: normal rows in the
+                same table, so a freshly granted friend is visible immediately. */}
+            {(friendsList as string[])
+              .filter((f) => {
+                const key = f.trim().toLowerCase();
+                return !users.some((u) => [u.telegramId, u.username, u.email].some((v) => v && String(v).trim().toLowerCase() === key));
+              })
+              .map((f) => (
+                <tr key={`friend-${f}`} className="border-t border-[var(--color-border-subtle)] text-footnote">
+                  <td className="px-4 py-2.5 text-[var(--color-text-primary)]">
+                    {/^\d+$/.test(f) ? `Telegram ID ${f}` : f.includes("@") ? f : `@${f}`}
+                  </td>
+                  <td className="px-4 py-2.5">
+                    <span className="text-[18px] font-semibold leading-none text-[var(--color-text-brand)]" title="Друг — полный доступ">∞</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">ещё не входил</td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">—</td>
+                  <td className="px-4 py-2.5"><span className="text-[var(--color-text-primary)]">⭐ Друг</span></td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">—</td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">—</td>
+                </tr>
+              ))}
             {users.length === 0 && (
               <tr>
                 <td colSpan={7} className="px-4 py-8 text-center text-callout text-[var(--color-text-tertiary)]">
