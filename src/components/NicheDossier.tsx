@@ -4,6 +4,7 @@ import BackLink from "@/components/BackLink";
 import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
+import { promoScore } from "@/lib/promoScore";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
@@ -158,6 +159,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
   // Real market money layer: Google Play install scale + a transparent revenue estimate.
   const mkt = marketFor(slug);
+  const promo = promoScore(slug);
   const compactM = (n: number) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} ${ru ? "млрд" : "B"}` : `${Math.round(n / 1e6)} ${ru ? "млн" : "M"}`);
   // Revenue low/high are baked RU strings ("$149 млн"); swap the unit tokens on EN.
   const revLoc = (s: string) => (ru ? s : s.replace(/\s*млрд/g, "B").replace(/\s*млн/g, "M").replace(/\s*тыс/g, "K"));
@@ -289,6 +291,16 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           <Tile wide k={ru ? "Доверие" : "Trust"}>
             <BigStat value={ru ? `${broken} из 100` : `${broken} of 100`} sub={ru ? `приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `apps have an inflated or doubtful star, only ${great} are genuinely good`} />
           </Tile>
+          {promo && (
+            <Tile wide k={ru ? "Продвижение" : "Discoverability"}>
+              <BigStat value={ru ? `${promo.score} из 100` : `${promo.score} of 100`} sub={ru
+                ? `шанс нового приложения пробиться: у трёх лидеров ${promo.top3Share}% всех оценок, накручено ${promo.inflatedShare}% выдачи, по-настоящему сильных всего ${promo.strongCount}`
+                : `a new app's chance to break in: the top three hold ${promo.top3Share}% of ratings, ${promo.inflatedShare}% of the shelf is gamed, only ${promo.strongCount} apps are genuinely strong`} />
+              <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru
+                ? "Считаем из концентрации лидеров, доли накрутки, числа сильных приложений и размера спроса. Грубо, для порядка величины."
+                : "Computed from leader concentration, gamed share, count of strong apps and demand size. Rough, order of magnitude."}</span>
+            </Tile>
+          )}
           <Tile wide k={ru ? "Деньги" : "Money"}>
             <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
           </Tile>
