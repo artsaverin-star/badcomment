@@ -6,6 +6,7 @@ import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
 import { promoScore } from "@/lib/promoScore";
 import channelsData from "@/data/channels.json";
+import channelsEn from "@/data/channels.en.json";
 import LeaderRows from "@/components/LeaderRows";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
@@ -164,7 +165,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const mkt = marketFor(slug);
   const promo = promoScore(slug);
   type Channel = { name: string; note: string; count: number; quotes: { app: string; quote: string; quoteRu?: string }[] };
-  const channels: Channel[] = ((channelsData as Record<string, { channels?: Channel[] }>)[slug]?.channels ?? []).slice(0, 4);
+  const channelsRu: Channel[] = ((channelsData as Record<string, { channels?: Channel[] }>)[slug]?.channels ?? []).slice(0, 4);
+  // EN overlay is positional: same niches, same channel order, name+note only.
+  const channelsEnList = ((channelsEn as Record<string, { channels?: { name: string; note: string }[] }>)[slug]?.channels ?? []);
+  const channels = ru ? channelsRu : channelsRu.map((c, i) => ({ ...c, name: channelsEnList[i]?.name ?? c.name, note: channelsEnList[i]?.note ?? c.note }));
   const compactM = (n: number) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} ${ru ? "млрд" : "B"}` : `${Math.round(n / 1e6)} ${ru ? "млн" : "M"}`);
   // Revenue low/high are baked RU strings ("$149 млн"); swap the unit tokens on EN.
   const revLoc = (s: string) => (ru ? s : s.replace(/\s*млрд/g, "B").replace(/\s*млн/g, "M").replace(/\s*тыс/g, "K"));
