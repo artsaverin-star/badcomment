@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
+import RatingShots from "@/components/RatingShots";
 
 // The honest-rating list with a toggle between our review-sentiment score and
 // the App Store star. Flipping re-sorts the list; each row shows both numbers
@@ -13,6 +14,7 @@ export type RatingApp = {
   id: string; title: string; icon: string | null;
   realScore: number | null; storeAvg: number | null; ratings: number;
   authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null;
+  shots?: string[];
 };
 
 const AUTH: Record<string, { w: string; c: string }> = {
@@ -83,6 +85,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
                 {a.verdict && <span className="block text-footnote text-[var(--color-text-secondary)]">{a.verdict}</span>}
               </summary>
               <div className="flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pb-5 pt-4">
+                {!!a.shots?.length && <div className="-mt-1"><RatingShots shots={a.shots} title={a.title} /></div>}
                 <Field k={ru ? "Сильное" : "Strong"} v={a.loved} />
                 <Field k={ru ? "Слабое" : "Weak"} v={a.weak} />
                 <Field k={ru ? "Кому" : "For whom"} v={a.whoFor} />

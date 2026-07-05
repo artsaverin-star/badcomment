@@ -6,6 +6,7 @@ import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
 import { promoScore } from "@/lib/promoScore";
 import channelsData from "@/data/channels.json";
+import LeaderRows from "@/components/LeaderRows";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
@@ -33,7 +34,7 @@ import { DOSSIER_BY_SLUG } from "@/data/dossier";
 // is keyed per niche; thesis/findings/ideas come from the shared keyed files.
 
 type AppEn = { verdict?: string; loved?: string; weak?: string; whoFor?: string };
-type RApp = { id: string; title: string; icon: string | null; storeAvg: number | null; ratings: number; nrev: number; realScore: number | null; authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null; en?: AppEn };
+type RApp = { id: string; title: string; icon: string | null; storeAvg: number | null; ratings: number; nrev: number; realScore: number | null; authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null; shots?: string[]; en?: AppEn };
 type RatingFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
 type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string; quoteRu?: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
@@ -152,6 +153,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
     return {
       id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
       authenticity: a.authenticity, verdict: cap(tg((e?.verdict ?? a.verdict) || "")), loved: cap(tg((e?.loved ?? a.loved) || "")), weak: cap(tg((e?.weak ?? a.weak) || "")), whoFor: (e?.whoFor ?? a.whoFor) ? cap(tg((e?.whoFor ?? a.whoFor) as string)) : null,
+      shots: a.shots ?? [],
     };
   });
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
@@ -271,18 +273,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             </Tile>
           )}
           <Tile wide k={ru ? "Лидеры" : "Leaders"}>
-            <span className="flex flex-col gap-3">
-              {leaders.map((a) => (
-                <span key={a.id} className="flex items-center gap-3">
-                  {a.icon
-                    // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                    : <span className="size-9 shrink-0 rounded-[10px] bg-[var(--color-bg-muted)]" />}
-                  <span className="min-w-0 flex-1 truncate text-callout font-medium text-[var(--color-text-primary)]">{a.title}</span>
-                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{NF(a.ratings || 0)} {ru ? ratingsWord(a.ratings || 0) : "ratings"}</span>
-                </span>
-              ))}
-            </span>
+            <LeaderRows
+              locale={locale}
+              rows={leaders.flatMap((a) => {
+                const app = ratingApps.find((x) => x.id === a.id);
+                return app ? [{ app, meta: `${NF(a.ratings || 0)} ${ru ? ratingsWord(a.ratings || 0) : "ratings"}` }] : [];
+              })}
+            />
           </Tile>
           {mkt?.revenue && (
             <Tile wide k={ru ? "Оценка выручки" : "Revenue estimate"}>

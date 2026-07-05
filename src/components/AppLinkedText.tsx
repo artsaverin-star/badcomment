@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
+import RatingShots from "@/components/RatingShots";
 
 // App data needed to render the popup card (same shape the rating list uses).
 export type AppLite = {
@@ -17,6 +18,7 @@ export type AppLite = {
   loved: string;
   weak: string;
   whoFor: string | null;
+  shots?: string[];
 };
 
 const AUTH: Record<string, { w: string; c: string }> = {
@@ -114,7 +116,7 @@ export default function AppLinkedText({ text, apps, locale = "ru", as = "span", 
   );
 }
 
-function AppModal({ app, ru, onClose }: { app: AppLite; ru: boolean; onClose: () => void }) {
+export function AppModal({ app, ru, onClose }: { app: AppLite; ru: boolean; onClose: () => void }) {
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
@@ -152,6 +154,7 @@ function AppModal({ app, ru, onClose }: { app: AppLite; ru: boolean; onClose: ()
             </div>
           </div>
           {app.verdict && <p className="mt-4 text-callout text-[var(--color-text-secondary)]">{app.verdict}</p>}
+          {!!app.shots?.length && <RatingShots shots={app.shots} title={app.title} />}
           <div className="mt-5 flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pt-4">
             <Field k={ru ? "Сильное" : "Strong"} v={app.loved} />
             <Field k={ru ? "Слабое" : "Weak"} v={app.weak} />
