@@ -172,8 +172,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Хватит гадать, что строить" : "Stop guessing what to build"}</h1>
         <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <>Мы прочитали <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов App Store и Google Play и вывели идеи, за которые уже платят: чего людям не хватает, кто платит и сколько, и что по силам собрать одному.</>
-            : <>We read <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews and distilled the ideas people already pay for: what is missing, who pays and how much, and what one person can build.</>}
+            ? <>Мы прочитали <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзыва App Store и Google Play и нашли места, где люди уже платят, но остаются недовольны. Каждая идея показывает, чего не хватает, кто и сколько платит, и что по силам собрать одному.</>
+            : <>We read <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews and found the places where people already pay but stay unhappy. Every idea shows what is missing, who pays and how much, and what one person can build.</>}
         </p>
         {/* One quiet line tells the free/paid story — no pills, no badges. */}
         <p className="mx-auto mt-5 max-w-[52ch] text-footnote text-pretty text-[var(--color-text-tertiary)]">

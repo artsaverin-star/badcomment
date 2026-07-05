@@ -216,7 +216,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
         <div className="mt-6 max-w-[60ch] space-y-4">
           {tg(thesis.governing).split(/\n{2,}/).map((para, i) => (
-            <AppLinkedText key={i} as="p" className="text-lead text-pretty text-[var(--color-text-secondary)]" text={para.trim()} apps={ratingApps} locale={locale} />
+            <AppLinkedText key={i} as="p" className={`${i === 0 ? "text-lead" : "text-body"} text-pretty text-[var(--color-text-secondary)]`} text={para.trim()} apps={ratingApps} locale={locale} />
           ))}
         </div>
         {updated && <div className="mt-5 text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</div>}
@@ -248,23 +248,6 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           <Tile k={ru ? "Концентрация" : "Concentration"}>
             <BigStat value={`${top3Share}%`} sub={ru ? "всех оценок у трёх лидеров" : "of all ratings held by the top three"} />
           </Tile>
-          <Tile wide k={ru ? "Лидеры" : "Leaders"}>
-            <span className="flex flex-col gap-3">
-              {leaders.map((a) => (
-                <span key={a.id} className="flex items-center gap-3">
-                  {a.icon
-                    // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                    : <span className="size-9 shrink-0 rounded-[10px] bg-[var(--color-bg-muted)]" />}
-                  <span className="min-w-0 flex-1 truncate text-callout font-medium text-[var(--color-text-primary)]">{a.title}</span>
-                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{NF(a.ratings || 0)} {ru ? ratingsWord(a.ratings || 0) : "ratings"}</span>
-                </span>
-              ))}
-            </span>
-          </Tile>
-          <Tile wide k={ru ? "Деньги" : "Money"}>
-            <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
-          </Tile>
           {mkt?.installs && (
             <Tile k={ru ? "Скачивания" : "Downloads"}>
               <BigStat value={`${compactM(mkt.installs.totalMin)}+`} sub={ru
@@ -282,6 +265,20 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
               <span className="mt-3 block text-footnote text-[var(--color-text-secondary)]">{ru ? "цены из реальных отзывов" : "prices cited in real reviews"}</span>
             </Tile>
           )}
+          <Tile wide k={ru ? "Лидеры" : "Leaders"}>
+            <span className="flex flex-col gap-3">
+              {leaders.map((a) => (
+                <span key={a.id} className="flex items-center gap-3">
+                  {a.icon
+                    // eslint-disable-next-line @next/next/no-img-element
+                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                    : <span className="size-9 shrink-0 rounded-[10px] bg-[var(--color-bg-muted)]" />}
+                  <span className="min-w-0 flex-1 truncate text-callout font-medium text-[var(--color-text-primary)]">{a.title}</span>
+                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{NF(a.ratings || 0)} {ru ? ratingsWord(a.ratings || 0) : "ratings"}</span>
+                </span>
+              ))}
+            </span>
+          </Tile>
           {mkt?.revenue && (
             <Tile wide k={ru ? "Оценка выручки" : "Revenue estimate"}>
               <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{revLoc(mkt.revenue.low)}-{revLoc(mkt.revenue.high)}</span>
@@ -292,8 +289,11 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           <Tile wide k={ru ? "Доверие" : "Trust"}>
             <BigStat value={ru ? `${broken} из 100` : `${broken} of 100`} sub={ru ? `приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `apps have an inflated or doubtful star, only ${great} are genuinely good`} />
           </Tile>
+          <Tile wide k={ru ? "Деньги" : "Money"}>
+            <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
+          </Tile>
         </dl>
-        <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
+        <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
@@ -316,7 +316,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             inverted tile, the page's single strong accent. */}
         <div className="mt-6 rounded-[22px] bg-[var(--color-text-primary)] p-6 sm:p-7">
           <h3 className="text-caption text-[color-mix(in_srgb,var(--color-bg-page)_65%,transparent)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-          <p className="mt-2.5 max-w-[62ch] text-lead text-pretty text-[var(--color-bg-page)]">{tg(aud.takeaway)}</p>
+          <p className="mt-2.5 max-w-[58ch] text-body text-pretty text-[var(--color-bg-page)]">{tg(aud.takeaway)}</p>
         </div>
       </Block>
 
