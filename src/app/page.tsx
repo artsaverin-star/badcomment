@@ -73,7 +73,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     if (!s) return 0;
     return sort === "hot" ? hotScore(s) : s[SORT_METRIC[sort]];
   };
-  const cat = sp.cat && DOSSIER.has(sp.cat) ? sp.cat : undefined;
+  // Filtering by a specific niche is premium. The tiles wear a lock for
+  // non-owners AND the server ignores ?cat= for them — otherwise a crafted
+  // URL would walk around the lock and list a niche's ideas anyway.
+  const access = await getAccess();
+  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
+  const loggedIn = access.loggedIn;
+  const cat = owner && sp.cat && DOSSIER.has(sp.cat) ? sp.cat : undefined;
 
   const nameOf = (slug: string): string => {
     const r = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string }>)[slug];
@@ -97,9 +103,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       return (CAT_RANK.get(a.category) ?? 999) - (CAT_RANK.get(b.category) ?? 999);
     });
 
-  const access = await getAccess();
-  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
-  const loggedIn = access.loggedIn;
   const limit = owner ? all.length : loggedIn ? 12 : 6;
   const gate: "auth" | "paywall" | null = owner ? null : loggedIn ? "paywall" : "auth";
 
@@ -217,7 +220,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       {/* The niche tiles filter the catalog below; the sort control lives in
           the catalog header and re-ranks server-side via ?sort=. */}
       <div className="mt-12">
-        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} />
+        <CategoryChips chips={chips} current={cat} sort={sort} locale={locale} locked={!owner} />
       </div>
 
       <div className="mt-7">
