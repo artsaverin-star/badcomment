@@ -103,6 +103,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const thesisLoc = getNicheThesis(slug, locale) as { governing: string; competitorRead?: string; pillars: Pillar[] } | null;
   if (!r || !dossier || !thesisLoc) notFound();
   const thesis = thesisLoc;
+  const name = ru ? r.name : r.nameEn ?? r.name;
   const enIdeas = ideasContentEn as Record<string, { title?: string; oneLiner?: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }>;
 
   const apps = [...r.apps].sort((a, b) => (b.realScore || 0) - (a.realScore || 0));
@@ -154,7 +155,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const ideasByScore = [...ideaCards].sort((a, b) => (b.score?.composite ?? 0) - (a.score?.composite ?? 0));
   const ideaCardsLocked = ideasByScore
     .slice(0, 3)
-    .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score, category, categorySlug: slug, locked: true }));
+    .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score, category, categoryName: name, categorySlug: slug, locked: true }));
   // The sample: one mid-ranked idea fully open, so the paid depth is visible
   // in-context (the crown of the niche stays locked).
   const sampleIdea = ideasByScore.length > 3 ? ideasByScore[3] : ideasByScore[ideasByScore.length - 1];
@@ -199,7 +200,6 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const revLoc = (s: string) => (ru ? s : s.replace(/\s*млрд/g, "B").replace(/\s*млн/g, "M").replace(/\s*тыс/g, "K"));
   const topInstall = mkt?.installs?.top?.[0];
 
-  const name = ru ? r.name : r.nameEn ?? r.name;
   const stats = [
     { n: NF(r.count), l: ru ? "приложений" : "apps" },
     { n: NF(r.totalReviews), l: ru ? "отзывов прочитано" : "reviews read" },

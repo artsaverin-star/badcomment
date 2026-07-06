@@ -14,7 +14,9 @@ import type { Locale } from "@/lib/i18n";
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
-type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categorySlug?: string; locked?: boolean; rank?: number };
+// `category` is the card kicker (on niche pages it shows the paying segment);
+// `categoryName` is the real niche name — the only thing the paywall may show.
+type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categoryName?: string; categorySlug?: string; locked?: boolean; rank?: number };
 
 // Bookmark toggle on an idea card: pops on tap and persists to localStorage
 // (favIdeas, keyed by idea slug). State lives in localStorage and reaches
@@ -489,7 +491,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
               ))}
             </ul>
           </Sec>
-          <div className="mt-5 flex justify-center"><BuyButton loggedIn={loggedIn} locale={locale} categorySlug={lockedOpen.categorySlug} categoryPrice={lockedOpen.categorySlug ? CATEGORY_PRICE_RUB : undefined} categoryName={lockedOpen.category} /></div>
+          <div className="mt-5 flex justify-center"><BuyButton loggedIn={loggedIn} locale={locale} categorySlug={lockedOpen.categorySlug} categoryPrice={lockedOpen.categorySlug ? CATEGORY_PRICE_RUB : undefined} categoryName={lockedOpen.categoryName} /></div>
         </Modal>
       )}
     </>

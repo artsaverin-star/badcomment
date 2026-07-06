@@ -120,6 +120,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       cover: (ideaCovers as Record<string, string>)[i.slug],
       score: scoreFor(i.slug, locale) ?? undefined,
       category: nameOf(i.category),
+      categoryName: nameOf(i.category),
       categorySlug: i.category,
     };
   };
