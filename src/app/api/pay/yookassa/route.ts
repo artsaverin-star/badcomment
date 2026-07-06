@@ -47,10 +47,12 @@ export async function POST(req: Request) {
     description = "inApp — Lifetime (всё навсегда)";
     metadata = { userId: u.id, kind: "lifetime" };
   } else if (body.kind === "friend") {
-    // Launch promo «Друг проекта» — lifetime ownership at the discounted price.
-    // Grants lifetime via metadata.kind so the webhook needs no special case.
+    // Launch promo — lifetime ownership at the discounted founding price. The
+    // "friend" kind is a legacy API name; the buyer-facing copy says «весь сайт
+    // навсегда». Grants lifetime via metadata.kind so the webhook needs no
+    // special case.
     amountRub = FRIEND_PRICE_RUB;
-    description = "inApp — Друг проекта (всё навсегда)";
+    description = "inApp — Весь сайт навсегда";
     metadata = { userId: u.id, kind: "lifetime", promo: "friend" };
   } else {
     // Legacy token pack (kept for backward compatibility; not shown in UI).

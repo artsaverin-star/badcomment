@@ -45,8 +45,8 @@ export default async function RootLayout({
   // The DS ships light as :root and dark under [data-theme="dark"]; default to
   // light and let the header's ThemeSwitch flip the cookie to dark on request.
   const theme = (await cookies()).get("theme")?.value === "dark" ? "dark" : "light";
-  // Show the launch «Друг проекта» badge to everyone who doesn't already own
-  // everything (lifetime / admin / friend).
+  // Show the launch-price badge (LaunchOffer) to everyone who doesn't already
+  // own everything (lifetime / admin / friend).
   const access = await getAccess();
   return (
     <html

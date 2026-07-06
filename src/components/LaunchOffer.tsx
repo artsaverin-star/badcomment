@@ -8,9 +8,10 @@ import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
 // Launch-promo entry point that lives in the header: an animated discount badge
-// that opens the «Друг проекта» offer — lifetime access to everything forever at
-// the discounted launch price. Reuses the YooKassa flow (kind: "friend", which
-// the server maps to a lifetime grant).
+// that opens the single lifetime offer at the discounted launch price. The copy
+// mirrors BuyButton word for word — one offer, one voice on every surface.
+// Reuses the YooKassa flow (kind: "friend", which the server maps to a
+// lifetime grant — the API param name is legacy, do not rename).
 export default function LaunchOffer({
   locale = "ru",
   loggedIn,
@@ -26,7 +27,7 @@ export default function LaunchOffer({
 
   function openOffer() {
     setErr(null);
-    trackBeginCheckout({ id: "friend", name: "Друг проекта", price: FRIEND_PRICE_RUB });
+    trackBeginCheckout({ id: "friend", name: "Весь сайт навсегда", price: FRIEND_PRICE_RUB });
     setOpen(true);
   }
 
@@ -36,7 +37,7 @@ export default function LaunchOffer({
       setAuth(true);
       return;
     }
-    trackAddPaymentInfo({ id: "friend", name: "Друг проекта", price: FRIEND_PRICE_RUB }, method);
+    trackAddPaymentInfo({ id: "friend", name: "Весь сайт навсегда", price: FRIEND_PRICE_RUB }, method);
     setBusy(method);
     setErr(null);
     try {
@@ -56,8 +57,8 @@ export default function LaunchOffer({
   }
 
   const benefits = ru
-    ? ["Все разборы категорий открыты навсегда", "Все идеи и спец-статьи", "Каждая новая публикация и ниша тоже входит", "Один платёж, больше никогда"]
-    : ["Every category breakdown, open forever", "All ideas and special reports", "Every future publication and niche included", "One payment, never again"];
+    ? ["Все категории и идеи под подтверждённый спрос", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
+    : ["Every category and demand-backed idea", "New niches included, no extra cost", "One payment, access forever"];
 
   return (
     <>
@@ -65,7 +66,7 @@ export default function LaunchOffer({
       <button
         type="button"
         onClick={openOffer}
-        aria-label={ru ? "Спецпредложение" : "Special offer"}
+        aria-label={ru ? "Цена для первых" : "Founding price"}
         className="promo-badge relative flex h-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-brand)] px-3 text-footnote font-bold text-white"
       >
         <span className="promo-ring absolute -inset-0.5 -z-10 rounded-full bg-[var(--color-accent-brand)] opacity-0" aria-hidden />
@@ -80,8 +81,8 @@ export default function LaunchOffer({
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-caption font-semibold text-[var(--color-text-brand)]">{ru ? "В честь запуска" : "Launch offer"}</div>
-                <div className="mt-1.5 text-title2 text-[var(--color-text-primary)]">{ru ? "Стать другом проекта" : "Become a friend of the project"}</div>
+                <div className="text-caption font-semibold text-[var(--color-text-brand)]">{ru ? "Доступ для первых" : "Founding access"}</div>
+                <div className="mt-1.5 text-title2 text-[var(--color-text-primary)]">{ru ? "Весь сайт навсегда" : "The whole site, forever"}</div>
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" strokeLinecap="round" /></svg>
@@ -90,14 +91,17 @@ export default function LaunchOffer({
 
             <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">
               {ru
-                ? "Пожизненный доступ ко всем разборам, идеям и статьям — навсегда. Поддержи проект на старте и больше никогда не плати."
-                : "Lifetime access to every breakdown, idea and article — forever. Back the project at launch and never pay again."}
+                ? "Забираешь весь сайт навсегда: все разборы, идеи под спрос и народный рейтинг, включая всё, что выйдет дальше."
+                : "Take the whole site forever: every breakdown, demand-backed idea and the people's rating, including everything that comes next."}
             </p>
 
-            <div className="flex items-end gap-3">
-              <span className="text-stat text-[var(--color-text-primary)]">{FRIEND_PRICE_RUB}&nbsp;₽</span>
-              <span className="pb-1 text-subhead font-semibold text-[var(--color-text-tertiary)] line-through">{LIFETIME.rub}&nbsp;₽</span>
-              <span className="mb-1 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+            <div>
+              <div className="flex items-end gap-3">
+                <span className="text-stat text-[var(--color-text-primary)]">{FRIEND_PRICE_RUB}&nbsp;₽</span>
+                <span className="pb-1 text-subhead font-semibold text-[var(--color-text-tertiary)] line-through">{LIFETIME.rub}&nbsp;₽</span>
+                <span className="mb-1 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+              </div>
+              <p className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{ru ? "Цена для первых покупателей. Дальше дороже." : "Price for the first buyers. It goes up from here."}</p>
             </div>
 
             <ul className="flex flex-col gap-2">
@@ -111,7 +115,7 @@ export default function LaunchOffer({
 
             <div className="flex flex-col gap-2.5">
               <button type="button" onClick={() => pay("bank_card")} disabled={!!busy} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60">
-                {busy === "bank_card" ? "…" : loggedIn ? (ru ? "Картой РФ" : "Card (RU)") : (ru ? "Войти и стать другом" : "Sign in to join")}
+                {busy === "bank_card" ? "…" : loggedIn ? (ru ? "Картой РФ" : "Card (RU)") : (ru ? "Войти и открыть" : "Sign in to unlock")}
               </button>
               {loggedIn && (
                 <button type="button" onClick={() => pay("sbp")} disabled={!!busy} className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60">
