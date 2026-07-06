@@ -2,17 +2,19 @@
 
 import { useState } from "react";
 import AuthModal from "./AuthModal";
+import { CATEGORY_PRICE_RUB, FRIEND_PRICE_RUB, LIFETIME, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 // Minimal sign-in wall for the niche dossier. The market, audience and honest
-// rating are shown above it for free; the review findings live behind a free
-// login, and the ideas behind the one payment after that.
+// rating are shown above it for free; the FIRST review finding lives behind a
+// free login, the rest of the findings and the ideas behind the payment.
 export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount: number; locale?: Locale }) {
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
+  const life = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
   const items = ru
-    ? ["Выводы по реальным отзывам с прямыми цитатами", "Наблюдения, разложенные по опорам тезиса", `Дальше ${ideasCount} готовых идей под спрос (один платёж)`]
-    : ["Findings from real reviews with direct quotes", "Observations grouped by the pillars of the thesis", `Then ${ideasCount} ready demand-backed ideas (one payment)`];
+    ? ["Первый структурный вывод с наблюдениями и цитатами", `Дальше ещё два вывода, деньги ниши и ${ideasCount} идей под спрос`, `Эта ниша за ${CATEGORY_PRICE_RUB} ₽ или весь сайт навсегда за ${life} ₽`]
+    : ["The first structural finding with observations and quotes", `Then two more findings, the niche's money and ${ideasCount} demand-backed ideas`, `This niche for ${CATEGORY_PRICE_RUB} ₽ or the whole site forever for ${life} ₽`];
 
   return (
     <section className="mt-24">
@@ -22,8 +24,8 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
         </h2>
         <p className="mx-auto mt-4 max-w-[48ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Рынок, аудиторию и честный рейтинг ты уже видишь. Бесплатный вход открывает выводы: что людям ценно, что их бесит и почему, с цитатами."
-            : "You already see the market, the audience and the honest rating. A free sign-in opens the findings: what people value, what drives them away and why, with quotes."}
+            ? "Рынок, аудиторию и честный рейтинг ты уже видишь. Бесплатный вход открывает первый вывод: что людям ценно, что их бесит и почему, с цитатами."
+            : "You already see the market, the audience and the honest rating. A free sign-in opens the first finding: what people value, what drives them away and why, with quotes."}
         </p>
 
         <div className="mx-auto mt-9 flex max-w-[420px] flex-col gap-2.5 text-left">

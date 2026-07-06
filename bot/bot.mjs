@@ -18,7 +18,7 @@ const PACKS = {
 // Stars prices — mirror src/lib/tokenConfig.ts (LIFETIME.stars / DECK_STARS / CATEGORY_STARS).
 const LIFETIME = { stars: 1500 };
 const DECK_STARS = 150;
-const CATEGORY_STARS = 200;
+const CATEGORY_STARS = 150;
 const API = `https://api.telegram.org/bot${TOKEN}`;
 // Internal grant: the bot calls the site (same box) to reuse grantUnlock for
 // deck/category Stars purchases. Auth by the shared SESSION_SECRET.

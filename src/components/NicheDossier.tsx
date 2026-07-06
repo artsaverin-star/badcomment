@@ -148,9 +148,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       category: scoreFor(x.slug, locale)?.targetSegment,
     };
   });
-  // Locked teaser cards: title, one-liner and score stay visible, the paid
-  // body never reaches the client payload (same rule as the homepage deck).
-  const ideaCardsLocked = ideaCards.map(({ slug: s, title, oneLiner, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner, icon, hue, cover, score, category, locked: true }));
+  // Locked teasers: only the three strongest ideas, title + score + segment.
+  // The one-liner IS the pitch, so it stays server-side along with the body —
+  // otherwise a sign-in hands out the whole shortlist for free.
+  const ideaCardsLocked = [...ideaCards]
+    .sort((a, b) => (b.score?.composite ?? 0) - (a.score?.composite ?? 0))
+    .slice(0, 3)
+    .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score, category, categorySlug: slug, locked: true }));
   const grouped = groupFindings(thesis.pillars, cards);
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
@@ -320,14 +324,18 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             </Tile>
           )}
           <Tile wide k={ru ? "Деньги" : "Money"}>
-            <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
+            {unlocked ? (
+              <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
+            ) : (
+              <GateNote ru={ru} text={ru ? "Кто в нише платит, за что и почему большинство игроков теряет деньги. Открывается вместе с идеями." : "Who pays in this niche, for what, and why most players lose money. It opens together with the ideas."} />
+            )}
           </Tile>
         </dl>
         <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
-        <div className="mt-6"><PersonaCards segments={audSegmentsClient} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} payLocked={!unlocked} loggedIn={loggedIn} /></div>
+        <div className="mt-6"><PersonaCards segments={audSegmentsClient} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} payLocked={!unlocked} loggedIn={loggedIn} categorySlug={slug} categoryName={name} /></div>
         {weakSegs.length > 0 && (
           <div className="card-min mt-4 rounded-[22px] p-6">
             <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Кто не заплатит" : "Who won't pay"}</h3>
@@ -388,33 +396,53 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
 
-      {/* The ladder, honest at every rung: rating free, findings for a free
-          sign-in (exactly what DossierGate promises), ideas for the payment. */}
+      {/* The ladder, honest at every rung: rating free, the FIRST finding for a
+          free sign-in (exactly what DossierGate promises), the rest of the
+          findings and the ideas for the payment. Locked pillars keep only the
+          observation titles + counts as a teaser — dek, bodies and quotes stay
+          server-side. */}
       {loggedIn ? (
       <Block title={ru ? "Что показывают отзывы" : "What the reviews show"} lead={ru ? `Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.` : `Patterns from ${NF(totalObs)} observations, grouped by the pillars of the thesis.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
               <h3 className="text-title3 text-[var(--color-text-primary)]">{cap(tg(p.title))}</h3>
-              <AppLinkedText as="p" className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(p.dek)} apps={ratingApps} locale={locale} />
-              {grouped[pi].length > 0 && (
+              {unlocked || pi === 0 ? (
+                <>
+                  <AppLinkedText as="p" className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(p.dek)} apps={ratingApps} locale={locale} />
+                  {grouped[pi].length > 0 && (
+                    <div className="card-min mt-7 rounded-[22px] px-5 sm:px-6">
+                      {grouped[pi].map((f, k) => (
+                        <Disclosure
+                          key={k}
+                          head={
+                            <>
+                              <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{cap(tg(f.title))}</span>
+                              <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
+                            </>
+                          }
+                        >
+                          {(f.plus || f.minus) && <AppLinkedText as="p" className="text-callout text-[var(--color-text-secondary)]" text={tg([f.plus, f.minus].filter(Boolean).join(" "))} apps={ratingApps} locale={locale} />}
+                          <div className="mt-5 flex flex-col gap-2.5">
+                            {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
+                          </div>
+                        </Disclosure>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
                 <div className="card-min mt-7 rounded-[22px] px-5 sm:px-6">
                   {grouped[pi].map((f, k) => (
-                    <Disclosure
-                      key={k}
-                      head={
-                        <>
-                          <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{cap(tg(f.title))}</span>
-                          <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
-                        </>
-                      }
-                    >
-                      {(f.plus || f.minus) && <AppLinkedText as="p" className="text-callout text-[var(--color-text-secondary)]" text={tg([f.plus, f.minus].filter(Boolean).join(" "))} apps={ratingApps} locale={locale} />}
-                      <div className="mt-5 flex flex-col gap-2.5">
-                        {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
-                      </div>
-                    </Disclosure>
+                    <div key={k} className="flex items-start gap-4 border-b border-[var(--color-border-subtle)] py-4">
+                      <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-tertiary)]">{cap(tg(f.title))}</span>
+                      <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
+                    </div>
                   ))}
+                  <div className="py-4">
+                    <GateNote ru={ru} text={ru ? "Сам вывод и наблюдения с цитатами под замком." : "The finding itself and its observations with quotes are locked."} />
+                  </div>
                 </div>
               )}
             </div>
@@ -454,22 +482,22 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </div>
       </Block>
       ) : (
-      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Идеи под подтверждённый спрос: что строить, для кого и как заработать. Полный разбор каждой открывает один платёж." : "Demand-backed ideas: what to build, for whom and how to make money. One payment opens the full write-up of each."}>
+      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? `Три сильнейшие идеи ниши как витрина, всего их ${ideas.length}. Внутри каждой механика, деньги и пруф цитатами.` : `The three strongest ideas of the niche as a showcase, ${ideas.length} in total. Inside each: mechanics, money and quoted proof.`}>
         <div className="mt-6"><IdeaCards ideas={ideaCardsLocked} loggedIn={loggedIn} locale={locale} columns={2} /></div>
         <section id="unlock" className="card-min mt-8 rounded-[24px] px-6 py-12 text-center sm:px-10 sm:py-14">
           <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `${ideas.length} идей под спрос этой ниши` : `${ideas.length} demand-backed ideas for this niche`}</h3>
           <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
             {ru
-              ? `Внутри каждой: чего не хватает в нише, механика продукта, кто уже платит и сколько, пруф цитатами из ${NF(totalObs)} наблюдений. Один платёж открывает весь сайт навсегда, включая оценку выручки и выводы о деньгах.`
-              : `Inside each one: what the niche is missing, the product mechanics, who already pays and how much, proof quoted from ${NF(totalObs)} observations. One payment opens the whole site forever, including the revenue estimate and the money takeaways.`}
+              ? `Внутри каждой: чего не хватает в нише, механика продукта, кто уже платит и сколько, пруф цитатами из ${NF(totalObs)} наблюдений. Плюс закрытые выводы, оценка выручки и вывод о деньгах. Эта ниша целиком или сразу весь сайт навсегда.`
+              : `Inside each one: what the niche is missing, the product mechanics, who already pays and how much, proof quoted from ${NF(totalObs)} observations. Plus the locked findings, the revenue estimate and the money takeaway. This niche in full, or the whole site forever.`}
           </p>
           <div className="mt-8 flex justify-center">
             <BuyButton
-              kind="category"
-              slug={slug}
-              price={catPrice}
               loggedIn={loggedIn}
               locale={locale}
+              categorySlug={slug}
+              categoryPrice={catPrice}
+              categoryName={name}
               starsHref={catStarsHref}
               starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
               lifetimePrice={LIFETIME.rub}

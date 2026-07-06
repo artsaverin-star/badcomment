@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
+import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 // Playing-card style decks for the /test prototype: portrait cards with a
@@ -275,7 +276,7 @@ function CardFace({ icon, art, banner, hue, cover, title, desc, footer, onClick,
           {icon && !art && <Icon name={icon} className="size-7 shrink-0 text-[var(--color-text-primary)]" />}
           <div className="min-w-0 text-balance break-words text-headline text-[var(--color-text-primary)]">{title}</div>
         </div>
-        <div className="w-full break-words text-callout text-[var(--color-text-secondary)]">{desc}</div>
+        {desc && <div className="w-full break-words text-callout text-[var(--color-text-secondary)]">{desc}</div>}
         {footer && <div className="mt-auto pt-1">{footer}</div>}
       </div>
     </button>
@@ -313,7 +314,7 @@ function Bullets({ items, cross }: { items: string[]; cross?: boolean }) {
   );
 }
 
-export function PersonaCards({ segments, covers, hue, locked, payLocked, loggedIn = false, locale = "ru" }: { segments: Persona[]; covers?: (string | undefined)[]; hue?: number; locked?: boolean; payLocked?: boolean; loggedIn?: boolean; locale?: Locale }) {
+export function PersonaCards({ segments, covers, hue, locked, payLocked, loggedIn = false, categorySlug, categoryName, locale = "ru" }: { segments: Persona[]; covers?: (string | undefined)[]; hue?: number; locked?: boolean; payLocked?: boolean; loggedIn?: boolean; categorySlug?: string; categoryName?: string; locale?: Locale }) {
   const [open, setOpen] = useState<Persona | null>(null);
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
@@ -354,7 +355,7 @@ export function PersonaCards({ segments, covers, hue, locked, payLocked, loggedI
             {payLocked ? (
               <>
                 <p>{ru ? "Этот вывод открывается вместе с идеями ниши: кто платит, сколько и за что." : "This conclusion opens together with the niche ideas: who pays, how much and for what."}</p>
-                <div className="mt-4"><BuyButton loggedIn={loggedIn} locale={locale} /></div>
+                <div className="mt-4"><BuyButton loggedIn={loggedIn} locale={locale} categorySlug={categorySlug} categoryPrice={categorySlug ? CATEGORY_PRICE_RUB : undefined} categoryName={categoryName} /></div>
               </>
             ) : (
               open.payNote
@@ -473,7 +474,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
         <Modal onClose={() => setLockedOpen(null)} locale={locale}>
           {lockedOpen.category && <div className="text-caption text-[var(--color-text-tertiary)]">{lockedOpen.category}</div>}
           <h3 className="mt-1.5 text-title3 text-balance text-[var(--color-text-primary)]">{lockedOpen.title}</h3>
-          <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{lockedOpen.oneLiner}</p>
+          {lockedOpen.oneLiner && <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{lockedOpen.oneLiner}</p>}
           {lockedOpen.score && <div className="mt-5"><ScoreBlock score={lockedOpen.score} locale={locale} /></div>}
           <Sec k={ru ? "Полный разбор идеи закрыт" : "The full write-up is locked"}>
             <ul className="flex flex-col gap-2">
@@ -488,7 +489,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
               ))}
             </ul>
           </Sec>
-          <div className="mt-5 flex justify-center"><BuyButton loggedIn={loggedIn} locale={locale} /></div>
+          <div className="mt-5 flex justify-center"><BuyButton loggedIn={loggedIn} locale={locale} categorySlug={lockedOpen.categorySlug} categoryPrice={lockedOpen.categorySlug ? CATEGORY_PRICE_RUB : undefined} categoryName={lockedOpen.category} /></div>
         </Modal>
       )}
     </>

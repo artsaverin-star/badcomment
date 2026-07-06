@@ -142,14 +142,24 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   // The top 3 of the full catalog wear an animated flame crown; inside a niche
   // filter three of eight cards on fire would read as noise, so no crowns there.
   const shown = all.slice(0, limit).map((i, idx) => {
-    const card = owner ? cardOf(i, idx) : { ...cardOf(i, idx), locked: true };
+    // Locked cards drop the one-liner: it IS the pitch, so it must not reach
+    // the client. Title + score stay as the teaser.
+    const card = owner ? cardOf(i, idx) : { ...cardOf(i, idx), oneLiner: "", locked: true };
     return !cat && idx < 3 ? { ...card, rank: idx + 1 } : card;
   });
 
   // The free taste: a few fully open ideas that rotate daily, drawn from the
   // strong middle of the ranking so the crown of the leaderboard stays paid.
   // Signing in widens today's sample — the free step of the ladder stays real.
-  const showcasePool = cat ? [] : all.slice(limit, limit + 120);
+  // The default sort is hype, not composite, so guard the composite crown
+  // explicitly — otherwise a top-scored idea slips into the free showcase.
+  const scoreCrown = new Set(
+    [...all]
+      .sort((a, b) => (scoreFor(b.slug, locale)?.composite ?? 0) - (scoreFor(a.slug, locale)?.composite ?? 0))
+      .slice(0, 20)
+      .map((i) => i.slug),
+  );
+  const showcasePool = cat ? [] : all.slice(limit, limit + 120).filter((i) => !scoreCrown.has(i.slug));
   const showcaseCount = Math.min(loggedIn ? 6 : 3, showcasePool.length);
   // Server component on a force-dynamic route: the day index picks today's
   // rotation and is stable within a render.
@@ -162,12 +172,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         .map((i, idx) => ({ ...cardOf(i, idx), ...depthOf(i) }));
 
   // A blurred peek of what is behind the gate: the next few ideas, locked.
+  // No one-liners here either — blurred text is still text in the DOM.
   const lockedPreview = gate
     ? all.slice(limit, limit + 3).map((i, idx) => {
         const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
         return {
         title: cleanTitle(ideaCard(i.slug, locale)?.title ?? en?.title ?? i.title),
-        oneLiner: ideaCard(i.slug, locale)?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
+        oneLiner: "",
         icon: ICONS[idx % ICONS.length],
         score: scoreFor(i.slug, locale) ?? undefined,
         category: nameOf(i.category),
