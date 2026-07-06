@@ -151,11 +151,24 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   // Locked teasers: only the three strongest ideas, title + score + segment.
   // The one-liner IS the pitch, so it stays server-side along with the body —
   // otherwise a sign-in hands out the whole shortlist for free.
-  const ideaCardsLocked = [...ideaCards]
-    .sort((a, b) => (b.score?.composite ?? 0) - (a.score?.composite ?? 0))
+  const ideasByScore = [...ideaCards].sort((a, b) => (b.score?.composite ?? 0) - (a.score?.composite ?? 0));
+  const ideaCardsLocked = ideasByScore
     .slice(0, 3)
     .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score, category, categorySlug: slug, locked: true }));
+  // The sample: one mid-ranked idea fully open, so the paid depth is visible
+  // in-context (the crown of the niche stays locked).
+  const sampleIdea = ideasByScore.length > 3 ? ideasByScore[3] : ideasByScore[ideasByScore.length - 1];
   const grouped = groupFindings(thesis.pillars, cards);
+  // Observations sitting behind the lock (pillars 02+) — real numbers for the
+  // offer receipt.
+  const lockedObs = grouped.slice(1).flat().reduce((s, f) => s + (f.count || 0), 0);
+  const obsWord = (n: number) => {
+    if (!ru) return n === 1 ? "observation" : "observations";
+    const d = n % 10, dd = n % 100;
+    if (d === 1 && dd !== 11) return "наблюдение";
+    if (d >= 2 && d <= 4 && (dd < 12 || dd > 14)) return "наблюдения";
+    return "наблюдений";
+  };
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
   const totalObs = cards.reduce((s, c) => s + (c.count || 0), 0);
@@ -432,17 +445,17 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                   )}
                 </>
               ) : (
-                <div className="card-min mt-7 rounded-[22px] px-5 sm:px-6">
-                  {grouped[pi].map((f, k) => (
-                    <div key={k} className="flex items-start gap-4 border-b border-[var(--color-border-subtle)] py-4">
-                      <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-tertiary)]">{cap(tg(f.title))}</span>
-                      <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
-                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
-                    </div>
-                  ))}
-                  <div className="py-4">
-                    <GateNote ru={ru} text={ru ? "Сам вывод и наблюдения с цитатами под замком." : "The finding itself and its observations with quotes are locked."} />
-                  </div>
+                // Even the observation titles are conclusions in this catalog,
+                // so a locked pillar shows only the count — nothing readable.
+                <div className="card-min mt-7 rounded-[22px] px-5 py-5 sm:px-6">
+                  <GateNote
+                    ru={ru}
+                    text={(() => {
+                      const n = grouped[pi].reduce((s, f) => s + (f.count || 0), 0);
+                      if (!n) return ru ? "Вывод с цитатами под замком." : "The finding with its quotes is locked.";
+                      return ru ? `Вывод и ${n} ${obsWord(n)} с цитатами под замком.` : `The finding and ${n} ${obsWord(n)} with quotes are locked.`;
+                    })()}
+                  />
                 </div>
               )}
             </div>
@@ -482,15 +495,39 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </div>
       </Block>
       ) : (
-      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? `Три сильнейшие идеи ниши как витрина, всего их ${ideas.length}. Внутри каждой механика, деньги и пруф цитатами.` : `The three strongest ideas of the niche as a showcase, ${ideas.length} in total. Inside each: mechanics, money and quoted proof.`}>
+      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? `Всего идей ${ideas.length}. Три сильнейшие под замком, одна открыта целиком как образец.` : `${ideas.length} ideas in total. The three strongest are locked, one is open in full as a sample.`}>
         <div className="mt-6"><IdeaCards ideas={ideaCardsLocked} loggedIn={loggedIn} locale={locale} columns={2} /></div>
-        <section id="unlock" className="card-min mt-8 rounded-[24px] px-6 py-12 text-center sm:px-10 sm:py-14">
-          <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `${ideas.length} идей под спрос этой ниши` : `${ideas.length} demand-backed ideas for this niche`}</h3>
-          <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
-            {ru
-              ? `Внутри каждой: чего не хватает в нише, механика продукта, кто уже платит и сколько, пруф цитатами из ${NF(totalObs)} наблюдений. Плюс закрытые выводы, оценка выручки и вывод о деньгах. Эта ниша целиком или сразу весь сайт навсегда.`
-              : `Inside each one: what the niche is missing, the product mechanics, who already pays and how much, proof quoted from ${NF(totalObs)} observations. Plus the locked findings, the revenue estimate and the money takeaway. This niche in full, or the whole site forever.`}
-          </p>
+        {sampleIdea && (
+          <div className="mt-12">
+            <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Образец" : "Sample"}</div>
+            <h3 className="mt-3 text-title3 text-[var(--color-text-primary)]">{ru ? "Одна идея открыта целиком" : "One idea, fully open"}</h3>
+            <p className="mt-2.5 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">{ru ? `Открой и посмотри: так внутри выглядит каждая из ${ideas.length}.` : `Open it and see: this is what each of the ${ideas.length} looks like inside.`}</p>
+            <div className="mt-5"><IdeaCards ideas={[sampleIdea]} loggedIn={loggedIn} locale={locale} columns={2} /></div>
+          </div>
+        )}
+        <section id="unlock" className="card-min mt-10 rounded-[24px] px-6 py-12 text-center sm:px-10 sm:py-14">
+          <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `Что открывают ${catPrice} ₽` : `What ${catPrice} ₽ opens`}</h3>
+          <div className="mx-auto mt-7 flex max-w-[440px] flex-col gap-2.5 text-left">
+            {(ru
+              ? [
+                  `${ideas.length} идей целиком: механика, анти-фичи, монетизация и цены из отзывов`,
+                  `Закрытые выводы: ${lockedObs} ${obsWord(lockedObs)} с прямыми цитатами`,
+                  "Оценка выручки топов и вывод, где деньги",
+                  "Кто из сегментов платит, сколько и за что",
+                ]
+              : [
+                  `${ideas.length} ideas in full: mechanics, anti-features, monetization and prices from reviews`,
+                  `The locked findings: ${lockedObs} ${obsWord(lockedObs)} with direct quotes`,
+                  "The revenue estimate and the money takeaway",
+                  "Which segments pay, how much and for what",
+                ]
+            ).map((it, i) => (
+              <div key={i} className="flex items-start gap-3 rounded-[14px] bg-[var(--color-bg-muted)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">
+                <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-0.5 shrink-0 text-[#30d158]"><circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.8 9.2l2.1 2.1 4.3-4.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {it}
+              </div>
+            ))}
+          </div>
           <div className="mt-8 flex justify-center">
             <BuyButton
               loggedIn={loggedIn}

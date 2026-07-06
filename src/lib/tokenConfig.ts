@@ -19,7 +19,7 @@ export const LAUNCH_PROMO = true;
 
 // ── Direct-₽ model ─────────────────────────────────────────────────────────
 export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever
-export const CATEGORY_PRICE_RUB = 300; // unlock one full niche (ideas + findings + money) — the entry SKU next to lifetime
+export const CATEGORY_PRICE_RUB = 290; // unlock one full niche (ideas + findings + money) — the entry SKU next to lifetime
 export const DECK_STARS = 150; // Telegram Stars price for the deck (mirror in bot/bot.mjs)
 export const CATEGORY_STARS = 150; // Telegram Stars price for a category (mirror in bot/bot.mjs)
 export const DECK_CREDIT_RUB = DECK_PRICE_RUB; // deck price credits toward a later category/lifetime
