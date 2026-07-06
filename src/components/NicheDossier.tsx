@@ -109,8 +109,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const cards = ((categoryCards(slug, locale)?.product as Finding[] | undefined) ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === slug);
 
-  // Gating: market + rating + breakdown are free (SEO proof). Audience opens for
-  // a free login (lead capture). Ideas open for payment (the payload).
+  // Gating ladder: market, audience shapes and the honest rating are free
+  // (SEO proof). Review findings open for a free sign-in (lead capture).
+  // Ideas and the money conclusions (revenue estimate, "where the money is",
+  // per-segment pay notes) open for the one payment (the payload).
   const access = await getAccess();
   const loggedIn = access.loggedIn;
   const unlocked = access.has("category", slug) || access.has("chapter", slug) || ideas.some((i) => access.has("idea", i.slug));
@@ -121,6 +123,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
   const aud = dossier.audience;
   const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
+  // payNote is a paid conclusion: for locked users it must not reach the
+  // client payload at all, the persona modal shows the offer in its place.
+  const audSegmentsClient = unlocked ? audSegments : audSegments.map((s) => ({ ...s, payNote: "" }));
   const ideaIcons = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
   const ideaCards = ideas.map((x, i) => {
     const e = ru ? undefined : enIdeas[x.slug];
@@ -143,6 +148,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       category: scoreFor(x.slug, locale)?.targetSegment,
     };
   });
+  // Locked teaser cards: title, one-liner and score stay visible, the paid
+  // body never reaches the client payload (same rule as the homepage deck).
+  const ideaCardsLocked = ideaCards.map(({ slug: s, title, oneLiner, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner, icon, hue, cover, score, category, locked: true }));
   const grouped = groupFindings(thesis.pillars, cards);
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
@@ -287,9 +295,15 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           </Tile>
           {mkt?.revenue && (
             <Tile wide k={ru ? "Оценка выручки" : "Revenue estimate"}>
-              <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{revLoc(mkt.revenue.low)}-{revLoc(mkt.revenue.high)}</span>
-              <span className="mt-1.5 block text-footnote text-[var(--color-text-secondary)]">{ru ? "в год у топ-приложений ниши" : "a year for the niche's top apps"}</span>
-              <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
+              {unlocked ? (
+                <>
+                  <span className="block text-title2 tabular-nums text-[var(--color-text-primary)]">{revLoc(mkt.revenue.low)}-{revLoc(mkt.revenue.high)}</span>
+                  <span className="mt-1.5 block text-footnote text-[var(--color-text-secondary)]">{ru ? "в год у топ-приложений ниши" : "a year for the niche's top apps"}</span>
+                  <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru ? "Оценка: установки Google Play × 0.5-2% платящих × медианная цена из отзывов. Грубо, для порядка величины." : "Estimate: Google Play installs × 0.5-2% payers × median price from reviews. Rough, order of magnitude."}</span>
+                </>
+              ) : (
+                <GateNote ru={ru} text={ru ? "Сколько топы ниши зарабатывают в год. Число открывается вместе с идеями." : "What the niche's top apps make a year. The number opens together with the ideas."} />
+              )}
             </Tile>
           )}
           <Tile wide k={ru ? "Доверие" : "Trust"}>
@@ -313,7 +327,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
-        <div className="mt-6"><PersonaCards segments={audSegments} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} /></div>
+        <div className="mt-6"><PersonaCards segments={audSegmentsClient} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} payLocked={!unlocked} loggedIn={loggedIn} /></div>
         {weakSegs.length > 0 && (
           <div className="card-min mt-4 rounded-[22px] p-6">
             <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Кто не заплатит" : "Who won't pay"}</h3>
@@ -332,7 +346,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             inverted tile, the page's single strong accent. */}
         <div className="mt-6 rounded-[22px] bg-[var(--color-text-primary)] p-6 sm:p-7">
           <h3 className="text-caption text-[color-mix(in_srgb,var(--color-bg-page)_65%,transparent)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-          <p className="mt-2.5 max-w-[58ch] text-body text-pretty text-[var(--color-bg-page)]">{tg(aud.takeaway)}</p>
+          {unlocked ? (
+            <p className="mt-2.5 max-w-[58ch] text-body text-pretty text-[var(--color-bg-page)]">{tg(aud.takeaway)}</p>
+          ) : (
+            <div className="mt-2.5">
+              <GateNote ru={ru} invert text={ru ? "Главный вывод о деньгах ниши. Открывается вместе с идеями." : "The niche's main money takeaway. It opens together with the ideas."} />
+            </div>
+          )}
         </div>
       </Block>
 
@@ -368,10 +388,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
 
+      {/* The ladder, honest at every rung: rating free, findings for a free
+          sign-in (exactly what DossierGate promises), ideas for the payment. */}
       {loggedIn ? (
-        <>
-      {unlocked ? (
-        <>
       <Block title={ru ? "Что показывают отзывы" : "What the reviews show"} lead={ru ? `Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.` : `Patterns from ${NF(totalObs)} observations, grouped by the pillars of the thesis.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
@@ -402,7 +421,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           ))}
         </div>
       </Block>
+      ) : (
+        <div id="unlock"><DossierGate ideasCount={ideas.length} locale={locale} /></div>
+      )}
 
+      {/* Ideas are the paid payload. Locked users see teaser cards (title,
+          one-liner, score) and the single offer right at the lock. */}
+      {loggedIn && (unlocked ? (
       <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши." : "Every idea is a real business, built on reading all the reviews in the niche."}>
         <div className="mt-6"><IdeaCards ideas={ideaCards} locale={locale} columns={2} /></div>
         <div className="card-min mt-6 rounded-[22px] p-6 sm:p-7">
@@ -428,36 +453,32 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           </ol>
         </div>
       </Block>
-        </>
       ) : (
-        <section className="mt-24">
-          <div className="card-min rounded-[24px] px-6 py-14 text-center sm:px-10 sm:py-16">
-            <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `Выводы по отзывам и ${ideas.length} идей` : `Conclusions from reviews and ${ideas.length} ideas`}</h3>
-            <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
-              {ru
-                ? `Структурные выводы по ${NF(totalObs)} наблюдениям с прямыми цитатами и ${ideas.length} идей под спрос: что строить, для кого и как заработать. Один платёж открывает весь сайт навсегда: все категории, все идеи и народный рейтинг.`
-                : `Structural conclusions from ${NF(totalObs)} observations with direct quotes and ${ideas.length} demand-backed ideas: what to build, for whom and how to make money. One payment unlocks the whole site forever: every category, every idea and the people's rating.`}
-            </p>
-            <div className="mt-8 flex justify-center">
-              <BuyButton
-                kind="category"
-                slug={slug}
-                price={catPrice}
-                loggedIn={loggedIn}
-                locale={locale}
-                starsHref={catStarsHref}
-                starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
-                lifetimePrice={LIFETIME.rub}
-                lifetimeStarsHref={lifeStarsHref}
-              />
-            </div>
+      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Идеи под подтверждённый спрос: что строить, для кого и как заработать. Полный разбор каждой открывает один платёж." : "Demand-backed ideas: what to build, for whom and how to make money. One payment opens the full write-up of each."}>
+        <div className="mt-6"><IdeaCards ideas={ideaCardsLocked} loggedIn={loggedIn} locale={locale} columns={2} /></div>
+        <section id="unlock" className="card-min mt-8 rounded-[24px] px-6 py-12 text-center sm:px-10 sm:py-14">
+          <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `${ideas.length} идей под спрос этой ниши` : `${ideas.length} demand-backed ideas for this niche`}</h3>
+          <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
+            {ru
+              ? `Внутри каждой: чего не хватает в нише, механика продукта, кто уже платит и сколько, пруф цитатами из ${NF(totalObs)} наблюдений. Один платёж открывает весь сайт навсегда, включая оценку выручки и выводы о деньгах.`
+              : `Inside each one: what the niche is missing, the product mechanics, who already pays and how much, proof quoted from ${NF(totalObs)} observations. One payment opens the whole site forever, including the revenue estimate and the money takeaways.`}
+          </p>
+          <div className="mt-8 flex justify-center">
+            <BuyButton
+              kind="category"
+              slug={slug}
+              price={catPrice}
+              loggedIn={loggedIn}
+              locale={locale}
+              starsHref={catStarsHref}
+              starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
+              lifetimePrice={LIFETIME.rub}
+              lifetimeStarsHref={lifeStarsHref}
+            />
           </div>
         </section>
-      )}
-        </>
-      ) : (
-        <DossierGate ideasCount={ideas.length} locale={locale} />
-      )}
+      </Block>
+      ))}
 
       {related.length > 0 && (
         <Block title={ru ? "Соседние ниши" : "Nearby niches"} lead={ru ? "Разборы рядом: та же аудитория, соседние работы." : "Breakdowns next door: same audience, adjacent jobs."}>
@@ -517,6 +538,22 @@ function BigStat({ value, sub }: { value: string; sub: string }) {
       <span className="block text-stat tabular-nums text-[var(--color-text-primary)]">{value}</span>
       <span className="mt-2 block text-footnote text-[var(--color-text-secondary)]">{sub}</span>
     </>
+  );
+}
+
+// Locked slot for a money conclusion: the value itself never reaches the
+// client, the note funnels into the single offer at #unlock.
+function GateNote({ ru, text, invert }: { ru: boolean; text: string; invert?: boolean }) {
+  const base = invert ? "text-[color-mix(in_srgb,var(--color-bg-page)_80%,transparent)]" : "text-[var(--color-text-secondary)]";
+  const strong = invert ? "text-[var(--color-bg-page)]" : "text-[var(--color-text-primary)]";
+  return (
+    <span className="flex items-start gap-2.5">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className={`mt-[3px] shrink-0 ${base}`}><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
+      <span className={`text-callout ${base}`}>
+        {text}{" "}
+        <a href="#unlock" className={`font-semibold underline underline-offset-2 ${strong}`}>{ru ? "Открыть" : "Unlock"}</a>
+      </span>
+    </span>
   );
 }
 

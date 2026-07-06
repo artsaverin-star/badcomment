@@ -313,7 +313,7 @@ function Bullets({ items, cross }: { items: string[]; cross?: boolean }) {
   );
 }
 
-export function PersonaCards({ segments, covers, hue, locked, locale = "ru" }: { segments: Persona[]; covers?: (string | undefined)[]; hue?: number; locked?: boolean; locale?: Locale }) {
+export function PersonaCards({ segments, covers, hue, locked, payLocked, loggedIn = false, locale = "ru" }: { segments: Persona[]; covers?: (string | undefined)[]; hue?: number; locked?: boolean; payLocked?: boolean; loggedIn?: boolean; locale?: Locale }) {
   const [open, setOpen] = useState<Persona | null>(null);
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
@@ -350,7 +350,16 @@ export function PersonaCards({ segments, covers, hue, locked, locale = "ru" }: {
           <h3 className="text-headline text-[var(--color-text-primary)]">{open.name}</h3>
           <div className="mt-2.5"><PayPill level={open.payLevel} locale={locale} /></div>
           <p className="mt-3 text-callout text-[var(--color-text-secondary)]">{open.job}</p>
-          <Sec k={ru ? "Сколько платит" : "How much they pay"}>{open.payNote}</Sec>
+          <Sec k={ru ? "Сколько платит" : "How much they pay"}>
+            {payLocked ? (
+              <>
+                <p>{ru ? "Этот вывод открывается вместе с идеями ниши: кто платит, сколько и за что." : "This conclusion opens together with the niche ideas: who pays, how much and for what."}</p>
+                <div className="mt-4"><BuyButton loggedIn={loggedIn} locale={locale} /></div>
+              </>
+            ) : (
+              open.payNote
+            )}
+          </Sec>
           <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>
           <Sec k={ru ? "Сейчас обслуживают" : "Served today"}><span className="text-[var(--color-text-tertiary)]">{open.servedBy.join(", ")}</span></Sec>
         </Modal>
