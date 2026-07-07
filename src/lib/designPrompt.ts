@@ -16,8 +16,8 @@ const SCREENS_PER_PART = 3;
 
 // One accent per niche, derived from the same hue the site's art wash uses,
 // so the mockups visually rhyme with the niche's pages.
-function accentHex(slug: string): string {
-  const h = hueFromSlug(slug);
+function accentHex(slug: string, shift = 0): string {
+  const h = (hueFromSlug(slug) + shift) % 360;
   const s = 0.62, l = 0.46;
   const k = (n: number) => (n + h / 30) % 12;
   const a = s * Math.min(l, 1 - l);
@@ -47,6 +47,7 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
   const monetization = en?.monetization ?? idea.idea?.monetization;
   const score = scoreFor(slug, locale);
   const accent = accentHex(idea.category);
+  const accent2 = accentHex(idea.category, 45);
 
   if (ru) {
     const screens: string[] = [
@@ -66,22 +67,25 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
       score?.targetSegment ? `Для кого: ${score.targetSegment}.${score.whyPay ? ` Почему платят: ${score.whyPay}` : ""}` : "",
       gap ? `Дыра в нише, которую закрываем: ${gap}` : "",
       ``,
-      `Дизайн-система (применять на каждом экране без отклонений, запомни её):`,
-      `- Светлая тема. Палитра: фон #F7F7F5, карточки #FFFFFF, основной текст #141414, вторичный #71717A, единственный акцент ${accent}. Никаких градиентов и неона`,
-      `- Типографика: SF Pro или Inter. Крупные числа 34pt bold, заголовок экрана 22pt semibold, обычный текст 17pt, подписи 13pt`,
-      `- Компоненты: карточки со скруглением 20, главная кнопка-пилюля высотой 52 на всю ширину, таб-бар с 3-4 вкладками, списки в стиле iOS inset grouped`,
+      `Дизайн-система (применять на каждом экране без отклонений, запомни её). Уровень: победитель Apple Design Awards, стиль-референсы Linear, Arc, Revolut, Whoop:`,
+      `- Тёмная тема. Фон: глубокий графит #0C0C10 с едва заметным зерном. Текст: #F5F5F7, вторичный #8E8E97`,
+      `- Акцент: живой градиент от ${accent} к ${accent2}, мягкое свечение вокруг ключевых элементов. Больше никаких цветов`,
+      `- Стекло в духе Apple Liquid Glass: полупрозрачные карточки с блюром фона, тонкая светлая обводка 1px, ощущение глубины и слоёв`,
+      `- Типографика: SF Pro или Inter, tight tracking. Огромные цифры 48-56pt heavy как главный герой экрана, заголовок 22pt semibold, текст 17pt, подписи 13pt`,
+      `- Дата-виз: кольца прогресса с градиентом, спарклайны, крупные метрики. Данные выглядят живыми, а не декоративными`,
+      `- Компоновка: бенто-сетка из карточек-суперэллипсов (скругление 24-28), кнопка-пилюля 56 с градиентом и свечением, плавающий таб-бар со стеклом`,
       `- Контент экранов: реалистичные данные пользователя из этой ниши, никакого lorem ipsum, цифры правдоподобные`,
-      `- Плотность: много воздуха, одна главная мысль на экран`,
+      `- Плотность: много воздуха, одна главная мысль на экран. Вау достигается светом, глубиной и типографикой, не нагромождением`,
       antiFeatures.length ? `- Чего в продукте НЕТ и что нельзя рисовать: ${antiFeatures.join(". ")}` : "",
       `- Не рисуй поддельные отзывы, накрученные рейтинги и агрессивные попапы`,
       ``,
-      `Всего будет ${screens.length} экранов, я пришлю их пачками по ${SCREENS_PER_PART}. Каждую пачку рисуй как ОДНО изображение: телефоны iPhone 15 Pro в ряд на нейтральном светлом фоне, по одному экрану на телефон. Сейчас ничего не рисуй, ответь «готов» и жди первую пачку.`,
+      `Всего будет ${screens.length} экранов, я пришлю их пачками по ${SCREENS_PER_PART}. Каждую пачку рисуй как ОДНО изображение: телефоны iPhone 15 Pro в ряд на глубоком тёмном фоне с мягким градиентным свечением, по одному экрану на телефон. Сейчас ничего не рисуй, ответь «готов» и жди первую пачку.`,
     ].filter(Boolean).join("\n");
 
     const parts = groups.map((g, gi) => {
       const start = gi * SCREENS_PER_PART + 1;
       return [
-        `Пачка ${gi + 1} из ${groups.length}. Одно изображение, ${g.length === 1 ? "один телефон" : `${g.length} телефона в ряд`}, наша дизайн-система без отклонений.`,
+        `Пачка ${gi + 1} из ${groups.length}. Одно изображение, ${g.length === 1 ? "один телефон" : `${g.length} телефона в ряд`} на глубоком тёмном фоне с мягким градиентным свечением, наша дизайн-система без отклонений.`,
         ...g.map((s, i) => `Экран ${start + i}. ${s}`),
       ].join("\n");
     });
@@ -107,22 +111,25 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
     score?.targetSegment ? `Who it is for: ${score.targetSegment}.${score.whyPay ? ` Why they pay: ${score.whyPay}` : ""}` : "",
     gap ? `The niche gap we close: ${gap}` : "",
     ``,
-    `Design system (apply on every screen, no deviations, memorize it):`,
-    `- Light theme. Palette: background #F7F7F5, cards #FFFFFF, primary text #141414, secondary #71717A, a single accent ${accent}. No gradients, no neon`,
-    `- Typography: SF Pro or Inter. Big numbers 34pt bold, screen title 22pt semibold, body 17pt, captions 13pt`,
-    `- Components: cards with 20pt radius, a full-width 52pt pill button, a 3-4 tab bar, iOS inset grouped lists`,
+    `Design system (apply on every screen, no deviations, memorize it). Bar: Apple Design Awards winner, style references Linear, Arc, Revolut, Whoop:`,
+    `- Dark theme. Background: deep graphite #0C0C10 with the faintest grain. Text #F5F5F7, secondary #8E8E97`,
+    `- Accent: a living gradient from ${accent} to ${accent2}, soft glow around key elements. No other colors`,
+    `- Apple Liquid Glass feel: translucent cards with background blur, a hairline 1px light stroke, layered depth`,
+    `- Typography: SF Pro or Inter, tight tracking. Huge 48-56pt heavy numbers as the hero of the screen, titles 22pt semibold, body 17pt, captions 13pt`,
+    `- Data viz: gradient progress rings, sparklines, big metrics. Data looks alive, not decorative`,
+    `- Layout: a bento grid of squircle cards (24-28 radius), a 56pt gradient pill button with glow, a floating glass tab bar`,
     `- Screen content: realistic user data from this niche, no lorem ipsum, believable numbers`,
-    `- Density: generous air, one main thought per screen`,
+    `- Density: generous air, one main thought per screen. The wow comes from light, depth and typography, not from clutter`,
     antiFeatures.length ? `- What the product does NOT do and must not be drawn: ${antiFeatures.join(". ")}` : "",
     `- Never draw fake reviews, inflated ratings or aggressive popups`,
     ``,
-    `There will be ${screens.length} screens total, sent in batches of ${SCREENS_PER_PART}. Render each batch as ONE image: iPhone 15 Pro phones in a row on a neutral light background, one screen per phone. Don't draw anything yet, reply "ready" and wait for the first batch.`,
+    `There will be ${screens.length} screens total, sent in batches of ${SCREENS_PER_PART}. Render each batch as ONE image: iPhone 15 Pro phones in a row on a deep dark background with a soft gradient glow, one screen per phone. Don't draw anything yet, reply "ready" and wait for the first batch.`,
   ].filter(Boolean).join("\n");
 
   const parts = groups.map((g, gi) => {
     const start = gi * SCREENS_PER_PART + 1;
     return [
-      `Batch ${gi + 1} of ${groups.length}. One image, ${g.length === 1 ? "one phone" : `${g.length} phones in a row`}, our design system with no deviations.`,
+      `Batch ${gi + 1} of ${groups.length}. One image, ${g.length === 1 ? "one phone" : `${g.length} phones in a row`} on a deep dark background with a soft gradient glow, our design system with no deviations.`,
       ...g.map((s, i) => `Screen ${start + i}. ${s}`),
     ].join("\n");
   });
