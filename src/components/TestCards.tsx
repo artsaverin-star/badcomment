@@ -483,8 +483,8 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
               {design.state === "ready" && design.parts ? (
                 <>
                   <p>{ru
-                    ? `Готовый сценарий отрисовки: вставляй сообщения в ChatGPT по порядку, первое задаёт дизайн-систему, дальше пачки по три экрана. Всё на английском, так картиночные модели рисуют точнее.`
-                    : `A ready render script: paste the messages into ChatGPT in order, the first sets the design system, then batches of three screens. Every screen comes out in one system.`}</p>
+                    ? `Сценарий отрисовки: первое сообщение заставит ChatGPT сначала спроектировать уникальный дизайн под эту идею (территория, палитра, структура) и показать спеку текстом. Когда направление понравится, ответь go и вставляй пачки экранов по порядку. Всё на английском, так модели рисуют точнее.`
+                    : `The render script: the first message makes ChatGPT design a unique direction for this exact idea (territory, palette, structure) and show the spec as text. When you like the direction, reply "go" and paste the screen batches in order.`}</p>
                   <div className="mt-3 flex flex-col gap-2.5">
                     {design.parts.map((p, i) => (
                       <div key={i} className="rounded-[14px] bg-[var(--color-bg-muted)] p-4">
