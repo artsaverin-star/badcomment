@@ -377,6 +377,27 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
   const [open, setOpen] = useState<Idea | null>(null);
   const [lockedOpen, setLockedOpen] = useState<Idea | null>(null);
   const [depthLoading, setDepthLoading] = useState(false);
+  // The design brief (paste-into-ChatGPT screens prompt) is strictly paid and
+  // never ships in the page payload — fetched per idea, 403 renders the offer.
+  const [design, setDesign] = useState<{ state: "idle" | "loading" | "ready" | "locked"; parts?: string[] }>({ state: "idle" });
+  const [copied, setCopied] = useState<number | null>(null);
+
+  const loadDesign = (slug: string) => {
+    setDesign({ state: "loading" });
+    setCopied(null);
+    fetch(`/api/design-prompt/${slug}?l=${ru ? "ru" : "en"}`)
+      .then(async (r) => {
+        if (r.status === 403) return setDesign({ state: "locked" });
+        if (!r.ok) return setDesign({ state: "idle" });
+        const d = await r.json();
+        setDesign(Array.isArray(d.parts) ? { state: "ready", parts: d.parts } : { state: "idle" });
+      })
+      .catch(() => setDesign({ state: "idle" }));
+  };
+
+  const copyPart = (text: string, i: number) => {
+    try { navigator.clipboard.writeText(text); setCopied(i); } catch {}
+  };
   // Render in pages and grow on scroll. Owners get the whole deck (600+ cards);
   // mounting all at once — each with an animated edge-glow ring — pins the GPU
   // and heats the phone. Rendering ~24 at a time keeps active animations bounded.
@@ -402,6 +423,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
   // pull their depth from the API when opened.
   const openCard = (x: Idea) => {
     setOpen(x);
+    if (x.slug) loadDesign(x.slug); else setDesign({ state: "idle" });
     if (!x.gap && !x.pitch && x.slug) {
       setDepthLoading(true);
       fetch(`/api/idea-depth/${x.slug}?l=${ru ? "ru" : "en"}`)
@@ -456,6 +478,41 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
           {!!open.features?.length && <Sec k={ru ? "Как устроено" : "How it works"}><Bullets items={open.features} /></Sec>}
           {!!open.antiFeatures?.length && <Sec k={ru ? "Чего не делаем" : "What we don't do"}><Bullets items={open.antiFeatures} cross /></Sec>}
           {open.monetization && <Sec k={ru ? "Деньги" : "Money"}>{open.monetization}</Sec>}
+          {open.slug && design.state !== "idle" && (
+            <Sec k={ru ? "Экраны в ChatGPT" : "Screens in ChatGPT"}>
+              {design.state === "ready" && design.parts ? (
+                <>
+                  <p>{ru
+                    ? `Готовый сценарий отрисовки: вставляй сообщения в ChatGPT по порядку, первое задаёт дизайн-систему, дальше пачки по три экрана. Все экраны выйдут в единой системе.`
+                    : `A ready render script: paste the messages into ChatGPT in order, the first sets the design system, then batches of three screens. Every screen comes out in one system.`}</p>
+                  <div className="mt-3 flex flex-col gap-2.5">
+                    {design.parts.map((p, i) => (
+                      <div key={i} className="rounded-[14px] bg-[var(--color-bg-muted)] p-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-caption font-semibold text-[var(--color-text-tertiary)]">
+                            {i === 0 ? (ru ? "Сообщение 1: дизайн-система" : "Message 1: design system") : (ru ? `Сообщение ${i + 1}` : `Message ${i + 1}`)}
+                          </span>
+                          <button type="button" onClick={() => copyPart(p, i)} className="shrink-0 rounded-full border border-[var(--color-border-subtle)] px-3 py-1 text-caption font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+                            {copied === i ? (ru ? "Скопировано" : "Copied") : (ru ? "Скопировать" : "Copy")}
+                          </button>
+                        </div>
+                        <pre className="mt-2 max-h-40 overflow-auto whitespace-pre-wrap text-[12px] leading-[1.5] text-[var(--color-text-secondary)]">{p}</pre>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : design.state === "locked" ? (
+                <>
+                  <p>{ru
+                    ? "Готовый сценарий для ChatGPT: все экраны этого приложения в единой дизайн-системе, пачками по три. Открывается с покупкой."
+                    : "A ready ChatGPT script: every screen of this app in one design system, in batches of three. Opens with the purchase."}</p>
+                  <div className="mt-4"><BuyButton loggedIn={loggedIn} locale={locale} categorySlug={open.categorySlug} categoryPrice={open.categorySlug ? CATEGORY_PRICE_RUB : undefined} categoryName={open.categoryName} /></div>
+                </>
+              ) : (
+                <p className="text-[var(--color-text-tertiary)]">{ru ? "Загружаю…" : "Loading…"}</p>
+              )}
+            </Sec>
+          )}
           {!!open.reviewGrid?.length && (
             <Sec k={ru ? "Пруф из отзывов" : "Proof from reviews"}>
               <div className="flex flex-col gap-2.5">

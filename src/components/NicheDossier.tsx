@@ -514,12 +514,14 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                   `Закрытые выводы: ${lockedObs} ${obsWord(lockedObs)} с прямыми цитатами`,
                   "Оценка выручки топов и вывод, где деньги",
                   "Кто из сегментов платит, сколько и за что",
+                  "Дизайн-промпт каждой идеи: все экраны приложения в ChatGPT в единой системе",
                 ]
               : [
                   `${ideas.length} ideas in full: mechanics, anti-features, monetization and prices from reviews`,
                   `The locked findings: ${lockedObs} ${obsWord(lockedObs)} with direct quotes`,
                   "The revenue estimate and the money takeaway",
                   "Which segments pay, how much and for what",
+                  "A design prompt per idea: every app screen in ChatGPT, one system",
                 ]
             ).map((it, i) => (
               <div key={i} className="flex items-start gap-3 rounded-[14px] bg-[var(--color-bg-muted)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">

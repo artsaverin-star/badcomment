@@ -125,8 +125,8 @@ export default function BuyButton({
   // Card РФ / СБП + the «what you get» list — shared by the popup and inline panel.
   const benefits = sku === "category" && catAvailable
     ? (ru
-      ? ["Все идеи ниши с механикой и деньгами", "Закрытые выводы с цитатами", "Оценка выручки и вывод о деньгах"]
-      : ["Every idea in the niche, with mechanics and money", "The locked findings with quotes", "Revenue estimate and the money takeaway"])
+      ? ["Все идеи ниши с механикой и деньгами", "Закрытые выводы с цитатами", "Оценка выручки и вывод о деньгах", "Дизайн-промпт экранов в ChatGPT у каждой идеи"]
+      : ["Every idea in the niche, with mechanics and money", "The locked findings with quotes", "Revenue estimate and the money takeaway", "A ChatGPT screens prompt with every idea"])
     : (ru
       ? ["Все категории и идеи под подтверждённый спрос", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
       : ["Every category and demand-backed idea", "New niches included, no extra cost", "One payment, access forever"]);
