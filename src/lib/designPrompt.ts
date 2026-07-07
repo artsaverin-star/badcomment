@@ -2,6 +2,22 @@ import { getIdea } from "@/lib/ideas";
 import { ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
+import designSpecs from "@/data/designSpecs.json";
+
+// A studio-authored design spec (pre-generated per idea, see
+// gen/design-specs/). When present it replaces the model's design-first step:
+// the buyer gets our locked direction instantly and goes straight to render.
+type DesignSpec = {
+  slug: string;
+  territory: string;
+  theme: "light" | "dark";
+  palette: { bg: string; surface: string; textPrimary: string; textSecondary: string; accent: string; note?: string };
+  typography: string;
+  motif: string;
+  ia: { coreObject: string; primaryLoop: string; tabs: string[] };
+  screens: { title: string; purpose: string; hero: string; data: string }[];
+};
+const SPECS = designSpecs as Record<string, DesignSpec>;
 
 // The paid design brief of an idea: a sequence of paste-into-ChatGPT messages
 // that first makes the model DESIGN (emotional territory, art direction,
@@ -98,6 +114,8 @@ function chunk<T>(arr: T[], size: number): T[][] {
 export function buildDesignPrompt(slug: string): { parts: string[] } | null {
   const idea = getIdea(slug);
   if (!idea) return null;
+  const authored = SPECS[slug];
+  if (authored) return buildFromSpec(authored);
   const en = ideaContentEn(slug, "en");
 
   const title = en?.title ?? idea.title;
@@ -159,5 +177,39 @@ export function buildDesignPrompt(slug: string): { parts: string[] } | null {
   });
 
   const finale = `Finale: one overview image, all screens in a grid on the spec's backdrop. Check that it reads as ONE product with one point of view, then name the three weakest screens and why.`;
+  return { parts: [setup, ...parts, finale] };
+}
+
+// Authored path: our studio already did the design thinking. The setup hands
+// the model a locked spec, batches walk the spec's own screen plan.
+function buildFromSpec(spec: DesignSpec): { parts: string[] } {
+  const p = spec.palette;
+  const setup = [
+    `You are a senior product designer rendering an iOS app from a locked design spec written by our studio. Do not redesign it, execute it with craft.`,
+    ``,
+    `EMOTIONAL TERRITORY: ${spec.territory}`,
+    ``,
+    `DESIGN SPEC (follow exactly on every screen):`,
+    `- Theme: ${spec.theme}. Background ${p.bg}, surfaces ${p.surface}, primary text ${p.textPrimary}, secondary ${p.textSecondary}, single accent ${p.accent}.${p.note ? ` ${p.note}` : ""}`,
+    `- Typography: ${spec.typography}`,
+    `- Visual motif: ${spec.motif}`,
+    `- Core object: ${spec.ia.coreObject}. Primary loop: ${spec.ia.primaryLoop}`,
+    `- Tab bar: ${spec.ia.tabs.join(" · ")}`,
+    `- iOS conventions: status bar, home indicator, native-feeling layout`,
+    `- Believable data only, no lorem ipsum. No dark patterns, no fake reviews, no inflated ratings`,
+    ``,
+    `There are ${spec.screens.length} screens, sent in batches of ${SCREENS_PER_PART}. Render each batch as ONE image: iPhone 15 Pro phones side by side on a backdrop that belongs to this spec, one screen per phone. Don't draw anything yet, reply "ready" and wait for the first batch.`,
+  ].join("\n");
+
+  const groups = chunk(spec.screens, SCREENS_PER_PART);
+  const parts = groups.map((g, gi) => {
+    const start = gi * SCREENS_PER_PART + 1;
+    return [
+      `Batch ${gi + 1} of ${groups.length}. ONE image, ${g.length === 1 ? "one phone" : `${g.length} phones side by side`}, the locked spec with zero drift.`,
+      ...g.map((s, i) => `Screen ${start + i} — ${s.title}. Purpose: ${s.purpose} Hero: ${s.hero}. Show: ${s.data}`),
+    ].join("\n");
+  });
+
+  const finale = `Finale: one overview image, all ${spec.screens.length} screens in a grid on the spec's backdrop. It must read as ONE product with one point of view.`;
   return { parts: [setup, ...parts, finale] };
 }
