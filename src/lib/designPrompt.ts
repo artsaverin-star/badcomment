@@ -2,7 +2,6 @@ import { getIdea } from "@/lib/ideas";
 import { ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
-import type { Locale } from "@/lib/i18n";
 
 // The paid design brief of an idea: a sequence of paste-into-ChatGPT messages
 // that renders EVERY screen of the app in one coherent design system. Split
@@ -32,11 +31,12 @@ function chunk<T>(arr: T[], size: number): T[][] {
   return out;
 }
 
-export function buildDesignPrompt(slug: string, locale: Locale): { parts: string[] } | null {
+// The brief is always fully English — screen copy included. Image models
+// follow English best, and EN overlays cover every idea in the catalog.
+export function buildDesignPrompt(slug: string): { parts: string[] } | null {
   const idea = getIdea(slug);
   if (!idea) return null;
-  const ru = locale !== "en";
-  const en = !ru ? ideaContentEn(slug, locale) : null;
+  const en = ideaContentEn(slug, "en");
 
   const title = en?.title ?? idea.title;
   const oneLiner = en?.oneLiner ?? idea.oneLiner;
@@ -45,7 +45,7 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
   const features: string[] = en?.features ?? idea.idea?.features ?? [];
   const antiFeatures: string[] = en?.antiFeatures ?? idea.idea?.antiFeatures ?? [];
   const monetization = en?.monetization ?? idea.idea?.monetization;
-  const score = scoreFor(slug, locale);
+  const score = scoreFor(slug, "en");
   const accent = accentHex(idea.category);
   const accent2 = accentHex(idea.category, 45);
 
@@ -74,7 +74,7 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
     `- Data viz: gradient progress rings, sparklines, big metrics. Data looks alive, not decorative`,
     `- Layout: a bento grid of squircle cards (24-28 radius), a 56pt gradient pill button with glow, a floating glass tab bar`,
     `- Screen content: realistic user data from this niche, no lorem ipsum, believable numbers`,
-    `- ALL interface copy on the screens is in ${ru ? "Russian (native, not translated-sounding)" : "English"}: labels, buttons, values, dates`,
+    `- All interface copy on the screens is in English: labels, buttons, values, dates`,
     `- Density: generous air, one main thought per screen. The wow comes from light, depth and typography, not from clutter`,
     antiFeatures.length ? `- What the product does NOT do and must not be drawn: ${antiFeatures.join(". ")}` : "",
     `- Never draw fake reviews, inflated ratings or aggressive popups`,
