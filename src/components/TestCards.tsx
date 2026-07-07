@@ -483,7 +483,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
               {design.state === "ready" && design.parts ? (
                 <>
                   <p>{ru
-                    ? `Готовый сценарий отрисовки: вставляй сообщения в ChatGPT по порядку, первое задаёт дизайн-систему, дальше пачки по три экрана. Все экраны выйдут в единой системе.`
+                    ? `Готовый сценарий отрисовки: вставляй сообщения в ChatGPT по порядку, первое задаёт дизайн-систему, дальше пачки по три экрана. Промпт на английском, так картиночные модели рисуют точнее, а тексты на экранах выйдут на русском.`
                     : `A ready render script: paste the messages into ChatGPT in order, the first sets the design system, then batches of three screens. Every screen comes out in one system.`}</p>
                   <div className="mt-3 flex flex-col gap-2.5">
                     {design.parts.map((p, i) => (

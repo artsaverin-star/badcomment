@@ -49,51 +49,6 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
   const accent = accentHex(idea.category);
   const accent2 = accentHex(idea.category, 45);
 
-  if (ru) {
-    const screens: string[] = [
-      `Онбординг из двух шагов: обещание «${oneLiner}» и запрос только необходимых разрешений`,
-      `Главный экран: центральный объект продукта в состоянии обычного дня пользователя`,
-      ...features.map((f) => `Экран под механику «${f}»: покажи это состояние в живом интерфейсе с правдоподобными данными, без заглушек`),
-      `Пейвол: ${monetization ?? "разовая покупка вместо подписки"}. Покажи цену, что открывается, кнопку восстановления покупки. Без тёмных паттернов`,
-      `Пустое состояние первого запуска с одним понятным следующим шагом`,
-      `Настройки и профиль`,
-    ];
-    const groups = chunk(screens, SCREENS_PER_PART);
-
-    const setup = [
-      `Ты сеньор продуктовый дизайнер. Мы отрисуем полный комплект экранов iOS-приложения «${title}», по несколько экранов за сообщение.`,
-      ``,
-      `Что за продукт: ${oneLiner}${pitch ? ` ${pitch}` : ""}`,
-      score?.targetSegment ? `Для кого: ${score.targetSegment}.${score.whyPay ? ` Почему платят: ${score.whyPay}` : ""}` : "",
-      gap ? `Дыра в нише, которую закрываем: ${gap}` : "",
-      ``,
-      `Дизайн-система (применять на каждом экране без отклонений, запомни её). Уровень: победитель Apple Design Awards, стиль-референсы Linear, Arc, Revolut, Whoop:`,
-      `- Тёмная тема. Фон: глубокий графит #0C0C10 с едва заметным зерном. Текст: #F5F5F7, вторичный #8E8E97`,
-      `- Акцент: живой градиент от ${accent} к ${accent2}, мягкое свечение вокруг ключевых элементов. Больше никаких цветов`,
-      `- Стекло в духе Apple Liquid Glass: полупрозрачные карточки с блюром фона, тонкая светлая обводка 1px, ощущение глубины и слоёв`,
-      `- Типографика: SF Pro или Inter, tight tracking. Огромные цифры 48-56pt heavy как главный герой экрана, заголовок 22pt semibold, текст 17pt, подписи 13pt`,
-      `- Дата-виз: кольца прогресса с градиентом, спарклайны, крупные метрики. Данные выглядят живыми, а не декоративными`,
-      `- Компоновка: бенто-сетка из карточек-суперэллипсов (скругление 24-28), кнопка-пилюля 56 с градиентом и свечением, плавающий таб-бар со стеклом`,
-      `- Контент экранов: реалистичные данные пользователя из этой ниши, никакого lorem ipsum, цифры правдоподобные`,
-      `- Плотность: много воздуха, одна главная мысль на экран. Вау достигается светом, глубиной и типографикой, не нагромождением`,
-      antiFeatures.length ? `- Чего в продукте НЕТ и что нельзя рисовать: ${antiFeatures.join(". ")}` : "",
-      `- Не рисуй поддельные отзывы, накрученные рейтинги и агрессивные попапы`,
-      ``,
-      `Всего будет ${screens.length} экранов, я пришлю их пачками по ${SCREENS_PER_PART}. Каждую пачку рисуй как ОДНО изображение: телефоны iPhone 15 Pro в ряд на глубоком тёмном фоне с мягким градиентным свечением, по одному экрану на телефон. Сейчас ничего не рисуй, ответь «готов» и жди первую пачку.`,
-    ].filter(Boolean).join("\n");
-
-    const parts = groups.map((g, gi) => {
-      const start = gi * SCREENS_PER_PART + 1;
-      return [
-        `Пачка ${gi + 1} из ${groups.length}. Одно изображение, ${g.length === 1 ? "один телефон" : `${g.length} телефона в ряд`} на глубоком тёмном фоне с мягким градиентным свечением, наша дизайн-система без отклонений.`,
-        ...g.map((s, i) => `Экран ${start + i}. ${s}`),
-      ].join("\n");
-    });
-
-    const finale = `Финал: собери одно обзорное изображение со всеми ${screens.length} экранами рядом в сетке, чтобы проверить единство системы.`;
-    return { parts: [setup, ...parts, finale] };
-  }
-
   const screens: string[] = [
     `A two-step onboarding: the promise "${oneLiner}" and only the truly needed permissions`,
     `The main screen: the product's central object on an ordinary user day`,
@@ -119,6 +74,7 @@ export function buildDesignPrompt(slug: string, locale: Locale): { parts: string
     `- Data viz: gradient progress rings, sparklines, big metrics. Data looks alive, not decorative`,
     `- Layout: a bento grid of squircle cards (24-28 radius), a 56pt gradient pill button with glow, a floating glass tab bar`,
     `- Screen content: realistic user data from this niche, no lorem ipsum, believable numbers`,
+    `- ALL interface copy on the screens is in ${ru ? "Russian (native, not translated-sounding)" : "English"}: labels, buttons, values, dates`,
     `- Density: generous air, one main thought per screen. The wow comes from light, depth and typography, not from clutter`,
     antiFeatures.length ? `- What the product does NOT do and must not be drawn: ${antiFeatures.join(". ")}` : "",
     `- Never draw fake reviews, inflated ratings or aggressive popups`,
