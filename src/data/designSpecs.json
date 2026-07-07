@@ -5475,5 +5475,2554 @@
     "data": "Default gear: dumbbells, band · low-impact default: off · rest length: standard / longer · sound: haptics only · Apple Health: write workouts, on"
    }
   ]
+ },
+ "ai-writing-1": {
+  "slug": "ai-writing-1",
+  "territory": "He has read his own email four times and still hears his native language underneath the English, two minutes before sending it to a VP. The interface answers like a trusted senior editor at the next desk: a quiet typographic studio where his text stays his, every mark is small and precise, and each one comes with a one-line reason he can keep. The feeling on exit is not 'fixed' but 'slightly better at this than yesterday'.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FBFAF7",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1D1B16",
+   "textSecondary": "#6E6A60",
+   "accent": "#C5472F",
+   "note": "Warm gallery white with near-black text; the editor's-pencil red appears only as underlines and margin marks, so density of red literally shows how much was learned."
+  },
+  "typography": "Lyon Text for the user's prose, Suisse Int'l for interface chrome and margin notes: his email reads like set type on the page while the editor's voice stays in small, businesslike sans.",
+  "motif": "The margin note: every correction is a fine red underline in the text tied by a hairline to a one-line explanation in the right margin, like a copyedited galley proof.",
+  "ia": {
+   "coreObject": "The pass: one piece of real writing plus the set of explained corrections made to it",
+   "primaryLoop": "Paste or type an email, run one pass, read the margin notes, send; he returns because every pass feeds the mistake log and his recurring habits visibly shrink.",
+   "tabs": [
+    "Editor",
+    "Passes",
+    "My mistakes",
+    "Keyboard"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Onboarding: Where your English comes from",
+    "purpose": "Learn the native language once, so calque detection is personal from the first pass.",
+    "hero": "A single typographic question with language names set large",
+    "data": "\"Which language do you think in?\" · German · Spanish · Portuguese · French · Hindi · Mandarin · Other · footnote: \"We use this to spot patterns you import, like 'informations' or 'we meet us tomorrow'. Nothing else.\""
+   },
+   {
+    "title": "Onboarding: First pass on your real text",
+    "purpose": "No demo copy: the product proves itself on an email he actually has to send.",
+    "hero": "An empty page with a paste affordance and nothing else competing",
+    "data": "\"Paste an email you were about to send.\" · pasted sample appears: \"Dear Tom, I write you regarding the delayed shipment...\" · single button: \"Run a pass\""
+   },
+   {
+    "title": "Editor, mid-pass",
+    "purpose": "The main screen earning its keep: precise marks, preserved voice, explanations in the margin.",
+    "hero": "The galley: his email in Lyon with three red underlines tied to margin notes",
+    "data": "\"I write you regarding\" → \"I'm writing about\" — margin: \"Natural set phrase; 'I write you' reads as translated.\" · \"until Friday\" → \"by Friday\" — margin: \"'Until' means the state lasts; 'by' means the deadline.\" · \"informations\" → \"information\" — margin: \"Uncountable in English, no plural.\" · footer: \"3 changes · meaning untouched\""
+   },
+   {
+    "title": "Register picker",
+    "purpose": "Same email, three honest registers, chosen for the situation rather than guessed.",
+    "hero": "Three stacked previews of the same opening line, differences underlined",
+    "data": "Formal letter: \"Dear Mr. Osei, I am writing to follow up on invoice 2214.\" · Standard professional: \"Hi Kwame, following up on invoice 2214.\" · Warm client reply: \"Hi Kwame, thanks for your patience — quick update on invoice 2214.\" · selected: Standard"
+   },
+   {
+    "title": "Meaning-preservation diff",
+    "purpose": "Prove the anti-feature: language changed, argument untouched, verifiable side by side.",
+    "hero": "A two-column diff with sentence-level alignment lines, no reordering anywhere",
+    "data": "Left: his 9 sentences in original order · Right: edited 9 sentences, same order · banner: \"0 sentences removed · 0 reordered · 14 words changed\" · one alignment line highlighted showing 'therefore we cannot accept' kept as the third point, softened to 'so we're unable to accept'"
+   },
+   {
+    "title": "Keyboard extension in Gmail",
+    "purpose": "The daily habitat: edit inside the compose field without copying anything anywhere.",
+    "hero": "Gmail compose with the keyboard's slim red-pencil row above the keys",
+    "data": "Draft to \"anna.kovacs@\": \"Please revert with your feedbacks\" · keyboard bar suggests: \"Please get back to me with your feedback\" · tap-through note: \"'Revert' means undo in standard English; 'feedback' has no plural.\" · Accept replaces text in place"
+   },
+   {
+    "title": "My mistakes",
+    "purpose": "The learning ledger: which habits he keeps importing, and which ones are fading.",
+    "hero": "A ranked list of his recurring patterns with per-month trend marks",
+    "data": "1. \"until/by\" deadline confusion — 11 times, down from 19 last month · 2. Plural 'informations/feedbacks' — 6 times · 3. 'We meet us' reflexive calque (German) — 4 times · 4. Missing articles before roles — 3 times · header: \"Passes this month: 41\""
+   },
+   {
+    "title": "Pass history",
+    "purpose": "Every edited text retrievable, because these are real work documents.",
+    "hero": "A dated list of passes with first lines and change counts",
+    "data": "Today — \"Re: delayed shipment\" · 3 changes · Yesterday — \"Q3 budget summary for Priya\" · 7 changes · Jun 16 — Slack reply, warm register · 2 changes · search field: \"invoice\""
+   },
+   {
+    "title": "Paywall",
+    "purpose": "A working-tool subscription priced under what he already pays, stated without theater.",
+    "hero": "One margin-note-styled card: the price explained in a single editor's line",
+    "data": "\"$14.99/month, or $119/year.\" · margin note beside it: \"You likely pay more for a checker that never says why.\" · included: unlimited passes, keyboard, mistake log, three registers · 7-day full trial, ends with a notice, not a charge surprise · \"Restore purchase\" set in the same size as the buy button"
+   },
+   {
+    "title": "First-launch empty state",
+    "purpose": "For a user with nothing to paste yet: one honest sample to see the mechanics.",
+    "hero": "A single ghosted sample email with its would-be margin notes faintly visible",
+    "data": "\"No passes yet.\" · \"Try the sample: a real follow-up email with 5 typical non-native patterns\" · button: \"Open sample pass\" · secondary: \"Or paste your own from Mail\""
+   },
+   {
+    "title": "Settings",
+    "purpose": "Control the editor's reach; privacy of work correspondence stated in plain terms.",
+    "hero": "A short list headed by the data-handling statement",
+    "data": "\"Texts are processed for the pass and not stored on our servers after 24h. Keyboard never logs keystrokes outside the suggestion bar.\" · Native language: German · Default register: Standard · Explanations: always show · Team plan: invite via link · Restore purchase"
+   }
+  ]
+ },
+ "ai-writing-3": {
+  "slug": "ai-writing-3",
+  "territory": "The novelist is twenty chapters deep at midnight, half in the story and half in fear that the book has started contradicting itself. The interface answers as a quiet study: the manuscript owns the center of the room in book type on ivory paper, and the machinery of memory works in the margin like a careful assistant who never speaks over the prose. Assistance should feel like a librarian sliding the right index card across the desk.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAF6EE",
+   "surface": "#FFFFFF",
+   "textPrimary": "#221D16",
+   "textSecondary": "#6F6659",
+   "accent": "#7E2A26",
+   "note": "Oxblood lives only in the margin, on bible references and continuity flags, while the manuscript itself stays pure ink on ivory so the writing is never decorated, only accompanied."
+  },
+  "typography": "Lyon Text sets the manuscript at a true book measure and Graphik handles the chrome and bible cards, so the writing always feels like the finished book and the tooling feels like the desk around it.",
+  "motif": "The continuity thread: a hairline running down the manuscript margin, tying names in the prose to their bible cards, and visibly snagging into a small knot wherever a draft contradicts an established fact.",
+  "ia": {
+   "coreObject": "the chapter, written against the story bible",
+   "primaryLoop": "Outline a scene, let the co-writer continue in the author's own voice, untangle any snagged threads, and end each session with the bible one page richer.",
+   "tabs": [
+    "Manuscript",
+    "Bible",
+    "Timeline",
+    "Drafts"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Bring the book you started",
+    "purpose": "Onboarding step 1: import the novel the person is already writing somewhere less suitable.",
+    "hero": "A drop zone shaped like a manuscript page accepting a file.",
+    "data": "'Paste or import your chapters, we keep them in book order.' Import preview: '19 chapters, 84,300 words, from ChatGPT export'. Alternative: 'Start a blank book'."
+   },
+   {
+    "title": "The bible builds itself first",
+    "purpose": "Onboarding step 2: scan the imported text and propose the story bible for confirmation.",
+    "hero": "Index cards dealing themselves out of the manuscript into three labeled stacks.",
+    "data": "'Found 23 characters, 11 places, 47 events.' Sample cards face-up: Maren Voss (appears Ch. 1), Saltmarsh Abbey, 'the ferry accident, Ch. 3'. Button: 'Review and confirm cards'."
+   },
+   {
+    "title": "A blank margin",
+    "purpose": "First-launch empty state for a fresh book with no bible yet.",
+    "hero": "An empty manuscript page whose margin thread hangs unattached.",
+    "data": "'No threads yet. Write a name and the margin will start remembering.' Ghost text on the page: 'Chapter one'."
+   },
+   {
+    "title": "The writing desk",
+    "purpose": "The main screen mid-use: deep in a chapter with the margin quietly holding continuity.",
+    "hero": "The manuscript column of Chapter 20, hairline threads running from names to margin cards.",
+    "data": "Chapter 20, 'The Long Thaw'. Visible prose mentions Maren Voss and Brother Ilya, both threaded to cards. Footer: 'Session: 1,412 words · Book: 89,204 words'."
+   },
+   {
+    "title": "Continue in my voice",
+    "purpose": "The co-writer mechanic at its earning moment: extending the scene without rewriting the author.",
+    "hero": "The author's outline bullet above a proposed continuation set in slightly lighter ink until accepted.",
+    "data": "Outline: 'Maren confronts Ilya about the ledger.' Proposal: 240 words, tagged 'matched against your 84,300 words'. Controls: Accept, Trim, Try again. Note: 'No new characters will be introduced.'"
+   },
+   {
+    "title": "A snagged thread",
+    "purpose": "The continuity check catching a contradiction before it is saved into the book.",
+    "hero": "The margin thread knotted in oxblood beside the offending sentence.",
+    "data": "Draft: 'her brother had drowned that winter.' Bible: 'Aldric Voss vanished at sea, body never found, established Ch. 3, the ferry accident.' Buttons: Fix the draft, Amend the bible (with a warning it rewrites canon)."
+   },
+   {
+    "title": "Character card: Maren Voss",
+    "purpose": "The bible card detail where every remembered fact cites its chapter.",
+    "hero": "An index card with a facts ledger, each line carrying a chapter citation.",
+    "data": "Maren Voss, first appears Ch. 1. Facts: age 34 at story open (Ch. 1), left-handed (Ch. 7), owes the abbey a winter's rent (Ch. 12), keeps her brother's compass (Ch. 3). 'Seen in 14 chapters.'"
+   },
+   {
+    "title": "Timeline",
+    "purpose": "Every scene on one line so the world's clock stays honest as the book grows.",
+    "hero": "A horizontal year line with scene markers, one gap flagged.",
+    "data": "'Year of the Thaw', months Jan–Dec. Scenes plotted from Ch. 1–20. Flag: '11 unaccounted days between Ch. 14 and Ch. 15'. Drag a scene to re-date it, threads update everywhere."
+   },
+   {
+    "title": "Compile the manuscript",
+    "purpose": "Export in book order, the antidote to chat transcripts saved out of sequence.",
+    "hero": "A title page assembling itself: 'The Long Thaw, chapters 1–20'.",
+    "data": "'Chapters 1–20, 91,740 words, in page order, not the order they were written.' Formats: .docx, .epub. Option: 'Include bible appendix for your editor'."
+   },
+   {
+    "title": "The 1 a.m. desk",
+    "purpose": "Night writing mode for the hours when most of this book actually gets written.",
+    "hero": "The same manuscript column in warm ink on deep charcoal, threads dimmed to ember.",
+    "data": "Same Chapter 20 view, palette inverted to #191613 paper with #E8E1D5 ink. Toggle note: 'Follows sunset, or keep it always.'"
+   },
+   {
+    "title": "Finish the book",
+    "purpose": "The paywall, priced the way authors already spend, with an exit that respects finishing.",
+    "hero": "Three plain plan cards under the sentence 'The bible stays readable even if you stop paying.'",
+    "data": "While writing: $24.99/mo. One book, flat: $39.99. Serial authors: $99.99/yr. Free tier keeps: 1 project, 5,000 words, full bible reading. Restore purchases link at the bottom."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Voice controls and the locked promises that make the tool trustworthy.",
+    "hero": "A short list where the most important switch is shown locked on.",
+    "data": "Voice matching: strict / loose. 'Never invent characters or plot threads': locked on, with the note 'this is the product'. Backups: daily to iCloud. Export everything. Delete project."
+   }
+  ]
+ },
+ "baby-tracking-1": {
+  "slug": "baby-tracking-1",
+  "territory": "It is 3:40 am, one parent is holding a bottle in the dark and the other is asleep with their phone on the pillow, and the only question that matters is 'does the other phone already know'. The interface answers with a whisper: dim warm surfaces, one-thumb logging, and a visible confirmation that the entry landed on the partner's phone, so nobody has to speak, text, or remember anything at dawn.",
+  "theme": "dark",
+  "palette": {
+   "bg": "#221C26",
+   "surface": "#2D2531",
+   "textPrimary": "#F4EAE1",
+   "textSecondary": "#B4A4AB",
+   "accent": "#F2A97E",
+   "note": "A plum-charcoal night room lit by one warm apricot glow; brightness is capped so nothing on screen can wake a sleeping baby, and synced entries settle from apricot to cream as confirmation."
+  },
+  "typography": "Nunito throughout, its rounded terminals doing the softness, with elapsed times in big 34pt semibold so '1h 48m ago' reads through half-open eyes.",
+  "motif": "The sync ripple: every entry that arrives from the partner's phone lands with a single slow concentric ripple, and every entry you make shows a small traveling dot from your phone icon to theirs, so synchronization is something you can literally watch happen.",
+  "ia": {
+   "coreObject": "The event (feed, sleep, diaper) with an event timestamp and the caregiver who logged it, merged across phones",
+   "primaryLoop": "Log each feed, sleep, and diaper in two taps at any hour, and glance at the status board to see what the other parent already handled.",
+   "tabs": [
+    "Now",
+    "History",
+    "Family",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Who is this little one?",
+    "purpose": "Onboarding step 1: baby's name and birth date, plus who you are, in under thirty seconds.",
+    "hero": "One soft card with a name field and a caregiver chip.",
+    "data": "Baby: Nora, born May 19 (7 weeks). You are: Alex. Toggle: use ml or oz — ml selected."
+   },
+   {
+    "title": "Bring in the other phone",
+    "purpose": "Onboarding step 2: the family code, no account needed for the partner.",
+    "hero": "A large friendly code in a dashed frame with a share button.",
+    "data": "Your family code: PLUM-7284. Text under it: Sam just opens the app, taps 'Join a family', types this. No email, no password. Buttons: Share code · I'll do this later."
+   },
+   {
+    "title": "The night hasn't started yet",
+    "purpose": "First-launch empty state: show the status board shape and promise the sync in one line.",
+    "hero": "The empty status board with three dimmed slots and the two-phones illustration connected by a dotted line.",
+    "data": "Slots read: Last feed — none yet. Diaper — none yet. Sleep — not sleeping. Line below: Log the first one. Sam's phone will know within seconds. Button: Log a feed."
+   },
+   {
+    "title": "Now",
+    "purpose": "Main screen mid-use: the whole night's state of play in one glance, on both phones identically.",
+    "hero": "The status board: three large rows with elapsed times and who did what.",
+    "data": "Last feed: bottle 120 ml · 1h 48m ago · Sam. Diaper: wet · 40m ago · Alex. Sleep: asleep for 32m (timer running, started by Sam). Bottom corner, small: Synced 4s ago."
+   },
+   {
+    "title": "Log a feed",
+    "purpose": "The entry moment: a bottom sheet operable with one thumb while the other arm holds the baby.",
+    "hero": "Oversized amount stepper with the last-used value preloaded.",
+    "data": "Bottle · 120 ml (stepper in 10 ml steps, last time was 120). Or: Breast left / right with hold-to-time. Time: now, adjustable back in 5-minute steps. Save ripples once and shows: On Sam's phone."
+   },
+   {
+    "title": "Sleep timer",
+    "purpose": "A running sleep session both phones can see and either parent can stop.",
+    "hero": "A single breathing apricot ring with the elapsed time inside.",
+    "data": "Asleep 47m, started 3:02 by Sam. Button: Woke up. Under it: Today's total sleep 9h 20m across 5 naps."
+   },
+   {
+    "title": "No signal, nothing lost",
+    "purpose": "The offline state: entries queue locally and the interface says so plainly instead of failing quietly.",
+    "hero": "The status board unchanged, with a small calm banner instead of an error.",
+    "data": "Banner: No connection. 3 entries saved on this phone, they'll reach Sam the moment you're back online. Queue list: feed 90 ml (4:12), diaper (4:15), sleep start (4:30). No red anywhere."
+   },
+   {
+    "title": "Two phones, one record",
+    "purpose": "The merge moment: both parents edited the same feeding and the app resolves it by event time without drama.",
+    "hero": "A single merged entry card with two small caregiver dots on it.",
+    "data": "Feed at 3:12 · bottle 120 ml. Quiet caption: Sam set the amount, Alex added the note 'spit up a little'. Merged into one record, nothing overwritten. Link: See what changed."
+   },
+   {
+    "title": "The handoff push",
+    "purpose": "Partner notification: the night shift changes hands without a word spoken.",
+    "hero": "A lock-screen notification mock in night colors.",
+    "data": "Nora — Sam finished a feed. Bottle 120 ml at 3:12. She's back asleep. On tap, the app opens straight to the Now board."
+   },
+   {
+    "title": "History",
+    "purpose": "The scrollable day log plus one-tap CSV export that keeps the data in the family's hands.",
+    "hero": "A vertical timeline of the last 24 hours with feeds, sleeps, and diapers as soft dots.",
+    "data": "Tue Sep 8: 6 feeds totaling 690 ml, 5 naps totaling 9h 20m, 7 diapers (5 wet, 2 dirty). Button: Export everything to CSV — 214 events since May 19."
+   },
+   {
+    "title": "One log for the whole family",
+    "purpose": "Paywall, shown when the second caregiver joins: one-time price, framed as the family profile.",
+    "hero": "The two-phones-and-ripple illustration with a single price card.",
+    "data": "One phone is free forever. The family profile — up to 5 caregivers, everything synced: $9.99, one time. Not a subscription. Buttons: Unlock family · Restore purchase. Footnote: shared access elsewhere runs $5–10 every month."
+   },
+   {
+    "title": "Settings",
+    "purpose": "The quiet drawer: family members, units, notifications, and leaving cleanly.",
+    "hero": "A grouped list with the family section on top.",
+    "data": "Family: Alex (you), Sam, Grandma Vera — code PLUM-7284. Notifications: partner finished a feed (on), sleep ended (on). Units: ml. Night brightness cap: on. Export all data. Leave family. Restore purchase."
+   }
+  ]
+ },
+ "baby-tracking-4": {
+  "slug": "baby-tracking-4",
+  "territory": "Two babies, one adult, four hands short: the parent of twins lives in permanent parallel, feeding one while the other stirs, and every app makes them choose a profile first. The interface answers by refusing to make them choose: both children are always on screen, side by side, each in their own color, and acting on both is one gesture. It feels like finally having a second pair of eyes.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FBF7F1",
+   "surface": "#FFFFFF",
+   "textPrimary": "#3B3540",
+   "textSecondary": "#8A8290",
+   "accent": "#2E9C8E",
+   "note": "Warm oat background with each baby owning a permanent pastel — Theo mint #2E9C8E, June lilac #A47BC4 — used consistently on timers, dots, and charts so color alone answers 'which baby' before any label is read."
+  },
+  "typography": "Baloo 2 for names and numbers, plump and unhurried, with Inter for labels, so the two columns feel like matching cribs rather than a spreadsheet.",
+  "motif": "Twin lanes: two parallel vertical columns that never collapse into one, joined at moments of shared action by a soft horizontal bridge that lights up on long-press when an event logs to both babies at once.",
+  "ia": {
+   "coreObject": "The paired event: a feed, sleep, or diaper belonging to one baby or bridged across both, each stamped with its baby's color",
+   "primaryLoop": "Glance at both columns, tap to log for one twin or long-press to log for both, and check the drift chart to nudge two schedules back together.",
+   "tabs": [
+    "Both",
+    "Rhythm",
+    "Day",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Meet the crew",
+    "purpose": "Onboarding step 1: names, birth date, and each baby's color, built for two or three from the first field.",
+    "hero": "Two (expandable to three) name cards side by side, already in lanes.",
+    "data": "Theo — mint. June — lilac. Born June 24 (11 weeks). Button: + Add a third. Note: this app is for twins and triplets, one baby apps are everywhere else."
+   },
+   {
+    "title": "How your nights work",
+    "purpose": "Onboarding step 2: pick the two gestures once so they are muscle memory by tonight.",
+    "hero": "An animated demonstration: tap fills one lane, long-press lights the bridge and fills both.",
+    "data": "Tap Theo's feed button — logs Theo. Hold it — logs Theo and June together. Caption: twins eat at the same time more often than not. Button: Got it, show me the board."
+   },
+   {
+    "title": "Two empty lanes",
+    "purpose": "First-launch empty state: the twin board visible before data, promising the no-switching life.",
+    "hero": "Both columns with dimmed placeholder rows and the bridge hinted between them.",
+    "data": "Theo's lane: no feeds yet · not sleeping. June's lane: same. Center line: Log the first feed. You will never switch profiles in this app. Button spans both lanes: Log for both."
+   },
+   {
+    "title": "Both",
+    "purpose": "Main screen mid-use: the whole double status at one glance, one thumb reach to everything.",
+    "hero": "The twin lanes: each column shows last feed, diaper, and live sleep for its baby.",
+    "data": "Theo (mint): fed 80 ml · 1h 10m ago, diaper 25m ago, awake. June (lilac): fed 85 ml · 1h 05m ago, diaper 2h ago, asleep 18m (timer running). Bottom row of paired buttons: Feed / Sleep / Diaper, each tappable per-lane or holdable for both."
+   },
+   {
+    "title": "The bridge press",
+    "purpose": "The signature mechanic at its moment: logging a tandem feed with one long press.",
+    "hero": "The horizontal bridge glowing between lanes as the press registers, then two entries appearing simultaneously.",
+    "data": "Held: Feed. Sheet opens once with two amount fields prefilled from last time: Theo 80 ml, June 85 ml, editable independently. One save. Confirmation: Logged for both at 14:32."
+   },
+   {
+    "title": "Two timers running",
+    "purpose": "Parallel sleep timers, one per baby, visible together — the thing single-baby apps cannot do.",
+    "hero": "Two breathing rings side by side, mint and lilac, different elapsed times.",
+    "data": "Theo: asleep 42m, started 13:50. June: asleep 18m, started 14:14. Independent Woke up buttons under each. Caption: 24 minutes of overlap so far — your window."
+   },
+   {
+    "title": "Rhythm",
+    "purpose": "The drift chart: both babies' sleep on one shared time axis to see how far the schedules have wandered.",
+    "hero": "A 7-day horizontal chart, mint bars above the axis and lilac below, misalignment visible as offset.",
+    "data": "This week: naps drifted 40 minutes apart on average, was 15 minutes two weeks ago. The 9:30 morning nap still lines up 6 days of 7. Plain sentence: shifting June's last feed 20 minutes earlier would close most of the gap."
+   },
+   {
+    "title": "Day",
+    "purpose": "Daily summary per baby and combined, formatted to hand to the pediatrician at the two-month checkup.",
+    "hero": "A three-column table: Theo, June, Together.",
+    "data": "Tue Sep 8 — Theo: 6 feeds / 510 ml, 5 naps / 8h 40m, 6 diapers. June: 6 feeds / 540 ml, 4 naps / 8h 05m, 7 diapers. Together: 3 tandem feeds, 1h 50m of overlapping naps. Button: Share as PDF for the doctor."
+   },
+   {
+    "title": "Night lanes",
+    "purpose": "Night mode state: the same board dimmed to a whisper for 3am tandem feeds, auto-on by schedule.",
+    "hero": "The twin lanes on near-black with the two pastels desaturated to embers.",
+    "data": "Same layout, brightness capped: Theo fed 40m ago, June feeding now (timer 6m). Auto night mode: 22:00–6:30. Nothing animates except the two timers."
+   },
+   {
+    "title": "Built for exactly your family",
+    "purpose": "Paywall after day three of use: one-time price, spoken to people used to paying for apps that fit them badly.",
+    "hero": "The twin board behind a single price card, fully visible, nothing blurred.",
+    "data": "Everything you've used this week, forever: $9.99 one time. Both babies, the bridge press, the rhythm chart, doctor summaries. Not a subscription. Buttons: Buy once · Restore purchase. Footnote: single-baby trackers charge monthly and still make you switch profiles."
+   },
+   {
+    "title": "Settings",
+    "purpose": "The short list: babies, colors, units, night hours, export.",
+    "hero": "Grouped list headed by the two baby cards.",
+    "data": "Theo — mint, June — lilac (colors swappable). Add a baby (up to 3). Units: ml. Night mode: 22:00–6:30. Export all data to CSV — 388 events. Restore purchase."
+   }
+  ]
+ },
+ "blood-pressure-log-1": {
+  "slug": "blood-pressure-log-1",
+  "territory": "The person is a 62-year-old doing homework their cardiologist assigned, slightly anxious about the numbers and more anxious about showing up to the appointment looking disorganized. The interface answers with the composure of a well-run clinic: big type, generous contrast, nothing blinking, every number already arranged the way a doctor reads it. It feels less like an app and more like a document that fills itself in.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAF9F6",
+   "surface": "#FFFFFF",
+   "textPrimary": "#17191B",
+   "textSecondary": "#5A6169",
+   "accent": "#0E5FA8",
+   "note": "Near-black ink on warm paper white, with one clinical blue reserved for the current target and actions; readings above target are marked with the same ink weight plus a thin blue underline, never with alarming red."
+  },
+  "typography": "Atkinson Hyperlegible for all text at 18pt minimum, with readings set in 40pt tabular figures, so the personality is simply legibility taken seriously enough to feel like care.",
+  "motif": "The visit sheet: a single ruled A4-proportioned page that every screen is visibly a fragment of, with thin horizontal rules and a printed-form header, so the user always feels the finished printout assembling underneath their daily entries.",
+  "ia": {
+   "coreObject": "The reading (systolic/diastolic/pulse, auto-tagged morning or evening), rolling up into the one-page visit report",
+   "primaryLoop": "Measure with the cuff twice a day, type three numbers in under fifteen seconds, and watch the visit-sheet countdown tick toward the appointment date.",
+   "tabs": [
+    "Today",
+    "Report",
+    "Medications",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "What did your doctor say?",
+    "purpose": "Onboarding step 1: capture the doctor's actual instructions so the whole app is calibrated to this one appointment.",
+    "hero": "A short printed-form card with three fill-in lines: target, duration, times per day.",
+    "data": "Target: below 135 / 85 mmHg. Observation period: 3 months, ending Tue, Oct 6 (appointment day). Measure: morning and evening. Doctor's name (optional): Dr. Osei."
+   },
+   {
+    "title": "Reminders that match the instructions",
+    "purpose": "Onboarding step 2: set the two daily reminder windows straight from what was entered, then done.",
+    "hero": "Two large time rows with switch toggles, nothing else.",
+    "data": "Morning reading: 7:00–9:00, reminder at 7:30. Evening reading: 19:00–21:00, reminder at 20:00. Button: Start day 1 of 92."
+   },
+   {
+    "title": "Your sheet is waiting for its first number",
+    "purpose": "First-launch empty state: show the ghosted visit sheet so the destination is visible before any data exists.",
+    "hero": "A pale watermark version of the full report page with dashed placeholders where averages will appear.",
+    "data": "Header reads: Visit report for Dr. Osei — 0 of ~184 readings. Placeholder lines: Period average — —/—. Morning — —/—. Evening — —/—. Single blue button: Add first reading."
+   },
+   {
+    "title": "Today",
+    "purpose": "Main screen mid-use: today's readings plus the countdown, glanceable from arm's length.",
+    "hero": "The observation countdown strip: Day 38 of 92, appointment Oct 6.",
+    "data": "Morning 7:12 — 142 / 91, pulse 74 (above target, thin underline). Evening — not yet, reminder at 20:00. Yesterday: 131/84 and 128/82. This week so far: 12 of 14 readings taken."
+   },
+   {
+    "title": "Add a reading",
+    "purpose": "The entry moment: three numbers on an oversized keypad, morning/evening tagged automatically by clock.",
+    "hero": "40pt entry fields for SYS / DIA / pulse with a number pad sized for thumbs that are not twenty anymore.",
+    "data": "Fields: 128 | 82 | 71. Auto-tag chip: Evening, Tue Sep 8, 20:14. Optional note field with one suggested chip: 'after walk'. Save button confirms with: Saved. 77 readings on your sheet."
+   },
+   {
+    "title": "The visit report",
+    "purpose": "The centerpiece: the one page a cardiologist reads in ten seconds, exactly as it will print.",
+    "hero": "The full A4 sheet, real layout, pinch to zoom.",
+    "data": "Period Jun 8 – Sep 8 (92 days, 168 readings). Average: 134 / 86, pulse 73. Morning average: 139 / 89. Evening average: 128 / 82. Readings above 135/85: 46 of 168 (27%). Morning surge: +11 mmHg systolic. Medication: Lisinopril 10 mg from Jul 14. Footer: Generated Sep 8 · target set by Dr. Osei."
+   },
+   {
+    "title": "Morning versus evening",
+    "purpose": "Feature detail: the spread the doctor specifically asks about, as two aligned columns.",
+    "hero": "Two side-by-side distribution bars sharing one mmHg axis.",
+    "data": "Morning: avg 139/89 over 84 readings, 34 above target. Evening: avg 128/82 over 84 readings, 12 above target. Caption in plain words: Your mornings run 11 points higher than your evenings."
+   },
+   {
+    "title": "Medication line",
+    "purpose": "Show pressure before and after a regimen change on one timeline so the appointment conversation is concrete.",
+    "hero": "A 3-month systolic chart with a vertical labeled rule where the medication started.",
+    "data": "Vertical marker: Lisinopril 10 mg — Jul 14. Averages printed on each side: before 141/90 (36 days), after 131/84 (56 days). Button: Add a medication change."
+   },
+   {
+    "title": "Export",
+    "purpose": "Produce the physical artifact: a PDF that prints cleanly and a spreadsheet that opens without garbling.",
+    "hero": "A paper preview with a real page edge and the two format buttons beneath.",
+    "data": "Visit-report-Osei-Sep8.pdf (1 page, 214 KB) and readings-jun-sep.csv (168 rows). Actions: Print, Share to email, Save to Files. Note under CSV: opens in Excel and Numbers with dates intact."
+   },
+   {
+    "title": "Unlock the visit sheet",
+    "purpose": "Paywall, placed when the user first taps Report or Export: one honest one-time price.",
+    "hero": "The finished report shown full and readable behind a single price card, nothing blurred into a tease.",
+    "data": "Logging and the chart stay free forever. The visit report and export: 599 ₽, one time, yours for good. No subscription, no per-period fees. Buttons: Unlock for 599 ₽ · Restore purchase. Footnote: comparable apps charge $39.99–120 per year for this export."
+   },
+   {
+    "title": "Reminder arrived",
+    "purpose": "The notification state: firm, respectful, tied to the doctor's instruction rather than app engagement.",
+    "hero": "A lock-screen notification mock in the same big type.",
+    "data": "Evening reading — Dr. Osei asked for two a day. Window closes at 21:00. Tap to enter. Below, an in-app quiet banner for a missed one: Yesterday evening was missed. It stays blank on the sheet, that is honest data too."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Everything adjustable lives on one calm list: target, period, type size, data.",
+    "hero": "A single grouped list in the same ruled-form styling.",
+    "data": "Target: 135/85 (from Dr. Osei, editable). Observation ends: Oct 6. Reminders: 7:30 and 20:00. Text size: Extra large. Units: mmHg. Export all data. Delete all data (double confirmation). Restore purchase."
+   }
+  ]
+ },
+ "calendars-tasks-3": {
+  "slug": "calendars-tasks-3",
+  "territory": "The person setting this up has been burned: a missed pill, a stove left on, a mother who swipes notifications away without reading. The moment of use is anxious dependence on a machine that has failed them before. The interface answers with daylight and certainty: enormous type, one thing per screen, and the audible presence of someone they love, so trust is rebuilt sound by sound.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FCFAF4",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1C2431",
+   "textSecondary": "#5C6675",
+   "accent": "#2456E6",
+   "note": "Warm daylight white with deep cobalt for actions; escalation is shown by the cobalt ripple rings warming toward amber as levels rise, so urgency is visible even with sound off."
+  },
+  "typography": "Atkinson Hyperlegible for everything, set two sizes larger than convention with 1.5 line height, because the target user may be 74 and the whole personality is 'built to be read'.",
+  "motif": "The ripple: every reminder is a cobalt dot that radiates concentric rings, one ring per escalation level, so the interface itself pictures a sound that will not stop until touched.",
+  "ia": {
+   "coreObject": "The reminder: a time, a recorded voice, an escalation ladder, and a required confirmation",
+   "primaryLoop": "Record it once in a familiar voice, live your day, and when it fires it grows until you press Done, which is the entire relationship.",
+   "tabs": [
+    "Today",
+    "New",
+    "Voices",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "This app is loud on purpose",
+    "purpose": "Onboarding step 1: get critical-alert permission with a plain promise of what that means.",
+    "hero": "A single ripple dot expanding across the screen with the permission button beneath",
+    "data": "'Reminders here can break through silent mode. That is the point. You will always be able to silence one with a single tap.' Button: Allow critical alerts. Secondary: What it will sound like (plays a 5-second demo)."
+   },
+   {
+    "title": "Add a voice you trust",
+    "purpose": "Onboarding step 2: record yourself or invite a family member to record remotely.",
+    "hero": "A large record button with a waveform, and a card for sending a recording request",
+    "data": "'Record in your own voice, or ask someone.' Recorded sample: 'Mom, it's Lena. Time for your heart pill, the white one.' Card: 'Text a request to Lena (daughter)' generating link. Skip option: 'Use a plain chime for now.'"
+   },
+   {
+    "title": "Nothing scheduled yet",
+    "purpose": "First-launch empty state that walks straight into creating the first reminder.",
+    "hero": "One still cobalt dot, no rings, with three example chips underneath",
+    "data": "'Your first reminder takes about 30 seconds.' Example chips sized like buttons: 'Medication, every day 8:00 AM', 'Take the trash out, Tue 7 PM', 'Call the pharmacy, once, tomorrow 10 AM'."
+   },
+   {
+    "title": "Today",
+    "purpose": "The main screen: today's reminders in firing order,状态 readable from across a room.",
+    "hero": "A vertical list of large reminder cards, the next one showing a countdown ring",
+    "data": "8:00 AM Heart pill (white one), Lena's voice, Confirmed 8:02 AM. 1:00 PM Blood pressure reading, Lena's voice, next in 40 min, ring at 80%. 7:00 PM Lock the back door, my voice. Footer: 'This week: 19 of 19 confirmed.'"
+   },
+   {
+    "title": "New reminder",
+    "purpose": "Creation in three oversized fields: what, when, which voice, with the escalation ladder shown before saving.",
+    "hero": "The escalation preview: four rings labeled with what happens at each level",
+    "data": "What: 'Insulin, fridge door shelf.' When: Daily, 8:00 AM and 8:00 PM. Voice: Lena. Ladder: Level 1 gentle chime, Level 2 (+2 min) louder chime, Level 3 (+5 min) Lena's voice reads it aloud, Level 4 repeats every 3 min until confirmed."
+   },
+   {
+    "title": "It is firing",
+    "purpose": "The mid-escalation moment: the screen a confused or busy person actually sees at level 3.",
+    "hero": "Full-screen ripple, rings amber at the edges, one giant confirmation button",
+    "data": "8:07 AM. Level 3 of 4. Playing: 'Mom, it's Lena. Time for your heart pill, the white one.' Button covering a third of the screen: 'Done, I took it.' Small link: 'Snooze 10 minutes' (visibly smaller, allowed but not equal)."
+   },
+   {
+    "title": "Confirm from the lock screen",
+    "purpose": "Show the one-tap confirmation surface where most confirmations will actually happen.",
+    "hero": "A lock-screen mock with the reminder as a full-width live activity and a slide-to-confirm control",
+    "data": "Lock screen, 1:00 PM: 'Blood pressure reading. Level 1.' Slider labeled 'Slide when done.' Below: 'Escalates in 2 min.' Confirmation logs: 'Confirmed from lock screen, 1:01 PM.'"
+   },
+   {
+    "title": "Quiet in the meeting",
+    "purpose": "Silent mode mechanic: the reminder that flashes instead of sounding, without losing its persistence.",
+    "hero": "The same ripple rendered as a pulsing screen-edge glow with sound icon crossed out",
+    "data": "'Silent window: weekdays 9 AM to 5 PM (from your calendar).' In-silent behavior: screen flash every 60s, watch tap every 60s, voice held until window ends. Banner: 'Held: Refill pillbox, will speak at 5:00 PM unless confirmed.'"
+   },
+   {
+    "title": "Voices",
+    "purpose": "Manage the recorded voices, the emotional core, including requesting new lines remotely.",
+    "hero": "Voice cards with waveforms and the person's name in large type",
+    "data": "Lena (daughter): 4 recordings, last added Feb 12. Me: 2 recordings. Pending request: 'Sasha (grandson), sent Feb 20.' Button on each: Play. Note: 'Recordings stay on your devices and iCloud. Never used for anything else.'"
+   },
+   {
+    "title": "On every wrist and table",
+    "purpose": "Device sync state: prove the reminder will catch you on watch, iPad, or phone, whichever is near.",
+    "hero": "Three device silhouettes each carrying the same ripple dot, connected by a thin cobalt line",
+    "data": "iPhone: active now. Apple Watch: paired, taps enabled. iPad (kitchen): last seen 6 min ago. Rule shown: 'Fires everywhere at once. Confirming on one silences all.' Test button: 'Send a test to all devices.'"
+   },
+   {
+    "title": "One price, no ladder",
+    "purpose": "The paywall matched to a trust product: single simple price, family voices included, restore prominent.",
+    "hero": "One cobalt card, not a comparison table",
+    "data": "'Everything: $17.99 once, or $9.99/year if you prefer small.' Included: unlimited reminders, family voice recordings, watch and iPad sync, silent windows. 'Try free for 14 days, full volume.' Restore purchase in the same type size as the buy button."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Tune the ladder and volumes without letting anyone accidentally defang the app.",
+    "hero": "Grouped list with an escalation ladder editor at top, guarded by a confirm step",
+    "data": "Escalation timing: 2 min, 5 min, then every 3 min (edit). Max volume: 85%. Voice playback: on. Change guard: 'Turning escalation off requires typing OFF' (protects against a confused tap). Text size: extra large. Export confirmation history PDF for the doctor."
+   }
+  ]
+ },
+ "calendars-tasks-9": {
+  "slug": "calendars-tasks-9",
+  "territory": "A former paper-planner devotee misses the Sunday ritual of pens, stickers, and washi tape, but has been burned by a digital planner that lost months of handwritten pages. The interface answers with a craft desk in daylight, a printed calendar that never lies underneath and a hand-made layer on top, plus the quiet institutional confidence of visible backups. Orderly, yes, but the order is the user's own handwriting.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FBF8F3",
+   "surface": "#FFFFFF",
+   "textPrimary": "#3A342C",
+   "textSecondary": "#8A8172",
+   "accent": "#C86B85",
+   "note": "The printed calendar layer stays in gray ink; almost all color arrives from what the user adds, ink, stickers, and tape, so every page feels authored rather than themed."
+  },
+  "typography": "Adobe Caslon small caps for the printed month and day names (the voice of a well-made paper planner) with Karla for app chrome; the user's own handwriting is the true display face and the type stays out of its way.",
+  "motif": "The two-layer page: printed live events beneath, handwriting and tape above, with a light-table toggle that peels the layers apart so you can always see the calendar telling the truth underneath.",
+  "ia": {
+   "coreObject": "A spread: a month grid or week layout where live calendar events print beneath a handwritten layer",
+   "primaryLoop": "Events flow in from iCloud and Google on their own; the user annotates the day in ink and decorates the week on Sunday, and the spread being both alive and hand-made is what brings them back.",
+   "tabs": [
+    "Week",
+    "Month",
+    "Stickers",
+    "Archive"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Bring your real calendar",
+    "purpose": "Setup step one: connect iCloud and Google so the printed layer is alive from the first page.",
+    "hero": "Two calendar source rows filling a preview week with real gray-ink events",
+    "data": "iCloud 'Family' ✓ · Google 'Work' ✓. Preview fills with: Standup 10:00 Mon–Fri, Dentist Tue 9:30, Piano (Vera) Thu 16:00. Caption: 'These print under your handwriting and stay in sync.'"
+   },
+   {
+    "title": "Choose your cover",
+    "purpose": "Setup step two: the planner ritual of picking a cover and first spread style.",
+    "hero": "Four planner covers fanned on the desk background",
+    "data": "Covers: Linen sage · Terracotta · Graph paper · Midnight floral. Spread style: Week on two pages · Week + notes column. Included base sticker set shown beneath"
+   },
+   {
+    "title": "This week is ready for your pen",
+    "purpose": "First-launch empty state: the printed layer already has the user's real life on it, only the hand layer is blank.",
+    "hero": "A pristine week spread with real events printed in gray and acres of blank paper",
+    "data": "Printed: Standup 10:00 daily, Dentist Tue 9:30, Flight to Lisbon Fri 18:25. Overlay hint in pencil-gray script: 'Write anywhere. Try circling Friday.'"
+   },
+   {
+    "title": "Week spread, mid-life",
+    "purpose": "The main screen as it looks on a Wednesday: printed events and a week of accumulated ink living together.",
+    "hero": "The two-layer week spread, handwriting and one washi strip across the weekend",
+    "data": "Printed: Dentist Tue 9:30 ✓, Standup daily, Flight Fri 18:25. Handwritten over: 'meal plan: Tue tacos, Wed soup', a starred 'call Nana', washi strip across Sat–Sun labeled 'cabin weekend!'"
+   },
+   {
+    "title": "Month grid",
+    "purpose": "The zoomed-out spread where deadlines and handwriting share one page.",
+    "hero": "A full month grid with small printed events and hand-drawn marks in the cells",
+    "data": "July: printed 'Rent due' on the 1st, 'Lisbon' banner Jul 10–13, handwritten countdown '3 days!!' on Jul 7, a hand-drawn sun doodle on Jul 18"
+   },
+   {
+    "title": "The sticker drawer",
+    "purpose": "Stickers, tape, and covers organized like a real craft drawer, drag straight onto the page.",
+    "hero": "A pull-up drawer of sticker sheets casting soft paper shadows",
+    "data": "Sheets: Base set (included) · Botanical $2.99 · Study session $1.99 · Pastel tape $1.99. Recently used row: gold star, tomato, 'today' flag, sage washi"
+   },
+   {
+    "title": "Light table",
+    "purpose": "Peel the layers apart to check the living calendar under a crowded page of ink.",
+    "hero": "The handwritten layer lifted at an angle, printed events fully legible beneath",
+    "data": "Slider: Ink 100% → 30%. Beneath a heavily decorated Thursday: Piano (Vera) 16:00, Team retro 14:00, both printed crisp. Toggle: show ink · show print · show both"
+   },
+   {
+    "title": "The dentist moved",
+    "purpose": "Conflict state the mechanics demand: an event shifted underneath handwriting that still points at the old slot.",
+    "hero": "A gentle dotted arrow from Tuesday's inked note to the event's new Thursday slot",
+    "data": "'Dentist moved to Thu 14:00 in iCloud. Your Tuesday note still points at it.' Options: Move my ink with it · Leave my ink where it is. Never auto-moves handwriting"
+   },
+   {
+    "title": "Every page, every version",
+    "purpose": "Page history and backups made visible, the direct answer to the planner that lost people's pages.",
+    "hero": "A filmstrip of dated snapshots of the same week spread",
+    "data": "'Week of Jun 30: 14 versions saved.' Snapshots: Sun 21:04 (decorated) · Wed 08:12 · Fri 19:30. Status line: 'Backed up 4 minutes ago · restore any spread to any date.' Button: Restore this version"
+   },
+   {
+    "title": "Print the week",
+    "purpose": "PDF export for the fridge door or the paper archive.",
+    "hero": "A paper-accurate PDF preview of the decorated week spread",
+    "data": "'Week of Jul 6, A4 landscape, ink + print layers merged.' Buttons: Save PDF · Print · Export whole month. File: july-week-2.pdf, 1.8 MB"
+   },
+   {
+    "title": "The shelf",
+    "purpose": "Archive of finished months standing like planners on a shelf.",
+    "hero": "Spines of past planner volumes with their chosen covers",
+    "data": "2026: Jan–Jun archived, June spine in Terracotta. Tap May: opens the full month read-only with all ink intact. 'Nothing here is ever deleted.'"
+   },
+   {
+    "title": "Keep the planner alive",
+    "purpose": "Paywall in the honest math of what paper used to cost, subscription for sync plus one-time craft goods.",
+    "hero": "A receipt-style comparison card on planner paper",
+    "data": "'Paper habit: $30–60/year in planners and stickers. This planner: $24.99/year, live calendar and backups included, base sticker set included.' One-time extras: sticker packs $1.99–2.99, cover sets $3.99. Links: Restore purchases · What happens if I stop paying (pages stay readable and exportable, forever)"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Calendar sources, pencil behavior, and backup status in one calm page.",
+    "hero": "A short list with the backup status row given the most visual weight",
+    "data": "Calendars shown: iCloud Family ✓, Google Work ✓, Holidays off · Draw with: Apple Pencil only · Left-handed mode: off · Backups: on, last Sun 21:04 · Export all data · Restore purchases"
+   }
+  ]
+ },
+ "flashcards-1": {
+  "slug": "flashcards-1",
+  "territory": "A medical student three weeks from an exam has months of labor compressed into one deck and a low-grade dread of losing it, because they have either lost one before or watched a classmate lose theirs. The interface answers like an archive with a reading room: the studying is tactile and fast, and underneath every card sits visible, timestamped proof that the work is safe and recoverable. Confidence here is not a slogan, it is a receipt.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F5F4EF",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1F2421",
+   "textSecondary": "#6B7069",
+   "accent": "#8E2F3C",
+   "note": "Cool archival paper with academic oxblood used only for study actions and the restore verb; sync receipts render in quiet gray monospace so safety reads as infrastructure, not decoration."
+  },
+  "typography": "Source Serif 4 on card faces for textbook gravity, Inter for the interface, and IBM Plex Mono for every timestamp and sync receipt, because the ledger is the personality.",
+  "motif": "The version spine: beneath the active deck, the edges of its past snapshots peek out like sheets in a carbon-copy stack, each edge carrying a monospace timestamp tab, so history is physically present under today's work.",
+  "ia": {
+   "coreObject": "The deck, carried by an append-only edit ledger where every change has a timestamp and a device tag",
+   "primaryLoop": "Run the day's review reps, see the one-line receipt that every edit reached the cloud, and keep building the deck knowing any version of the last 90 days is two taps away.",
+   "tabs": [
+    "Study",
+    "Decks",
+    "History",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Your account is your safety net",
+    "purpose": "Onboarding step 1: sign in first, framed as the reason the product exists.",
+    "hero": "One sentence and one button, with the version-spine illustration underneath.",
+    "data": "Every edit you ever make will be timestamped and stored in the cloud for 90 days. Sign in with Apple / Google / email. Footnote: no account, no guarantee — that's the whole point of us."
+   },
+   {
+    "title": "Bring your decks with you",
+    "purpose": "Onboarding step 2: import .apkg or CSV, or start clean; either path ends inside a synced deck.",
+    "hero": "A drop-zone card that accepts .apkg and .csv, with a start-fresh link below.",
+    "data": "Import from Anki (.apkg) or a spreadsheet (.csv). Preview after pick: Pharmacology — Cardio block, 642 cards, 3 note types, scheduling preserved. Button: Import and sync. Link: Start with an empty deck instead."
+   },
+   {
+    "title": "Nothing to lose yet",
+    "purpose": "First-launch empty state for the clean-start path: the ledger begins at zero, visibly.",
+    "hero": "An empty version spine with a single tab reading 'v0 — created just now'.",
+    "data": "Ledger line in mono: 14:02 · iPhone · deck created · 0 cards. Text: Add your first card and watch the receipt line after you're done. Button: New card."
+   },
+   {
+    "title": "Study",
+    "purpose": "Main screen mid-use: the rep itself, physical and quick, serif question on a card you flip.",
+    "hero": "The card, full-bleed, with a satisfying flip on tap and grade buttons after.",
+    "data": "Front: First-line treatment for stable angina? Flip. Back: Beta-blockers (metoprolol); CCBs if contraindicated. Grade row: Again 10m · Hard 2d · Good 4d · Easy 9d. Progress: 34 of 120 due today, Cardio block."
+   },
+   {
+    "title": "Session receipt",
+    "purpose": "The post-session status line: proof of safety at the exact moment work was created.",
+    "hero": "A small mono receipt strip under the session summary, styled like a till receipt.",
+    "data": "Session: 120 reviews, 14 lapses, 22 minutes. Receipt: 14:32:07 · iPhone 15 · 12 edits saved to cloud · last sync 3s ago · v218. Tap the receipt to open History."
+   },
+   {
+    "title": "History",
+    "purpose": "The deck's 90-day version ledger: the feature mechanic as a browsable place, not a buried setting.",
+    "hero": "The version spine expanded into a timeline of snapshot tabs, newest on top.",
+    "data": "Today 14:32 · iPhone 15 · 12 cards edited. Yesterday 21:04 · iPad · 38 cards added (import). Sep 4 · MacBook web · 2 cards deleted. Sep 1 · iPhone 15 · note type edited. Each row: Preview · Restore. Header: 90 days retained, 218 versions."
+   },
+   {
+    "title": "Restore a version",
+    "purpose": "The two-tap rollback at its earning-its-keep moment: recover from a botched edit without losing the present.",
+    "hero": "A side-by-side diff: the snapshot on the left, current deck on the right.",
+    "data": "Restoring Sep 4, 21:04 — this brings back 38 cards deleted on Sep 5. Your current version will be kept as v219, nothing is overwritten. Buttons: Restore this version · Cancel. After: banner 'Restored. Current deck saved as v219 — you can go back to it any time.'"
+   },
+   {
+    "title": "Edited on the train",
+    "purpose": "Offline state: edits queue locally with full ledger detail and reconcile visibly when signal returns.",
+    "hero": "The receipt strip in its amber-free waiting form: gray mono with a queue count.",
+    "data": "Receipt: 08:14 · iPhone 15 · 6 edits queued on device · will sync when online. On reconnect it rewrites itself line by line: 6 of 6 synced · 08:41 · v220. No modal, no warning triangle."
+   },
+   {
+    "title": "New phone, old brain",
+    "purpose": "The restore-onto-new-device moment: sign in and watch everything come back with progress intact.",
+    "hero": "A progress list of decks materializing with card counts and scheduling state.",
+    "data": "Pharmacology — Cardio block: 642 cards, 120 due today, streak intact. Step 1 Micro: 1,204 cards. Spanish B2: 310 cards. Line: Restored in 41 seconds. Everything scheduled exactly where you left it."
+   },
+   {
+    "title": "Export, no lock-in",
+    "purpose": "One-tap export from the deck menu: the anti-lock-in promise made tangible.",
+    "hero": "Two format cards, .apkg and .csv, directly in the deck's overflow menu.",
+    "data": "cardio-block.apkg — 642 cards, scheduling included, opens in Anki. cardio-block.csv — 642 rows, front/back/tags. Caption: Your cards are yours. Export never expires, even on the free plan."
+   },
+   {
+    "title": "Pay for the guarantee",
+    "purpose": "Paywall at the moment the free 7-day history is about to matter: sober, tool-priced, no countdown.",
+    "hero": "The version spine with the tabs beyond day 7 shown in outline, labeled with real dates.",
+    "data": "Free: 3 decks, 7 days of history. Pro: unlimited decks, 90-day history, instant device restore — $6/month or $40/year. Line: the crowd that pays $25 once for AnkiMobile pays for reliability, so do we. Buttons: Go Pro · Restore purchase. No trial timer, cancel any time."
+   },
+   {
+    "title": "Settings",
+    "purpose": "The tool room: account, sync cadence, review options, data controls.",
+    "hero": "Grouped list with the account and its storage receipt at top.",
+    "data": "Signed in: m.okafor@uni.edu · 2,156 cards · last full sync 14:32. Review: new cards/day 20, timezone-aware day rollover 4:00. History retention: 90 days (Pro). Export all decks. Delete account and data. Restore purchase."
+   }
+  ]
+ },
+ "focus-productivity-6": {
+  "slug": "focus-productivity-6",
+  "territory": "It is 8:52 in a classroom of 24 kids, or minute forty of a bedtime negotiation: the adult is stretched thin and the child cannot read a clock. The interface answers with instant legibility from across a room, one shape that IS the time, so calm that the timer never becomes more interesting than the task. Clarity here means a poster, not an app.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAF7F2",
+   "surface": "#FFFFFF",
+   "textPrimary": "#23303A",
+   "textSecondary": "#6B7A85",
+   "accent": "#E4572E",
+   "note": "The persimmon accent lives almost entirely inside the disk itself; all chrome stays chalk-neutral so nothing on screen competes with the time."
+  },
+  "typography": "Atkinson Hyperlegible for every label (a typeface literally built for legibility, honest in a classroom), kept small and quiet because the disk is the typography and digits are hidden by default.",
+  "motif": "The whole-circle disk: any duration you pick fills the entire circle, so half the time always looks like exactly half the circle, no fractions, no clock math.",
+  "ia": {
+   "coreObject": "A timed moment: a single visual timer or one step inside a routine chain",
+   "primaryLoop": "Tap a duration or a chain, the disk fills full and shrinks while the child watches from anywhere in the room; mornings, transitions, and bedtimes repeat daily, so the timer does too.",
+   "tabs": [
+    "Timer",
+    "Chains",
+    "Sounds",
+    "For grown-ups"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Who is this timer for?",
+    "purpose": "One-tap setup that tunes defaults without a survey.",
+    "hero": "Three large illustrated tiles: Classroom, Home, Therapy room",
+    "data": "Classroom picked: sets default durations 5 / 10 / 15 / 20 min, projection mode suggested, sounds preset to 'Two soft bells'"
+   },
+   {
+    "title": "Sound that survives a locked screen",
+    "purpose": "Get the one permission that fixes the biggest complaint about rival timers, explained in plain words.",
+    "hero": "A padlock icon with a small bell ringing through it",
+    "data": "'The end sound plays even if the iPad is locked or in another app. Without this, a timer is a decoration.' Button: Allow notifications. Secondary: I'll do it later"
+   },
+   {
+    "title": "Timer, mid-use",
+    "purpose": "The main screen exactly as a child sees it during quiet reading.",
+    "hero": "Full-screen persimmon disk at about 60% remaining, no digits anywhere",
+    "data": "Label above the disk: 'Quiet reading'. Tiny grown-up strip at bottom: 20 min · started 9:05 · pause (lock icon). Digits toggle is off"
+   },
+   {
+    "title": "Pick a duration",
+    "purpose": "Choosing time takes one tap, and every choice fills the whole circle.",
+    "hero": "A row of big tactile chips plus a rotary dial for odd durations",
+    "data": "Chips: 2 · 5 · 10 · 15 · 20 · 30 · 45 min. Dial set to 12 min. Caption: 'Whatever you pick fills the full circle'"
+   },
+   {
+    "title": "Three ways to see time",
+    "purpose": "Style picker where each visual metaphor previews live.",
+    "hero": "Three live miniature timers running side by side",
+    "data": "Shrinking disk (free) · Rising water (unlocks) · Burning candle (unlocks). Each preview shows the same 5-minute timer at 3:40 left so the metaphors compare honestly"
+   },
+   {
+    "title": "Build a chain",
+    "purpose": "Compose a routine once so evenings launch with one button.",
+    "hero": "Vertical list of steps, each with its own mini disk and duration",
+    "data": "Chain 'Evening wind-down': Dinner 25 min → Bath 15 min → Pyjamas 5 min → Book 15 min. Total 60 min. Button: Save chain"
+   },
+   {
+    "title": "Chain running",
+    "purpose": "Mid-routine view: the child sees only the current step, the adult sees the whole arc.",
+    "hero": "Rising-water vessel two-thirds full for the current step",
+    "data": "Step 2 of 4: 'Bath', water rising, 6 min left. Thin progress dots along the bottom: dinner done, bath now, pyjamas and book ahead"
+   },
+   {
+    "title": "Projection mode",
+    "purpose": "The iPad becomes a wall timer for a whole class via AirPlay.",
+    "hero": "Edge-to-edge disk with the task name set very large, all chrome hidden",
+    "data": "'Maths worksheet — 15 minutes', disk at 80%, AirPlay glyph in the corner: 'Mirroring to Classroom Apple TV'. Tap anywhere does nothing; exit requires the grown-up corner hold"
+   },
+   {
+    "title": "Gentle endings",
+    "purpose": "Choose an end sound that never startles a sensitive child.",
+    "hero": "Sound list with waveform previews drawn as soft hills, no spikes",
+    "data": "Marimba drop · Wind chime · Two soft bells · Quiet gong · Silence with screen glow. Each row has a play button and a loudness dot (all set to gentle)"
+   },
+   {
+    "title": "Grown-ups only",
+    "purpose": "Child lock: pausing or resetting a running timer asks for the parent passcode.",
+    "hero": "A four-dot passcode pad over a dimmed, still-running disk",
+    "data": "'To pause Quiet reading, ask a grown-up.' Passcode entry, timer visibly continues underneath at 7 min left"
+   },
+   {
+    "title": "One purchase, every classroom trick",
+    "purpose": "Paywall matched to a teacher's buying logic: cheaper than the plastic disk, bought once.",
+    "hero": "The three visual styles fanned out like classroom flashcards",
+    "data": "'Everything, once: $9.99.' Unlocks: rising water and candle styles, unlimited chains, projection mode. Footnote: 'The physical disk timer costs $30-40. This is the whole app, forever, no subscription.' Links: Restore purchase · Volume buying for schools"
+   },
+   {
+    "title": "Chains, before the first one",
+    "purpose": "First-launch empty state that teaches by example instead of a blank page.",
+    "hero": "A ghosted example chain drawn in pencil-gray",
+    "data": "'No chains yet. Most families start with three steps: Dinner, Bath, Book.' Button: Build this one · Start from scratch"
+   },
+   {
+    "title": "For grown-ups (settings)",
+    "purpose": "Everything an adult tunes once and never again.",
+    "hero": "A short, calm list, no sections deeper than one level",
+    "data": "Show digits on disk: off · End sound: Two soft bells · Sound through locked screen: on ✓ · Child lock passcode: set · Restore purchase"
+   }
+  ]
+ },
+ "invoice-maker-7": {
+  "slug": "invoice-maker-7",
+  "territory": "A tradesperson between job sites, hands full, sun on the windshield, zero patience for admin. The interface answers with jobsite clarity: gloves-on tap targets, glance-legible numbers, and the quiet competence of a tool that already filed the trip to the right client before the truck door closed. It should feel like a well-organized van, not an accounting office.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FFFFFF",
+   "surface": "#F4F5F4",
+   "textPrimary": "#17191B",
+   "textSecondary": "#5F6469",
+   "accent": "#E8630A",
+   "note": "Safety orange means money, deductions earned and billable lines, while everything else stays in grayscale so the screen reads instantly in truck-cab sunlight."
+  },
+  "typography": "IBM Plex Sans at heavy weights for glance-reading from a cupholder, with IBM Plex Mono for miles and dollars so every column lines up like a printed invoice.",
+  "motif": "The geofence stamp: every saved job site is a bold ring on a quiet map, and each visit punches the ring like a hole struck on a job card.",
+  "ia": {
+   "coreObject": "the trip, filed to a client",
+   "primaryLoop": "Drive the day as usual while arrivals at saved sites file themselves, then a ten-second evening swipe pass turns the day's driving into deductions and invoice lines.",
+   "tabs": [
+    "Today",
+    "Sites",
+    "Clients",
+    "Reports"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Save your first site",
+    "purpose": "Onboarding step 1: the address book is the product, so it starts with one real job site.",
+    "hero": "An address field with a geofence ring drawing itself around the pin.",
+    "data": "Address: '1847 Pine Hollow Rd'. Client: 'Hendricks residence'. Caption: 'Every future trip here files itself to this client.'"
+   },
+   {
+    "title": "No all-day GPS",
+    "purpose": "Onboarding step 2: earn the location permission by stating exactly when the app wakes up.",
+    "hero": "A map with one ring lit and the rest of the city grayed out.",
+    "data": "'We only wake near your saved sites. No always-on tracking, about 1% battery a day.' Buttons: Allow location / Later. Footnote: 'Trips outside your rings are never recorded.'"
+   },
+   {
+    "title": "Nothing filed yet",
+    "purpose": "First-launch empty state pointing at the one action that starts everything.",
+    "hero": "An unpunched ring labeled with the site just saved.",
+    "data": "'No trips yet. Your next drive to Hendricks residence will log itself.' Secondary: 'Add more sites now, most techs save 5 to 10.'"
+   },
+   {
+    "title": "Today",
+    "purpose": "The main screen mid-use: a working day's trips, mostly self-filed, one waiting.",
+    "hero": "Trip rows with punched rings, miles and dollar values in mono columns.",
+    "data": "7:42 Shop → Hendricks residence, 14.2 mi, filed. 11:15 Hendricks → Culver Dental, 8.7 mi, filed. 2:30 unmatched stop, 4.1 mi, awaiting swipe. Day: 41.3 mi, $28.91 deductible at $0.70/mi."
+   },
+   {
+    "title": "Arrived: Hendricks residence",
+    "purpose": "The geofence firing, the whole mechanic earning its keep in one glance.",
+    "hero": "A full-screen punched ring with the trip line drawn from the shop.",
+    "data": "'Arrived: Hendricks residence. 14.2 mi from Shop, filed to Hendricks.' One large checkbox: 'Round trip, add the 14.2 mi back automatically.' Dismisses itself in 5 seconds."
+   },
+   {
+    "title": "Sites",
+    "purpose": "The saved-address book, the contractor's real map of their business.",
+    "hero": "A list of rings, each showing its punch count like a loyalty card.",
+    "data": "Hendricks residence, 23 visits. Culver Dental, 9 visits. City Supply House, 31 visits. Westbrook Apartments unit 4B, 6 visits. Button: 'Add site from contacts'."
+   },
+   {
+    "title": "Swipe pass",
+    "purpose": "The evening cleanup: unmatched trips classified in seconds, thumb-only.",
+    "hero": "A single trip card mid-swipe, orange peeking from the business side.",
+    "data": "'2:30 PM, 4.1 mi, ended near Maple St.' Swipe right: Business, pick client. Swipe left: Personal, gone. Counter: '1 of 1 left today.'"
+   },
+   {
+    "title": "Drop it on the invoice",
+    "purpose": "Job miles becoming a billable line item at the contractor's own rate.",
+    "hero": "A trip card sliding into position as a line on a real invoice.",
+    "data": "Invoice #1042, Hendricks residence. New line: 'Travel — 28.4 mi @ $1.10/mi = $31.24'. Note: 'Your billing rate, separate from the IRS deduction rate.'"
+   },
+   {
+    "title": "Year report",
+    "purpose": "The annual payoff for the accountant, one tap, both formats.",
+    "hero": "A bold two-line total above a month-by-month bar of miles.",
+    "data": "'2025: 9,412 business miles. $6,588 deduction at the IRS rate.' 214 trips across 11 sites, busiest month October (1,204 mi). Buttons: Export PDF, Export CSV."
+   },
+   {
+    "title": "Precise Location is off",
+    "purpose": "Degraded state: a permission change quietly costs money, so the app says it loudly.",
+    "hero": "A ring rendered broken, dashes where the punch should land.",
+    "data": "'Precise Location has been off since Tuesday. 3 arrivals may be missed.' Steps: Settings → MileRing → Location → Precise: On. Button: 'Add a missed trip by hand'."
+   },
+   {
+    "title": "First 20 are free",
+    "purpose": "The paywall, stated like a supplier's price list, with the payback math in the person's own numbers.",
+    "hero": "A meter showing 17 of 20 free trips used this month.",
+    "data": "'17 of 20 free trips used. Unlimited: $8.99/mo.' Payback line from real data: 'Last week your routes logged $94.85 in deductions.' Restore purchases. No annual pressure, monthly only."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Rates, vehicle and data, short enough to read at a red light.",
+    "hero": "A flat list with the two rates side by side, never confused.",
+    "data": "IRS deduction rate: $0.70/mi (2026). My billing rate: $1.10/mi. Vehicle: 2018 Ford Transit. Round-trip default: ask each time. Export all trips. Delete my data."
+   }
+  ]
+ },
+ "journaling-mood-2": {
+  "slug": "journaling-mood-2",
+  "territory": "The person opens the app in a fragile or flattened moment, sometimes at 2 am mid-episode, and the last thing they need is cheerfulness or friction. The interface answers with the privacy of a good paper ledger: cream, ink, quiet serif labels whose meaning never drifts. It feels permanent and exact, like a notebook a psychiatrist would trust.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F6F1E5",
+   "surface": "#FFFCF3",
+   "textPrimary": "#26211A",
+   "textSecondary": "#6F6455",
+   "accent": "#3D5A80",
+   "note": "Ink on cream everywhere; the fountain-pen blue appears only as the pen itself, marking today's dots and the single primary action, never as decoration."
+  },
+  "typography": "Tiempos Text for scale labels and headings, Söhne for numbers and interface chrome; the serif gives every level-word the fixed, printed authority of a form the doctor has seen a hundred times.",
+  "motif": "The ruled ledger line: each of the four scales is one horizontal rule with labeled stops, and today's state is a single ink dot pressed onto it, so a month reads as four steady lines of dots.",
+  "ia": {
+   "coreObject": "The daily entry: four labeled scale dots plus sleep hours and medications, exactly one per day",
+   "primaryLoop": "A 90-second evening check-in placing four dots and confirming meds; people come back because an unbroken ledger is what makes the next psychiatrist appointment actually work.",
+   "tabs": [
+    "Today",
+    "Ledger",
+    "Report",
+    "Meds"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Your scales, in words",
+    "purpose": "Onboarding step 1: fix the vocabulary once so that level 3 means the same thing in January and in June.",
+    "hero": "The depression scale as a full ruled line with every stop labeled in plain words",
+    "data": "Depression: 0 'Level' · 1 'Dimmed' · 2 'Heavy but functioning' · 3 'Struggling to start anything' · 4 'Can't work' · 5 'Can't get out of bed'. Below, collapsed previews of Mania, Irritability, Anxiety with the note 'These labels are your ruler. They never change.'"
+   },
+   {
+    "title": "Your medications",
+    "purpose": "Onboarding step 2: capture the current regimen so dose changes can appear on the chart from day one.",
+    "hero": "A short med list with dose and time-of-day fields",
+    "data": "Lamotrigine 200 mg, morning · Quetiapine 50 mg, night · 'Doses are logged, never advised. Changes your doctor makes will show as marks on your ledger.'"
+   },
+   {
+    "title": "First page",
+    "purpose": "First-launch empty state: an unwritten month that invites the first dot without guilt.",
+    "hero": "Four empty ruled lines for the current month, dates ticked along the bottom",
+    "data": "'Your ledger starts tonight. One dot per scale, sleep, meds — about 90 seconds.' Reminder suggestion: 9:30 pm."
+   },
+   {
+    "title": "Tonight's check-in",
+    "purpose": "The main screen mid-use: place four dots, log sleep, confirm meds, done.",
+    "hero": "Four ruled scales stacked, thumb dragging tonight's ink dot along the irritability line",
+    "data": "Mon Oct 6 · Depression 2 'Heavy but functioning' · Mania 0 'Steady' · Irritability 3 'Snapping at small things' · Anxiety 1 'Background hum' · Sleep 6 h 40 m · Lamotrigine 200 mg ✓, Quetiapine 50 mg pending"
+   },
+   {
+    "title": "Mixed state, honestly",
+    "purpose": "Show that the app records depression and mania on the same day without collapsing them into one mood.",
+    "hero": "Two ink dots high on both the depression and mania lines for the same date",
+    "data": "Sep 21 · Depression 3 'Struggling to start anything' + Mania 3 'Thoughts racing, sleep optional' shown side by side, footnote: 'Recorded as both. Never averaged.'"
+   },
+   {
+    "title": "Dose change",
+    "purpose": "Log a change the psychiatrist made so the ledger explains itself later.",
+    "hero": "A vertical dashed ink line dropping through all four scales at the change date",
+    "data": "Sep 22 · Quetiapine 50 mg → 100 mg · dashed marker labeled 'Quetiapine ↑' appears on every chart and in the report from this date forward"
+   },
+   {
+    "title": "The ledger",
+    "purpose": "The month at a glance: four dot-lines, sleep beneath, med changes as dashed marks.",
+    "hero": "The stacked four-line month chart with sleep bars along the base",
+    "data": "September: irritability dots climbing Sep 18–24 while sleep bars drop under 6 h the same week · dashed 'Quetiapine ↑' mark on Sep 22 · tap any date to read that day's words"
+   },
+   {
+    "title": "Familiar arc",
+    "purpose": "The early-warning mechanic earning its keep: pattern flagged, framed for the doctor, no advice given.",
+    "hero": "A quiet card pinned above the ledger, ink-blue border",
+    "data": "'Sleep under 6 h for 4 nights while irritability holds at 3 or above. This shape matches the two weeks before your March episode. Worth mentioning at your Oct 14 appointment.' Buttons: Add to report · Dismiss"
+   },
+   {
+    "title": "One page for the doctor",
+    "purpose": "Preview the single-page PDF a psychiatrist can read in ten seconds.",
+    "hero": "The rendered A4 page: episode timeline on top, meds and sleep beneath",
+    "data": "Aug 12 – Oct 6 · shaded episode band Sep 18–27 · 'Quetiapine 50→100 mg, Sep 22' on the timeline · mean sleep 6 h 12 m · four scale lines with the same word labels the doctor sees every visit · Share as PDF"
+   },
+   {
+    "title": "Late entry",
+    "purpose": "Night state: the ledger dims to lamplight for 2 am logging without abandoning the paper feel.",
+    "hero": "The same check-in screen in warm low-light, cream deepened to amber-dark",
+    "data": "2:14 am · Mania 3 'Thoughts racing, still in control' · sleep field pre-set to 'still awake' · one-hand dot placement, no typing required"
+   },
+   {
+    "title": "A ledger that lasts years",
+    "purpose": "The paywall, matched to a lifelong practice rather than a monthly experiment.",
+    "hero": "A single quiet price card on cream, no countdown, no crossed-out prices",
+    "data": "'$29.99 a year. Unlimited history, the one-page report, early-warning arcs. Your entries stay exportable even if you stop paying.' Buttons: Continue · Restore purchase · plain link 'What stays free' (daily check-in and current month)"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Passcode, reminders, export, and the guarded scale editor.",
+    "hero": "A short settings list in ledger type",
+    "data": "Passcode lock: on · Reminder: 9:30 pm · Export: PDF / CSV · Edit scale labels (behind a warning: 'Your labels are your ruler. Changing them mid-year bends old entries.') · Appointment date: Oct 14"
+   }
+  ]
+ },
+ "journaling-mood-4": {
+  "slug": "journaling-mood-4",
+  "territory": "She opens it in the early morning or the last quiet minutes of the evening, carrying real weights: a father's biopsy, a daughter's move, a friend's marriage. The interface answers like a well-bound paper journal from a church bookstore: cream pages, ink, scripture set with reverence, and room for an answer to arrive months later. It never performs spirituality back at her; it keeps the record of a faith being practiced.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F7F1E4",
+   "surface": "#FDFAF2",
+   "textPrimary": "#33291D",
+   "textSecondary": "#8A7B66",
+   "accent": "#52427A",
+   "note": "Cream paper and warm ink with a single deep violet used like a ribbon and for the word 'Answered'; color never celebrates, it marks."
+  },
+  "typography": "Adobe Caslon Pro for scripture and headings, Freight Text Pro for her own writing: a book voice, not an app voice, with verses set with true small caps and hanging quotes.",
+  "motif": "The ribbon: a thin violet satin bookmark hangs from the top edge of every screen, marking today's page, and moves when an old request is finally marked answered.",
+  "ia": {
+   "coreObject": "The request: a prayer with a date, the people it is for, and space for how it was answered",
+   "primaryLoop": "Morning verse and a look at open requests, three lines of gratitude in the evening; she returns because requests she planted months ago keep resolving, and the journal is where that becomes visible.",
+   "tabs": [
+    "Today",
+    "Requests",
+    "People",
+    "Gratitude"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Onboarding: Your tradition",
+    "purpose": "Set the language of the whole journal in one choice, honoring the promise of one tradition.",
+    "hero": "A short list of Bible translations set in Caslon, like a title-page choice",
+    "data": "\"Which translation should your daily verse come from?\" · ESV · KJV · NIV · NKJV · CSB · footnote: \"Prompts and language stay within the Christian tradition. No affirmations, no universe.\""
+   },
+   {
+    "title": "Onboarding: First request",
+    "purpose": "Begin with a real prayer, not a tour; the journal starts working immediately.",
+    "hero": "A single lined cream page with the ribbon at top and a gentle prompt line",
+    "data": "\"What are you praying for today?\" · typed example being entered: \"Dad's biopsy results this Thursday\" · optional field: \"Who is this for? — Dad\" · button: \"Begin praying\""
+   },
+   {
+    "title": "Today",
+    "purpose": "The daily page: verse, open requests, and the evening's gratitude in one spread.",
+    "hero": "The day's verse set large in Caslon at the top of the page under the ribbon",
+    "data": "\"Do not be anxious about anything… — Philippians 4:6, ESV\" · Praying today: Dad's biopsy (day 12) · Emma's first semester at Ohio State (day 34) · The Hendersons' marriage (day 87) · evening line: \"Gratitude opens at 8:30 pm\""
+   },
+   {
+    "title": "Requests log",
+    "purpose": "The two-column genre of paper prayer journals, alive: statuses and dates for every prayer.",
+    "hero": "A ledger of requests with status words set in violet small caps",
+    "data": "Dad's biopsy — Praying · since Mar 3 · Emma's job interview — Answered · Jun 21 · Rent for the Okafors — Answered · May 9 · Patience at work — On hold · since Apr 2 · counter: \"31 requests this year · 14 answered\""
+   },
+   {
+    "title": "Marking a prayer answered",
+    "purpose": "The moment the product exists for: recording how it unfolded, months after the asking.",
+    "hero": "The request page folding open a second column titled 'How it was answered'",
+    "data": "Request: \"Emma's job interview\" · asked Apr 30 · marked Answered Jun 21 · her entry: \"She got the teaching position at Maple Grove Elementary. Second interview, the one she almost cancelled.\" · timeline beneath: 3 entries along the way, May 12, Jun 2, Jun 21"
+   },
+   {
+    "title": "A person's page",
+    "purpose": "Every prayer for one person gathered, so a year of praying for a daughter reads as one story.",
+    "hero": "A page headed simply with the name, requests threaded chronologically beneath",
+    "data": "\"Emma\" · 9 requests since January · Answered: job interview (Jun 21), safe drive to Columbus (Jan 14) · Praying: first semester, her small group · earliest line shown: \"Jan 6 — that she finds a church near campus\""
+   },
+   {
+    "title": "Evening gratitude",
+    "purpose": "Three lines anchored to the actual day, in dimmed evening ink for bedside use.",
+    "hero": "Three numbered lines on a page rendered in lowered lamplight warmth",
+    "data": "\"Tonight, three things from this day:\" · 1. \"Dad sounded strong on the phone\" · 2. \"Rain held off for the church picnic\" · 3. (cursor on empty line) · footer: \"Thursday, June 18 · day 74 of your journal\""
+   },
+   {
+    "title": "The printed year",
+    "purpose": "The annual book: requests, answers, and gratitude compiled as a family keepsake.",
+    "hero": "A photographed-style spread of the hardcover book open to the 'Answered' chapter",
+    "data": "\"Your 2026 journal, printed.\" · 214 pages · chapters: Requests, Answered, Gratitude, People · sample spread: \"Answered in June — 4 prayers\" · hardcover $34, softcover $22, ships in 2 weeks · \"Order when your year feels ready\""
+   },
+   {
+    "title": "Paywall",
+    "purpose": "A one-time price presented like buying a good journal, because that is what it is.",
+    "hero": "The closed journal with the ribbon, price set beneath like a bookstore label",
+    "data": "\"One purchase, like a bound journal. $9.99.\" · included: unlimited requests, people pages, daily verse, gratitude, PIN lock · \"The printed annual book is a separate order, priced at cost plus binding.\" · \"Restore purchase\" beneath, same ink"
+   },
+   {
+    "title": "First-launch empty state",
+    "purpose": "An open blank page that feels like permission, for the user who skipped the first request.",
+    "hero": "One cream page with the ribbon and a single verse about beginning",
+    "data": "\"Cast all your anxiety on him… — 1 Peter 5:7\" · \"This page is waiting for your first request.\" · single button: \"Write it down\""
+   },
+   {
+    "title": "Settings",
+    "purpose": "Privacy and rhythm: this journal is personal, and the controls say so plainly.",
+    "hero": "A short list with the PIN lock at the very top",
+    "data": "Lock journal: PIN + Face ID (on) · Morning verse: 7:00 am · Evening gratitude: 8:30 pm · Translation: ESV · Export journal to PDF · \"Your journal is stored on this device and your iCloud. We cannot read it.\""
+   }
+  ]
+ },
+ "meal-prep-grocery-1": {
+  "slug": "meal-prep-grocery-1",
+  "territory": "It is Sunday afternoon and the user is trying to turn five recipe tabs into one trip to the store without buying a third bag of flour. The interface answers with the calm of a well-run kitchen: crisp lists, visible arithmetic, and the small satisfaction of watching two ingredient lines fold into one. Fresh and practical, never foodie-glossy.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAFCF7",
+   "surface": "#FFFFFF",
+   "textPrimary": "#22301F",
+   "textSecondary": "#6B7A66",
+   "accent": "#2E7D4F",
+   "note": "Market-fresh white with produce-green accents; green marks additions and merges, while 'have it at home' items fade to a soft strikethrough gray instead of disappearing, so the subtraction stays visible and trusted."
+  },
+  "typography": "Cabinet Grotesk for headings and day labels, Inter for list rows and quantities; friendly weight up top, utterly legible arithmetic below, like a good grocery receipt.",
+  "motif": "The roll-up bracket: whenever ingredients merge, a thin green bracket visibly gathers the source recipe lines into the single combined line, keeping the math inspectable at a glance.",
+  "ia": {
+   "coreObject": "The week (a meal plan whose byproduct is one clean shopping list)",
+   "primaryLoop": "Pick recipes for the week, tap what's already at home, and walk the store with one deduplicated list; the growing recipe library and the shared plan with a partner are what bring both adults back every Sunday.",
+   "tabs": [
+    "This week",
+    "Recipes",
+    "List",
+    "Household"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Bring your first recipe",
+    "purpose": "First onboarding step: import a real recipe by URL so the core parse works on the user's own food.",
+    "hero": "A single URL field above a live parse preview",
+    "data": "Pasted: budgetbytes.com/sheet-pan-chicken-fajitas. Parsed instantly: 'Sheet-pan chicken fajitas, serves 4, 9 ingredients found: 1 lb chicken breast, 2 bell peppers, 1 yellow onion, 2 tbsp olive oil…' Button: 'Looks right, save it'"
+   },
+   {
+    "title": "What do you always have?",
+    "purpose": "Second onboarding step: seed the pantry subtraction with staples in five taps, no inventory homework.",
+    "hero": "A tappable chip cloud of common staples",
+    "data": "Chips: salt, black pepper, olive oil, flour, sugar, butter, rice, soy sauce, garlic. Selected: salt, olive oil, flour, garlic. Caption: 'These stay off your list unless a recipe needs more than usual. Change anytime with one tap.'"
+   },
+   {
+    "title": "An empty week",
+    "purpose": "First-launch empty state that shows the payoff shape before any planning happens.",
+    "hero": "Seven day slots with a ghosted example list showing a merge bracket",
+    "data": "Mon through Sun, all 'Add a meal'. Ghost example: 'Chicken breast 1.4 lb, gathered from 2 recipes' with the bracket drawn. Caption: 'Plan a few dinners. The list builds itself.'"
+   },
+   {
+    "title": "This week, mid-plan",
+    "purpose": "The main screen in real use: a half-planned week with the list counter already running.",
+    "hero": "The week grid with recipe cards in five slots and a live list badge",
+    "data": "Mon: Sheet-pan fajitas. Tue: Coconut chickpea curry. Wed: leftovers. Thu: Miso salmon bowls. Fri: Homemade pizza. Sat: Lemony white bean soup. Badge: 'List: 23 items from 5 recipes, 6 merged, 4 at home'"
+   },
+   {
+    "title": "The list, rolled up",
+    "purpose": "The hero mechanic at its earning-its-keep moment: honest merging with combined quantities and pantry subtraction.",
+    "hero": "The shopping list with green roll-up brackets expanded on one line",
+    "data": "'Chicken breast 1.4 lb' bracket open: Fajitas 0.6 lb + Miso bowls 0.8 lb. 'Yellow onion 3' from 3 recipes. 'Chicken fillet' merged into chicken breast, noted 'matched by meaning'. Struck through: flour ('at home'), olive oil, garlic. Sections: Produce 8, Meat & fish 3, Pantry 5"
+   },
+   {
+    "title": "Have it at home",
+    "purpose": "Show the one-tap subtraction: removed from the list, kept in the recipe.",
+    "hero": "A list row mid-swipe revealing the 'Have it' action",
+    "data": "'Coconut milk, 1 can (13.5 oz)' swiped to 'Have it'. Row fades to strikethrough with note 'still in Coconut chickpea curry, Tue'. Undo toast: 'Back on the list'. Counter updates: '22 to buy, 5 at home'"
+   },
+   {
+    "title": "Serves 2 becomes serves 4",
+    "purpose": "The recalculation mechanic: change servings and watch every quantity update in place.",
+    "hero": "A servings stepper with quantities visibly re-rolling in the list below",
+    "data": "Miso salmon bowls: 2 to 4 servings. Salmon 0.8 lb to 1.6 lb, rice 1 cup to 2 cups; the merged 'Chicken breast' line is untouched, 'Ginger 1 inch to 2 inch'. Footer: 'List updated, 2 quantities changed'"
+   },
+   {
+    "title": "Sam is on the list too",
+    "purpose": "Shared household access with real-time changes visible, including the edit-collision case.",
+    "hero": "The list with a partner's live presence chip and one reconciled edit",
+    "data": "Chip: 'Sam is viewing, at the store'. Checked off by Sam 2 min ago: bell peppers, yellow onion. Collision note on 'Milk': 'You set 1 gal, Sam set half gal at 5:12 PM, kept the larger: 1 gal' with 'Change' link"
+   },
+   {
+    "title": "Store mode",
+    "purpose": "The in-aisle state: big touch targets, aisle order, nothing else.",
+    "hero": "Oversized checkboxes grouped by aisle with the remaining count pinned",
+    "data": "Produce (3 left): bell peppers done, lemons 2, cilantro 1 bunch, baby spinach 5 oz. Meat & fish (2 left). Pinned: '9 of 23 remaining'. Screen-dim override on, back gesture guarded"
+   },
+   {
+    "title": "Keep the week running",
+    "purpose": "The paywall after two free planned weeks, priced plainly against the incumbents this audience already pays.",
+    "hero": "The user's own two finished weeks as evidence above a single yearly price",
+    "data": "'2 weeks planned, 11 merges, 9 pantry items skipped. Estimated double-buys avoided: 6 items.' Price: $10/year, everything included: unlimited recipes, household sharing, merging, pantry subtraction. Line: 'Plan to Eat and AnyList run about $30 a year.' Buttons: 'Subscribe, $10/yr', 'Restore purchase', 'Keep the free planner' (3 recipes per week) equally visible"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Units, stores, household, and data ownership in one quiet page.",
+    "hero": "Grouped list with the household card on top",
+    "data": "Household: you + sam.k@gmail.com, both can edit. Units: US customary (switch to metric). Aisle order: My Kroger layout, drag to reorder. Staples: 4 items. Export recipes: Markdown or JSON. Subscription: $10/yr, renews Jul 7 2027, 'Restore purchase'"
+   }
+  ]
+ },
+ "meditation-mindfulness-2": {
+  "slug": "meditation-mindfulness-2",
+  "territory": "Heart at 140, hands unsteady, a decision budget of about five seconds: the person cannot choose, read, or navigate. The interface answers with dusk-dark emptiness and exactly one thing happening, a slow amber horizon that breathes so they do not have to think about breathing. Everything else in the product exists to be configured earlier, in a calm hour, so the crisis screen can be almost nothing.",
+  "theme": "dark",
+  "palette": {
+   "bg": "#14121F",
+   "surface": "#1E1B2E",
+   "textPrimary": "#EDEAF5",
+   "textSecondary": "#8E88A6",
+   "accent": "#E8B87D",
+   "note": "Color barely moves: the warm amber horizon brightens on the inhale and settles on the exhale, and nothing else on screen changes at all."
+  },
+  "typography": "Söhne in exactly two sizes; during a protocol the type nearly disappears, one short line at a time, set large and low-contrast so it guides without demanding to be read.",
+  "motif": "The dawn horizon: a soft amber band low on the screen that rises with every inhale and sinks with every exhale, the whole interface reduced to one slow tide.",
+  "ia": {
+   "coreObject": "A protocol: a pre-configured rescue scenario with a chosen voice, pace, and duration",
+   "primaryLoop": "Configure protocols in a calm moment, launch one from the lock screen in two seconds during a crisis; the log entry afterwards and the widget always sitting on the lock screen keep the tool close.",
+   "tabs": [
+    "Protocols",
+    "Log",
+    "Rehearse",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Set this up while you're okay",
+    "purpose": "First launch happens in a calm state: choose the voice and pace that will carry you later, no signup, no survey.",
+    "hero": "Two voice cards playing short samples over the breathing horizon",
+    "data": "Voice: Nora (low, unhurried) · Sam (neutral, steady). Pace: 4-4-6 slow · 4-2-4 standard. Button: This is my voice. No email, no account, stated plainly at the bottom"
+   },
+   {
+    "title": "Put the button where the panic finds you",
+    "purpose": "Walk through adding the lock-screen widget, which is the entire point of the product.",
+    "hero": "A rendered iPhone lock screen with the amber circle widget beneath the clock",
+    "data": "Steps: 'Hold your lock screen → Customize → Add widget → Panic button.' Caption: 'From here, help starts in two seconds. No unlocking, no searching.'"
+   },
+   {
+    "title": "Protocol running",
+    "purpose": "The crisis screen itself: one breath instruction at a time, nothing to decide.",
+    "hero": "The amber horizon mid-inhale, filling the lower third of an otherwise black screen",
+    "data": "Single line: 'In through the nose… 4'. Below, barely visible: '2 minutes left · slide down to end'. No other elements exist"
+   },
+   {
+    "title": "In your pocket",
+    "purpose": "Vibration-only mode: the phone guides breathing through haptics while it stays in a pocket in a crowded place.",
+    "hero": "Screen dimmed to near-black with a faint pulse ring matching the haptic rhythm",
+    "data": "'In your pocket. Follow the pulses: long pull in, two taps hold, long fade out.' Started from the 'Crowded place' protocol at 17:42"
+   },
+   {
+    "title": "Three scenarios, prepared in advance",
+    "purpose": "Edit the three pre-set protocols in a calm moment: each situation gets its own voice, pace, and length.",
+    "hero": "Three stacked cards, each summarizing its own recipe",
+    "data": "At home: Nora's voice, 4-4-6, 5 min. Crowded place: no voice, vibration only, 3 min. Rising wave: Nora, 4-2-4, 2 min then check-in. Each card: 'Rehearsed 2 times' tag"
+   },
+   {
+    "title": "After it passes",
+    "purpose": "One-tap capture of the episode while memory is fresh, no typing required.",
+    "hero": "Three quiet rows: when, where, what set it off",
+    "data": "Time: today 14:32 (auto). Place: 'Metro, Line 2' (auto, editable). Trigger chips: crowd · no exit · caffeine · argument · unknown. Selected: crowd, no exit. Button: Save · Skip"
+   },
+   {
+    "title": "The log",
+    "purpose": "A timeline that shows the shape of the disorder over weeks without dramatizing it.",
+    "hero": "Six weeks of small amber dots on a dark field, denser then sparser",
+    "data": "'3 episodes this month, down from 5 in May.' Entries: Jun 28, 14:32, metro, 3 min protocol · Jun 19, 09:10, home, 5 min · Jun 6, 21:47, home, 2 min"
+   },
+   {
+    "title": "One page for your therapist",
+    "purpose": "Export the log as a clean PDF so the next session starts from data, not recollection.",
+    "hero": "A white PDF preview floating on the dark background, deliberately clinical",
+    "data": "'Episode log, May 26 – Jul 6: 8 episodes, median duration to calm 4 min, most common trigger: crowded transit (5 of 8).' Buttons: Share PDF · Print"
+   },
+   {
+    "title": "Rehearse it so your hands know it",
+    "purpose": "Practice mode: run any protocol in a calm state so the motion is automatic during a real attack.",
+    "hero": "The same horizon screen, but with a soft 'rehearsal' wordmark and a skip control",
+    "data": "'Rehearsing: Crowded place (vibration only). Real launches will look exactly like this.' Counter after: 'Rehearsed 3 times. The best time to practice is when you don't need it.'"
+   },
+   {
+    "title": "Nothing here. That's the hope.",
+    "purpose": "First-launch empty state of the log that respects what an empty log means.",
+    "hero": "An empty dark field with a single resting horizon line",
+    "data": "'No episodes recorded. If one comes, the button is on your lock screen and the log will take care of itself.' Link: Rehearse a protocol now"
+   },
+   {
+    "title": "Keep the full kit",
+    "purpose": "Paywall shown only from Settings or after a rehearsal, never during or after a real episode.",
+    "hero": "The three protocol cards and the therapist PDF laid out calmly, no countdown, no urgency",
+    "data": "'Core protocols: $12.99 once, yours forever. Log, extra scenarios, and companion mode: $39.99/year.' Footnote: 'This screen never appears during or right after an episode. Ever.' Link: Restore purchase"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Everything configurable lives here, tuned once in a calm hour.",
+    "hero": "Short list over the resting horizon",
+    "data": "Voice: Nora · Haptic strength: strong · Companion mode: text Marta after an episode ends — off · Face ID to open log: on · Restore purchase"
+   }
+  ]
+ },
+ "notes-pkm-1": {
+  "slug": "notes-pkm-1",
+  "territory": "Sunday evening, tea beside the iPad, the small ritual of setting up the week that Hobonichi people guard like a sacrament. The interface answers as a well-bound notebook would: it opens flat, stays quiet, and offers beautiful blank structure without ever selling another sheet of paper. The pleasure is in the tool disappearing under the pen.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F6F1E7",
+   "surface": "#FDFBF5",
+   "textPrimary": "#2B241A",
+   "textSecondary": "#8A7E6B",
+   "accent": "#C13B1B",
+   "note": "Warm cream paper under near-black ink, with Hobonichi vermillion appearing only as the printed grid accents and the current-day marker, exactly like red ink on a Japanese planner."
+  },
+  "typography": "Tiempos Text for printed template labels and dates, set small and letterspaced like fine planner printing; the user's own handwriting is the real display face.",
+  "motif": "The stitched gutter: every spread has a true center seam with visible thread stitches, and pages turn around it with paper physics, so the app always reads as a bound book, never a canvas.",
+  "ia": {
+   "coreObject": "The notebook: a bound file of spreads (weekly, monthly, habit, budget) living as a document in iCloud",
+   "primaryLoop": "Open to this week's spread each morning, write plans and cross off yesterday in ink, and roll what is unfinished forward with one gesture on Sunday.",
+   "tabs": [
+    "Shelf",
+    "This Week",
+    "Templates",
+    "Pens"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Bind your first notebook",
+    "purpose": "Onboarding step 1: choose paper and starting spreads, everything visibly included.",
+    "hero": "A notebook being assembled: cover swatch, paper (lined, dot, grid), and spread set stacking into a bound preview",
+    "data": "Cover: Slate linen. Paper: 5mm dot. Included spreads: Weekly, Monthly, Habit tracker, Budget, Reading list. Label in vermillion: 'All 34 templates included. There is no shop.' Start date: Mon, Feb 23."
+   },
+   {
+    "title": "Your pen, your hand",
+    "purpose": "Onboarding step 2: a 20-second scribble test that tunes pressure and shows the zero-lag promise.",
+    "hero": "A test strip of dot paper with the user's fresh strokes and an eraser to try immediately",
+    "data": "'Write your name. Cross it out. Erase it.' Pen presets: Fine liner 0.4, Fountain medium, Pencil 2B. Pressure curve: natural. Note: 'Palm rest anywhere. The page does not scroll while your hand is down.'"
+   },
+   {
+    "title": "First blank spread",
+    "purpose": "First-launch empty state: a beautiful empty week that invites ink instead of demanding setup.",
+    "hero": "The open weekly spread, stitched gutter down the middle, today's column edged in vermillion",
+    "data": "Printed labels only: Mon 23, Tue 24, Wed 25 on the left page; Thu 26, Fri 27, Sat 28 / Sun 1 sharing the right; a lined notes strip along the bottom. Ghost hint in the margin: 'This is paper. Just write.'"
+   },
+   {
+    "title": "This week, mid-use",
+    "purpose": "The main screen in real life: a half-filled weekly spread on a Wednesday.",
+    "hero": "The spread dense with handwriting, two tasks struck through in ink, a coffee-ring sticker in one corner",
+    "data": "Handwritten: 'Tue: dentist 14:00 ✓, call landlord ✓'. 'Wed: gym, finish slide deck, water plants'. Bottom notes strip: 'meal plan: soup Thu'. Vermillion day marker on Wednesday. Page indicator: Week 9, Feb 23 to Mar 1."
+   },
+   {
+    "title": "Habit tracker page",
+    "purpose": "The monthly grid mechanic: filled by hand, tallied by the template's printed structure alone.",
+    "hero": "A printed month grid with hand-inked marks, rows in the user's writing",
+    "data": "Rows handwritten: 'run', 'read 20 min', 'no sugar', 'French'. Columns 1-28 for February. Ink marks: run has 11 fills, French has a 6-day unbroken run circled by hand in vermillion pencil."
+   },
+   {
+    "title": "Budget spread",
+    "purpose": "The money page for people who did this in paper planners: written entries, printed rules.",
+    "hero": "A two-column ledger spread with a handwritten running total",
+    "data": "Printed headers: Date, Item, Out, In. Handwritten: 'Feb 3 rent 1450', 'Feb 7 groceries 86.40', 'Feb 12 concert tix 110', 'Feb 15 paycheck +2,940'. Hand-underlined total: 'left this month: 1,293'."
+   },
+   {
+    "title": "Spread builder",
+    "purpose": "Assemble a custom page from blocks and save it as a yearly template of your own.",
+    "hero": "A page scaffold with printed blocks being dragged into place: month grid, lined strip, checklist column",
+    "data": "Blocks placed: 'Month mini-grid (top right)', 'Gratitude lines ×5', 'Checklist ×12'. Save as: 'My Sunday reset'. Note: 'Saved templates appear beside the built-in 34, same shelf, same price: included.'"
+   },
+   {
+    "title": "Roll the week forward",
+    "purpose": "The bullet-journal migration gesture: drag unfinished tasks across the stitched gutter into next week.",
+    "hero": "Next week's blank spread sliding in as three unfinished handwritten tasks lift off the old page",
+    "data": "Lifted in the user's own handwriting: 'finish slide deck', 'book eye test', 'return library books'. They land in Monday's column as ink, not typed text. Small caption: '3 rolled forward, 9 done last week.'"
+   },
+   {
+    "title": "The shelf",
+    "purpose": "Notebooks as visible iCloud files, the durability promise made tangible.",
+    "hero": "A wooden-toned shelf of notebook spines with file details on tap",
+    "data": "Spines: '2026 Planner' (current), 'Budget 2025-26', 'Garden journal', 'Work log Q1'. Tapped detail: 2026 Planner.notebook, 48 MB, iCloud Drive > Notebooks, last synced 2 min ago, 'Openable even if this app is gone: pages export as PDF.'"
+   },
+   {
+    "title": "Buy the notebook",
+    "purpose": "The paywall in the product's own voice: one honest purchase, compared to what paper costs.",
+    "hero": "A price tag tied with thread to the notebook cover",
+    "data": "One-time: $19.99, everything forever, all 34 templates, spread builder, unlimited notebooks. Or $24.99/year with seasonal guest-designer spreads included. Line in small print: 'A paper Hobonichi runs $40-60 every year.' Restore purchase link stitched at the bottom edge."
+   },
+   {
+    "title": "Storage conflict",
+    "purpose": "The state Penbook users fear: an iCloud sync conflict resolved without losing a page of ink.",
+    "hero": "Two page thumbnails side by side, both preserved, neither auto-discarded",
+    "data": "'This spread was edited on iPad (2:14 pm) and iPhone (2:16 pm). Both versions are kept.' Options: Keep iPad version, Keep iPhone version, Keep both as facing pages. Caption: 'Nothing is deleted without your hand on it.'"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Quiet controls befitting a paper object: paper feel, backups, and deliberate silence.",
+    "hero": "A colophon-style settings page set in small Tiempos",
+    "data": "Paper texture: subtle grain (on). Pen smoothing: minimal. Backups: iCloud Drive, versioned, 30 days. Notifications: none, and no setting to add them, with the note 'Paper stays quiet.' Export notebook as PDF. Left-handed gutter flip."
+   }
+  ]
+ },
+ "nutrition-calories-2": {
+  "slug": "nutrition-calories-2",
+  "territory": "The person logging is mid-flare or bracing for one, tired of being told it is stress, and quietly collecting evidence for a doctor who gets eleven minutes with them. The interface answers with clinical freshness: bright, unembarrassed, quick enough to use from a bathroom, and honest enough to say 'not enough data yet' out loud. It treats the gut like a system under study, not a failing.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAFBF9",
+   "surface": "#FFFFFF",
+   "textPrimary": "#17332E",
+   "textSecondary": "#5F7772",
+   "accent": "#0E7C86",
+   "note": "Clean white with a cool teal reserved for statistically confident findings; unconfirmed patterns stay grey so color itself encodes evidence."
+  },
+  "typography": "Söhne for interface text and Söhne Mono for timestamps and confidence figures, giving lab-report neutrality with warmth in the generous sizes.",
+  "motif": "The delay arc: a thin arc that leaps across the day timeline from a food dot to a symptom dot, its span labeled 6h, 12h, or 24h, the app's entire thesis drawn as one line.",
+  "ia": {
+   "coreObject": "The day timeline: a single vertical strand holding food dots and symptom dots in true time",
+   "primaryLoop": "Two taps after eating, two taps when a symptom hits, then each Sunday the app surfaces which arcs kept repeating and the doctor report writes itself.",
+   "tabs": [
+    "Today",
+    "Patterns",
+    "Report",
+    "History"
+   ]
+  },
+  "screens": [
+   {
+    "title": "What are we studying?",
+    "purpose": "Single onboarding step: name the condition so symptom presets and FODMAP hints calibrate.",
+    "hero": "Four large condition cards with a plain-language line under each",
+    "data": "IBS (C, D, or mixed), Crohn's / colitis, Food intolerance (lactose, fructose, other), Not diagnosed yet, just investigating. Below: 'The app finds correlations. Your doctor makes the calls. Nothing here is dietary advice.'"
+   },
+   {
+    "title": "Day one, empty strand",
+    "purpose": "First-launch empty state that starts the habit without demanding a backlog.",
+    "hero": "An empty vertical timeline with two ghost dots showing where entries will land",
+    "data": "'Log your next meal and your next symptom. That is the whole job.' Two buttons: I just ate, I feel something. Footnote: 'Patterns start appearing after about 2 weeks of entries.'"
+   },
+   {
+    "title": "Today",
+    "purpose": "The main screen mid-use: the day as a strand of food and symptom dots.",
+    "hero": "The vertical timeline with one delay arc already bridging lunch to an evening symptom",
+    "data": "8:10 am Oat porridge, black coffee. 12:35 pm Chicken wrap (contains onion, garlic). 3:40 pm Bloating, 6/10. 6:15 pm Rice, salmon. Arc from 12:35 to 3:40 labeled '3h, watching'. Streak line: 11 days logged."
+   },
+   {
+    "title": "Log a symptom",
+    "purpose": "The two-tap mechanic: type, severity, done, nothing else required.",
+    "hero": "A grid of six symptom tiles above a horizontal 1-10 severity slider with a large thumb",
+    "data": "Tiles: Bloating, Cramping, Urgency, Nausea, Reflux, Fatigue. Selected: Cramping, severity 7. Time auto-filled 4:22 pm, editable. Optional note field collapsed by default. Save is one tap from here."
+   },
+   {
+    "title": "Log a meal",
+    "purpose": "Fast food entry with FODMAP hints appearing inline for elimination dieters.",
+    "hero": "Search field with recent foods as one-tap chips, a small amber leaf marking high-FODMAP items",
+    "data": "Typing 'onion soup': chip shows amber leaf, tap reveals 'Onion: high FODMAP (fructans). Common delayed trigger.' Recents: Oat porridge, Greek yogurt (leaf: lactose), Sourdough toast, Green tea."
+   },
+   {
+    "title": "Patterns",
+    "purpose": "The reason the app exists: correlations at 6, 12, and 24 hours with honest confidence labels.",
+    "hero": "Ranked list of trigger candidates, each drawn as its delay arc with an evidence count",
+    "data": "1. Onion → bloating, 6-12h delay, 7 of 9 exposures, confidence: moderate. 2. Lactose → cramping, 12-24h, 5 of 8, confidence: emerging. 3. Coffee → urgency, under 6h, 4 of 11, confidence: weak. Greyed row: 'Wheat: 3 exposures logged. Not enough to know yet.'"
+   },
+   {
+    "title": "Not enough data yet",
+    "purpose": "The honesty state: what a suspected trigger looks like before the math is willing to speak.",
+    "hero": "A single pale arc rendered dashed, with a progress note instead of a verdict",
+    "data": "'You have flagged tomato twice. We need roughly 5 more logged exposures before a correlation means anything. Guessing early is how other apps end up blaming water.' Button: remind me to log next tomato exposure."
+   },
+   {
+    "title": "Doctor report",
+    "purpose": "Preview the weekly PDF exactly as the gastroenterologist will see it.",
+    "hero": "A paginated document preview, one page, dense but ordered",
+    "data": "Report Feb 1-28. Symptom trend: bloating episodes 14 → 9 vs January. Top likely triggers: onion (moderate, 7/9), lactose (emerging, 5/8). 7-day averages: 1.8 symptoms/day, mean severity 5.2. Entries in period: 96 foods, 38 symptoms. Footer: 'Correlations only. Not a diagnosis.'"
+   },
+   {
+    "title": "Your data, leaving with you",
+    "purpose": "Full-history CSV export, stated as a right rather than a feature.",
+    "hero": "A file card showing real column headers of the export",
+    "data": "diary_full_2026-02-28.csv: 1,412 rows. Columns: timestamp, entry_type, item, fodmap_flags, symptom, severity_1_10, note. Buttons: Save to Files, AirDrop, Email to myself. 'No lock-in. Export works on the free tier too.'"
+   },
+   {
+    "title": "Keep the analysis running",
+    "purpose": "The paywall: logging stays free forever, the correlation engine and report are the paid layer.",
+    "hero": "A split panel: free column (logging, history, export) beside the teal analysis column",
+    "data": "Free: unlimited logging, full history, CSV export. Plus, $8/month or $60/year: delay-arc correlations, confidence labels, weekly doctor PDF, FODMAP hints. 'People keep diaries like this for years. Yearly saves $36.' Restore purchase beneath the buttons."
+   },
+   {
+    "title": "History",
+    "purpose": "Scan back weeks quickly when the doctor asks 'when did this start?'",
+    "hero": "A month grid where each day is a small stacked bar of food and symptom counts",
+    "data": "February grid: Feb 9 tallest symptom bar (4 entries, flare noted). Tap Feb 9 opens that day's strand. Filter chips: Bloating only, Severity 7+, Days with onion."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Quiet controls: privacy, presets, reminders that respect a medical diary.",
+    "hero": "Grouped list with Face ID lock at the top",
+    "data": "Face ID lock: on. Symptom presets: edit my six tiles. FODMAP hints: on. Logging reminders: gentle, 8 pm only if day is empty. Data: export CSV, delete everything (two-step). No account required, data stored on device and iCloud."
+   }
+  ]
+ },
+ "password-manager-1": {
+  "slug": "password-manager-1",
+  "territory": "The user has finally decided to leave a password manager that holds 300 accounts hostage, and they are quietly afraid of losing even one. The interface answers with the dignity of a notary's office: warm paper, ledger rules, and numbers that reconcile in front of you. Nothing playful, nothing neon, just proof at every step that everything came across.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F6F1E7",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1D2733",
+   "textSecondary": "#5E6672",
+   "accent": "#1F5C45",
+   "note": "Warm archival paper with deep-ink text; the bottle-green accent appears only where a count balances or an action is safe, and unparsed items use ink underlines, never alarm red, because loss here is information, not panic."
+  },
+  "typography": "Source Serif 4 for headings and counts, Inter for UI labels and table cells; the serif carries certificate-grade gravity while tabular Inter keeps every reconciliation column honest.",
+  "motif": "The double-entry rule: every stage shows an 'in' figure and an 'out' figure joined by a hairline ledger rule, so the migration reads like a balanced book from start to finish.",
+  "ia": {
+   "coreObject": "The migration (one source file becoming one verified target file)",
+   "primaryLoop": "Drop an export file, watch fields map and counts reconcile, fix the stragglers, and walk away with a target file plus a report proving nothing was lost; most users come once, do the job, and leave satisfied, which is the point.",
+   "tabs": [
+    "Migrate",
+    "Report",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Nothing leaves this computer",
+    "purpose": "Single onboarding step: establish the local-only guarantee before any file is touched.",
+    "hero": "A diagram of one machine with the file path drawn entirely inside its outline",
+    "data": "'Your export is read here, converted here, and wiped when you close the app. No account, no cloud, no telemetry.' One button: 'Choose a file'. Version line: 'v1.4, offline capable'"
+   },
+   {
+    "title": "Drop your export",
+    "purpose": "First-launch empty state: one drop zone, zero decisions about formats.",
+    "hero": "A large dashed drop zone framed by the ledger rule motif",
+    "data": "'Drop the export file from your old manager. We recognize Keeper, LastPass, 1Password, Dashlane, mSecure, and RoboForm on sight.' Secondary link: 'How to export from each manager' with six named guides"
+   },
+   {
+    "title": "Source identified",
+    "purpose": "The auto-detection moment: the tool names the source and shows what it found before converting anything.",
+    "hero": "A manifest card with the detected format seal and the first in-count",
+    "data": "'LastPass CSV, detected from column structure.' In: 312 entries, 14 folders, 22 secure notes, 9 entries with TOTP secrets, 3 with attachments noted. Button: 'Map fields'"
+   },
+   {
+    "title": "Field mapping",
+    "purpose": "Show every source field landing in the unified schema so the user can audit the translation.",
+    "hero": "A two-column ledger: source field names ruled across to schema slots",
+    "data": "'name' to Title, 'username' to Username, 'password' to Password, 'url' to URL, 'extra' to Notes, 'totp' to 2FA code, 'grouping' to Folder; row 'fav' marked 'no target equivalent, noted in report'"
+   },
+   {
+    "title": "Duplicates need a decision",
+    "purpose": "The duplicate-detection mechanic: same site, different passwords, resolved by the human before export.",
+    "hero": "Side-by-side entry cards with last-modified dates as the deciding evidence",
+    "data": "netflix.com: password ending '…k9Q' changed Mar 2024 vs password ending '…x2f' changed Nov 2021. 'Keep newer' preselected but editable. Counter: '4 duplicate pairs, 1 of 4 resolved'"
+   },
+   {
+    "title": "Verify on your own data first",
+    "purpose": "The paywall, placed after the user has seen 30 of their real entries convert correctly.",
+    "hero": "The first 30 converted rows shown balanced, with the remaining count held behind one price",
+    "data": "'30 of 312 entries converted free. Check them in your new manager, then finish the rest.' One-time purchase: $10, all entries, all future migrations on this machine. Buttons: 'Unlock full migration, $10', 'Restore purchase', 'Export the free 30 first'. Line: 'One renewal at Keeper costs $40 to $50'"
+   },
+   {
+    "title": "Converting",
+    "purpose": "The working state: progress that reads as bookkeeping, not a spinner.",
+    "hero": "A running tally climbing the in/out ledger rule",
+    "data": "'Converted 214 of 312.' Sub-counts updating live: 2FA codes carried 9 of 9, folders rebuilt 14 of 14, notes carried 21 of 22. Note: 'Running locally, safe to disconnect from the internet'"
+   },
+   {
+    "title": "Reconciliation report",
+    "purpose": "The hero moment of the product: the balanced book that earns the $10.",
+    "hero": "One oversized double-entry figure: in and out joined by the ledger rule",
+    "data": "In 312, out 309. Carried in full: usernames 309, passwords 309, URLs 301, notes 22, 2FA 9, folders 14. Could not parse: 3 lines. Buttons: 'Review the 3 lines', 'Save report as PDF'"
+   },
+   {
+    "title": "The three that didn't parse",
+    "purpose": "Show exactly what failed and what was inside it, so nothing is silently lost.",
+    "hero": "Raw source lines quoted verbatim with a manual-copy affordance per line",
+    "data": "Line 87: 'WiFi garage;;see notebook;;' (no username or password fields). Line 190: entry titled 'Old bank OTP grid' containing a 40-digit block. Line 244: malformed quote in notes field, full text shown. Each with 'Copy contents' and 'Mark handled'"
+   },
+   {
+    "title": "Choose the destination format",
+    "purpose": "Produce the file the new manager can actually read, with import instructions attached.",
+    "hero": "Three target cards, each with its own one-line import path",
+    "data": "Bitwarden (.json, 'Tools, Import data, Bitwarden json'), KeePass (.xml, 'File, Import, KeePass XML'), Apple Passwords (.csv, 'File, Import Passwords'). File saved: 'migration-2026-07-07.json, 309 entries'"
+   },
+   {
+    "title": "Wiped clean",
+    "purpose": "The closing state: proof that temporary data is gone once the job is done.",
+    "hero": "The ledger rule closing into a completed seal",
+    "data": "'Source file, working copies, and clipboard cleared at 21:14. This app keeps nothing.' Kept by your choice: reconciliation report PDF. Button: 'Close, migration complete'"
+   },
+   {
+    "title": "Settings",
+    "purpose": "The few controls a single-purpose tool honestly needs.",
+    "hero": "A short grouped list under the local-only seal",
+    "data": "Wipe temp data: on app close (default) / immediately after export. Default target: Bitwarden. Keep reports: Ask each time. License: purchased Jul 7, 2026, 'Restore purchase'. Diagnostics: none collected, nothing to toggle"
+   }
+  ]
+ },
+ "period-cycle-3": {
+  "slug": "period-cycle-3",
+  "territory": "She arrives wary, having just moved a decade of intimate medical history out of an app she no longer trusts, and she is checking whether this one deserves it. The interface answers like an archivist handing over the keys: calm, literate, adult, showing her the full record and the exit door in the same breath. Nothing pleads, nothing decorates, everything states.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FAF6F2",
+   "surface": "#FFFFFF",
+   "textPrimary": "#2B2126",
+   "textSecondary": "#7A6B72",
+   "accent": "#8E3B54",
+   "note": "Warm archival paper with plum-black ink; the single garnet accent marks only what is hers to act on (export, backup, today), never decoration."
+  },
+  "typography": "Signifier for headings and cycle-day numerals, Söhne for interface text: the voice of a well-set medical memoir, literate and unhurried, with numerals large enough to read like facts rather than stats.",
+  "motif": "The decade strip: her entire history rendered as one continuous horizontal band of cycle segments, like archival microfilm you can scroll back through ten years without a single chart.",
+  "ia": {
+   "coreObject": "The record: a single continuous, exportable cycle history that predates and outlives the app",
+   "primaryLoop": "She logs today in two taps, glances at where she is in the cycle, and returns because the record only stays complete if she keeps it, and the app keeps proving it stays hers.",
+   "tabs": [
+    "Today",
+    "Record",
+    "Export",
+    "Vault"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Onboarding: The premise",
+    "purpose": "State the deal before asking for anything: on-device, no account, verifiable.",
+    "hero": "Three plain declarative lines set in Signifier on bare paper, no illustration",
+    "data": "\"Your history lives on this phone. No account. No server. Verify it yourself: Settings → Privacy Report will show zero trackers.\" Single button: \"Begin\". Footer link: \"Read the 400-word privacy policy\""
+   },
+   {
+    "title": "Onboarding: Import your years",
+    "purpose": "Migrate her existing record in one minute, the founding gesture of the product.",
+    "hero": "Four source rows with import status, Apple Health already detected",
+    "data": "Clue (.cluedata file) — \"Choose file\"; Flo — \"Choose export\"; Kindara CSV — \"Choose file\"; Apple Health — \"3,214 entries found, 2014–2024\" with garnet Import button; \"Skip, start fresh\" in quiet text below"
+   },
+   {
+    "title": "Import complete",
+    "purpose": "Show the decade strip assembling for the first time, the moment the product earns trust.",
+    "hero": "The full decade strip drawing itself left to right across the screen",
+    "data": "\"3,214 entries imported. 127 cycles, March 2014 – June 2026. Average length 29 days.\" Strip labeled by year: 2014 … 2026, with a gap flagged \"Aug–Nov 2021: no entries (matches your Ovia loss)\""
+   },
+   {
+    "title": "Today",
+    "purpose": "The daily glance and two-tap log, mid-cycle.",
+    "hero": "Large Signifier numeral \"Day 17\" with the current cycle drawn as a short strip beneath",
+    "data": "\"Day 17 of ~29 · Luteal\" · Log row: Flow (none), Symptoms (+ cramps, + fatigue), Notes; yesterday's entry visible: \"Day 16 — spotting, headache\"; small line \"Last synced to your iCloud 22:14\""
+   },
+   {
+    "title": "Record",
+    "purpose": "Ten years browsable as one object; the reason she came.",
+    "hero": "The decade strip, full-bleed, pinch-zoomable from years down to single days",
+    "data": "Zoomed to 2019: cycles of 27, 31, 26, 44, 29 days; the 44-day cycle tagged \"noted: started sertraline\"; header stat \"127 cycles · median 29 · range 24–44\""
+   },
+   {
+    "title": "Export",
+    "purpose": "One gesture, no conditions: the exit door kept visibly unlocked.",
+    "hero": "Two large flat cards, CSV and PDF, above a live preview of the PDF's first page",
+    "data": "\"Full record: 3,214 entries\" · CSV (128 KB) · PDF report (14 pages); preview shows title \"Cycle record, M. — 2014–2026\" with per-year summary table; caption \"Exports contain everything. No watermark, no upsell.\""
+   },
+   {
+    "title": "Doctor visit report",
+    "purpose": "Turn the record into evidence for an appointment where she expects to be dismissed.",
+    "hero": "A single printed-page layout: cycle-length variance chart drawn as the strip, symptom frequency table",
+    "data": "\"For your appointment\" · Cycle length: median 29, but 9 cycles over 35 days since 2022 · \"Pelvic pain logged on 41% of cycle days 22–28\" · \"Heavy flow ≥ 5 days in 14 of last 24 cycles\" · Share as PDF"
+   },
+   {
+    "title": "Vault: encrypted backup",
+    "purpose": "Set up the backup into her own cloud, with the key staying hers.",
+    "hero": "A closed-envelope illustration in single garnet line-work with the key phrase below",
+    "data": "\"Backup to: your iCloud Drive\" · \"Encrypted on this phone before upload. Your recovery phrase: quarry-linen-mars-oboe-... (12 words)\" · Last backup: today 22:14, 1.2 MB · toggle \"Also back up to Google Drive\""
+   },
+   {
+    "title": "Paywall",
+    "purpose": "One honest purchase after the free import has already proven the product.",
+    "hero": "The decade strip shown owned and complete above two flat price cards",
+    "data": "\"The record is yours either way. Paying keeps it maintained.\" · One-time $14.99: everything, forever · $5.99/year: adds automatic encrypted backup sync · \"Import and export stay free\" · \"Restore purchase\" link at equal visual weight"
+   },
+   {
+    "title": "First-launch empty state",
+    "purpose": "For the user who skipped import: day one of a record framed as a beginning, not a blank.",
+    "hero": "An empty strip with a single first segment beginning at today's date",
+    "data": "\"June 2026 — your record starts here.\" · Single action: \"Log today\" · Quiet secondary: \"Have history elsewhere? Import any time from Settings\""
+   },
+   {
+    "title": "Privacy Report verification",
+    "purpose": "Teach her to audit the app with iOS's own tooling; trust by inspection, not assertion.",
+    "hero": "A step-by-step walkthrough with a real screenshot of the iOS App Privacy Report",
+    "data": "\"Settings → Privacy & Security → App Privacy Report\" · Expected result shown: \"Network activity: none. Domains contacted: 0 (icloud.com only if Vault is on)\" · \"If you ever see anything else, email us and export your data first\""
+   },
+   {
+    "title": "Settings",
+    "purpose": "Small, legible controls; nothing hidden, delete truly deletes.",
+    "hero": "A short single-column list, delete action set in the same garnet as everything else that is hers",
+    "data": "Cycle length assumption: auto (29) · Discreet notifications: on (\"Time to log\" with no app name) · App lock: Face ID · Import history · Export · \"Delete everything from this phone\" with two-step confirm, no guilt copy"
+   }
+  ]
+ },
+ "personal-finance-1": {
+  "slug": "personal-finance-1",
+  "territory": "It is 9:40 pm on the sofa with a receipt still in the coat pocket: the user chose manual entry on principle, and the two seconds of typing the number is the whole ritual. The interface answers with the tactility of a well-made cash register in daylight, fast, physical, and done, so quiet competence comes from the act of entry rather than from dashboards.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F4F3EF",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1C2430",
+   "textSecondary": "#77808C",
+   "accent": "#2F7D5C",
+   "note": "The banknote green appears only at the moment an entry is saved and on the weekly total, used sparingly like a rubber stamp of ink on a ledger."
+  },
+  "typography": "IBM Plex Mono for every number (tabular, columns always align, honest to the cent) with Inter for labels; the mono numerals carry the personality of a ledger, never a dashboard.",
+  "motif": "The stamp: each saved entry lands with a small green ink-stamp mark, and every day you logged gets a stamped tick in the month ledger, so consistency is literally visible as ink.",
+  "ia": {
+   "coreObject": "An entry: amount, category, and the moment it happened",
+   "primaryLoop": "Type the amount, tap the category, watch it get stamped, two taps from coffee to done; the evening nudge and the row of stamped days pull the user back every night.",
+   "tabs": [
+    "Log",
+    "Week",
+    "Ledger",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Your currency, your categories",
+    "purpose": "Setup step one: pick a currency and trim the category row to the life you actually live.",
+    "hero": "Six editable category chips above a large currency picker",
+    "data": "Currency: EUR. Categories: Groceries · Coffee · Transit · Eating out · Home · Fun. Hint: 'Fewer categories, faster entries. You can rename any of these later.'"
+   },
+   {
+    "title": "This phone is the whole system",
+    "purpose": "Setup step two: one plain screen stating the privacy contract before the first entry.",
+    "hero": "A phone outline with a closed loop drawn around it, no cloud in the picture",
+    "data": "'Everything stays on this phone, encrypted. No bank login, no account, no sync servers. Export a CSV whenever you want.' Button: Start logging"
+   },
+   {
+    "title": "Your first entry is the whole setup",
+    "purpose": "First-launch empty state: the keypad is already live, the product starts at its core gesture.",
+    "hero": "The full entry keypad with a faint worked example above it",
+    "data": "Ghost example: '7.40 · Coffee · stamped 08:12'. Caption: 'Type what you just spent. That's it, that's the app.'"
+   },
+   {
+    "title": "Entry, mid-type",
+    "purpose": "The main screen at its daily moment: amount half-typed, category row waiting.",
+    "hero": "Oversized keypad filling the lower two-thirds, amount rendered huge in mono",
+    "data": "Amount: 7.40. Category row: Groceries · Coffee · Transit · Eating out · Home · Fun. Today so far: 2 entries, 35.08"
+   },
+   {
+    "title": "Stamped",
+    "purpose": "The reward frame: the saved entry gets its ink stamp, the feedback that makes entry worth doing.",
+    "hero": "The entry card mid-stamp, green mark landing with a slight rotation like a real rubber stamp",
+    "data": "'7.40 · Coffee · stamped 08:12 ✓'. Below, today's column updates: Coffee 7.40 · Groceries 32.18 · Transit 2.90 — day total 42.48"
+   },
+   {
+    "title": "Today",
+    "purpose": "The day as a short ledger column: every entry visible, editable with one tap.",
+    "hero": "A narrow ruled column of today's entries, mono-aligned to the decimal",
+    "data": "Tue, Jul 7: 08:12 Coffee 7.40 · 13:05 Groceries 32.18 · 18:40 Transit 2.90. Day total 42.48. Yesterday closed at 51.20"
+   },
+   {
+    "title": "The week on one screen",
+    "purpose": "Weekly summary exactly as promised: the three categories where the money went, nothing to scroll.",
+    "hero": "Three ranked category bars with amounts set in large mono",
+    "data": "Week of Jul 1–7: Groceries 96.40 · Eating out 41.30 · Transit 18.50. Week total 178.06, last week 203.11. One line: 'Eating out is down 12.80 from last week.'"
+   },
+   {
+    "title": "23 stamped days",
+    "purpose": "The streak, framed as a ledger of kept habit rather than a game.",
+    "hero": "A month strip of stamp marks, a few honest gaps left unhealed",
+    "data": "June: 23 of 30 days stamped, gaps on Jun 8, 14, 15, 21–23, 29. Evening nudge preview: '21:30 — Nothing stamped today. Thirty seconds?'"
+   },
+   {
+    "title": "The ledger",
+    "purpose": "History as a browsable book of months, each month a page of stamps and totals.",
+    "hero": "A month grid where every stamped day shows its total in small mono",
+    "data": "May total 731.90 · June total 694.55. Tap Jun 15 (unstamped): 'No entries this day. Add one retroactively?'"
+   },
+   {
+    "title": "On the lock screen",
+    "purpose": "Widget setup: the month balance and a quick-add button that opens straight into the keypad.",
+    "hero": "A rendered lock screen with a small mono widget under the clock",
+    "data": "Widget: 'July: 287.56 spent · +'. Caption: 'The plus opens the keypad directly. Two taps and stamped, without even finding the icon.'"
+   },
+   {
+    "title": "Your data, in the open",
+    "purpose": "Local storage and export as a first-class screen: proof the data is portable at any moment.",
+    "hero": "A CSV file card with real column headers visible",
+    "data": "'entries.csv — date, time, amount, category, note. 412 rows, 18 KB.' Buttons: Export CSV · Everything is stored encrypted on this device. Last export: never"
+   },
+   {
+    "title": "Buy it once",
+    "purpose": "Paywall in the register of the audience: a tool you purchase like a good notebook, not a rented service.",
+    "hero": "The stamp motif pressed onto a price tag",
+    "data": "'One purchase: $11.99. Yours for years, like the notebook it replaces.' Includes everything, forever. 'Family pack for shared devices: $19.99.' Links: Restore purchase. Footnote: 'No subscription. People keep trackers like this for five to eight years, so we priced it that way.'"
+   },
+   {
+    "title": "Settings",
+    "purpose": "The short list a manual tracker actually needs, nothing that smells of automation.",
+    "hero": "One-level list with the nudge time picker open",
+    "data": "Categories: edit 6 · Currency: EUR · Evening nudge: 21:30, on · Passcode lock: on · Export CSV · Restore purchase"
+   }
+  ]
+ },
+ "personal-finance-2": {
+  "slug": "personal-finance-2",
+  "territory": "The person is standing at a register or hovering over a checkout button, mildly anxious, asking one question: can I afford this today. The interface answers with daylight certainty, one honest figure in warm morning light, math you can open like a receipt. No dashboard noise, no draining monthly balance, just today's number and the quiet satisfaction of watching yesterday's restraint slide into it.",
+  "theme": "light",
+  "palette": {
+   "bg": "#FBF8F1",
+   "surface": "#FFFFFF",
+   "textPrimary": "#21211D",
+   "textSecondary": "#6E6B60",
+   "accent": "#177245",
+   "note": "Color speaks only through the number itself, which shifts green, amber or red with the day's health, while the surrounding chrome never changes so the numeral is the entire weather report."
+  },
+  "typography": "GT America Mono carries every figure in tabular, unblinking digits while Untitled Sans handles the prose, so the daily number reads like an instrument and everything else stays out of its way.",
+  "motif": "The rollover ribbon: at midnight, yesterday's unspent dollars slide under today's numeral as a thin folded paper strip docking into place, so discipline is literally seen adding itself to the day.",
+  "ia": {
+   "coreObject": "the day, a dated spendable number with its purchases attached",
+   "primaryLoop": "Check the number with morning coffee, log purchases in three taps as they happen, and come back at night to watch the leftover ribbon roll into tomorrow.",
+   "tabs": [
+    "Today",
+    "History",
+    "Savings",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Three numbers",
+    "purpose": "Onboarding step 1: collect the only inputs the math needs, income, fixed bills, savings goal.",
+    "hero": "A paper-form card with three labeled slots filling top to bottom.",
+    "data": "Income $3,850/mo. Fixed bills itemized: Rent $1,400, Car payment $329, Insurance $148, Phone $65, Utilities $120, Subscriptions $47, total $2,109. Savings goal $400/mo."
+   },
+   {
+    "title": "Your rhythm",
+    "purpose": "Onboarding step 2: match the math to how the person is actually paid.",
+    "hero": "Three large rhythm cards: Monthly on the 1st, Every Friday, Every other Thursday.",
+    "data": "Monthly selected. Live preview beneath: ($3,850 − $2,109 − $400) ÷ 30 days = 'Your day starts at $44.70'."
+   },
+   {
+    "title": "Day one, untouched",
+    "purpose": "First-launch state: the very first morning, before any purchase exists.",
+    "hero": "The numeral $44.70 in calm green with an empty ledger line below it.",
+    "data": "$44.70. Caption: 'Untouched since 6:00 AM. Log your first purchase when it happens.' No charts, no zeros pretending to be data."
+   },
+   {
+    "title": "Today",
+    "purpose": "The main screen mid-use: the number after a normal morning of spending.",
+    "hero": "$31.20 in green, the rollover ribbon '+$12.60 carried from yesterday' tucked under it.",
+    "data": "Started at $57.30 ($44.70 + $12.60 rollover). Entries: Coffee $6.40 at 8:12, Groceries $19.70 at 12:35. Remaining $31.20. Tue, Mar 17."
+   },
+   {
+    "title": "Where the number comes from",
+    "purpose": "Tap the numeral and the full open math unfolds like a till receipt.",
+    "hero": "A vertical receipt of the calculation, each line tappable back to its source.",
+    "data": "Income $3,850.00 − Fixed bills $2,109.00 − Savings $400.00 = $1,341.00 ÷ 30 days = $44.70 + carried over $12.60 = $57.30 today."
+   },
+   {
+    "title": "Log a purchase",
+    "purpose": "The three-tap entry that keeps the number honest all day.",
+    "hero": "A full-width numpad with the day's number recalculating live above it.",
+    "data": "Typing $14.25, optional label 'lunch'. The numeral animates $31.20 → $16.95 the instant Save is pressed, staying green."
+   },
+   {
+    "title": "The red day",
+    "purpose": "Overspend state: show consequence without shame so people keep logging honestly.",
+    "hero": "The numeral −$9.35 in muted red with one plain sentence beneath.",
+    "data": "'−$9.35. Tomorrow starts at $35.35 instead of $44.70. Nothing else changes.' Entries: Dinner out $38.90, Pharmacy $27.75."
+   },
+   {
+    "title": "Spread a big expense",
+    "purpose": "Keep a one-time purchase from wiping out a single day by dividing it across a chosen period.",
+    "hero": "A slider stretching '$480 New tires' across 30, 60 or 90 days with the daily cost updating.",
+    "data": "New tires $480 spread across 60 days = −$8.00/day. Preview: 'Your day becomes $36.70 until May 16.'"
+   },
+   {
+    "title": "History week strip",
+    "purpose": "Show the rollover mechanic paying off, discipline as an accumulating streak of ribbons.",
+    "hero": "Seven day-columns, each with its ribbon of leftover sliding into the next.",
+    "data": "Mon +$8.10, Tue −$3.20, Wed +$12.60, Thu +$4.05, Fri $0.00, Sat +$9.30, Sun +$1.75. 'Rolled into savings this month: $86.40.'"
+   },
+   {
+    "title": "Widget",
+    "purpose": "Preview the lock-screen and home widgets that recalculate after every purchase.",
+    "hero": "An iPhone lock screen mock with the number sitting above the clock.",
+    "data": "Lock screen: '$16.95' with a small green dot. Home widget: '$16.95 · 2 purchases today'. Caption: 'Updates the moment you log.'"
+   },
+   {
+    "title": "Pay once",
+    "purpose": "The paywall, priced like the product it imitates: one honest figure, one honest price.",
+    "hero": "A single receipt-style card: 'The number, forever. $7.99.'",
+    "data": "One-time purchase $7.99, everything included. Optional add-on: 'Sync across devices, $11.99/yr'. Below in plain text: 'No subscription for the core app. Restore purchase.'"
+   },
+   {
+    "title": "Settings",
+    "purpose": "The few dials that exist, kept as short as the product's promise.",
+    "hero": "A single settings list, no sections deep enough to scroll twice.",
+    "data": "Pay rhythm: Monthly on the 1st. Savings goal: $400. Month rolls over at: midnight. Currency: USD. iCloud sync: on. Export CSV. Delete all data."
+   }
+  ]
+ },
+ "personal-finance-4": {
+  "slug": "personal-finance-4",
+  "territory": "It is the tenth of the month, the paycheck landed, and she is standing at her shelf of envelopes deciding what this month gets. The interface answers with daylight bookkeeping calm: flat paper pockets, exact figures, no charts and no commentary, the quiet competence of someone who has done this for years. Nothing here performs; a full envelope simply looks full.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F3F5F2",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1B211D",
+   "textSecondary": "#68716B",
+   "accent": "#1F6B4E",
+   "note": "Cool daylight grey-green around white paper envelopes; the deep green ink is the fill inside envelopes and the confirm actions, so color literally is money allocated."
+  },
+  "typography": "Untitled Sans for interface text with all money set in Founders Grotesk Mono tabular figures: numbers align to the cent down every column, like a ledger kept by hand but never smudged.",
+  "motif": "The paper pocket: every envelope is a flat white rectangle with a visible flap, filled from the bottom edge by a solid rising tint of green ink, so the whole month is readable as fill levels on a shelf.",
+  "ia": {
+   "coreObject": "The envelope: a named pocket with a balance, a limit, and its own refill schedule",
+   "primaryLoop": "She deducts a purchase from an envelope in two taps (often from the widget), glances at the shelf, and comes back because the shelf is the only true picture of what she can still spend.",
+   "tabs": [
+    "Shelf",
+    "Movements",
+    "Schedules",
+    "Household"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Onboarding: Nothing leaves this phone",
+    "purpose": "Establish the two removals up front: no account, no developer server.",
+    "hero": "A single white envelope on the daylight background with two short lines beneath",
+    "data": "\"Your envelopes live on this phone and in your own iCloud. There is no account to create because there is no server to hold one.\" Button: \"Set up the shelf\""
+   },
+   {
+    "title": "Onboarding: First envelopes",
+    "purpose": "Build a working shelf in under a minute from an honest starter set.",
+    "hero": "Six pre-named empty envelopes ready to accept limits",
+    "data": "Groceries — $600/mo · Rent — $1,450/mo · Gas — $180/mo · Eating out — $150/mo · Car insurance — $680/year · Christmas — $450 by Dec 20; each editable inline, \"Add your own\" row at the end"
+   },
+   {
+    "title": "Shelf, mid-month",
+    "purpose": "The main screen on day 17: fill levels answer 'what can I still spend' at a glance.",
+    "hero": "A 2-column grid of paper pockets with ink fills at honest mid-month levels",
+    "data": "Groceries $188 of $600 left · Eating out $12 of $150 left (nearly drained) · Gas $74 of $180 · Rent $0 — paid Jun 1 · Car insurance $340 saved of $680 (refills Mar 1) · Christmas $255 of $450 (on pace) · header: \"June · 13 days left\""
+   },
+   {
+    "title": "Deduct from the widget",
+    "purpose": "The two-tap spend that keeps the system honest without opening the app.",
+    "hero": "The home-screen widget: four most-used envelopes as mini pockets with a numeric pad overlay",
+    "data": "Widget shows Groceries $188 · Gas $74 · Eating out $12 · Coffee $9; tapped Groceries → keypad, entered 43.18 → pocket drains to $144.82 with a short settle animation, done"
+   },
+   {
+    "title": "Envelope detail: Car insurance",
+    "purpose": "The annual-expense mechanic earning its keep: an envelope that fills all year for one payment.",
+    "hero": "One large pocket half-filled, its refill schedule written like a label on the flap",
+    "data": "Car insurance · $340 of $680 · \"Fills $56.66 monthly · due March 1, 2027\" · history: +$56.66 Jun 10, +$56.66 May 10, +$56.66 Apr 10 · note: \"State Farm annual premium\""
+   },
+   {
+    "title": "Transfer between envelopes",
+    "purpose": "Borrowing made visible instead of shameful: repairs happen, the record shows it.",
+    "hero": "Two pockets side by side with ink visibly flowing from one fill level to the other",
+    "data": "From: Vacation $520 → $400 · To: Car repairs $85 → $205 · amount $120 · logged line: \"Jun 14 — borrowed $120 from Vacation for brake pads\" · past transfer visible: \"Mar 3 — $60 from Eating out to Gas\""
+   },
+   {
+    "title": "Refill day",
+    "purpose": "Payday: allocate the month deliberately, envelope by envelope, rollovers respected.",
+    "hero": "The shelf with every pocket showing its scheduled top-up as a ghosted fill about to pour",
+    "data": "\"July refill · $2,910 to allocate\" · Groceries +$600 · Rent +$1,450 · Gas +$180 · Eating out +$150 (rolls over $12 → starts at $162) · Car insurance +$56.66 · Christmas +$75 · \"Confirm refill\" in green"
+   },
+   {
+    "title": "Household sync",
+    "purpose": "Two people, one shelf, still no developer server: sync rides her own iCloud.",
+    "hero": "Two device silhouettes sharing one shelf via a plain iCloud line between them",
+    "data": "\"Share the shelf with one person via iCloud.\" · Invited: Mark (accepted Jun 2) · his last deduction visible on Movements: \"Mark — Groceries −$27.40, Jun 15, Costco\" · \"Data syncs device-to-device through your shared iCloud container\""
+   },
+   {
+    "title": "Sync conflict",
+    "purpose": "Both spent from Groceries offline; resolve plainly, keep both facts, no data loss.",
+    "hero": "Two receipt-like entry cards stacked, both kept, the recomputed balance beneath",
+    "data": "\"Groceries was edited on two devices.\" · You: −$43.18 (Jun 17, 18:02) · Mark: −$27.40 (Jun 17, 18:05) · resolution: \"Both deductions kept. New balance $117.42.\" · single button \"Looks right\""
+   },
+   {
+    "title": "Paywall",
+    "purpose": "A one-time price stated next to the fact that makes it obviously fair.",
+    "hero": "One filled envelope beside one plain price, receipt-style",
+    "data": "\"One purchase. $14.99. Yours on this phone for good.\" · \"For reference: cloud envelope services run about $80 every year.\" · included list: unlimited envelopes, schedules, household sync, widget · \"Restore purchase\" directly under the buy button"
+   },
+   {
+    "title": "First-launch empty state",
+    "purpose": "A bare shelf that invites the first envelope rather than apologizing for emptiness.",
+    "hero": "One dotted-outline envelope in the center of an otherwise clean shelf",
+    "data": "\"The shelf is empty. Every budget here starts with one envelope.\" · button \"Create Groceries\" pre-filled with $600/mo as an editable suggestion"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Few controls, each stated in ledger language; export and deletion in plain sight.",
+    "hero": "A short single-column list with the local-data statement pinned at top",
+    "data": "\"All data is on this device and in your iCloud.\" · Currency: USD · Refill day: 10th · Widget envelopes: choose 4 · Export all movements to CSV · Household: manage · \"Erase all envelopes from this device\""
+   }
+  ]
+ },
+ "personal-finance-8": {
+  "slug": "personal-finance-8",
+  "territory": "A self-employed person carries a low hum of tax dread all year: the shoebox of receipts, the miles nobody wrote down, the audit letter they imagine at 2 a.m. The interface answers with archival calm, everything filed the moment it happens, stamped, retrievable, backed by a document. Using it should feel like closing a filing-cabinet drawer that locks with a satisfying click.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F5F7F8",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1B2126",
+   "textSecondary": "#5C6870",
+   "accent": "#24549A",
+   "note": "Archival blue marks only what is documented and deductible, while unclassified trips and receipts wait in gray until a swipe files them, so the screen itself shows how audit-ready you are."
+  },
+  "typography": "Atlas Grotesk sets the interface and Atlas Typewriter sets every amount, date and merchant line, giving each entry the fixed-width certainty of a record that has been officially filed.",
+  "motif": "The perforated tear-line: every captured receipt and classified trip carries a punched perforation along its edge, the physical mark of a document that now exists in the vault and can be produced on demand.",
+  "ia": {
+   "coreObject": "the documented deduction, a trip or receipt with its proof attached",
+   "primaryLoop": "Drives log themselves in the background; the person swipes them business or personal at a red light and snaps receipts at the counter, and every swipe visibly grows the quarter's deduction total.",
+   "tabs": [
+    "Drives",
+    "Receipts",
+    "Quarter",
+    "Year file"
+   ]
+  },
+  "screens": [
+   {
+    "title": "What do you drive for?",
+    "purpose": "Onboarding step 1: pick the work so categories map to a self-employed tax return, not a household budget.",
+    "hero": "Five plain occupation cards, one selected.",
+    "data": "Options: Realtor, Rideshare or delivery, Contractor or trades, Freelancer who visits clients, Something else. 'Realtor' selected. Caption: 'This sets your Schedule C categories.'"
+   },
+   {
+    "title": "Always Allow, explained straight",
+    "purpose": "Onboarding step 2: earn background location permission with plain math instead of pleading.",
+    "hero": "A single diagram: phone in a cupholder, a dotted trip line drawing itself.",
+    "data": "'Always Allow lets drives file themselves, about 2% battery per day. While Using misses trips you forget to start. You can change this anytime.' Buttons: Allow always / Not now."
+   },
+   {
+    "title": "Empty vault",
+    "purpose": "First-launch state before anything is documented.",
+    "hero": "A gray dashed perforation outline waiting where the first drive card will appear.",
+    "data": "'Your first drive will file itself. Take the phone along today and check back tonight.' Secondary line: 'Or snap a receipt now, the camera is one tap away.'"
+   },
+   {
+    "title": "Drives",
+    "purpose": "The main screen mid-use: today's trips, some filed, one waiting for a swipe.",
+    "hero": "A card stack of trips, each with route, miles and its dollar value at the IRS rate.",
+    "data": "8:14 AM Home → 1204 Birchwood Ln, 11.6 mi, unswiped, gray. 10:02 AM Birchwood → Keller Office, 9.8 mi, swiped Business, $6.86 in blue. This week: 148 mi, $103.60 documented."
+   },
+   {
+    "title": "Snap a receipt",
+    "purpose": "The at-the-counter capture moment that replaces the shoebox.",
+    "hero": "Camera frame locked onto a paper receipt, extracted fields materializing beside it.",
+    "data": "Staples, $42.18, Mar 14, suggested category 'Office supplies'. Caption: 'Photo kept at full resolution as documentation.' Confirm button already highlighted."
+   },
+   {
+    "title": "Receipt on file",
+    "purpose": "The detail view proving each number is backed by its document.",
+    "hero": "The receipt photo with a perforated edge, fields printed in typewriter face beneath.",
+    "data": "FedEx Office, $87.50, Apr 2, category 'Advertising', note 'open-house flyers, 22 Sycamore listing'. Buttons: Recategorize, Export this document."
+   },
+   {
+    "title": "This route again?",
+    "purpose": "The repeat-route mechanic earning its keep: routine drives file themselves permanently.",
+    "hero": "A route card with a small tally of sightings and one decisive button.",
+    "data": "'Home → Lakeview office. Seen 14 times, swiped Business all 14. File it automatically from now on?' Buttons: Auto-file / Keep asking."
+   },
+   {
+    "title": "Quarter",
+    "purpose": "The quarterly summary that turns a year of dread into four calm checkpoints.",
+    "hero": "One large 'set aside' figure above the deduction ledger.",
+    "data": "Q1 2026: Mileage 1,842 mi → $1,289.40. Receipts $2,314.77 across 41 documents. Deductions so far $3,604.17. 'Set aside for estimated taxes: $4,120, based on $16,480 net this quarter.'"
+   },
+   {
+    "title": "Year file",
+    "purpose": "The year-end payoff: one file for the accountant instead of a box of paper.",
+    "hero": "A bound PDF cover page with the year embossed, a perforated seal in the corner.",
+    "data": "'2025 file: 214 pages. 6,204 business miles, 187 receipts, $11,730 in documented deductions.' Buttons: Send PDF to accountant, Export CSV. Footer: 'Every line links to its photo.'"
+   },
+   {
+    "title": "Four missing days",
+    "purpose": "Degraded-tracking state: catch permission changes before they become missing deductions.",
+    "hero": "A calendar strip with four gray days flagged between filed blue ones.",
+    "data": "'Location was switched to While Using on Jun 3. Drives from Jun 3–6 may be missing.' Buttons: Fix permission, Add a trip by hand ('Home → Birchwood, 11.6 mi, from your saved routes')."
+   },
+   {
+    "title": "The vault, priced",
+    "purpose": "The paywall, appearing after the first ten documented items have shown their value.",
+    "hero": "The person's own running total sitting above the price.",
+    "data": "'You've documented $137.20 in 4 days.' Plans: $5.99/mo or $59.99/yr. 'One undocumented week of driving costs more than the year.' Includes unlimited drives, receipts, year files. Restore purchases."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Rates, vehicle and data controls in one honest list.",
+    "hero": "A flat settings list with the current IRS rate stated, not hidden.",
+    "data": "IRS rate: $0.70/mi (2026), override available. Work hours: Mon–Sat 7:00–19:00. Vehicle: 2021 Honda CR-V. Auto-filed routes: 3. Export all data. Delete everything."
+   }
+  ]
+ },
+ "recipes-meal-planning-2": {
+  "slug": "recipes-meal-planning-2",
+  "territory": "The person is on the couch or standing at the counter with a 40-second TikTok they will absolutely lose by Friday, half-inspired and half-annoyed that the recipe exists only as narration. The interface answers with bright kitchen daylight and the satisfaction of a fair transcription: it did the listening, it shows its work frame by frame, and the video is suddenly a real document.",
+  "theme": "light",
+  "palette": {
+   "bg": "#F7F9F8",
+   "surface": "#FFFFFF",
+   "textPrimary": "#1E2422",
+   "textSecondary": "#5F6B66",
+   "accent": "#D93A2B",
+   "note": "Cool daylight neutrals let the video stills carry all the food color; tomato red is spent only on record-style moments — importing, confirming, saving."
+  },
+  "typography": "GT America for quantities and interface, Value Serif for recipe titles; titles read like a cookbook while everything around them reads like a fast kitchen tool.",
+  "motif": "The frame-grab receipt: every extracted ingredient carries a tiny rounded still from the exact video moment it was heard or read, like a receipt proving where each line came from.",
+  "ia": {
+   "coreObject": "The captured recipe: ingredients and steps assembled from a video's narration, on-screen text, and caption, with the original video attached",
+   "primaryLoop": "Share a video from TikTok or Instagram, approve the extracted recipe in under a minute, cook from the collection on the weekend; the growing shelf of rescued recipes is the pull.",
+   "tabs": [
+    "Collection",
+    "Import",
+    "Grocery",
+    "Search"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Share, don't screenshot",
+    "purpose": "Single onboarding step: teach the share-sheet path since it replaces link copying entirely.",
+    "hero": "A live mock of the TikTok share sheet with the app icon glowing in place",
+    "data": "'From TikTok, Instagram or YouTube: tap Share, tap us, done. We listen to the narration and read the frames — the caption is just a cross-check.' One permission ask: photo library for cover images."
+   },
+   {
+    "title": "Empty shelf",
+    "purpose": "First-launch empty state that gets a first import happening in thirty seconds.",
+    "hero": "One wide paste field above a single suggested demo video",
+    "data": "'Your shelf is empty. Paste a video link, or try this one: One-pan gochujang pasta — @doobydobap, 0:38.' Below, faint outlines of future recipe cards."
+   },
+   {
+    "title": "Listening",
+    "purpose": "Import in progress: show the parsing work honestly so the wait feels earned, not spun.",
+    "hero": "The video playing small with a live transcript ribbon and detected on-screen text tags",
+    "data": "0:22 / 0:41 · heard: '…two tablespoons of gochujang, the real stuff, not the jar lid…' · read on frame: '450 g rigatoni' · caption checked: no quantities found · 9 ingredients so far"
+   },
+   {
+    "title": "Review before saving",
+    "purpose": "The core mechanic earning its keep: confirm ingredients with the exact frame beside each ambiguous one.",
+    "hero": "An ingredient list where one flagged row shows a video still at 0:19 right next to the input field",
+    "data": "Smash burger tacos · @jorts.kitchen · '1 lb ground beef, 80/20' ✓ heard · 'American cheese, 8 slices' ✓ read on frame · flagged: 'sauce — amount unclear' with the 0:19 frame showing the squeeze bottle, field ready: '__ tbsp'"
+   },
+   {
+    "title": "Recipe page",
+    "purpose": "The saved recipe as a proper document with the source video living inside it.",
+    "hero": "Cover still on top, the original video embedded mid-page for technique rewatching",
+    "data": "Marry-me chicken orzo · 35 min · serves 4 · Step 3: 'Sear thighs 4 min per side' with a rewatch chip 'technique 0:52–1:10' · source: @thefoodietakesflight, saved Jun 29"
+   },
+   {
+    "title": "Two answers in one video",
+    "purpose": "Conflict state: narration and caption disagree, so the app shows both receipts and lets the human pick.",
+    "hero": "Two frame-grab chips side by side over one temperature field",
+    "data": "'Caption says 400°F. Narration says 425°F convection at 0:31. We kept both frames — pick one.' Buttons: Use 400 · Use 425 · footnote 'Your choice is saved, the video keeps both.'"
+   },
+   {
+    "title": "The collection",
+    "purpose": "Everyday browsing: folders, tags, and ingredient search across everything captured.",
+    "hero": "A shelf of cover-still cards grouped by folder",
+    "data": "Weeknight (23) · Baking (9) · From Mom's DMs (4) · search 'gochujang' → 3 recipes · tag row: one-pan, under-30-min, spicy"
+   },
+   {
+    "title": "Grocery list",
+    "purpose": "Combine several recipes into one list with duplicates merged, ready for the store.",
+    "hero": "A single merged list with per-recipe color ticks on each line",
+    "data": "From 3 recipes: butter — 2 sticks + 3 tbsp, combined · scallions ×2 bunches · gochujang, 1 jar (used by 2 recipes) · 14 items, produce grouped first"
+   },
+   {
+    "title": "Airplane mode",
+    "purpose": "Offline state proving the anti-cloud-lock promise: the shelf opens with no connection.",
+    "hero": "The collection rendering normally under a small offline banner",
+    "data": "'No connection. All 61 recipes readable offline; 14 have cached video for technique rewatching.' Import button quietly disabled with 'needs internet' note."
+   },
+   {
+    "title": "Pay for the listening",
+    "purpose": "The paywall, priced on the one thing that costs real work: parsing video.",
+    "hero": "A daylight-white card with two plain options and a full-trial line",
+    "data": "'Video imports are the paid part. 7-day full trial, then $29.99/year — or lifetime for $59.99, one payment. Saved recipes, folders and grocery lists stay yours either way.' Buttons: Start trial · Buy lifetime · Restore purchase"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Storage and capture preferences without ceremony.",
+    "hero": "A short settings list",
+    "data": "Cache videos: on Wi-Fi only · Default folder for imports: Weeknight · Export collection (all recipes as files) · Language of transcription: auto-detect"
+   }
+  ]
+ },
+ "ride-hailing-1": {
+  "slug": "ride-hailing-1",
+  "territory": "It is 11:40 pm, the driver is parked outside a closed mall deciding whether one more hour is worth it, tired of apps that guess. The interface answers with dashboard certainty: one hard number per hour, miles counted like an odometer counts them, nothing decorative between the driver and the money. Street energy, but the calm kind you feel when the meter is on your side.",
+  "theme": "dark",
+  "palette": {
+   "bg": "#131313",
+   "surface": "#1F1F1E",
+   "textPrimary": "#F4F2ED",
+   "textSecondary": "#9B978C",
+   "accent": "#FFB300",
+   "note": "Asphalt black keeps glare off the windshield at night, and hi-vis road-marking amber is spent only on verified money and verified miles, never on chrome."
+  },
+  "typography": "Barlow Semi Condensed for labels and headers with IBM Plex Mono tabular figures for every dollar and mile, so numbers line up like an odometer and read at a glance from a phone mount.",
+  "motif": "The lane dash: a dashed amber line, like highway paint, that runs under every verified figure and literally ticks segment by segment as background miles accrue.",
+  "ia": {
+   "coreObject": "The shift: a dated block of trips with earnings in, miles logged, and net per hour out",
+   "primaryLoop": "Drive with the counter running in the background, glance at tonight's net per hour to decide when to stop, and swipe-tag yesterday's miles over morning coffee.",
+   "tabs": [
+    "Shift",
+    "Miles",
+    "Expenses",
+    "Tax"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Connect your platforms",
+    "purpose": "Onboarding step 1: link every payout source so earnings consolidate automatically.",
+    "hero": "Three large platform rows with connect toggles, a lane-dash line joining them into one stream",
+    "data": "Uber (Connected), Lyft (Connected), DoorDash (Connect), Instacart (Connect). Footnote: 'We read payouts only. Your money stays on the platform.'"
+   },
+   {
+    "title": "Miles are sacred",
+    "purpose": "Onboarding step 2: ask for always-on location with a straight explanation of the three cross-checks.",
+    "hero": "A diagram of the triple check: GPS trace, weekly odometer photo, per-trip breakdown, each node on the lane-dash line",
+    "data": "'GPS logs every mile in the background. Once a week you photograph your odometer. We reconcile the two, trip by trip.' Button: Allow Always. Secondary: How battery is handled (about 2% per shift)."
+   },
+   {
+    "title": "Before your first shift",
+    "purpose": "First-launch empty state that sets expectations instead of showing zeros.",
+    "hero": "A dimmed shift card with the lane dash unlit and a single amber prompt",
+    "data": "'Your counter is armed. Start driving and this screen fills itself.' Checklist: Platforms linked 2 of 4, Location always on, First odometer photo: take it now (87,214 mi)."
+   },
+   {
+    "title": "Tonight's shift",
+    "purpose": "The main screen mid-use: the one honest number and the platforms feeding it.",
+    "hero": "Giant mono figure $23.10/hr net after costs, lane dash ticking beneath it",
+    "data": "Sat, Feb 21, 6:12 pm to 11:38 pm. Gross $144.50 (Uber $84.50, Lyft $37.25, DoorDash $22.75). Costs: gas est. $18.20, wear $0.30/mi × 96.4 mi = $28.90. Net $97.40 over 4.2 active hrs. Miles tonight: 96.4, all verified."
+   },
+   {
+    "title": "Miles, trip by trip",
+    "purpose": "Show the per-stop breakdown that proves the counter is not guessing.",
+    "hero": "Vertical trip list where each leg is a lit lane-dash segment with its own mileage",
+    "data": "10:52 pm Pickup E 9th St → Dropoff Lakewood, 8.7 mi, Uber. 10:31 pm Deadhead, 3.2 mi. 10:05 pm Chipotle → Clifton Blvd, 4.1 mi, DoorDash. Day total 96.4 mi. GPS vs trips delta: 0.3 mi."
+   },
+   {
+    "title": "Weekly odometer check",
+    "purpose": "The camera flow that anchors GPS miles to the physical car once a week.",
+    "hero": "Viewfinder framed over a dashboard odometer with auto-read digits confirmed underneath",
+    "data": "Photo read: 87,642. Last week: 87,214. Odometer delta 428 mi, app logged 421.7 mi. Reconciled: 6.3 mi recovered and added to your log. 'Every recovered mile is worth $0.70 at the 2026 IRS rate.'"
+   },
+   {
+    "title": "Tag your miles",
+    "purpose": "The swipe mechanic that splits work from personal in seconds.",
+    "hero": "A card stack of untagged trips, swipe right Work (amber), swipe left Personal (grey)",
+    "data": "Trip: Sun 9:14 am, Home → Costco, 11.2 mi, swipe left. Trip: Sun 4:40 pm, Home → airport queue, 14.8 mi, swipe right. Counter: 12 trips left. Running totals: Work 388.2 mi, Personal 61.5 mi this month."
+   },
+   {
+    "title": "Expenses",
+    "purpose": "Receipt capture so deductions beyond mileage are not lost in a glovebox.",
+    "hero": "Ledger list with receipt thumbnails, add button shaped like a camera",
+    "data": "Feb 21 Shell, gas, $42.18. Feb 19 Take 5, oil change, $89.99. Feb 14 GEICO rideshare rider, $61.00. Feb totals: Gas $186.40, Maintenance $89.99, Insurance $61.00, Car wash $24.00."
+   },
+   {
+    "title": "Tax report",
+    "purpose": "The one-tap payoff: a complete deduction file ready for a preparer.",
+    "hero": "A stamped report cover sheet with the year's headline deduction in mono",
+    "data": "2025 report: 14,212 work miles × $0.70 = $9,948.40 mileage deduction. Expenses logged: $2,341.77. Gross earnings across 3 platforms: $41,830. Export: PDF for your preparer, CSV for software. Last generated Feb 1."
+   },
+   {
+    "title": "Mileage conflict",
+    "purpose": "The state Gridwise never shows: GPS and odometer disagree beyond tolerance, and the app says so.",
+    "hero": "A split gauge showing the two readings with the gap highlighted, no green checkmark",
+    "data": "Odometer says 512 mi this week, GPS logged 464 mi. Gap: 48 mi (9.4%). Likely cause: tracking paused Tue 2:10 pm to 5:45 pm. Options: Add a manual trip for Tuesday, Accept odometer figure, Keep GPS figure. Nothing is auto-filled."
+   },
+   {
+    "title": "Your plan",
+    "purpose": "The paywall, priced against what drivers already pay and framed around the mileage guarantee.",
+    "hero": "Two plan cards plus a one-time spring option, the year card underlined by a full lane dash",
+    "data": "Monthly $8.99. Yearly $59 (that is $4.92/mo; Gridwise charges $108/yr). One-time: 2025 Tax Report only, $29. 'Free while you evaluate: 2 weeks, full tracking, your data exports either way.' Restore purchase link at the bottom."
+   },
+   {
+    "title": "Settings",
+    "purpose": "Control the machinery: vehicles, cost assumptions, tracking behavior, data export.",
+    "hero": "Grouped list with the vehicle card on top showing its cost-per-mile assumption",
+    "data": "Vehicle: 2019 Camry, wear rate $0.30/mi (edit). Gas price source: local average $3.12/gal. Tracking: Auto-start on movement (on), Battery saver mode (off). Odometer reminder: Sundays 10 am. Export all data (CSV). Delete account and data."
+   }
+  ]
+ },
+ "sleep-tracking-3": {
+  "slug": "sleep-tracking-3",
+  "territory": "It is 2 a.m., the partner is snoring again, and the user is awake, resentful, and fumbling for a volume slider in the dark. The interface answers with the stillness of deep night: near-black indigo, moonlight-soft data, and the reassurance that the volume knob is now handled by something that never sleeps. Everything glows just enough to be read with one half-open eye.",
+  "theme": "dark",
+  "palette": {
+   "bg": "#0B0E1A",
+   "surface": "#141A2E",
+   "textPrimary": "#E8ECFA",
+   "textSecondary": "#7C86A8",
+   "accent": "#C9D4F2",
+   "note": "Deep-indigo night with a moon-silver accent; brightness is the information channel, the masking envelope literally glows brighter as it swells over a snore burst and dims back in silence, and nothing on the night screen exceeds candlelight luminance."
+  },
+  "typography": "Manrope in light and regular weights throughout; soft terminals and generous letterspacing keep even the morning numbers feeling like a whisper rather than a report card.",
+  "motif": "The breathing envelope: a soft luminous band across the night timeline that swells over each covered snore burst and settles flat in silence, the product's entire behavior drawn as one calm shape.",
+  "ia": {
+   "coreObject": "The night (a timeline of bursts covered by the envelope)",
+   "primaryLoop": "Set the phone on the nightstand, sleep while the mask rises and falls on its own, and check the morning count of covered bursts; the nightly ritual of 'start night' and the morning proof are the whole habit.",
+   "tabs": [
+    "Tonight",
+    "Mornings",
+    "Sound",
+    "Settings"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Set the stage",
+    "purpose": "First onboarding step: phone placement and output check, the two things that make or break the mechanic.",
+    "hero": "A simple nightstand diagram with a live mic level confirming the phone can hear the room",
+    "data": "'Phone on the nightstand, screen down is fine. Mic hears the room: yes (32 dB ambient).' Output: 'Soundcore Sleep A20 connected' with a 3-second test tone button. Note: 'Works with any sleep headphones or a speaker on your side.'"
+   },
+   {
+    "title": "One night to learn the room",
+    "purpose": "Second onboarding step: set expectations for the calibration night honestly.",
+    "hero": "The envelope motif drawn flat with a dotted 'learning' overlay",
+    "data": "'Tonight we listen and learn: your room's baseline and your partner's typical volume. The mask stays at a fixed gentle level for this one night. From tomorrow it moves on its own.' Button: 'Start calibration night'"
+   },
+   {
+    "title": "Before the first night",
+    "purpose": "First-launch empty state for the Mornings tab: what the reports will look like once a night exists.",
+    "hero": "A ghosted example morning card with the envelope shape",
+    "data": "'No nights yet.' Ghost example: '11 bursts covered, mostly 1:30 to 3:00 AM' with a faint envelope drawing. Caption: 'Your first report appears after tonight.'"
+   },
+   {
+    "title": "Threshold and ceiling",
+    "purpose": "The set-once controls: where the mask starts reacting and the loudest it may ever get.",
+    "hero": "Two vertical sliders framing a live preview of the envelope's range",
+    "data": "Trigger threshold: 'above your room baseline, currently sensitive to bursts louder than 48 dB'. Volume ceiling: 62% of max, note 'the mask will never exceed this, even at the loudest snore'. Learned from calibration: 'partner's typical burst 57 to 64 dB'"
+   },
+   {
+    "title": "Your sound, tuned to your ears",
+    "purpose": "The sound choice mechanic: pick the masking texture and shade it to taste.",
+    "hero": "Three large texture cards with a fine-tune tilt slider beneath",
+    "data": "Brown noise (selected), Fan, Rain. Tilt slider: 'darker, more rumble' to 'brighter, more hiss', set 30% toward rumble. Preview plays at tonight's floor level. Note: 'This is the sound at rest; bursts raise its volume, not its character'"
+   },
+   {
+    "title": "2:47 AM, holding the line",
+    "purpose": "The main screen mid-use: the night view someone sees when they half-wake, dim and instantly legible.",
+    "hero": "The luminous envelope mid-swell over a burst, everything else near-black",
+    "data": "Time 2:47, envelope currently raised: 'covering a burst, 58%'. Tonight so far: 9 bursts covered. Floor level: 12%. One oversized button: 'Pause sound'. Total screen luminance kept below reading-light level"
+   },
+   {
+    "title": "Morning report",
+    "purpose": "The proof moment: what your ears earned last night, in one glance.",
+    "hero": "The full night envelope with burst clusters marked along the hours",
+    "data": "'14 bursts covered, none reached you above the ceiling.' Clusters: 1:28 to 2:10 AM (6 bursts), 3:05 to 3:40 AM (5), 5:12 AM (3). Longest quiet stretch: 2h 41m. Floor time at rest: 71% of night. Note: 'Mask peaked at 61%, under your 62% ceiling'"
+   },
+   {
+    "title": "The week at night",
+    "purpose": "Trend view across nights so patterns (late evenings, weekends) become visible.",
+    "hero": "Seven small envelope thumbnails in a row, worst night gently marked",
+    "data": "Mon 8 bursts, Tue 14, Wed 6, Thu 19 ('late dinner?' user note attached), Fri 11, Sat 22, Sun 9. Weekly line: 'Bursts cluster between 1 and 3 AM on 6 of 7 nights'"
+   },
+   {
+    "title": "Can't hear the room",
+    "purpose": "The failure state the mechanic demands: mic obstructed or phone moved, caught before the night is wasted.",
+    "hero": "A gentle full-screen notice at candle luminance, not an alarm",
+    "data": "'The mic has heard almost nothing for 10 minutes. Is the phone in a pocket or face-down on fabric?' Actions: 'Test mic now' (live level meter), 'Continue at fixed volume tonight'. Also warns: 'Battery 18%, plug in to run till morning'"
+   },
+   {
+    "title": "Keep your nights covered",
+    "purpose": "The paywall after the free calibration night plus two adaptive nights, priced against what this audience already spends.",
+    "hero": "The user's own three night envelopes as evidence above two honest options",
+    "data": "'3 nights, 37 bursts covered.' Options: one-time $12.99 forever, or $3.99/month. Line: 'Sound apps in this space run $40 to $70 a year; earplugs by the case add up too.' Buttons: 'Buy once, $12.99', 'Subscribe, $3.99/mo', 'Restore purchase'. Free tier stays: fixed-volume sounds without the adaptive envelope"
+   },
+   {
+    "title": "Settings",
+    "purpose": "The quiet controls: sensitivity, output, schedule, and data honesty.",
+    "hero": "A short grouped list, dark and dim by default",
+    "data": "Mic sensitivity: Learned (recalibrate). Output: Soundcore A20, fallback speaker. Auto-start: when charging face-down after 10 PM, off by default. Recordings: 'audio is analyzed live and never stored'. Fade out: 7:00 AM over 10 min. Purchase: lifetime, 'Restore purchase'"
+   }
+  ]
+ },
+ "voice-recorder-4": {
+  "slug": "voice-recorder-4",
+  "territory": "The user is mid-meeting, half-listening, half-dreading the 20 minutes of reformatting that usually follows. The interface answers with recording-studio composure: one glowing meter, zero clutter, and the quiet promise that the document is already assembling itself in the background. Relief is the product; the UI performs calm competence so the user can stay present in the room.",
+  "theme": "dark",
+  "palette": {
+   "bg": "#141417",
+   "surface": "#1E1E23",
+   "textPrimary": "#F2F2F0",
+   "textSecondary": "#8C8C94",
+   "accent": "#E5483C",
+   "note": "Studio-console charcoal stays matte and even; the single record-red accent is reserved for the live capture state, while export success borrows the destination app's own icon color so 'it landed' reads instantly."
+  },
+  "typography": "IBM Plex Sans for UI and IBM Plex Mono for timestamps and word counts; the mono figures give every timecode the fixed, trustworthy rhythm of studio gear.",
+  "motif": "The resolving waveform: live audio bars visibly settle into horizontal text lines and bullet points as the draft assembles, so sound literally becomes document on screen.",
+  "ia": {
+   "coreObject": "The meeting document (a recording that exists only as the formatted doc it becomes)",
+   "primaryLoop": "Record a meeting, glance at the draft before it ends, tap once, and find the finished document already sitting in OneNote or the CRM, which is exactly why they open the app before the next meeting.",
+   "tabs": [
+    "Record",
+    "Documents",
+    "Templates",
+    "Destinations"
+   ]
+  },
+  "screens": [
+   {
+    "title": "Connect your destination",
+    "purpose": "First onboarding step: link the one app where documents must land, before anything else.",
+    "hero": "Four large destination tiles with live connection status",
+    "data": "OneNote (work account m.reyes@brightlane.com, Connected), Notion, Word, Google Docs, HubSpot CRM; footnote: 'You can add more later. Documents go here automatically after every meeting.'"
+   },
+   {
+    "title": "Pick your working format",
+    "purpose": "Second onboarding step: choose the document shape the job requires.",
+    "hero": "Format cards showing a miniature preview of the real output structure",
+    "data": "Meeting minutes with action items (headings: Decisions, Action items, Open questions), Doctor's visit note (Complaint, Findings, Plan), Deal fields for CRM (Budget, Timeline, Blockers, Next step), Team email (Summary, What we need from you)"
+   },
+   {
+    "title": "Ready to record",
+    "purpose": "First-launch empty state that makes the free trial terms plain before the first tap.",
+    "hero": "One large record button with the resolving-waveform motif idling beneath it",
+    "data": "'No meetings yet. Your first 3 meetings include full formatted export, free.' Destination chip: 'OneNote, Weekly syncs notebook'; format chip: 'Meeting minutes'"
+   },
+   {
+    "title": "Recording, mid-meeting",
+    "purpose": "The main screen while a meeting is live: capture without fuss, structure forming in real time.",
+    "hero": "Full-width live waveform with the lower third already resolving into outlined text lines",
+    "data": "Timer 00:23:41, format 'Meeting minutes', live outline: Decisions (2), Action items (3, latest: 'Dana to send revised quote by Fri'), photo of whiteboard pinned at 00:14:52, mic level meter steady"
+   },
+   {
+    "title": "Draft ready before the meeting ends",
+    "purpose": "Show the earning-its-keep moment: an editable draft exists while people are still talking.",
+    "hero": "A banner 'Draft ready, meeting still running' above the editable document",
+    "data": "Q3 pipeline review, 00:31:07 elapsed; Decisions: 'Drop the Fairview renewal to Q4', 'Approve two-seat expansion for CS'; Action items with owners: Dana, quote by Jul 10; Marcus, updated forecast by Jul 8"
+   },
+   {
+    "title": "Images at their timestamp",
+    "purpose": "Demonstrate that whiteboards and slides land inside the document where they were shown, not in a folder.",
+    "hero": "Document scroll with an inline whiteboard photo anchored under the paragraph it belongs to",
+    "data": "Whiteboard photo captioned '00:14:52, pricing tiers sketch' sitting directly beneath the bullet 'Agreed to test 3-tier pricing'; a slide image at 00:26:18 under 'Roadmap slide, Q3 commitments'"
+   },
+   {
+    "title": "Company template, set up once",
+    "purpose": "The custom template mechanic: describe your document structure in plain words and every meeting follows it.",
+    "hero": "A split view: plain-language description on the left, generated template skeleton on the right",
+    "data": "Input: 'Our minutes start with attendees, then Decisions numbered, then Action items as a table with owner and due date, then Parking lot.' Preview shows exactly that skeleton labeled 'Brightlane minutes v2, used for 14 meetings'"
+   },
+   {
+    "title": "It landed",
+    "purpose": "Export confirmation that proves formatting survived the last mile, the core promise.",
+    "hero": "A receipt-style card with the OneNote page thumbnail and an integrity checklist",
+    "data": "'Sent to OneNote, Sales / Weekly syncs, 2:47 PM.' Checklist: 6 headings kept, 18 bullets kept, 2 images placed at timestamps, action-item table intact. Button: 'Open in OneNote'"
+   },
+   {
+    "title": "Offline, export queued",
+    "purpose": "The state the mechanics demand: recording works anywhere, export waits honestly for a connection.",
+    "hero": "The finished draft with a quiet queued badge instead of an error",
+    "data": "'Saved on device. Will send to OneNote when you're back online.' Draft 'Site visit, Northgate clinic' complete and editable; queue shows 1 document waiting, nothing lost"
+   },
+   {
+    "title": "Your three meetings landed. Keep it going",
+    "purpose": "Paywall after the third full-export meeting, priced against what this audience already pays.",
+    "hero": "A stack of the user's own three delivered documents as the proof, above one plan card",
+    "data": "'3 of 3 trial meetings exported with full formatting.' Plan: $9.99/month, unlimited meetings, custom templates, direct export to OneNote, Word, Notion, Google Docs, CRM. Comparison line: 'Otter Business runs $100 to $140 a year.' Buttons: 'Subscribe, $9.99/mo', 'Restore purchase', 'Not now' equally visible"
+   },
+   {
+    "title": "Settings",
+    "purpose": "Manage destinations, templates, and recording conduct in one calm place.",
+    "hero": "Grouped list with the consent rule pinned at top",
+    "data": "Recording notice: 'Always records from this device with participants' knowledge, no bots join your calls.' Connected: OneNote, HubSpot. Templates: Brightlane minutes v2, Doctor visit note. Audio quality: High (48 kHz). Auto-delete audio after export: On, 30 days. Subscription: $9.99/mo, manage / restore"
+   }
+  ]
  }
 }
