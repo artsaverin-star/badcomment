@@ -5957,5 +5957,73 @@
     ]
    }
   ]
+ },
+ "hiking-trails": {
+  "governing": "The hiking-app market is built around one job people hire an app to do out in the woods with no signal: keep me from getting lost. Everything else, finding trails, planning, pretty videos, is secondary, and that is exactly where the market splits into several different demands and the leaders break on the one thing that matters most. The first and deepest split is offline navigation. People pay for a subscription precisely to get a downloaded map, and out on the trail with no signal they get nothing. AllTrails with a paid Plus membership hands back a downloaded map that reads Not available in the middle of a hike, FarOut simply stops opening after three days on a thru-hike, OnX endlessly calculates the download size and never downloads, Gaia won't pin the track to the trail offline, and OS Maps logs you out when their server goes down, and then even the downloaded maps are unreachable. Against that backdrop the tiny Tomstrails wins by honestly working on GPS alone in airplane mode and saving battery, and Topo Map & Hiking Tracker gets praised for offline and airplane mode. The second cluster is route planning that actually follows the trails. Footpath draws a straight line instead of the trail's curve and refuses to use footpaths, Gaia's trail snapping falls off half the time, OnX drops random points on its own and won't let you remove them, komoot took away the ability to reorder points. The third cluster is fresh on-trail conditions from other people. That is why people keep WTA (trip reports are the entire point of the app) and FarOut (water, bear and hostel markers, a game changer), but FarOut launched an AI that deleted years of useful comments, and AllTrails draws complaints about AI slop in its descriptions. Standing apart are the smaller, precise jobs: effort tracking (Topo Map consistently logs 18 miles instead of 14 and won't count the second climb, Walkmeter dies mid-walk, Wikiloc records triple the distance) and safety (the whole point of Cairn, family sees your location and coverage zone, but it stops recording the track right on the route). The leaders all break along one common line: with every update a favorite feature is removed and hidden behind the subscription (Avenza killed importing your own maps, Relive removed track trimming, Gaia dropped the Nat Geo layers), and the interface is redone so that finding a trail gets harder.",
+  "competitorRead": "Three different types of players live in this niche. Indies with a one-time purchase win on honesty and on staying out of the way: Tomstrails gets praised outright for hiding nothing behind a subscription and pushing no ads, Topo Map & Hiking Tracker is loved for no subscription, no ads and for owning rather than renting, WorkOutDoors buys the same loyalty from former Garmin owners. Their weak spot is narrowness and small holes: Tomstrails has no coordinate formats, Topo Map is forever wrong on mileage, WorkOutDoors has an interface you drown in without documentation. The subscription mainstreams, AllTrails, Gaia, onX, komoot, Wikiloc, Outdooractive, hold share through the sheer size of their trail base and their maps, but they lose people the same way: constant pop-ups pitching a subscription on every tap, offline that lets you down, and redesigns that break the familiar flow. A separate painful subgroup is the acquired projects: OnX bought Hiking Project and the REI projects and turned them into nagware wrappers, Outdooractive killed the beloved ViewRanger, Bending Spoons rewrote komoot, Outside bought Gaia and pulled the layers. People say outright that they leave for alternatives after this. Finally the nonprofit and niche ones, WTA, Outdoor Afro, OuterSpatial, National Park Trail Guide, are strong on content and community (nothing else compares to WTA's reports), but they fall down on the tech: WTA has crashed on search and failed to load the map for years, National Park Trail Guide just stops opening after an update.",
+  "pillars": [
+   {
+    "title": "make a downloaded map that honestly works with no signal",
+    "dek": "This is the niche's biggest unfilled job. People pay precisely for the offline map, and out on the trail with no signal the leaders hand back nothing or crash. Whoever nails offline so it can be trusted as the single source of navigation takes a market the giants exited in words only.",
+    "match": [
+     "оффлайн",
+     "скача",
+     "без связ",
+     "без сигнал",
+     "загрузк карт",
+     "падает на тропе",
+     "батаре",
+     "авиарежим",
+     "прост",
+     "пухнет",
+     "интерфейс",
+     "владельц",
+     "заплат",
+     "ломает",
+     "обновлен"
+    ]
+   },
+   {
+    "title": "let people build a route that follows the real trails",
+    "dek": "Planning breaks when the line won't pin to the trail: it draws straight instead of curving, points can't be removed or reordered, the route steers onto roads. A tool where the track obediently snaps to the actual trail and is easy to edit right with a finger removes a pain the mass-market apps solve only halfway.",
+    "match": [
+     "маршрут",
+     "привязк к троп",
+     "рисован",
+     "точк маршрута",
+     "снап",
+     "планирован",
+     "порядок точек",
+     "запис",
+     "трек",
+     "точност",
+     "мил",
+     "парковк",
+     "пишет",
+     "пауз"
+    ]
+   },
+   {
+    "title": "show fresh on-trail conditions from people who walked it recently",
+    "dek": "For the sake of recent reports and markers (water, deadfall, snow, bears, trail condition) people keep an app and fill it themselves. Whoever builds a stream of fresh, verifiable posts from people who just walked it and doesn't wipe them with an AI purge closes the job people pay for with attention and money.",
+    "match": [
+     "услови на тропе",
+     "отчёт",
+     "свеж",
+     "недавн",
+     "комментар",
+     "состоян троп",
+     "отметк воды",
+     "сообществ",
+     "моя тропа",
+     "есть ли",
+     "покрыт",
+     "близк",
+     "знали",
+     "безопасн",
+     "делит"
+    ]
+   }
+  ]
  }
 }

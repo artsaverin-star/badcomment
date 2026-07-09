@@ -1982,5 +1982,37 @@
  "couples-relationship-8": {
   "whyPay": "Couples set up a shared calendar for exactly one reason: to see when the partner is busy and carve out time for each other. Cupla hides exactly that, the other person's schedule, behind payment, which infuriates people, but when it works they stick with it for years (high retention). An honest model with no traps sells well. Technically it is medium and deceptive: the shared calendar itself is not hard, but live two-way sync with the phone's system calendar (Google, Apple) through their APIs is real fiddly work and a fragile spot, and that is exactly what people are waiting for.",
   "targetSegment": "busy couples with clashing schedules (including those who work together) who need to see each other's calendar and stop making plans blind"
+ },
+ "hiking-trails-1": {
+  "whyPay": "People hold onto Relive and Wikiloc for years just for a nice memory of the hike, and they flat out call the removed trim feature a deal breaker. They will pay once for a clean track without the drive-home tail, but this is a tune-up utility, not an ongoing service, so the check stays small. It is not hard to build technically: you log GPS points through CoreLocation, trimming and stitching is just working with your own array of coordinates, export to GPX, no backend and no trail catalog.",
+  "targetSegment": "Walkers and cyclists who keep a route diary for the memories and love sharing a nice map of where they went"
+ },
+ "hiking-trails-2": {
+  "whyPay": "The pain is real and repeatable (a 7.1 mile sign, the app says 8.12, Garmin reads 14.7 against 18.2), and it drives people out of apps. But accuracy is table stakes, not a wow feature, so people pay grudgingly and only once, and a mile counter you check once a year barely motivates an upgrade. Harder than average: an honest count needs GPS-noise smoothing and elevation gain from the phone barometer with every climb summed up, so it is real work with sensors and an algorithm, not just drawing a line.",
+  "targetSegment": "Disciplined walkers who keep a yearly mileage counter and cross-check the numbers against Garmin and trail signs"
+ },
+ "hiking-trails-3": {
+  "whyPay": "The most lucrative pain in the niche: an offline map is safety, and people pay AllTrails 80 dollars a year and Avenza 34 dollars a year for it, while the rest get by because a friend happened to have a Garmin. Willingness to pay is high, and a one-time lifetime price lands well against the hatred for that 80-dollar subscription. But it is heavy to build: you need your own tile engine on OpenStreetMap, a topo layer with contour lines, reliable area downloads by drawing a box, and a guarantee it opens with no signal at every zoom level, the most engineering-heavy item on the list.",
+  "targetSegment": "Cautious hikers and backcountry travelers for whom a map without signal is a matter of safety, not convenience"
+ },
+ "hiking-trails-4": {
+  "whyPay": "The one scenario in the niche where a subscription is honest: people keep Cairn for five years and give it five stars for their family's peace of mind, and they pay on a regular basis. Willingness to pay is high, and Cairn's weak spots (dies mid-hike, cut back the return-time options, pulled the watch app) leave room for a better version. Medium difficulty: the core logic is simple (a timer plus your last point plus a send), but reliable background tracking that is gentle on the battery, a message queue that holds until signal returns, and a coverage map all take careful work and server-side delivery.",
+  "targetSegment": "Solo hikers and the people close to them who want someone keeping watch without buying a satellite tracker"
+ },
+ "hiking-trails-5": {
+  "whyPay": "The demand is tangible: AllTrails users ask outright for private notes (a parking pass, a slippery spot), and komoot, Wikiloc and Gaia annoy people by forcing everything public. People already rig up workarounds out of lists, so they will pay, but this is a personal organizer on top of the map, the value is quiet, the check is a small one-time. Easy to build: notes, marker icons, folders, photos and GPX import-export are all local storage on the phone with no servers.",
+  "targetSegment": "People who return to the same trails and want a private layer of notes just for themselves"
+ },
+ "hiking-trails-6": {
+  "whyPay": "Fresh trail reports are the most loved thing about WTA and the thing missing everywhere else, so the value to a reader is high. But the money is weak and risky: this is a classic cold start for two-sided content, reading has to be free to get the data flowing, and only a handful will pay for alerts, so the money only shows up once you have a mass of contributors. The hardest thing to build: you need a backend, moderation, a feed per trail, reports pinned to coordinates and a community to grow, which is no longer a solo utility but a small service with a network effect.",
+  "targetSegment": "Trip planners who need to know whether a trail is passable today (snow, downed trees, water)"
+ },
+ "hiking-trails-7": {
+  "whyPay": "The pain repeats across all the big apps (Footpath cuts in a straight line, Gaia won't snap to the trail more than half the time, no elevation profile), and the real value is that you know up front whether your legs can handle the climb. People pay to save and export, but they often expect planning to be free, so the check is a moderate one-time. Above-average difficulty: snapping to trails means routing over the OpenStreetMap graph plus an elevation-gain profile from terrain data, which is real engineering work even without your own catalog.",
+  "targetSegment": "Planning hikers who build a loop in advance and want to see the elevation gain before they hit the trail"
+ },
+ "hiking-trails-8": {
+  "whyPay": "The scenario is sound but narrow and low-money: a person with a paper topo map and no signal. Tomstrails lives on exactly this and people love it, but that is also where they flatly say even 99 cents for the full set feels stingy, so the price ceiling is low and the audience is thin (land nav enthusiasts, not the mass hiker). On the plus side it is almost trivial to build: coordinates from GPS, converting between UTM and lat-long formats, a compass, datums and copy to clipboard are pure on-device math with no signal, no login and no maps.",
+  "targetSegment": "Walkers with a paper topo map and land nav fans who need precise coordinates offline and easy on the battery"
  }
 }

@@ -15481,5 +15481,173 @@
    "We don't break or lose events on an update, people complain about that"
   ],
   "monetization": "The shared calendar and month overview are free, sync with several calendars, tasks and styling are paid. The niche benchmark is a one-time lifetime purchase around 1000-1500 rubles per couple or 300 rubles a month, it's more honest not to hide the basic schedule behind a paywall, which is where competitors fall down."
+ },
+ "hiking-trails-1": {
+  "categoryName": "Hiking and trails",
+  "title": "Track recording you can trim after the hike",
+  "oneLiner": "A voice recorder for your route where you can easily cut off the tail that got recorded on the drive home.",
+  "gap": "Almost every app can record a track, but almost none lets you calmly clean it up. The classic case: you finish the trail, get in the car, forget to hit stop, and now you have a lovely route with a straight line running 30 kilometers home. Relive once had trimming, they removed it, and people say it became a deal breaker. Another common story: you stopped for a break, the app paused and never resumed on its own, and you lost half the hike. And no one properly lets you join two fragments into one track. The hole is simple and tangible: an editor for the already-recorded track, not one more recorder.",
+  "pitch": "A small app that does exactly one thing and does it well: it records your hike and then lets you easily trim it. With two fingers you drag a slider along the track, cut off the tail to home, an extra break or the start from the parking lot. It can join two fragments if you accidentally hit stop. People already pay Relive and Wikiloc for years precisely for the memory of the hike, so they'll pay all the more for a clean track with no junk.",
+  "features": [
+   "A trim slider for the start and end of the track right on the map, with the distance updating as you go",
+   "Auto-pause on a break with a clear sound and vibration on resume, so you don't lose a chunk",
+   "Joining two recordings into one continuous track by time",
+   "Recomputing distance and elevation gain after every edit",
+   "Exporting the finished clean track to GPX for Strava, Garmin and paper reports",
+   "A hike history with human names instead of Track 001, Track 002"
+  ],
+  "antiFeatures": [
+   "We don't build our own trail base and don't compete with AllTrails on catalog",
+   "We don't make a social network with likes and follows",
+   "We don't hide trimming behind a paywall, it's a basic feature"
+  ],
+  "monetization": "A one-time purchase forever, a reference point of 490 rubles, the kind reviewers love with Topo Map and Tomstrails, praised for having no subscription. An optional tip jar is possible for those who want to support, like in WorkOutDoors."
+ },
+ "hiking-trails-2": {
+  "categoryName": "Hiking and trails",
+  "title": "An honest mile counter that matches the trail signs",
+  "oneLiner": "A hike tracker that counts distance the same as the trail sign and Garmin, not a couple of miles more.",
+  "gap": "People catch apps lying about the numbers again and again. The trail sign says 7.1 miles, Google says 7, and the app draws 8.12. Garmin shows 14.7, the app 18.2. Elevation gain is often computed dumbly as the difference between the lowest and highest point, so a second climb after a descent simply isn't counted. For someone keeping their own mile counter for the year or raising donations for distance walked, this isn't a trifle, it's a shattered goal. No one in the niche has made accuracy their main promised thing.",
+  "pitch": "A tracker that takes one task seriously: counting distance and elevation gain honestly. Smoothing GPS noise so the jitter of points doesn't rack up extra meters, accumulating every climb and descent from the phone's barometer rather than from two extreme points. It shows next to the track how closely the number matched the sign, if you entered it. This fixes the pain that, per the reviews, drives people away from an app.",
+  "features": [
+   "GPS jitter smoothing so a phone sitting still doesn't rack up meters",
+   "Elevation gain from the phone's barometer with the sum of all climbs, not the difference of extreme points",
+   "Manual check: enter the length from the sign and see the discrepancy",
+   "Stride calibration for a stable result on the same trail",
+   "A yearly counter of kilometers walked with a goal and progress",
+   "Exporting the track and numbers to GPX to cross-check with Garmin"
+  ],
+  "antiFeatures": [
+   "We don't draw our own trail map, we work on top of the system one",
+   "We don't add a feed of other people's hikes",
+   "We don't inflate the numbers for pretty motivation, quite the opposite"
+  ],
+  "monetization": "A one-time purchase forever, a reference point of 390 rubles, exactly what reviewers thank Topo Map & Hiking Tracker and Tomstrails for, no subscription no ads. The yearly mile challenge can be split out into an optional purchase."
+ },
+ "hiking-trails-3": {
+  "categoryName": "Hiking and trails",
+  "title": "Offline maps you download with a box, not by panning around",
+  "oneLiner": "You drew a rectangle around the area, hit download, headed into the mountains with no signal, and the map works.",
+  "gap": "An offline map is about safety, but this is exactly where the niche leaks worst. Some force you to manually pan and zoom every piece of the map, as if playing a screencast game, miss a tile and it didn't save. Others let you download, and out in the woods with no signal hand back Not available, even though the person specifically got Plus for this. A third group drops the detail on zoom, leaving a green screen. People literally save themselves because a friend had a Garmin. A clear box download of an area and a guarantee it opens with no network is what the market doesn't deliver reliably.",
+  "pitch": "An offline trail map where downloading is done like a human being would want: you draw a rectangle around the area, see the size and the number of tiles, hit it, and it all lands on the phone at once. The main promise: with no signal the map opens at any zoom, the topo lines and trails are there, no Not available. It leans on free OpenStreetMap tiles and open topo layers, so there's no catalog to assemble, and the pain is real and recurs for everyone.",
+  "features": [
+   "Downloading an area with a single box, showing the size and tile count in advance",
+   "A guarantee it opens with no network at all zoom levels, tiles verified after download",
+   "A topo layer with contour lines over OpenStreetMap, trails visible",
+   "Your own dot and heading arrow on the offline map, so you know where you are",
+   "Markers on the map: parking, water, fork, dangerous spot",
+   "Export and import of a GPX route for hiking someone else's track"
+  ],
+  "antiFeatures": [
+   "We don't tie offline maps to a mandatory subscription and login",
+   "We don't load satellite imagery that weighs gigabytes, only readable vector tiles",
+   "We don't show ads over the map, like some competitors"
+  ],
+  "monetization": "A few areas free, then a one-time purchase forever for unlimited downloads, a reference point of 690 rubles. The niche praises lifetime specifically, and $80 a year from AllTrails and onX puts many off, so an honest one-time price is an advantage."
+ },
+ "hiking-trails-4": {
+  "categoryName": "Hiking and trails",
+  "title": "A quiet watchman: text loved ones if you didn't come back from the trail",
+  "oneLiner": "You set a return time, you hike alone, and if you don't check in, loved ones automatically get your last point.",
+  "gap": "Cairn showed that people will pay for their family's peace of mind and stay for five years. The mechanic is simple and beloved: you set a return time, you hike alone, and if you don't check in on time, loved ones get your last point. But Cairn itself has plenty of pain: it suddenly stops tracking mid-hike, cut the return time down to a couple of fixed options, pulled the watch app. The mechanism is loved, the execution is fragile. A solo developer can build exactly this one feature reliably, without a trail catalog and without a world map.",
+  "pitch": "An app with one task: quietly watch over your hike. Before setting out you set any return time and a list of loved ones. You hike alone, the phone quietly gathers points. Check in on time, no one gets anything. Don't check in, and loved ones get a message with your last known point and a map of where there's signal along the route. People already pay Cairn precisely for that feeling of peace of mind, and its weak spots leave room for a more reliable version.",
+  "features": [
+   "Any return time entered manually, not a choice of a couple of options",
+   "An auto-message to loved ones with the last point if you didn't check in on time",
+   "A map of where there's cell signal along the route, so you know when the message will go out",
+   "A message queue: they pile up and go out as soon as there's signal",
+   "A simple Apple Watch extension to check in without pulling out the phone",
+   "Gentle battery use, sparse points instead of constant tracking"
+  ],
+  "antiFeatures": [
+   "We don't build satellite comms, we honestly say where a real tracker is needed",
+   "We don't turn it into constant location sharing for everyone",
+   "We don't bury loved ones in extra notifications, only when it matters"
+  ],
+  "monetization": "A thin subscription for peace of mind, a reference point of 199 rubles a month or cheaper yearly, like Cairn. The first hike free, so the person lives through the scenario. Here the subscription is honest, because it's an ongoing watch service, not a one-time utility."
+ },
+ "hiking-trails-5": {
+  "categoryName": "Hiking and trails",
+  "title": "Private notes on trails that only you see",
+  "oneLiner": "Your own notes on every route: where the parking is, where it's slippery, where the pretty spot is, private.",
+  "gap": "Oddly, the big apps don't let a person simply leave a note for themselves. In AllTrails people write in plain words: I want to flag where the parking pass is and where the slippery stretch is, but there's nowhere, so they cobble together workarounds from lists. With komoot, Wikiloc and Gaia everything is on top of that published outward by default, your own address and routes go out for all to see, and hiding it is hard. And almost nowhere are there your own folders by region or season. There's demand for a personal, private layer over the hike, and no one has really closed it.",
+  "pitch": "A personal notebook for trails on top of your map. For each route and point you write your own note: paid parking here, rocks slippery after rain here, best view from here, water here. Everything private by default, nothing flies out. You sort it into your own folders, by region and season. People already cobble together workarounds from lists in other apps, which means they're ready to pay for a tool that does this properly.",
+  "features": [
+   "A private note on any point and any route, for your eyes only",
+   "Icon markers: parking, water, slippery, nice view, fork",
+   "Your own folders by region and season, not one big pile",
+   "Sorting the list by alphabet, date, proximity",
+   "A photo on a note straight from the phone, to remember the place",
+   "Import and export of GPX, to carry notes over any track"
+  ],
+  "antiFeatures": [
+   "We publish nothing outward without an explicit tap, privacy by default",
+   "We don't assemble our own trail catalog, we live on top of the map and others' GPX",
+   "We don't make a feed and follows, it's a personal notebook"
+  ],
+  "monetization": "Free up to a certain number of notes, then a one-time purchase forever for unlimited and folders, a reference point of 490 rubles. Privacy as a promise sells well to those enraged in the reviews by forced publishing."
+ },
+ "hiking-trails-6": {
+  "categoryName": "Hiking and trails",
+  "title": "Fresh trail condition reports from people who walked it yesterday",
+  "oneLiner": "You read what's on the route right now: snow, a fallen tree, where the water is, not a description five years old.",
+  "gap": "The most loved thing about WTA is the fresh reports: someone walked it yesterday and wrote that there's snow on the trail, the road washed out, a tree is down. This is exactly what's missing almost everywhere. With FarOut the reports either stopped appearing or an algorithm wiped them, and years of useful comments vanished. Outdated points like closed hostels hang forever, and you have to dig through the comments. But a person simply wants to know whether the trail is passable today. A tool that gathers short fresh reports and keeps them clean closes this hole.",
+  "pitch": "An app built around one valuable thing: a short fresh report on the trail. You walked the route, and in a minute you flag it: knee-deep snow, a tree across at such-and-such marker, water is there, parking is full. Others see reports from the last days and weeks, old ones honestly sink and get marked outdated. People in the reviews call such reports the main reason to use the app, which means you can build a product around them.",
+  "features": [
+   "A quick one-minute report: snow, mud, fallen trees, water, parking",
+   "A feed of reports for a specific trail, freshest on top",
+   "An outdated tag for old reports, so they don't mislead",
+   "A point on the map where exactly the obstacle lies or the snow starts",
+   "Subscribing to a trail with an alert about a new report before you set out",
+   "Works offline: you wrote a report in the woods, it goes out at the first signal"
+  ],
+  "antiFeatures": [
+   "We don't let an algorithm silently delete other people's reports, like FarOut",
+   "We don't build a full trail catalog, we tie to GPX and coordinates",
+   "We don't turn it into chit-chat, only about trail condition"
+  ],
+  "monetization": "Reading reports free, to gather people and data, a subscription for alerts and per-trail history, a reference point of 149 rubles a month. Plus regional sets for a specific park as a one-time purchase, like the sections in FarOut."
+ },
+ "hiking-trails-7": {
+  "categoryName": "Hiking and trails",
+  "title": "A loop planner that follows the trails and instantly counts the climb",
+  "oneLiner": "You draw a route, the line sticks to the trails on its own instead of cutting straight, and below you see the elevation gain.",
+  "gap": "Planning a route is still torment. Footpath promises to follow the trails but sticks in a straight line and cuts straight across, and the distance is off. Gaia can't grab the trail more than half the time. And almost nowhere is there an elevation gain profile right under the drawn route, even though people ask in plain words: it should be automatic across the bottom of every map. And the main value in onX is that a person figures out ahead of time whether their legs will handle the climb. A planner that honestly follows the trails and instantly draws the elevation gain closes all of this.",
+  "pitch": "A planner for hiking loops where the line honestly sticks to the trails from open OpenStreetMap data instead of cutting straight across. You drop points, the route lies down along the real paths, and below an elevation gain profile and a total climb figure grow right away. You see in advance whether this route is within your strength. People complain about broken snapping and a missing elevation profile in all the big apps, which means they'll pay for a proper planner.",
+  "features": [
+   "The route sticks to real trails from OpenStreetMap, not a straight line",
+   "An elevation gain profile right under the route, updating on the fly",
+   "Total distance and total climb shown large, to judge your strength",
+   "Closing into a loop with one button, to return to the start",
+   "Manual drawing where there's no trail on the map",
+   "Exporting the finished route to GPX for a watch and offline navigation"
+  ],
+  "antiFeatures": [
+   "We don't guide the route by voice in real time, this is about planning",
+   "We don't hide the route itself behind a paywall, only saving and export are paid",
+   "We don't build 3D flyovers for looks, an honest profile matters more"
+  ],
+  "monetization": "Planning and viewing elevation free, saving and export to GPX by a one-time purchase forever, a reference point of 590 rubles. The niche praises lifetime and scolds Footpath's $23 for the elite version, so an honest one-time price lands."
+ },
+ "hiking-trails-8": {
+  "categoryName": "Hiking and trails",
+  "title": "Coordinates for a paper map: UTM and lat-long at a glance",
+  "oneLiner": "You opened it, saw your coordinates in the format you need, it works with no signal and barely eats battery.",
+  "gap": "There's a small but loyal scenario: a person with a paper topo map in the woods with no signal needs to figure out their coordinates to find themselves on the paper. Tomstrails lives on this and is loved for being GPS-only, working in airplane mode and barely eating battery. But even there is pain: no choice of format, decimal degrees hidden, the swipe to switch UTM and lat-long is gone, no compass. And the big topo maps have no compass and no orientation to the cardinal directions for navigating by paper. A tiny but genuinely needed utility with room for better execution.",
+  "pitch": "An extremely simple utility for people who hike with a paper map. You open it, you see your coordinates large, you swipe to switch UTM, lat-long, decimal degrees. Alongside is a compass and a bearing, to orient the paper to north. Everything on GPS only, works in airplane mode, barely uses battery. Tomstrails proved people pay for such a thing and leave five stars, and its weak spots are a ready-made list of improvements.",
+  "features": [
+   "Large coordinates, switching UTM, lat-long, decimal degrees by swipe",
+   "A compass and bearing, to orient the paper map to north",
+   "Copying coordinates to the clipboard with one tap",
+   "Works on GPS only in airplane mode, minimal battery drain",
+   "A choice of datum for a specific paper map, so the point matches",
+   "Big digits and high contrast, readable in sunlight"
+  ],
+  "antiFeatures": [
+   "We don't draw our own map, this is a coordinate companion for paper",
+   "We don't require a network and login, everything is computed on the phone",
+   "We don't overload it with extra settings, the essentials on the main screen"
+  ],
+  "monetization": "Basic coordinates free, formats, datums and the compass by a one-time purchase forever, a reference point of 199 rubles. Reviews of Tomstrails scold even 99 cents for the full set as stingy, so an honest small price for a clear set of features will land."
  }
 }

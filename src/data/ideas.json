@@ -66165,5 +66165,748 @@
    ],
    "monetization": "Бесплатно общий календарь и обзор на месяц, платно синхронизация с несколькими календарями, задачи и оформление. Ориентир по нише разовая покупка навсегда около 1000-1500 рублей на пару или 300 рублей в месяц, честнее не прятать базовое расписание за оплату, на этом и валятся конкуренты."
   }
+ },
+ {
+  "slug": "hiking-trails-1",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Запись трека, которую можно подрезать после похода",
+  "oneLiner": "Диктофон для маршрута, где потом легко отрезать хвост, который записался по дороге домой на машине.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 41
+  },
+  "reviewGrid": [
+   {
+    "quote": "Relive discontinued the functionality to trim routes. If you forget to stop recording after an activity, it records everything until you remember to “finish” making the data and map useless. Please fix this because it is a deal breaker.",
+    "rating": 2,
+    "app": "Relive: Hike & Ride Memories"
+   },
+   {
+    "quote": "The recent change to remove the ability to “trim” a ride has made a fine app much less useful. We have all had those rides/hikes/runs where at the end we are feeling great, get in the car and forget to stop the app til we’re miles down the road. The easy trim feature fixed that but without it, it’s",
+    "rating": 2,
+    "app": "Relive: Hike & Ride Memories"
+   },
+   {
+    "quote": "The app is great and I love the elements but I forget to restart after stopping and that is getting annoying. It automatically pauses when you take a break and it doesn’t automatically restart.",
+    "rating": 4,
+    "app": "Relive: Hike & Ride Memories"
+   },
+   {
+    "quote": "I love this app, the only note o have is to add the ability to combine recordings. I have a couple hikes where I paused the recording to take a break and accidentally stopped the recording lol. Everything else about the app is perfect, I just have some recordings I need to add together :)",
+    "rating": 4,
+    "app": "HiiKER: The Hiking Maps App"
+   },
+   {
+    "quote": "Ok. Maybe two things. My main complaint is that all my trails upload as Public and I cannot find any setting to disable/change it. I’ve checked the settings on the web and in the app.\n\nWhen I first started using it, I forgot to stop the app after my ride and drove all the way home before I remembe",
+    "rating": 3,
+    "app": "Wikiloc - Trails of the World"
+   },
+   {
+    "quote": "First, if you are on a hike and decide to turn back for any reason you need to stop the hike you are currently on, and program a new hike beginning at your current location and ending at your starting location. To me, this is a huge safety flaw as returning to start point is likely to be your first",
+    "rating": 4,
+    "app": "Footpath Route Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Запись трека, которую можно подрезать после похода",
+    "obsCount": 18,
+    "apps": [
+     "Relive: Hike & Ride Memories",
+     "Wikiloc - Trails of the World",
+     "Footpath Route Planner"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пауза на привал должна сама возобновляться, а не глохнуть",
+    "obsCount": 12,
+    "apps": [
+     "Relive: Hike & Ride Memories",
+     "HiiKER: The Hiking Maps App"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Склеить два куска в один трек",
+    "obsCount": 9,
+    "apps": [
+     "HiiKER: The Hiking Maps App",
+     "Wikiloc - Trails of the World"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди годами держат приложение только ради красивой карты пройденного",
+    "obsCount": 14,
+    "apps": [
+     "Relive: Hike & Ride Memories",
+     "Wikiloc - Trails of the World"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Почти все приложения умеют писать трек, но почти никто не даёт спокойно его почистить. Классический случай: закончил тропу, сел в машину, забыл нажать стоп, и вот у тебя красивый маршрут с прямой линией на 30 километров до дома. У Relive когда-то была обрезка, её убрали, и люди пишут, что это стало deal breaker. Ещё частая история: остановился на привал, приложение встало на паузу и само не возобновилось, полпохода потерял. И никто нормально не даёт склеить два обрывка в один трек. Дырка простая и осязаемая: редактор уже записанного трека, а не ещё одна писалка.",
+  "idea": {
+   "pitch": "Маленькое приложение, которое делает ровно одно и делает это хорошо: пишет твой поход и потом даёт легко его подрезать. Двумя пальцами тянешь ползунок по треку, отрезаешь хвост до дома, лишний привал или начало от парковки. Умеет склеить два обрывка, если случайно нажал стоп. Люди уже платят Relive и Wikiloc годами именно за память о походе, так что за чистый трек без мусора заплатят тем более.",
+   "features": [
+    "Ползунок обрезки начала и конца трека прямо на карте, видно как меняется дистанция",
+    "Автопауза на привале с внятным звуком и вибрацией при возобновлении, чтобы не потерять кусок",
+    "Склейка двух записей в один непрерывный трек по времени",
+    "Пересчёт дистанции и набора высоты после каждой правки",
+    "Экспорт готового чистого трека в GPX для Strava, Garmin и бумажных отчётов",
+    "История походов с человеческими именами вместо Track 001, Track 002"
+   ],
+   "antiFeatures": [
+    "Не строим свою базу троп и не тягаемся с AllTrails по каталогу",
+    "Не делаем соцсеть с лайками и подписками",
+    "Не прячем обрезку за платную стенку, это базовая функция"
+   ],
+   "monetization": "Разовая покупка навсегда, ориентир 490 рублей, как любят в отзывах про Topo Map и Tomstrails, где хвалят отсутствие подписки. Возможен добровольный tip jar для тех, кто хочет поддержать, как в WorkOutDoors."
+  }
+ },
+ {
+  "slug": "hiking-trails-2",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Честный счётчик километров, который совпадает с указателями",
+  "oneLiner": "Трекер похода, который считает дистанцию так же, как знак на тропе и Garmin, а не на пару миль больше.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 38
+  },
+  "reviewGrid": [
+   {
+    "quote": "Tested the app out on a local trail. The timer worked well and was pretty much the only good thing about this app.\n\nLocal signs stated the trail was 7.1 miles and google stated it was 7 miles even. After completing the trail, this app said it was 8.12 miles. The description says they fixed this dis",
+    "rating": 2,
+    "app": "Topo Map & Hiking Tracker"
+   },
+   {
+    "quote": "App recorded 18.2 miles, but hike was only 14.7 miles (confirmed with garmin gps. App also only records difference between lowest elevation and highest elevation.",
+    "rating": 1,
+    "app": "Topo Map & Hiking Tracker"
+   },
+   {
+    "quote": "First of all, the app is pretty good. I encountered a bug starting from recent versions - the distance is recorded like 3 times large. Devs, plz fix it and preferably fix the existing recordings as well",
+    "rating": 3,
+    "app": "Wikiloc - Trails of the World"
+   },
+   {
+    "quote": "I have used this app for several years for tracking my walks time and distance. But I’m tired of the fact that I walk the same route most days but hit 1/4 and 1/2 mile marks at different spots on different days.",
+    "rating": 2,
+    "app": "Walkmeter Walking & Hiking GPS"
+   },
+   {
+    "quote": "I love Gaia. Except! Currently, route estimates are good on mileage but NOT on elevation gain/loss. About 30-50% off! That needs to be fixed!!!",
+    "rating": 4,
+    "app": "Gaia GPS: Mobile Trail Maps"
+   },
+   {
+    "quote": "Everything is great about this App except that it doesn’t track your total amount of vertical gain. So if you walk up a mountain and down a valley and then back up a mountain again the App doesn’t count the second hill. It’s soul crushing that the App fails to track all your hard work. All the rest",
+    "rating": 1,
+    "app": "Topo Map & Hiking Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный счётчик километров, который совпадает с указателями",
+    "obsCount": 20,
+    "apps": [
+     "Topo Map & Hiking Tracker",
+     "Wikiloc - Trails of the World",
+     "Walkmeter Walking & Hiking GPS"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Правильный набор высоты, а не разница между низом и верхом",
+    "obsCount": 11,
+    "apps": [
+     "Topo Map & Hiking Tracker",
+     "Gaia GPS: Mobile Trail Maps"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Одна и та же тропа выдаёт разную длину в разные дни",
+    "obsCount": 8,
+    "apps": [
+     "Walkmeter Walking & Hiking GPS",
+     "Topo Map & Hiking Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди снова и снова ловят приложения на вранье в цифрах. Знак на тропе говорит 7.1 мили, Google говорит 7, а приложение рисует 8.12. Garmin показывает 14.7, приложение 18.2. Набор высоты часто считается тупо как разница между самой низкой и самой высокой точкой, то есть второй подъём после спуска просто не засчитывается. Для человека, который ведёт свой счётчик миль за год или собирает пожертвования за пройденное, это не мелочь, это разбитая цель. Никто в нише не сделал точность своей главной обещанной вещью.",
+  "idea": {
+   "pitch": "Трекер, который берёт одну задачу всерьёз: считать дистанцию и набор высоты честно. Сглаживание GPS-шума, чтобы дрожание точек не накручивало лишние метры, накопление всех подъёмов и спусков по барометру телефона, а не по двум крайним точкам. Показывает рядом с треком, насколько цифра сошлась с указателем, если ты его вбил. Это чинит боль, из-за которой люди в отзывах уходят из приложения.",
+   "features": [
+    "Сглаживание GPS-дрожания, чтобы стоячий на месте телефон не накручивал метры",
+    "Набор высоты по барометру телефона с суммой всех подъёмов, а не разницей крайних точек",
+    "Ручная сверка: вбей длину с указателя и посмотри расхождение",
+    "Калибровка шага для стабильного результата на одной и той же тропе",
+    "Годовой счётчик пройденных километров с целью и прогрессом",
+    "Экспорт трека и цифр в GPX для сверки с Garmin"
+   ],
+   "antiFeatures": [
+    "Не рисуем свою карту троп, работаем поверх системной",
+    "Не добавляем ленту с чужими походами",
+    "Не завышаем цифры ради красивой мотивации, наоборот"
+   ],
+   "monetization": "Разовая покупка навсегда, ориентир 390 рублей, ровно то, за что в отзывах Topo Map & Hiking Tracker и Tomstrails благодарят, no subscription no ads. Годовой челлендж миль можно вынести в необязательную покупку."
+  }
+ },
+ {
+  "slug": "hiking-trails-3",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Оффлайн-карты, которые скачиваются рамкой, а не панорамированием",
+  "oneLiner": "Обвёл прямоугольник вокруг района, нажал скачать, ушёл в горы без связи и карта работает.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 44
+  },
+  "reviewGrid": [
+   {
+    "quote": "meh, downloading offline maps is annoying, can’t just draw a box around a region and download, they have some janky system where you have to zoom in and pan and scan everywhere.. so if you don’t pan and scan and zoom in on a particular tile it wont save. Obviously not an Outdoorsy Off Grid person.",
+    "rating": 1,
+    "app": "Topographic Maps & Trails"
+   },
+   {
+    "quote": "Downloading a offline map couldn’t be any harder, so many other apps where you simply download the map instead of playing the screen recording game this app requires.",
+    "rating": 2,
+    "app": "Topographic Maps & Trails"
+   },
+   {
+    "quote": "Have Plus membership. Downloaded a map to use offline. Went to a trail away from any coverage. Tried to use the downloaded map: “Not available. What you’re looking for isn’t available to view.” I have a Plus membership, which I thought gave me access to downloaded maps while offline. Later in the hi",
+    "rating": 2,
+    "app": "AllTrails: Hike, Bike & Run"
+   },
+   {
+    "quote": "Gaia has some of the best maps for off roading, overlanding and in general enjoying the outdoors.\n\nHowever, the app is only ok. Map downloads are comically slow and difficult to setup. In the era of TB phones, why can’t I just download whole states like in other apps? Why does a download of 100MB t",
+    "rating": 3,
+    "app": "Gaia GPS: Mobile Trail Maps"
+   },
+   {
+    "quote": "The app developers are pretty casual with their users’ safety. Offline maps are an important safety tool on a hike and if you can’t rely on them being available (or if they’re not available at all zoom levels), it can be a risk to use them on a hike. Given that this is basically a government funded",
+    "rating": 3,
+    "app": "OS Maps: Walk, Hike, Run, Bike"
+   },
+   {
+    "quote": "I assumed I could access the downloaded map when I had no signal, but evidently not.\n\nAm grateful my buddy had Garmin app.\n\nPlease let me know if the fine print said I do not have access when there is not a signal & I will update my rating.",
+    "rating": 1,
+    "app": "FarOut: Hike, Bike, Paddle"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Оффлайн-карты, которые скачиваются рамкой, а не панорамированием",
+    "obsCount": 22,
+    "apps": [
+     "Topographic Maps & Trails",
+     "Gaia GPS: Mobile Trail Maps",
+     "AllTrails: Hike, Bike & Run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Скачанная карта должна открываться без связи, а не выдавать Not available",
+    "obsCount": 15,
+    "apps": [
+     "AllTrails: Hike, Bike & Run",
+     "FarOut: Hike, Bike, Paddle",
+     "OS Maps: Walk, Hike, Run, Bike"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Карта на всех уровнях зума, а не зелёный экран при приближении",
+    "obsCount": 9,
+    "apps": [
+     "Topographic Maps & Trails",
+     "OS Maps: Walk, Hike, Run, Bike"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Оффлайн-карта это про безопасность, но именно тут ниша течёт хуже всего. Одни заставляют вручную панорамировать и зумить каждый кусок карты, будто играешь в игру со скринкастом, забыл тайл и он не сохранился. Другие дают скачать, а в лесу без связи выдают Not available, хотя человек специально брал Plus ради этого. Третьи роняют детализацию при приближении, остаётся зелёный экран. Люди буквально спасаются тем, что у друга был Garmin. Внятная закачка района рамкой и гарантия, что оно откроется без сети, это то, чего рынок не даёт стабильно.",
+  "idea": {
+   "pitch": "Оффлайн-карта троп, где скачивание сделано по-человечески: обвёл прямоугольник вокруг района, увидел размер и число тайлов, нажал и всё легло на телефон разом. Главное обещание: без связи карта открывается на любом зуме, топо-линии и тропы на месте, никаких Not available. Опирается на бесплатные тайлы OpenStreetMap и открытые топослои, так что каталог собирать не нужно, а боль реальная и повторяется у всех.",
+   "features": [
+    "Скачивание района одной рамкой с показом размера и количества тайлов заранее",
+    "Гарантия открытия без сети на всех уровнях зума, тайлы проверяются после закачки",
+    "Топослой с горизонталями поверх OpenStreetMap, тропы видны",
+    "Своя точка и стрелка направления на оффлайн-карте, чтобы понимать где ты",
+    "Метки на карте: парковка, вода, развилка, опасное место",
+    "Экспорт и импорт GPX-маршрута для похода по чужому треку"
+   ],
+   "antiFeatures": [
+    "Не привязываем оффлайн-карты к обязательной подписке и входу",
+    "Не грузим спутник, который весит гигабайты, только читаемые векторные тайлы",
+    "Не показываем рекламу поверх карты, как в некоторых конкурентах"
+   ],
+   "monetization": "Бесплатно несколько районов, дальше разовая покупка навсегда за безлимит закачек, ориентир 690 рублей. В нише хвалят именно lifetime, а $80 в год у AllTrails и onX многих отталкивает, так что честная разовая цена это преимущество."
+  }
+ },
+ {
+  "slug": "hiking-trails-4",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Тихий сторож: напиши близким, если не вернулся с тропы",
+  "oneLiner": "Ставишь время возврата, идёшь один, и если не отметился, близкие сами получают твою последнюю точку.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "An absolute must-have app for solo hikers. The automatic notification system gives my family so much peace of mind because they know they'll be alerted with my last known GPS location if I'm overdue coming off the trail. I especially love the crowdsourced cell coverage mapping feature it makes findi",
+    "rating": 5,
+    "app": "Cairn Hiking Safety Tracker"
+   },
+   {
+    "quote": "We had many deaths on the trails this year due to heat, no cell service, and a snake bite. I love that this app shows where cell service is available and notifies my family where I am.",
+    "rating": 5,
+    "app": "Cairn Hiking Safety Tracker"
+   },
+   {
+    "quote": "Very interesting idea. However when creating an app whose purpose is largely to notify an emergency network of your status - why in hell would you force someone to pick a short list of return times versus entering any time you want? On a recent 28mile hike I had to pick 3pm or 7pm when I expected",
+    "rating": 3,
+    "app": "Cairn Hiking Safety Tracker"
+   },
+   {
+    "quote": "Such a great idea so I decided to try this app out. Unfortunately, it just stopped tracking me in the middle of my Grand Canyon rim2rim hike. Not sure why this happened since I never let my battery die. I guess it was too good to be true. Subscription ended.",
+    "rating": 1,
+    "app": "Cairn Hiking Safety Tracker"
+   },
+   {
+    "quote": "I use a satellite communicator but wanted something that friends who don’t have one can use to notify their family as they hike or hunt or horseback ride which is what we do.\n\nIf you begin your trip where there is cell service, this app will continue to work even if you go out of cell service!\n\nAls",
+    "rating": 5,
+    "app": "Cairn Hiking Safety Tracker"
+   },
+   {
+    "quote": "Cairn provides peace of mind for family when I’m hiking. The ability to “queue” messages until cell signal is established works well in areas of poor coverage.\n\nI’d give it 5 stars but the most recent version pulled the Watch app which I found really handy for sending updates.",
+    "rating": 4,
+    "app": "Cairn Hiking Safety Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тихий сторож: напиши близким, если не вернулся с тропы",
+    "obsCount": 19,
+    "apps": [
+     "Cairn Hiking Safety Tracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Показать, где по пути есть связь, чтобы знать где отправится сообщение",
+    "obsCount": 8,
+    "apps": [
+     "Cairn Hiking Safety Tracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Время возврата надо задавать любое, а не выбирать из двух вариантов",
+    "obsCount": 6,
+    "apps": [
+     "Cairn Hiking Safety Tracker"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Cairn показал, что за спокойствие семьи люди готовы платить и остаются на пять лет. Механика проста и её обожают: задаёшь время возврата, идёшь один, если вовремя не отметился, близкие получают твою последнюю точку. Но у самого Cairn хватает боли: он вдруг перестаёт отслеживать посреди похода, урезал время возврата до пары фиксированных вариантов, снял приложение для часов. Механизм любимый, исполнение хрупкое. Соло-разработчик может собрать именно эту одну функцию надёжно, без каталога троп и без карты мира.",
+  "idea": {
+   "pitch": "Приложение с одной задачей: тихо сторожить твой поход. Перед выходом задаёшь любое время возврата и список близких. Идёшь один, телефон незаметно копит точки. Отметился вовремя, никто ничего не получил. Не отметился, близким уходит сообщение с последней известной точкой и картой, где по маршруту есть связь. Люди уже платят Cairn именно за это чувство спокойствия, а его слабые места оставляют место для более надёжной версии.",
+   "features": [
+    "Любое время возврата вручную, а не выбор из пары вариантов",
+    "Автосообщение близким с последней точкой, если не отметился вовремя",
+    "Карта, где по маршруту есть сотовая связь, чтобы понимать когда уйдёт сообщение",
+    "Очередь сообщений: копятся и уходят, как только появилась связь",
+    "Простое расширение для Apple Watch, чтобы отметиться не доставая телефон",
+    "Бережный расход батареи, редкие точки вместо постоянного трекинга"
+   ],
+   "antiFeatures": [
+    "Не строим спутниковую связь, честно говорим где нужен настоящий трекер",
+    "Не превращаем в постоянный шеринг локации для всех подряд",
+    "Не заваливаем близких лишними уведомлениями, только по делу"
+   ],
+   "monetization": "Тонкая подписка за душевное спокойствие, ориентир 199 рублей в месяц или годовая дешевле, как у Cairn. Первый поход бесплатно, чтобы человек прожил сценарий. Здесь подписка честная, потому что это регулярная услуга присмотра, а не разовая утилита."
+  }
+ },
+ {
+  "slug": "hiking-trails-5",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Личные заметки к тропам, которые видишь только ты",
+  "oneLiner": "Свои пометки к каждому маршруту: где парковка, где скользко, где красивое место, приватно.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 27
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love this app soooooo much. It is amazing. But it’s the only one of it’s kind I’ve found that don’t let you make private notes on a hike “I like this one. Remember the special parking pass. Watch out for that one slippery spot.” I’ve been able to work around by making my own lists, but … is ther",
+    "rating": 2,
+    "app": "AllTrails: Hike, Bike & Run"
+   },
+   {
+    "quote": "I needed a simple route planner for my custom rides. I don’t want to share the routes with anyone else. It’s a pain to go into settings to make everything private. Privacy should be the default since I’d rather my address (starting point) NOT be shared with everyone.\n\nWhen making rides that start a",
+    "rating": 2,
+    "app": "komoot - hike, bike & run"
+   },
+   {
+    "quote": "Ok. Maybe two things. My main complaint is that all my trails upload as Public and I cannot find any setting to disable/change it. I’ve checked the settings on the web and in the app.\n\nWhen I first started using it, I forgot to stop the app after my ride and drove all the way home before I remembe",
+    "rating": 3,
+    "app": "Wikiloc - Trails of the World"
+   },
+   {
+    "quote": "I’ve been with Gaia for several years - when Gaia was Gaia. Every since being bought out, or taken over depending upon how you use the app, it has been nothing but glitches, difficulties and a default opting “in” to public sharing, rather than a default of privacy.\n\nThat aside, my latest “glitch” is",
+    "rating": 3,
+    "app": "Gaia GPS: Mobile Trail Maps"
+   },
+   {
+    "quote": "This is an amazing app and I am so grateful for the community it has given me and all the amazing hikes I have found through it. I so wish I could customize “my backpack” a little more - would be helpful to make separate folders to organize by regions of the state or seasons of the year. Even seeing",
+    "rating": 4,
+    "app": "WTA Trailblazer: Go Hiking"
+   },
+   {
+    "quote": "You cannot order your trails alphabetically so that if you have a long list of trails which includes different routes on the same trail, the trails will be far apart and be separated on the list. You cannot combine 2 different routes you have taken on the same trail into 1 combined trail. If you hik",
+    "rating": 3,
+    "app": "Wikiloc - Trails of the World"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Личные заметки к тропам, которые видишь только ты",
+    "obsCount": 16,
+    "apps": [
+     "AllTrails: Hike, Bike & Run",
+     "komoot - hike, bike & run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Приватность по умолчанию, а не публикация всего наружу",
+    "obsCount": 11,
+    "apps": [
+     "Wikiloc - Trails of the World",
+     "Gaia GPS: Mobile Trail Maps",
+     "komoot - hike, bike & run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Свои папки по регионам и сезонам вместо одной кучи",
+    "obsCount": 7,
+    "apps": [
+     "WTA Trailblazer: Go Hiking",
+     "Wikiloc - Trails of the World"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Странно, но крупные приложения не дают человеку просто оставить заметку для себя. В AllTrails пишут прямым текстом: хочу пометить где парковочный пропуск и где скользкий участок, а некуда, приходится городить костыли из списков. У komoot, Wikiloc и Gaia всё вдобавок публикуется наружу по умолчанию, свой адрес и маршруты уезжают на всеобщее обозрение, а спрятать сложно. И почти нигде нет своих папок по регионам или сезонам. Есть спрос на личный, приватный слой поверх похода, и его никто толком не закрыл.",
+  "idea": {
+   "pitch": "Личный блокнот к тропам поверх твоей карты. К каждому маршруту и точке пишешь свою заметку: тут платная парковка, тут камни скользят после дождя, отсюда лучший вид, тут вода. Всё приватно по умолчанию, ничего не улетает наружу. Раскладываешь по своим папкам, по регионам и сезонам. Люди уже строят костыли из списков в чужих приложениях, значит готовы платить за инструмент, который делает это по-нормальному.",
+   "features": [
+    "Приватная заметка к любой точке и к любому маршруту, только для себя",
+    "Метки-иконки: парковка, вода, скользко, красивый вид, развилка",
+    "Свои папки по регионам и сезонам, а не одна общая куча",
+    "Сортировка списка по алфавиту, дате, близости",
+    "Фото к заметке прямо с телефона, чтобы вспомнить место",
+    "Импорт и экспорт GPX, чтобы носить заметки поверх любого трека"
+   ],
+   "antiFeatures": [
+    "Ничего не публикуем наружу без явного нажатия, приватность по умолчанию",
+    "Не собираем свой каталог троп, живём поверх карты и чужих GPX",
+    "Не делаем ленту и подписки, это личный блокнот"
+   ],
+   "monetization": "Бесплатно до какого-то числа заметок, дальше разовая покупка навсегда за безлимит и папки, ориентир 490 рублей. Приватность как обещание хорошо продаётся тем, кого в отзывах бесит принудительная публикация."
+  }
+ },
+ {
+  "slug": "hiking-trails-6",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Свежие отчёты о состоянии тропы от тех, кто прошёл вчера",
+  "oneLiner": "Читаешь, что на маршруте прямо сейчас: снег, поваленное дерево, где вода, а не описание пятилетней давности.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "WTA’s hiking guide (and related map) is a must for anyone who hikes in Washington State. All the key information is there at your fingertips! New hikes are being added all the time. The user trip reports are useful to learn about recent trail conditions.",
+    "rating": 5,
+    "app": "WTA Trailblazer: Go Hiking"
+   },
+   {
+    "quote": "WTA is super informative and helpful as an organization, and this is my preferred go-to app for finding hikes. Informative, clean, aesthetically pleasing, and easy to navigate. No ads. The trip reports provide helpful information about trail conditions, road conditions, closures, snow, washouts,",
+    "rating": 4,
+    "app": "WTA Trailblazer: Go Hiking"
+   },
+   {
+    "quote": "Nobody posts updates anymore or Far Out doesn’t allow them. In either case, not having real time posts from hikers is a significant problem with this app",
+    "rating": 2,
+    "app": "FarOut: Hike, Bike, Paddle"
+   },
+   {
+    "quote": "I still like paper maps but I use Far Out for planning as well. My only criticism is there are hostels, locations and such that have been out of business for years. Love to see them clean in up year to year rather than having to search the comments.",
+    "rating": 5,
+    "app": "FarOut: Hike, Bike, Paddle"
+   },
+   {
+    "quote": "Farout added an ai feature that categorizes and deletes comments automatically and now years of useful comments are just gone, do better farout",
+    "rating": 2,
+    "app": "FarOut: Hike, Bike, Paddle"
+   },
+   {
+    "quote": "Today, all in all, we drove our bikes a total of 13 miles around the Eggner Ferry Bridge at KY Lake (LBL). We attempted to ride over & thru the Central Hardwoods Trail (LBL) but not long onto this trail we encountered a fallen tree across it. As this trail is 11 miles long and meanders through the w",
+    "rating": 4,
+    "app": "TrailLink: Bike, Run, Walk"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Свежие отчёты о состоянии тропы от тех, кто прошёл вчера",
+    "obsCount": 18,
+    "apps": [
+     "WTA Trailblazer: Go Hiking",
+     "FarOut: Hike, Bike, Paddle"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Устаревшие точки надо чистить, а не искать в комментариях",
+    "obsCount": 8,
+    "apps": [
+     "FarOut: Hike, Bike, Paddle"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Поваленные деревья и закрытия ломают поход, если не знаешь заранее",
+    "obsCount": 7,
+    "apps": [
+     "TrailLink: Bike, Run, Walk",
+     "WTA Trailblazer: Go Hiking"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Самое любимое в WTA это свежие отчёты: прошёл человек вчера, написал что на тропе снег, размыло дорогу, лежит дерево. Ровно этого не хватает почти везде. У FarOut отчёты либо перестали появляться, либо их вычистил алгоритм, и годы полезных комментариев пропали. Устаревшие точки вроде закрытых хостелов висят вечно, приходится копаться в комментариях. А человек просто хочет знать, проходима ли тропа сегодня. Инструмент, который собирает короткие свежие отчёты и держит их чистыми, закрывает эту дыру.",
+  "idea": {
+   "pitch": "Приложение вокруг одной ценной вещи: короткий свежий отчёт о тропе. Прошёл маршрут, за минуту отметил: снег до колена, дерево поперёк на такой-то отметке, вода есть, парковка забита. Другие видят отчёты за последние дни и недели, старое честно уходит вниз и помечается устаревшим. Люди в отзывах называют такие отчёты главной причиной пользоваться приложением, значит вокруг них можно построить продукт.",
+   "features": [
+    "Быстрый отчёт за минуту: снег, грязь, поваленные деревья, вода, парковка",
+    "Лента отчётов по конкретной тропе, самые свежие сверху",
+    "Пометка устаревшее для старых отчётов, чтобы не путали",
+    "Точка на карте, где именно лежит препятствие или начинается снег",
+    "Подписка на тропу с оповещением о новом отчёте перед выходом",
+    "Работа офлайн: написал отчёт в лесу, ушёл при первой связи"
+   ],
+   "antiFeatures": [
+    "Не даём алгоритму молча удалять чужие отчёты, как у FarOut",
+    "Не строим полный каталог троп, привязываемся к GPX и координатам",
+    "Не превращаем в болталку, только про состояние тропы"
+   ],
+   "monetization": "Читать отчёты бесплатно, чтобы набрать людей и данные, подписка за оповещения и историю по тропам, ориентир 149 рублей в месяц. Плюс региональные наборы под конкретный парк разовой покупкой, как секции у FarOut."
+  }
+ },
+ {
+  "slug": "hiking-trails-7",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Планировщик петли, который тянется по тропам и сразу считает подъём",
+  "oneLiner": "Рисуешь маршрут, линия сама липнет к тропам, а не режет напрямик, и внизу видно набор высоты.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 29
+  },
+  "reviewGrid": [
+   {
+    "quote": "App claims to select routes using trails and roads. I have tried to get it to use the trails and footpaths but it won’t.",
+    "rating": 2,
+    "app": "Footpath Route Planner"
+   },
+   {
+    "quote": "The map doesn’t follow a natural curved path. It snaps in a straight line so it’s hard to get an accurate distance",
+    "rating": 3,
+    "app": "Footpath Route Planner"
+   },
+   {
+    "quote": "I have loved using this app for years, but I’m honestly considering switching to an alternative because of how frustrating the route making is in the app. Sometimes it works just fine, but over half the time it will not snap to the trail no matter how hard I try. Turns a quick route assessments into",
+    "rating": 2,
+    "app": "Gaia GPS: Mobile Trail Maps"
+   },
+   {
+    "quote": "This app would be better if you can view 3-D mode while planning a route, like all the other rest of the route planning apps do… so it is easier to check elevation, I'm sure this will make the next update I hope",
+    "rating": 3,
+    "app": "komoot - hike, bike & run"
+   },
+   {
+    "quote": "Mostly great! Been using this app for a few years now. Has kept us on the right trail more than once. Trail mapping and trail preview are outstanding. My only issues. 1. Why, why, why, no elevation profile when I map a hike?? That should be automatic, across the bottom of every map. 2. Still a littl",
+    "rating": 4,
+    "app": "HiiKER: The Hiking Maps App"
+   },
+   {
+    "quote": "I love that you can make your own route and I will know if my legs can make it before I even attempt it.",
+    "rating": 5,
+    "app": "onX Backcountry: Trail GPS App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Планировщик петли, который тянется по тропам и сразу считает подъём",
+    "obsCount": 17,
+    "apps": [
+     "Footpath Route Planner",
+     "Gaia GPS: Mobile Trail Maps"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Профиль набора высоты сразу под маршрутом, а не отдельно",
+    "obsCount": 10,
+    "apps": [
+     "HiiKER: The Hiking Maps App",
+     "komoot - hike, bike & run"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Понять по силам ли подъём до выхода на тропу",
+    "obsCount": 8,
+    "apps": [
+     "onX Backcountry: Trail GPS App",
+     "komoot - hike, bike & run"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Планировать маршрут до сих пор мучение. Footpath обещает вести по тропам, но липнет прямой линией и режет напрямик, дистанция врёт. Gaia больше половины времени не может прилипнуть к тропе. И почти нигде под нарисованным маршрутом нет сразу профиля набора высоты, хотя люди прямым текстом просят: он должен быть автоматом внизу каждой карты. А главная ценность у onX в том, что человек заранее понимает, потянут ли ноги подъём. Планировщик, который честно тянется по тропам и сразу рисует набор высоты, закрывает всё это.",
+  "idea": {
+   "pitch": "Планировщик пеших петель, где линия честно липнет к тропам из открытых данных OpenStreetMap, а не режет напрямик. Ставишь точки, маршрут ложится по настоящим тропинкам, снизу сразу растёт профиль набора высоты и общая цифра подъёма. Видишь заранее, стоит ли тебе этот маршрут по силам. Люди жалуются на кривое прилипание и отсутствие профиля высоты у всех больших приложений, значит за нормальный планировщик заплатят.",
+   "features": [
+    "Прилипание маршрута к реальным тропам из OpenStreetMap, а не прямая линия",
+    "Профиль набора высоты сразу под маршрутом, обновляется на ходу",
+    "Общая дистанция и суммарный подъём крупно, чтобы оценить силы",
+    "Замыкание в петлю одной кнопкой, чтобы вернуться к старту",
+    "Ручная дорисовка там, где тропы нет на карте",
+    "Экспорт готового маршрута в GPX для часов и оффлайн-навигации"
+   ],
+   "antiFeatures": [
+    "Не ведём по маршруту голосом в реальном времени, это про планирование",
+    "Не прячем сам маршрут за платную стенку, платно только сохранение и экспорт",
+    "Не строим 3D-полёты ради красоты, честный профиль важнее"
+   ],
+   "monetization": "Планировать и смотреть высоту бесплатно, сохранение и экспорт в GPX по разовой покупке навсегда, ориентир 590 рублей. В нише хвалят lifetime и ругают $23 у Footpath за элитную версию, так что честная разовая цена заходит."
+  }
+ },
+ {
+  "slug": "hiking-trails-8",
+  "category": "hiking-trails",
+  "categoryName": "Хайкинг и тропы",
+  "title": "Координаты для бумажной карты: UTM и широта-долгота одним взглядом",
+  "oneLiner": "Открыл, увидел свои координаты в нужном формате, работает без связи и почти не ест батарею.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 26,
+   "reviews": 619,
+   "observations": 23
+  },
+  "reviewGrid": [
+   {
+    "quote": "Just what you need. Only uses GPS. When you have a hiking map and you don’t have cell signal just what you need.",
+    "rating": 5,
+    "app": "Tomstrails GPS UTM"
+   },
+   {
+    "quote": "Does what I wanted: give UTM coordinates for paper maps. Also seems to work well in airplane mode, so good battery life might be possible in wilderness. It would be nice if coordinates could be copied to the clipboard.",
+    "rating": 5,
+    "app": "Tomstrails GPS UTM"
+   },
+   {
+    "quote": "No option for formats. Decimal is useful but unavailable here. If it is available, it's buried in the menu.",
+    "rating": 1,
+    "app": "Tomstrails GPS UTM"
+   },
+   {
+    "quote": "I do wish the swipe side to side feature that Allowed you to switch between two different formats, such as UTM and lat long, was still in operation.",
+    "rating": 4,
+    "app": "Tomstrails GPS UTM"
+   },
+   {
+    "quote": "Great overall app and maps but doesn’t have a compass feature or orient the map to heading direction. This makes it very hard to navigate in the back country.",
+    "rating": 3,
+    "app": "Topographic Maps & Trails"
+   },
+   {
+    "quote": "A compass would be very helpful",
+    "rating": 3,
+    "app": "Topographic Maps & Trails"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Координаты для бумажной карты: UTM и широта-долгота одним взглядом",
+    "obsCount": 14,
+    "apps": [
+     "Tomstrails GPS UTM"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Переключение форматов и десятичные градусы без копания в меню",
+    "obsCount": 7,
+    "apps": [
+     "Tomstrails GPS UTM"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Компас и ориентация на север для навигации по бумаге",
+    "obsCount": 6,
+    "apps": [
+     "Topographic Maps & Trails"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Есть маленький, но верный сценарий: человек с бумажной топокартой в лесу без связи, ему нужно понять свои координаты, чтобы найти себя на бумаге. Tomstrails на этом живёт и его любят за то, что он только GPS, работает в авиарежиме и почти не ест батарею. Но и там боль: нет выбора формата, десятичные градусы спрятаны, пропала возможность свайпом переключать UTM и широту-долготу, нет компаса. А у больших топокарт нет компаса и ориентации по сторонам света для навигации по бумаге. Крошечная, но реально нужная утилита с местом для лучшего исполнения.",
+  "idea": {
+   "pitch": "Предельно простая утилита для тех, кто ходит с бумажной картой. Открыл, крупно видишь свои координаты, свайпом переключаешь UTM, широту-долготу, десятичные градусы. Рядом компас и азимут, чтобы сориентировать бумагу по северу. Всё только по GPS, работает в авиарежиме, почти не тратит батарею. Tomstrails доказал, что за такую вещь платят и оставляют пятёрки, а его слабые места это готовый список улучшений.",
+   "features": [
+    "Крупные координаты, переключение UTM, широта-долгота, десятичные градусы свайпом",
+    "Компас и азимут, чтобы сориентировать бумажную карту по северу",
+    "Копирование координат в буфер обмена одним касанием",
+    "Работа только по GPS в авиарежиме, минимум расхода батареи",
+    "Выбор датума под конкретную бумажную карту, чтобы точка совпала",
+    "Большие цифры и высокий контраст, читаемо на солнце"
+   ],
+   "antiFeatures": [
+    "Не рисуем свою карту, это спутник координат для бумаги",
+    "Не требуем связи и входа, всё считается на телефоне",
+    "Не грузим лишними настройками, самое нужное на главном экране"
+   ],
+   "monetization": "Базовые координаты бесплатно, форматы, датумы и компас по разовой покупке навсегда, ориентир 199 рублей. В отзывах про Tomstrails ругают, что даже 99 центов за полный набор ощущаются скупо, значит честная маленькая цена за внятный набор функций зайдёт."
+  }
  }
 ]

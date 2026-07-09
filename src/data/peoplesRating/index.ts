@@ -63,6 +63,7 @@ import cycling from "./cycling.json";
 import interiorDesign from "./interior-design.json";
 import fishing from "./fishing.json";
 import couplesRelationship from "./couples-relationship.json";
+import hikingTrails from "./hiking-trails.json";
 
 export const RATING_BY_SLUG: Record<string, unknown> = {
   "astronomy-stargazing": astronomyStargazing,
@@ -70,6 +71,7 @@ export const RATING_BY_SLUG: Record<string, unknown> = {
   "interior-design": interiorDesign,
   fishing,
   "couples-relationship": couplesRelationship,
+  "hiking-trails": hikingTrails,
   "stock-investing": stockInvesting,
   "weight-tracker": weightTracker,
   "driving-test-prep": drivingTestPrep,
