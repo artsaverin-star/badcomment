@@ -64069,5 +64069,699 @@
    ],
    "monetization": "Разовая покупка около 5-7 долларов или подписка 2-3 доллара в месяц за несколько велосипедов, гибкие интервалы ТО и журнал апгрейдов, один велосипед бесплатно. Ориентир: владельцы вкладывают тысячи в велосипеды и детали, малая плата за порядок в обслуживании для них незаметна."
   }
+ },
+ {
+  "slug": "interior-design-1",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Переделка комнаты без сноса стен",
+  "oneLiner": "Загружаешь фото своей комнаты, ИИ меняет только мебель и отделку, а стены, окна и двери оставляет как есть.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is lame it doesn't even let you say I would like to keep my flooring or keep this or keep that, it just changes everything. I took a picture of my backyard with the pool and it completely covered the pool and filled it in with Dirt absolutely not helpful in anyway.",
+    "rating": 2,
+    "app": "AI Home Design: Interior DecAI"
+   },
+   {
+    "quote": "Looks like the app just try to find similar photos to want you show, it has a option to keep the structure that never works because it always changes the structure, I tried to change colors with color references and it changes everything on structural but not the color",
+    "rating": 1,
+    "app": "Deko: AI Home Design & Remodel"
+   },
+   {
+    "quote": "I put a picture in of my room and it comes back with a completely different room. The whole point was I had a cathedral ceiling I wanted to get ideas and it came back with a normal room without the windows either. Not helpful.",
+    "rating": 2,
+    "app": "Decor AI: Room & Home Design"
+   },
+   {
+    "quote": "Give unrealistic ideas. Moving walls and adding interior renovations. Would be nice to work with what’s in the picture.",
+    "rating": 3,
+    "app": "AI Interior Design - Interio"
+   },
+   {
+    "quote": "The app does not actually decorate the room. It remodels the room so it rearranges things like the toilet or windows that can’t actually be rearranged when you’re decorating a room",
+    "rating": 2,
+    "app": "Decor AI: Room & Home Design"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Переделка комнаты без сноса стен",
+    "obsCount": 34,
+    "apps": [
+     "Deko: AI Home Design & Remodel",
+     "Decor AI: Room & Home Design",
+     "AI Interior Design - Interio",
+     "AI Home Design: Interior DecAI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Человек хочет освежить комнату, а не строить новую, но получает чужую планировку",
+    "obsCount": 18,
+    "apps": [
+     "Interior with AI - Home Design",
+     "AI Home Design - Homely AI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Кнопка «сохранить как есть» есть, но по факту не работает",
+    "obsCount": 9,
+    "apps": [
+     "Deko: AI Home Design & Remodel",
+     "AI Home Design: Interior DecAI"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Почти все ИИ-приложения ниши перерисовывают комнату целиком. Человек фоткает свою гостиную, чтобы подобрать диван и цвет, а получает картинку с другими окнами, сдвинутой дверью и залитым бетоном бассейном во дворе. Кнопки вроде «keep the structure» стоят для галочки, они не держат геометрию. Никто не научился менять только наполнение и отделку, оставляя стены, проёмы и капитальные вещи на месте. Идея закрывает ровно это. Ты работаешь с реальной комнатой человека, а не рисуешь ему чужую.",
+  "idea": {
+   "pitch": "Приложение, которое переделывает фото комнаты, но неприкосновенно держит стены, окна, двери, потолок и всё капитальное. Человек отмечает, что нельзя трогать, а меняются только мебель, текстиль, цвет стен и декор. Люди уже платят за такие приложения и злятся, что им ломают комнату. Плати они охотнее за то, что даёт узнаваемый результат, по которому реально можно действовать.",
+   "features": [
+    "Автоопределение стен, окон, дверей и их фиксация перед генерацией",
+    "Ручная кисть «не трогать» поверх фото для бассейна, камина, встроенных шкафов",
+    "Ползунок силы изменений от лёгкого рестайла до полной смены мебели",
+    "Сравнение до/после одним свайпом по картинке",
+    "Несколько стилей на один и тот же снимок без потери геометрии комнаты"
+   ],
+   "antiFeatures": [
+    "Не двигаем стены, окна и двери ни при каких стилях",
+    "Не выдаём случайную красивую комнату вместо комнаты пользователя",
+    "Не превращаем декор в капремонт с перепланировкой"
+   ],
+   "monetization": "Бесплатно 3-5 переделок, дальше подписка. В нише цены разбросаны сильно, от 8 долларов в неделю у Deko до пакетов картинок, так что разумно держать месяц в районе 8-10 долларов и обязательно давать честный пробный период, потому что на скрытых списаниях тут сыпется половина отзывов."
+  }
+ },
+ {
+  "slug": "interior-design-2",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "План квартиры с точными размерами вводом цифр",
+  "oneLiner": "Рисуешь план, задаёшь длину стены числом, она встаёт ровно и больше никуда не уползает.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 47
+  },
+  "reviewGrid": [
+   {
+    "quote": "I would give five stars if the walls allowed you to edit the size by inputting them with numbers when dragging your finger just isn’t accurate enough. It wastes so much time when trying to get the wall accurate to the inch and it keeps jumping up or down.",
+    "rating": 4,
+    "app": "Keyplan 3D - Home design"
+   },
+   {
+    "quote": "Every time I adjust a wall it changes other dimensions. Hours wasted managing the app vs project. Gave up and drew it with paper and pencil. MUCH easier.",
+    "rating": 1,
+    "app": "Live Home 3D - House Design"
+   },
+   {
+    "quote": "it took me a hour just to put 4 walls at the exact measurements I wan",
+    "rating": 2,
+    "app": "Home Planner AI：Room Design 3D"
+   },
+   {
+    "quote": "idk why but it kept changing the measurements, couldn’t get it to stay the same measurement i wanted… kinda mid",
+    "rating": 3,
+    "app": "ArcSite: Floor Plans and CAD"
+   },
+   {
+    "quote": "There is one thing I feel is missing and essential for a useable drafting app of any kind: scaled measurements. Maybe I missed it, but I can’t find any way to",
+    "rating": 3,
+    "app": "DrawPlan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "План квартиры с точными размерами вводом цифр",
+    "obsCount": 29,
+    "apps": [
+     "Keyplan 3D - Home design",
+     "Live Home 3D - House Design",
+     "ArcSite: Floor Plans and CAD",
+     "Home Planner AI：Room Design 3D"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Пальцем стену до сантиметра не поставишь, она прыгает вверх-вниз",
+    "obsCount": 12,
+    "apps": [
+     "Keyplan 3D - Home design",
+     "Home Planner AI：Room Design 3D"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Правишь одну стену, а остальные размеры плывут следом",
+    "obsCount": 6,
+    "apps": [
+     "Live Home 3D - House Design"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди хотят простую вещь. Нарисовать план и задать каждой стене точную длину числом. А приложения заставляют тянуть пальцем, и стена прыгает мимо нужного размера, а когда поправишь одну, уползают соседние. Человек час ставит четыре стены и в итоге бросает и берёт лист бумаги. Планировщики либо тяжёлые, либо вообще не дают вводить размер цифрами. Идея закрывает этот разрыв. Точность как в бумажном чертеже, но на телефоне и с 3D.",
+  "idea": {
+   "pitch": "Планировщик, где любой стене, двери или мебели ставится точный размер вводом числа, и он держится намертво. Правишь одну стену, остальные не разъезжаются. Это то, чего в один голос просят люди, которые уже используют такие приложения для реального ремонта и замера квартиры. За надёжный инструмент, который экономит час на четырёх стенах, платят спокойно.",
+   "features": [
+    "Ввод точной длины стены, ширины двери и габаритов мебели числом",
+    "Стены и объекты фиксируются и не смещаются при правке соседних",
+    "Мгновенный подсчёт площади каждой комнаты по внутренним стенам",
+    "Привязка к сетке с шагом на выбор, чтобы попадать в размер",
+    "Экспорт плана в картинку и PDF с проставленными размерами"
+   ],
+   "antiFeatures": [
+    "Не заставляем ставить размер только перетаскиванием пальца",
+    "Не пересчитываем самовольно уже заданные пользователем стены",
+    "Не прячем базовый ввод размеров за платной версией"
+   ],
+   "monetization": "Бесплатно один-два плана, дальше разовая покупка около 15-20 долларов за полную версию или подписка 5 долларов в месяц. В нише люди прямо пишут, что готовы платить за точность, но бесятся от помесячной оплаты за каждую комнату, поэтому честнее продавать один раз навсегда."
+  }
+ },
+ {
+  "slug": "interior-design-3",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Влезет ли мебель, проверка до покупки и до переезда",
+  "oneLiner": "Обмеряешь комнату телефоном, ставишь диван в реальном размере и заранее видишь, встанет он или нет.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 44
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app has literally saved my back! Every time we rearrange our living room, we can do it virtually first before lifting anything. We have everything saved and just drag things around. Really easy to use and so helpful. Can’t live without it.",
+    "rating": 5,
+    "app": "Rooms - Easy Layouts"
+   },
+   {
+    "quote": "I’m about to move into a new apartment and it’s a studio and I really needed help. Trying to decide how to decorate the place. The idea of this app is honestly amazing",
+    "rating": 2,
+    "app": "Home Planner AI：Room Design 3D"
+   },
+   {
+    "quote": "I have a very detailed floor plan of an apartment I'm moving into which includes labels such as closet, room dimensions and shows where toilets sinks etc. are. The software put a bed in a closet, did not take into account a full wall with closet, and put a toilet next to an",
+    "rating": 2,
+    "app": "‎AI Remodel Interior Design"
+   },
+   {
+    "quote": "It’s useful and intuitive but things just won’t stay where locked. Blocked out areas for kitchen cabinets and even though they’re locked they move to the upper left corner when reopening.",
+    "rating": 3,
+    "app": "Rooms - Easy Layouts"
+   },
+   {
+    "quote": "this app mapped it out perfectly! I found that touching the wall feature to be easiest and most accurate",
+    "rating": 4,
+    "app": "RoomScan Classic"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Влезет ли мебель, проверка до покупки и до переезда",
+    "obsCount": 26,
+    "apps": [
+     "Rooms - Easy Layouts",
+     "Home Planner AI：Room Design 3D",
+     "‎AI Remodel Interior Design"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Виртуально двигать мебель, чтобы не таскать её спиной по-настоящему",
+    "obsCount": 11,
+    "apps": [
+     "Rooms - Easy Layouts"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Переезд в новую квартиру, надо заранее понять, что куда встанет",
+    "obsCount": 7,
+    "apps": [
+     "Home Planner AI：Room Design 3D",
+     "‎AI Remodel Interior Design"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Есть очень частая житейская задача. Перед покупкой дивана или перед переездом понять, влезет ли мебель и как её расставить, не двигая ничего руками. Люди прямо пишут, что такое приложение спасает спину. Но простые расстановщики теряют размеры и роняют мебель по углам, а ИИ-приложения вместо расстановки перестраивают комнату и ставят кровать в шкаф. Никто не соединил точный обмер реальной комнаты с честным перетаскиванием мебели в её настоящих размерах. Вот эту связку идея и даёт.",
+  "idea": {
+   "pitch": "Приложение под один вопрос, влезет ли. Обмерил комнату телефоном или ввёл размеры руками, добавил мебель в реальных габаритах и двигаешь её, видя зазоры и проходы. Покупаешь диван или переезжаешь и заранее знаешь ответ. Люди уже любят такие расстановщики и жалуются только на то, что мебель уползает и размеры врут. Сделай надёжно, и за спокойствие перед крупной покупкой заплатят.",
+   "features": [
+    "Обмер комнаты камерой плюс ручной ввод размеров для точности",
+    "Каталог мебели с реальными габаритами и свои предметы по размерам",
+    "Подсветка узких проходов и зазоров, когда мебель не влезает",
+    "Мебель встаёт ровно и не смещается при повторном открытии проекта",
+    "Сохранение нескольких вариантов расстановки одной комнаты"
+   ],
+   "antiFeatures": [
+    "Не перестраиваем комнату и не двигаем стены вместо расстановки",
+    "Не роняем зафиксированную мебель в угол при перезагрузке проекта",
+    "Не заставляем строить весь дом ради одной комнаты"
+   ],
+   "monetization": "Бесплатно одна комната и базовый каталог, дальше подписка около 5 долларов в месяц или разовая покупка 20-25 долларов за все комнаты и полный каталог. Аудитория практичная, платит за конкретную пользу перед покупкой мебели, а не за красивые картинки."
+  }
+ },
+ {
+  "slug": "interior-design-4",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Покажи, где купить мебель с картинки",
+  "oneLiner": "ИИ подобрал интерьер, а под каждым предметом сразу цена и ссылка, где купить похожее.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "You can try the app for free and the generation is actually pretty good and accurate, you also have a lot of features to try for free and even one that tells you where to buy the suggested furniture.",
+    "rating": 4,
+    "app": "RoomGPT ™"
+   },
+   {
+    "quote": "it’s not good for designing anything with furniture, especially real furniture brands. I have forever desperately wanted 5 things that I’ve never gotten that are crucial to the reason I bought this app",
+    "rating": 2,
+    "app": "Keyplan 3D - Home design"
+   },
+   {
+    "quote": "when adding furniture I was very disappointed that the pieces are very outdated. The table sets all have cloths. The furniture is not located in half the furniture stores. The cabinets and appliances are not updated",
+    "rating": 2,
+    "app": "Interior Design PRO"
+   },
+   {
+    "quote": "I love this tool for creating interior design mood boards! The snipping tool is my favorite feature, allowing me to create cut sheets with pricing.",
+    "rating": 4,
+    "app": "Morpholio Board - Moodboard"
+   },
+   {
+    "quote": "Not realistic. I just wanted help with wall decor and a way to spice up my home. I don’t want to spend thousands.",
+    "rating": 1,
+    "app": "AI Home Decor-Interior Design"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Покажи, где купить мебель с картинки",
+    "obsCount": 21,
+    "apps": [
+     "RoomGPT ™",
+     "Keyplan 3D - Home design",
+     "Interior Design PRO"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Функция «где купить» реально ценится, когда она есть",
+    "obsCount": 8,
+    "apps": [
+     "RoomGPT ™",
+     "Morpholio Board - Moodboard"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Мебель в приложениях устаревшая и не из реальных магазинов",
+    "obsCount": 6,
+    "apps": [
+     "Interior Design PRO",
+     "Keyplan 3D - Home design"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Красивая картинка не отвечает на главный вопрос. Где всё это взять и сколько стоит. Одно приложение показывает, где купить подобранную мебель, и люди отдельно это хвалят. Остальные рисуют устаревшие предметы, которых нет ни в одном магазине, а человеку хочется по бюджету и с реальными вещами. Никто в нише не построил мостик от вдохновения к покупке для массового пользователя. Идея закрывает этот разрыв. Ты не просто показываешь красоту, ты говоришь, во что она обойдётся и где заказать.",
+  "idea": {
+   "pitch": "Приложение, где после подбора интерьера под каждым предметом стоит цена и ссылка на похожий товар в реальных магазинах, плюс итог по бюджету всей комнаты. Человек видит не абстрактную мечту, а список покупок с суммой. Люди уже отдельно ценят такую функцию там, где она есть, и жалуются, что мебель в приложениях из ниоткуда. За понятный переход от картинки к покупке платят охотно, а часть денег приходит партнёрскими ссылками магазинов.",
+   "features": [
+    "Под каждым предметом цена и ссылка на похожий товар в магазинах",
+    "Итоговая смета всей комнаты и фильтр по бюджету",
+    "Свотч-борд с ценами и выгрузка списка покупок",
+    "Замена дорогого предмета на бюджетный аналог одним тапом",
+    "Сохранение подборок как проектов по комнатам"
+   ],
+   "antiFeatures": [
+    "Не показываем устаревшую мебель, которой нет в продаже",
+    "Не прячем цены и ссылки, оставляя только красивую картинку",
+    "Не притворяемся магазином, только ведём к товару"
+   ],
+   "monetization": "Подписка около 5-8 долларов в месяц за неограниченные подборки и сметы, плюс партнёрские отчисления магазинов за переходы к товарам. Тут двойной заработок, человек платит за инструмент, а магазины за покупателя, которого приводит смета."
+  }
+ },
+ {
+  "slug": "interior-design-5",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Примерка краски и обоев на своей стене",
+  "oneLiner": "Фоткаешь стену, накладываешь конкретный цвет краски или рисунок обоев и смотришь, как это будет вживую.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "With all the technology we have I can’t figure out why the app won’t let you photograph wallpaper and paint samples to try them out. Imaginary designs are fine, but they need to be executed. I picked out wallpaper and I’m trying to pick which paper on which wall and this AI is incapable of doing th",
+    "rating": 3,
+    "app": "RoomGPT : AI Interior Design"
+   },
+   {
+    "quote": "All I wanted was to see different colors on my cabinets for a diy update for my kitchen. Could NOT get it to work. Other features worked just not the one I downloaded it for.",
+    "rating": 2,
+    "app": "Renovate AI - Home Design"
+   },
+   {
+    "quote": "Does not have any options to change paint color like advertised, Ai recycled the same looks over and over. For sure not worth the cost or space on your phone….",
+    "rating": 1,
+    "app": "Interior design by Home AI"
+   },
+   {
+    "quote": "This app would be better with about 40 paint colors in the “bubble” selections including coral and white. Thanks.",
+    "rating": 3,
+    "app": "Home AI - AI Interior Design"
+   },
+   {
+    "quote": "I had issues where the exterior i would like to modify (paint colors only) had garage doors changed, lighting fixtures changed, exterior materials changed, lightning changed.. there is no way to ‘tweak’ an image.",
+    "rating": 2,
+    "app": "Deko: AI Home Design & Remodel"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Примерка краски и обоев на своей стене",
+    "obsCount": 19,
+    "apps": [
+     "RoomGPT : AI Interior Design",
+     "Renovate AI - Home Design",
+     "Interior design by Home AI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Хочу примерить конкретный образец, а не абстрактную фантазию",
+    "obsCount": 8,
+    "apps": [
+     "RoomGPT : AI Interior Design",
+     "Renovate AI - Home Design"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Меняешь только цвет, а приложение перекрашивает и двери, и фактуру",
+    "obsCount": 4,
+    "apps": [
+     "Deko: AI Home Design & Remodel",
+     "Home AI - AI Interior Design"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Перед ремонтом человек стоит с образцами краски и обоев и хочет понять, какой лечь на какую стену. Приложения умеют фантазировать целые интерьеры, но не дают примерить конкретный образец на конкретную стену. А если пытаешься сменить только цвет стены или фасада шкафа, попутно перекрашиваются двери, светильники и фактура. Это узкая, но живая боль перед реальной покупкой краски и обоев. Идея закрывает именно её. Примерка конкретного материала на своей стене, без переделки всего вокруг.",
+  "idea": {
+   "pitch": "Приложение-примерочная для отделки. Фоткаешь стену, фасады кухни или дверь, накладываешь конкретный цвет краски или рисунок обоев и видишь результат вживую, при этом больше ничего не меняется. Люди прямо спрашивают, почему до сих пор нельзя примерить выбранный образец, и бросают приложения, которые перекрашивают всё подряд. За уверенность перед покупкой краски или рулонов обоев заплатят, потому что ошибка тут стоит дорого.",
+   "features": [
+    "Наложение выбранного цвета краски только на отмеченную стену",
+    "Примерка рисунка обоев с сохранением масштаба и стыков",
+    "Большая палитра оттенков и загрузка своего образца по фото",
+    "Разные материалы на разные стены в одной комнате",
+    "Сравнение двух-трёх вариантов рядом на одном снимке"
+   ],
+   "antiFeatures": [
+    "Не перекрашиваем двери, светильники и фактуру заодно с цветом",
+    "Не подменяем примерку образца выдуманным интерьером",
+    "Не сводим выбор к десятку зашитых оттенков"
+   ],
+   "monetization": "Бесплатно несколько примерок, дальше подписка около 5 долларов в месяц или разовая покупка 15 долларов. Аудитория на пороге ремонта и покупки материалов, платит за то, чтобы не промахнуться с цветом на всю стену."
+  }
+ },
+ {
+  "slug": "interior-design-6",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Виртуальная меблировка пустой комнаты для продажи жилья",
+  "oneLiner": "Фото пустой квартиры превращается в обставленную для объявления, при этом само помещение остаётся тем же.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 27
+  },
+  "reviewGrid": [
+   {
+    "quote": "Purchased the app to do virtual staging, it returns same blank photo with no furniture",
+    "rating": 1,
+    "app": "AI Interior Design Home Decor"
+   },
+   {
+    "quote": "if you’re looking for an app to do virtual staging for MLS listings this isn’t it. It screws up the background of the photos. It blurs trees, adds houses, and general AI slop.",
+    "rating": 2,
+    "app": "CozyAI - AI Home Design"
+   },
+   {
+    "quote": "I used it to stage rental photos. I wouldn’t pay the $20 for person al use and I think if they lowered it, they’d do better. BUT the AI just isn’t there yet",
+    "rating": 3,
+    "app": "Renovate AI - Home Design"
+   },
+   {
+    "quote": "Before committing to a contractor, this let me easily and quickly stage my place to my liking!",
+    "rating": 5,
+    "app": "Interior with AI - Home Design"
+   },
+   {
+    "quote": "Used the business trial to scan my childhood home before selling. This thing is really good especially if you are patient (and pay). A must for realtors.",
+    "rating": 5,
+    "app": "Polycam 3D Scans & Floor Plans"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Виртуальная меблировка пустой комнаты для продажи жилья",
+    "obsCount": 17,
+    "apps": [
+     "AI Interior Design Home Decor",
+     "CozyAI - AI Home Design",
+     "Renovate AI - Home Design"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Обставить пустую комнату, но не испортить фон объявления",
+    "obsCount": 7,
+    "apps": [
+     "CozyAI - AI Home Design",
+     "AI Interior Design Home Decor"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Показать жильё до сделки, чтобы понять потенциал",
+    "obsCount": 5,
+    "apps": [
+     "Interior with AI - Home Design",
+     "Polycam 3D Scans & Floor Plans"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Риелторы и хозяева, продающие жильё, хотят одно. Взять фото пустой комнаты и показать её обставленной в объявлении. Общие ИИ-приложения на этой задаче сыпятся, кто-то возвращает то же пустое фото, кто-то мылит деревья и дорисовывает лишние дома на фоне. А само помещение должно остаться ровно таким, каким его увидит покупатель. Отдельного аккуратного инструмента под меблировку под продажу для массового пользователя нет. Идея занимает эту нишу. Обставить, но ничего не наврать про само жильё.",
+  "idea": {
+   "pitch": "Приложение для меблировки пустых комнат под объявление о продаже или аренде. Загружаешь фото пустой комнаты, получаешь её же, но обставленную и живую, без искажения окон, вида и планировки. Люди уже пытаются делать это общими приложениями и жалуются, что получают пустое фото или испорченный фон. Риелторы и частные продавцы считают деньги от быстрой продажи, поэтому за инструмент, который честно показывает потенциал, платят как за рабочий.",
+   "features": [
+    "Меблировка пустой комнаты с сохранением стен, окон и вида",
+    "Несколько стилей обстановки под разную аудиторию покупателей",
+    "Пометка, что фото с виртуальной меблировкой, для честности объявления",
+    "Пакетная обработка нескольких комнат одного объекта",
+    "Выгрузка в высоком разрешении под площадки объявлений"
+   ],
+   "antiFeatures": [
+    "Не меняем планировку, окна и вид из окна",
+    "Не мылим фон и не дорисовываем лишние дома и деревья",
+    "Не возвращаем то же пустое фото без мебели"
+   ],
+   "monetization": "Оплата по объектам или пакетам фото, около 20-30 долларов в месяц для активных продавцов и риелторов либо цена за комнату для разовых. Это рабочий инструмент, а не игрушка, поэтому ценник можно держать выше общих приложений, люди зарабатывают на быстрой продаже."
+  }
+ },
+ {
+  "slug": "interior-design-7",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Правка одной детали на картинке без новой случайной комнаты",
+  "oneLiner": "Понравился вариант, меняешь только диван или цвет стены, а остальное на картинке остаётся нетронутым.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 29
+  },
+  "reviewGrid": [
+   {
+    "quote": "Also the regenerate portion is pointless since you have to use the erase tool and the resul",
+    "rating": 3,
+    "app": "Home AI - AI Interior Design"
+   },
+   {
+    "quote": "The ai regenerates images that are nearly always the same. An utter disappointment.",
+    "rating": 1,
+    "app": "AI Home Design - Homely AI"
+   },
+   {
+    "quote": "the system completely fails to follow prompts and repeatedly makes the same mistakes over and over again when presented with very basic commands like “move the door from the left of the TV to the right of the TV”. This thing isn’t worth paying for.",
+    "rating": 1,
+    "app": "AI Home Design: Interior DecAI"
+   },
+   {
+    "quote": "when I tried to design a bedroom or living room “contemporary” it gave the exact same decor and wall color etc to every room loaded. The AI capabilities on this feel basic.",
+    "rating": 1,
+    "app": "Home Style AI: Interior Design"
+   },
+   {
+    "quote": "Not enough input from user on what to keep. I want to keep mybbeick but it changes it every time.",
+    "rating": 3,
+    "app": "Deko: AI Home Design & Remodel"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Правка одной детали на картинке без новой случайной комнаты",
+    "obsCount": 20,
+    "apps": [
+     "Home AI - AI Interior Design",
+     "AI Home Design - Homely AI",
+     "AI Home Design: Interior DecAI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Нажимаешь «изменить», а получаешь совсем другую комнату с нуля",
+    "obsCount": 7,
+    "apps": [
+     "AI Home Design - Homely AI",
+     "Home Style AI: Interior Design"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Нет способа сказать, что именно оставить как есть",
+    "obsCount": 4,
+    "apps": [
+     "Deko: AI Home Design & Remodel",
+     "AI Home Design: Interior DecAI"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Человек получил почти идеальный вариант и хочет доправить одну деталь. Другой диван, чуть другой цвет стены, убрать лишний предмет. А приложения на любую правку рисуют комнату заново, часто совсем непохожую или наоборот ту же самую, и понятного способа сказать, что именно оставить, нет. Люди прямо пишут, что кнопка изменения бесполезна. Дизайн идёт итерациями, а инструменты ниши это ломают. Идея закрывает разрыв. Точечная правка одного элемента на той же картинке, без рулетки заново.",
+  "idea": {
+   "pitch": "Приложение, где после генерации можно менять по одной детали, не трогая остальное. Выделяешь диван и просишь другой, выделяешь стену и меняешь цвет, всё прочее остаётся на месте. Люди в один голос жалуются, что правка превращается в новую случайную комнату, и что нельзя докрутить понравившийся вариант. Управляемая доводка вместо лотереи это ровно то, за что платят те, кто пришёл довести дизайн до дела, а не полистать картинки.",
+   "features": [
+    "Выделение одного объекта и замена только его",
+    "Правка цвета или материала отмеченной поверхности без трогания остального",
+    "История версий, чтобы вернуться к удачному варианту",
+    "Блокировка элементов, которые нельзя менять при следующей правке",
+    "Плавная доводка на той же картинке вместо генерации с нуля"
+   ],
+   "antiFeatures": [
+    "Не перерисовываем всю комнату из-за одной мелкой правки",
+    "Не выдаём при «изменить» ту же самую картинку без изменений",
+    "Не теряем удачные предыдущие версии"
+   ],
+   "monetization": "Подписка около 8 долларов в месяц или пакеты правок, потому что каждая доводка стоит вычислений. Аудитория, которая доводит проект до реального дела, ценит контроль и платит за него охотнее, чем за поток случайных картинок."
+  }
+ },
+ {
+  "slug": "interior-design-8",
+  "category": "interior-design",
+  "categoryName": "Дизайн интерьера и планировка",
+  "title": "Планировщик двора и палисадника с настоящими растениями",
+  "oneLiner": "Планируешь двор и клумбы с реальными кустами и деревьями по фактическим размерам участка.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 58,
+   "reviews": 1387,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "Does not include a lot of common shrubs and outdoor plants. I wanted to use this specifically to plan my landscape design for my front yard. Not possible.",
+    "rating": 3,
+    "app": "Home Design 3D Outdoor&Garden"
+   },
+   {
+    "quote": "totally worthless as a landscape design tool. not even worth the time it took to download.",
+    "rating": 1,
+    "app": "Home Design 3D Outdoor&Garden"
+   },
+   {
+    "quote": "1. Allow projects to import lots directly from google maps to eliminate guesswork. 2. Add split rail fence and chain link fence options. 3. When scaling fences and boxwood shrubs, allow the len",
+    "rating": 4,
+    "app": "Home Design 3D Outdoor&Garden"
+   },
+   {
+    "quote": "This kept changing structural elements in yard and house (removing retaining wall and flattening the yard, eliminating doors, adding windows to basement walls, and replacing carpet with the same hardwood floor every time.)",
+    "rating": 2,
+    "app": "AI Home Design: Interior DecAI"
+   },
+   {
+    "quote": "Would love the ability to visualize new garage doors and shudders on my home’s exterior. Cool app for other uses",
+    "rating": 4,
+    "app": "Arch - AI Home Design"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Планировщик двора и палисадника с настоящими растениями",
+    "obsCount": 15,
+    "apps": [
+     "Home Design 3D Outdoor&Garden",
+     "AI Home Design: Interior DecAI"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Нет обычных кустов и растений, чтобы спланировать клумбу",
+    "obsCount": 6,
+    "apps": [
+     "Home Design 3D Outdoor&Garden"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Хотят задать участок по карте и настоящим размерам, а не на глаз",
+    "obsCount": 3,
+    "apps": [
+     "Home Design 3D Outdoor&Garden",
+     "Arch - AI Home Design"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Двор и палисадник почти никто нормально не покрывает. Единственное заметное приложение под улицу люди называют бесполезным для ландшафта, в нём нет обычных кустов и растений, чтобы спланировать клумбу, и нельзя задать участок по реальным размерам. ИИ-приложения на дворе ломают ещё сильнее, засыпают бассейн землёй и сносят подпорную стену. Спрос живой, а инструмента, который бы аккуратно спланировал двор с настоящими растениями по фактическому участку, нет. Идея занимает эту пустую поляну.",
+  "idea": {
+   "pitch": "Планировщик двора и палисадника с библиотекой реальных растений, деревьев и кустов, которые ставятся по фактическим размерам участка. Задаёшь границы двора, раскладываешь клумбы, дорожки и забор, видишь, как разрастётся куст. Люди прямо жалуются, что существующее не годится как инструмент для ландшафта, а ИИ на улице всё ломает. За понятный план своего двора перед посадкой и стройкой платят, потому что растения и материалы стоят денег и переделывать дорого.",
+   "features": [
+    "Библиотека реальных кустов, деревьев и цветов с размерами при росте",
+    "Задание границ участка по размерам и по контуру с карты",
+    "Дорожки, заборы, грядки и клумбы с точным масштабом",
+    "Вид сверху и примерка результата на фото двора",
+    "Список растений и материалов из плана для похода в магазин"
+   ],
+   "antiFeatures": [
+    "Не засыпаем бассейн и не сносим подпорные стены на дворе",
+    "Не подсовываем условные значки вместо реальных растений",
+    "Не заставляем задавать участок на глаз без реальных размеров"
+   ],
+   "monetization": "Бесплатно один участок и базовые растения, дальше разовая покупка 15-20 долларов за полную библиотеку или подписка 5 долларов в месяц. Аудитория дачников и владельцев домов практичная, платит за план перед реальными тратами на растения и благоустройство."
+  }
  }
 ]

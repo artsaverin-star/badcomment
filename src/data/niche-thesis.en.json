@@ -5773,5 +5773,64 @@
     ]
    }
   ]
+ },
+ "interior-design": {
+  "governing": "The interior design and floor planning market rests on one simple thing: people want to see their actual space in a new look or on a plan before spending money on a renovation and furniture. Demand splits into three clear groups, and the leaders break in each one differently. The first and hottest group right now is AI photo restyling: a person shoots their room and asks to see it in another style. Home AI, Arch, Remodel AI, RoomGPT, Decor AI, DecorAI, ReRoom AI, CozyAI, Deko, Interio, Homely AI and dozens of clones all crowd in here, and almost all of them fail the same way: the AI does not look at the photo you sent, it draws a stranger's room with different windows and walls. From Deko: the app just returned the exact same picture. From Cozy AI: it put a sofa in front of the door, erased the staircase, blew up the patio tenfold. From Interior design by Home AI: three or four ovens in the kitchen, two TVs in the living room. People write again and again that they only asked to repaint a wall or swap a sofa and instead got demolished walls and a new layout, and that ChatGPT does a better job than the specialized app. The second group is drawing a plan and laying out furniture in 3D: Home Design 3D, Planner 5D, Live Home 3D, Homestyler, Keyplan 3D, Roomle, HomeByMe, 4Plan, Interior Design PRO, House Designer, Rooms. The ask here is different, to draft a space at exact dimensions, place real furniture and not lose your work, and this breaks on precision and on keeping the file safe: a wall will not snap to 5 feet 7 inches because the editor sticks to whole feet, you cannot add a second floor, and after an update the project you sat over for hours simply vanishes. From Live Home 3D: move one wall and the neighboring dimensions change, so they gave up and drew it on paper. The third group is camera measuring: Polycam, magicplan, RoomScan, AR Plan, CamPlan, Floor Plan App, MeasureSquare. Here they pay for one thing, point the phone and get a plan and dimensions you can trust, but accuracy drifts on oddly shaped rooms, it lies past 5-6 meters, several rooms will not stitch into one scan, and after done the scan is lost. For a builder the picture is this: the niche is overheated with identical AI wrappers that cannot hold a real photo, and whoever honestly closes even one job without lying has almost no competition underneath.",
+  "competitorRead": "The players fall into several types. Indies with a one-time purchase or a modest subscription (Home Design 3D, Keyplan 3D, Live Home 3D Pro, House Designer, Interior Design PRO, Draft Paper, Rooms) win by letting you draft a plan and place furniture without a cloud or an account, people love them for years, but their own reliability finishes them off: crashes, losing a project after an update, and walls snapping to whole feet. Mainstream planners on subscription (Planner 5D, Homestyler, Roomle, HomeByMe, magicplan, Polycam) are strong on furniture catalogs and 3D, but they hide the basics behind payment, lose your work when switching between 2D and 3D, and force you to enter a card before showing the product. A separate and loudest layer is AI restyling (Home AI, Arch, RoomGPT, Remodel AI, Decor AI, ReRoom AI, Deko, CozyAI, Interio, Homely AI, DecoLab), where almost all are built on one model: pretty ads, and at the output a stranger's room that does not obey the prompt and changes the structure, while several apps are clearly review-farmed (AI Decor, House AI, Abode literally beg for five stars before you enter). Havenly stands apart, it is not an editor but live designers and furniture purchasing, and what breaks there is the connection to the designer and customer support, not the AI itself. Pro tools (SketchUp, uMake, ArcSite, MeasureSquare, Morpholio Board) are strong with specialists but are fully locked behind subscription and scare people off with a steep learning curve. The common weakness of every honest player is one: not one of them has yet learned to reliably preserve the real geometry of a space, whether it is a photo you sent or a plan you drew.",
+  "pillars": [
+   {
+    "title": "Restyling that does not demolish the room",
+    "dek": "The main unmet ask in the niche: a person shoots their room and wants to see it in a new style, but with the same walls, windows, doors and furniture they asked to keep. This breaks for everyone: the AI ignores the photo and draws a stranger's space, adds extra doors and ovens, erases the staircase, moves what must not be moved.",
+    "match": [
+     "перекрас",
+     "фото",
+     "прислан",
+     "снесл",
+     "структур",
+     "промпт",
+     "перерисов",
+     "стил",
+     "покажи",
+     "прежде",
+     "ремонт",
+     "правк",
+     "точечн",
+     "общий",
+     "обход",
+     "нишев"
+    ]
+   },
+   {
+    "title": "A plan at exact dimensions without losing your work",
+    "dek": "The second layer is people who need to draft a space in real centimeters, place actual furniture and see it in 3D. What holds them is wall precision and keeping the project safe, and what drives them away is length snapping to whole feet, the inability to add a second floor, and a project that vanishes after an update or after switching between 2D and 3D.",
+    "match": [
+     "размер",
+     "стен",
+     "этаж",
+     "мебел",
+     "сохран",
+     "черт",
+     "потер",
+     "проект",
+     "забрать",
+     "собственн",
+     "замысел"
+    ]
+   },
+   {
+    "title": "Camera measuring you can trust",
+    "dek": "The third group pays for one thing: point the phone and get a plan and dimensions you can lean on before a renovation. It breaks on trust in the numbers: accuracy drifts on non-right angles and large rooms, several rooms will not stitch into one scan, and the result is lost right after scanning.",
+    "match": [
+     "навёл",
+     "замер",
+     "камер",
+     "скан",
+     "точност",
+     "углов",
+     "собира",
+     "лидар"
+    ]
+   }
+  ]
  }
 }

@@ -1886,5 +1886,37 @@
  "cycling-8": {
   "whyPay": "People call the mileage-based maintenance feature their favorite and use it every ride, but it is locked inside one brand's own app and will not track bikes from other makers. Owners pour thousands into their bikes and parts, so a small fee for staying organized is invisible to them. The price is modest and demand is warm rather than urgent. Technical note: a local log with mileage-based reminders and cards for setups and upgrades, all on the device. Mileage can be entered by hand or imported from GPX, so a sensor is not required. A solo builder can easily ship the whole thing.",
   "targetSegment": "Owners of several bikes from different brands who track condition and upgrades"
+ },
+ "interior-design-1": {
+  "whyPay": "This is the hottest and most lucrative node in the niche. People already pay for AI room makeovers in droves, $6-13 a week and $10-40 a month, and to a person they rage about the app wrecking the geometry. Willingness to pay is huge, the only question is the result. It is technically hard. To keep walls, windows, and doors, you need photo segmentation and inpainting inside a mask rather than free generation. That means a diffusion pipeline with masks through a third-party API, heavy backend generations, and a GPU budget. A solo dev can build it, but not over a weekend.",
+  "targetSegment": "Homeowners and renters facing a cosmetic refresh of their room, who want to freshen the space rather than rebuild it"
+ },
+ "interior-design-2": {
+  "whyPay": "Accurate dimension input gets asked for constantly, but people pay more modestly for planners and prefer a one-time purchase over a subscription. In the floor-plan niche prices are low and one-time, from $4.99-6 per app up to $20-40 a year, and paying monthly for each room makes people angry. Demand is steady but less lucrative than AI makeovers. Technically it is pure client-side geometry and snapping logic, no AI and no heavy backend, and the plan editor engine runs locally. It is noticeably easier for a solo dev than the diffusion ideas, with the focus on tidy snap math and UX.",
+  "targetSegment": "People mid-renovation measuring their own apartment, who need an accurate drawing rather than a pretty picture"
+ },
+ "interior-design-3": {
+  "whyPay": "The will it fit question solves a real pain right before a big spend, and the audience is practical, paying for peace of mind rather than for looks. Planners like Rooms are loved and hold their subscription, with a moderate ticket of around $5 a month or $20-25 one-time. The money is medium but retention is good, because moves and furniture purchases keep happening. Technically it is medium. Manual input and drag-and-drop furniture with clearance checks runs on the client, but measuring the room with the camera is an ARKit scene with real dimensions, and holding positions steady without drift is exactly where competitors fall apart. You also have to build a catalog of furniture dimensions.",
+  "targetSegment": "Practical furniture buyers and people moving house, who need to know in advance what will go where"
+ },
+ "interior-design-4": {
+  "whyPay": "The bridge from picture to purchase gets valued on its own wherever it exists, and it is double revenue, a subscription plus store affiliate payouts. Willingness to pay is there, and referral links add income on top of the subscription. But this is the most infrastructure-heavy idea. You have to recognize objects in the generated image, match them to real products in up-to-date store catalogs, and keep those catalogs fresh, or you repeat the top complaint about outdated furniture. That means visual search, integrations with product feeds and affiliate programs, and constant data upkeep. It is hard for a solo dev precisely because of the product database and the partnerships.",
+  "targetSegment": "Buyers who got inspired by a picture and want to actually furnish the room on a budget with clear links"
+ },
+ "interior-design-5": {
+  "whyPay": "Trying a specific paint or wallpaper on your own wall is a narrow but sharp pain right before an expensive materials purchase, where a mistake costs a whole wall. Willingness to pay is decent, the audience is doing renovations, and the ticket sits around $5 a month or $15 one-time. The money is medium and the task is one-off per renovation cycle, which caps retention. Technically it is closer to masked recoloring than full generation. Laying the chosen color only on the marked wall without touching doors or texture is segmentation plus careful mask inpainting, and wallpaper with preserved scale and seams is harder. It is easier than the room makeover node, but still mask diffusion on the backend.",
+  "targetSegment": "People on the verge of a renovation with paint and wallpaper samples, who are afraid of getting the color wrong across a whole wall"
+ },
+ "interior-design-6": {
+  "whyPay": "The most lucrative segment on a per-user basis. Realtors and home sellers make money on a fast sale and pay like they would for a work tool, with the niche showing a $99-400 a year ticket at Polycam and a willingness to hand over $20 for a one-off task. This is B2B-adjacent with a high ticket and low price sensitivity, as long as the result is honest. Technically, furnishing an empty room without distorting windows, the view, or the background is directed mask generation plus tight background control, where general apps blur the trees and paint in extra houses. You need batch processing and high resolution for listing sites. It is a backend with heavy generations, but the audience is narrow and can pay.",
+  "targetSegment": "Realtors and private home sellers who want to show an empty apartment furnished in the listing"
+ },
+ "interior-design-7": {
+  "whyPay": "Fixing one detail is a pain for everyone already paying for AI makeovers, since design goes in iterations and the generation lottery drives them nuts. Willingness to pay inherits the hot makeover node, the audience takes a project all the way to done and values control over a flood of pictures, with a ticket around $8 a month or edit packs. The money is good. Technically it is regional inpainting with object selection and local regeneration of the mask only, plus version history and locks. It is harder than plain generation, because you need precise control of the area and consistency across iterations, but it is the same mask diffusion pipeline on the backend as the makeover node, largely reusable.",
+  "targetSegment": "People who got an almost perfect result and want to fine-tune one detail, taking the design all the way to done"
+ },
+ "interior-design-8": {
+  "whyPay": "The yard and front garden are an empty field, the one notable app is called useless by users, and there is almost no competition. But there is also less money in the segment, monetization for outdoor planners is weaker than for interior ones, and the audience of gardeners pays more modestly and prefers a one-time purchase of $15-20 or $5 a month. Demand is alive but the wallet is shallow. Technically it is closer to a floor planner than to diffusion. A plant library with grown-in sizes, plot boundaries traced from a map, and layout of beds and paths is mostly client-side geometry and a data catalog, with no heavy AI backend needed. The main labor for a solo dev here is content, building a library of real plants with dimensions.",
+  "targetSegment": "Gardeners and homeowners planning a yard and flower beds before real spending on plants and landscaping"
  }
 }
