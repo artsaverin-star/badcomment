@@ -63224,5 +63224,749 @@
    ],
    "monetization": "База с ручным вводом бесплатно. Разовая покупка около 599 рублей открывает весы, часы и виджеты. Эта же аудитория уже докупает синхронизацию с устройствами в Monitor Your Weight и отдельно хвалит разовую покупку вместо подписки, а на подписки за базовые вещи отвечает единицами в сторе."
   }
+ },
+ {
+  "slug": "astronomy-stargazing-1",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Наведи телефон и узнай, какой спутник летит над тобой",
+  "oneLiner": "Поднимаешь телефон к яркой движущейся точке в небе, а приложение сразу говорит, что это за спутник и куда он летит.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 35
+  },
+  "reviewGrid": [
+   {
+    "quote": "I wanted an app that I could point my phone into the sky to display the satellites that are currently overhead.",
+    "rating": 3,
+    "app": "Satellite Tracker by Star Walk"
+   },
+   {
+    "quote": "Just see a bunch of dots up there. When I see a satellite go over it doesn’t identify anything.",
+    "rating": 1,
+    "app": "Satellite Tracker by Star Walk"
+   },
+   {
+    "quote": "Too many unidentified satellite. Give us a \"Program\" identifying which satellites are which. I want to see the Starlink array go over my position every time it goes over my location.",
+    "rating": 2,
+    "app": "Satellite Tracker by Star Walk"
+   },
+   {
+    "quote": "I think this is a pretty neat and useful app but it would be much better if also included man made objects, ie Hubble, ISS, etc. I would consider paying if the app included man made celestial objects.",
+    "rating": 3,
+    "app": "Live Sky"
+   },
+   {
+    "quote": "I paid for the app to have more access and it still never once told me what satellite was overhead. I live in an area where they are clear and easy to see and wanted to see who/what they were.",
+    "rating": 1,
+    "app": "Satellite Tracker by Star Walk"
+   },
+   {
+    "quote": "I used to be able to see all the satellites on this app with my old phone. I redownloaded this app and still have satellites enabled but absolutely nothing pops up.",
+    "rating": 2,
+    "app": "SkyView®"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Наведи телефон и узнай, какой спутник летит над тобой",
+    "obsCount": 18,
+    "apps": [
+     "Satellite Tracker by Star Walk",
+     "Live Sky",
+     "SkyView®"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди специально хотят подловить проход ISS и цепочку Starlink над своим двором",
+    "obsCount": 11,
+    "apps": [
+     "Satellite Tracker by Star Walk",
+     "Staslink: Satellites Tracker"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Готовы платить, если приложение реально показывает рукотворные объекты, а не только звёзды",
+    "obsCount": 6,
+    "apps": [
+     "Live Sky",
+     "Satellite Tracker by Star Walk",
+     "SkyView®"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди видят в небе яркую движущуюся точку и хотят одного. Поднять телефон, направить на неё и прочитать, что это. Существующие трекеры дают список названий и кодов, но не отвечают на живой вопрос над головой. В отзывах десятки жалоб, что человек видит точку, а приложение молчит или показывает только ISS. Отдельно люди мечтают поймать проход цепочки Starlink и знать заранее, когда она пролетит именно над их адресом. Ниши, где телефон наводится на движущуюся точку и мгновенно её называет, по сути нет.",
+  "idea": {
+   "pitch": "Простая утилита про рукотворное небо, не про звёзды. Поднимаешь телефон к движущейся точке, приложение по компасу, гироскопу и открытым орбитальным данным отвечает, что это. ISS, Hubble, Starlink, крупные спутники. Плюс список ближайших ярких проходов над твоим адресом с напоминанием за нужное число минут. Люди в отзывах прямо пишут, что заплатили бы за это и что готовы платить за рукотворные объекты, а не за звёзды.",
+   "features": [
+    "Режим наведения. Держишь телефон на точку в небе, приложение подписывает спутник, его высоту и направление полёта.",
+    "Расписание ярких проходов над твоей точкой на ближайшие дни, отсортированное по яркости.",
+    "Отдельная охота за цепочкой Starlink. Показывает, когда очередная цепочка пройдёт над твоим адресом.",
+    "Напоминание за выбранное число минут до прохода, чтобы успеть выйти на улицу.",
+    "Карточка объекта. Что это, кто запустил, зачем летает, на какой высоте.",
+    "Работает по свежим орбитальным данным, обновляется в фоне."
+   ],
+   "antiFeatures": [
+    "Не превращаем это в полный планетарий со всеми звёздами и созвездиями, рынок звёздных карт и так забит.",
+    "Не прячем базовое опознавание спутника за платной стеной, иначе повторим главную боль трекеров.",
+    "Не заваливаем экран сотнями безымянных точек и кодов, показываем только то, что реально видно глазом."
+   ],
+   "monetization": "Бесплатно опознавание наведением и ISS. Разовая покупка около 300 рублей открывает полный список спутников, охоту за Starlink и напоминания о проходах. Ориентир из ниши. У трекера спутников подписка стоила меньше доллара в месяц и всё равно бесила рекламой, так что честная разовая цена выигрышнее."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-2",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Свежие кометы и редкие события без вечной доплаты",
+  "oneLiner": "Когда над Землёй проходит новая комета, приложение сразу показывает, где её искать, а не отвечает пустотой или требованием заплатить.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 30
+  },
+  "reviewGrid": [
+   {
+    "quote": "Bought the comet pack to help find Tsuchinshan-ATLAS and it’s not listed.",
+    "rating": 1,
+    "app": "Star Chart"
+   },
+   {
+    "quote": "So I’ve been waiting to see comet lemon 2025/A6 but the app won’t show you , It’s very disappointing. I looked all over on the app and it doesn’t come up. I even have the paid version.",
+    "rating": 4,
+    "app": "SkyView®"
+   },
+   {
+    "quote": "You can’t include a-once-in-80,000-year comet in the Tonight or Events section without paying more money? What a disappointment.",
+    "rating": 2,
+    "app": "SkySafari 7 Plus"
+   },
+   {
+    "quote": "Can’t even see comets unless you upgrade! What a bunch of crap. Can get the same setup from any other cheaper app",
+    "rating": 2,
+    "app": "SkySafari 7 Plus"
+   },
+   {
+    "quote": "I paid for the Comet upgrade, but 12P/Pons-Brooks isn’t included. Hmmmmm…",
+    "rating": 3,
+    "app": "Star Chart"
+   },
+   {
+    "quote": "It's Dec4th and Comet Leonard is not to be found in your data base. What gives?",
+    "rating": 2,
+    "app": "SkySafari"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Свежие кометы и редкие события без вечной доплаты",
+    "obsCount": 16,
+    "apps": [
+     "Star Chart",
+     "SkySafari 7 Plus",
+     "SkyView®"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди заранее готовятся к разовому небесному событию и хотят точно знать, куда смотреть",
+    "obsCount": 9,
+    "apps": [
+     "SkySafari 7 Plus",
+     "GoSkyWatch Planetarium",
+     "Star Chart"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Даже в платной версии базы устаревают, свежих объектов просто нет",
+    "obsCount": 8,
+    "apps": [
+     "Star Chart",
+     "SkySafari 8 Pro",
+     "SkyView®"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Кометы и редкие сближения это как раз тот момент, когда человек лезет в приложение и готов заплатить. Но именно тут всё ломается. Люди специально покупают отдельный набор про кометы ради конкретной кометы, а её там нет. То, что мелькает в новостях, в базах появляется с опозданием или спрятано за доплатой. Одна и та же боль повторяется с каждой новой кометой. Tsuchinshan-ATLAS, Leonard, Pons-Brooks, комета Lemon. Нет лёгкого приложения, которое к моменту события уже знает, где искать объект, и не просит доплату за то, что и так в новостях.",
+  "idea": {
+   "pitch": "Приложение только про то, что редко и происходит прямо сейчас. Кометы, сближения планет, затмения, метеорные потоки. Как только объект становится виден, он уже в приложении, с картой где искать и с подсказкой, реально ли увидеть его глазом или нужен бинокль. Люди в отзывах прямо пишут, что покупали конкретный набор ради конкретной кометы и злились, что её нет. Ставку делаем на скорость появления и честность, а не на объём базы.",
+   "features": [
+    "Лента актуальных событий. Что происходит в небе на этой неделе, отсортировано по зрелищности.",
+    "Свежие кометы добавляются, как только они видны, с картой поиска на текущую ночь.",
+    "Честная подсказка. Видно глазом, нужен бинокль или только телескоп из тёмного места.",
+    "Стрелка наведения. Куда именно повернуться и на какую высоту поднять взгляд от твоего адреса.",
+    "Напоминание за нужное число минут до пика события, чтобы успеть выйти.",
+    "Короткая карточка. Что это, когда следующий раз и почему это стоит увидеть."
+   ],
+   "antiFeatures": [
+    "Не берём деньги за отдельные наборы под каждую комету, это главная причина злых отзывов у конкурентов.",
+    "Не тянем полный каталог из миллионов звёзд, фокус только на том, что происходит сейчас.",
+    "Не обещаем показать то, что физически не видно из города, честно предупреждаем про засветку."
+   ],
+   "monetization": "Базовые события и ближайшая комета бесплатно. Разовая покупка около 400 рублей открывает напоминания, все события на год вперёд и стрелку наведения. В нише за наборы комет просили доплату сверх уже купленной платной версии и получали шквал единиц, так что честная разовая цена без доплат за каждый объект это прямое попадание."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-3",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Честный прогноз, стоит ли сегодня выходить с телескопом",
+  "oneLiner": "Одна понятная оценка на вечер. Ясно или нет, стоит собирать телескоп или лучше остаться дома.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 28
+  },
+  "reviewGrid": [
+   {
+    "quote": "Wow. Looks cool. It’s total cloud cover and raining. The app shows it’s clear and dark. App says I should be outside in the rain with my telescope. Hahahaha. What a joke.",
+    "rating": 1,
+    "app": "iCSC: Clear Sky Chart Viewer"
+   },
+   {
+    "quote": "This app was a 5stars but all of the sudden, the stargazing index is almost always at 95% with no clouds and it’s clearly not like that.",
+    "rating": 2,
+    "app": "Sky Tonight - Stargazing Guide"
+   },
+   {
+    "quote": "we got clouded out by 8pm after Sky Live said 81% clear tonight. Maybe it will be 81% clear in a",
+    "rating": 2,
+    "app": "Sky Live: Heavens Above Viewer"
+   },
+   {
+    "quote": "Apparently global forecasts have been broken for more than a year. This causes multiple error messages on every start or change in location. For $5 I would expect an app that works without constant errors.",
+    "rating": 1,
+    "app": "Scope Nights Astronomy Weather"
+   },
+   {
+    "quote": "The app used to be great.. then it just stopped working. Even after updating it fails to give a forecast. Just a notice saying “network error”.",
+    "rating": 1,
+    "app": "Astrospheric"
+   },
+   {
+    "quote": "I wish it had an explanation of what the percentage meant on the front page. Is it just a reflection of weather? Does it take into account light pollution or atmospheric disturbances?",
+    "rating": 3,
+    "app": "Sky Live: Heavens Above Viewer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный прогноз, стоит ли сегодня выходить с телескопом",
+    "obsCount": 15,
+    "apps": [
+     "Astrospheric",
+     "Scope Nights Astronomy Weather",
+     "iCSC: Clear Sky Chart Viewer"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Половина прогнозных приложений заброшена и годами вываливает ошибки",
+    "obsCount": 9,
+    "apps": [
+     "Scope Nights Astronomy Weather",
+     "iCSC: Clear Sky Chart Viewer",
+     "Astrospheric"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Точный прогноз для наблюдений реально экономит вечер, за это благодарят и платят",
+    "obsCount": 7,
+    "apps": [
+     "Astrospheric",
+     "iCSC: Clear Sky Chart Viewer"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Наблюдатель перед выездом задаёт один вопрос. Стоит собирать телескоп или сегодня без толку. Приложения-прогнозы либо врут, показывая ясно во время дождя, либо годами не обновляются и встречают ошибкой сети. Люди прямо пишут, что за пять долларов ждут приложение, которое просто работает. При этом когда прогноз точный, его боготворят и говорят, что он спас вечер. Свободна ниша живого, поддерживаемого приложения, которое честно и понятно отвечает на один вопрос про сегодняшний вечер.",
+  "idea": {
+   "pitch": "Приложение про решение выехать, а не про метеокухню. Одна крупная оценка на вечер по твоей точке. Собираться или нет. Под ней разбор по часам. Облачность, спокойствие атмосферы, фаза Луны, влажность и роса. Всё живое и обновляемое, без брошенных серверов и ошибок сети, на которые жалуются у конкурентов. Точность и надёжность это и есть продукт, потому что именно за них благодарят в хороших отзывах и ругают в плохих.",
+   "features": [
+    "Крупная оценка вечера. Один понятный вердикт по твоей точке, стоит ли выходить.",
+    "Разбор по часам. Облачность, спокойствие воздуха, влажность и роса на телескоп.",
+    "Несколько сохранённых мест наблюдения с быстрым сравнением, где сегодня чище.",
+    "Подсказка про Луну. Насколько её свет помешает смотреть слабые объекты.",
+    "Напоминание вечером, если ожидается редкое окно ясного неба.",
+    "Понятное объяснение, что стоит за оценкой, без загадочных процентов без подписи."
+   ],
+   "antiFeatures": [
+    "Не запускаем и не бросаем. Если не тянем поддерживать данные, лучше не выпускать.",
+    "Не показываем ясно, когда идёт дождь. Лучше честно сказать не знаю, чем соврать.",
+    "Не прячем базовый прогноз на вечер за платной стеной, иначе повторим злость к конкурентам."
+   ],
+   "monetization": "Прогноз на сегодня и одно место бесплатно. Разовая покупка около 500 рублей открывает несколько мест, прогноз на несколько дней вперёд и вечерние напоминания об окнах ясного неба. Ориентир из ниши. Люди платили пять долларов и злились на неработающие приложения, так что честная разовая цена за то, что реально работает, это готовый спрос."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-4",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Простой лунный календарь для рыбалки, охоты и огорода",
+  "oneLiner": "Открыл и сразу видишь фазу Луны и лучшие дни, без астрологической мишуры и лишних меню.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 22
+  },
+  "reviewGrid": [
+   {
+    "quote": "One of the Best Apps I have used especially for Hunting/Fishing. I pay close attention to the Moon phase. It works perfectly & is extremely detailed!",
+    "rating": 5,
+    "app": "The Moon: Calendar Moon Phases"
+   },
+   {
+    "quote": "What makes it great is how basic it is. Open the app and right away displayed right in the middle is an updated visual of the moon phase. I use this moon info for fishing.",
+    "rating": 5,
+    "app": "The Moon: Calendar Moon Phases"
+   },
+   {
+    "quote": "I really only want one thing from this app and that is to know when the moon is full. Recent updates make you search for this simple information as the labels have been removed. So annoying.",
+    "rating": 2,
+    "app": "Deluxe Moon Pro • App & Widget"
+   },
+   {
+    "quote": "Keeps me up to date and in the know about moon phases, times, planting information and more!!!",
+    "rating": 5,
+    "app": "Deluxe Moon Pro • App & Widget"
+   },
+   {
+    "quote": "This app would be great if the moon phases were accurately aligned with the dates.",
+    "rating": 2,
+    "app": "Sky and Moon phases calendar"
+   },
+   {
+    "quote": "I used to depend on this app for knowing moon phases and I missed the full blue moon rise because this app said it was the next day.",
+    "rating": 2,
+    "app": "Planets"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Простой лунный календарь для рыбалки, охоты и огорода",
+    "obsCount": 14,
+    "apps": [
+     "The Moon: Calendar Moon Phases",
+     "Deluxe Moon Pro • App & Widget"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Людям нужна одна вещь. Фаза Луны сразу на экране, а её прячут в меню и обновления",
+    "obsCount": 8,
+    "apps": [
+     "Deluxe Moon Pro • App & Widget",
+     "The Moon: Calendar Moon Phases"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Ошибка в дате фазы это провал, из-за неё пропускают полнолуние",
+    "obsCount": 5,
+    "apps": [
+     "Planets",
+     "Sky and Moon phases calendar"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Есть огромная тихая аудитория, которой Луна нужна не ради красоты, а по делу. Рыбаки, охотники, огородники, люди с ритуалами полнолуния. Им нужна одна вещь. Открыл и сразу видишь фазу и лучшие дни. Существующие лунные приложения либо прячут простую фазу за меню и обновлениями, либо ошибаются в датах и из-за этого человек пропускает полнолуние. Свободна ниша честного лунного календаря, который открывается на фазе, не врёт в датах и говорит на языке рыбалки и огорода, а не астрологии.",
+  "idea": {
+   "pitch": "Лунный календарь, который делает одно и делает верно. Открыл, увидел текущую фазу крупно в центре, увидел лучшие дни для рыбалки, охоты или посадок. Без экрана астрологии, без вечных предложений обновиться. Ставка на надёжность даты и мгновенную ясность, потому что именно за них хвалят лучшие лунные приложения и именно из-за их потери ставят единицы соседям.",
+   "features": [
+    "Текущая фаза крупно на первом экране сразу при открытии.",
+    "Календарь лучших дней под задачу. Рыбалка, охота, посадки в огороде.",
+    "Точные время восхода и захода Луны и точные даты новолуний и полнолуний.",
+    "Виджет на экран телефона, чтобы видеть фазу без открытия приложения.",
+    "Напоминание за день до полнолуния и новолуния.",
+    "Режимы под задачу. Рыбак видит клёв, огородник видит дни посадки."
+   ],
+   "antiFeatures": [
+    "Не подмешиваем гороскопы и совместимость знаков, людям нужна фаза, а не астрология.",
+    "Не прячем фазу за меню и обновлениями, это прямая причина падения оценок у конкурентов.",
+    "Не усложняем первый экран, вся суть должна читаться за секунду."
+   ],
+   "monetization": "Фаза, восход, заход и виджет бесплатно. Разовая покупка около 250 рублей открывает календари под задачу, напоминания и несколько виджетов. Ориентир из ниши. Лунные приложения жили на подписке, которая раздражала людей, желавших всего лишь узнать полнолуние, так что маленькая честная разовая цена бьёт точно в спрос."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-5",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Съёмка Луны и звёзд на телефон с пошаговой подсказкой",
+  "oneLiner": "Ведёт за руку через настройки и выдержку, чтобы Луна на снимке была резкой, а не серым пятном.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "I bought this app mostly to try to capture the moon. I used all the tips and tricks in the tutorial and all I get are blurry moon photos",
+    "rating": 3,
+    "app": "NightCap Camera"
+   },
+   {
+    "quote": "most just come out black or blurry. I have better luck adjusting the exposure on the iPhone camera app to 30 seconds then I do trying to photograph with this app.",
+    "rating": 2,
+    "app": "NightCap Camera"
+   },
+   {
+    "quote": "I have a telescope and want to learn astrophotography but the equipment can be prohibitively expensive. I decided to try this app based on several online recommendations. You do need to learn the tutorials",
+    "rating": 5,
+    "app": "NightCap Camera"
+   },
+   {
+    "quote": "I followed the Aurora tutorial and I wish I could show you the difference in picture quality between the Nightcap app and the standard camera app. The regular app was much better",
+    "rating": 2,
+    "app": "NightCap Camera"
+   },
+   {
+    "quote": "This app does a great job in giving you additional control over your iPhone camera and I have made some cool Astro shots with it.",
+    "rating": 4,
+    "app": "NightCap Camera"
+   },
+   {
+    "quote": "The time lapse and star photography features are what I have played around with the most and those work well.",
+    "rating": 3,
+    "app": "NightCap Camera"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Съёмка Луны и звёзд на телефон с пошаговой подсказкой",
+    "obsCount": 13,
+    "apps": [
+     "NightCap Camera"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди хотят снимать небо телефоном, потому что телескоп дорогой",
+    "obsCount": 6,
+    "apps": [
+     "NightCap Camera",
+     "Celestron SkyPortal"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Даже по родному руководству Луна выходит мутным пятном, а не резким диском",
+    "obsCount": 5,
+    "apps": [
+     "NightCap Camera"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди хотят снять Луну и звёздное небо на телефон, потому что телескоп дорогой, и они прямо это пишут. Есть камера с ручными настройками, но она вываливает кучу параметров и оставляет человека один на один с чёрным или мутным кадром. Даже пройдя её собственное руководство, люди получают размытую Луну. Не хватает приложения, которое не просто даёт крутилки, а ведёт за руку под конкретную цель. Снять Луну, поймать звёздные следы, снять северное сияние, и по шагам доводит до резкого кадра.",
+  "idea": {
+   "pitch": "Съёмка неба на телефон, где приложение думает за тебя. Выбираешь цель. Резкая Луна, звёзды, следы звёзд, северное сияние. Приложение само подбирает выдержку и режим, показывает, надо ли опереть телефон, и объясняет, что подкрутить, если кадр тёмный или смазанный. Люди прямо жалуются, что даже по родному руководству получают мутную Луну, значит выигрывает тот, кто доводит новичка до результата, а не просто даёт панель настроек.",
+   "features": [
+    "Режимы под цель. Резкая Луна, звёздное небо, следы звёзд, северное сияние.",
+    "Подсказчик по шагам. Опри телефон, подожди, вот что подкрутить, если размыто.",
+    "Автоподбор выдержки под выбранную цель, чтобы не гадать с числами.",
+    "Живая проверка кадра. Слишком тёмный или смазанный, подсказка как поправить.",
+    "Таймер и стабилизация, чтобы длинная выдержка не смазывалась от дрожи руки.",
+    "Разбор до и после на примерах, показывающий, как из серого пятна получить резкую Луну."
+   ],
+   "antiFeatures": [
+    "Не вываливаем сразу все ручные крутилки, ведём новичка по шагам под цель.",
+    "Не обещаем чудо там, где нужен телескоп, честно говорим про пределы телефона.",
+    "Не оставляем человека с чёрным кадром без объяснения, что пошло не так."
+   ],
+   "monetization": "Режим Луны и базовые снимки звёзд бесплатно. Разовая покупка около 400 рублей открывает следы звёзд, северное сияние, таймлапс и разбор кадров. Ориентир из ниши. Камера для съёмки неба продавалась разово и держала аудиторию, несмотря на заброшенность, так что живой поддерживаемый вариант с обучением легко оправдывает разовую цену."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-6",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Небо для детей без рекламы и с историями созвездий",
+  "oneLiner": "Приложение, которое ребёнок и родитель открывают вместе, с историями о созвездиях и без всплывающей рекламы.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 20
+  },
+  "reviewGrid": [
+   {
+    "quote": "No stories for children",
+    "rating": 3,
+    "app": "Starlight® - Explore the Stars"
+   },
+   {
+    "quote": "My kid loves the app but the ads are relentless and take forever to click through.",
+    "rating": 3,
+    "app": "Solar Walk Lite - Planetarium"
+   },
+   {
+    "quote": "Excellent! My children became fascinated by this App and now are budding astronomers.",
+    "rating": 4,
+    "app": "Star Walk 2 Pro: Sky Map Live"
+   },
+   {
+    "quote": "My kids and grandkids have had so much fun learning and about what is in the night sky.",
+    "rating": 5,
+    "app": "Starlight® - Explore the Stars"
+   },
+   {
+    "quote": "Decent app, my son did like it. But $16/mo or $30/2 months is really unreasonable. It’s “AI”, so I guess that makes it valuable?",
+    "rating": 2,
+    "app": "3D Solar System - Planets View"
+   },
+   {
+    "quote": "I have inspired my adult children to check out the skies, especially the night skies, and. Is I do this with my granddaughters.",
+    "rating": 5,
+    "app": "SkyView® Lite"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Небо для детей без рекламы и с историями созвездий",
+    "obsCount": 12,
+    "apps": [
+     "Starlight® - Explore the Stars",
+     "Solar Walk Lite - Planetarium"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Родители и бабушки специально смотрят небо вместе с детьми и внуками",
+    "obsCount": 9,
+    "apps": [
+     "SkyView® Lite",
+     "Star Walk 2 Pro: Sky Map Live",
+     "Starlight® - Explore the Stars"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Реклама в детском приложении убивает вечер, иногда ещё и неуместная",
+    "obsCount": 6,
+    "apps": [
+     "Solar Walk Lite - Planetarium",
+     "3D Solar System - Planets View"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Много семей смотрят небо вместе. Родители, бабушки, внуки, дети, которые загорелись космосом. Но приложения им подсовывают рекламу прямо во время совместного вечера, иногда неуместную для детей, а истории про созвездия просто отсутствуют. Один отзыв так прямо и говорит про отсутствие детских историй. Взрослые приложения слишком сложные и дорогие для ребёнка. Свободна ниша спокойного приложения для семейного вечера под небом, с рассказами о созвездиях простым языком и без рекламы, за которую родитель спокойно платит один раз.",
+  "idea": {
+   "pitch": "Небо для семьи. Наводишь телефон, ребёнок видит созвездие, а приложение рассказывает его историю простыми словами. Кто эти фигуры, почему они там, что за яркая звезда рядом. Никакой рекламы, никакой дорогой подписки, чистый вечер родителя с ребёнком или бабушки с внуком. В отзывах постоянно про совместные вечера и про то, как реклама их портит, а детских историй нет ни у кого. Родитель платит один раз ради спокойствия.",
+   "features": [
+    "Наведи и узнай. Ребёнок направляет телефон, видит созвездие и слышит его историю.",
+    "Истории созвездий простым языком, с картинкой-фигурой поверх звёзд.",
+    "Крупные подписи и большие кнопки, понятные ребёнку без помощи.",
+    "Задания на вечер. Найди Большую Медведицу, найди самую яркую планету.",
+    "Полностью без рекламы, ничего не выскакивает во время просмотра.",
+    "Режим совместного вечера. Короткая подборка того, что видно сегодня прямо сейчас."
+   ],
+   "antiFeatures": [
+    "Никакой рекламы, тем более неуместной для детей, это главная жалоба соседей.",
+    "Не грузим ребёнка каталогами и настройками профи, только небо и истории.",
+    "Не берём дорогую подписку с детей, честная разовая цена для семьи."
+   ],
+   "monetization": "Несколько созвездий и историй бесплатно. Разовая семейная покупка около 350 рублей открывает все истории, задания и режим совместного вечера. Ориентир из ниши. Детей отпугивали подписки по шестнадцать долларов в месяц и реклама, так что честная разовая цена без рекламы это прямой ответ на боль родителей."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-7",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Наведи на яркую точку и просто узнай, что это",
+  "oneLiner": "Одна кнопка. Держишь телефон на яркий объект в небе, и приложение говорит, планета это, звезда или самолёт, без меню и настроек.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "So often I’ll look up to the sky and think “what is that bright object”. With this app you don't have to wonder. Just hold the app up to the sky facing the object and it will tell you everything.",
+    "rating": 5,
+    "app": "Live Sky"
+   },
+   {
+    "quote": "This is now so complicated you cannot simply identify a celestial object, or, more importantly, ask where one you want to identify is. The app has lost its way. It used to be so simple.",
+    "rating": 1,
+    "app": "Star Walk 2 Pro: Sky Map Live"
+   },
+   {
+    "quote": "I wanted an app that I could point at the sky and it would tell me what I am looking at. This ain't it.",
+    "rating": 2,
+    "app": "SkySafari"
+   },
+   {
+    "quote": "Just trying to learn how to look at stars and it's way too intense",
+    "rating": 1,
+    "app": "Star Gazer: Sky Map& Astronomy"
+   },
+   {
+    "quote": "This is exactly what you want in a star app without all the information overkill.",
+    "rating": 5,
+    "app": "Constellation Map mobile"
+   },
+   {
+    "quote": "Any APP that requires some intrinsic knowledge to use is a fail. Good luck. Using this to resolve what you’re looking at in the night sky is futile.",
+    "rating": 1,
+    "app": "StarMap 3D"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Наведи на яркую точку и просто узнай, что это",
+    "obsCount": 17,
+    "apps": [
+     "Live Sky",
+     "SkySafari",
+     "Star Walk 2 Pro: Sky Map Live"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Мощные приложения обросли меню и стали слишком сложными для простого вопроса",
+    "obsCount": 8,
+    "apps": [
+     "Star Walk 2 Pro: Sky Map Live",
+     "Star Gazer: Sky Map& Astronomy",
+     "StarMap 3D"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Когда приложение отвечает одной кнопкой, люди в восторге и показывают его друзьям",
+    "obsCount": 7,
+    "apps": [
+     "Live Sky",
+     "Constellation Map mobile"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Самый частый живой вопрос у неба это что за яркая точка вон там. Человеку не нужен каталог, планетарий и режимы. Ему нужно направить телефон и получить ответ. Мощные приложения обросли меню и стали слишком сложными, люди прямо пишут, что приложение потеряло себя и что оно слишком заумное. А когда приложение отвечает одной кнопкой, его обожают и показывают друзьям. Свободна ниша предельно простого определителя. Держишь телефон на объект, читаешь ответ, всё.",
+  "idea": {
+   "pitch": "Определитель неба из одной кнопки. Открыл, поднял телефон к яркой точке, прочитал. Юпитер. Вега. Самолёт. Без входа, без настройки места руками, без десяти вкладок. Люди в отзывах в восторге именно от такого сценария и злятся, когда мощное приложение становится слишком сложным для простого вопроса. Продукт для тех, кому надо здесь и сейчас понять, на что они смотрят, а не изучать астрономию.",
+   "features": [
+    "Одна кнопка. Наводишь телефон на объект, сразу видишь его имя и короткую карточку.",
+    "Отличает планету, звезду, а также подсказывает, если это скорее всего самолёт или спутник.",
+    "Никакого входа и ручной настройки места, всё определяется само.",
+    "Крупный простой ответ, понятный человеку без знаний астрономии.",
+    "Кнопка поделиться. Отправить другу, на что ты сейчас смотришь.",
+    "Режим без лишнего. Только небо и подписи, всё убираемое убрано."
+   ],
+   "antiFeatures": [
+    "Не превращаем в планетарий с сотней меню, вся идея в простоте.",
+    "Не требуем регистрацию и ручную настройку перед первым ответом.",
+    "Не грузим новичка каталогами глубокого космоса, показываем то, что видно глазом."
+   ],
+   "monetization": "Определение планет, ярких звёзд и Луны бесплатно. Разовая покупка около 300 рублей убирает всё лишнее навсегда и добавляет карточки-истории объектов и режим поделиться. Ориентир из ниши. Люди уходили от сложных приложений и радовались простым, а цены на разовые звёздные карты в нише как раз около трёх долларов, так что маленькая разовая цена за простоту это точное попадание."
+  }
+ },
+ {
+  "slug": "astronomy-stargazing-8",
+  "category": "astronomy-stargazing",
+  "categoryName": "Звёздное небо и астрономия",
+  "title": "Напоминание о небесном событии заранее, а не когда уже поздно",
+  "oneLiner": "Приложение будит тебя за нужное число минут до события и только если оно реально видно из твоего места.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 52,
+   "reviews": 1247,
+   "observations": 21
+  },
+  "reviewGrid": [
+   {
+    "quote": "One request…give the option to set how many minutes before an event the notification is sent. Too many times I’ve seen the notification and not had enough time to make it outside to see it.",
+    "rating": 5,
+    "app": "SkySafari 7 Pro"
+   },
+   {
+    "quote": "I SEE IT IS EXTREMELY EARLY IN THE MORNING SO IT MUST BE ON THE OTHER SIDE OF THE WORLD. IT IS GIVING ME FALSE I",
+    "rating": 1,
+    "app": "Sky Tonight - Stargazing Guide"
+   },
+   {
+    "quote": "When I get notifications about planets of meteor showers, this app helps me find it.",
+    "rating": 5,
+    "app": "Starlight® - Explore the Stars"
+   },
+   {
+    "quote": "Tonight is a special event called the planet parade. I bought the app hoping to identify the planets we could see - fail",
+    "rating": 2,
+    "app": "Star Gazer: Sky Map& Astronomy"
+   },
+   {
+    "quote": "i turned off all the notifications & sounds in the settings, but it still pushes notifications with the sounds.",
+    "rating": 3,
+    "app": "Star Walk 2 Plus: Live Sky Map"
+   },
+   {
+    "quote": "It’s a great way to just learn interesting space events, and to tell what’s going to be visible in your area.",
+    "rating": 4,
+    "app": "Sky Live: Heavens Above Viewer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Напоминание о небесном событии заранее, а не когда уже поздно",
+    "obsCount": 12,
+    "apps": [
+     "SkySafari 7 Pro",
+     "Starlight® - Explore the Stars"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Приложения зовут смотреть событие, которого из твоего места не видно",
+    "obsCount": 6,
+    "apps": [
+     "Sky Tonight - Stargazing Guide",
+     "Star Gazer: Sky Map& Astronomy"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Напоминания о событиях реально выводят людей на улицу и радуют",
+    "obsCount": 6,
+    "apps": [
+     "Starlight® - Explore the Stars",
+     "Sky Live: Heavens Above Viewer"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Небесные события скоротечны. Метеорный поток, парад планет, проход станции. Если узнал поздно, уже пропустил. Один отзыв прямо просит настройку, за сколько минут прислать напоминание, потому что человек постоянно не успевает выйти. Другая беда. Приложения зовут смотреть событие, которого из твоего места не видно, оно за горизонтом или на другой стороне планеты, и человек чувствует себя обманутым. При этом хорошие напоминания реально выводят людей на улицу и их за это хвалят. Свободна ниша умного напоминания, которое будит вовремя и только про то, что видно именно у тебя.",
+  "idea": {
+   "pitch": "Приложение-напоминалка про небо, честная к твоему месту. Ты выбираешь, что тебе интересно. Метеорные потоки, парады планет, проходы станции, затмения. Приложение проверяет, видно ли это событие из твоей точки и над горизонтом ли оно, и только тогда напоминает. Причём за то число минут, которое ты сам задал, чтобы успеть одеться и выйти. Люди прямо просят настройку минут и злятся на ложные приглашения на невидимые события, так что честность к месту и времени это и есть продукт.",
+   "features": [
+    "Подписка на типы событий. Метеоры, парады планет, проходы станции, затмения.",
+    "Проверка видимости из твоего места. Не зовём смотреть то, что за горизонтом.",
+    "Напоминание за выбранное число минут, чтобы успеть выйти на улицу.",
+    "Короткая инструкция к событию. Куда смотреть, во сколько пик, нужен ли бинокль.",
+    "Тихие часы. Не будим среди ночи, если ты сам не разрешил ночные события.",
+    "Календарь событий на месяц вперёд по твоей точке."
+   ],
+   "antiFeatures": [
+    "Не шлём напоминания о событиях, которых из твоего места не видно.",
+    "Не будим уведомлениями, которые пользователь выключил, звук уважает настройки.",
+    "Не сваливаем всё подряд, показываем только выбранные человеком типы событий."
+   ],
+   "monetization": "Напоминания об одном типе событий и календарь на неделю бесплатно. Разовая покупка около 350 рублей открывает все типы событий, настройку минут, тихие часы и календарь на месяц. Ориентир из ниши. Платные звёздные приложения в нише стоят несколько долларов разово, а настройку минут люди прямо выпрашивают, так что за неё готовы заплатить."
+  }
  }
 ]

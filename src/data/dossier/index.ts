@@ -58,7 +58,10 @@ import weightTracker from "./weight-tracker.json";
 
 import stockInvesting from "./stock-investing.json";
 
+import astronomyStargazing from "./astronomy-stargazing.json";
+
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
+  "astronomy-stargazing": astronomyStargazing,
   "stock-investing": stockInvesting,
   "weight-tracker": weightTracker,
   "driving-test-prep": drivingTestPrep,

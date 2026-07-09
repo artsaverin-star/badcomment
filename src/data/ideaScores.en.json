@@ -1822,5 +1822,37 @@
  "stock-investing-8": {
   "whyPay": "Parents on custodial accounts are a paying audience: UNest lives on a subscription, its best reviews are about relatives chipping in on birthdays, and people name the loss of gifting as their reason for leaving. The unmet asks are on record: a read-only kids' login, gift links for the family, and a clear explanation of custodial account taxes. The audience is narrower than trackers and the money softer than options, but gifting gives the product a built-in viral loop: every link sent to a relative is an invitation. Build note: medium difficulty. No account connections required, the core is a few portfolios, clear growth, a kids' mode without trade buttons, and gift links. The hardest part is explaining taxes carefully without making legal promises, the app itself is doable solo.",
   "targetSegment": "Parents who run accounts in their kids' names and want to raise an investor who understands, not just save"
+ },
+ "astronomy-stargazing-1": {
+  "whyPay": "Reviews say it outright, \"I would consider paying if the app included man made objects\" and \"I paid for the app to have more access.\" The willingness is there, but trackers have trained people to pay pennies a month (users complain about a subscription \"around 50 cents\") and to hate the ads, so the one-time money is small. It is technically hard for a solo dev: you need a constant feed of fresh TLE orbital data, per-location pass calculations, and AR that actually works off the compass and gyroscope, and it is exactly the shaky pointing accuracy where this niche falls apart.",
+  "targetSegment": "City sky-watchers catching the ISS and the Starlink chain over their yard"
+ },
+ "astronomy-stargazing-2": {
+  "whyPay": "This is the cleanest money signal in the niche: people buy comet packs as a separate purchase (\"Bought the comet pack,\" \"I paid for the Comet upgrade\") and get furious when the object is missing. The event itself pushes a person to pay right now. But this is also the hardest slot for a solo dev, because the whole point is having the fresh comet in the database by the time of the event, which means a live pipeline that ingests orbital elements plus hands-on upkeep, and this is exactly where abandoned competitors crumble.",
+  "targetSegment": "Hobbyists gearing up for a one-off sky event they saw in the news"
+ },
+ "astronomy-stargazing-3": {
+  "whyPay": "A telescope owner treats an accurate forecast as a rescued evening and already pays: reviews mention $5 one-time and a $50-a-year premium for weather models. Demand is proven, but the abandoned lookalikes throw network errors. It is tough for a solo dev: you need a reliable backend with astro-weather (cloud cover, atmospheric seeing, dew) across several models, and an honest verdict means keeping the data current rather than shipping once.",
+  "targetSegment": "Telescope owners planning a trip out to observe"
+ },
+ "astronomy-stargazing-4": {
+  "whyPay": "A quiet, practical crowd of anglers, hunters, and gardeners pays willingly, but the ticket is small: moon apps lived on an annoying subscription even though the person needs just one thing. On the flip side it is almost trivial to build: moon phase, rise and set, new and full moon dates are pure astronomical math with no backend and no live data, so all the work goes into an honest UI and a widget.",
+  "targetSegment": "Anglers, hunters, and gardeners who need the Moon for practical reasons"
+ },
+ "astronomy-stargazing-5": {
+  "whyPay": "People reach for a sky camera because a telescope is expensive, and NightCap held them at roughly $3 one-time, but the ticket is low and the audience is beginner-level. Technically it is medium-hard: you need deep work with the phone camera (manual long exposure, RAW, frame stacking, stabilization), and the promise of getting to a sharp Moon takes a real teaching layer, otherwise you just repeat a competitor's blurry smudge.",
+  "targetSegment": "Beginners shooting the Moon and stars on a phone with no telescope"
+ },
+ "astronomy-stargazing-6": {
+  "whyPay": "Families look at the sky together and a parent will pay once to get rid of ads, but this is the weakest paying segment in the niche: kids were scared off by $16-a-month subscriptions and $15 for AR, and the parent is picky even about a one-time charge. Technically it is medium: basic star-map AR plus a lot of editorial content (constellation stories in plain language, activities), and content is manual work, not code.",
+  "targetSegment": "Parents and grandparents watching the sky together with their kids"
+ },
+ "astronomy-stargazing-7": {
+  "whyPay": "People adore the scenario (\"just hold the app up and it will tell you everything\") and show it off to friends, but this is the most commoditized slot: one-time star maps in the niche run around $3 and there are plenty of these identifiers, so people pay little and reluctantly. Medium difficulty: you still need a database of bright stars and planets plus clean AR off the compass and gyroscope, and all the value is in it working with zero setup.",
+  "targetSegment": "Passersby asking what that bright dot is"
+ },
+ "astronomy-stargazing-8": {
+  "whyPay": "People flat-out ask for a minutes-before-the-event setting and get angry at false alerts for something invisible, and for that kind of honesty in the moment they will hand over one-time money on par with star apps. It is medium-easy for a solo dev: computing event visibility from a location and above the horizon plus tidy notifications is manageable astronomical math with no heavy backend, and the main work is in the event feed and the reminder logic.",
+  "targetSegment": "Enthusiasts who do not want to miss meteor showers and planet parades"
  }
 }

@@ -5758,5 +5758,54 @@
     ]
    }
   ]
+ },
+ "astronomy-stargazing": {
+  "governing": "The niche rests on one simple job, the reason people install these apps at all. Someone stands in the yard, sees a bright dot, and wants to aim their phone at the sky to read its name. This is exactly the moment where almost the whole market breaks. The market splits into several different buyer groups. The biggest is ordinary hobbyists who just need point-and-identify through the camera. They are served by SkyView, Star Walk, Star Chart, Stellarium Mobile, GoSkyWatch, Star Rover, Starlight, and SkySafari in its basic form. And in nearly every one of them the main pain is the same. The compass lies. People literally write the same thing over and over: I point at the Moon and on screen it sits somewhere else entirely, it shows south when I am facing north, everything is shifted by 20 to 45 degrees, the image is flipped, east is where west should be. This shows up in reviews of SkyView, GoSkyWatch, Constellation Map mobile, Starlight, Star Tracker Lite, and The Sky Pro. And they often add the key detail: it used to work for years, and after a phone or iOS update it stopped matching, and the figure-eight wave does not help. The second group is serious hobbyists with a telescope and astrophotography. They need not a pretty view but precise object lookup by catalog, a plan for the night, deep sky (Messier, NGC), and connection to their rig. They are held by SkySafari Pro, Stellarium Mobile Plus, Star Walk 2 Pro, StarMap 3D+, and Our Galaxy as an add-on for grasping distances. SkySafari has its own big trouble here: every new version (6, 7, 8) is sold again for 30 to 50 dollars plus a yearly fee on top, old paid versions break after an iOS update, the Tonight button crashes the app, and Live Sky plus sound effects annoy longtime observers who wanted a workhorse, not a social network. The third group does not care about stars at all, they need a specific utility: the Moon phase for fishing, hunting, gardening, or body rhythms (The Moon, Deluxe Moon, Sky and Moon phases), weather for observing (Astrospheric, Scope Nights, iCSC Clear Sky Chart), and tracking satellites and the ISS (Satellite Tracker, Staslink, Sky Live). Here accuracy and abandonment break down: The Moon crashes on launch for weeks at a time, Sky and Moon phases has a calendar off by a day and location that falls back to Moscow with no manual entry, Scope Nights has not been updated in years and throws errors about the forecast being unavailable, and Astrospheric misses on clouds and temperature. The fourth, separate and very interesting group is owners of smart telescopes like Seestar and Celestron: for them the app is not a gadget but a mandatory remote for hardware that cost money, and when an update breaks tracking, alignment, or launches an endless firmware loop right in the field under a clear sky, an expensive telescope turns into a brick, and the anger there runs an order of magnitude hotter than usual. Running through all of this is one and the same failure among the leaders: people paid once for years, then got herded into monthly billing with search, aiming, comets, and the ISS locked away (Night Sky with its forced Aura AI, Sky Guide stripping features from longtime buyers, Star Walk drowning its free version in ads to the point it is unusable). And almost nobody handles fresh events: people are looking right now in an app for comet Tsuchinshan-ATLAS, C/2023 A3, object 3I/ATLAS, a planet parade, an eclipse, and they are not in the database or they are behind a separate charge, even though the person opened the app precisely for that one-off sky event.",
+  "competitorRead": "The players split into a few clear types. The first is factory studios with subscription billing and aggressive ads: Vito Technology (Star Walk, Star Walk 2, Sky Tonight, Satellite Tracker, Solar Walk) and the like. They win on reach, a pretty picture, music, and news, and they sag on the fact that they strangled the free version with ads every few seconds and locked basic things like search and the ISS behind payment, plus a confusing pile of near-identical apps under one name. The second type is the professional tool for observers: SkySafari (Simulation Curriculum) and Stellarium Mobile. They win on catalog depth, planning, telescope connection, and the trust of experienced astronomers, but they infuriate people with the policy of selling each version anew, breaking old paid copies, and stacking a subscription on top of a not-cheap one-time purchase. The third type is indie apps with honest one-time pricing and no ads, which hobbyists hold up as the standard: GoSkyWatch, StarMap 3D+, Star Rover, Luminos, Cosmic-Watch, Classic Sky Map 2, Constellation Map mobile. They win on simplicity and on doing one thing cleanly, but many are abandoned, cannot keep up with new iPhones and iOS, and carry the same compass disease. The fourth type is narrow utilities: lunar calendars (Deluxe Moon, The Moon), astro weather (Astrospheric, Scope Nights, iCSC), photo apps (NightCap Camera). They win on concrete usefulness for a concrete ritual and sag on abandonment and data accuracy. The fifth, a special type, is remote-control apps for hardware (Seestar by ZWO, Celestron SkyPortal), where the software is inseparable from an expensive telescope and any update failure hurts the most. The shared hole across all of them: precise aiming under a real sky right out of the box, fresh comets and events with no upcharge, and respect for those who already paid once.",
+  "pillars": [
+   {
+    "title": "Pointed at the sky and everything is shifted",
+    "dek": "The core point-and-identify job breaks on the compass. People aim at the Moon and see it in completely the wrong spot, it shows south instead of north, everything is off by tens of degrees and flipped.",
+    "match": [
+     "наведи",
+     "узна",
+     "компас",
+     "смещ",
+     "калибров",
+     "сверка",
+     "луной",
+     "фаз"
+    ]
+   },
+   {
+    "title": "Paid once, herded into a subscription",
+    "dek": "People used a purchased app for years, then after an update search, aiming, comets, and the ISS moved behind a monthly charge. Longtime buyers got no mercy.",
+    "match": [
+     "подписк",
+     "платить",
+     "плати",
+     "пощупать",
+     "бесплатн",
+     "деньги"
+    ]
+   },
+   {
+    "title": "Comets and events are in the sky but not in the database",
+    "dek": "Someone opens the app for a specific event happening right now, the Atlas comet, a planet parade, an ISS pass, and it is not in the database or it is behind a separate charge.",
+    "match": [
+     "комет",
+     "событи",
+     "поймать",
+     "погода",
+     "наблюдени",
+     "телескоп",
+     "съёмк",
+     "масштаб",
+     "дет",
+     "внук",
+     "вместе"
+    ]
+   }
+  ]
  }
 }
