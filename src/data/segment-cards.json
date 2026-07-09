@@ -54942,778 +54942,345 @@
  "cycling": {
   "product": [
    {
-    "title": "Маршрут ведёт на опасные дороги",
-    "plus": null,
-    "minus": "Планировщики уводят велосипедиста на трассы, скоростные шоссе и обочины без укрытия, игнорируя соседнюю велодорожку",
-    "count": 17,
+    "title": "запись поездки, которую нельзя потерять",
+    "kicker": "",
+    "plus": "Люди приходят за одним. Нажал старт, доехал, увидел дистанцию и трек на карте. Cyclemeter и SuperCycle держат экран включённым всю поездку, пишут в фоне и не роняют данные, поэтому им ставят пять и катают годами. У Bike & Run Tracker и SuperCycle трек не пропадает, даже когда телефон в кармане.",
+    "minus": "Ломается это чаще всего. Bike Ride Tracker и Biking Distance Tracker сами вставали на паузу после уведомления о дистанции и человек доезжал, а половины поездки нет. Fitmeter Bike и Solo Trip теряли трек, если остановиться передохнуть или свернуть в другое приложение. Bike GPS после переустановки стирал тысячи миль истории. У Bike Tracker MTB таймер шёл на паузе и накручивал лишние часы.",
+    "count": 34,
     "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation",
-     "MapMyRide"
+     "Bike Ride Tracker: Bicycle GPS",
+     "Biking Distance Tracker",
+     "Fitmeter Bike - GPS Cycling",
+     "Solo Trip",
+     "Bike Tracker: MTB Trails",
+     "Bike GPS: Ride route tracker",
+     "CycleComputer",
+     "Cyclemeter Cycling GPS Tracker"
     ],
-    "kicker": "опасная прокладка",
     "evidence": [
      {
-      "rating": 1,
-      "quote": "there is no point to point navigating, and the app takes you out on dangerous highways when it doesn't have to",
-      "app": "Komoot"
-     },
-     {
+      "quote": "The pause button pauses the mileage field but not the time.All calculations are invalidated for trips.",
       "rating": 2,
-      "quote": "It took us on state highways with no shoulder, hills with grades too steep for cars, and roads that have clearly been closed for a decade",
-      "app": "Ride with GPS: Bike Navigation"
+      "app": "Solo Trip"
      },
      {
-      "rating": 1,
-      "quote": "Directed us onto an unsafe dual carriageway/motorway",
-      "app": "Komoot"
+      "quote": "So, I attempted to export my history this year (as of 12/31/22), to the csv file, but it never showed up",
+      "rating": 3,
+      "app": "Fitmeter Bike Basic - Cycling"
      },
      {
-      "rating": 2,
-      "quote": "The routes use busy city and suburban streets rather than dedicated bike paths. Even bike paths running adjacent to the route are ignored",
-      "app": "Bikemap"
+      "quote": "I just rode 20 miles. After the 15 mile notification it paused itself.",
+      "rating": 4,
+      "app": "Biking Distance Tracker"
      },
      {
-      "rating": 2,
-      "quote": "this bike route app ignores bike paths. In most cases it only plots the route on streets even if there is a path running alongside",
-      "app": "Ride with GPS: Bike Navigation"
-     }
-    ]
-   },
-   {
-    "title": "Маршрут заводит в несуществующие дороги",
-    "plus": null,
-    "minus": "Велосипедиста отправляют через реки, минные поля и тупики по тропам, которых нет в реальности",
-    "count": 9,
-    "apps": [
-     "Bikemap",
-     "Komoot",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "kicker": "тропа-фантом",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "the route planner literally led me through a mine field when I was cycling in Bosnia",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "it showed roads that literally don't exist, got a lot of dead ends also again got in the woods where there was a river in the middle of the road",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "take you through private properties, close route",
-      "app": "Komoot"
-     },
-     {
+      "quote": "I ride 100 miles a week and track my rides with Cyclemeter. It is great to get realtime updates on how I am doing.",
       "rating": 5,
-      "quote": "does have an issue in Japan with \"gravel\" where it sends you on trails that don't exist",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "it navigated me in deep woods where there wasn't even real road and I picked \"smooth ride\" option",
-      "app": "Bikemap"
+      "app": "Cyclemeter Cycling GPS Tracker"
      }
     ]
    },
    {
-    "title": "Голосовые подсказки опаздывают и врут",
-    "plus": null,
-    "minus": "Команды поворота звучат за полкилометра, с опозданием или не звучат вовсе. приходится ехать, глядя в экран",
-    "count": 11,
+    "title": "дистанция и высота против того, чему человек верит",
+    "kicker": "",
+    "plus": "Велосипедист сверяет приложение с чем-то доверенным. У Bike Ride Tracker скорость совпала с полицейским радаром, и человек поставил пять. Cyclemeter и bike.App хвалят именно за точность на знакомых маршрутах и мерных милях.",
+    "minus": "Как только цифры расходятся с Garmin, одометром или мерной милей, доверие рушится. Cannondale показывал 15 миль вместо 10 и скорость в полтора раза выше. CycleComputer и Biking Distance Tracker стабильно недосчитывают 0.2 мили на каждой поездке. Fitmeter Bike насчитал 17000 футов набора и 40 миль в час на ровном. Specialized завышал набор высоты процентов на тридцать. Люди уходят не потому что дорого, а потому что не могут опереться на данные.",
+    "count": 24,
     "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
+     "Cannondale",
+     "CycleComputer",
+     "Biking Distance Tracker",
+     "Fitmeter Bike - GPS Cycling",
+     "Specialized",
+     "Map My Ride With GPS Tracker",
+     "COBI.Bike",
+     "Cyclers: Bike Route Planner"
     ],
-    "kicker": "немой поворот",
     "evidence": [
      {
-      "rating": 3,
-      "quote": "turn by turn cues are not trustworthy. On my 10 mile ride today, every cue was announced 0.5 miles",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "voice directions are delayed to the point of missing turns",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 3,
-      "quote": "You can't rely on the voice directions, they are too delayed. That means you'll likely have to visually check the route while running",
-      "app": "Komoot"
-     },
-     {
+      "quote": "On one bike, it gives the speed and distance at about 1.5x. So when I'm doing 10mph it says 15. I go 5 miles it says 7. Useless.",
       "rating": 2,
-      "quote": "it announced turns too early, too late or not at all",
-      "app": "Bikemap"
+      "app": "Cannondale"
      },
      {
-      "rating": 1,
-      "quote": "tells me to turn when we're going straight. tells you to go straight when you need to turn",
-      "app": "Ride with GPS: Bike Navigation"
-     }
-    ]
-   },
-   {
-    "title": "Перепутаны лево и право, нет перестроения на маршрут",
-    "plus": null,
-    "minus": "При сходе с маршрута приложение не перестраивает, не центрирует карту и бесконечно требует развернуться",
-    "count": 8,
-    "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "kicker": "развернитесь",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "Couldn't tell left from right, tried to direct the wrong way around French roundabouts",
-      "app": "Komoot"
+      "quote": "This app showed 4.8 miles. My Garmin, which is very consistent showed 5.08.",
+      "rating": 4,
+      "app": "CycleComputer"
      },
      {
-      "rating": 2,
-      "quote": "the map doesn't recenter if I missed a turn, touched the screen or phone. no option to recenter, had to restart app",
-      "app": "Bikemap"
+      "quote": "the app is reporting over 5k elevation gain because of it. Cheers",
+      "rating": 3,
+      "app": "Aventon: MyRide"
      },
      {
+      "quote": "I was clocked by a portable police radar unit on a ride and it's speed display matched my app display",
       "rating": 5,
-      "quote": "if off route, it stops navigating till back on route",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "ca 5 mal in eine kleine sackgasse geschickt, kurz nach dem abbiegen heisst es dann bitte wenden",
-      "app": "Komoot"
-     },
-     {
-      "rating": 2,
-      "quote": "want to go in the reverse on a route? well you have to manually edit it and change it, otherwise it will yell at you constantly to turn around",
-      "app": "Komoot"
+      "app": "Bike Ride Tracker: Bicycle GPS"
      }
     ]
    },
    {
-    "title": "Нельзя задать свою точку старта",
-    "plus": null,
-    "minus": "Планировщик упрямо стартует от текущего места и не даёт выбрать дом или иную начальную точку",
-    "count": 6,
+    "title": "маршрут, по которому реально ехать на велосипеде",
+    "kicker": "",
+    "plus": "Cyclers и Beeline берут за то, что ведут через дворы, срезки и тихие улицы, а не по машинной логике. Ride with GPS выигрывает тепловыми картами и клубными маршрутами, которые скидываются всей группе на любой навигатор.",
+    "minus": "Навигация регулярно заводит не туда. Cyclers отправлял человека с малышом по грязным заросшим тропам и через частные участки вместо ровной дороги, которую тот знал. Beeline вёл через активную стройку и два часа в пробке в жару. Ride with GPS в Голландии выдавал зеркальные подсказки и опасные маршруты в час пик. Для гравия и МТБ у Ride with GPS слишком мало троп, люди уходят на Garmin.",
+    "count": 22,
     "apps": [
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "kicker": "чужой старт",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "App insists on starting at current location (home) as opposed to letting me designate desired target to plan route",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "thinks my home is Milton Keynes. no easy way to set home. Basic stuff. why can't I just go into settings and enter my home address",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "I am unable to override what it thinks my current location is! If I am unable to set it to my home address...I'm out",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 2,
-      "quote": "the \"current location\" feature consistently shows me 10 miles away from where I actually am",
-      "app": "Komoot"
-     }
-    ]
-   },
-   {
-    "title": "Запись падает фоном и теряет всю тренировку",
-    "plus": null,
-    "minus": "Стоит свернуть приложение или погасить экран. трекинг встаёт, и после финиша оказывается, что не записано ничего",
-    "count": 19,
-    "apps": [
-     "Strava",
-     "Wahoo",
-     "Sports Tracker"
-    ],
-    "kicker": "пустой финиш",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "its only job is to record my activities but it only works half the time. im tired of \"an unexpected error occured, your recording has now resumed\" greeting me at the END of my workout, meaning NOTHING was actually recorded at all",
-      "app": "Strava"
-     },
-     {
-      "rating": 1,
-      "quote": "app is unable to record in the background or with the screen off. either the app closes completely or the workout is missing gaps. unusable in its current state",
-      "app": "Wahoo"
-     },
-     {
-      "rating": 1,
-      "quote": "After the screen lock, the recording is lost forever",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 1,
-      "quote": "the workout when you open and switch to other apps. A quick reinstall temporarily fixes the issue before the problem persists",
-      "app": "Wahoo"
-     },
-     {
-      "rating": 1,
-      "quote": "Opened a text this morning while riding, came back to the app to find my whole workout had reset",
-      "app": "Wahoo"
-     }
-    ]
-   },
-   {
-    "title": "GPS рисует прямые линии и режет дистанцию",
-    "plus": null,
-    "minus": "Трек прыгает, соединяет точки прямыми, ведёт сквозь здания и занижает пройденные километры вдвое",
-    "count": 16,
-    "apps": [
-     "Strava",
-     "Sports Tracker",
+     "Cyclers: Bike Route Planner",
+     "Beeline Bike Navigation",
      "Ride with GPS: Bike Navigation",
-     "MapMyRide"
+     "COBI.Bike",
+     "JOIN Cycling Coach App",
+     "Trailforks: Offline Bike Maps"
     ],
-    "kicker": "прямая сквозь дом",
     "evidence": [
      {
+      "quote": "Instead decided to try the app choosing the easy route, minimum climbs and paved. The app took me through muddy overgrown wooden paths",
       "rating": 1,
-      "quote": "Now it's counting 30 mile bike rides as 16 miles and 16 mile bike rides as 9. The loop I ride is 8 miles. 2 laps can't be 9 miles",
-      "app": "Strava"
+      "app": "Cyclers: Bike Route Planner"
      },
      {
-      "rating": 3,
-      "quote": "It jumps around, making straight lines between points (seemingly whenever I look at my phone to see if it's working or not) instead of actually tracking the path",
-      "app": "Sports Tracker"
+      "quote": "sent me riding around in bumper to bumper traffic for 2 hours in 85° heat",
+      "rating": 2,
+      "app": "Beeline Bike Navigation"
      },
      {
+      "quote": "Trip in Holland was the worst ever directions. Kept giving mirrored directions. And took us through the worst route through cities in rush hour. Dangerous situations.",
       "rating": 1,
-      "quote": "The app crashes then \"resumes\", cutting off most of my route and claiming I went at 2km/h diagonally through private property and climbing over buildings",
-      "app": "Strava"
-     },
-     {
-      "rating": 1,
-      "quote": "recorded a ride time (\"moving time\") of 4:35, while the RWGPS app indicated a moving time of 57 minutes",
       "app": "Ride with GPS: Bike Navigation"
      },
      {
-      "rating": 2,
-      "quote": "for some reason it thinks I cycled in a perfectly straight line. Not sure why, because I did basically the opposite",
-      "app": "MapMyRide"
-     }
-    ]
-   },
-   {
-    "title": "Новый Android и Samsung убивают трекер",
-    "plus": null,
-    "minus": "После обновления Android 16 и на Samsung приложение теряет GPS, засыпает и не работает несмотря на снятые ограничения батареи",
-    "count": 12,
-    "apps": [
-     "Sports Tracker",
-     "Strava",
-     "Wahoo",
-     "Garmin Connect"
-    ],
-    "kicker": "андроид против трека",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "It does not work on Android 16. Time to say good bye",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 1,
-      "quote": "NOT RELIABLE ON SAMSUNG PHONES. After using this app since the Nokia days, I am finally just giving up",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 1,
-      "quote": "I have to waste mobile battery as it won't run when optimised. It needs full powering on a Samsung so useless for any long walks / runs",
-      "app": "Strava"
-     },
-     {
-      "rating": 1,
-      "quote": "the Sports Tracker apps only connects with the GPS intermittently. One a run, the numbers and times are greyed out for at least half the time",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 1,
-      "quote": "Garmin Connect repeatedly causes severe battery drain on my Samsung Galaxy S24+. Samsung's battery diagnostics explicitly flagged Garmin Connect for high CPU usage",
-      "app": "Garmin Connect"
-     }
-    ]
-   },
-   {
-    "title": "Датчики и пульс не цепляются",
-    "plus": null,
-    "minus": "Нет поддержки Bluetooth-пульсометров, скорости и каденса либо обновление вырывает их с экрана прямо во время поездки",
-    "count": 13,
-    "apps": [
-     "Komoot",
-     "Wahoo",
-     "Sports Tracker",
-     "Bikemap"
-    ],
-    "kicker": "потерянный датчик",
-    "evidence": [
-     {
-      "rating": 2,
-      "quote": "Doesn't have support for Bluetooth heart rate monitors. Dealbreaker",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "the most recent update removed the heart rate and cadence from my display and there doesn't seem to be a way to change it back",
-      "app": "Wahoo"
-     },
-     {
-      "rating": 3,
-      "quote": "It worked with my old Wahoo Tickr but not the Tickr X or the Polar H10. The app should be able to use any heart rate sensor that isn't using a proprietary connection",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 3,
-      "quote": "Please let me know when you add the ability to connect external sensors (BLE) and connect to Strava. At minimum it needs those features to be a true cycling app",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 2,
-      "quote": "it doesn't have the sensors power level so you don't know when it's time to recharge them",
-      "app": "Wahoo"
-     }
-    ]
-   },
-   {
-    "title": "Komoot после продажи скатился в навязчивость",
-    "plus": null,
-    "minus": "После покупки Bending Spoons приложение завалено поп-апами подписки даже у тех, кто уже купил карты пожизненно",
-    "count": 15,
-    "apps": [
-     "Komoot"
-    ],
-    "kicker": "испорчен покупкой",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "The app became incredibly intrusive and annoying after it was sold to Bending Spoons. I already bought world offline maps, yet each time i use it I'm getting a popup ad nagging me to buy their subscription",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "Even after you pay for the World Pack, you will still be forced to see the \"buy premium subscription\" screen all the time and you can't turn it off",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "Used to be great, but since it's been bought by investors and many of its devs were let go, it's become predictably worse",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "After 10+ years and 1.500+ activities I deleted my account and switched to outdooractive",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "Nags about premium on every single startup, even if you have purchased regions",
-      "app": "Komoot"
-     }
-    ]
-   },
-   {
-    "title": "Заплатил за карты, а доступ отобрали",
-    "plus": null,
-    "minus": "Купленные пожизненно карты и регионы перестают работать, восстановление покупок выдаёт ошибку, людей возвращают на платный триал",
-    "count": 9,
-    "apps": [
-     "Komoot"
-    ],
-    "kicker": "купил, но нет",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "I've paid approx. 20€ for lifetime premium a few years ago, and now I'm back to the free trial as if I just downloaded the app",
-      "app": "Komoot"
-     },
-     {
-      "rating": 2,
-      "quote": "There is a faded link to restore previous purchases that had never worked. It gives the message \"cannot restore purchases at this time.\" And has done for months",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "After a single week of use, my supposedly \"free for life \" region is now forcing me to use a paywall to navigate within that region",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "I have already paid for world package but it has been not recognized. And I don't get any information to fix it",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "Purchased the world map pack to be able to navigate offline, only to find that the map pack doesn't seem to include any of Canada or the US",
-      "app": "Komoot"
-     }
-    ]
-   },
-   {
-    "title": "Платный софт жрёт батарею на ходу",
-    "plus": null,
-    "minus": "Навигация во время поездки сажает телефон за пару часов, нет предупреждения и нет режима без записи трека",
-    "count": 8,
-    "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "kicker": "разряд за час",
-    "evidence": [
-     {
-      "rating": 3,
-      "quote": "the app uses an insane amount of battery during navigation, even with power optimization turned on. Unless my phone has been charged to 50% or more, it will be dead in less than an hour",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "the screen will persistently stay on. it drained my watch in my phone within 3 hours",
-      "app": "Komoot"
-     },
-     {
-      "rating": 3,
-      "quote": "Bike routing is faster and better than Google Maps, but also sucks down battery much faster, limiting utility for long rides",
+      "quote": "All of our club routes are on RWGPS. It's easy to download to wherever GPS you use and keeps everyone on the same page.",
+      "rating": 5,
       "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "this app drains power like crazy. i suspect malware",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "Battery drain, just trying this thing out, = unreal",
-      "app": "Bikemap"
      }
     ]
    },
    {
-    "title": "Нельзя посмотреть до ввода карты",
-    "plus": null,
-    "minus": "Приложение требует данные карты ещё до того, как покажет, что умеет. велосипедист платит за вещи вслепую",
-    "count": 14,
+    "title": "реальное видео против игрового мира на станке",
+    "kicker": "",
+    "plus": "Зимой люди садятся на станок, и тут ниша делится надвое. FulGaz и Rouvy держат тех, кому нужен реальный вид дороги, а не аватар. Люди годами катают FulGaz ради съёмок настоящих маршрутов и ощущения присутствия. Zwift берёт обратным: живые соперники в реальном времени, гонки по категориям ватт, геймификация, которая затягивает.",
+    "minus": "Каждый лагерь отталкивает своих. Zwift часть людей называет демотивирующим, аркадным и переусложнённым, боты портят гонки, а ключевые данные вроде пульса не влезают на телефон за красивыми пейзажами. FulGaz и Rouvy после обновлений теряют скачанные ролики и заикаются в середине заезда, что убивает всю иммерсию, ради которой их и ставили.",
+    "count": 20,
     "apps": [
-     "Bikemap",
-     "Rouvy",
      "Zwift: Indoor Cycling Fitness",
-     "Komoot"
+     "FulGaz Indoor Cycling App",
+     "ROUVY: Real Indoor Cycling App",
+     "MyWhoosh: Indoor Cycling App",
+     "Wahoo SYSTM",
+     "TrainerDay - Indoor Cycling"
     ],
-    "kicker": "карта вслепую",
     "evidence": [
      {
-      "rating": 1,
-      "quote": "we should try before buy, not buy and then try",
-      "app": "Bikemap"
+      "quote": "I started out on Zwift, but found myself a little tired of just being an avatar in a CGI world.",
+      "rating": 4,
+      "app": "FulGaz Indoor Cycling App"
      },
      {
-      "rating": 1,
-      "quote": "No trial and no back out. You can't see what it doesn't do until you've paid to see the things it doesn't do",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "requires you to fully sign up with all of your details just to see if it's compatible with your bike. That's garbage bro",
+      "quote": "the key data like heart rate is nearly impossible to see on a phone. There's way too much of a priority of the scenery",
+      "rating": 2,
       "app": "Zwift: Indoor Cycling Fitness"
      },
      {
-      "rating": 1,
-      "quote": "Cannot even see what it has to offer in the app or try anything without entering credit card details. The UX experience is bad right from the start. Uninstalled",
-      "app": "Rouvy"
+      "quote": "ROUVY makes Zwift look like a Saturday morning cartoon. If you want to travel the world and do all the best rides, this is the place to do it!",
+      "rating": 5,
+      "app": "ROUVY: Real Indoor Cycling App"
      },
      {
-      "rating": 1,
-      "quote": "I'm not paying to try out an app",
-      "app": "Rouvy"
+      "quote": "This is fun, there are real people riding live with you",
+      "rating": 5,
+      "app": "Zwift: Indoor Cycling Fitness"
      }
     ]
    },
    {
-    "title": "Базовая навигация заперта за подпиской",
-    "plus": null,
-    "minus": "Без подписки нельзя сохранить, построить и проехать даже один маршрут. приложение превращается в просмотрщик",
-    "count": 16,
-    "apps": [
-     "Bikemap",
-     "Ride with GPS: Bike Navigation",
-     "Strava",
-     "Sports Tracker"
-    ],
-    "kicker": "пустая бесплатность",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "Absolutely useless app unless you pay for the premium. without premium the most you can do is plan a route. that's it. you won't be able to turn on any navigation",
-      "app": "Bikemap"
-     },
-     {
-      "rating": 1,
-      "quote": "Everything useful is locked behind a pay wall. You can't navigate or plan routes without paying for it first",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "Creating routes is now locked behind premium. The only reason I used this app was because it was the last one to not put that behind a premium subscription",
-      "app": "Sports Tracker"
-     },
-     {
-      "rating": 1,
-      "quote": "Let you plan a route for 10 minutes, and as you're about to save it, ask for money",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 1,
-      "quote": "Is forcing me to buy a subscription to use the search feature",
-      "app": "Strava"
-     }
-    ]
-   },
-   {
-    "title": "Подписку проще завести, чем отменить",
-    "plus": null,
-    "minus": "Отмену прячут вне приложения, списывают после отмены и не возвращают деньги за неработающий триал",
-    "count": 11,
-    "apps": [
-     "Komoot",
-     "Strava",
-     "Rouvy",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "kicker": "ловушка отмены",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "the way you need to cancel the subscription is simply unacceptable - you made it impossible to find and thus, close to scam experience",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "Still charge you after you cancel. I spent a bunch of time canceling and they are still charging me",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 1,
-      "quote": "cancelled the day I was supposed to be charged, before the transaction went through. I was still charged for an annual membership",
-      "app": "Ride with GPS: Bike Navigation"
-     },
-     {
-      "rating": 3,
-      "quote": "if you try the premium trial you can't cancel from the app but can do only on a website, so they clearly hoping that you'll be too busy to log in in the browser",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "you can't even cancel in the app, you have to cancel through subscriptions in Google Play. you are fleecing people with this app",
-      "app": "Komoot"
-     }
-    ]
-   },
-   {
-    "title": "Дорогое железо требует постоянных обновлений и падает",
-    "plus": null,
-    "minus": "Платный indoor-софт перед каждой поездкой качает гигабайты обновлений, зависает на середине и теряет час тренировки",
+    "title": "инструктор и своя стая как причина крутить педали",
+    "kicker": "",
+    "plus": "На домашнем велотренажёре работает не железо, а голос и люди. RIDE Indoor Cycling получает почти сплошные пятёрки за инструкторов, музыку и чувство, что катаешь семьёй. CardioCast держат тех, кто хочет только звук и своего тренера без экрана и криков. Echelon хвалят за живые классы и тренеров, которые меняют жизнь.",
+    "minus": "Когда стаи и живого голоса нет, мотивация уходит. У Echelon просят живые классы, а их нет, и человек начинает жалеть, что не взял Peloton ради общения и друзей. CardioCast ругают за пресный, предсказуемый, безликий контент, от которого быстро скучно, а это ровно то, чего в спорт-приложении быть не должно. ICG теряет присутствие инструктора, и человек не понимает, ради чего продолжать.",
     "count": 18,
     "apps": [
-     "Rouvy",
+     "RIDE Indoor Cycling",
+     "CardioCast: Cycling Workouts +",
+     "Echelon Fit",
+     "ICG Training",
      "Zwift: Indoor Cycling Fitness",
-     "Wahoo"
+     "Yes.Fit"
     ],
-    "kicker": "обновись и упади",
     "evidence": [
      {
+      "quote": "This is a community that rides together like a family. Here, you dance your heart out, you cheer each other on, and you grow",
+      "rating": 5,
+      "app": "RIDE Indoor Cycling"
+     },
+     {
+      "quote": "My sister has the peloton and raves about the community and her friends.",
       "rating": 3,
-      "quote": "I have been an hour plus into a tough ride, only for the server to freeze",
-      "app": "Rouvy"
+      "app": "Echelon Fit"
      },
      {
-      "rating": 1,
-      "quote": "Almost every time I get on the bike another update needs to run and I have to wait for it before I can start. For some reason as well, updates require 3GB of room",
-      "app": "Zwift: Indoor Cycling Fitness"
-     },
-     {
-      "rating": 1,
-      "quote": "it keeps NEEDING me to update it every few months. Each time needing over 500mb of space. If i say no then I cant use the app i pay for",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 1,
-      "quote": "continually looses connection and you loose your ride you could be 20 miles in and its gone",
-      "app": "Zwift: Indoor Cycling Fitness"
-     },
-     {
-      "rating": 2,
-      "quote": "App is crashing last 4 rides",
-      "app": "Rouvy"
-     }
-    ]
-   },
-   {
-    "title": "Тренажёр не подключается даже к своему железу",
-    "plus": null,
-    "minus": "Виртуальное переключение передач и smart-тренажёры теряют связь по Bluetooth прямо во время заезда, нередко с собственным оборудованием бренда",
-    "count": 13,
-    "apps": [
-     "Rouvy",
-     "Zwift: Indoor Cycling Fitness",
-     "Wahoo"
-    ],
-    "kicker": "своё не цепляет",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "Virtual shifting is still not working, otherwise it is a fantastic app. I regret signing up with Rouvy",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 1,
-      "quote": "connecting to the hardware is infuriating, sometimes it works straight but most of the time it is a fight (15+ minutes to get things going every time)",
-      "app": "Zwift: Indoor Cycling Fitness"
-     },
-     {
-      "rating": 1,
-      "quote": "constant pairing issues with elemnt roam v3 on multiple phones. this is inacceptable",
-      "app": "Wahoo"
-     },
-     {
-      "rating": 1,
-      "quote": "Latest update breaks virtual shifting with Kickr V6 with Zwift Ride. Yes, everyghing is connected and updated",
-      "app": "Zwift: Indoor Cycling Fitness"
-     },
-     {
-      "rating": 2,
-      "quote": "Constamt problems with virtual shifting. Extremely frustrating when you only want to do a quick ride",
-      "app": "Rouvy"
-     }
-    ]
-   },
-   {
-    "title": "Реалистичные видеомаршруты держат на тренажёре дольше",
-    "plus": "Съёмка реальных дорог вместо мультяшного мира мотивирует крутить педали часами и переманивает с Zwift",
-    "minus": null,
-    "count": 12,
-    "apps": [
-     "Rouvy",
-     "Zwift: Indoor Cycling Fitness"
-    ],
-    "kicker": "реальность тянет",
-    "evidence": [
-     {
-      "rating": 5,
-      "quote": "much better than zwift for me. I like going all over the world and it's revolutionised my training. I couldn't ride 45 mins indoors now I'm doing 3.5 hours",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 5,
-      "quote": "I came to Rouvy from Zwift and love the real routes. It makes indoor cycling much more enjoyable",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 4,
-      "quote": "Big fan of the realism - much more engaging than Zwift's cartoon world for me for a virtual ride / workout",
-      "app": "Rouvy"
-     },
-     {
-      "rating": 5,
-      "quote": "Racing against others, genius - that's why Zwift still exists and I pay",
-      "app": "Zwift: Indoor Cycling Fitness"
-     },
-     {
-      "rating": 5,
-      "quote": "The realistic visualisation of the routes keep you more immersed to be able to ride for longer",
-      "app": "Rouvy"
-     }
-    ]
-   },
-   {
-    "title": "Часы и велокомпьютер постоянно отваливаются",
-    "plus": null,
-    "minus": "Связь телефона с часами и головным устройством рвётся по нескольку раз в день, синхронизация требует ручного перепаривания",
-    "count": 12,
-    "apps": [
-     "Garmin Connect",
-     "Komoot",
-     "Wahoo"
-    ],
-    "kicker": "разрыв связи",
-    "evidence": [
-     {
-      "rating": 1,
-      "quote": "It disconnects from your watch every time it is opened. The app is now so bad that the watch is becoming unusable because you cannot visualise your data without having to pair to your phone every single time",
-      "app": "Garmin Connect"
-     },
-     {
-      "rating": 1,
-      "quote": "my Garmin instinct 2 gets disconnected from the phone and I have to repair it to my device almost every day",
-      "app": "Garmin Connect"
-     },
-     {
-      "rating": 1,
-      "quote": "the Bluetooth connection with Samsung watches is borked. The BT connection feature was useful to allow a wristwatch to give turn-by-turn navigation",
-      "app": "Komoot"
-     },
-     {
-      "rating": 1,
-      "quote": "it updated and wiped out ALL of my settings and won’t connect to my Wahoo Elmnt Bolt",
-      "app": "Wahoo"
-     },
-     {
-      "rating": 1,
-      "quote": "keeps telling me my watch is not connected",
-      "app": "Komoot"
-     }
-    ]
-   },
-   {
-    "title": "Финиш поездки. это восемь лишних нажатий",
-    "plus": null,
-    "minus": "Чтобы завершить заезд, надо пройти 6-8 экранов и подтверждений, а принудительное сохранение каждой поездки бесит",
-    "count": 7,
-    "apps": [
-     "Komoot",
-     "Strava",
-     "Bikemap"
-    ],
-    "kicker": "долгий финиш",
-    "evidence": [
-     {
-      "rating": 4,
-      "quote": "Too many steps for end a ride (at least are 8). The first 2 steps are annoying",
-      "app": "Komoot"
-     },
-     {
+      "quote": "it's soooooo predictable and bland. Shamelessly cliche, homogenous. No personality, predictable music, same old, same old. Super easy to get bored.",
       "rating": 3,
-      "quote": "Just wish you could turn off the annoying forced saving of trips every time you end them, forcing several clicks after every trip",
-      "app": "Komoot"
+      "app": "CardioCast: Cycling Workouts +"
      },
      {
-      "rating": 2,
-      "quote": "to record it's like open. do you want a Garmin? no. do you want another plan? no. press record. it doesn't start",
-      "app": "Strava"
-     },
-     {
+      "quote": "Miss a little of my instructor's presence and also not really concerned about constant improvement and new personal bests….to what end?",
       "rating": 4,
-      "quote": "Too many clicks to end a trip. And most trips I don't want to record",
-      "app": "Bikemap"
+      "app": "ICG Training"
+     }
+    ]
+   },
+   {
+    "title": "приложение как продолжение велосипеда и датчиков",
+    "kicker": "",
+    "plus": "Для e-bike и датчиков приложение это пульт от железа. Trek Central и Specialized хвалят за тонкую настройку мотора под дальность или крутой подъём и обновление прошивки прямо с телефона. Favero Assioma и Bike & Run Tracker цепляют все датчики разом: пульс, каденс, мощность, и это заменяет велокомпьютер за 600 долларов.",
+    "minus": "Вся ценность держится на одном: подключился и остался на связи. Trek Central и E-TUBE RIDE после паузы теряют связь с байком и не переподключаются без перезапуска. Специализированные приложения не видят собственные педали Favero, хотя те заряжены и подключены к головному устройству. Echelon и ICG не цепляют велотренажёр в зале, пока не запустишь класс. Cannondale роняет связь с фарами по нескольку раз за поездку, и они сбрасываются в дефолт.",
+    "count": 26,
+    "apps": [
+     "Trek Central",
+     "Specialized",
+     "Favero Assioma",
+     "E-TUBE RIDE",
+     "Echelon Fit",
+     "ICG Training",
+     "Cannondale",
+     "Aventon: MyRide",
+     "XOSS"
+    ],
+    "evidence": [
+     {
+      "quote": "The \"pause ride\" doesn't work. When you go to resume your ride the app has lost connection to the bike and you have to reboot the app to reconnect",
+      "rating": 2,
+      "app": "Trek Central"
      },
      {
+      "quote": "Imagine spending over 700 usd for a set of pedals and be forced to use an app that doesn't even connect to them",
+      "rating": 1,
+      "app": "Favero Assioma"
+     },
+     {
+      "quote": "when I start pedaling, the bike does not automatically connect to the app until I'm in a class. I have to manually press \"connect\"",
       "rating": 3,
-      "quote": "exiting highlights (X button or tapping map) on route map it overrides map current zoom and resets to default",
-      "app": "Komoot"
+      "app": "Echelon Fit"
+     },
+     {
+      "quote": "best part is being able to customize in great detail how my electric motor works, so I can turn it right down for long range",
+      "rating": 5,
+      "app": "Trek Central"
+     }
+    ]
+   },
+   {
+    "title": "телефон как велокомпьютер и цена этому в батарее",
+    "kicker": "",
+    "plus": "Отдельная работа, которую нанимают приложение: заменить велокомпьютер за 300-600 долларов телефоном, который и так с собой. SuperCycle и Bike & Run Tracker хвалят именно за это, за крупный читаемый экран на руле и все датчики без подписки. SuperCycle честно жрёт лишь 12 процентов заряда за час, и люди отмечают это как плюс.",
+    "minus": "Постоянный GPS плюс включённый экран сажают телефон, и это физический потолок жанра. Ride with GPS требует внешний аккумулятор после четырёх часов. Cannondale за 20 миль высадил полностью заряженный телефон в 40-мильной поездке. Aventon посадил батарею за 90 минут, Biking Distance Tracker за 35. Fitmeter Bike и Cannondale не дают включить блокировку экрана, а ручная блокировка гасит запись, так что приходится жечь экран впустую.",
+    "count": 19,
+    "apps": [
+     "SuperCycle Bike Computer",
+     "Bike & Run Tracker - Cadence",
+     "Cannondale",
+     "Ride with GPS: Bike Navigation",
+     "Aventon: MyRide",
+     "Biking Distance Tracker",
+     "Fitmeter Bike Basic - Cycling",
+     "iBiker Cycling & Heart Trainer"
+    ],
+    "evidence": [
+     {
+      "quote": "I love this app but it's only good for short rides. I did a 40 mile ride this weekend and my 100% charged phone died after 20 miles.",
+      "rating": 3,
+      "app": "Cannondale"
+     },
+     {
+      "quote": "it drains a fully charged iPhone 14 within 2 hours. I'll need to eliminate everything I don't need on screen as I ride",
+      "rating": 3,
+      "app": "Bike & Run Tracker - Cadence"
+     },
+     {
+      "quote": "the phone is prevented from locking during use. This uses excess battery. Manually locking the device causes the tracking to stop.",
+      "rating": 3,
+      "app": "Fitmeter Bike Basic - Cycling"
+     },
+     {
+      "quote": "Uses about 12% of iPhone 15 Pro battery in one hour.",
+      "rating": 5,
+      "app": "SuperCycle Bike Computer"
+     }
+    ]
+   },
+   {
+    "title": "выгрузка в Strava, Apple Health и Garmin",
+    "kicker": "",
+    "plus": "Данные оживают, только когда уезжают дальше приложения. Cyclemeter хвалят за полный контроль над своими записями и выгрузку куда угодно. Bike & Run Tracker и E-TUBE RIDE берут за бесшовную передачу в Apple Fitness и Strava. Многие держат приложение как бесплатный второй трекер именно ради экспорта в общую экосистему.",
+    "minus": "Обрыв этого моста бесит сильнее всего. ICG вроде подключён к Strava, но не шлёт скорость и дистанцию, которые раньше уходили. Fitmeter Bike и iBiker обещают Strava и не отдают данные. Trek Central и WorkoutSnap внезапно перестают выгружать в Strava без объяснений. JOIN заставляет гонять тренировки через Strava, хотя человек им не пользуется. Cannondale вместо ссылки на поездку шлёт другу ссылку на скачивание приложения.",
+    "count": 23,
+    "apps": [
+     "ICG Training",
+     "Fitmeter Bike Basic - Cycling",
+     "iBiker Cycling & Heart Trainer",
+     "Trek Central",
+     "WorkoutSnap",
+     "JOIN Cycling Coach App",
+     "Cannondale",
+     "Cyclemeter Cycling GPS Tracker",
+     "Bike & Run Tracker - Cadence"
+    ],
+    "evidence": [
+     {
+      "quote": "ICG doesn't send all the data from. For example, speed and distance data (likely other data too) are not transferred to Strava.",
+      "rating": 3,
+      "app": "ICG Training"
+     },
+     {
+      "quote": "I'm forced to load my workouts into Strava for it to read. It's a step I don't want and shouldn't have to take. I don't use Strava",
+      "rating": 2,
+      "app": "JOIN Cycling Coach App"
+     },
+     {
+      "quote": "When my friend and I try to send each other our rides, it provides a link to download the app rather than a link to the ride.",
+      "rating": 1,
+      "app": "Cannondale"
+     },
+     {
+      "quote": "I retain 100% absolute control over all my data unlike every other fitness app that give you limited fake partial access",
+      "rating": 5,
+      "app": "Cyclemeter Cycling GPS Tracker"
+     }
+    ]
+   },
+   {
+    "title": "виртуальные гонки и медали как топливо для привычки",
+    "kicker": "",
+    "plus": "Часть людей приезжает не за метриками, а за игрой, которая заставляет выйти. Yes.Fit и My Virtual Mission превращают мили в путешествие по карте с медалями и обратным отсчётом до финиша, и это держит людей годами, особенно пожилых и в плохую погоду. My Virtual Mission ещё сажает деревья за пройденные вехи, и это отдельно радует.",
+    "minus": "Игра ломается, когда обещанная награда не приходит. У Yes.Fit люди месяцами ждут оплаченные медали и футболки после финиша, а поддержки не дозваться. My Virtual Mission обновляет пройденное только ночью, а потом и вовсе перестаёт синхронизироваться с часами, и весь смысл гонки теряется. Yes.Fit убрал футболки как награду без предупреждения, и люди отменили запланированные забеги.",
+    "count": 14,
+    "apps": [
+     "Yes.Fit",
+     "My Virtual Mission",
+     "Chasing Watts",
+     "AVR Base"
+    ],
+    "evidence": [
+     {
+      "quote": "This is a great motivational app with the \"work for the rewards\" model. I enjoy seeing the countdown to race completion",
+      "rating": 4,
+      "app": "Yes.Fit"
+     },
+     {
+      "quote": "I completed a race on 8/30/24 & have not received the medal. There is no way to contact YesFit other than by their email address",
+      "rating": 2,
+      "app": "Yes.Fit"
+     },
+     {
+      "quote": "it was disappointing that it updated distances only overnight rather than live. Then it stopped updating them altogether.",
+      "rating": 2,
+      "app": "My Virtual Mission"
+     },
+     {
+      "quote": "this app allows me to stay motivated and keep exercising. It is simple to use",
+      "rating": 5,
+      "app": "My Virtual Mission"
      }
     ]
    }

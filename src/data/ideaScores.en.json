@@ -1854,5 +1854,37 @@
  "astronomy-stargazing-8": {
   "whyPay": "People flat-out ask for a minutes-before-the-event setting and get angry at false alerts for something invisible, and for that kind of honesty in the moment they will hand over one-time money on par with star apps. It is medium-easy for a solo dev: computing event visibility from a location and above the horizon plus tidy notifications is manageable astronomical math with no heavy backend, and the main work is in the event feed and the reminder logic.",
   "targetSegment": "Enthusiasts who do not want to miss meteor showers and planet parades"
+ },
+ "cycling-1": {
+  "whyPay": "People will pay to avoid dragging a kid in a trailer straight into mud and thorns, and the willingness to pay is proven: Trailforks charges 54 to 60 dollars a year and people keep paying even when the data is stale. Technical note: the hard part is not the app, it is the layer of real-world rides. You need a routing engine, map tiles, crowdsourced coverage and moderation of the markers. For a solo builder that is a heavy backend plus a chicken-and-egg problem, because until there is a dense base of rides the value is zero.",
+  "targetSegment": "Bikepackers and gravel riders plotting unfamiliar routes far from home"
+ },
+ "cycling-2": {
+  "whyPay": "A niche with one notable player (Epic Ride Weather), where people pay outright and only complain about the short trial limit and rain forecasts that lie. The willingness to pay is there, but the price is low, this is a narrow niche tool for long rides. Technical note: you read someone else's GPX and hit a paid weather API point by point along the timeline, so you never have to build the forecast yourself. A solo builder can ship it, but the cost floor is the precipitation API, and honest rain data is both the main differentiator and the main risk.",
+  "targetSegment": "Long-distance riders and bikepackers planning multi-hour trips across weather zones"
+ },
+ "cycling-3": {
+  "whyPay": "The most common pain in the niche (52 observations): a ride vanishes, someone forgot to hit stop, a crash wiped the history. People pay 5 dollars outright for a tracker and love a one-time price over a subscription, and some bought the full version specifically to keep their rides safe. The price is modest, but the pain converts well. Technical note: a local tracker with background auto-save and a ride editor, everything on the device, no backend and no accounts. A solo builder can ship the whole thing, and the one tricky spot is reliable background GPS recording on iOS.",
+  "targetSegment": "Daily bike commuters and hobbyists who track their own mileage"
+ },
+ "cycling-4": {
+  "whyPay": "The strongest money signal in the niche: people flat out say they toss a 300 to 600 dollar bike computer in favor of an app and are happy to pay up to 8 dollars once, but explicitly not as a subscription. Anchoring against pricey hardware makes 8 dollars an easy yes. Technical note: pair with Bluetooth sensors over the standard BLE profiles (speed, cadence, heart rate, power) plus a big clear screen. Medium difficulty, and a rock-solid background mode and stability over a long ride are exactly where the competitors fall down, and exactly what a solo builder has to nail.",
+  "targetSegment": "Training road cyclists and Zwift riders with power meters who do not want to buy a separate computer"
+ },
+ "cycling-5": {
+  "whyPay": "Accuracy is the thing people in this niche pay for or walk away over, they cross-check the numbers against a car odometer and a police radar sign and drop the app the moment it is off by 10 to 20 percent. A one-time 5 to 8 dollars for a tracker is normal here. The price is modest and demand is narrow, but it is clear. Technical note: calibration over a known stretch and an outlier filter on speed are pure math on the device, no server. A solo builder can ship it. One catch: to count from a wheel-revolution sensor you need a real BLE speed sensor, and without one all you have is calibrated GPS.",
+  "targetSegment": "Distance sticklers and old bike-computer owners who trust only cross-checked numbers"
+ },
+ "cycling-6": {
+  "whyPay": "E-bike owners have already sunk thousands into the bike, the will-I-make-it-home anxiety is real, and one review flatly calls the missing battery percentage a safety issue. A small fee for peace of mind is invisible to them, so the willingness is there. Technical note: this is where the serious difficulty is buried. Reading the motor charge over Bluetooth means reverse-engineering the proprietary protocols of Bosch, Shimano, Bafang and the rest, each one different, often closed, and with no public SDK. On top of that, estimating range needs calibration for mode, terrain and weight. For a solo builder this is the riskiest slot in the niche on integrations.",
+  "targetSegment": "E-bike owners on long trips who worry about running out of charge mid-route"
+ },
+ "cycling-7": {
+  "whyPay": "Demand is enthusiastic (every Chasing Watts review is five stars), but you cannot charge the everyday riders, that scares them off, as you can see from the complaint about a competitor's paid attempt. The organizers and clubs pay for reach, not the riders. The monetization is indirect and slow. Technical note: this is a two-sided marketplace with a brutal critical-mass problem, the value only shows up once there is a density of organizers in a specific city. You need a backend, a map, chat and moderation. For a solo builder this is a long city-by-city grind with near-zero early revenue, not a solo-friendly format.",
+  "targetSegment": "Club-ride organizers and visiting cyclists looking for company in a new city"
+ },
+ "cycling-8": {
+  "whyPay": "People call the mileage-based maintenance feature their favorite and use it every ride, but it is locked inside one brand's own app and will not track bikes from other makers. Owners pour thousands into their bikes and parts, so a small fee for staying organized is invisible to them. The price is modest and demand is warm rather than urgent. Technical note: a local log with mileage-based reminders and cards for setups and upgrades, all on the device. Mileage can be entered by hand or imported from GPX, so a sensor is not required. A solo builder can easily ship the whole thing.",
+  "targetSegment": "Owners of several bikes from different brands who track condition and upgrades"
  }
 }

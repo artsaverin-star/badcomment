@@ -4219,104 +4219,347 @@
  "cycling": {
   "product": [
    {
-    "title": "Route sends you onto dangerous roads",
-    "plus": null,
-    "minus": "Route planners direct cyclists onto highways, high-speed roads, and unshouldered carriageways while ignoring the bike path running right alongside"
+    "title": "a ride recording you cannot lose",
+    "kicker": "",
+    "plus": "People come for one thing. Hit start, ride, see distance and the track on the map. Cyclemeter and SuperCycle keep the screen on for the whole ride, record in the background and do not drop data, so they get five stars and years of use. With Bike & Run Tracker and SuperCycle the track does not vanish even when the phone is in a pocket.",
+    "minus": "This is what breaks most often. Bike Ride Tracker and Biking Distance Tracker paused themselves after a distance notification and the person finished only to find half the ride missing. Fitmeter Bike and Solo Trip lost the track if you stopped for a rest or switched to another app. Bike GPS wiped thousands of miles of history after a reinstall. With Bike Tracker MTB the timer ran during pause and racked up extra hours.",
+    "count": 34,
+    "apps": [
+     "Bike Ride Tracker: Bicycle GPS",
+     "Biking Distance Tracker",
+     "Fitmeter Bike - GPS Cycling",
+     "Solo Trip",
+     "Bike Tracker: MTB Trails",
+     "Bike GPS: Ride route tracker",
+     "CycleComputer",
+     "Cyclemeter Cycling GPS Tracker"
+    ],
+    "evidence": [
+     {
+      "quote": "The pause button pauses the mileage field but not the time.All calculations are invalidated for trips.",
+      "rating": 2,
+      "app": "Solo Trip"
+     },
+     {
+      "quote": "So, I attempted to export my history this year (as of 12/31/22), to the csv file, but it never showed up",
+      "rating": 3,
+      "app": "Fitmeter Bike Basic - Cycling"
+     },
+     {
+      "quote": "I just rode 20 miles. After the 15 mile notification it paused itself.",
+      "rating": 4,
+      "app": "Biking Distance Tracker"
+     },
+     {
+      "quote": "I ride 100 miles a week and track my rides with Cyclemeter. It is great to get realtime updates on how I am doing.",
+      "rating": 5,
+      "app": "Cyclemeter Cycling GPS Tracker"
+     }
+    ]
    },
    {
-    "title": "Route leads into roads that don't exist",
-    "plus": null,
-    "minus": "Cyclists get sent through rivers, minefields, and dead ends on trails that have no real-world counterpart"
+    "title": "distance and elevation versus what the rider believes",
+    "kicker": "",
+    "plus": "A cyclist checks the app against something trusted. With Bike Ride Tracker the speed matched a police radar, and the person gave five stars. Cyclemeter and bike.App are praised precisely for accuracy on familiar routes and measured miles.",
+    "minus": "The moment the numbers diverge from a Garmin, an odometer or a measured mile, trust collapses. Cannondale showed 15 miles instead of 10 and a speed one and a half times too high. CycleComputer and Biking Distance Tracker consistently undercount 0.2 miles on every ride. Fitmeter Bike logged 17000 feet of climbing and 40 miles per hour on the flat. Specialized overstated elevation gain by about thirty percent. People leave not because it is expensive but because they cannot rely on the data.",
+    "count": 24,
+    "apps": [
+     "Cannondale",
+     "CycleComputer",
+     "Biking Distance Tracker",
+     "Fitmeter Bike - GPS Cycling",
+     "Specialized",
+     "Map My Ride With GPS Tracker",
+     "COBI.Bike",
+     "Cyclers: Bike Route Planner"
+    ],
+    "evidence": [
+     {
+      "quote": "On one bike, it gives the speed and distance at about 1.5x. So when I'm doing 10mph it says 15. I go 5 miles it says 7. Useless.",
+      "rating": 2,
+      "app": "Cannondale"
+     },
+     {
+      "quote": "This app showed 4.8 miles. My Garmin, which is very consistent showed 5.08.",
+      "rating": 4,
+      "app": "CycleComputer"
+     },
+     {
+      "quote": "the app is reporting over 5k elevation gain because of it. Cheers",
+      "rating": 3,
+      "app": "Aventon: MyRide"
+     },
+     {
+      "quote": "I was clocked by a portable police radar unit on a ride and it's speed display matched my app display",
+      "rating": 5,
+      "app": "Bike Ride Tracker: Bicycle GPS"
+     }
+    ]
    },
    {
-    "title": "Voice cues arrive late or not at all",
-    "plus": null,
-    "minus": "Turn announcements fire half a kilometre too early, lag behind the turn, or never come. forcing riders to stare at the screen while moving"
+    "title": "a route you can actually ride a bike on",
+    "kicker": "",
+    "plus": "Cyclers and Beeline win by routing through side streets, shortcuts and quiet roads rather than by car logic. Ride with GPS wins with heatmaps and club routes that get shared with the whole group for any navigator.",
+    "minus": "The navigation regularly leads you astray. Cyclers sent a person with a small child down muddy overgrown trails and through private property instead of the smooth road the rider knew. Beeline led through active construction and two hours in traffic in the heat. Ride with GPS in the Netherlands gave mirrored cues and dangerous routes at rush hour. For gravel and MTB, Ride with GPS has too few trails, and people leave for Garmin.",
+    "count": 22,
+    "apps": [
+     "Cyclers: Bike Route Planner",
+     "Beeline Bike Navigation",
+     "Ride with GPS: Bike Navigation",
+     "COBI.Bike",
+     "JOIN Cycling Coach App",
+     "Trailforks: Offline Bike Maps"
+    ],
+    "evidence": [
+     {
+      "quote": "Instead decided to try the app choosing the easy route, minimum climbs and paved. The app took me through muddy overgrown wooden paths",
+      "rating": 1,
+      "app": "Cyclers: Bike Route Planner"
+     },
+     {
+      "quote": "sent me riding around in bumper to bumper traffic for 2 hours in 85° heat",
+      "rating": 2,
+      "app": "Beeline Bike Navigation"
+     },
+     {
+      "quote": "Trip in Holland was the worst ever directions. Kept giving mirrored directions. And took us through the worst route through cities in rush hour. Dangerous situations.",
+      "rating": 1,
+      "app": "Ride with GPS: Bike Navigation"
+     },
+     {
+      "quote": "All of our club routes are on RWGPS. It's easy to download to wherever GPS you use and keeps everyone on the same page.",
+      "rating": 5,
+      "app": "Ride with GPS: Bike Navigation"
+     }
+    ]
    },
    {
-    "title": "Left and right confused, no rerouting when off course",
-    "plus": null,
-    "minus": "When a turn is missed the app fails to reroute or recenter the map, instead looping \"make a U-turn\" indefinitely"
+    "title": "real video versus a game world on the trainer",
+    "kicker": "",
+    "plus": "In winter people get on the trainer, and here the niche splits in two. FulGaz and Rouvy hold those who want a real view of the road, not an avatar. People ride FulGaz for years for the footage of genuine routes and the sense of being there. Zwift wins the opposite way: live rivals in real time, races by watt category, gamification that pulls you in.",
+    "minus": "Each camp pushes away its own. Some people call Zwift demotivating, arcade-like and overcomplicated, bots ruin races, and key data like heart rate will not fit on a phone behind the pretty scenery. FulGaz and Rouvy lose downloaded clips after updates and stutter mid-ride, which kills the whole immersion people installed them for.",
+    "count": 20,
+    "apps": [
+     "Zwift: Indoor Cycling Fitness",
+     "FulGaz Indoor Cycling App",
+     "ROUVY: Real Indoor Cycling App",
+     "MyWhoosh: Indoor Cycling App",
+     "Wahoo SYSTM",
+     "TrainerDay - Indoor Cycling"
+    ],
+    "evidence": [
+     {
+      "quote": "I started out on Zwift, but found myself a little tired of just being an avatar in a CGI world.",
+      "rating": 4,
+      "app": "FulGaz Indoor Cycling App"
+     },
+     {
+      "quote": "the key data like heart rate is nearly impossible to see on a phone. There's way too much of a priority of the scenery",
+      "rating": 2,
+      "app": "Zwift: Indoor Cycling Fitness"
+     },
+     {
+      "quote": "ROUVY makes Zwift look like a Saturday morning cartoon. If you want to travel the world and do all the best rides, this is the place to do it!",
+      "rating": 5,
+      "app": "ROUVY: Real Indoor Cycling App"
+     },
+     {
+      "quote": "This is fun, there are real people riding live with you",
+      "rating": 5,
+      "app": "Zwift: Indoor Cycling Fitness"
+     }
+    ]
    },
    {
-    "title": "Can't set a custom start point",
-    "plus": null,
-    "minus": "The planner locks onto the current location and gives no way to set a home address or any other start point"
+    "title": "an instructor and your own pack as the reason to pedal",
+    "kicker": "",
+    "plus": "On a home trainer what works is not the hardware but the voice and the people. RIDE Indoor Cycling gets almost straight fives for its instructors, music and the feeling of riding as a family. CardioCast holds those who want only sound and their own coach without a screen and shouting. Echelon is praised for live classes and instructors who change lives.",
+    "minus": "When the pack and the live voice are gone, motivation fades. With Echelon people ask for live classes and there are none, and the person starts to regret not getting a Peloton for the community and friends. CardioCast gets criticized for bland, predictable, faceless content that gets boring fast, which is exactly what a fitness app should never be. ICG loses the instructor's presence, and the person cannot see why to keep going.",
+    "count": 18,
+    "apps": [
+     "RIDE Indoor Cycling",
+     "CardioCast: Cycling Workouts +",
+     "Echelon Fit",
+     "ICG Training",
+     "Zwift: Indoor Cycling Fitness",
+     "Yes.Fit"
+    ],
+    "evidence": [
+     {
+      "quote": "This is a community that rides together like a family. Here, you dance your heart out, you cheer each other on, and you grow",
+      "rating": 5,
+      "app": "RIDE Indoor Cycling"
+     },
+     {
+      "quote": "My sister has the peloton and raves about the community and her friends.",
+      "rating": 3,
+      "app": "Echelon Fit"
+     },
+     {
+      "quote": "it's soooooo predictable and bland. Shamelessly cliche, homogenous. No personality, predictable music, same old, same old. Super easy to get bored.",
+      "rating": 3,
+      "app": "CardioCast: Cycling Workouts +"
+     },
+     {
+      "quote": "Miss a little of my instructor's presence and also not really concerned about constant improvement and new personal bests….to what end?",
+      "rating": 4,
+      "app": "ICG Training"
+     }
+    ]
    },
    {
-    "title": "Background recording stops and loses the whole ride",
-    "plus": null,
-    "minus": "Switch away from the app or let the screen go dark and tracking halts. at the finish line there's nothing saved"
+    "title": "the app as an extension of the bike and its sensors",
+    "kicker": "",
+    "plus": "For e-bikes and sensors the app is the remote control for the hardware. Trek Central and Specialized are praised for fine-tuning the motor for range or a steep climb and updating firmware straight from the phone. Favero Assioma and Bike & Run Tracker grab every sensor at once: heart rate, cadence, power, and this replaces a 600 dollar bike computer.",
+    "minus": "All the value rests on one thing: you connect and you stay connected. Trek Central and E-TUBE RIDE lose the connection to the bike after a pause and will not reconnect without a restart. Specialized apps do not see their own Favero pedals even when they are charged and connected to the head unit. Echelon and ICG will not grab the trainer at the gym until you start a class. Cannondale drops the connection to the lights several times a ride, and they reset to default.",
+    "count": 26,
+    "apps": [
+     "Trek Central",
+     "Specialized",
+     "Favero Assioma",
+     "E-TUBE RIDE",
+     "Echelon Fit",
+     "ICG Training",
+     "Cannondale",
+     "Aventon: MyRide",
+     "XOSS"
+    ],
+    "evidence": [
+     {
+      "quote": "The \"pause ride\" doesn't work. When you go to resume your ride the app has lost connection to the bike and you have to reboot the app to reconnect",
+      "rating": 2,
+      "app": "Trek Central"
+     },
+     {
+      "quote": "Imagine spending over 700 usd for a set of pedals and be forced to use an app that doesn't even connect to them",
+      "rating": 1,
+      "app": "Favero Assioma"
+     },
+     {
+      "quote": "when I start pedaling, the bike does not automatically connect to the app until I'm in a class. I have to manually press \"connect\"",
+      "rating": 3,
+      "app": "Echelon Fit"
+     },
+     {
+      "quote": "best part is being able to customize in great detail how my electric motor works, so I can turn it right down for long range",
+      "rating": 5,
+      "app": "Trek Central"
+     }
+    ]
    },
    {
-    "title": "GPS draws straight lines and cuts distance in half",
-    "plus": null,
-    "minus": "Tracks jump between points in straight lines, route through buildings, and report half the distance actually ridden"
+    "title": "the phone as a bike computer and the battery price of it",
+    "kicker": "",
+    "plus": "A separate job the app gets hired for: replace a 300-600 dollar bike computer with the phone you already carry. SuperCycle and Bike & Run Tracker are praised for exactly this, for a large readable screen on the bars and every sensor without a subscription. SuperCycle honestly eats only 12 percent of the charge per hour, and people note this as a plus.",
+    "minus": "Constant GPS plus the screen on drains the phone, and that is the physical ceiling of the genre. Ride with GPS needs an external battery after four hours. Cannondale drained a fully charged phone in 20 miles of a 40-mile ride. Aventon killed the battery in 90 minutes, Biking Distance Tracker in 35. Fitmeter Bike and Cannondale will not let you lock the screen, and a manual lock stops the recording, so you have to burn the screen for nothing.",
+    "count": 19,
+    "apps": [
+     "SuperCycle Bike Computer",
+     "Bike & Run Tracker - Cadence",
+     "Cannondale",
+     "Ride with GPS: Bike Navigation",
+     "Aventon: MyRide",
+     "Biking Distance Tracker",
+     "Fitmeter Bike Basic - Cycling",
+     "iBiker Cycling & Heart Trainer"
+    ],
+    "evidence": [
+     {
+      "quote": "I love this app but it's only good for short rides. I did a 40 mile ride this weekend and my 100% charged phone died after 20 miles.",
+      "rating": 3,
+      "app": "Cannondale"
+     },
+     {
+      "quote": "it drains a fully charged iPhone 14 within 2 hours. I'll need to eliminate everything I don't need on screen as I ride",
+      "rating": 3,
+      "app": "Bike & Run Tracker - Cadence"
+     },
+     {
+      "quote": "the phone is prevented from locking during use. This uses excess battery. Manually locking the device causes the tracking to stop.",
+      "rating": 3,
+      "app": "Fitmeter Bike Basic - Cycling"
+     },
+     {
+      "quote": "Uses about 12% of iPhone 15 Pro battery in one hour.",
+      "rating": 5,
+      "app": "SuperCycle Bike Computer"
+     }
+    ]
    },
    {
-    "title": "New Android and Samsung phones kill the tracker",
-    "plus": null,
-    "minus": "After Android 16 updates and on Samsung devices apps lose GPS lock, go dormant, and stay broken even with all battery restrictions lifted"
+    "title": "export to Strava, Apple Health and Garmin",
+    "kicker": "",
+    "plus": "Data comes alive only when it travels beyond the app. Cyclemeter is praised for full control over your own recordings and export anywhere. Bike & Run Tracker and E-TUBE RIDE win with seamless handoff to Apple Fitness and Strava. Many keep the app as a free second tracker precisely for the export into the shared ecosystem.",
+    "minus": "Breaking this bridge angers people most of all. ICG seems connected to Strava, but does not send the speed and distance it used to. Fitmeter Bike and iBiker promise Strava and hand over no data. Trek Central and WorkoutSnap suddenly stop exporting to Strava with no explanation. JOIN forces you to route workouts through Strava even though the person does not use it. Cannondale, instead of a link to the ride, sends a friend a link to download the app.",
+    "count": 23,
+    "apps": [
+     "ICG Training",
+     "Fitmeter Bike Basic - Cycling",
+     "iBiker Cycling & Heart Trainer",
+     "Trek Central",
+     "WorkoutSnap",
+     "JOIN Cycling Coach App",
+     "Cannondale",
+     "Cyclemeter Cycling GPS Tracker",
+     "Bike & Run Tracker - Cadence"
+    ],
+    "evidence": [
+     {
+      "quote": "ICG doesn't send all the data from. For example, speed and distance data (likely other data too) are not transferred to Strava.",
+      "rating": 3,
+      "app": "ICG Training"
+     },
+     {
+      "quote": "I'm forced to load my workouts into Strava for it to read. It's a step I don't want and shouldn't have to take. I don't use Strava",
+      "rating": 2,
+      "app": "JOIN Cycling Coach App"
+     },
+     {
+      "quote": "When my friend and I try to send each other our rides, it provides a link to download the app rather than a link to the ride.",
+      "rating": 1,
+      "app": "Cannondale"
+     },
+     {
+      "quote": "I retain 100% absolute control over all my data unlike every other fitness app that give you limited fake partial access",
+      "rating": 5,
+      "app": "Cyclemeter Cycling GPS Tracker"
+     }
+    ]
    },
    {
-    "title": "Sensors and heart rate monitors won't stay connected",
-    "plus": null,
-    "minus": "Bluetooth heart rate, speed, and cadence sensors are either unsupported or get stripped from the screen mid-ride by an update"
-   },
-   {
-    "title": "Komoot turned intrusive after it was sold",
-    "plus": null,
-    "minus": "Since the Bending Spoons acquisition the app buries users in subscription pop-ups. even those who already paid for lifetime map access"
-   },
-   {
-    "title": "Paid for maps, then lost access",
-    "plus": null,
-    "minus": "Lifetime map and region purchases stop working, restore-purchase flows return errors, and users are dropped back onto a free trial"
-   },
-   {
-    "title": "Paid software drains the battery mid-ride",
-    "plus": null,
-    "minus": "Navigation during a ride kills the phone in a couple of hours with no warning and no track-free navigation mode"
-   },
-   {
-    "title": "Can't see the app before handing over payment details",
-    "plus": null,
-    "minus": "The app demands card details before showing what it can do, so cyclists end up paying blindly for something they haven't tried"
-   },
-   {
-    "title": "Basic navigation locked behind a paywall",
-    "plus": null,
-    "minus": "Without a subscription there is nothing to do except browse. saving, building, or actually riding a route all require payment"
-   },
-   {
-    "title": "Subscribing is easy. cancelling is a trap",
-    "plus": null,
-    "minus": "Cancellation is buried outside the app, charges still land after users cancel, and refunds for broken trials are refused"
-   },
-   {
-    "title": "Expensive hardware demands constant updates and then crashes",
-    "plus": null,
-    "minus": "Paid indoor software downloads gigabytes of updates before every ride, hangs halfway through, and can wipe out an hour-long session"
-   },
-   {
-    "title": "Smart trainer won't even connect to the brand's own hardware",
-    "plus": null,
-    "minus": "Virtual shifting and smart trainers drop their Bluetooth connection mid-ride. often with the same brand's own equipment"
-   },
-   {
-    "title": "Real-video routes keep you on the trainer longer",
-    "plus": "Footage of actual roads rather than a cartoon world motivates riders to spin for hours and pulls them away from Zwift",
-    "minus": null
-   },
-   {
-    "title": "Watch and bike computer keep disconnecting",
-    "plus": null,
-    "minus": "The phone-to-watch and phone-to-head-unit link drops multiple times a day, and re-syncing requires manual re-pairing every time"
-   },
-   {
-    "title": "Ending a ride takes eight unnecessary taps",
-    "plus": null,
-    "minus": "Finishing a ride means clicking through six to eight confirmation screens, and the forced save of every outing makes it worse"
+    "title": "virtual races and medals as fuel for the habit",
+    "kicker": "",
+    "plus": "Some people come not for metrics but for a game that makes them go out. Yes.Fit and My Virtual Mission turn miles into a journey across a map with medals and a countdown to the finish, and this keeps people for years, especially older riders and in bad weather. My Virtual Mission also plants trees for milestones passed, and that is a separate delight.",
+    "minus": "The game breaks when the promised reward does not arrive. With Yes.Fit people wait months for paid medals and shirts after the finish, and support cannot be reached. My Virtual Mission updated progress only overnight, then stopped syncing with the watch altogether, and the whole point of the race is lost. Yes.Fit removed shirts as a reward without warning, and people cancelled planned races.",
+    "count": 14,
+    "apps": [
+     "Yes.Fit",
+     "My Virtual Mission",
+     "Chasing Watts",
+     "AVR Base"
+    ],
+    "evidence": [
+     {
+      "quote": "This is a great motivational app with the \"work for the rewards\" model. I enjoy seeing the countdown to race completion",
+      "rating": 4,
+      "app": "Yes.Fit"
+     },
+     {
+      "quote": "I completed a race on 8/30/24 & have not received the medal. There is no way to contact YesFit other than by their email address",
+      "rating": 2,
+      "app": "Yes.Fit"
+     },
+     {
+      "quote": "it was disappointing that it updated distances only overnight rather than live. Then it stopped updating them altogether.",
+      "rating": 2,
+      "app": "My Virtual Mission"
+     },
+     {
+      "quote": "this app allows me to stay motivated and keep exercising. It is simple to use",
+      "rating": 5,
+      "app": "My Virtual Mission"
+     }
+    ]
    }
   ],
   "hygiene": []

@@ -19361,560 +19361,6 @@
   }
  },
  {
-  "slug": "cycling-1",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Безопасный маршрут для велосипеда",
-  "oneLiner": "Навигация, которая строит маршруты только по велодорожкам и тихим улицам, не по шоссе",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "there is no point to point navigating, and the app takes you out on dangerous highways when it doesn't have to",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "It took us on state highways with no shoulder, hills with grades too steep for cars, and roads that have clearly been closed for a decade",
-    "rating": 2,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "Directed us onto an unsafe dual carriageway/motorway",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "the route planner literally led me through a mine field when I was cycling in Bosnia",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "it showed roads that literally don't exist, got a lot of dead ends also again got in the woods where there was a river in the middle of the road",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "take you through private properties, close route",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "App insists on starting at current location (home) as opposed to letting me designate desired target to plan route",
-    "rating": 1,
-    "app": "Bikemap"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Все планировщики строят маршруты по кратчайшему пути и отправляют велосипедистов на скоростные трассы, обочины и закрытые дороги. Нет ни одного сервиса, где без",
-    "obsCount": 7,
-    "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation",
-     "MapMyRide"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Все планировщики строят маршруты по кратчайшему пути и отправляют велосипедистов на скоростные трассы, обочины и закрытые дороги. Нет ни одного сервиса, где безопасность дороги важнее скорости добирания",
-  "idea": {
-   "pitch": "Сервис строит маршруты только по велодорожкам, жилым улицам и дорогам с низкой скоростью. Пользователь задаёт уровень допустимого риска, а алгоритм исключает шоссе, трассы и пути через частные территории. Целевая аудитория: городские велосипедисты-ежедневники и туристы, которые не хотят рисковать жизнью ради пяти минут выигрыша.",
-   "features": [
-    "Оценка безопасности каждого участка дороги (велодорожка, жилая улица, шоссе, обочина)",
-    "Фильтр «только велодорожки» и «избегать трасс» при построении маршрута",
-    "Краудсорсинговые отметки опасных участков от сообщества",
-    "Офлайн-карты с предзагрузкой маршрута и голосовыми подсказками без задержки",
-    "Задание произвольной точки старта (не только текущее местоположение)"
-   ],
-   "antiFeatures": [
-    "Соцсеть и лента активностей друзей",
-    "Сравнение сегментов и рейтинги скорости",
-    "Трекинг тренировок и мощности"
-   ],
-   "monetization": "Commuter-велосипедисты платят 299 рублей в месяц за офлайн-карты и обновлённые данные о безопасности дорог. B2B: туроператоры и прокатные компании платят за белую метку и API для встройки в свои приложения"
-  }
- },
- {
-  "slug": "cycling-2",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Надёжная запись тренировки",
-  "oneLiner": "Трекер, который пишет заезд без пропусков даже при выключенном экране и смене приложений",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "its only job is to record my activities but it only works half the time. im tired of \"an unexpected error occured, your recording has now resumed\" greeting me at the END of my workout, meaning NOTHING was actually recorded at all",
-    "rating": 1,
-    "app": "Strava"
-   },
-   {
-    "quote": "app is unable to record in the background or with the screen off. either the app closes completely or the workout is missing gaps. unusable in its current state",
-    "rating": 1,
-    "app": "Wahoo"
-   },
-   {
-    "quote": "After the screen lock, the recording is lost forever",
-    "rating": 1,
-    "app": "Sports Tracker"
-   },
-   {
-    "quote": "Now it's counting 30 mile bike rides as 16 miles and 16 mile bike rides as 9. The loop I ride is 8 miles. 2 laps can't be 9 miles",
-    "rating": 1,
-    "app": "Strava"
-   },
-   {
-    "quote": "It jumps around, making straight lines between points (seemingly whenever I look at my phone to see if it's working or not) instead of actually tracking the path",
-    "rating": 3,
-    "app": "Sports Tracker"
-   },
-   {
-    "quote": "The app crashes then \"resumes\", cutting off most of my route and claiming I went at 2km/h diagonally through private property and climbing over buildings",
-    "rating": 1,
-    "app": "Strava"
-   },
-   {
-    "quote": "It does not work on Android 16. Time to say good bye",
-    "rating": 1,
-    "app": "Sports Tracker"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Велосипедисты теряют данные целых поездок из-за того, что операционная система усыпляет приложение при выключении экрана. После двухчасового заезда обнаруживают",
-    "obsCount": 7,
-    "apps": [
-     "Strava",
-     "Wahoo",
-     "Sports Tracker"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Велосипедисты теряют данные целых поездок из-за того, что операционная система усыпляет приложение при выключении экрана. После двухчасового заезда обнаруживают либо пустой трек, либо прямую линию через здания",
-  "idea": {
-   "pitch": "Фоновый трекер работает как системный сервис, защищённый от убийки батареи на Android и iOS. GPS-точки пишутся в локальную базу каждые секунды, трек не теряется при краше, сети и сворачивании. Продукт закрывает единственную базовую потребность: записать поездку целиком.",
-   "features": [
-    "Фоновая запись как foreground-сервис с уведомлением, не глушимый системой",
-    "Локальное сохранение каждой GPS-точки в реальном времени, ничего не теряется при краше",
-    "Адаптивный режим экономии батареи: реже точки на прямых участках, чаще на поворотах",
-    "Автоматическое восстановление при сбое GPS и пометка пропущенных участков",
-    "Экспорт в GPX, FIT, KML без подписки"
-   ],
-   "antiFeatures": [
-    "Планировщик маршрутов",
-    "Социальные функции и лента активности",
-    "Тренировочные планы и тренер"
-   ],
-   "monetization": "Разовая покупка приложения за 399 рублей без подписки. Дополнительно: облачное хранилище треков за 99 рублей в месяц для тех, кто хочет синхронизацию"
-  }
- },
- {
-  "slug": "cycling-3",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Платформа для велоклубов",
-  "oneLiner": "Инструмент для тренера велоклуба: планирование групповых поездок, расписание, учёт участников и общий маршрутный архив",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "Too many steps for end a ride (at least are 8). The first 2 steps are annoying",
-    "rating": 4,
-    "app": "Komoot"
-   },
-   {
-    "quote": "the way you need to cancel the subscription is simply unacceptable - you made it impossible to find and thus, close to scam experience",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "The app became incredibly intrusive and annoying after it was sold to Bending Spoons. I already bought world offline maps, yet each time i use it I'm getting a popup ad nagging me to buy their subscription",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "Even after you pay for the World Pack, you will still be forced to see the \"buy premium subscription\" screen all the time and you can't turn it off",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "Used to be great, but since it's been bought by investors and many of its devs were let go, it's become predictably worse",
-    "rating": 1,
-    "app": "Komoot"
-   },
-   {
-    "quote": "turn by turn cues are not trustworthy. On my 10 mile ride today, every cue was announced 0.5 miles",
-    "rating": 3,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "voice directions are delayed to the point of missing turns",
-    "rating": 1,
-    "app": "Bikemap"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Тренеры велоклубов управляют группами через мессенджеры и таблицы. Нет специализированного инструмента для планирования групповых выездов, сбора участников, хра",
-    "obsCount": 7,
-    "apps": [
-     "Komoot",
-     "Strava",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Тренеры велоклубов управляют группами через мессенджеры и таблицы. Нет специализированного инструмента для планирования групповых выездов, сбора участников, хранения маршрутов клуба и отслеживания посещаемости",
-  "idea": {
-   "pitch": "B2B-платформа для велоклубов: тренер создаёт выезд с маршрутом, участники регистрируются в одном месте, после поездки все треки собираются в общую историю клуба. Клубы уже платят за организацию, инвентарь и страховку, платёжная привычка есть.",
-   "features": [
-    "Создание групповых выездов с маршрутом, датой, уровнем сложности и лимитом участников",
-    "Общий архив маршрутов клуба с рейтингом и заметками тренера",
-    "Учёт посещаемости и история участия каждого члена клуба",
-    "Чат выезда с автоматическим уведомлением об отмене или переносе",
-    "Интеграция с Strava: импорт треков участников в общую историю"
-   ],
-   "antiFeatures": [
-    "Индивидуальный тренировочный план",
-    "Анализ мощности и физиологии",
-    "Маршрутный планировщик для одиночных поездок"
-   ],
-   "monetization": "Подписка для клуба 990 рублей в месяц до 30 участников, 2490 рублей за неограниченный размер. Клубы с 20+ активными участниками тратят больше на взносы за аренду базы, поэтому цена не проблема"
-  }
- },
- {
-  "slug": "cycling-4",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Домашние велотренировки без лишней настройки",
-  "oneLiner": "Приложение для умного тренажёра, которое запускается за 10 секунд и не требует больших обновлений перед каждым заездом",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "Almost every time I get on the bike another update needs to run and I have to wait for it before I can start. For some reason as well, updates require 3GB of room",
-    "rating": 1,
-    "app": "Zwift: Indoor Cycling Fitness"
-   },
-   {
-    "quote": "it keeps NEEDING me to update it every few months. Each time needing over 500mb of space. If i say no then I cant use the app i pay for",
-    "rating": 1,
-    "app": "Rouvy"
-   },
-   {
-    "quote": "connecting to the hardware is infuriating, sometimes it works straight but most of the time it is a fight (15+ minutes to get things going every time)",
-    "rating": 1,
-    "app": "Zwift: Indoor Cycling Fitness"
-   },
-   {
-    "quote": "Virtual shifting is still not working, otherwise it is a fantastic app. I regret signing up with Rouvy",
-    "rating": 1,
-    "app": "Rouvy"
-   },
-   {
-    "quote": "I have been an hour plus into a tough ride, only for the server to freeze",
-    "rating": 3,
-    "app": "Rouvy"
-   },
-   {
-    "quote": "much better than zwift for me. I like going all over the world and it's revolutionised my training. I couldn't ride 45 mins indoors now I'm doing 3.5 hours",
-    "rating": 5,
-    "app": "Rouvy"
-   },
-   {
-    "quote": "constant pairing issues with elemnt roam v3 on multiple phones. this is inacceptable",
-    "rating": 1,
-    "app": "Wahoo"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Владельцы smart-тренажёров тратят 15-30 минут на подключение устройств и обновления перед каждой тренировкой. Zwift и Rouvy требуют 3 ГБ на обновление и часто з",
-    "obsCount": 7,
-    "apps": [
-     "Zwift: Indoor Cycling Fitness",
-     "Rouvy",
-     "Wahoo"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Владельцы умных тренажёров тратят 15-30 минут на подключение устройств и обновления перед каждой тренировкой. Zwift и Rouvy требуют несколько гигабайт на обновление и часто зависают в середине заезда, убивая мотивацию",
-  "idea": {
-   "pitch": "Минималистичный клиент для велотренажёра: открываешь, тренажёр подключается автоматически, жмёшь старт. Обновления скачиваются в фоне незаметно, нет принудительного обновления перед стартом. Платишь за стабильность, а не за виртуальный мир с аватаром.",
-   "features": [
-    "Автоматическое повторное подключение к тренажёру при потере связи по Bluetooth",
-    "Фоновые обновления без принудительного прерывания тренировки",
-    "Структурированные тренировки (интервалы, горки, VO2max) с управлением сопротивлением тренажёра",
-    "Видеомаршруты реальных дорог в лёгком формате без тяжёлой 3D-графики",
-    "Подключение любых датчиков ANT+ и Bluetooth независимо от бренда"
-   ],
-   "antiFeatures": [
-    "Мультиплеер и гонки с аватарами в виртуальном мире",
-    "Gamification и значки за достижения",
-    "Социальная лента и комментарии к заездам"
-   ],
-   "monetization": "Подписка 499 рублей в месяц. Пользователи Zwift платят 1500-2000 рублей в месяц, а Rouvy платят от 800 рублей, так что ценовая готовность подтверждена"
-  }
- },
- {
-  "slug": "cycling-5",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Сервис управления велопарком для магазинов проката",
-  "oneLiner": "CRM для велопрокатного бизнеса: учёт велосипедов, брони, техобслуживания и маршрутов для гостей",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "App insists on starting at current location (home) as opposed to letting me designate desired target to plan route",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "thinks my home is Milton Keynes. no easy way to set home. Basic stuff. why can't I just go into settings and enter my home address",
-    "rating": 1,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "Absolutely useless app unless you pay for the premium. without premium the most you can do is plan a route. that's it. you won't be able to turn on any navigation",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "Everything useful is locked behind a pay wall. You can't navigate or plan routes without paying for it first",
-    "rating": 1,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "we should try before buy, not buy and then try",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "No trial and no back out. You can't see what it doesn't do until you've paid to see the things it doesn't do",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "Bike routing is faster and better than Google Maps, but also sucks down battery much faster, limiting utility for long rides",
-    "rating": 3,
-    "app": "Ride with GPS: Bike Navigation"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Прокаты велосипедов в туристических городах работают через бумажные журналы, WhatsApp и Excel. Нет специализированного инструмента для учёта велопарка, автомати",
-    "obsCount": 7,
-    "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Прокаты велосипедов в туристических городах работают через бумажные журналы, мессенджеры и таблицы. Нет специализированного инструмента для учёта велопарка, автоматических напоминаний о техобслуживании и онлайн-брони с оплатой",
-  "idea": {
-   "pitch": "Веб-сервис для велопрокатов: каждый велосипед имеет карточку с историей обслуживания, клиент бронирует онлайн и получает маршрут прямо в подтверждении. После возврата система автоматически отмечает пробег и напоминает о следующем техобслуживании. Владелец прокатного бизнеса уже платит за аренду точки и инвентарь, платёжная привычка есть.",
-   "features": [
-    "Карточка велосипеда: история ТО, пробег, плановые замены расходников",
-    "Онлайн-бронирование с оплатой и автоматическим подтверждением",
-    "Готовые маршруты для выдачи гостям по QR-коду при получении велосипеда",
-    "Напоминания о плановом обслуживании по пробегу или дате",
-    "Дашборд: загрузка велопарка, выручка, популярные маршруты"
-   ],
-   "antiFeatures": [
-    "Трекинг тренировок для спортсменов",
-    "Анализ мощности и физиологии",
-    "Социальная сеть для велосипедистов"
-   ],
-   "monetization": "Подписка для прокатного бизнеса: 1990 рублей в месяц до 20 велосипедов, 4990 рублей за неограниченный парк. Дополнительно: комиссия 2% с онлайн-броней через платформу"
-  }
- },
- {
-  "slug": "cycling-6",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Навигатор для грунтовых маршрутов с данными о покрытии",
-  "oneLiner": "Планировщик для велосипедистов на грунте, который знает тип покрытия каждого участка и фильтрует маршруты по типу поверхности",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "the route planner literally led me through a mine field when I was cycling in Bosnia",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "it showed roads that literally don't exist, got a lot of dead ends also again got in the woods where there was a river in the middle of the road",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "It took us on state highways with no shoulder, hills with grades too steep for cars, and roads that have clearly been closed for a decade",
-    "rating": 2,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "turn by turn cues are not trustworthy. On my 10 mile ride today, every cue was announced 0.5 miles",
-    "rating": 3,
-    "app": "Ride with GPS: Bike Navigation"
-   },
-   {
-    "quote": "voice directions are delayed to the point of missing turns",
-    "rating": 1,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "the map doesn't recenter if I missed a turn, touched the screen or phone. no option to recenter, had to restart app",
-    "rating": 2,
-    "app": "Bikemap"
-   },
-   {
-    "quote": "Couldn't tell left from right, tried to direct the wrong way around French roundabouts",
-    "rating": 1,
-    "app": "Komoot"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Гравелисты строят маршруты вслепую: ни Komoot, ни Bikemap не показывают качество грунтового покрытия по реальным данным. Приходится узнавать на месте, что краси",
-    "obsCount": 7,
-    "apps": [
-     "Komoot",
-     "Bikemap",
-     "Ride with GPS: Bike Navigation"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Велосипедисты на грунтовых трассах строят маршруты вслепую: ни Komoot, ни Bikemap не показывают качество покрытия по реальным данным. Приходится узнавать на месте, что красивая просека на карте превратилась в непроезжую кашу после дождя",
-  "idea": {
-   "pitch": "Специализированный планировщик для грунтовых и внедорожных маршрутов: каждый участок дороги окрашен по типу покрытия (асфальт, грунт, гравий, трава) на основе краудсорсинговых данных и спутниковых снимков. Фильтр по типу велосипеда и допустимым поверхностям убирает сюрпризы на маршруте. Велосипедисты тратят на снаряжение от ста тысяч рублей, платить за навигацию они готовы.",
-   "features": [
-    "Карта покрытия по типу поверхности с актуальными данными от сообщества",
-    "Фильтр маршрута по допустимым поверхностям для конкретного велосипеда",
-    "Сезонные предупреждения: этот участок непроезжаем после дождя или зимой",
-    "Загрузка пользовательских треков с разметкой поверхности",
-    "Офлайн-карты для удалённых районов без мобильного интернета"
-   ],
-   "antiFeatures": [
-    "Тренировочные планы и анализ физической формы",
-    "Соцсеть и сравнение результатов",
-    "Навигация для городских commuter-маршрутов"
-   ],
-   "monetization": "Подписка 599 рублей в месяц или 4990 рублей в год. Дополнительно: PRO-тариф для организаторов гравийных ивентов (подготовка маршрутов, экспорт GPX для участников) за 9990 рублей в год"
-  }
- },
- {
-  "slug": "cycling-7",
-  "category": "cycling",
-  "categoryName": "Велоспорт и тренировки",
-  "title": "Диагностика и учёт обслуживания велосипеда",
-  "oneLiner": "Личный журнал велосипеда: напоминания о замене расходников по пробегу, история техобслуживания и магазин запчастей",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 52
-  },
-  "reviewGrid": [
-   {
-    "quote": "It disconnects from your watch every time it is opened. The app is now so bad that the watch is becoming unusable because you cannot visualise your data without having to pair to your phone every single time",
-    "rating": 1,
-    "app": "Garmin Connect"
-   },
-   {
-    "quote": "my Garmin instinct 2 gets disconnected from the phone and I have to repair it to my device almost every day",
-    "rating": 1,
-    "app": "Garmin Connect"
-   },
-   {
-    "quote": "Doesn't have support for Bluetooth heart rate monitors. Dealbreaker",
-    "rating": 2,
-    "app": "Komoot"
-   },
-   {
-    "quote": "the most recent update removed the heart rate and cadence from my display and there doesn't seem to be a way to change it back",
-    "rating": 1,
-    "app": "Wahoo"
-   },
-   {
-    "quote": "It worked with my old Wahoo Tickr but not the Tickr X or the Polar H10. The app should be able to use any heart rate sensor that isn't using a proprietary connection",
-    "rating": 3,
-    "app": "Sports Tracker"
-   },
-   {
-    "quote": "NOT RELIABLE ON SAMSUNG PHONES. After using this app since the Nokia days, I am finally just giving up",
-    "rating": 1,
-    "app": "Sports Tracker"
-   },
-   {
-    "quote": "I have to waste mobile battery as it won't run when optimised. It needs full powering on a Samsung so useless for any long walks / runs",
-    "rating": 1,
-    "app": "Strava"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Велосипедисты забывают менять цепь, тормозные колодки и масло, потому что никто не считает пробег по-настоящему и не напоминает. Велосипедный компьютер или Stra",
-    "obsCount": 7,
-    "apps": [
-     "Strava",
-     "Garmin Connect",
-     "Wahoo"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Велосипедисты забывают менять цепь, тормозные колодки и масло, потому что никто не считает пробег по-настоящему и не напоминает. Велосипедный компьютер или Strava пишут километры, но не связывают их с ресурсом конкретных расходников",
-  "idea": {
-   "pitch": "Приложение-журнал для велосипеда: вводишь модель и компоненты один раз, дальше пробег синхронизируется из Strava или вводится вручную, и приложение само говорит когда заменить цепь, смазать вилку и проверить тормоза. Дополнительно: партнёрские магазины предлагают нужные запчасти прямо в уведомлении о замене.",
-   "features": [
-    "Карточка велосипеда с компонентами и их ресурсом в километрах",
-    "Синхронизация пробега из Strava и ручной ввод",
-    "Напоминания о замене расходников с порогами по пробегу и дате",
-    "История всех ТО: что заменено, когда, в каком магазине и за сколько",
-    "Подбор совместимых расходников с ссылками на магазины партнёров"
-   ],
-   "antiFeatures": [
-    "Навигация и построение маршрутов",
-    "Анализ тренировок и физической формы",
-    "Социальные функции и сравнение с другими"
-   ],
-   "monetization": "Разовая покупка 499 рублей. Комиссионный доход от партнёрских магазинов запчастей: 5-8% с каждой покупки через встроенные ссылки. Велосипедисты со снаряжением за 50-300 тысяч рублей вкладываются в обслуживание регулярно"
-  }
- },
- {
   "slug": "food-delivery-1",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
@@ -63967,6 +63413,661 @@
     "Не сваливаем всё подряд, показываем только выбранные человеком типы событий."
    ],
    "monetization": "Напоминания об одном типе событий и календарь на неделю бесплатно. Разовая покупка около 350 рублей открывает все типы событий, настройку минут, тихие часы и календарь на месяц. Ориентир из ниши. Платные звёздные приложения в нише стоят несколько долларов разово, а настройку минут люди прямо выпрашивают, так что за неё готовы заплатить."
+  }
+ },
+ {
+  "slug": "cycling-1",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Маршруты, проверенные живыми велосипедистами",
+  "oneLiner": "Планировщик, который строит только по реально проезжим дорогам, а не гонит в грязь, заросли и на трассу.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "I used this to navigate cycling solo from Stevenage to Land’s End and ended up in almost impassable trail covered with thorns, gated private property where I have to knock on the house of the owners, cattle pen and nearly trampled and blocked passages which nearly made me abandoned the trip.",
+    "rating": 1,
+    "app": "Cyclers: Bike Route Planner"
+   },
+   {
+    "quote": "I wanted to ride with my toddler from Heaton Norris Stockport to East Didsbury. I knew a route that would be paved, flat, 30miles per hour max speed limit. Instead decided to try the app choosing the easy route, minimum climbs and paved. The app took me through muddy overgrown wooden paths, lots of",
+    "rating": 1,
+    "app": "Cyclers: Bike Route Planner"
+   },
+   {
+    "quote": "Trip in Holland was the worst ever directions. Kept giving mirrored directions. And took us through the worst route through cities in rush hour. Dangerous situations.",
+    "rating": 1,
+    "app": "Ride with GPS: Bike Navigation"
+   },
+   {
+    "quote": "the compass feature and ride tracking are great, and the hardware has a nice form factor, but the map information is constantly outdated. I have been routed through active construction zones and away from safe, protected infrastructure due to outdated map information on many occasions.",
+    "rating": 2,
+    "app": "Beeline Bike Navigation"
+   },
+   {
+    "quote": "I use this app to find new routes to places I want to go. Unfortunately, I can't depend on their navigation 100% of the time because it likes to suggest midblock crossings from one neighborhood to the next while crossing a figurative freeway.",
+    "rating": 5,
+    "app": "Cyclers: Bike Route Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Маршруты, проверенные живыми велосипедистами",
+    "obsCount": 34,
+    "apps": [
+     "Cyclers: Bike Route Planner",
+     "Ride with GPS: Bike Navigation",
+     "Beeline Bike Navigation"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди хотят пометки покрытия и опасных перекрёстков от тех, кто там уже проехал",
+    "obsCount": 18,
+    "apps": [
+     "Cyclers: Bike Route Planner",
+     "Beeline Bike Navigation",
+     "Ride with GPS: Bike Navigation"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Автопланировщик экономит время, когда он не заводит в тупик",
+    "obsCount": 12,
+    "apps": [
+     "Cyclers: Bike Route Planner",
+     "Ride with GPS: Bike Navigation"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Все планировщики строят маршрут по картам, а карты не знают, где тропа заросла, где стройка, где заваленный переезд и где мидблок-переход через фактическую магистраль. Люди раз за разом попадают в грязь, в колючки, в частные владения и в опасный трафик, потому что алгоритм видит на карте линию и считает её проезжей. Не хватает слоя реальности поверх карты. Маршрут, который каждый сегмент подтверждён тем, что тут кто-то действительно проехал на велосипеде, с типом покрытия и отметкой опасных мест.",
+  "idea": {
+   "pitch": "Планировщик, где основа маршрута не абстрактная карта, а следы реальных заездов. Ты строишь путь, а приложение подсвечивает каждый участок цветом. Зелёный значит тут регулярно ездят, серый значит данных нет, красный значит люди помечали грязь, стройку или опасный перекрёсток. Ты платишь за то, что не окажешься в терновнике с ребёнком в прицепе. Спрос уже виден: люди любят саму идею умного маршрута, но бросают приложение после первого захода в непроезжий тупик.",
+   "features": [
+    "Каждый сегмент маршрута окрашен по частоте реальных заездов и типу покрытия асфальт, гравий, грунт",
+    "Метка одним касанием стройка, заваленный переезд, заросло, опасный перекрёсток видна всем следующим",
+    "Фильтр перед построением избегать грунта, избегать оживлённых дорог, не строить через мидблок-переходы",
+    "Оффлайн-карта района скачивается заранее, работает без связи в лесу и в поездке",
+    "Крупный экран навигации с одной понятной стрелкой и следующим поворотом, читается на солнце"
+   ],
+   "antiFeatures": [
+    "Не строим соцсеть с лентой, лайками и подписками",
+    "Не гонимся за глобальным покрытием, лучше плотно закрыть один регион, чем весь мир пунктиром",
+    "Не прячем базовое построение маршрута за подписку, платное только про-покрытие и оффлайн"
+   ],
+   "monetization": "Разовая покупка Pro или подписка около 4-5 долларов в месяц за оффлайн-карты, метки покрытия и фильтры опасных мест. Ориентир из ниши: Trailforks берёт 54-60 долларов в год, а люди жалуются на устаревшие данные, значит цена терпима, если данные живые."
+  }
+ },
+ {
+  "slug": "cycling-2",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Погода вдоль всего маршрута, а не в одной точке",
+  "oneLiner": "Показывает дождь, ветер и температуру по времени в каждой точке твоего заезда, чтобы правильно одеться и не попасть под ливень.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 24
+  },
+  "reviewGrid": [
+   {
+    "quote": "There is simply no other application I have found that can read your routes you have taken and show you weather conditions along the way. I am not a multi-day long distance cyclist (yet), but have been on a few 50+ rides as well as I commute to work most days. The app allows me to find a window th",
+    "rating": 4,
+    "app": "Epic Ride Weather"
+   },
+   {
+    "quote": "This app works exactly as promised. It’s basic and simple, but it’s perfect for what I need, especially on my longer bikepacking rides. I connected it to my Ride With GPS account, so, as long as I’ve planned an approximate route ahead of time, it makes it very easy to set my weather expectations for",
+    "rating": 5,
+    "app": "Epic Ride Weather"
+   },
+   {
+    "quote": "On sunny days this app is extremely useful to help one plan for long rides especially into the mountains to predict temp at elevation for picking how much cold weather gear to carry. CAVEAT - it is absolutely abysmal at rain predictions. In Crans Montana Switzerland it was POURING rain for 4 hrs",
+    "rating": 2,
+    "app": "Epic Ride Weather"
+   },
+   {
+    "quote": "App will not connect to my ridewithgps account. Too bad it seems like a good idea.",
+    "rating": 1,
+    "app": "Epic Ride Weather"
+   },
+   {
+    "quote": "Love using this app for planning my rides. Would be great to update with air quality status.",
+    "rating": 5,
+    "app": "Epic Ride Weather"
+   },
+   {
+    "quote": "Do not get on you bike with checking this app first. Living in Tampa Bay it is essential at this time of year (Spring leading into Summer) to check on the conditions especially as we approach another hurricane season, the afternoon storms and potential for lightning strikes increases dramatically s",
+    "rating": 4,
+    "app": "Epic Ride Weather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Погода вдоль всего маршрута, а не в одной точке",
+    "obsCount": 15,
+    "apps": [
+     "Epic Ride Weather"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Точность дождя и связка с планировщиком маршрутов решают, останется человек или нет",
+    "obsCount": 9,
+    "apps": [
+     "Epic Ride Weather"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Обычная погода показывает одну точку, а велосипедист за три часа проезжает несколько погодных зон и набирает высоту, где холоднее. Люди прямо пишут, что не нашли другого приложения, которое читает их маршрут и раскладывает погоду по времени вдоль пути. Категория с одним заметным игроком, и у него слабые места: врёт по дождю, кривая связка с планировщиками, короткий бесплатный лимит, нет качества воздуха. Место для честной альтернативы открыто.",
+  "idea": {
+   "pitch": "Берёшь свой маршрут, и приложение раскладывает по нему прогноз во времени: в 8:20 на 12-м километре встречный ветер 6 м/с и +9, к 10:00 у перевала морось. Понимаешь, во что одеться, брать ли дождевик и когда лучше выехать, чтобы проскочить между грозами. Люди уже платят за эту идею, надо просто сделать надёжный дождь, честный бесплатный лимит и нормальный импорт маршрута из популярных планировщиков.",
+   "features": [
+    "Импорт маршрута файлом GPX или из планировщика, раскладка прогноза по точкам во времени",
+    "Слои встречный и попутный ветер, температура с поправкой на набор высоты, вероятность дождя, грозы и молнии",
+    "Подбор окна выезда покажет, в какой час риск дождя на пути минимален",
+    "Подсказка по экипировке по минимальной температуре на маршруте что взять из тёплого и дождевого",
+    "Качество воздуха вдоль пути, которое давно просят"
+   ],
+   "antiFeatures": [
+    "Не строим сам маршрут, только читаем чужой, чтобы не конкурировать с планировщиками",
+    "Не рисуем красивую бесполезную анимацию облаков вместо точного прогноза дождя",
+    "Не режем бесплатный доступ до пары прогнозов, чтобы человек успел убедиться в точности"
+   ],
+   "monetization": "Разовая покупка пакета прогнозов или подписка около 10-20 долларов в год. Ориентир: у нынешнего игрока люди готовы платить, но злятся на слишком короткий пробный лимит, честный запас бесплатных прогнозов удержит людей на старте."
+  }
+ },
+ {
+  "slug": "cycling-3",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Трекер, который не теряет заезд и даёт исправить забытую остановку",
+  "oneLiner": "Автосохранение каждой минуты и ручная правка поездки, чтобы не терять данные и чинить кривые паузы.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 88
+  },
+  "reviewGrid": [
+   {
+    "quote": "It would be nice to be able to edit a ride that I forgot to “end”. Would rather not delete my pre-Dawn 17 mile ride, but apparently I did not end it even though I did. Now the stats are wonky.",
+    "rating": 3,
+    "app": "Bike Ride Tracker: Bicycle GPS"
+   },
+   {
+    "quote": "I had several thousand miles worth of rides and walks recorded on this app. The app was acting up and would not respond even after power cycling my phone and restarting the app multiple times. I finally deleted the app and redownloaded it. All of my recorded rides are gone which is very upsetting.",
+    "rating": 1,
+    "app": "Bike GPS: Ride route tracker"
+   },
+   {
+    "quote": "I really like everything about this app, except it doesn’t record anything over 300 miles without crashing, doesn’t load saved trips very well and there isn’t a feedback option to message the developer",
+    "rating": 2,
+    "app": "Solo Trip"
+   },
+   {
+    "quote": "This is exactly what I was looking for. A simple way to track business miles I drive for tax deduction. The problem is that there is no way for me to manually edit/add trips if I forget to start the tracking.",
+    "rating": 2,
+    "app": "Solo Trip"
+   },
+   {
+    "quote": "I wish this app would automatically save because when I need to use my phone it loose my progress",
+    "rating": 2,
+    "app": "Biking Distance Tracker"
+   },
+   {
+    "quote": "I’ve twice lost ride data because I swiped the app before I hit the little save link (maybe I’m missing an auto-save setting?).",
+    "rating": 4,
+    "app": "bike.App - GPS for Cycling"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Трекер, который не теряет заезд и даёт исправить забытую остановку",
+    "obsCount": 52,
+    "apps": [
+     "Bike Ride Tracker: Bicycle GPS",
+     "Bike GPS: Ride route tracker",
+     "Solo Trip",
+     "Biking Distance Tracker",
+     "bike.App - GPS for Cycling"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди хотят ручную правку и добавление забытой поездки задним числом",
+    "obsCount": 21,
+    "apps": [
+     "Bike Ride Tracker: Bicycle GPS",
+     "Solo Trip",
+     "Bike & Run Tracker - Cadence"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Почти в каждом трекере повторяется одна беда: заезд пропадает. Свернул приложение позвонить и потеря, сбой и вся история стёрта, забыл нажать стоп и цифры битые без возможности поправить. При этом ручной правки поездки почти нигде нет, а базовая просьба добавить забытый заезд или подрезать лишнюю паузу остаётся без ответа. Люди прямо говорят, что уходят из-за этого. Простой трекер, который надёжно сохраняет и позволяет чинить свои же данные, закрывает самую массовую боль ниши.",
+  "idea": {
+   "pitch": "Трекер, у которого сохранение это не кнопка в конце, а фоновая запись каждой минуты, так что даже вылет или потеря связи не стирают заезд. И полноценный редактор поездки: подрезать хвост, если забыл нажать стоп, удалить лишнюю паузу, добавить пропущенный заезд задним числом. За надёжность и правку люди платят, потому что альтернатива это терять сотни километров истории.",
+   "features": [
+    "Фоновое автосохранение точек, при вылете или перезапуске заезд восстанавливается целиком",
+    "Редактор поездки обрезать начало и конец, вырезать паузу, поправить время",
+    "Ручное добавление заезда постфактум расстояние, время, дата для забытых поездок",
+    "Годовые и накопительные итоги за месяц и год, которые многие просят",
+    "Экспорт в файл GPX или CSV, чтобы своя история всегда оставалась у владельца"
+   ],
+   "antiFeatures": [
+    "Не заставляем регистрироваться и заводить аккаунт, чтобы просто записать заезд",
+    "Не превращаем экран в рекламный щит поверх старта и итогов поездки",
+    "Не блокируем доступ к уже сохранённым заездам, если человек не продлил подписку"
+   ],
+   "monetization": "Разовая покупка около 5 долларов за редактор, накопительные итоги и экспорт, базовая запись бесплатна. Ориентир: люди в нише спокойно платят 5 долларов за трекер и особенно ценят разовую оплату вместо подписки."
+  }
+ },
+ {
+  "slug": "cycling-4",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Велокомпьютер из телефона со всеми датчиками без подписки",
+  "oneLiner": "Собирает скорость, каденс, пульс и мощность с любых Bluetooth-датчиков на большой настраиваемый экран, заменяя железку за 600 долларов.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 40
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app is everything I was looking for, and then some. There’s no need to buy a $600 bike computer when you already have a smartphone that’s more than capable of doing the job and it’s something you should be carrying anyway in case of an emergency. Pair your phone with a Quad Lock out-front moun",
+    "rating": 5,
+    "app": "Bike & Run Tracker - Cadence"
+   },
+   {
+    "quote": "This app is wonderful! I have been looking for quite some time for a simple app to replace a dedicated bike computer. This one ticks the major boxes with power meter support, speed, cadence and heart rate. So nice to find an app that is not a subscription.",
+    "rating": 5,
+    "app": "SuperCycle Bike Computer"
+   },
+   {
+    "quote": "I use this instead of a bike computer to do dual power recording on Zwift rides and it works great! It works better than my old bike computer for this purpose.",
+    "rating": 5,
+    "app": "SuperCycle Bike Computer"
+   },
+   {
+    "quote": "I have been running this app for 2 years and have gotten rid of my expensive dedicated cycling computers because they seem lame by comparison The displays are super easy to read day or night",
+    "rating": 5,
+    "app": "CycleComputer"
+   },
+   {
+    "quote": "Great app. Very customizable as to what it shows during a ride. Loved it until this week when it began shutting down without warning mid-ride.",
+    "rating": 4,
+    "app": "SuperCycle Bike Computer"
+   },
+   {
+    "quote": "Great app for tracking my ride. I have the paid version and it works great on my iPhone XS. However, there's no way I'm going almost 40 mph as a top speed.",
+    "rating": 4,
+    "app": "Fitmeter Bike - GPS Cycling"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Велокомпьютер из телефона со всеми датчиками без подписки",
+    "obsCount": 26,
+    "apps": [
+     "SuperCycle Bike Computer",
+     "CycleComputer",
+     "Bike & Run Tracker - Cadence"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Крупный настраиваемый экран, читаемый на солнце и днём и ночью",
+    "obsCount": 14,
+    "apps": [
+     "CycleComputer",
+     "SuperCycle Bike Computer",
+     "Bike Computer - GPS Tracker"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Отдельный велокомпьютер стоит 300-600 долларов, а телефон уже в кармане и умеет связаться с датчиками по Bluetooth. Люди прямо радуются, когда находят приложение, которое собирает скорость, каденс, пульс и мощность на большой настраиваемый экран и не просит подписку. Но у таких приложений хромает надёжность: гаснет посреди заезда, врёт по максимальной скорости на автопаузах, слабо тянет фон. Крепкий, стабильный велокомпьютер из телефона с честной разовой оплатой это готовый спрос.",
+  "idea": {
+   "pitch": "Превращаем телефон в велокомпьютер: подключаем любые Bluetooth-датчики скорости, каденса, пульса и мощности, показываем всё на крупном настраиваемом экране, который видно на солнце. Главное отличие от толпы похожих приложений это надёжность, экран не гаснет и не глохнет посреди заезда, и разумный расход батареи. Люди уже выбрасывают железки за сотни долларов ради такого, надо лишь не подводить их в середине поездки.",
+   "features": [
+    "Подключение датчиков Bluetooth скорость, каденс, пульс, мощность, поддержка нескольких сразу",
+    "Настраиваемый экран сам выбираешь, какие цифры и где, крупный шрифт, тёмная тема для солнца",
+    "Умная автопауза без ложных скачков максимальной скорости после стоянки",
+    "Экономный фоновый режим, чтобы длинный заезд не съедал батарею за час",
+    "Запись мощности с двух источников для тех, кто крутит станок в Zwift"
+   ],
+   "antiFeatures": [
+    "Не навязываем подписку за то, что телефон и датчики делают сами",
+    "Не строим соцсеть и ленту, это прибор, а не место для лайков",
+    "Не требуем интернет для показа скорости и каденса, всё работает офлайн"
+   ],
+   "monetization": "Разовая покупка Pro около 8 долларов за настройку экрана, все датчики и запись мощности, базовый спидометр бесплатно. Ориентир: люди прямо пишут, что счастливы платить один раз до 8 долларов и не хотят подписку, а альтернатива это прибор за 300-600 долларов."
+  }
+ },
+ {
+  "slug": "cycling-5",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Точный одометр по калибровке колеса, а не по прыгающему GPS",
+  "oneLiner": "Считает расстояние по датчику оборота колеса с ручной калибровкой, чтобы цифры совпадали с реальностью, а не врали на 10-20%.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 33
+  },
+  "reviewGrid": [
+   {
+    "quote": "The biggest problem with this app is accuracy. It is 10-20% off on distance (compared with either GPS or odometer methods). At sea level is indicates 120 ft above sea level. It’s clock appears about right. Its interface is nice, but what good is a nice interface if the data are wrong?",
+    "rating": 2,
+    "app": "Biking Distance Tracker"
+   },
+   {
+    "quote": "Using the free version. I love the displays and the overall concept. What’s keeping me from buying the full version is that the distance is consistently underreported.",
+    "rating": 4,
+    "app": "CycleComputer"
+   },
+   {
+    "quote": "I have two bikes that use this app. On one bike, it gives the speed and distance at about 1.5x. So when I’m doing 10mph it says 15. I go 5 miles it says 7. Useless.",
+    "rating": 2,
+    "app": "Cannondale"
+   },
+   {
+    "quote": "Nice app but the gps tracker is way off . When I hit the measured 1 mile it only shows .91 miles They need to correct this.",
+    "rating": 4,
+    "app": "Cyclemeter Cycling GPS Tracker"
+   },
+   {
+    "quote": "I’ve found this app to be accurate with speed and distance. I was clocked by a portable police radar unit on a ride and it’s speed display matched my app display on my iPhone.",
+    "rating": 5,
+    "app": "Bike Ride Tracker: Bicycle GPS"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Точный одометр по калибровке колеса, а не по прыгающему GPS",
+    "obsCount": 22,
+    "apps": [
+     "Biking Distance Tracker",
+     "CycleComputer",
+     "Cannondale",
+     "Cyclemeter Cycling GPS Tracker"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди сверяют цифры с одометром и радаром и уходят при расхождении",
+    "obsCount": 11,
+    "apps": [
+     "Biking Distance Tracker",
+     "Cannondale",
+     "Bike Ride Tracker: Bicycle GPS"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "GPS в телефоне скачет: то занижает на 10-20 процентов, то показывает 40 миль в час на ровном месте, то рисует путь сквозь дома. Люди сверяют приложение с одометром и даже с полицейским радаром и бросают его, если цифры врут. Почти никто не даёт нормальной калибровки: задать размер колеса, считать по датчику оборота, подогнать под контрольную милю. Точный одометр с честной калибровкой, где число можно доверять, закрывает боль, которая всплывает в каждой второй ветке отзывов.",
+  "idea": {
+   "pitch": "Считаем расстояние честно. Основа это датчик оборота колеса плюс ручная калибровка: вводишь точный размер обода, прокатываешь контрольный участок и подгоняешь коэффициент так, чтобы приложение совпало с реальностью. GPS только подстраховка, а не главный источник. Люди сверяют цифры с одометром и радаром и платят за то, что можно наконец доверять расстоянию и скорости, а не спорить с ними после каждого заезда.",
+   "features": [
+    "Калибровка по контрольному участку прокатил размеченную милю, приложение подстроило коэффициент",
+    "Точный ввод размера колеса и обода, чтобы датчик оборота считал без ошибки",
+    "Фильтр выбросов скорости никаких 40 миль в час на ровной дороге после паузы",
+    "Отдельно расстояние по датчику колеса и по GPS, видно расхождение",
+    "Сверка с внешним источником отметь эталонную дистанцию, приложение покажет свою погрешность"
+   ],
+   "antiFeatures": [
+    "Не выдаём сырой прыгающий GPS за точные данные",
+    "Не прячем калибровку глубоко в настройках, это главная функция на видном месте",
+    "Не раздуваем прибор лишними экранами в ущерб чистоте одной цифры расстояния"
+   ],
+   "monetization": "Разовая покупка около 6 долларов за калибровку по датчику колеса и фильтр выбросов, базовый GPS-трек бесплатно. Ориентир: люди в нише платят 5-8 долларов за трекер и прямо пишут, что точность это то, ради чего они готовы отдать деньги или уйти."
+  }
+ },
+ {
+  "slug": "cycling-6",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Запас хода электровелосипеда в процентах и километрах",
+  "oneLiner": "Показывает точный заряд мотора в процентах и честный остаток хода до дома, а не три бесполезные палочки.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 27
+  },
+  "reviewGrid": [
+   {
+    "quote": "The one feature I need is the actual battery percentage. I’d like to know if I have 18% or 2% left. Bars are inadequate. I’m highly disappointed as this is a safety issue",
+    "rating": 1,
+    "app": "E-TUBE RIDE"
+   },
+   {
+    "quote": "The app doesn’t show battery status or pedal assist mode while on a ride. That would be useful info.",
+    "rating": 2,
+    "app": "Cannondale"
+   },
+   {
+    "quote": "I love this app but it’s only good for short rides. I did a 40 mile ride this weekend and my 100% charged phone died after 20 miles.",
+    "rating": 3,
+    "app": "Cannondale"
+   },
+   {
+    "quote": "Used the app to record my first route and it completely drained by battery after 90 mins of use.",
+    "rating": 3,
+    "app": "Aventon: MyRide"
+   },
+   {
+    "quote": "Does a lot in one app, but the best part is being able to customize in great detail how my electric motor works, so I can turn it right down for long range and a slight boost, all the way up to the 300W juggernaut for steep hills.",
+    "rating": 5,
+    "app": "Trek Central"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Запас хода электровелосипеда в процентах и километрах",
+    "obsCount": 17,
+    "apps": [
+     "E-TUBE RIDE",
+     "Cannondale",
+     "Trek Central"
+    ],
+    "polarity": "pain"
+   },
+   {
+    "title": "Люди балансируют режим помощи, чтобы дотянуть до дома, но не видят честный остаток",
+    "obsCount": 10,
+    "apps": [
+     "Trek Central",
+     "Cannondale",
+     "Aventon: MyRide"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "У владельцев электровелосипедов самый нервный вопрос это доеду ли я домой. А фирменные приложения показывают заряд тремя палочками и не дают ни процента, ни остатка километров, при этом один прямо называет это вопросом безопасности. Люди вручную крутят режим помощи, чтобы дотянуть до дома, но у них нет честной оценки запаса хода под текущий уровень поддержки, рельеф и ветер. Отдельное приложение, которое читает мотор по стандартному протоколу и переводит заряд в понятные проценты и километры до разряда, снимает реальную тревогу.",
+  "idea": {
+   "pitch": "Приложение про одно: сколько мне ещё ехать на этом заряде. Подключается к мотору по Bluetooth, показывает точный процент, а не палочки, и честный остаток хода в километрах с учётом выбранного режима помощи и рельефа впереди. Подсказывает, на какой уровень поддержки перейти, чтобы гарантированно дотянуть до дома. За снятие тревоги о разряде люди платят, потому что альтернатива это встать посреди дороги с тяжёлым разряженным велосипедом.",
+   "features": [
+    "Точный заряд мотора в процентах вместо трёх палочек",
+    "Остаток хода в километрах под текущий режим помощи, обновляется по ходу заезда",
+    "Подсказка снизь помощь, чтобы дотянуть до дома с учётом оставшегося пути",
+    "Расход на километр по режимам, видно, во сколько обходится каждый уровень поддержки",
+    "Экономный режим экрана, чтобы само приложение не сажало телефон за час"
+   ],
+   "antiFeatures": [
+    "Не дублируем прошивочные функции завода вроде обновления мотора, это не наша зона",
+    "Не привязываемся к одному бренду, работаем с распространёнными протоколами мотора",
+    "Не превращаем экран в постоянно горящую карту, которая убивает батарею телефона"
+   ],
+   "monetization": "Подписка около 3-4 долларов в месяц или разовая покупка за точный процент и расчёт запаса хода, базовое подключение бесплатно. Ориентир: владельцы электровелосипедов уже вложили тысячи в сам байк, небольшая плата за спокойствие о разряде для них незаметна."
+  }
+ },
+ {
+  "slug": "cycling-7",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Совместные заезды рядом с тобой на карте",
+  "oneLiner": "Находит и создаёт групповые велозаезды поблизости с местом, временем, темпом и типом покрытия, чтобы не искать компанию по разрозненным чатам.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 21
+  },
+  "reviewGrid": [
+   {
+    "quote": "I’ve been riding groups for years, and this app is a GAME CHANGER. Now I can find new groups, at home or on the road, and I always know what to expect. Every cyclist should have this app, and should be using it to create group rides of their own or find great ones nearby to join!",
+    "rating": 5,
+    "app": "Chasing Watts"
+   },
+   {
+    "quote": "This is awesome for finding rides. I didn’t know there were rides every day of the week right near my house. I’m looking forward to seeing this app gain adoption in other cities.",
+    "rating": 5,
+    "app": "Chasing Watts"
+   },
+   {
+    "quote": "I feel bad for other cities that don’t have this. This app is SO helpful in finding local rides.",
+    "rating": 5,
+    "app": "Chasing Watts"
+   },
+   {
+    "quote": "As a road cyclist, this is SO needed. I hope enough ride organizers pick it up so I can use this to find group rides wherever I go!",
+    "rating": 5,
+    "app": "Chasing Watts"
+   },
+   {
+    "quote": "Interface looks great, feels like a Facebook for biking!",
+    "rating": 5,
+    "app": "AVR Base"
+   },
+   {
+    "quote": "Not sure why this app is trying to charge when you can easily meet people at the trailhead or through other apps like Trailforks/Axir/bikeslice for free.",
+    "rating": 1,
+    "app": "AVR Base"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Совместные заезды рядом с тобой на карте",
+    "obsCount": 16,
+    "apps": [
+     "Chasing Watts",
+     "AVR Base"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Ценность растёт, только когда в городе набирается критичная масса организаторов",
+    "obsCount": 8,
+    "apps": [
+     "Chasing Watts",
+     "AVR Base"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Когда в городе появляется место, где видно все групповые заезды на неделю с точкой сбора, временем и темпом, велосипедисты в восторге и называют это тем, чего давно не хватало. Проблема существующих попыток в том, что заезды разбросаны по разрозненным чатам и клубам, а одно приложение с этим запустилось, но местами глючит и тормозит из-за нехватки участников. Ниша прямо просит расширения на новые города. Аккуратная, быстрая карта заездов, поднятая по одному городу за раз, ловит уже доказанный спрос.",
+  "idea": {
+   "pitch": "Карта, на которой видно все групповые заезды рядом: где сбор, во сколько, какой темп, дорога или грунт, сколько уже собралось. Организатор за минуту создаёт заезд, а гость на новом месте сразу видит, к кому присоединиться. Люди называют такое незаменимым и мечтают, чтобы оно появилось в их городе. Запускаем по одному городу, набираем плотность организаторов и растём дальше, а не размазываемся пустой картой по всему миру.",
+   "features": [
+    "Карта ближайших заездов с точкой сбора, временем, темпом и типом покрытия дорога, гравий, горный",
+    "Создание заезда за минуту, повтор для регулярных клубных выездов по расписанию",
+    "Фильтр по темпу и уровню, чтобы новичок не попал случайно на гонку",
+    "Чат заезда для деталей маршрута и переносов, напоминание перед стартом",
+    "Витрина города видно активность, чтобы приезжий сразу нашёл, с кем прокатиться"
+   ],
+   "antiFeatures": [
+    "Не берём денег с участников за то, что раньше собирались у трейлхеда бесплатно",
+    "Не запускаемся сразу на весь мир, где карта будет пустой и бесполезной",
+    "Не превращаемся в тяжёлую ленту, ядро это быстрый поиск ближайшего заезда"
+   ],
+   "monetization": "Бесплатно для рядовых участников, платные возможности для организаторов и клубов около 5-10 долларов в месяц: закреп заезда, страница клуба, аналитика посещаемости. Ориентир: организаторы вроде клубов уже продвигают такие заезды и заинтересованы платить за охват, а с обычных ездоков брать нельзя, это отпугивает, как в жалобе на платную попытку конкурента."
+  }
+ },
+ {
+  "slug": "cycling-8",
+  "category": "cycling",
+  "categoryName": "Велоспорт и велотрекеры",
+  "title": "Гараж велосипеда с напоминаниями об обслуживании",
+  "oneLiner": "Ведёт пробег каждого велосипеда и напоминает про цепь, тормоза и ТО по километрам, а не когда уже поздно.",
+  "asOf": "2026-07-03",
+  "stats": {
+   "apps": 55,
+   "reviews": 1319,
+   "observations": 19
+  },
+  "reviewGrid": [
+   {
+    "quote": "On the + side - The app works reliably, integrates with the Apple fitness app, smart lights, and Garmin radar well. It monitors multiple (and non Cannondale) bicycles. I love the service feature that tells you when your bike needs maintenance.",
+    "rating": 3,
+    "app": "Cannondale"
+   },
+   {
+    "quote": "I use this app on every ride to help keep track of the service intervals on my Cannondale bikes. It works and pairs well via Bluetooth to the wheel sensor.",
+    "rating": 4,
+    "app": "Cannondale"
+   },
+   {
+    "quote": "Great to track the bike garage and capture the original bike specs, would love to see features to capture individual preferences based on bike, such as bike part upgrades and also settings ie saddle height and position on a road bike or front/rear shock settings (sag, pressure etc). One place to tra",
+    "rating": 3,
+    "app": "Canyon"
+   },
+   {
+    "quote": "having a full suspension bike, it would be nice to have a setup table,",
+    "rating": 4,
+    "app": "Canyon"
+   },
+   {
+    "quote": "My only issue with the app is you can’t search for users. My wife and I both bought a bike and want to follow each other to compare rides and such, but we can’t.",
+    "rating": 3,
+    "app": "Aventon: MyRide"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Гараж велосипеда с напоминаниями об обслуживании",
+    "obsCount": 13,
+    "apps": [
+     "Cannondale",
+     "Canyon"
+    ],
+    "polarity": "love"
+   },
+   {
+    "title": "Люди хотят хранить настройки посадки и подвески и апгрейды деталей в одном месте",
+    "obsCount": 7,
+    "apps": [
+     "Canyon"
+    ],
+    "polarity": "love"
+   }
+  ],
+  "gap": "Функцию обслуживания, которая по пробегу подсказывает, когда пора обслужить велосипед, люди прямо называют любимой и пользуются ей каждый заезд. Но живёт она только внутри фирменных приложений одного бренда и не считает пробег на других велосипедах. А ведь у многих в гараже несколько байков разных марок. Плюс просят хранить настройки посадки, сага и давления подвески, апгрейды деталей в одном месте. Независимый гараж, который ведёт пробег любого велосипеда и напоминает про ТО, закрывает это без привязки к марке.",
+  "idea": {
+   "pitch": "Один гараж для всех твоих велосипедов независимо от марки. Приложение копит пробег по каждому байку и напоминает по километрам: смазать и проверить цепь, прокачать тормоза, обслужить вилку, отвезти на ТО. Тут же хранишь настройки: высота седла, вынос, сага и давление подвески, список установленных апгрейдов. Людям это нравится настолько, что они пользуются каждый заезд, но им тесно в рамках одного бренда, и они готовы платить за гараж без привязки к марке.",
+   "features": [
+    "Несколько велосипедов любой марки, пробег считается по каждому отдельно",
+    "Напоминания по километрам цепь, тормоза, вилка, полное ТО с настройкой порогов",
+    "Карточка настроек высота седла и вынос, сага и давление подвески спереди и сзади",
+    "Журнал апгрейдов и замен деталей с датой и пробегом на момент установки",
+    "Импорт пробега из трекера или ручной ввод, чтобы считать без своего датчика"
+   ],
+   "antiFeatures": [
+    "Не привязываемся к одной марке, гараж для любых велосипедов",
+    "Не строим магазин запчастей и не гоним к продаже, это журнал, а не витрина",
+    "Не требуем фирменный датчик, пробег можно добавлять из любого трекера или руками"
+   ],
+   "monetization": "Разовая покупка около 5-7 долларов или подписка 2-3 доллара в месяц за несколько велосипедов, гибкие интервалы ТО и журнал апгрейдов, один велосипед бесплатно. Ориентир: владельцы вкладывают тысячи в велосипеды и детали, малая плата за порядок в обслуживании для них незаметна."
   }
  }
 ]

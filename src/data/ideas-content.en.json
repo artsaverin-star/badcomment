@@ -7709,144 +7709,144 @@
   "monetization": "People actively losing weight are the most willing to pay: the 'down 20 pounds in a month' stories sit right next to chart complaints in the reviews. A subscription at $30-40 a year for the combined weight-and-fasts screen, annotations, and CSV export. That's the same as people already pay Zero and Senza, without getting the connection between the two lines."
  },
  "cycling-1": {
-  "categoryName": "Cycling and Training",
-  "title": "Safe Cycling Route Planner",
-  "oneLiner": "Navigation that builds routes only through bike lanes and quiet streets, never along highways",
-  "gap": "Every route planner picks the shortest path and sends cyclists onto high-speed roads, shoulders, and closed streets. No service treats road safety as more important than travel time.",
-  "pitch": "The service plans routes exclusively through bike lanes, residential streets, and low-speed roads. The rider sets an acceptable risk level and the algorithm removes highways, arterials, and private-property shortcuts. Target audience: daily urban cyclists and tourists who do not want to gamble five minutes of travel time against their safety.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "Routes verified by real cyclists",
+  "oneLiner": "A planner that builds only along genuinely rideable roads, instead of pushing you into mud, brush and onto a highway.",
+  "gap": "Every planner builds a route from maps, and maps do not know where a trail is overgrown, where there is construction, where a crossing is blocked and where a midblock crossing runs over an actual highway. Time and again people end up in mud, in thorns, in private property and in dangerous traffic, because the algorithm sees a line on the map and assumes it is rideable. What is missing is a layer of reality over the map. A route where every segment is confirmed by the fact that someone actually rode a bike there, with the surface type and a flag for dangerous spots.",
+  "pitch": "A planner where the basis of the route is not an abstract map but the traces of real rides. You build a path, and the app highlights every segment by color. Green means people ride here regularly, gray means there is no data, red means people flagged mud, construction or a dangerous crossing. You pay so you do not end up in the thorns with a child in the trailer. The demand is already visible: people love the idea of a smart route itself, but they abandon the app after the first plunge into an impassable dead end.",
   "features": [
-   "Safety rating for every road segment (bike lane, residential street, highway, shoulder)",
-   "Filters for bike-lane-only routes and highway avoidance during planning",
-   "Crowdsourced hazard markers contributed by the community",
-   "Offline maps with pre-downloaded routes and real-time voice guidance without delay",
-   "Custom start point selection so you are not locked to your current location"
+   "Every route segment colored by the frequency of real rides and by surface type asphalt, gravel, dirt",
+   "A one-tap flag for construction, a blocked crossing, overgrowth, a dangerous crossing, visible to everyone after you",
+   "A filter before building avoid dirt, avoid busy roads, do not build through midblock crossings",
+   "An offline map of the area downloaded ahead of time, works without a connection in the woods and on the road",
+   "A large navigation screen with one clear arrow and the next turn, readable in sunlight"
   ],
   "antiFeatures": [
-   "Social feed and friends activity stream",
-   "Segment comparisons and speed leaderboards",
-   "Workout and power tracking"
+   "We are not building a social network with a feed, likes and follows",
+   "We are not chasing global coverage, better to densely cover one region than the whole world in dotted lines",
+   "We are not hiding basic route building behind a subscription, only pro coverage and offline are paid"
   ],
-  "monetization": "Commuter cyclists pay a monthly subscription for offline maps and up-to-date road safety data. B2B: tour operators and bike rental companies pay for a white-label version and an API to embed in their own apps."
+  "monetization": "A one-time Pro purchase or a subscription of about 4-5 dollars a month for offline maps, coverage flags and dangerous-spot filters. Benchmark from the niche: Trailforks charges 54-60 dollars a year and people complain about outdated data, so the price is tolerable if the data is alive."
  },
  "cycling-2": {
-  "categoryName": "Cycling and Training",
-  "title": "Reliable Ride Tracker",
-  "oneLiner": "A tracker that records the full ride without gaps even when the screen is off or you switch apps",
-  "gap": "Cyclists lose data from entire trips because the operating system suspends the app when the screen turns off. After a two-hour ride they find either an empty track or a straight line cutting through buildings.",
-  "pitch": "The background tracker runs as a system service protected from battery-kill on both Android and iOS. GPS points are written to a local database every second, and the track survives crashes, lost connectivity, and app switches. The product covers one fundamental need: record the complete ride.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "Weather along the whole route, not at a single point",
+  "oneLiner": "Shows rain, wind and temperature by time at every point of your ride, so you dress right and do not get caught in a downpour.",
+  "gap": "Ordinary weather shows a single point, while over three hours a cyclist rides through several weather zones and climbs to where it is colder. People say outright that they have not found another app that reads their route and lays out the weather by time along the path. It is a category with one notable player, and it has weak spots: it lies about rain, has a clunky tie-in with planners, a short free limit, no air quality. There is room for an honest alternative.",
+  "pitch": "You take your route, and the app lays the forecast out along it by time: at 8:20 at kilometer 12 a headwind of 6 m/s and +9, by 10:00 at the pass a drizzle. You understand what to wear, whether to take a rain jacket and when to set off to slip between the storms. People already pay for this idea, you just have to make the rain reliable, the free limit honest and a decent route import from the popular planners.",
   "features": [
-   "Background recording as a foreground service with a persistent notification the system cannot kill",
-   "Every GPS point saved locally in real time so nothing is lost on crash",
-   "Adaptive battery mode: fewer points on straight segments, more on corners",
-   "Automatic GPS recovery after signal loss with flagged gaps in the track",
-   "Export to GPX, FIT, and KML without a subscription"
+   "Route import via a GPX file or from a planner, forecast laid out point by point over time",
+   "Layers for headwind and tailwind, temperature adjusted for elevation gain, probability of rain, thunderstorms and lightning",
+   "A departure-window picker shows in which hour the risk of rain on your path is lowest",
+   "A gear tip based on the minimum temperature on the route, what to take of the warm and rain kit",
+   "Air quality along the path, which people have long asked for"
   ],
   "antiFeatures": [
-   "Route planner",
-   "Social features and activity feed",
-   "Training plans and coaching"
+   "We do not build the route itself, we only read someone else's, so as not to compete with planners",
+   "We do not draw a pretty useless cloud animation instead of an accurate rain forecast",
+   "We do not cut the free access down to a couple of forecasts, so the person has time to confirm the accuracy"
   ],
-  "monetization": "One-time app purchase with no subscription. Optional cloud track storage for those who want sync across devices."
+  "monetization": "A one-time purchase of a forecast pack or a subscription of about 10-20 dollars a year. Benchmark: with the current player people are willing to pay but get angry at too short a trial limit, an honest reserve of free forecasts will keep people at the start."
  },
  "cycling-3": {
-  "categoryName": "Cycling and Training",
-  "title": "Cycling Club Management Platform",
-  "oneLiner": "A tool for cycling club coaches: plan group rides, manage schedules, track attendance, and maintain a shared route archive",
-  "gap": "Cycling club coaches manage groups through messengers and spreadsheets. There is no dedicated tool for scheduling group rides, collecting RSVPs, storing club routes, and tracking attendance.",
-  "pitch": "A B2B platform for cycling clubs: the coach creates a ride with a route, members register in one place, and after the ride all GPS tracks are collected into the club's shared history. Clubs already pay for organisation, equipment, and insurance, so the payment habit is in place.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "A tracker that never loses a ride and lets you fix a forgotten stop",
+  "oneLiner": "Autosave of every minute and manual editing of the ride, so you never lose data and can fix broken pauses.",
+  "gap": "Almost every tracker repeats the same trouble: the ride vanishes. Minimize the app to take a call and it is lost, a crash and the whole history is wiped, forget to hit stop and the numbers are broken with no way to fix them. Meanwhile there is almost nowhere to manually edit a ride, and the basic request to add a forgotten ride or trim an extra pause goes unanswered. People say outright they leave because of this. A simple tracker that reliably saves and lets you fix your own data closes the most widespread pain in the niche.",
+  "pitch": "A tracker where saving is not a button at the end but background recording of every minute, so that even a crash or a lost connection does not wipe the ride. And a full ride editor: trim the tail if you forgot to hit stop, delete an extra pause, add a missed ride after the fact. People pay for reliability and editing, because the alternative is losing hundreds of kilometers of history.",
   "features": [
-   "Group ride creation with route, date, difficulty level, and participant cap",
-   "Shared club route library with ratings and coach notes",
-   "Attendance tracking and participation history for each club member",
-   "Ride chat with automatic notifications for cancellations or changes",
-   "Strava integration to import participant tracks into the shared history"
+   "Background autosave of points, on a crash or restart the ride is restored in full",
+   "A ride editor to trim the start and end, cut out a pause, fix the time",
+   "Manual addition of a ride after the fact distance, time, date for forgotten rides",
+   "Yearly and cumulative totals for the month and year, which many ask for",
+   "Export to a GPX or CSV file, so your own history always stays with the owner"
   ],
   "antiFeatures": [
-   "Individual training plans",
-   "Power and physiology analysis",
-   "Route planner for solo rides"
+   "We do not force you to register and set up an account just to record a ride",
+   "We do not turn the screen into a billboard over the start and totals of the ride",
+   "We do not block access to already saved rides if the person did not renew the subscription"
   ],
-  "monetization": "Club subscription for up to 30 members, with a higher tier for unlimited size. Clubs with 20 or more active members already spend more on venue fees, so the price point is not an obstacle."
+  "monetization": "A one-time purchase of about 5 dollars for the editor, cumulative totals and export, basic recording is free. Benchmark: people in the niche calmly pay 5 dollars for a tracker and especially value a one-time payment over a subscription."
  },
  "cycling-4": {
-  "categoryName": "Cycling and Training",
-  "title": "Home Cycling Workouts Without the Setup",
-  "oneLiner": "A smart trainer app that starts in ten seconds and does not demand large updates before every ride",
-  "gap": "Smart trainer owners spend 15 to 30 minutes connecting devices and installing updates before each workout. Zwift and Rouvy require several gigabytes of updates and often freeze mid-ride, killing motivation.",
-  "pitch": "A minimal smart-trainer client: open it, the trainer connects automatically, press start. Updates download silently in the background with no forced update before the session begins. You pay for reliability, not a virtual world with an avatar.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "A bike computer from your phone with all sensors and no subscription",
+  "oneLiner": "Pulls speed, cadence, heart rate and power from any Bluetooth sensors onto a large customizable screen, replacing a 600 dollar gadget.",
+  "gap": "A separate bike computer costs 300-600 dollars, while the phone is already in your pocket and can connect to sensors over Bluetooth. People are genuinely happy when they find an app that pulls speed, cadence, heart rate and power onto a large customizable screen and asks for no subscription. But such apps are shaky on reliability: they go dark mid-ride, lie about top speed on auto-pauses, run poorly in the background. A solid, stable bike computer from your phone with an honest one-time payment is ready demand.",
+  "pitch": "We turn the phone into a bike computer: connect any Bluetooth sensors for speed, cadence, heart rate and power, show it all on a large customizable screen visible in sunlight. The main difference from the crowd of similar apps is reliability, the screen does not go dark or die mid-ride, and reasonable battery use. People already throw out gadgets worth hundreds of dollars for this, you just have to not let them down in the middle of a ride.",
   "features": [
-   "Automatic reconnection to the trainer on Bluetooth drop",
-   "Background updates that never block the start of a workout",
-   "Structured workouts (intervals, climbs, VO2max) with trainer resistance control",
-   "Lightweight real-road video routes without heavy 3D graphics",
-   "Support for all ANT+ and Bluetooth sensors regardless of brand"
+   "Bluetooth sensor connection for speed, cadence, heart rate, power, support for several at once",
+   "A customizable screen where you choose which numbers go where, large font, a dark theme for sunlight",
+   "Smart auto-pause with no false spikes of top speed after a stop",
+   "An economical background mode so a long ride does not eat the battery in an hour",
+   "Dual-source power recording for those who spin the trainer in Zwift"
   ],
   "antiFeatures": [
-   "Multiplayer races and avatar worlds",
-   "Gamification and achievement badges",
-   "Social feed and ride comments"
+   "We do not push a subscription for what the phone and sensors do on their own",
+   "We do not build a social network and a feed, this is an instrument, not a place for likes",
+   "We do not require internet to show speed and cadence, everything works offline"
   ],
-  "monetization": "Monthly subscription at a price well below Zwift and Rouvy, whose users have already demonstrated willingness to pay for indoor cycling software."
+  "monetization": "A one-time Pro purchase of about 8 dollars for screen customization, all sensors and power recording, the basic speedometer is free. Benchmark: people say outright they are happy to pay once up to 8 dollars and do not want a subscription, and the alternative is a 300-600 dollar instrument."
  },
  "cycling-5": {
-  "categoryName": "Cycling and Training",
-  "title": "Fleet Management for Bike Rental Shops",
-  "oneLiner": "A CRM for bike rental businesses: track bikes, bookings, maintenance schedules, and guest routes in one place",
-  "gap": "Bike rental shops in tourist towns run on paper logs, messengers, and spreadsheets. There is no dedicated tool for fleet tracking, automated maintenance reminders, or online booking with payment.",
-  "pitch": "A web service for bike rentals: every bike has a card with its full service history, customers book online and receive a suggested route in the confirmation email. After the bike is returned the system logs the mileage and schedules the next service. Rental shop owners already pay for premises and inventory, so the payment habit exists.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "An accurate odometer from wheel calibration, not from jumpy GPS",
+  "oneLiner": "Counts distance from a wheel-revolution sensor with manual calibration, so the numbers match reality instead of being off by 10-20%.",
+  "gap": "The phone's GPS jumps: it undercounts by 10-20 percent, then shows 40 miles per hour on the flat, then draws a path through buildings. People check the app against an odometer and even against a police radar and abandon it if the numbers lie. Almost nobody offers proper calibration: set the wheel size, count from a revolution sensor, tune it to a control mile. An accurate odometer with honest calibration, where the number can be trusted, closes a pain that surfaces in every other review thread.",
+  "pitch": "We count distance honestly. The basis is a wheel-revolution sensor plus manual calibration: you enter the exact rim size, roll a control stretch and tune the coefficient so the app matches reality. GPS is only a backup, not the main source. People check the numbers against an odometer and a radar and pay to finally be able to trust distance and speed instead of arguing with them after every ride.",
   "features": [
-   "Bike card with maintenance history, odometer reading, and planned part replacements",
-   "Online booking with payment and automatic confirmation",
-   "Guest route cards delivered by QR code at pickup",
-   "Service reminders triggered by mileage or calendar date",
-   "Dashboard showing fleet utilization, revenue, and popular routes"
+   "Calibration by a control stretch you roll a marked mile and the app tunes the coefficient",
+   "Precise entry of wheel and rim size, so the revolution sensor counts without error",
+   "A speed-outlier filter no 40 miles per hour on a flat road after a pause",
+   "Distance shown separately by the wheel sensor and by GPS, the divergence is visible",
+   "A check against an external source mark the reference distance and the app shows its own error"
   ],
   "antiFeatures": [
-   "Athlete workout tracking",
-   "Power and physiology analysis",
-   "Social network for cyclists"
+   "We do not pass off raw jumpy GPS as accurate data",
+   "We do not hide calibration deep in settings, it is the main feature in plain sight",
+   "We do not bloat the instrument with extra screens at the expense of one clean distance number"
   ],
-  "monetization": "Business subscription up to 20 bikes, with a higher tier for unlimited fleet size. Additional revenue from a small commission on online bookings processed through the platform."
+  "monetization": "A one-time purchase of about 6 dollars for wheel-sensor calibration and the outlier filter, the basic GPS track is free. Benchmark: people in the niche pay 5-8 dollars for a tracker and say outright that accuracy is what they are ready to pay for or to leave over."
  },
  "cycling-6": {
-  "categoryName": "Cycling and Training",
-  "title": "Off-Road Route Planner with Surface Data",
-  "oneLiner": "A route planner for gravel and off-road cyclists that knows the surface type of every segment and filters routes by terrain",
-  "gap": "Off-road cyclists plan routes blind: neither Komoot nor Bikemap shows surface quality from real-world data. Riders find out on the spot that the attractive forest path on the map has turned into impassable mud after rain.",
-  "pitch": "A dedicated planner for gravel and off-road routes: every road segment is colour-coded by surface type (asphalt, dirt, gravel, grass) based on crowdsourced data and satellite imagery. A filter for bike type and acceptable surfaces removes surprises on the trail. Cyclists spend tens of thousands on gear and are willing to pay for navigation that does not mislead them.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "E-bike range in percent and kilometers",
+  "oneLiner": "Shows the exact motor charge in percent and an honest remaining range home, instead of three useless bars.",
+  "gap": "For e-bike owners the most anxious question is will I make it home. And branded apps show the charge with three bars and give neither a percent nor a kilometer remainder, while one even calls it a safety issue outright. People manually crank the assist mode to make it home, but they have no honest estimate of range for the current assist level, terrain and wind. A separate app that reads the motor over a standard protocol and translates the charge into clear percent and kilometers to empty removes a real anxiety.",
+  "pitch": "An app about one thing: how far can I still ride on this charge. It connects to the motor over Bluetooth, shows an exact percent instead of bars, and an honest remaining range in kilometers accounting for the chosen assist mode and the terrain ahead. It suggests which assist level to switch to in order to reliably make it home. People pay to remove the anxiety of running out of charge, because the alternative is stalling in the middle of the road with a heavy dead bike.",
   "features": [
-   "Surface-type map layer with up-to-date community data",
-   "Route filter by allowed surfaces for a specific bike",
-   "Seasonal warnings for segments that become impassable after rain or in winter",
-   "User track uploads with surface tagging",
-   "Offline maps for remote areas without mobile coverage"
+   "Exact motor charge in percent instead of three bars",
+   "Remaining range in kilometers for the current assist mode, updated as you ride",
+   "A tip to lower assist to make it home given the distance left",
+   "Consumption per kilometer by mode, showing what each assist level costs",
+   "An economical screen mode so the app itself does not drain the phone in an hour"
   ],
   "antiFeatures": [
-   "Training plans and fitness analysis",
-   "Social network and result comparisons",
-   "Navigation for urban commuter routes"
+   "We do not duplicate the factory's firmware functions like updating the motor, that is not our zone",
+   "We do not lock to one brand, we work with common motor protocols",
+   "We do not turn the screen into a constantly lit map that kills the phone battery"
   ],
-  "monetization": "Monthly or annual subscription. Additional PRO tier for gravel event organizers covering route preparation and GPX export for participants."
+  "monetization": "A subscription of about 3-4 dollars a month or a one-time purchase for the exact percent and range calculation, basic connection is free. Benchmark: e-bike owners have already put thousands into the bike itself, a small fee for peace of mind about the charge is invisible to them."
  },
  "cycling-7": {
-  "categoryName": "Cycling and Training",
-  "title": "Bike Maintenance Journal and Parts Tracker",
-  "oneLiner": "A personal logbook for your bike: reminders to replace consumables based on mileage, full service history, and a parts shop built in",
-  "gap": "Cyclists forget to replace the chain, brake pads, and lubricant because no one actually counts mileage and reminds them. A bike computer or Strava records kilometres but does not link them to the lifespan of specific parts.",
-  "pitch": "A bike logbook app: enter the model and components once, then mileage syncs from Strava or is entered manually, and the app tells you exactly when to replace the chain, lube the fork, and check the brakes. A bonus: partner shops suggest the right parts directly inside the replacement notification.",
+  "categoryName": "Cycling and bike trackers",
+  "title": "Group rides near you on the map",
+  "oneLiner": "Finds and creates group rides nearby with the place, time, pace and surface type, so you do not hunt for company across scattered chats.",
+  "gap": "When a city gets a place that shows all the group rides for the week with a meeting point, time and pace, cyclists are thrilled and call it something long missing. The trouble with existing attempts is that rides are scattered across separate chats and clubs, and one app launched with this but glitches and lags in places due to a lack of participants. The niche is asking outright to expand to new cities. A neat, fast ride map, raised one city at a time, catches an already proven demand.",
+  "pitch": "A map showing all the group rides nearby: where the meeting point is, at what time, what pace, road or dirt, how many have already gathered. An organizer creates a ride in a minute, and a guest in a new place immediately sees who to join. People call this indispensable and dream of it appearing in their city. We launch one city at a time, build up the density of organizers and grow from there, rather than spreading an empty map across the whole world.",
   "features": [
-   "Bike card listing all components with their mileage limits",
-   "Mileage sync from Strava and manual entry",
-   "Replacement reminders with mileage and date thresholds",
-   "Full maintenance log: what was replaced, when, where, and at what cost",
-   "Compatible parts finder with links to partner shops"
+   "A map of nearby rides with the meeting point, time, pace and surface type road, gravel, mountain",
+   "Creating a ride in a minute, a repeat for regular club outings on a schedule",
+   "A filter by pace and level, so a beginner does not accidentally land in a race",
+   "A ride chat for route details and reschedules, a reminder before the start",
+   "A city showcase shows the activity, so a visitor immediately finds someone to ride with"
   ],
   "antiFeatures": [
-   "Navigation and route planning",
-   "Workout and fitness analysis",
-   "Social features and peer comparisons"
+   "We do not charge participants for what used to gather at the trailhead for free",
+   "We do not launch worldwide at once, where the map would be empty and useless",
+   "We do not turn into a heavy feed, the core is a fast search for the nearest ride"
   ],
-  "monetization": "One-time purchase. Affiliate revenue from partner parts shops at a percentage of each purchase made through in-app links. Cyclists who invest heavily in their equipment spend regularly on maintenance."
+  "monetization": "Free for regular participants, paid features for organizers and clubs at about 5-10 dollars a month: pinning a ride, a club page, attendance analytics. Benchmark: organizers like clubs already promote such rides and are interested in paying for reach, while charging ordinary riders is not allowed, it scares them off, as in the complaint about a competitor's paid attempt."
  },
  "neobank-banking-1": {
   "categoryName": "Neobanks",
@@ -14965,5 +14965,25 @@
    "We do not dump everything at once, we show only the event types the person chose."
   ],
   "monetization": "Reminders for one event type and a week-ahead calendar are free. A one-time purchase of around 350 rubles unlocks all event types, the minutes setting, quiet hours, and a month-ahead calendar. A benchmark from the niche. Paid star apps in the niche cost a few dollars one-time, and people outright beg for the minutes setting, so they are ready to pay for it."
+ },
+ "cycling-8": {
+  "categoryName": "Cycling and bike trackers",
+  "title": "A bike garage with maintenance reminders",
+  "oneLiner": "Tracks the mileage of each bike and reminds you about the chain, brakes and service by kilometers, not when it is already too late.",
+  "gap": "The service feature that suggests by mileage when it is time to service the bike, people call a favorite outright and use it every ride. But it lives only inside the branded apps of a single brand and does not count mileage on other bikes. Yet many have several bikes of different brands in the garage. On top of that people ask to store fit settings, suspension sag and pressure, and part upgrades in one place. An independent garage that tracks the mileage of any bike and reminds about service closes this without a brand lock-in.",
+  "pitch": "One garage for all your bikes regardless of brand. The app accumulates mileage for each bike and reminds you by kilometers: lube and check the chain, bleed the brakes, service the fork, take it in for service. Right there you store the settings: saddle height, stem, suspension sag and pressure, the list of installed upgrades. People like it so much they use it every ride, but they feel cramped within one brand and are ready to pay for a garage without a brand lock-in.",
+  "features": [
+   "Several bikes of any brand, mileage counted for each one separately",
+   "Reminders by kilometers for the chain, brakes, fork, full service with adjustable thresholds",
+   "A settings card for saddle height and stem, suspension sag and pressure front and rear",
+   "A log of upgrades and part swaps with the date and the mileage at the time of install",
+   "Mileage import from a tracker or manual entry, to count without your own sensor"
+  ],
+  "antiFeatures": [
+   "We do not lock to one brand, the garage is for any bikes",
+   "We do not build a parts store and do not push toward a sale, this is a log, not a storefront",
+   "We do not require a branded sensor, mileage can be added from any tracker or by hand"
+  ],
+  "monetization": "A one-time purchase of about 5-7 dollars or a subscription of 2-3 dollars a month for several bikes, flexible service intervals and the upgrade log, one bike is free. Benchmark: owners put thousands into bikes and parts, a small fee for order in maintenance is invisible to them."
  }
 }
