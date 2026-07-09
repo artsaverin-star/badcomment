@@ -108,6 +108,7 @@ const NICHES_RAW = [
   { slug: "cycling", name: "Велоспорт и велотрекеры", nameEn: "Cycling & bike trackers", blurb: "55 приложений: где трек допишется до конца и маршрут не выведет на шоссе, а где цифры врут и прокладка опасна.", blurbEn: "55 apps: where the track finishes and the route won't dump you on a highway, and where the numbers lie and the routing is dangerous." },
   { slug: "interior-design", name: "Дизайн интерьера и планировка", nameEn: "Interior design & planning", blurb: "58 приложений: где комнату видно в новом виде до трат на ремонт, а где AI не слушает правки и берёт деньги за твой же план.", blurbEn: "58 apps: where you see the room redone before spending on the remodel, and where the AI ignores your edits and charges for your own plan." },
   { slug: "fishing", name: "Рыбалка", nameEn: "Fishing", blurb: "40 приложений: где прогноз клёва совпадает с водой и карта работает без связи, а где главную функцию прячут за подписку обновлением.", blurbEn: "40 apps: where the bite forecast matches the water and the map works offline, and where an update hides the core feature behind a subscription." },
+  { slug: "couples-relationship", name: "Приложения для пар", nameEn: "Couples & relationships", blurb: "35 приложений: где ежедневный ритуал держит пару и связь между телефонами надёжна, а где контент кончается и синхрон рвётся.", blurbEn: "35 apps: where a daily ritual keeps the couple close and the link between phones holds, and where the content runs out and sync breaks." },
 ];
 const NICHES = byNicheMoney(NICHES_RAW, (n) => n.slug);
 
