@@ -2014,5 +2014,37 @@
  "hiking-trails-8": {
   "whyPay": "The scenario is sound but narrow and low-money: a person with a paper topo map and no signal. Tomstrails lives on exactly this and people love it, but that is also where they flatly say even 99 cents for the full set feels stingy, so the price ceiling is low and the audience is thin (land nav enthusiasts, not the mass hiker). On the plus side it is almost trivial to build: coordinates from GPS, converting between UTM and lat-long formats, a compass, datums and copy to clipboard are pure on-device math with no signal, no login and no maps.",
   "targetSegment": "Walkers with a paper topo map and land nav fans who need precise coordinates offline and easy on the battery"
+ },
+ "teleprompter-captions-1": {
+  "whyPay": "Voice tracking is exactly what people buy an expensive prompter for. Reviewers openly rage at PromptSmart's $89 a year and pay anyway, because the feature is irreplaceable. The willingness to pay is high, but this is the hardest thing in the niche to build: you need a streaming speech recognizer with forced alignment to the script that survives pauses, stumbles, noise and accents. The built-in on-device Speech engine is weak here, and getting it stable almost certainly means heavy tuning or a cloud ASR, which drags in a backend and running costs. Very tough for a solo builder to make reliable.",
+  "targetSegment": "Solo video creators, actors filming self-tapes, and speakers who do not want to keep tweaking the speed by hand"
+ },
+ "teleprompter-captions-2": {
+  "whyPay": "The pain is real and common: prompters trap the shoot inside themselves, but people want to film in the native camera at 4K, in TikTok, and run Zoom calls. They pay to lift the floating-window limits, and reviewers praise Floating Notes lifetime as money well spent. Technically this is an overlay on top of other apps: iOS has no real always-on-top window over other apps (Picture-in-Picture is limited), so you fight the system boundaries, and on Android it means Draw Over Other Apps. Doable, but wrestling with platform limits and Zoom edge cases is a noticeable amount of work.",
+  "targetSegment": "Bloggers and experts who film in third-party cameras and apps, plus webinar and Zoom hosts"
+ },
+ "teleprompter-captions-3": {
+  "whyPay": "This is the most widespread pain in the whole niche: the recording is lost on save, exporting a long clip hangs and cooks the phone. People pay for reliability, but only indirectly, and they get furious when the paywall appears after an hour of shooting. Willingness to pay is moderate, because basic recording feels like it should be free. Technically it is heavy for a solo builder: reliable segmented video capture, finishing the file after an interruption, hardware encoding without overheating, and clean handling of the camera and memory. This is low-level AVFoundation work with all the edge cases of long sessions, where it is easy to hit the same bugs everyone else has.",
+  "targetSegment": "People filming long talking-head videos for work: coaches, teachers, and sellers who shoot for 30 to 60 minutes"
+ },
+ "teleprompter-captions-4": {
+  "whyPay": "An annoying little thing nobody has fixed: the speed and settings are not remembered per script. The value is real for people who read from the same set of texts regularly (hosts, musicians, pastors), but it is not a killer feature people will pay for in droves, more a nice convenience. Willingness to pay is below average and the audience is narrow. On the plus side it is trivial for a solo builder: per-script local settings storage, a smooth speed slider, folders and ordering. No speech recognition, no backend, just a clean offline text editor with scrolling.",
+  "targetSegment": "Performers with a repeat repertoire: event hosts, musicians reading song lyrics, speakers, and pastors"
+ },
+ "teleprompter-captions-5": {
+  "whyPay": "Everyone can auto-caption, but convenient, reliable manual editing is the gap people open the app for: a line sticks to its neighbor, timings drift after you save a draft. There is willingness to pay for a stable tool, but the subtitle-app market is crowded and trained on $48 to $50 a year subscriptions, so a one-time model for removing the watermark would stand out, yet the competition is brutal. Technically this is hard: your own video editor with a timeline, frame-by-frame subtitle dragging, splitting lines with timing recalculation, rock-solid project saving, and rendering with the text baked in. This is the largest option on the list by sheer volume of code.",
+  "targetSegment": "Creators of short vertical clips and podcasters who fine-tune subtitles to the frame by hand"
+ },
+ "teleprompter-captions-6": {
+  "whyPay": "A narrow but paying audience: stage performers whose hands are busy and who need to advance the prompter from a Bluetooth remote or pedal. In one review a person switched to a competitor at $90 a year over a broken remote, so people pay readily and above average for reliable control. Technically this sits in the middle: iOS receives events from Bluetooth remotes and keyboards as key presses, which is doable, but you need to polish the button mapping and connection stability over long sessions. No ASR and no built-in camera, so it is simpler than options 1, 3 and 5.",
+  "targetSegment": "Live performers with no assistant: musicians, speakers, and hosts of services and events using an external remote or pedal"
+ },
+ "teleprompter-captions-7": {
+  "whyPay": "Honest offline is a tangible value for people who film on the move without a signal, and they are irritated by forced sign-up, email codes and cloud features. But this is a defensive advantage, not something people rush to pay for: many expect a basic offline prompter to be free, so willingness to pay is below average. On the plus side it is one of the simplest builds: all text and settings stored locally, filming through AVFoundation, no server. The only wrinkle is that adding video recording brings back the same save risks from option 3, but a pure offline prompter without recording comes together easily.",
+  "targetSegment": "People filming out of signal range: travel bloggers, field shoots, studios with no Wi-Fi, and shooting on the road"
+ },
+ "teleprompter-captions-8": {
+  "whyPay": "Owners of a physical glass rig have already spent on hardware and need exactly one thing: mirrored text, or the app is useless. This is a loyal, paying crowd (a serious podcaster in one review could not even try it because the mirror was paywalled), but a narrow one. We give the mirror itself away for free so people can check compatibility, and charge for rig profiles and remote control, so the average ticket is modest. Technically it is very simple: mirroring the text is a CSS or CoreGraphics transform, plus settings profiles and receiving remote events. No built-in camera, no recognition, no backend.",
+  "targetSegment": "Owners of hardware prompter rigs with glass: studio hosts, podcasters, and tripod shooting over the lens"
  }
 }
