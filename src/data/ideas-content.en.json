@@ -7790,63 +7790,63 @@
  },
  "cycling-5": {
   "categoryName": "Cycling and bike trackers",
-  "title": "An accurate odometer from wheel calibration, not from jumpy GPS",
-  "oneLiner": "Counts distance from a wheel-revolution sensor with manual calibration, so the numbers match reality instead of being off by 10-20%.",
-  "gap": "The phone's GPS jumps: it undercounts by 10-20 percent, then shows 40 miles per hour on the flat, then draws a path through buildings. People check the app against an odometer and even against a police radar and abandon it if the numbers lie. Almost nobody offers proper calibration: set the wheel size, count from a revolution sensor, tune it to a control mile. An accurate odometer with honest calibration, where the number can be trusted, closes a pain that surfaces in every other review thread.",
-  "pitch": "We count distance honestly. The basis is a wheel-revolution sensor plus manual calibration: you enter the exact rim size, roll a control stretch and tune the coefficient so the app matches reality. GPS is only a backup, not the main source. People check the numbers against an odometer and a radar and pay to finally be able to trust distance and speed instead of arguing with them after every ride.",
+  "title": "A trainer platform with real video instead of a cartoon world",
+  "oneLiner": "An indoor platform that streams rides on real roads around the world and on your own routes, and a workout starts in under a minute with no gigabyte updates.",
+  "gap": "The winter indoor rider already pays 15 to 20 dollars a month and stays on one platform for years. A noticeable share of paying users is tired of cartoon avatars and says outright that real road video keeps them in the saddle better than a game does. Video platforms understand this but drown in heavy downloads: before a workout the user is greeted by a mandatory 9 gigabyte update, and motivation dies at the doorstep. A separate request that keeps coming from the most loyal users is riding their own real routes at home. There is no streaming platform in the niche where a ride on a real road starts in a minute and your own route turns into a workout.",
+  "pitch": "An indoor platform built on real video where you press play and ride. Ride footage streams like a movie, nothing downloads in advance, and updates install after the workout, not instead of it. The headline feature is your own roads: upload action camera footage plus a GPX file, the platform stitches them into a full ride with a resistance profile, and in winter you climb the exact hill that waits for you in spring. The payer already exists, gives Zwift 20 dollars a month, and is angry about the price hike and the cartoons.",
   "features": [
-   "Calibration by a control stretch you roll a marked mile and the app tunes the coefficient",
-   "Precise entry of wheel and rim size, so the revolution sensor counts without error",
-   "A speed-outlier filter no 40 miles per hour on a flat road after a pause",
-   "Distance shown separately by the wheel sensor and by GPS, the divergence is visible",
-   "A check against an external source mark the reference distance and the app shows its own error"
+   "Video ride streaming with no preloading, a workout starts within a minute of opening the app",
+   "Your own route from action camera footage plus GPX becomes a ride with an honest resistance profile",
+   "Smart trainer control that follows the road gradient plus ERG mode for interval workouts",
+   "A library of real roads around the world with filters by country, length, and elevation gain",
+   "A TV app so you can ride in front of a big screen instead of hunching over a phone"
   ],
   "antiFeatures": [
-   "We do not pass off raw jumpy GPS as accurate data",
-   "We do not hide calibration deep in settings, it is the main feature in plain sight",
-   "We do not bloat the instrument with extra screens at the expense of one clean distance number"
+   "We do not build a game world with avatars, levels, and bots",
+   "We do not force gigabytes of content downloads before every workout",
+   "We do not go into virtual racing and rankings, the core is the road and the workout"
   ],
-  "monetization": "A one-time purchase of about 6 dollars for wheel-sensor calibration and the outlier filter, the basic GPS track is free. Benchmark: people in the niche pay 5-8 dollars for a tracker and say outright that accuracy is what they are ready to pay for or to leave over."
+  "monetization": "A subscription at 10 to 12 dollars a month with a cheaper annual plan. Willingness to pay is proven by the corpus: people pay Zwift 20 dollars a month, buy annual plans for 180 dollars, and openly look for somewhere to take that money for real video."
  },
  "cycling-6": {
   "categoryName": "Cycling and bike trackers",
-  "title": "E-bike range in percent and kilometers",
-  "oneLiner": "Shows the exact motor charge in percent and an honest remaining range home, instead of three useless bars.",
-  "gap": "For e-bike owners the most anxious question is will I make it home. And branded apps show the charge with three bars and give neither a percent nor a kilometer remainder, while one even calls it a safety issue outright. People manually crank the assist mode to make it home, but they have no honest estimate of range for the current assist level, terrain and wind. A separate app that reads the motor over a standard protocol and translates the charge into clear percent and kilometers to empty removes a real anxiety.",
-  "pitch": "An app about one thing: how far can I still ride on this charge. It connects to the motor over Bluetooth, shows an exact percent instead of bars, and an honest remaining range in kilometers accounting for the chosen assist mode and the terrain ahead. It suggests which assist level to switch to in order to reliably make it home. People pay to remove the anxiety of running out of charge, because the alternative is stalling in the middle of the road with a heavy dead bike.",
+  "title": "Virtual bike journeys with a real medal",
+  "oneLiner": "Paid challenges where your real kilometers move a dot along a great route on the map, and a heavy medal arrives by mail after the finish.",
+  "gap": "This is a rare case for the niche: people already pay real money for every ride. 29 to 34 dollars per challenge, five mission packs, years of repeat purchases. A user virtually crosses the USA and Canada and calls it the thing that keeps them in shape. But both visible platforms fail in exactly the two places that were paid for: the finisher medal takes weeks and months to arrive, and sync with Apple Watch and Garmin falls apart, so paid kilometers have to be entered by hand. There are also no short formats that fit into a single morning. A cycling platform where the reward is as guaranteed as a store package and kilometers count themselves does not exist in the niche.",
+  "pitch": "Paid cycling challenges along great routes: cross the USA, ride the El Camino, climb Alpine passes. Every real ride syncs from your watch and tracker on its own and moves your dot along the map, with views and stories of places unlocking at milestones. Finish and the medal ships automatically, with a tracking number and a money back guarantee if it never arrives. The payer already exists and pays for every mission, they just keep getting let down on the reward and the sync.",
   "features": [
-   "Exact motor charge in percent instead of three bars",
-   "Remaining range in kilometers for the current assist mode, updated as you ride",
-   "A tip to lower assist to make it home given the distance left",
-   "Consumption per kilometer by mode, showing what each assist level costs",
-   "An economical screen mode so the app itself does not drain the phone in an hour"
+   "Auto sync of kilometers from Apple Health, Garmin, and Strava with no manual entry",
+   "A journey map with milestones, panoramas, and short stories about places along the route",
+   "The medal ships automatically on finish day, tracking number in the app, no delivery means a refund",
+   "Formats from a 30 kilometer morning challenge to a season long mission across a country",
+   "Team missions where the combined mileage of the group moves a single dot"
   ],
   "antiFeatures": [
-   "We do not duplicate the factory's firmware functions like updating the motor, that is not our zone",
-   "We do not lock to one brand, we work with common motor protocols",
-   "We do not turn the screen into a constantly lit map that kills the phone battery"
+   "No subscription for app access, money is only charged for a specific challenge",
+   "No shipping fees hidden at checkout, the storefront price is final",
+   "No social network with a feed, the core is the route, the map, and the reward"
   ],
-  "monetization": "A subscription of about 3-4 dollars a month or a one-time purchase for the exact percent and range calculation, basic connection is free. Benchmark: e-bike owners have already put thousands into the bike itself, a small fee for peace of mind about the charge is invisible to them."
+  "monetization": "25 to 35 dollars per challenge with the medal and shipping included in the price, plus a discounted five mission pack. The price point comes from the corpus: people already pay 29 dollars for a virtual ride and 34 dollars for a medal and buy packs of five."
  },
  "cycling-7": {
   "categoryName": "Cycling and bike trackers",
-  "title": "Group rides near you on the map",
-  "oneLiner": "Finds and creates group rides nearby with the place, time, pace and surface type, so you do not hunt for company across scattered chats.",
-  "gap": "When a city gets a place that shows all the group rides for the week with a meeting point, time and pace, cyclists are thrilled and call it something long missing. The trouble with existing attempts is that rides are scattered across separate chats and clubs, and one app launched with this but glitches and lags in places due to a lack of participants. The niche is asking outright to expand to new cities. A neat, fast ride map, raised one city at a time, catches an already proven demand.",
-  "pitch": "A map showing all the group rides nearby: where the meeting point is, at what time, what pace, road or dirt, how many have already gathered. An organizer creates a ride in a minute, and a guest in a new place immediately sees who to join. People call this indispensable and dream of it appearing in their city. We launch one city at a time, build up the density of organizers and grow from there, rather than spreading an empty map across the whole world.",
+  "title": "A live pro race tracker with the women's peloton",
+  "oneLiner": "A season pass for the fan: a live stage map, group time gaps, and results the minute the race finishes, across the men's and women's calendars at once.",
+  "gap": "The pro cycling fan already pays: they buy the tracker's Pro upgrade for the Tour de France and renew an aggregator's premium for years. The job they hire it for is following the race from the office and the couch when no broadcast is available. And both paid players have the same gaping hole: no women's races at all. One user writes outright that they will subscribe as soon as the women's calendar is added, while the women's peloton is growing faster than the men's. The second failure for the same money: live results run hours late. The paying audience has been assembled by the competitors but is served only halfway.",
+  "pitch": "A live professional cycling tracker where the women's calendar runs alongside the men's from day one: the same live maps, start lists, and general classification. During a stage you see the groups on the road and the time gaps, and the result appears the minute the race finishes, not in the evening. It sells to the fan who already pays for Pro upgrades and premium with the competitors and has promised in writing to subscribe to whoever covers women's racing.",
   "features": [
-   "A map of nearby rides with the meeting point, time, pace and surface type road, gravel, mountain",
-   "Creating a ride in a minute, a repeat for regular club outings on a schedule",
-   "A filter by pace and level, so a beginner does not accidentally land in a race",
-   "A ride chat for route details and reschedules, a reminder before the start",
-   "A city showcase shows the activity, so a visitor immediately finds someone to ride with"
+   "A live stage map with groups, breakaway composition, and time gaps in real time",
+   "The full women's pro calendar, favorite riders and teams in one favorites list together with the men's",
+   "Stage results and a recalculated general classification the minute the race finishes",
+   "A text feed of key moments for those following from work",
+   "Verified start lists and rider profiles with season statistics"
   ],
   "antiFeatures": [
-   "We do not charge participants for what used to gather at the trailhead for free",
-   "We do not launch worldwide at once, where the map would be empty and useless",
-   "We do not turn into a heavy feed, the core is a fast search for the nearest ride"
+   "No video broadcast, the rights cost millions, our field is data and the map",
+   "Yesterday's results are never paywalled, only the live experience is paid",
+   "No bloated news feed or blogs, the core is the race happening right now"
   ],
-  "monetization": "Free for regular participants, paid features for organizers and clubs at about 5-10 dollars a month: pinning a ride, a club page, attendance analytics. Benchmark: organizers like clubs already promote such rides and are interested in paying for reach, while charging ordinary riders is not allowed, it scares them off, as in the complaint about a competitor's paid attempt."
+  "monetization": "A season pass at 15 to 20 dollars a year or a Pro upgrade for a specific grand tour. The model is copied from the corpus: fans already pay for Pro during the Tour de France and for an aggregator's annual premium, and one directly promises a subscription in exchange for the women's calendar."
  },
  "neobank-banking-1": {
   "categoryName": "Neobanks",
@@ -14884,87 +14884,83 @@
  },
  "astronomy-stargazing-5": {
   "categoryName": "Stars and Astronomy",
-  "title": "Shoot the Moon and stars on your phone with step-by-step guidance",
-  "oneLiner": "It walks you through the settings and exposure so the Moon comes out sharp in the shot, not a gray blob.",
-  "gap": "People want to shoot the Moon and the night sky on their phone because a telescope is expensive, and they say so directly. There is a camera with manual settings, but it dumps a pile of parameters and leaves the person alone with a black or blurry frame. Even after going through its own tutorial, people get a blurry Moon. What is missing is an app that does not just hand you knobs but walks you through toward a specific goal. Shoot the Moon, catch star trails, shoot the aurora, and step by step brings you to a sharp frame.",
-  "pitch": "Sky photography on the phone where the app thinks for you. You pick a goal. A sharp Moon, stars, star trails, the aurora. The app sets the exposure and mode itself, shows whether you need to brace the phone, and explains what to tweak if the frame is dark or smeared. People complain outright that even with the native guide they get a blurry Moon, which means the winner is whoever brings a beginner to a result, not just hands over a settings panel.",
+  "title": "A second remote for your smart telescope",
+  "oneLiner": "A planning remote for Seestar owners. Targets by coordinates, framing and exposure set before slewing, all-night imaging from a list.",
+  "gap": "Smart telescope owners are the biggest spenders in this niche. Someone paid 500 dollars for a scope, bought a second and a third, and every evening depends entirely on one native app. The remote grows slower than its owner's skills. Reviews ask for target input by RA and Dec for variable stars and for framing and exposure settings before slewing, and instead they get a forced firmware update out in the field on the first clear night in weeks. The manufacturer opened the door itself. Seestar ships an Alpaca driver, other apps can connect to the scope. The niche for a second, advanced remote for the grown-up owner is empty.",
+  "pitch": "The app connects to Seestar through the open Alpaca driver and runs imaging by the owner's plan. Targets are entered by RA and Dec coordinates, including variable stars and active galaxies missing from the native atlas. Framing, filter and exposure are set before slewing, and the target queue runs through the night on its own. The buyer has already proven the money. They bought a 500 dollar scope, often more than one, and people in this niche pay 40 dollars for working telescope remotes.",
   "features": [
-   "Modes by goal. A sharp Moon, the night sky, star trails, the aurora.",
-   "A step-by-step coach. Brace the phone, wait, here is what to tweak if it is blurry.",
-   "Auto-exposure for the chosen goal, so you do not guess at numbers.",
-   "A live frame check. Too dark or smeared, a hint on how to fix it.",
-   "A timer and stabilization so a long exposure does not smear from a shaking hand.",
-   "A before-and-after breakdown with examples showing how a gray blob becomes a sharp Moon."
+   "Enter a target by RA and Dec and go to it with one button, even if the object is not in the atlas.",
+   "Set framing, filter and exposure before slewing, the scope arrives at the target already configured.",
+   "A target queue for the night. The app runs the imaging list on its own while the owner sleeps.",
+   "Check firmware and updates at home during the day, so a clear night in the field is not lost to updates.",
+   "A session log. How many frames were collected per target and what to finish next time."
   ],
   "antiFeatures": [
-   "We do not dump all the manual knobs at once, we lead the beginner step by step toward the goal.",
-   "We do not promise a miracle where a telescope is needed, we honestly state the phone's limits.",
-   "We do not leave the person with a black frame and no explanation of what went wrong."
+   "We do not replace the native app entirely, stacking and firmware stay with the manufacturer.",
+   "We do not take on photo processing, only planning and imaging control.",
+   "We do not promise every telescope in the world, we start with Seestar through the open Alpaca driver."
   ],
-  "monetization": "The Moon mode and basic star shots are free. A one-time purchase of around 400 rubles unlocks star trails, the aurora, timelapse, and frame breakdowns. A benchmark from the niche. A sky camera sold as a one-time purchase and held its audience despite being abandoned, so a living, maintained option with teaching easily justifies a one-time price."
+  "monetization": "One-time purchase around 2000 rubles. The benchmark is direct. In this niche people pay 30-50 dollars for a telescope remote like SkySafari Pro, and a Seestar owner has already spent 500 dollars on the scope and buys a second and a third. An advanced remote costs a fraction of a percent of the hardware price."
  },
  "astronomy-stargazing-6": {
   "categoryName": "Stars and Astronomy",
-  "title": "The sky for kids, ad-free and with constellation stories",
-  "oneLiner": "An app a kid and a parent open together, with stories about the constellations and no popup ads.",
-  "gap": "Many families watch the sky together. Parents, grandmothers, grandkids, kids who caught the space bug. But the apps push ads on them right in the middle of a shared evening, sometimes ads unsuitable for kids, while constellation stories are simply absent. One review says so outright about the lack of children's stories. Grown-up apps are too complex and too pricey for a child. There is an open niche for a calm app for a family evening under the sky, with constellation tales in plain language and no ads, one a parent gladly pays for once.",
-  "pitch": "The sky for the family. You aim the phone, the child sees a constellation, and the app tells its story in simple words. Who these figures are, why they are there, what that bright star nearby is. No ads, no expensive subscription, just a clean evening of a parent with a child or a grandmother with a grandchild. Reviews are full of shared evenings and of how ads spoil them, and nobody has children's stories. The parent pays once for peace of mind.",
+  "title": "The Moon in its sign right inside your calendar",
+  "oneLiner": "A planner for people who check their plans against the Moon. Phases, the sign and lunar windows go into your personal calendar instead of living in a separate app.",
+  "gap": "The lunar corner of this niche has an audience that lives by the Moon every day. Morning practices on the new moon, important tasks on the waxing moon, the Moon sign as the context of the day. These people pay more willingly than anyone else around the Moon. They bought the full app with plugins several times, gifted it to others, stayed subscribed for years. Their main unmet request is written in a review word for word. Put lunar astrology into my calendar. Today the lunar layer is locked inside a separate app you have to visit, while people plan in their own calendar next to work and meetings. Nobody offers that sync.",
+  "pitch": "A lunar planner that lives inside your calendar. The app labels days with the phase, the Moon sign and windows for important tasks, and these events show up right in your Apple or Google calendar among your meetings. You plan a launch, a haircut or a practice and instantly see the lunar context. The buyer is proven. People paid for lunar plugins several times and gifted them, and the calendar request is written in a review word for word.",
   "features": [
-   "Point and learn. The child aims the phone, sees a constellation, and hears its story.",
-   "Constellation stories in plain language, with a figure drawn over the stars.",
-   "Large labels and big buttons a child can use without help.",
-   "Evening quests. Find the Big Dipper, find the brightest planet.",
-   "Completely ad-free, nothing pops up during viewing.",
-   "A shared-evening mode. A short pick of what is visible right now tonight."
+   "A lunar layer in Apple and Google calendars. Phases, the Moon sign, new moons and full moons appear among your events.",
+   "Windows for a task. Mark the type of activity and see the nearest suitable days by the Moon.",
+   "The Moon sign in plain words, clear to someone without any astrology background.",
+   "The calendar scrolls years back and forward, any date can be checked.",
+   "A morning card for the day. Phase, sign and one short prompt for practice."
   ],
   "antiFeatures": [
-   "No ads, especially ones unsuitable for kids, that is the neighbors' main complaint.",
-   "We do not load the child with catalogs and pro settings, just the sky and stories.",
-   "We do not charge kids an expensive subscription, an honest one-time family price."
+   "We do not build a full horoscope with all the planets, only the Moon and its rhythm.",
+   "We do not take away past purchases, paid modules stay forever.",
+   "We do not promise magic or predictions, the lunar layer is framed as personal rhythm and tradition."
   ],
-  "monetization": "A few constellations and stories are free. A one-time family purchase of around 350 rubles unlocks all the stories, the quests, and the shared-evening mode. A benchmark from the niche. Kids were scared off by sixteen-dollars-a-month subscriptions and ads, so an honest ad-free one-time price is a direct answer to the parents' pain."
+  "monetization": "The basic phase calendar is free. A one-time purchase around 400 rubles unlocks calendar sync and the Moon sign. Extra modules at 200 rubles each, the Vedic system, task windows, full moon practices. The model is copied from real behavior. People bought the full app with paid plugins several times, gifted it and called it good value."
  },
  "astronomy-stargazing-7": {
   "categoryName": "Stars and Astronomy",
-  "title": "Point at a bright dot and just learn what it is",
-  "oneLiner": "One button. You hold the phone on a bright object in the sky, and the app says whether it is a planet, a star, or a plane, with no menus or settings.",
-  "gap": "The most common live question at the sky is what that bright dot over there is. The person does not need a catalog, a planetarium, or modes. They need to point the phone and get an answer. Powerful apps have grown menus and become too complex, people write outright that an app has lost its way and that it is too intense. But when an app answers with one button, they adore it and show it to friends. There is an open niche for a dead-simple identifier. Hold the phone on the object, read the answer, done.",
-  "pitch": "A one-button sky identifier. Open it, raise the phone to a bright dot, read. Jupiter. Vega. A plane. No sign-in, no setting the location by hand, no ten tabs. In reviews people are thrilled by exactly this scenario and get angry when a powerful app becomes too complex for a simple question. A product for people who need to figure out here and now what they are looking at, not to study astronomy.",
+  "title": "A first telescope season without disappointment",
+  "oneLiner": "A guide for someone who just bought a telescope. What your scope can actually show tonight and how to point it there without the pain.",
+  "gap": "Someone who just bought a telescope is a ready payer. They already spent hundreds of dollars on the scope, they head to the app store on the very first evening, and after upgrading to the paid version of a star map they write a happy review about the reasonable price. But nobody guides them after that. Native telescope apps drive them to tears during alignment, the hobby turns into torture and they want to return the scope to the store. Grown-up planetarium apps are complicated and only open up for money. A first season guide that knows your scope and your backyard and walks you to the first successful nights does not exist in this niche.",
+  "pitch": "A companion for the first telescope. You enter the model or aperture and the app builds an evening plan only from objects your scope can actually show from your backyard. Each target comes with a star hop from a bright star, the way experienced observers guide you, and an honest picture of how the object looks through the eyepiece rather than in a space photo. The buyer already pays. They spent hundreds of dollars on a telescope and gladly pay extra for an app that makes the purchase worth it.",
   "features": [
-   "One button. You aim the phone at the object and see its name and a short card at once.",
-   "Tells a planet from a star, and also hints if it is likely a plane or a satellite.",
-   "No sign-in and no manual location setup, it all resolves by itself.",
-   "A large, simple answer a person can read without any astronomy knowledge.",
-   "A share button. Send a friend what you are looking at right now.",
-   "A no-clutter mode. Just the sky and labels, everything removable is removed."
+   "An evening plan for your scope. Only targets visible with your aperture under your light pollution.",
+   "Star hops. A step-by-step route from a bright star to the target, the technique experienced observers use.",
+   "An honest eyepiece preview. How the object looks through your telescope, not in space photos.",
+   "A first night checklist. Assembly, finder alignment, focusing on a bright star.",
+   "A log of wins. Mark what you found and get the next level of targets."
   ],
   "antiFeatures": [
-   "We do not turn it into a planetarium with a hundred menus, the whole idea is simplicity.",
-   "We do not require sign-up and manual location setup before the first answer.",
-   "We do not load the beginner with deep-sky catalogs, we show what the eye can see."
+   "We do not haul in a catalog of a million objects, a beginner needs dozens of the right targets.",
+   "We do not control motorized mounts, that is a separate complicated world.",
+   "We do not paint expectations at the level of space photos, honesty saves the hobby."
   ],
-  "monetization": "Identifying planets, bright stars, and the Moon is free. A one-time purchase of around 300 rubles removes all the clutter for good and adds object story cards and a share mode. A benchmark from the niche. People left complex apps and delighted in simple ones, and one-time star-map prices in the niche sit right around three dollars, so a small one-time price for simplicity is a precise hit."
+  "monetization": "The first night checklist is free. A one-time purchase around 500 rubles unlocks the evening plan for your scope, star hops and the log. The benchmark comes from reviews. A beginner with a telescope already pays for the premium version of a star map and praises the reasonable price, and next to a telescope worth hundreds of dollars this purchase goes unnoticed."
  },
  "astronomy-stargazing-8": {
   "categoryName": "Stars and Astronomy",
-  "title": "A heads-up on a sky event in advance, not when it is already too late",
-  "oneLiner": "The app wakes you the number of minutes you choose before an event, and only if it is genuinely visible from your spot.",
-  "gap": "Sky events are fleeting. A meteor shower, a planet parade, a station pass. If you learn about it late, you have already missed it. One review asks outright for a setting for how many minutes ahead to send the reminder, because the person keeps failing to get outside in time. Another trouble. Apps call you out to watch an event that is not visible from your spot, it is below the horizon or on the other side of the planet, and the person feels cheated. Yet good reminders genuinely get people outside and earn praise for it. There is an open niche for a smart reminder that wakes you on time and only about what is visible right where you are.",
-  "pitch": "A sky-reminder app that is honest to your location. You pick what interests you. Meteor showers, planet parades, station passes, eclipses. The app checks whether the event is visible from your spot and above the horizon, and only then reminds you. And it does so the number of minutes you set yourself, so you have time to dress and get out. People ask outright for a minutes setting and get angry at false invitations to invisible events, so honesty about place and time is the product.",
+  "title": "The sky of any era for working with the past",
+  "oneLiner": "A precise time machine for the sky. Shows the stars above any place thousands of years BC, for archaeologists, historians and writers.",
+  "gap": "This niche has a quiet professional buyer who pays for a working tool, not for beauty. An archaeologist checks the orientation of an ancient structure against the sky of that era. A historian and a writer reconstruct the night of a specific date. These people already bought Stellarium and Redshift upgrades specifically for deep time travel and wrote angry reviews when after paying they hit the year 1600 or a 7000 year limit. A mobile tool where rewinding tens of thousands of years is the main feature, not a crippled side one, does not exist.",
+  "pitch": "A sky simulator where time is the main control. You enter a place and any date, even 6000 BC, and get an accurate sky with precession and proper motion of stars taken into account. The date does not reset, time travel is fast, epochs are saved and compared. The buyer is proven. People already paid for upgrades for the ancient sky and called the tool useless for their work when its time depth was cut.",
   "features": [
-   "Subscribe to event types. Meteors, planet parades, station passes, eclipses.",
-   "A visibility check from your spot. We do not call you to watch what is below the horizon.",
-   "A reminder set for the number of minutes you choose, so you make it outside.",
-   "A short guide to the event. Where to look, when it peaks, whether you need binoculars.",
-   "Quiet hours. We do not wake you in the middle of the night unless you allowed night events.",
-   "An event calendar a month ahead for your spot."
+   "Travel tens of thousands of years back and forward with honest astronomy, precession and proper motion of stars.",
+   "Precise date and place input, including years BC, without resetting to today.",
+   "Epoch bookmarks. Save the sky above your dig site in 3000 BC and come back to it.",
+   "Compare two epochs on one screen and see how the constellations and the pole have drifted.",
+   "Export the sky map as an image for an article, book or lecture."
   ],
   "antiFeatures": [
-   "We do not send reminders about events that are not visible from your spot.",
-   "We do not wake you with notifications the user turned off, the sound respects the settings.",
-   "We do not dump everything at once, we show only the event types the person chose."
+   "No AR pointing or telescope remote, this is a desk tool, not a backyard one.",
+   "No astrology forecasts mixed in, astronomy only.",
+   "We do not cut time depth into pricing tiers, depth is the product itself."
   ],
-  "monetization": "Reminders for one event type and a week-ahead calendar are free. A one-time purchase of around 350 rubles unlocks all event types, the minutes setting, quiet hours, and a month-ahead calendar. A benchmark from the niche. Paid star apps in the niche cost a few dollars one-time, and people outright beg for the minutes setting, so they are ready to pay for it."
+  "monetization": "A one-time purchase around 900 rubles as a professional tool. The benchmark is direct. People have already paid for the ancient sky. They bought Redshift Ultimate on the promise of simulation from 1000 BC and upgraded Stellarium for archaeological work, and their anger was not about the price but about the crippled depth."
  },
  "cycling-8": {
   "categoryName": "Cycling and bike trackers",
@@ -15108,43 +15104,43 @@
  },
  "interior-design-7": {
   "categoryName": "Interior design and floor planning",
-  "title": "Editing one detail in the picture without a new random room",
-  "oneLiner": "You liked a variant, you change only the sofa or the wall color, and everything else in the picture stays untouched.",
-  "gap": "A person got an almost perfect variant and wants to fix one detail. A different sofa, a slightly different wall color, remove an extra object. But the apps redraw the room from scratch on any edit, often completely different or the exact same, and there is no clear way to say what to keep. People say outright that the change button is useless. Design goes in iterations, and the niche's tools break that. The idea closes the gap. A targeted edit of one element on the same picture, without rolling the dice again.",
-  "pitch": "An app where after generation you can change one detail at a time without touching the rest. You select the sofa and ask for a different one, you select the wall and change the color, everything else stays in place. People complain in one voice that an edit turns into a new random room, and that you cannot fine-tune the variant you liked. Controlled refinement instead of a lottery is exactly what those who came to take the design all the way, not to flip through pictures, pay for.",
+  "title": "A priced product board the designer shows the client",
+  "oneLiner": "An interior designer assembles a concept from real products with prices and presents it beautifully to the client, losing nothing between devices.",
+  "gap": "Practicing designers already pay 12 dollars a month for a product board and say outright that the board and the list alone are worth the money, while clients praise the polished visuals. Right next to that, Havenly shows that a client actually buys from a designer's board, down to most of the suggested items after two revisions. But the only notable tool loses boards, does not sync between iPhone and iPad, breaks on large projects, and clipping and pricing are locked behind separate tiers. A gap for the designer who makes a living from client presentations and needs a reliable workbench, not an inspiration showcase.",
+  "pitch": "A working tool for the interior designer. You clip products from any site into a board, every item keeps its price and link, and one button turns the board into a cost estimate and a client presentation. The client marks what they like, the designer revises and closes the project. The payer is not a casual picture collector but a pro for whom the board is the way to sell the project and get paid.",
   "features": [
-   "Selecting one object and replacing only it",
-   "Editing the color or material of a marked surface without touching the rest",
-   "A version history to return to a good variant",
-   "Locking elements that must not change on the next edit",
-   "Smooth refinement on the same picture instead of generating from scratch"
+   "Clip a product from any site into the board with its price and link",
+   "Project estimate and per-item cut sheets assembled from the board with one button",
+   "Client presentation mode with like or dislike marks on every item",
+   "Boards sync across phone, tablet and web",
+   "Board version history, a good variant can always be brought back"
   ],
   "antiFeatures": [
-   "We do not redraw the whole room over one small edit",
-   "We do not return the same picture unchanged on \"change\"",
-   "We do not lose good previous versions"
+   "No AI-generated rooms, the designer builds the board from real products",
+   "Clipping and background removal are not locked behind a separate tier",
+   "No inspiration feed, this is a workbench, not a social network"
   ],
-  "monetization": "A subscription around 8 dollars a month or edit packs, because each refinement costs compute. An audience that takes a project all the way to a real result values control and pays for it more willingly than for a stream of random pictures."
+  "monetization": "A subscription of about 12 dollars a month per designer. The market already accepts this price, Morpholio charges the same and people write that the board and the list are worth it. This is a money-making tool, one client presentation pays for the designer's month."
  },
  "interior-design-8": {
   "categoryName": "Interior design and floor planning",
-  "title": "Yard and front-garden planner with real plants",
-  "oneLiner": "Plan the yard and flower beds with real shrubs and trees at the actual dimensions of the plot.",
-  "gap": "Almost no one covers the yard and front garden properly. The one notable outdoor app is called useless as a landscape tool, it has no common shrubs and plants to plan a flower bed, and you cannot set the plot at real dimensions. AI apps break outdoors even harder, filling the pool in with dirt and tearing out a retaining wall. Demand is real, but there is no tool that would carefully plan a yard with real plants at the actual plot. The idea takes this empty field.",
-  "pitch": "A yard and front-garden planner with a library of real plants, trees and shrubs that are placed at the actual dimensions of the plot. You set the yard boundaries, lay out flower beds, paths and a fence, and see how a shrub will grow out. People complain outright that what exists is no good as a landscape tool, and that AI breaks everything outdoors. They pay for a clear plan of their yard before planting and building, because plants and materials cost money and redoing is expensive.",
+  "title": "Measure the site with a phone and leave with an estimate",
+  "oneLiner": "A contractor scans rooms with a phone and gets a plan of the whole site plus a materials estimate before driving away from the address.",
+  "gap": "Contractors already pay for phone measuring as a working tool, from 100 to 400 dollars a year for Polycam and up to 900 for magicplan. A flooring estimator writes he closed 270 jobs without a single mistake while the office builds the quote before he is back from the address. But the pipeline breaks on the basics. Rooms do not stitch into a plan of the whole house, rescanning the same room gives a different area, an unsaved scan disappears and the site has to be measured all over again. There is no tool in the niche that honestly assembles the whole site into one plan and immediately turns it into a materials estimate for sane money. A gap for the person for whom every measurement is money.",
+  "pitch": "An app for the contractor who earns on job sites. Walk through the apartment with a phone, the rooms stitch into a plan of the whole floor, corners and walls can be fixed by hand so you can stand behind the numbers. Areas and perimeters flow straight from the plan into a materials estimate, and the office sees the project before the tech is back. These people already pay hundreds of dollars a year for such tools because a measurement turns directly into an order.",
   "features": [
-   "A library of real shrubs, trees and flowers with sizes at maturity",
-   "Setting the plot boundaries by dimensions and by an outline from a map",
-   "Paths, fences, beds and flower beds at an exact scale",
-   "A top view and fitting the result onto a photo of the yard",
-   "A list of plants and materials from the plan for a store trip"
+   "Phone room scanning with stitching into a plan of the whole floor",
+   "Manual correction of corners and walls on top of the scan so the numbers can be trusted",
+   "Areas and perimeters flow straight into a materials estimate, flooring, paint, baseboards",
+   "The project uploads to the cloud from the site, the office builds the quote before the tech returns",
+   "PDF and CAD export for the client and the office"
   ],
   "antiFeatures": [
-   "We do not fill in the pool or tear out retaining walls in the yard",
-   "We do not slip in generic icons instead of real plants",
-   "We do not force setting the plot by eye without real dimensions"
+   "No pretty 3D interiors, the tech needs numbers, not pictures",
+   "A measurement already taken is never locked behind payment",
+   "Rooms are not forced into perfect rectangles, slanted walls and niches are normal on a site"
   ],
-  "monetization": "Free for one plot and basic plants, then a one-time purchase of 15-20 dollars for the full library or a 5-dollar-a-month subscription. The audience of gardeners and homeowners is practical, it pays for a plan before real spending on plants and landscaping."
+  "monetization": "A per-tech subscription, about 25 dollars a month or 250 a year. The market already pays 100 to 400 dollars a year for Polycam and tolerates 900 for magicplan, and estimators write that the app took their business to the next level. Keep the price well below the pain threshold but in line with what pros already spend."
  },
  "fishing-1": {
   "categoryName": "Fishing",
@@ -15169,24 +15165,23 @@
  },
  "fishing-2": {
   "categoryName": "Fishing",
-  "title": "Clear animations of fishing knots with search",
-  "oneLiner": "Every knot shown step by step in motion, with search by name and a hint on which line it suits.",
-  "gap": "The leading knots app shows them as flat pictures, part of the lessons is simply wrong, there's no search so you hunt for a knot by hand through the whole list, and the two line colors aren't labeled, which is the main line and which is the leader. Beginners get too few steps, they don't understand how to move from one wrap to the next. Nobody has made a calm reference where a knot spins step by step, is searchable by name, and is immediately labeled with the line it's meant for.",
-  "pitch": "A reference of fishing knots where every knot is shown by a step-by-step animation rather than a single picture, with an honest label of which is the main line and which is the leader. There's search by name and a filter by line type, mono, fluoro, braid. You can slow a knot down and scroll it back. People already complain that learning from a picture is impossible, and they'll pay for clarity and no ads in the middle of the process.",
+  "title": "Paid bite intel by zone for boat anglers",
+  "oneLiner": "Fresh daily reports from the water on which species is biting in your zone, on what bait and with what technique, for boat anglers who burn expensive fuel.",
+  "gap": "Fishdope proved the model in Southern California. Boat anglers pay a membership for daily spotter-plane intel and write that they save hundreds and thousands of dollars in fuel. But the model is locked to one region and to pelagics, and even there inshore species are covered in fits and starts. Others charge for reports too, FishAngler asks 80 dollars a year and Pro Angler sells premium, but inside are reports from five years ago or vague texts that could apply to any spot. The job people already pay for, fresh specific intel on their own water, simply is not being done in most regions.",
+  "pitch": "Paid bite intel by zone. Every morning the app has a fresh report on your water, which species is biting, on what and with what technique, stamped with the date and time it was collected. Reports are written by local captains and vetted boat anglers who get a share of the membership, so the data never goes stale. The buyer already exists, the private boat angler who pays for Fishdope and Pro Angler premium, because one accurate trip pays for a year of membership in fuel.",
   "features": [
-   "Every knot spins step by step, can be slowed down and rewound",
-   "Search by knot name and a filter by line type",
-   "A label on each line, which is the main line and which is the leader",
-   "A by-task section, knots for the hook, for joining lines, for the lure",
-   "Everything works offline, knots are needed on the water with no signal",
-   "A short hint on where this knot fits and where it's weak"
+   "Daily zone report stamped with collection date and time, freshness visible at a glance",
+   "Strict report structure, species, bait, technique, depth, no vague texts about everything at once",
+   "A network of local captains earns a share of the membership for verified reports, that is the source of freshness",
+   "Zone map with an honest indicator of where reports are live and where there is no data yet",
+   "The morning report is cached offline and readable on the water without a signal"
   ],
   "antiFeatures": [
-   "No ads in the middle of a lesson",
-   "We don't cram in the bite forecast and maps, this is only about knots",
-   "We don't force you to register just to view a knot"
+   "We do not replace a report from the water with a moon and weather formula",
+   "We do not sell a region until it has live report suppliers",
+   "We do not hoard a feed of old catches, a report older than a week goes to the archive"
   ],
-  "monetization": "A dozen basic knots free, a one-time purchase of around 390 rubles unlocks the whole set and all animations forever. Reviews say outright that people are willing to pay for an ad-free version but get angry when ads remain after payment, so an honest one-time payment removes the niche's main irritation."
+  "monetization": "Annual membership per region around 80 dollars. That is what the niche already charges, Fishdope has had a paid membership from year one, FishAngler asks 80 dollars a year, Pro Angler sells premium for the sake of reports. The justification for the price is right in the reviews, fuel near 7 dollars a gallon, fresh intel saves hundreds per season."
  },
  "fishing-3": {
   "categoryName": "Fishing",
@@ -15253,24 +15248,23 @@
  },
  "fishing-6": {
   "categoryName": "Fishing",
-  "title": "Tides and bite times in a clear 12-hour format",
-  "oneLiner": "Shows tides and the best hours in human time with AM and PM, no confusion from the 24-hour format or wrong units.",
-  "gap": "Bite-time and tide calendars break the time format over and over, mixing 24-hour and 12-hour, spitting out nonexistent 13:34 pm and 24:16, and one even manages to show the tide height in meters instead of feet. For a shore angler a one-hour error is a ruined trip. There's no calm app that simply shows tides and the best hours correctly in normal time with AM and PM and in the right units.",
-  "pitch": "Tides and the best bite hours shown so you never get confused for a second. Normal time with AM and PM, tide height in the units you chose, an even ribbon of hours across the whole day showing when the water rises and when the best window is. People complain outright about the broken format that makes them miss the tide, and this is a ready niche where what matters isn't cleverness but accuracy and reliability.",
+  "title": "Tournament livewell and culling with any scale",
+  "oneLiner": "Keeps your current five and total weight, instantly tells you which fish to release, and runs a leaderboard on the boat and in the club with any scale.",
+  "gap": "Tournament bass anglers already pay for the livewell management job, they buy smart scales for 60 and 99 dollars and pay 5 dollars a month on top for app features. But the only living culling tool is hard-locked to one brand's scales, the mid-tier 99 dollar model does not connect to the app at all, cull tags are brand-only, and people beg for a leaderboard with friends in reviews as the missing feature. The job itself, count the five, say which fish to release, let the boat compete, does not require specific hardware, and no one has built it standalone.",
+  "pitch": "A tournament day assistant for bass anglers. You enter the fish weight from any scale, over Bluetooth or by hand in a couple of taps, and the app keeps your current five and total weight and instantly says which fish to release when you are over the limit. The second half of the product is a live leaderboard, on the boat, with friends, in a club league, with a notification when a rival weighs a fish. The payer is already found, the tournament angler brings money for scales and their app subscription, and a guide writes he is waiting out the season with clients.",
   "features": [
-   "Time always in a clear 12-hour format with AM and PM, a toggle to 24 hours",
-   "Tide height in your chosen units, feet or meters, with no swaps",
-   "An even ribbon of hours for the day, showing the water rising and falling",
-   "The best bite windows highlighted right on this ribbon",
-   "Working offline from pre-downloaded tide tables",
-   "Quick location switching on the shore without re-entering it by hand every time"
+   "Live well view, current five, total weight and who is out, entry in a couple of taps",
+   "Connects any Bluetooth scale, manual entry as a first-class path",
+   "Cull marks in any colors, compatible with any tags, not just one brand's",
+   "Leaderboard on the boat, with friends and in the club, notification when a rival weighs a fish",
+   "Fully offline on the water, the leaderboard syncs when a signal appears"
   ],
   "antiFeatures": [
-   "We don't mix military and normal time in one line",
-   "We don't show a number without a unit label",
-   "We don't load the tide screen with ads while you're planning"
+   "We do not lock to one brand's scale or proprietary tags",
+   "We do not build a social feed of other people's catches",
+   "We do not bloat into a multi-year diary, this is a tournament day tool"
   ],
-  "monetization": "Tides and hours for today for one location free, a one-time purchase of around 490 rubles unlocks a week ahead and several saved locations forever. In the niche people say outright they'd pay once but hate subscriptions and charges, so an accurate tool with a one-time payment closes both the format pain and the money pain."
+  "monetization": "A season plan around 30 dollars per angler, money tournament anglers already bring, 5 dollars a month for the brand scale app on top of 60 and 99 dollars for the hardware itself. Plus a club season tier for local leagues, paid by the tournament organizer."
  },
  "fishing-7": {
   "categoryName": "Fishing",
@@ -15421,66 +15415,63 @@
  },
  "couples-relationship-6": {
   "categoryName": "Couples apps",
-  "title": "A quiet signal of presence across distance",
-  "oneLiner": "For couples apart, a light daily sign that your other half is near, without chatter in yet another messenger.",
-  "gap": "For couples apart the main thing isn't chatting but a quiet sign that the other half is near, a status on the screen, a short note, a mark that I'm thinking of you. People love this most, but the widgets don't refresh on their own, you have to open the app, and the whole point breaks. Nobody has built a simple, reliable presence signal that lives right on the lock screen, refreshes itself and doesn't bury you in ads. The gap is in the reliability of the most important thing, not in the number of features.",
-  "pitch": "An app for two apart, where a short status and a note from the other half live on the lock screen, and it all refreshes itself without opening the app. The point isn't chat but the sense that the person is near, they set a status busy, missing you, home already. People plainly call this their favorite feature, but everywhere it's broken by widgets that don't refresh. The product sells the fact that this quiet signal works reliably.",
+  "title": "A private channel for flirting in marriage",
+  "oneLiner": "Private messaging for spouses with kids: flirting and adult photos kept separate from the family phone and shared devices.",
+  "gap": "Married couples with kids are losing their space for adult conversations. Kids use the parent's phone and tablet, the shared account shows everything, CarPlay reads messages out loud in front of the whole family. People already pay a yearly subscription to Just Between Us for a separate channel. But the trace control mechanics are half-baked everywhere. There is only one disappearing timer, 24 hours. Video gets cut to 45 seconds and the full version is sold separately. There is no way to clear the gallery in one go. The paying customer has been there for a long time, but no product does this job properly.",
+  "pitch": "A private channel for two, for flirting and adult photos, hidden from kids and family devices. Face ID login, photos stay blurred until tapped, messages disappear on a timer you pick yourself, long videos arrive in full. Couples with kids already pay a yearly subscription for this job, the product simply does it completely.",
   "features": [
-   "The other half's status and a short note right on the lock screen",
-   "The widget refreshes itself in the background, no need to open the app manually",
-   "Tap the widget to send a heart or a thinking of you in one move",
-   "A countdown to the next visit right on the screen",
-   "Your own photo on the widget without it being swapped for someone else's image",
-   "Works reliably on both phones, no empty blank squares"
+   "Face ID or passcode login, notifications show no text and no previews",
+   "Photos and videos stay blurred in the feed until tapped, a glance over your shoulder reveals nothing",
+   "Disappearing timers of your choice, from five minutes to 24 hours, set separately for messages and photos",
+   "Long videos arrive in full and play as video, this is the couple's main paid scenario",
+   "In-app camera, so spicy shots never land in the phone's shared gallery"
   ],
   "antiFeatures": [
-   "We don't turn it into a full messenger, there are ordinary apps for chatting",
-   "We don't bury people in ads, that breaks the whole warm point",
-   "We don't add pets and currency you have to feed, that distracts from the main thing"
+   "No forever archive of memories, the channel lives on timers, other products handle couple keepsakes",
+   "No sticker stores, feeds or games, this is a channel, not an everything app",
+   "No family logistics, lists or calendars, other apps cover that"
   ],
-  "monetization": "One widget and status are free, several widgets, themes and styling are paid. The niche benchmark is a one-time lifetime purchase around 800-1500 rubles per couple, people in reviews plainly prefer to pay once rather than put up with ads or a per-person subscription."
+  "monetization": "A yearly subscription per couple, one partner pays. People already pay a yearly subscription for Just Between Us, and full video there is sold as separate paid access, so demand for paid video is proven. Target 30 to 40 dollars a year, the familiar price point of this niche, people pay 33 dollars a year for Paired and say it is not much."
  },
  "couples-relationship-7": {
   "categoryName": "Couples apps",
-  "title": "Fresh date ideas without a stranger's feed",
-  "oneLiner": "Feeds a couple ideas for where to go and what to do together, tuned to your city and mood, with no shared feed of strangers.",
-  "gap": "Long-together couples hit a wall, everything's gotten old, there are no ideas for where to go or what to do, and the conversations are about the same things. People plainly ask for a date generator by category. And when an app adds ideas through a shared feed of strangers, it's infuriating, nobody wants outsiders in their relationship. Nobody has built a private date suggester tuned to your city, budget and mood, without a social network around it. The gap is in freshness and privacy at the same time.",
-  "pitch": "An app that feeds a couple an idea for today, where to go or what to do together, tuned to your city, budget and mood. You want a quiet evening at home, you want to get out, you want it cheap, it'll find something. It's all private, just for the two of you, no shared feed. Long-together couples hit boredom and plainly ask for a date generator, that's what they'll pay for.",
+  "title": "A bedroom game written for real",
+  "oneLiner": "A game for two with daring levels that learns both partners' boundaries upfront and never repeats itself.",
+  "gap": "Couples already bring money into the bedroom. They pay 10 and 13 dollars for levels and buy two identical apps in a row. Inside they find the same questions on a loop, scenarios weaker than their own imagination and an extreme level written as if for beginners. Right next to that sit the opposite complaints, some find the content too pushy and out of place. Nobody calibrates the boldness to a specific couple or invests in authored writing. There is a quality gap in adult content that people have already paid for.",
+  "pitch": "A game for two where the adult levels are written for real and tuned to a specific couple's boundaries. At the start each partner marks what works for them, and the game moves from light flirting to daring scenarios strictly within those limits, with no repeats and no copy-paste writing. Couples already pay for levels in games like this and buy several apps in a row. What they pay for is the quality of the scenarios, so that is what we sell.",
   "features": [
-   "A date idea for today tuned to your city, budget and mood",
-   "Categories to choose from, at home, out, cheap, a special occasion",
-   "A list of what you've already done and what you want to try",
-   "Saving the ideas you like so you can come back, and they don't get lost",
-   "You can plan a date ahead and remind both of you",
-   "New ideas regularly so it doesn't get stale, the bank doesn't dry up"
+   "Boundaries upfront: each partner separately marks what is okay and what is off limits, the game never leaves the overlap",
+   "Levels from light flirting to genuinely daring scenarios, each one noticeably deeper than the last",
+   "Scenarios written by real authors, nothing repeats within a deck",
+   "Open samples from paid decks before purchase, the quality of the writing is visible in advance",
+   "Works offline, an evening together does not depend on a connection"
   ],
   "antiFeatures": [
-   "We don't set up a shared feed of strangers' ideas and outsiders, this is for two only",
-   "We don't lose saved ideas on an update, people complain about that",
-   "We don't turn it into a listings board with venue ads, the suggestions are honest"
+   "No dressing the game up as an innocent party game, this is an honest 18 plus product with age verification at the door",
+   "No in-app currency, coins or roulette wheels",
+   "No provocative questions about third parties, they start fights between partners"
   ],
-  "monetization": "A few ideas a week are free, unlimited, all categories and planning are paid. The niche benchmark is a one-time lifetime purchase around 1000 rubles or 300-500 rubles a month per couple, cheaper than one botched blind date."
+  "monetization": "One-time decks at 10 to 15 dollars, exactly the model people already pay by: in Couples Games & Challenges they pay 10 dollars for levels and 13 for access, and buy two similar apps in a row. The base deck is free and honestly shows the level of the writing, then come paid themed decks, purchases are tied to the couple and survive a phone change."
  },
  "couples-relationship-8": {
   "categoryName": "Couples apps",
-  "title": "A shared calendar for two where you can see your partner's schedule",
-  "oneLiner": "A simple shared calendar where both actually see each other's events and don't make plans blind.",
-  "gap": "Couples install a shared calendar for exactly one thing, to see when the partner is busy and carve out time for each other. And in the existing apps that very thing, the other person's schedule, is hidden behind a paywall or simply vanishes after you add it. When a shared calendar works, people love it and hold on to it for years. Nobody has built a simple, honest shared calendar where you can see the partner's events right away, not after both have paid.",
-  "pitch": "A shared calendar for two where both immediately see each other's events, work, plans, dates, chores. The point is not to make plans blind and to carve out time for each other. People already hold on to such a calendar for years when it works, but rage that the partner's schedule is hidden behind a paywall. The product sells precisely the fact that you see each other with no traps and you pay only once.",
+  "title": "A calendar that finds couple time on its own",
+  "oneLiner": "A planner for a busy couple: it looks at both schedules, finds shared open windows and books an evening for two.",
+  "gap": "A shared calendar is the only corner of this niche where couples pay for a utility for years, not for content. They hire it for one thing, carving out time for each other across two packed schedules. But existing calendars are passive. They show busy slots and stay silent, while finding a shared window, negotiating and defending the evening from new meetings is left to the couple. There is no active mechanism in the niche that finds and holds time for two on its own. Accountability on this is exactly what people praise Cupla for the loudest.",
+  "pitch": "A couples calendar that does not just show two schedules but finds shared free windows on its own and suggests filling them with each other. A date gets booked in both calendars as a real meeting, and if two weeks pass without time together, both partners get a gentle nudge. Busy couples already pay around 40 dollars a year for a shared calendar, here they pay for couple time appearing on its own.",
   "features": [
-   "A shared calendar where both immediately see each other's events, with no charge for it",
-   "A month overview, not just a week in the free version",
-   "Shared household chores and tasks with a mark of who took them",
-   "Reminders for both about anniversaries, meetings and important dates",
-   "Sync with the ordinary phone calendar, nothing to duplicate by hand",
-   "Simple manual event adding, without a mandatory assistant"
+   "Live two-way sync with both partners' calendars, Google, Apple, Outlook, nothing is entered twice",
+   "Shared window search: the app itself shows when both of you are free this week",
+   "A date gets booked in both personal calendars as a real meeting, work plans cannot land on top of it",
+   "A gentle nudge to both partners if two weeks have passed without time together",
+   "Shared dates and lists: birthdays, anniversaries, household chores with a mark of who took what"
   ],
   "antiFeatures": [
-   "We don't hide the partner's schedule behind a paywall, that's the whole point of the product",
-   "We don't force adding events only through an imposed assistant",
-   "We don't break or lose events on an update, people complain about that"
+   "No chat or stickers, the couple has a phone for messaging",
+   "No forcing events through a mandatory AI assistant, typing them in is faster",
+   "No turning into a family everything app with school and activities, this is a calendar for time as a couple"
   ],
-  "monetization": "The shared calendar and month overview are free, sync with several calendars, tasks and styling are paid. The niche benchmark is a one-time lifetime purchase around 1000-1500 rubles per couple or 300 rubles a month, it's more honest not to hide the basic schedule behind a paywall, which is where competitors fall down."
+  "monetization": "A subscription per couple, one partner pays. People already pay around 40 dollars a year for Cupla and stick with the product as long as it does the job. The paid layer is the active part: shared window search, date booking in two calendars and the nudge about weeks without time together. Viewing both schedules is free, people pay for couple time appearing on its own."
  },
  "hiking-trails-1": {
   "categoryName": "Hiking and trails",
@@ -15505,24 +15496,23 @@
  },
  "hiking-trails-2": {
   "categoryName": "Hiking and trails",
-  "title": "An honest mile counter that matches the trail signs",
-  "oneLiner": "A hike tracker that counts distance the same as the trail sign and Garmin, not a couple of miles more.",
-  "gap": "People catch apps lying about the numbers again and again. The trail sign says 7.1 miles, Google says 7, and the app draws 8.12. Garmin shows 14.7, the app 18.2. Elevation gain is often computed dumbly as the difference between the lowest and highest point, so a second climb after a descent simply isn't counted. For someone keeping their own mile counter for the year or raising donations for distance walked, this isn't a trifle, it's a shattered goal. No one in the niche has made accuracy their main promised thing.",
-  "pitch": "A tracker that takes one task seriously: counting distance and elevation gain honestly. Smoothing GPS noise so the jitter of points doesn't rack up extra meters, accumulating every climb and descent from the phone's barometer rather than from two extreme points. It shows next to the track how closely the number matched the sign, if you entered it. This fixes the pain that, per the reviews, drives people away from an app.",
+  "title": "A watch navigator that replaces Garmin",
+  "oneLiner": "An Apple Watch app with a map, route and metrics that works for the entire trail without a phone.",
+  "gap": "People leave Garmin for the Apple Watch and hit a void. The built-in tracker is weak, WorkOutDoors can do everything but it is a maze of hundreds of undocumented settings, and you cannot build a route in it, only import one from Strava. The big map apps have the opposite problem: the komoot and Gaia watch apps are useless without a phone, and you cannot get a route onto them. Someone who paid hundreds of dollars for a Garmin yesterday and bought an Apple Watch Ultra for hiking is ready to pay for a watch navigator. Nobody does this whole job.",
+  "pitch": "A watch app that turns the Apple Watch into a full hiking navigator. The map, route, off-trail alerts and metrics live right on the watch, the phone can stay in the backpack or at home. Instead of hundreds of settings there are three ready-made screen profiles. Demand is proven with money: people bought an Apple Watch for WorkOutDoors and gave up their Garmin.",
   "features": [
-   "GPS jitter smoothing so a phone sitting still doesn't rack up meters",
-   "Elevation gain from the phone's barometer with the sum of all climbs, not the difference of extreme points",
-   "Manual check: enter the length from the sign and see the discrepancy",
-   "Stride calibration for a stable result on the same trail",
-   "A yearly counter of kilometers walked with a goal and progress",
-   "Exporting the track and numbers to GPX to cross-check with Garmin"
+   "Map with your route and position on the watch, no phone nearby",
+   "Build a route on the phone and send it to the watch instantly",
+   "Wrist vibration when you stray off the route",
+   "Ready-made screen profiles: hike, trail run, ascent, no digging through settings",
+   "Track recording on the watch with export to GPX, Strava and Apple Health"
   ],
   "antiFeatures": [
-   "We don't draw our own trail map, we work on top of the system one",
-   "We don't add a feed of other people's hikes",
-   "We don't inflate the numbers for pretty motivation, quite the opposite"
+   "No trail catalog, the user brings their own route",
+   "No turning the watch screen into a dashboard with a hundred data fields",
+   "No making the phone version primary, the watch is the main screen"
   ],
-  "monetization": "A one-time purchase forever, a reference point of 390 rubles, exactly what reviewers thank Topo Map & Hiking Tracker and Tomstrails for, no subscription no ads. The yearly mile challenge can be split out into an optional purchase."
+  "monetization": "One-time purchase, around 1490 rubles, pricier than typical watch utilities. The audience compares the price to a Garmin costing hundreds of dollars, not to free step counters, and already pays $8.99 for WorkOutDoors with tips on top."
  },
  "hiking-trails-3": {
   "categoryName": "Hiking and trails",
@@ -15568,45 +15558,43 @@
  },
  "hiking-trails-5": {
   "categoryName": "Hiking and trails",
-  "title": "Private notes on trails that only you see",
-  "oneLiner": "Your own notes on every route: where the parking is, where it's slippery, where the pretty spot is, private.",
-  "gap": "Oddly, the big apps don't let a person simply leave a note for themselves. In AllTrails people write in plain words: I want to flag where the parking pass is and where the slippery stretch is, but there's nowhere, so they cobble together workarounds from lists. With komoot, Wikiloc and Gaia everything is on top of that published outward by default, your own address and routes go out for all to see, and hiding it is hard. And almost nowhere are there your own folders by region or season. There's demand for a personal, private layer over the hike, and no one has really closed it.",
-  "pitch": "A personal notebook for trails on top of your map. For each route and point you write your own note: paid parking here, rocks slippery after rain here, best view from here, water here. Everything private by default, nothing flies out. You sort it into your own folders, by region and season. People already cobble together workarounds from lists in other apps, which means they're ready to pay for a tool that does this properly.",
+  "title": "Route check: whose land it is and where you can camp",
+  "oneLiner": "A private and public land boundary layer over your track for people who hike, ride and camp outside campgrounds.",
+  "gap": "The only layer this niche consistently pays big money for is land boundaries. Hunters give onX $80 a year plus a fee for each state just to know where private property is. Hikers, cyclists and enduro riders are left without this layer: routes on Wikiloc casually cross private land, there is no way to check whether a wild campsite is legal, and there is nowhere even to mark the corners of your own parcel. The question of whether you are allowed to be here is answered by nobody except hunting apps.",
+  "pitch": "Route legality check in a single layer. Upload a GPX or draw a track and the app highlights where the land is public, where it is private and where the rules allow tent camping. The buyer already exists and pays: onX built an $80 a year subscription on land boundaries but splits it by state and hobby and does not serve hikers.",
   "features": [
-   "A private note on any point and any route, for your eyes only",
-   "Icon markers: parking, water, slippery, nice view, fork",
-   "Your own folders by region and season, not one big pile",
-   "Sorting the list by alphabet, date, proximity",
-   "A photo on a note straight from the phone, to remember the place",
-   "Import and export of GPX, to carry notes over any track"
+   "GPX track check before you head out: segments over private land are highlighted",
+   "Parcel boundaries and land type from open cadastral data, working offline",
+   "A layer of legal wild campsites: where overnight tent camping is allowed",
+   "On-route warning when you approach a private land boundary",
+   "Corner markers for people mapping out their own parcel"
   ],
   "antiFeatures": [
-   "We publish nothing outward without an explicit tap, privacy by default",
-   "We don't assemble our own trail catalog, we live on top of the map and others' GPX",
-   "We don't make a feed and follows, it's a personal notebook"
+   "No hunting tools, this is about foot and bike access",
+   "No trail catalog, we work on top of any track",
+   "No collecting or selling location history, the check runs on the device"
   ],
-  "monetization": "Free up to a certain number of notes, then a one-time purchase forever for unlimited and folders, a reference point of 490 rubles. Privacy as a promise sells well to those enraged in the reviews by forced publishing."
+  "monetization": "A subscription with one nationwide plan, around $40 a year. The anchor from reviews: onX elite costs $80 a year, and on top people pay for every state and every hobby as separate subscriptions, angry about the fragmentation."
  },
  "hiking-trails-6": {
   "categoryName": "Hiking and trails",
-  "title": "Fresh trail condition reports from people who walked it yesterday",
-  "oneLiner": "You read what's on the route right now: snow, a fallen tree, where the water is, not a description five years old.",
-  "gap": "The most loved thing about WTA is the fresh reports: someone walked it yesterday and wrote that there's snow on the trail, the road washed out, a tree is down. This is exactly what's missing almost everywhere. With FarOut the reports either stopped appearing or an algorithm wiped them, and years of useful comments vanished. Outdated points like closed hostels hang forever, and you have to dig through the comments. But a person simply wants to know whether the trail is passable today. A tool that gathers short fresh reports and keeps them clean closes this hole.",
-  "pitch": "An app built around one valuable thing: a short fresh report on the trail. You walked the route, and in a minute you flag it: knee-deep snow, a tree across at such-and-such marker, water is there, parking is full. Others see reports from the last days and weeks, old ones honestly sink and get marked outdated. People in the reviews call such reports the main reason to use the app, which means you can build a product around them.",
+  "title": "Daily legs of a long trail: water, campsites, resupply",
+  "oneLiner": "A multi-day planner for a known trail that splits the route into daily legs by water, campsites and resupply points.",
+  "gap": "People who hike long trails already pay: the Appalachian Trail guide costs $75, and they buy it for the water points and campsites. But the trip logistics are not solved there. Sections cannot be activated in bulk, daily routes cannot be saved, the leg-by-leg plan lives in spreadsheets and notebooks. And someone who only wants to spend a weekend on the trail has to pay for the whole thing. The job of planning my hike day by day is left without a doer.",
+  "pitch": "A planner for multi-day hikes on known trails. Pick a trail, dates and pace, and the app splits the route into daily legs so that each night lands on a campsite and water never runs out between sources. Fall a day behind and the plan rebuilds right on the trail, offline. The buyer already pays $75 for a passive reference, here they get a working trip plan.",
   "features": [
-   "A quick one-minute report: snow, mud, fallen trees, water, parking",
-   "A feed of reports for a specific trail, freshest on top",
-   "An outdated tag for old reports, so they don't mislead",
-   "A point on the map where exactly the obstacle lies or the snow starts",
-   "Subscribing to a trail with an alert about a new report before you set out",
-   "Works offline: you wrote a report in the woods, it goes out at the first signal"
+   "Trail split into daily legs by campsites, water and your chosen pace",
+   "Plan rebuilds on the go: fall behind or speed up and the legs recalculate",
+   "Elevation profile for each day, a hard leg is visible in advance",
+   "Buy a weekend section separately, the whole trail as a cheaper bundle",
+   "Offline mode with battery saving for the entire hike"
   ],
   "antiFeatures": [
-   "We don't let an algorithm silently delete other people's reports, like FarOut",
-   "We don't build a full trail catalog, we tie to GPX and coordinates",
-   "We don't turn it into chit-chat, only about trail condition"
+   "No drawing arbitrary routes on any path, only known long trails",
+   "No social network with a feed, the trip plan matters more than chatter",
+   "No subscription, a purchased trail stays yours forever"
   ],
-  "monetization": "Reading reports free, to gather people and data, a subscription for alerts and per-trail history, a reference point of 149 rubles a month. Plus regional sets for a specific park as a one-time purchase, like the sections in FarOut."
+  "monetization": "One-time section purchases: a weekend stretch of trail for $10, the whole long trail as a bundle for $50-60. The anchor from reviews: people pay $75 for the Appalachian Trail guide and specifically praise that it is a forever purchase, not a subscription."
  },
  "hiking-trails-7": {
   "categoryName": "Hiking and trails",
@@ -15631,24 +15619,23 @@
  },
  "hiking-trails-8": {
   "categoryName": "Hiking and trails",
-  "title": "Coordinates for a paper map: UTM and lat-long at a glance",
-  "oneLiner": "You opened it, saw your coordinates in the format you need, it works with no signal and barely eats battery.",
-  "gap": "There's a small but loyal scenario: a person with a paper topo map in the woods with no signal needs to figure out their coordinates to find themselves on the paper. Tomstrails lives on this and is loved for being GPS-only, working in airplane mode and barely eating battery. But even there is pain: no choice of format, decimal degrees hidden, the swipe to switch UTM and lat-long is gone, no compass. And the big topo maps have no compass and no orientation to the cardinal directions for navigating by paper. A tiny but genuinely needed utility with room for better execution.",
-  "pitch": "An extremely simple utility for people who hike with a paper map. You open it, you see your coordinates large, you swipe to switch UTM, lat-long, decimal degrees. Alongside is a compass and a bearing, to orient the paper to north. Everything on GPS only, works in airplane mode, barely uses battery. Tomstrails proved people pay for such a thing and leave five stars, and its weak spots are a ready-made list of improvements.",
+  "title": "Working maps for field crews",
+  "oneLiner": "A georeferenced PDF viewer for firefighters, foresters and field services: unlimited imports, precise coordinates, markup with gloves on.",
+  "gap": "This niche hides a buyer with a work budget: firefighters, foresters, field services. Agencies issue their maps as georeferenced PDFs, but the only mass-market viewer introduced import limits and pushes everyone into a $34 a year plan, while coordinate autocorrect has already caused serious navigation errors at wildfires. Between the crippled free version and heavyweight corporate GIS there is a void where people work every day.",
+  "pitch": "A field viewer for georeferenced maps built for work, not for a stroll. Unlimited import of your geoPDF and GeoTIFF files, coordinate entry without autocorrect and with datum checks, a photo marker in two taps even with gloves on, markup layer export for reports. These people already pay: they were forced onto Avenza's paid plan, and the agency alternative Field Maps requires corporate licenses that cost several times more.",
   "features": [
-   "Large coordinates, switching UTM, lat-long, decimal degrees by swipe",
-   "A compass and bearing, to orient the paper map to north",
-   "Copying coordinates to the clipboard with one tap",
-   "Works on GPS only in airplane mode, minimal battery drain",
-   "A choice of datum for a specific paper map, so the point matches",
-   "Big digits and high contrast, readable in sunlight"
+   "Unlimited import of georeferenced PDF and GeoTIFF files",
+   "Coordinate entry without autocorrect, with format and datum checks",
+   "A marker in two taps: point, photo, short caption",
+   "Export markers and tracks as a layer for reports and crew handoff",
+   "Large controls for gloves and bright sunlight"
   ],
   "antiFeatures": [
-   "We don't draw our own map, this is a coordinate companion for paper",
-   "We don't require a network and login, everything is computed on the phone",
-   "We don't overload it with extra settings, the essentials on the main screen"
+   "No map store or trail catalog, users bring their own maps",
+   "No corporate GIS with servers and an admin panel",
+   "No cloud-tethered maps that vanish without a server connection"
   ],
-  "monetization": "Basic coordinates free, formats, datums and the compass by a one-time purchase forever, a reference point of 199 rubles. Reviews of Tomstrails scold even 99 cents for the full set as stingy, so an honest small price for a clear set of features will land."
+  "monetization": "An annual per-seat license, around $50 a year, crew packs cost more. The anchor from reviews: professionals were already forced onto Avenza's paid plan at $34 a year, and they pay because the maps are needed for work."
  },
  "teleprompter-captions-1": {
   "categoryName": "Teleprompter and captions",
@@ -15694,45 +15681,43 @@
  },
  "teleprompter-captions-3": {
   "categoryName": "Teleprompter and captions",
-  "title": "Recording that does not lose the clip on save",
-  "oneLiner": "A long video finishes and exports all the way, instead of vanishing and freezing the phone on export.",
-  "gap": "The most frequent pain of the whole niche is not even the teleprompter but the saving. A person shoots a work clip for an hour, hits save, and the recording disappears. Or exporting a long video hangs at 70 percent and the phone gets hot. Or the video seems saved but it is nowhere. People cut the script into pieces just so something finishes. No one in the niche has made reliable recording the main promise, everyone chases features.",
-  "pitch": "An app for recording a talking head with one iron guarantee: you will not lose the take. It writes straight to the phone's memory in chunks, so even if something fails at 90 percent, what was shot is already in place. It exports long clips without overheating and shows honest progress. The finished video is immediately visible in the gallery and it is clear where it is. We sell exactly the peace of mind: you shot for an hour, the clip is yours.",
+  "title": "One take per paragraph: reshoot a phrase, not the whole video",
+  "oneLiner": "The script is split into paragraphs, each recorded as its own take, so a slip costs ten seconds instead of an hour of reshooting.",
+  "gap": "Every teleprompter in this niche records the video as one continuous take. Stumble in minute four and you start over: one user writes outright that a five minute script takes hours to record and that they are already looking for another app. Others ask for the obvious, a pause and a way to get back into the recording after a mistake. Meanwhile this same audience shoots for work and pays BIGVU and VILO 79 to 100 dollars a year. Nobody in the niche has built paragraph-by-paragraph takes with automatic stitching.",
+  "pitch": "A teleprompter studio where the script is pre-split into paragraphs and each paragraph is its own take. Fumbled a line, hit one button and reshoot just that piece, the good ones stay untouched. At the end the app stitches the takes into a single video at original quality. We sell time: a five minute video takes ten minutes to shoot instead of an hour.",
   "features": [
-   "The recording is written to memory in pieces, a break on export does not erase what was shot",
-   "Auto-save of every take, which you can return to without reshooting",
-   "Export of long clips without overheating, with an honest bar and a time estimate",
-   "The finished video goes straight to the phone gallery, with a clear pointer to where it was saved",
-   "A simple built-in teleprompter over the frame for those who shoot to a script",
-   "Continue shooting the same clip after a pause, without losing the earlier pieces"
+   "The script splits into paragraphs and each paragraph is recorded as its own take",
+   "A retake button reshoots only the current paragraph and leaves the finished pieces alone",
+   "Multiple takes per paragraph with a pick-the-best step before stitching",
+   "Automatic stitching into one video with no re-encoding and no visible seams",
+   "Pauses between paragraphs: fix the lighting, check your notes and pick up right where you left off"
   ],
   "antiFeatures": [
-   "We do not cut the clip into pieces so it saves, it should work whole",
-   "We do not hide saving and export behind payment right after an hour of shooting",
-   "We do not secretly re-encode the video to low quality for speed"
+   "We never make you rerecord the whole video over one slip",
+   "We do not bundle a full video editor with effects and stickers, just takes and stitching",
+   "We do not hide stitching behind a separate charge after you have already filmed"
   ],
-  "monetization": "A one-time purchase forever, around 990 rubles, for long clips and recording with no time limit. In the niche people are openly angry that payment is shown only at the export stage of already-shot footage, so we name the price honestly before shooting."
+  "monetization": "A yearly subscription around 6900 rubles. The audience already pays BIGVU and VILO 79 to 100 dollars a year because they shoot for work. The anger in reviews is not about price but about hours of reshoots, so they pay for time saved."
  },
  "teleprompter-captions-4": {
   "categoryName": "Teleprompter and captions",
-  "title": "A scroll speed remembered for each script",
-  "oneLiner": "Open the text and the speed and font size are already the way you set them, with no re-tuning each time.",
-  "gap": "A small thing that annoys everyone and no one has fixed. You dialed in the perfect speed for your manner, closed the text, opened it again, and there is the default, all over again. On a live appearance with several scripts in a row this is a failure: there is no time to drag the slider between texts. Plus the coarse speed steps, where one is slow and the next is already fast, and the value you need simply is not there. A ready spot for a tidy teleprompter for people who perform live.",
-  "pitch": "A teleprompter for people who read from the same set of texts regularly: hosts, musicians with song lyrics, speakers, pastors. Each script remembers its speed, font size, margins and mirror mode. Open it, and everything is already set for that text and your manner. A smooth fine speed scale with no coarse steps. Scripts in folders in the order you need. The point is that before an appearance you dial nothing.",
+  "title": "A teleprompter for two devices: the operator drives, the speaker reads",
+  "oneLiner": "A second phone or iPad becomes the operator console: live script edits, jumping to any line and scripts that stay identical on every screen.",
+  "gap": "A client shoot means two people: the speaker reads from one screen while the operator drives the text from another. The speaker rewords lines on the fly and the operator has to edit the script mid-take: on one TV shoot the previous teleprompter operator was fired for failing to keep up with on-the-fly edits. Today's remotes can only start and stop, the screens do not match and syncing loses hours of writing. This is not a clicker for a solo speaker on stage, it is the second person's workstation, and people pay for it: the niche charges 90 dollars a year and 150 for lifetime.",
+  "pitch": "A teleprompter with two roles. The speaker gets nothing but large text and not a single button. The operator gets a console: speed, jumping to any line and live rewording that instantly appears on the speaker's screen. One script library across phone, iPad and computer with change history. Built for videographers and teleprompter operators who get hired for shoots.",
   "features": [
-   "Its own speed, font and margins for each script, remembered automatically",
-   "A smooth fine speed scale, not a dozen coarse steps",
-   "Folders and manual script order for a set of texts for one event",
-   "Fast switching between texts right during an appearance, without resetting settings",
-   "A three-two-one countdown before the scroll starts, for those rarely in front of a camera",
-   "Pause and precise return to the right line if you drifted off the text"
+   "The speaker screen and the operator console connect directly over Wi-Fi or Bluetooth",
+   "Live script edits from the console, the paragraph updates on the speaker's screen without stopping the scroll",
+   "Jump to any line and precise speed control from the console, nobody touches the speaker's screen",
+   "The console shows exactly the spot the speaker is seeing right now",
+   "One script library across all devices with version history, edits never get lost"
   ],
   "antiFeatures": [
-   "We do not reset settings to default when you open a text",
-   "We do not scramble the names and order of scripts when you delete one of them",
-   "We do not hide basic scrolling and pause behind payment"
+   "We do not limit the remote to start and stop buttons",
+   "We do not tie device pairing to the internet, film sets often have no connection",
+   "We do not build in our own camera with filters, the main camera does the filming"
   ],
-  "monetization": "A one-time purchase forever, around 690 rubles, for unlimited scripts and folders. The niche says outright that a subscription for a teleprompter is too much, while remembering the speed is a basic thing people are willing to pay for once."
+  "monetization": "A one-time pro license around 4900 rubles for a pair of devices. Benchmarks from the niche: one user left for a 90 dollar a year teleprompter because the remote control did not work, and loyal users buy a 150 dollar lifetime. An operator who gets hired for money pays for a reliable console without hesitation."
  },
  "teleprompter-captions-5": {
   "categoryName": "Teleprompter and captions",
@@ -15778,44 +15763,42 @@
  },
  "teleprompter-captions-7": {
   "categoryName": "Teleprompter and captions",
-  "title": "A teleprompter that fully works without the internet",
-  "oneLiner": "You write, store and read scripts, shoot and save a clip anywhere, even offline at a waterfall.",
-  "gap": "A teleprompter is a tool often needed where there is no connection: shooting outdoors, on the road, in a studio without wi-fi. And a pile of apps are dead without the internet: you cannot save a script, cannot shoot a clip, login requires registration and a code by email, and one even got stuck on entering a phone number after payment. A person writes plainly: wanted to shoot at a waterfall with no connection and could not. The niche awaits an honestly offline teleprompter where everything sits on the phone.",
-  "pitch": "A teleprompter that lives entirely on your phone and does not depend on a connection. You write and store scripts locally, read, shoot and save a clip without a single network request. No mandatory registration, email codes or phone numbers: open it and work. Perfect for shooting outdoors, on the road, in a studio basement. We sell exactly the freedom from connectivity that almost no one in the niche has.",
+  "title": "Video translation with every line checked",
+  "oneLiner": "Subtitles in another language with line-by-line translation editing, a term glossary and correct right-to-left writing.",
+  "gap": "People in this niche already pay real money for translation: a business plan for the sake of 30 minute videos, 5.49 dollars a month plus a per-minute counter, extra seconds bought on top. And the product under that money is raw: translations get fixed by hand for months, Spanish to English comes out off the mark, Arabic prints mirrored. The gap is not in translation itself, everyone has that. The gap is in control: nobody lets you check, fix and lock the result before publishing.",
+  "pitch": "A video translator for people who publish in a foreign language and stake their reputation on the result. After transcription the main screen is the original and the translation side by side, line by line: edit a line and the timing stays put. Your own term glossary keeps the brand name and professional vocabulary identical across every video. Right-to-left languages come out correct, not backwards.",
   "features": [
-   "Creating, storing and editing scripts right on the phone, without a network",
-   "Shooting and saving a clip fully offline",
-   "Login without mandatory registration, an email code or a phone number",
-   "Timer and voice scrolling work without the internet",
-   "Import text from a file and the clipboard without the cloud",
-   "Everything needed is downloaded once at install, after which no connection is required"
+   "Original and translation side by side line by line, editing a line never breaks the timings",
+   "A glossary of your own terms: brands and jargon translate identically in every video",
+   "Full right-to-left writing, Arabic never comes out mirrored",
+   "Bilingual export: original and translation on screen at the same time",
+   "The cost of a video in minutes is visible before processing, not after"
   ],
   "antiFeatures": [
-   "We do not require registration and confirmation for basic work",
-   "We do not block saving a script when there is no network",
-   "We do not tie key functions to cloud processing"
+   "We never publish machine translation past the review screen",
+   "We do not charge minutes for runs that failed",
+   "We do not take on voiceover and voice cloning, accurate text comes first"
   ],
-  "monetization": "A one-time purchase forever, around 890 rubles, for unlimited offline scripts and recording. Autonomy is a tangible value for those who shoot on the move, and a one-time payment is logical, since the app does not need a server anyway."
+  "monetization": "The model the niche already pays for: per-minute packs and a business plan. Benchmark: a 100 minute translation pack for 990 rubles and a business plan with a shared team glossary. In reviews people pay 5.49 dollars a month and corporate subscriptions even for translation they have to rewrite."
  },
  "teleprompter-captions-8": {
   "categoryName": "Teleprompter and captions",
-  "title": "A mirror teleprompter for a glass rig without paying up front",
-  "oneLiner": "Mirrored text for a physical teleprompter is available right away and adjusts exactly to your rig.",
-  "gap": "A separate audience has already bought a hardware glass teleprompter rig and puts a phone or iPad behind the glass. They need exactly one thing: mirrored text, otherwise the reflection reads backwards and the app is useless. And the mirror is either locked behind payment, so you cannot even check before buying, or it is not there at all. A serious podcaster writes plainly that they could not even try it once, because they need a mirror. A ready niche: a tidy mirror teleprompter for a physical rig.",
-  "pitch": "A teleprompter for those with a hardware rig with glass: you put a phone or iPad behind the reflector and read. Mirror mode is available right away, without paying up front, and adjusts to your rig: reflection horizontally, vertically, large high-contrast text, speed control from an external remote. It also works when the tablet is simply mounted over the lens on a stand. A product for people who already invested in hardware and need reliable text.",
+  "title": "Subtitles for hour-long videos, not the first five minutes",
+  "oneLiner": "An hour-long lecture gets subtitled in full with an SRT file to take away, for people who subtitle as part of their job.",
+  "gap": "Subtitle apps in this niche are built for one minute vertical clips: a five or six minute cap, and anything longer either will not upload or dies before processing finishes. But the paying user sits on long video: a teacher with lectures, a hospital with training films, courses and webinars. These people already hold work subscriptions at 40 to 50 dollars a year and run into the length limit, not the price.",
+  "pitch": "A subtitle tool where long video is the norm, not the exception. An hour-long lecture gets transcribed in full, chapter by chapter, with progress that survives the screen locking. The output is the subtitled video plus a separate SRT file and a clean transcript for handbooks and learning systems. For people who subtitle as part of their job.",
   "features": [
-   "Mirror mode horizontally and vertically, available right away without payment",
-   "Large high-contrast text, readable in the rig's reflection",
-   "Adjustment of margins and line width for a specific rig model",
-   "Speed control, start and stop from a Bluetooth remote",
-   "A mode for a tablet over the lens on a stand, not just behind glass",
-   "Profiles for different rigs, so you do not tune the mirror every time"
+   "Videos an hour and longer process in full with no cap on minutes",
+   "SRT and plain transcript export alongside the finished video",
+   "Chapter-by-chapter processing with visible progress that resumes after an interruption",
+   "Search across the subtitle text instead of scrubbing an hour on the timeline",
+   "An overnight queue: line up three lectures and everything is ready by morning"
   ],
   "antiFeatures": [
-   "We do not hide the mirror behind payment, it is a basic function the rig is set up for",
-   "We do not force you to shoot inside, the text should run alongside any camera",
-   "We do not complicate the interface with extra effects, readability matters here"
+   "We do not cap video length by pricing tier",
+   "We do not force you to keep the screen on through the whole processing run",
+   "We do not chase dancing TikTok styles, readability and accuracy matter here"
   ],
-  "monetization": "A one-time purchase forever, around 790 rubles, for rig profiles and remote control, while the mirror itself is free, so a person can check compatibility with their hardware before paying. In the niche it is exactly the paid mirror that scares off rig owners, so we do the opposite."
+  "monetization": "A yearly subscription around 3900 rubles for people who need subtitles for work. The niche already pays 40 to 50 dollars a year for tools capped at five minutes, and VidCap reviews even mention a 200 dollar lifetime. We charge the same money for a tool that digests an hour."
  }
 }

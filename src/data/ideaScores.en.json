@@ -1840,20 +1840,20 @@
   "targetSegment": "Anglers, hunters, and gardeners who need the Moon for practical reasons"
  },
  "astronomy-stargazing-5": {
-  "whyPay": "People reach for a sky camera because a telescope is expensive, and NightCap held them at roughly $3 one-time, but the ticket is low and the audience is beginner-level. Technically it is medium-hard: you need deep work with the phone camera (manual long exposure, RAW, frame stacking, stabilization), and the promise of getting to a sharp Moon takes a real teaching layer, otherwise you just repeat a competitor's blurry smudge.",
-  "targetSegment": "Beginners shooting the Moon and stars on a phone with no telescope"
+  "whyPay": "A Seestar owner already spent 500 dollars on the scope and often buys a second and a third, and this niche pays 30-50 dollars for working remotes like SkySafari Pro. In reviews they ask for target input by RA and Dec for variable star photometry and for framing and exposure settings before slewing. The native remote does not offer this, and the Alpaca driver is officially open, so a second remote closes a real pain without any hacking.",
+  "targetSegment": "Seestar smart telescope owners who have outgrown the native app"
  },
  "astronomy-stargazing-6": {
-  "whyPay": "Families look at the sky together and a parent will pay once to get rid of ads, but this is the weakest paying segment in the niche: kids were scared off by $16-a-month subscriptions and $15 for AR, and the parent is picky even about a one-time charge. Technically it is medium: basic star-map AR plus a lot of editorial content (constellation stories in plain language, activities), and content is manual work, not code.",
-  "targetSegment": "Parents and grandparents watching the sky together with their kids"
+  "whyPay": "This audience already bought the full app with paid plugins several times, gifted it to others and called it good value. The main request is written in a review word for word, put lunar astrology into my calendar, and nobody charges for it today because the feature simply does not exist. These people plan their days in a personal calendar, so a lunar layer next to their meetings is worth more to them than yet another separate app.",
+  "targetSegment": "People who check their daily plans and practices against the Moon phase and sign"
  },
  "astronomy-stargazing-7": {
-  "whyPay": "People adore the scenario (\"just hold the app up and it will tell you everything\") and show it off to friends, but this is the most commoditized slot: one-time star maps in the niche run around $3 and there are plenty of these identifiers, so people pay little and reluctantly. Medium difficulty: you still need a database of bright stars and planets plus clean AR off the compass and gyroscope, and all the value is in it working with zero setup.",
-  "targetSegment": "Passersby asking what that bright dot is"
+  "whyPay": "A beginner just spent hundreds of dollars on a telescope and heads to the app store on the very first evening. In reviews they write that they quickly outgrew the free star map, upgraded and were happy with the reasonable price. Meanwhile native telescope apps push them to the point of wanting to return the scope, so a guide that saves the purchase and the hobby is worth noticeably more than 500 rubles to them.",
+  "targetSegment": "Beginners who just bought their first telescope"
  },
  "astronomy-stargazing-8": {
-  "whyPay": "People flat-out ask for a minutes-before-the-event setting and get angry at false alerts for something invisible, and for that kind of honesty in the moment they will hand over one-time money on par with star apps. It is medium-easy for a solo dev: computing event visibility from a location and above the horizon plus tidy notifications is manageable astronomical math with no heavy backend, and the main work is in the event feed and the reminder logic.",
-  "targetSegment": "Enthusiasts who do not want to miss meteor showers and planet parades"
+  "whyPay": "Archaeologists and historians already paid for Stellarium and Redshift upgrades specifically for the ancient sky and were angry not about the price but about the crippled time depth. For them it is a working tool, and a review about the year 1600 ceiling calls the app outright useless for their work. A one-time purchase of a tool where time depth is the main feature closes a job they have already voted for with money.",
+  "targetSegment": "Archaeologists, historians and writers reconstructing the sky of a specific era"
  },
  "cycling-1": {
   "whyPay": "People will pay to avoid dragging a kid in a trailer straight into mud and thorns, and the willingness to pay is proven: Trailforks charges 54 to 60 dollars a year and people keep paying even when the data is stale. Technical note: the hard part is not the app, it is the layer of real-world rides. You need a routing engine, map tiles, crowdsourced coverage and moderation of the markers. For a solo builder that is a heavy backend plus a chicken-and-egg problem, because until there is a dense base of rides the value is zero.",
@@ -1872,16 +1872,16 @@
   "targetSegment": "Training road cyclists and Zwift riders with power meters who do not want to buy a separate computer"
  },
  "cycling-5": {
-  "whyPay": "Accuracy is the thing people in this niche pay for or walk away over, they cross-check the numbers against a car odometer and a police radar sign and drop the app the moment it is off by 10 to 20 percent. A one-time 5 to 8 dollars for a tracker is normal here. The price is modest and demand is narrow, but it is clear. Technical note: calibration over a known stretch and an outlier filter on speed are pure math on the device, no server. A solo builder can ship it. One catch: to count from a wheel-revolution sensor you need a real BLE speed sensor, and without one all you have is calibrated GPS.",
-  "targetSegment": "Distance sticklers and old bike-computer owners who trust only cross-checked numbers"
+  "whyPay": "The payer already exists and gives Zwift 20 dollars a month, with an annual plan at 180. In reviews people say outright that they left Zwift for FulGaz because of real video and the chance to ride their own routes at home. The pain is paid for too: a subscriber waits for a 9 gigabyte update instead of training and starts looking for a replacement. The product sells not a new habit but a transfer of an existing payment.",
+  "targetSegment": "Indoor cyclists with a smart trainer who already pay for Zwift or a similar platform"
  },
  "cycling-6": {
-  "whyPay": "E-bike owners have already sunk thousands into the bike, the will-I-make-it-home anxiety is real, and one review flatly calls the missing battery percentage a safety issue. A small fee for peace of mind is invisible to them, so the willingness is there. Technical note: this is where the serious difficulty is buried. Reading the motor charge over Bluetooth means reverse-engineering the proprietary protocols of Bosch, Shimano, Bafang and the rest, each one different, often closed, and with no public SDK. On top of that, estimating range needs calibration for mode, terrain and weight. For a solo builder this is the riskiest slot in the niche on integrations.",
-  "targetSegment": "E-bike owners on long trips who worry about running out of charge mid-route"
+  "whyPay": "People already pay 29 to 34 dollars for each challenge and buy five mission packs, and one user has been riding this way for four years straight. The money is paid up front, and both platforms fail exactly where it was paid: medals take months to arrive and kilometers have to be typed in by hand. Guaranteed delivery with a tracking number and auto sync remove the two main sources of angry reviews. This is not a new market but the same buyers with the promise finally kept.",
+  "targetSegment": "Older recreational cyclists who buy motivation through paid goals and finisher medals"
  },
  "cycling-7": {
-  "whyPay": "Demand is enthusiastic (every Chasing Watts review is five stars), but you cannot charge the everyday riders, that scares them off, as you can see from the complaint about a competitor's paid attempt. The organizers and clubs pay for reach, not the riders. The monetization is indirect and slow. Technical note: this is a two-sided marketplace with a brutal critical-mass problem, the value only shows up once there is a density of organizers in a specific city. You need a backend, a map, chat and moderation. For a solo builder this is a long city-by-city grind with near-zero early revenue, not a solo-friendly format.",
-  "targetSegment": "Club-ride organizers and visiting cyclists looking for company in a new city"
+  "whyPay": "The fan already pays for a Pro upgrade during the Tour de France and renews a results aggregator premium year after year. Reviews contain a direct promise: I will subscribe as soon as the women's calendar appears. Paying users also complain that live results run hours late, which means data speed is something they will pay for too. The price point is modest, but the audience is already gathered by the competitors and underserved by exactly one half.",
+  "targetSegment": "Pro cycling fans following races from work without a video broadcast"
  },
  "cycling-8": {
   "whyPay": "People call the mileage-based maintenance feature their favorite and use it every ride, but it is locked inside one brand's own app and will not track bikes from other makers. Owners pour thousands into their bikes and parts, so a small fee for staying organized is invisible to them. The price is modest and demand is warm rather than urgent. Technical note: a local log with mileage-based reminders and cards for setups and upgrades, all on the device. Mileage can be entered by hand or imported from GPX, so a sensor is not required. A solo builder can easily ship the whole thing.",
@@ -1912,20 +1912,20 @@
   "targetSegment": "Realtors and private home sellers who want to show an empty apartment furnished in the listing"
  },
  "interior-design-7": {
-  "whyPay": "Fixing one detail is a pain for everyone already paying for AI makeovers, since design goes in iterations and the generation lottery drives them nuts. Willingness to pay inherits the hot makeover node, the audience takes a project all the way to done and values control over a flood of pictures, with a ticket around $8 a month or edit packs. The money is good. Technically it is regional inpainting with object selection and local regeneration of the mask only, plus version history and locks. It is harder than plain generation, because you need precise control of the area and consistency across iterations, but it is the same mask diffusion pipeline on the backend as the makeover node, largely reusable.",
-  "targetSegment": "People who got an almost perfect result and want to fine-tune one detail, taking the design all the way to done"
+  "whyPay": "Designers already pay Morpholio about 12 dollars a month and write outright that the board and the list alone are worth the money. For them a board is not a hobby but the way to sell a project, a Havenly client bought most of the suggested items after just two revisions. Meanwhile the current tool loses boards, does not sync between iPhone and iPad and locks clipping behind tiers. A pro will pay the same price for a reliable workbench without any persuasion, one client presentation pays for the month.",
+  "targetSegment": "practicing interior designers who sell projects to clients through product boards"
  },
  "interior-design-8": {
-  "whyPay": "The yard and front garden are an empty field, the one notable app is called useless by users, and there is almost no competition. But there is also less money in the segment, monetization for outdoor planners is weaker than for interior ones, and the audience of gardeners pays more modestly and prefers a one-time purchase of $15-20 or $5 a month. Demand is alive but the wallet is shallow. Technically it is closer to a floor planner than to diffusion. A plant library with grown-in sizes, plot boundaries traced from a map, and layout of beds and paths is mostly client-side geometry and a data catalog, with no heavy AI backend needed. The main labor for a solo dev here is content, building a library of real plants with dimensions.",
-  "targetSegment": "Gardeners and homeowners planning a yard and flower beds before real spending on plants and landscaping"
+  "whyPay": "Contractors already pay 100 to 400 dollars a year for Polycam and up to 900 for magicplan because a measurement turns directly into an order. A flooring estimator writes he closed 270 jobs without a single mistake while the office builds the quote before he is back from the address. A tool that stitches rooms into a plan of the whole site and gives numbers you can stand behind saves repeat visits, and every visit costs real money.",
+  "targetSegment": "contractors and field estimators whose site measurements turn directly into orders"
  },
  "fishing-1": {
   "whyPay": "A fine for busting a limit or fishing out of season genuinely scares people, so they pull up the app right there on the bank, and they pay happily for the peace of mind. The niche already makes money through state annual licenses, a non-resident guest shells out close to 80 dollars, and the short 3 and 7 day options got cut, which people hate. Technically it is middling: the reference is static and offline, but you have to gather and keep the rules for every state and species current, and that is manual data work with no API, and one wrong limit number destroys trust instantly.",
   "targetSegment": "Out-of-town non-resident anglers on a weekend trip and beginners who are afraid of running into a fine and a ranger"
  },
  "fishing-2": {
-  "whyPay": "Knots are a classic utility worth a couple of dollars up front, people flat out say they would pay for an ad-free version and get angry when the ads stay after they pay. But the ticket is low and willingness to pay is limited, since a competitor gives away almost everything for free with ads. Technically it is very simple for a solo builder: a static offline catalog with step-by-step animations, search and a filter by line, no backend at all, and the only real work is drawing the knot animations cleanly.",
-  "targetSegment": "Beginners who cannot tie a knot from a flat picture, and anglers fed up with ads in the middle of a lesson"
+  "whyPay": "Boat anglers already pay for this job with real money, not promises. Fishdope runs a paid membership, and reviewers write that its daily spotter-plane intel saves them hundreds of dollars in fuel and hours of time. FishAngler charges 80 dollars a year and Pro Angler sells premium for its reports, yet inside the reports are five years old. With fuel near 7 dollars a gallon, one accurate trip pays for a year of membership, so the price needs no justifying.",
+  "targetSegment": "a private boat angler in a coastal region who burns expensive fuel on trips and already pays for intel"
  },
  "fishing-3": {
   "whyPay": "Photo-based identifiers already sell on a 9.99 to 12 a year subscription, so demand is obvious, but guessing wrong half the time undercuts willingness to pay. People ask for a regional list and a breakdown of look-alike species, and they will pay once for reliability. Technically it is hard for a solo builder: accurate fish recognition from a photo needs a trained model or a paid third-party service, that is a cost on every request, and the quality is tough to pull up on your own to a level you are not ashamed to charge for.",
@@ -1940,8 +1940,8 @@
   "targetSegment": "Avid anglers who go out dozens of times a year, plan their trips, and will not trust a forecast without proof"
  },
  "fishing-6": {
-  "whyPay": "Tides and the best hours are what people open the app for before every trip to the water, an hour off ruins the day, and competitors reliably break the time format and the units. People flat out say they would pay once but hate subscriptions. Willingness to pay is modest and the product reads as a utility. Technically it is doable: tide tables come from open NOAA sources, solunar windows are calculated, an offline cache is simple, and the main value is displaying it accurately, not complex integrations.",
-  "targetSegment": "Shore and tidal anglers for whom pinning the trip to the water and the hours precisely is critical"
+  "whyPay": "Tournament anglers already bring money to this job. They buy BUBBA smart scales for 60 and 99 dollars and pay 5 dollars a month on top for app features. Reviews praise culling specifically during tournaments and beg for a leaderboard with friends as the missing feature, while the mid-tier 99 dollar scale does not even connect to the brand app. A tool that works with any scale and any tags captures a payment that already exists without requiring new hardware.",
+  "targetSegment": "a tournament bass angler who already pays for a smart scale and its app subscription"
  },
  "fishing-7": {
   "whyPay": "A lure advisor helps a beginner land their first big fish, and they thank it with five stars and pay for it, while competitors charge 10 dollars a month. But trust drops if the answer just loops around, so people pay for a real response to conditions plus an explanation. Technically it is medium: the logic for matching against water temperature, water color, light and wind is rules plus content on rigs and lures, there is barely any backend, but you need an honest knowledge base and real variety, or you end up with the same repetition that people rip in the reviews.",
@@ -1972,24 +1972,24 @@
   "targetSegment": "couples in a rough patch for whom an in-person therapist is out of reach or too expensive and who need a calm guide through one hard conversation"
  },
  "couples-relationship-6": {
-  "whyPay": "A quiet sign of presence on the screen is the single most loved feature for couples apart, and it is broken everywhere: widgets do not refresh on their own, you have to open the app, and the whole point falls apart. There is willingness to pay, but the price is low and the audience is sensitive to ads: people pay $8 to $14 once for lifetime to kill the ads, not a big subscription. It is technically tricky precisely because of the core promise: reliable background refresh of a lock-screen widget on iOS runs into strict background-activity limits and push mechanics, and doing it more reliably than the competition is genuinely hard, and that is the whole product.",
-  "targetSegment": "long-distance couples who care more about a quiet sign that the other is there (a status, a short note on the screen) than about one more chat"
+  "whyPay": "Couples with kids already pay a yearly subscription for Just Between Us just to keep adult conversations out of shared iMessage. Full video there is sold as separate paid access, so people pay twice for this scenario. Meanwhile reviews complain about losing paid-for photos and having no disappearing timer shorter than 24 hours. A product that finishes this job steps into a price point that is already proven.",
+  "targetSegment": "married couples with kids on a shared family account and shared devices"
  },
  "couples-relationship-7": {
-  "whyPay": "Long-term couples hit a wall of boredom where everything feels stale, and they ask outright for a date generator by category while hating a shared feed of strangers' ideas. The pain is real, but this is a nice-to-have on top, not something people pay for as readily as memory or a therapy substitute, so the money is medium-low and retention is weaker. On the plus side, it is easy for a solo builder: a date-idea bank filtered by city, budget, and mood, plus done and want-to lists, no social feed and no heavy backend, and freshness can be kept up with curated batches.",
-  "targetSegment": "long-term couples who have run out of places to go and whose conversations go in circles, and who do not want strangers inside their relationship"
+  "whyPay": "Money already flows into this job: people pay 10 and 13 dollars for levels in Couples Games & Challenges and buy two similar apps in a row. The anger in reviews is not about price but about quality, scenarios weaker than their own imagination and the same content on a loop. A couple that already paid and got burned will gladly pay again for a deck with genuinely authored writing. Open samples before purchase remove the main fear, buying a pig in a poke again.",
+  "targetSegment": "couples who have already bought adult games and got burned on content quality"
  },
  "couples-relationship-8": {
-  "whyPay": "Couples set up a shared calendar for exactly one reason: to see when the partner is busy and carve out time for each other. Cupla hides exactly that, the other person's schedule, behind payment, which infuriates people, but when it works they stick with it for years (high retention). An honest model with no traps sells well. Technically it is medium and deceptive: the shared calendar itself is not hard, but live two-way sync with the phone's system calendar (Google, Apple) through their APIs is real fiddly work and a fragile spot, and that is exactly what people are waiting for.",
-  "targetSegment": "busy couples with clashing schedules (including those who work together) who need to see each other's calendar and stop making plans blind"
+  "whyPay": "Couples already pay around 40 dollars a year for a shared calendar, the rare corner of this niche where money goes to a utility rather than content. Cupla gets its loudest praise exactly for accountability, the app helps a couple actually protect time for each other. An active layer that finds shared windows on its own and books the evening in both calendars strengthens exactly what people already pay for. For a busy couple, paying is easier than manually cross-checking two packed schedules every week.",
+  "targetSegment": "busy working couples with two packed work calendars"
  },
  "hiking-trails-1": {
   "whyPay": "People hold onto Relive and Wikiloc for years just for a nice memory of the hike, and they flat out call the removed trim feature a deal breaker. They will pay once for a clean track without the drive-home tail, but this is a tune-up utility, not an ongoing service, so the check stays small. It is not hard to build technically: you log GPS points through CoreLocation, trimming and stitching is just working with your own array of coordinates, export to GPX, no backend and no trail catalog.",
   "targetSegment": "Walkers and cyclists who keep a route diary for the memories and love sharing a nice map of where they went"
  },
  "hiking-trails-2": {
-  "whyPay": "The pain is real and repeatable (a 7.1 mile sign, the app says 8.12, Garmin reads 14.7 against 18.2), and it drives people out of apps. But accuracy is table stakes, not a wow feature, so people pay grudgingly and only once, and a mile counter you check once a year barely motivates an upgrade. Harder than average: an honest count needs GPS-noise smoothing and elevation gain from the phone barometer with every climb summed up, so it is real work with sensors and an algorithm, not just drawing a line.",
-  "targetSegment": "Disciplined walkers who keep a yearly mileage counter and cross-check the numbers against Garmin and trail signs"
+  "whyPay": "This buyer already votes with money: people bought an Apple Watch just to run the $8.99 WorkOutDoors and gave up their Garmin, some tipping extra on top. They compare the price to a Garmin costing hundreds of dollars, not to free step counters. The pain is concrete: komoot and Gaia watch apps are useless without a phone, while WorkOutDoors is a maze of hundreds of undocumented settings. A clear watch navigator does a job people already pay for.",
+  "targetSegment": "Apple Watch Ultra owners who left Garmin and hike without a phone in hand"
  },
  "hiking-trails-3": {
   "whyPay": "The most lucrative pain in the niche: an offline map is safety, and people pay AllTrails 80 dollars a year and Avenza 34 dollars a year for it, while the rest get by because a friend happened to have a Garmin. Willingness to pay is high, and a one-time lifetime price lands well against the hatred for that 80-dollar subscription. But it is heavy to build: you need your own tile engine on OpenStreetMap, a topo layer with contour lines, reliable area downloads by drawing a box, and a guarantee it opens with no signal at every zoom level, the most engineering-heavy item on the list.",
@@ -2000,20 +2000,20 @@
   "targetSegment": "Solo hikers and the people close to them who want someone keeping watch without buying a satellite tracker"
  },
  "hiking-trails-5": {
-  "whyPay": "The demand is tangible: AllTrails users ask outright for private notes (a parking pass, a slippery spot), and komoot, Wikiloc and Gaia annoy people by forcing everything public. People already rig up workarounds out of lists, so they will pay, but this is a personal organizer on top of the map, the value is quiet, the check is a small one-time. Easy to build: notes, marker icons, folders, photos and GPX import-export are all local storage on the phone with no servers.",
-  "targetSegment": "People who return to the same trails and want a private layer of notes just for themselves"
+  "whyPay": "Land boundaries are the only layer in this niche people consistently pay serious money for: onX elite costs $80 a year, with each state and each hobby charged as a separate subscription on top. Hikers, cyclists and enduro riders are left without this layer, even though Wikiloc tracks casually cross private land and there is no way to check whether a wild campsite is legal. One nationwide plan at $40 a year looks like an honest alternative to the fragmentation people already complain about in reviews.",
+  "targetSegment": "Hikers and riders who camp outside campgrounds and travel across land with murky ownership"
  },
  "hiking-trails-6": {
-  "whyPay": "Fresh trail reports are the most loved thing about WTA and the thing missing everywhere else, so the value to a reader is high. But the money is weak and risky: this is a classic cold start for two-sided content, reading has to be free to get the data flowing, and only a handful will pay for alerts, so the money only shows up once you have a mass of contributors. The hardest thing to build: you need a backend, moderation, a feed per trail, reports pinned to coordinates and a community to grow, which is no longer a solo utility but a small service with a network effect.",
-  "targetSegment": "Trip planners who need to know whether a trail is passable today (snow, downed trees, water)"
+  "whyPay": "The buyer already pays $75 for an Appalachian Trail guide for its water points and campsites, and specifically praises paying once instead of subscribing. But nobody handles the trip logistics for them: daily routes cannot be saved in FarOut, sections cannot be activated in bulk, the plan lives in spreadsheets and notebooks. A planner that splits the trail into days and rebuilds the plan on the go sells a working result instead of a passive reference. A separate weekend section purchase removes the anger of people forced to pay for the entire trail.",
+  "targetSegment": "Backpackers hiking famous long trails end to end or in weekend sections"
  },
  "hiking-trails-7": {
   "whyPay": "The pain repeats across all the big apps (Footpath cuts in a straight line, Gaia won't snap to the trail more than half the time, no elevation profile), and the real value is that you know up front whether your legs can handle the climb. People pay to save and export, but they often expect planning to be free, so the check is a moderate one-time. Above-average difficulty: snapping to trails means routing over the OpenStreetMap graph plus an elevation-gain profile from terrain data, which is real engineering work even without your own catalog.",
   "targetSegment": "Planning hikers who build a loop in advance and want to see the elevation gain before they hit the trail"
  },
  "hiking-trails-8": {
-  "whyPay": "The scenario is sound but narrow and low-money: a person with a paper topo map and no signal. Tomstrails lives on exactly this and people love it, but that is also where they flatly say even 99 cents for the full set feels stingy, so the price ceiling is low and the audience is thin (land nav enthusiasts, not the mass hiker). On the plus side it is almost trivial to build: coordinates from GPS, converting between UTM and lat-long formats, a compass, datums and copy to clipboard are pure on-device math with no signal, no login and no maps.",
-  "targetSegment": "Walkers with a paper topo map and land nav fans who need precise coordinates offline and easy on the battery"
+  "whyPay": "This buyer has a work budget: wildland firefighters and foresters have already been forced onto Avenza's paid plan at $34 a year, and they pay because the maps are needed for the job. The pain is documented: import limits break work right at a fire, and coordinate autocorrect has caused serious navigation errors. The agency alternative Field Maps requires corporate licenses that cost several times more. A viewer without limits at $50 a year gets bought as a work tool, often on the agency's dime.",
+  "targetSegment": "Wildland firefighters, foresters and field crews working with agency geoPDF maps"
  },
  "teleprompter-captions-1": {
   "whyPay": "Voice tracking is exactly what people buy an expensive prompter for. Reviewers openly rage at PromptSmart's $89 a year and pay anyway, because the feature is irreplaceable. The willingness to pay is high, but this is the hardest thing in the niche to build: you need a streaming speech recognizer with forced alignment to the script that survives pauses, stumbles, noise and accents. The built-in on-device Speech engine is weak here, and getting it stable almost certainly means heavy tuning or a cloud ASR, which drags in a backend and running costs. Very tough for a solo builder to make reliable.",
@@ -2024,12 +2024,12 @@
   "targetSegment": "Bloggers and experts who film in third-party cameras and apps, plus webinar and Zoom hosts"
  },
  "teleprompter-captions-3": {
-  "whyPay": "This is the most widespread pain in the whole niche: the recording is lost on save, exporting a long clip hangs and cooks the phone. People pay for reliability, but only indirectly, and they get furious when the paywall appears after an hour of shooting. Willingness to pay is moderate, because basic recording feels like it should be free. Technically it is heavy for a solo builder: reliable segmented video capture, finishing the file after an interruption, hardware encoding without overheating, and clean handling of the camera and memory. This is low-level AVFoundation work with all the edge cases of long sessions, where it is easy to hit the same bugs everyone else has.",
-  "targetSegment": "People filming long talking-head videos for work: coaches, teachers, and sellers who shoot for 30 to 60 minutes"
+  "whyPay": "This audience shoots for work and already pays BIGVU and VILO 79 to 100 dollars a year. One reviewer writes that a five minute script takes hours to record because of a single slip in the middle. Paragraph takes with automatic stitching turn an hour of reshoots into ten minutes, and that is time savings people pay for without persuasion.",
+  "targetSegment": "Bloggers and experts who regularly shoot talking-head videos for work"
  },
  "teleprompter-captions-4": {
-  "whyPay": "An annoying little thing nobody has fixed: the speed and settings are not remembered per script. The value is real for people who read from the same set of texts regularly (hosts, musicians, pastors), but it is not a killer feature people will pay for in droves, more a nice convenience. Willingness to pay is below average and the audience is narrow. On the plus side it is trivial for a solo builder: per-script local settings storage, a smooth speed slider, folders and ordering. No speech recognition, no backend, just a clean offline text editor with scrolling.",
-  "targetSegment": "Performers with a repeat repertoire: event hosts, musicians reading song lyrics, speakers, and pastors"
+  "whyPay": "A teleprompter operator earns money on shoots and a failed remote costs them the contract: one review mentions a previous operator fired for failing to keep up with on-the-fly edits. The niche already pays 90 dollars a year and 150 for lifetime for teleprompters with weak remotes. A reliable console with live script editing is a work tool and a one-time purchase pays for itself in a single shoot.",
+  "targetSegment": "Videographers and teleprompter operators hired for commercial shoots"
  },
  "teleprompter-captions-5": {
   "whyPay": "Everyone can auto-caption, but convenient, reliable manual editing is the gap people open the app for: a line sticks to its neighbor, timings drift after you save a draft. There is willingness to pay for a stable tool, but the subtitle-app market is crowded and trained on $48 to $50 a year subscriptions, so a one-time model for removing the watermark would stand out, yet the competition is brutal. Technically this is hard: your own video editor with a timeline, frame-by-frame subtitle dragging, splitting lines with timing recalculation, rock-solid project saving, and rendering with the text baked in. This is the largest option on the list by sheer volume of code.",
@@ -2040,11 +2040,11 @@
   "targetSegment": "Live performers with no assistant: musicians, speakers, and hosts of services and events using an external remote or pedal"
  },
  "teleprompter-captions-7": {
-  "whyPay": "Honest offline is a tangible value for people who film on the move without a signal, and they are irritated by forced sign-up, email codes and cloud features. But this is a defensive advantage, not something people rush to pay for: many expect a basic offline prompter to be free, so willingness to pay is below average. On the plus side it is one of the simplest builds: all text and settings stored locally, filming through AVFoundation, no server. The only wrinkle is that adding video recording brings back the same save risks from option 3, but a pure offline prompter without recording comes together easily.",
-  "targetSegment": "People filming out of signal range: travel bloggers, field shoots, studios with no Wi-Fi, and shooting on the road"
+  "whyPay": "The niche already pays real money for video translation: a business plan for 30 minute videos, 5.49 dollars a month and extra minutes bought on top. People pay even for translation they then fix by hand for months, Spanish comes out mangled and Arabic mirrored. Line-by-line review, a term glossary and correct right-to-left writing remove exactly the pain that makes people cancel their subscriptions.",
+  "targetSegment": "Creators and small businesses that publish videos in a foreign language and answer for the result"
  },
  "teleprompter-captions-8": {
-  "whyPay": "Owners of a physical glass rig have already spent on hardware and need exactly one thing: mirrored text, or the app is useless. This is a loyal, paying crowd (a serious podcaster in one review could not even try it because the mirror was paywalled), but a narrow one. We give the mirror itself away for free so people can check compatibility, and charge for rig profiles and remote control, so the average ticket is modest. Technically it is very simple: mirroring the text is a CSS or CoreGraphics transform, plus settings profiles and receiving remote events. No built-in camera, no recognition, no backend.",
-  "targetSegment": "Owners of hardware prompter rigs with glass: studio hosts, podcasters, and tripod shooting over the lens"
+  "whyPay": "The paying user here subtitles for work: a teacher with lectures, a hospital with training videos, course authors. These people already hold subscriptions at 40 to 50 dollars a year, and VidCap reviews even mention a 200 dollar lifetime. What stops them is the five minute cap, not the price, so a tool with no length limit and SRT export sells itself.",
+  "targetSegment": "Teachers, medical staff and course authors who need subtitles for work"
  }
 }
