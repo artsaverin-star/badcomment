@@ -1918,5 +1918,37 @@
  "interior-design-8": {
   "whyPay": "The yard and front garden are an empty field, the one notable app is called useless by users, and there is almost no competition. But there is also less money in the segment, monetization for outdoor planners is weaker than for interior ones, and the audience of gardeners pays more modestly and prefers a one-time purchase of $15-20 or $5 a month. Demand is alive but the wallet is shallow. Technically it is closer to a floor planner than to diffusion. A plant library with grown-in sizes, plot boundaries traced from a map, and layout of beds and paths is mostly client-side geometry and a data catalog, with no heavy AI backend needed. The main labor for a solo dev here is content, building a library of real plants with dimensions.",
   "targetSegment": "Gardeners and homeowners planning a yard and flower beds before real spending on plants and landscaping"
+ },
+ "fishing-1": {
+  "whyPay": "A fine for busting a limit or fishing out of season genuinely scares people, so they pull up the app right there on the bank, and they pay happily for the peace of mind. The niche already makes money through state annual licenses, a non-resident guest shells out close to 80 dollars, and the short 3 and 7 day options got cut, which people hate. Technically it is middling: the reference is static and offline, but you have to gather and keep the rules for every state and species current, and that is manual data work with no API, and one wrong limit number destroys trust instantly.",
+  "targetSegment": "Out-of-town non-resident anglers on a weekend trip and beginners who are afraid of running into a fine and a ranger"
+ },
+ "fishing-2": {
+  "whyPay": "Knots are a classic utility worth a couple of dollars up front, people flat out say they would pay for an ad-free version and get angry when the ads stay after they pay. But the ticket is low and willingness to pay is limited, since a competitor gives away almost everything for free with ads. Technically it is very simple for a solo builder: a static offline catalog with step-by-step animations, search and a filter by line, no backend at all, and the only real work is drawing the knot animations cleanly.",
+  "targetSegment": "Beginners who cannot tie a knot from a flat picture, and anglers fed up with ads in the middle of a lesson"
+ },
+ "fishing-3": {
+  "whyPay": "Photo-based identifiers already sell on a 9.99 to 12 a year subscription, so demand is obvious, but guessing wrong half the time undercuts willingness to pay. People ask for a regional list and a breakdown of look-alike species, and they will pay once for reliability. Technically it is hard for a solo builder: accurate fish recognition from a photo needs a trained model or a paid third-party service, that is a cost on every request, and the quality is tough to pull up on your own to a level you are not ashamed to charge for.",
+  "targetSegment": "Amateur anglers who want to quickly figure out what they caught and whether they can keep it, and species collectors in their own region"
+ },
+ "fishing-4": {
+  "whyPay": "Keeping a catch log is a lasting habit, people come back to their productive spots and pay for a tool that does not let them down, while competitors infuriate them by crashing mid-entry and charging for the basics. Willingness to pay is moderate, since many expect a logbook to be free. Technically it is doable for a solo builder: local storage, reading location and time from the photo data, a map of spots, no heavy integrations, and the main job is reliability and no crashes, which is exactly where competitors go up in flames.",
+  "targetSegment": "Methodical anglers who track their bite stats by location and want to return to the spots that produce"
+ },
+ "fishing-5": {
+  "whyPay": "A bite forecast clearly sells, subscriptions reach 10 dollars a month, and people check it before every trip. But trust is shaky, forecasts often run opposite to reality, so people only pay for something that proves it is accurate. Technically it is medium-to-hard: solunar and tides come from formulas, but an honest tie to the weather and to a specific species behavior, plus logging real catches for accuracy stats, need weather data and careful logic, and an unproven number is worth nothing.",
+  "targetSegment": "Avid anglers who go out dozens of times a year, plan their trips, and will not trust a forecast without proof"
+ },
+ "fishing-6": {
+  "whyPay": "Tides and the best hours are what people open the app for before every trip to the water, an hour off ruins the day, and competitors reliably break the time format and the units. People flat out say they would pay once but hate subscriptions. Willingness to pay is modest and the product reads as a utility. Technically it is doable: tide tables come from open NOAA sources, solunar windows are calculated, an offline cache is simple, and the main value is displaying it accurately, not complex integrations.",
+  "targetSegment": "Shore and tidal anglers for whom pinning the trip to the water and the hours precisely is critical"
+ },
+ "fishing-7": {
+  "whyPay": "A lure advisor helps a beginner land their first big fish, and they thank it with five stars and pay for it, while competitors charge 10 dollars a month. But trust drops if the answer just loops around, so people pay for a real response to conditions plus an explanation. Technically it is medium: the logic for matching against water temperature, water color, light and wind is rules plus content on rigs and lures, there is barely any backend, but you need an honest knowledge base and real variety, or you end up with the same repetition that people rip in the reviews.",
+  "targetSegment": "Beginner spin and bass anglers who do not know what to tie on and want a clear breakdown for the conditions"
+ },
+ "fishing-8": {
+  "whyPay": "An offline spot map hits the sharpest pain in the niche, out on a lake or river there is no signal and online maps are useless there, people flat out call them worthless. Maps already sell pricey, 35 to 100 dollars a year, and infuriate people by charging again and again for the same area, so a one-time payment would land hard. Technically it is a bit heavy for a solo builder: offline map tiles, satellite positioning with no network, storing and syncing spots, plus quality bathymetric layers and map licenses cost money and make it harder to build alone.",
+  "targetSegment": "Kayakers and boaters on lakes and rivers with no cell service who keep their own spots and depths"
  }
 }
