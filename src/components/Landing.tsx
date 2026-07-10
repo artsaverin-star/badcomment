@@ -66,6 +66,13 @@ function firstSentence(t?: string) {
 }
 
 // Compact tile — headline, small icon row, the hook, quiet stats.
+// Niches shipped in the latest wave — flagged with a small «new» badge until
+// the next wave lands. Keep in sync with the newest RATING_BY_SLUG additions.
+const NEW_NICHES = new Set([
+  "astronomy-stargazing", "cycling", "interior-design", "fishing",
+  "couples-relationship", "hiking-trails", "teleprompter-captions",
+]);
+
 function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   const lp = ru ? "/ru" : "/en";
   const icons = c.icons.filter(Boolean).slice(0, 4);
@@ -74,7 +81,14 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
       href={`${lp}/segment/${c.slug}`}
       className="card-min group flex h-full flex-col rounded-[22px] p-6"
     >
-      <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
+        {NEW_NICHES.has(c.slug) && (
+          <span className="mt-0.5 shrink-0 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-semibold lowercase text-white">
+            {ru ? "новое" : "new"}
+          </span>
+        )}
+      </div>
       {icons.length > 0 && (
         <div className="mt-4 flex items-center gap-1.5">
           {icons.map((src, i) => (

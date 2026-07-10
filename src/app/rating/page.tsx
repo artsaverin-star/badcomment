@@ -48,6 +48,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 import { byNicheMoney } from "@/lib/nicheMoney";
 
+// Latest-wave niches get a «new» badge until the next wave lands.
+const NEW_NICHES = new Set([
+  "astronomy-stargazing", "cycling", "interior-design", "fishing",
+  "couples-relationship", "hiking-trails", "teleprompter-captions",
+]);
+
 const NICHES_RAW = [
   { slug: "stock-investing", name: "Акции", nameEn: "Stock investing", blurb: "73 приложения: где брокер и трекер надёжны в момент сделки, а где блок вывода средств, фейковые AI-сигналы и накрутка.", blurbEn: "73 apps: where the broker and tracker hold up when it matters, and where it is frozen withdrawals, fake AI signals and juiced reviews." },
   { slug: "weight-tracker", name: "Вес", nameEn: "Weight tracker", blurb: "27 приложений: где дневник веса честный и не стыдит, а где потеря истории, подписочные ловушки и накрутка.", blurbEn: "27 apps: where the weight diary is honest and shame-free, and where it is lost history, subscription traps and juiced reviews." },
@@ -150,7 +156,14 @@ export default async function RatingIndexPage() {
           const count = RATING[n.slug]?.count ?? 0;
           return (
             <Link key={n.slug} href={`${lp}/rating/${n.slug}`} className="card-min group flex h-full flex-col rounded-[22px] p-6">
-              <h2 className="text-headline text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="text-headline text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
+                {NEW_NICHES.has(n.slug) && (
+                  <span className="mt-0.5 shrink-0 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-semibold lowercase text-white">
+                    {ru ? "новое" : "new"}
+                  </span>
+                )}
+              </div>
               {icons.length > 0 && (
                 <div className="mt-4 flex items-center gap-1.5">
                   {icons.map((src, i) => (
