@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import Link from "next/link";
 import { listIdeas } from "@/lib/ideas";
 import { getCategoryBySlug } from "@/lib/researchCategories";
@@ -42,8 +43,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords: ru ? ["идеи приложений", "какое приложение сделать", "анализ рынка приложений", "идея для стартапа"] : ["app ideas", "what app to build", "app market analysis"],
     alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/most-wanted", en: "https://inapp.pro/en/most-wanted", "x-default": "https://inapp.pro/en/most-wanted" } },
-    openGraph: { title, description, type: "article", url, siteName: "inApp", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    openGraph: { title, description, type: "article", url, siteName: "inApp", images: [ogImage(ru)] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage(ru)] },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };
 }
@@ -164,7 +165,7 @@ export default async function MostWantedPage() {
         inLanguage: ru ? "ru" : "en",
         url: articleUrl,
         mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-        image: `https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`,
+        image: ogImage(ru),
         datePublished: "2026-06-15",
         dateModified: "2026-06-25",
         author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },

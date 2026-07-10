@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/researchCategories";
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: { canonical: url, languages: { ru: `https://inapp.pro/ru/best/${slug}`, en: `https://inapp.pro/en/best/${slug}`, "x-default": `https://inapp.pro/en/best/${slug}` } },
-    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru)] },
     twitter: { card: "summary_large_image", title, description },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };

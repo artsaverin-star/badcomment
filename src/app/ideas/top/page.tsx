@@ -1,4 +1,5 @@
 import { listIdeas } from "@/lib/ideas";
+import { ogImage } from "@/lib/og";
 import { getLocale } from "@/lib/i18n.server";
 import { ideaCard, ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title, description,
     alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/ideas/top", en: "https://inapp.pro/en/ideas/top", "x-default": "https://inapp.pro/en/ideas/top" } },
-    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru)] },
     twitter: { card: "summary_large_image", title, description },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };

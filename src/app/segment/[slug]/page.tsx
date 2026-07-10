@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
@@ -128,8 +129,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         "x-default": `https://inapp.pro/en/segment/${slug}`,
       },
     },
-    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}&slug=${slug}`] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}&slug=${slug}`] },
+    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru, slug)] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage(ru, slug)] },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };
 }

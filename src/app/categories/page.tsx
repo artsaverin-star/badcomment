@@ -1,4 +1,5 @@
 import { getLocale } from "@/lib/i18n.server";
+import { ogImage } from "@/lib/og";
 import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
@@ -31,8 +32,8 @@ export async function generateMetadata() {
       canonical: url,
       languages: { ru: "https://inapp.pro/ru/categories", en: "https://inapp.pro/en/categories", "x-default": "https://inapp.pro/en/categories" },
     },
-    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
-    twitter: { card: "summary_large_image" as const, title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru)] },
+    twitter: { card: "summary_large_image" as const, title, description, images: [ogImage(ru)] },
     robots: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 },
   };
 }

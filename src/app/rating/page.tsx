@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/og";
 import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
@@ -36,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ? "100 приложений на нишу, оценённых по реальным отзывам, а не по витринной звезде, плюс проверка на накрутку рейтинга."
     : "100 apps per niche scored by real reviews, not the storefront star, plus a rating-authenticity check.";
   const url = `https://inapp.pro/${ru ? "ru" : "en"}/rating`;
-  const og = `https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`;
+  const og = ogImage(ru);
   return {
     title, description,
     alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/rating", en: "https://inapp.pro/en/rating", "x-default": "https://inapp.pro/en/rating" } },
