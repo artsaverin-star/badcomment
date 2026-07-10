@@ -21,7 +21,7 @@ export default function CategoryChips({ chips, current, sort, locale = "ru", loc
     if (cat) p.set("cat", cat);
     if (sort && sort !== "hot") p.set("sort", sort);
     const q = p.toString();
-    return q ? `${lp}?${q}` : lp;
+    return q ? `${lp}/ideas?${q}` : `${lp}/ideas`;
   };
   const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
 

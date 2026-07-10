@@ -13,8 +13,8 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const pathname = usePathname();
   if (pathname === "/cards") return null;
   const links = [
-    { href: "/", label: ru ? "Идеи" : "Ideas" },
-    { href: "/categories", label: ru ? "Разборы" : "Breakdowns" },
+    { href: "/", label: ru ? "Разборы" : "Breakdowns" },
+    { href: "/ideas", label: ru ? "Идеи" : "Ideas" },
     { href: "/rating", label: ru ? "Рейтинг" : "Rating" },
     { href: "/saved", label: ru ? "Избранное" : "Saved" },
     { href: "/apps", label: ru ? "Все приложения" : "All apps" },

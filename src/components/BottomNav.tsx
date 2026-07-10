@@ -8,12 +8,12 @@ import { type Locale } from "@/lib/i18n";
 // Three surfaces: ideas / breakdowns / rating, active state from the path.
 const TABS: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "ideas", href: "/", ru: "Идеи", en: "Ideas",
-    icon: <><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3Z" /></>,
+    key: "breakdowns", href: "/", ru: "Разборы", en: "Breakdowns",
+    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
   },
   {
-    key: "breakdowns", href: "/categories", ru: "Разборы", en: "Breakdowns",
-    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
+    key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
+    icon: <><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3Z" /></>,
   },
   {
     key: "rating", href: "/rating", ru: "Рейтинг", en: "Rating",
@@ -27,9 +27,9 @@ export default function BottomNav({ locale }: { locale: Locale }) {
   const path = raw.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const lp = ru ? "/ru" : "/en";
   const active =
-    path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
+    path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
-      : path === "/" ? "ideas"
+      : path.startsWith("/categories") || path.startsWith("/segment") || path === "/" ? "breakdowns"
       : "";
 
   return (

@@ -38,11 +38,13 @@ export default function MobileNav({
 
   // Three surfaces: ideas (home), category breakdowns, people's rating.
   const ru = locale !== "en";
-  const onCategories = pathname === "/categories" || pathname.startsWith("/categories/") || pathname === "/segment" || pathname.startsWith("/segment/");
+  const onIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const onRating = pathname === "/rating" || pathname.startsWith("/rating/");
+  // Home is now the breakdowns gallery; ideas moved to /ideas.
+  const onBreakdowns = !onIdeas && !onRating;
   const tabs = [
-    { href: "/", label: ru ? "Идеи" : "Ideas", active: !onCategories && !onRating },
-    { href: "/categories", label: ru ? "Разбор категорий" : "Category breakdowns", active: onCategories },
+    { href: "/", label: ru ? "Разбор категорий" : "Category breakdowns", active: onBreakdowns },
+    { href: "/ideas", label: ru ? "Идеи" : "Ideas", active: onIdeas },
     { href: "/rating", label: ru ? "Рейтинг приложений" : "App rating", active: onRating },
   ];
 

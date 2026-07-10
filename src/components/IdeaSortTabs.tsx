@@ -25,7 +25,7 @@ export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current:
     if (key !== "hot") p.set("sort", key);
     if (cat) p.set("cat", cat);
     const q = p.toString();
-    return q ? `${lp}?${q}` : lp;
+    return q ? `${lp}/ideas?${q}` : `${lp}/ideas`;
   };
   // One centred pill showing the current order; the native select sits
   // invisible on top so the pill hugs its label and the dropdown stays native.
