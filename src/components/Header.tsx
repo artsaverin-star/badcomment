@@ -7,6 +7,7 @@ import AuthButton from "./AuthButton";
 import LangMenu from "./LangMenu";
 import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
+import HeaderSearch from "./HeaderSearch";
 import { type Locale } from "@/lib/i18n";
 
 // Center nav items: icon + label, active state driven by the current path.
@@ -96,6 +97,14 @@ export default function Header({
         </nav>
 
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
+          {/* Instant catalog search — desktop only; phones use the bottom search
+              tab and the mobile menu. Collapses when the header condenses on
+              scroll so it never crowds the pill. */}
+          {!scrolled && (
+            <div className="mr-1 hidden w-[200px] lg:block xl:w-[240px]">
+              <HeaderSearch locale={locale} />
+            </div>
+          )}
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />
           <LangMenu locale={locale} />
