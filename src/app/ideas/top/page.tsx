@@ -44,10 +44,13 @@ export default async function IdeasTopPage() {
     return (ru ? r?.name : r?.nameEn) || r?.name || slug;
   };
 
+  // Ranked by the solo-founder weighted score (promo + standout weigh more),
+  // falling back to the composite for any idea without a founder score.
+  const rankVal = (s: ReturnType<typeof scoreFor>) => s?.founder ?? s?.composite ?? 0;
   const ranked = (listIdeas() as unknown as FullIdea[])
     .map((i) => ({ i, s: scoreFor(i.slug, locale) }))
     .filter((x) => x.s)
-    .sort((a, b) => b.s!.composite - a.s!.composite);
+    .sort((a, b) => rankVal(b.s) - rankVal(a.s));
 
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
@@ -62,7 +65,7 @@ export default async function IdeasTopPage() {
       title: cleanTitle(ov?.title ?? en?.title ?? i.title),
       oneLiner: ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
       category: i.category, categoryName: nameOf(i.category),
-      money: s!.money, simplicity: s!.simplicity, demand: s!.demand, composite: s!.composite,
+      money: s!.money, simplicity: s!.simplicity, demand: s!.demand, composite: s!.composite, founder: s!.founder,
       whyPay: s!.whyPay, pricePoint: s!.pricePoint,
     };
   });

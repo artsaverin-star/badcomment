@@ -1,5 +1,6 @@
 import scores from "@/data/ideaScores.json";
 import scoresEn from "@/data/ideaScores.en.json";
+import founderScores from "@/data/ideaFounderScores.json";
 import market from "@/data/nicheMarket.json";
 import type { Locale } from "@/lib/i18n";
 
@@ -17,7 +18,21 @@ export type IdeaScore = {
   pricePoint: string;
   targetSegment: string;
   category: string;
+  // Solo-founder priority scoring (promo + standout weighted higher). Present
+  // for active ideas. `founder` is the weighted total (0-45); founderParts are
+  // the 1-10 sub-scores; founderWhy is the decisive factor.
+  founder?: number;
+  founderParts?: { promo: number; standout: number; monetization: number; demand: number };
+  founderWhy?: string;
 };
+
+type FounderRaw = { promo: number; standout: number; monetization: number; demand: number; weighted: number; rationale: string };
+const FOUNDER = founderScores as unknown as Record<string, FounderRaw>;
+
+// Weighted founder total (0-45) normalized to a 0-100 headline score.
+export function founderScore100(weighted: number): number {
+  return Math.round((weighted / 45) * 100);
+}
 
 export type NicheMarket = {
   ratingsTotal: number;
@@ -46,16 +61,21 @@ export function localizePrice(s: string | undefined, locale: Locale): string | u
 export function scoreFor(slug: string, locale: Locale = "ru"): IdeaScore | null {
   const s = RU[slug];
   if (!s) return null;
+  const f = FOUNDER[slug];
+  const founder = f
+    ? { founder: f.weighted, founderParts: { promo: f.promo, standout: f.standout, monetization: f.monetization, demand: f.demand }, founderWhy: f.rationale }
+    : {};
   if (locale === "en") {
     const en = EN[slug];
     return {
       ...s,
+      ...founder,
       whyPay: en?.whyPay ?? s.whyPay,
       targetSegment: en?.targetSegment ?? s.targetSegment,
       pricePoint: localizePrice(s.pricePoint, locale) ?? s.pricePoint,
     };
   }
-  return s;
+  return { ...s, ...founder };
 }
 
 export function marketFor(slug: string): NicheMarket | null {

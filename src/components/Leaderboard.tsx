@@ -7,7 +7,7 @@ import type { Locale } from "@/lib/i18n";
 
 export type Row = {
   title: string; oneLiner: string; category: string; categoryName: string;
-  money: number; simplicity: number; demand: number; composite: number;
+  money: number; simplicity: number; demand: number; composite: number; founder?: number;
   whyPay: string; pricePoint: string;
 };
 
@@ -52,7 +52,7 @@ export default function Leaderboard({
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2 py-0.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-primary)] shadow-[0_1px_2px_rgba(18,18,22,0.04)]">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M4 20V11M10 20V5M16 20v-6M3 20h18" /></svg>{r.composite}
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M4 20V11M10 20V5M16 20v-6M3 20h18" /></svg>{r.founder != null ? Math.round((r.founder / 45) * 100) : r.composite}
                     </span>
                     <span className="truncate text-caption text-[var(--color-text-tertiary)]">{r.categoryName}</span>
                     {r.pricePoint && <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-caption text-[var(--color-text-secondary)]">{r.pricePoint}</span>}

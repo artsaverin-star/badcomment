@@ -54,7 +54,7 @@ const CATEGORY_ORDER = [
 const DOSSIER = new Set(CATEGORY_ORDER);
 const CAT_RANK = new Map(CATEGORY_ORDER.map((s, i) => [s, i]));
 
-const SORT_METRIC: Record<Exclude<SortKey, "hot">, "composite" | "money" | "simplicity" | "demand"> = {
+const SORT_METRIC: Record<Exclude<SortKey, "hot" | "founder">, "composite" | "money" | "simplicity" | "demand"> = {
   balance: "composite", money: "money", simplicity: "simplicity", demand: "demand",
 };
 
@@ -68,11 +68,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const locale = await getLocale();
   const ru = locale !== "en";
   const sp = await searchParams;
-  const sort: SortKey = (["hot", "money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "hot") as SortKey;
+  const sort: SortKey = (["founder", "hot", "money", "simplicity", "demand", "balance"].includes(sp.sort || "") ? sp.sort : "founder") as SortKey;
   const metricOf = (slug: string): number => {
     const s = scoreFor(slug);
     if (!s) return 0;
-    return sort === "hot" ? hotScore(s) : s[SORT_METRIC[sort]];
+    if (sort === "founder") return s.founder ?? 0;
+    if (sort === "hot") return hotScore(s);
+    return s[SORT_METRIC[sort]];
   };
   // Filtering by a specific niche is premium. The tiles wear a lock for
   // non-owners AND the server ignores ?cat= for them — otherwise a crafted
@@ -153,14 +155,15 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   // The free taste: a few fully open ideas that rotate daily, drawn from the
   // strong middle of the ranking so the crown of the leaderboard stays paid.
   // Signing in widens today's sample — the free step of the ladder stays real.
-  // The default sort is hype, not composite, so guard the composite crown
-  // explicitly — otherwise a top-scored idea slips into the free showcase.
-  const scoreCrown = new Set(
-    [...all]
-      .sort((a, b) => (scoreFor(b.slug, locale)?.composite ?? 0) - (scoreFor(a.slug, locale)?.composite ?? 0))
-      .slice(0, 20)
-      .map((i) => i.slug),
-  );
+  // Guard the top of BOTH rankings (founder-weighted, the new default, and the
+  // composite) so no headline idea slips into the free showcase regardless of
+  // which sort is active. Union of each ranking's top 20.
+  const top20by = (pick: (slug: string) => number) =>
+    [...all].sort((a, b) => pick(b.slug) - pick(a.slug)).slice(0, 20).map((i) => i.slug);
+  const scoreCrown = new Set([
+    ...top20by((s) => scoreFor(s, locale)?.founder ?? 0),
+    ...top20by((s) => scoreFor(s, locale)?.composite ?? 0),
+  ]);
   const showcasePool = cat ? [] : all.slice(limit, limit + 120).filter((i) => !scoreCrown.has(i.slug));
   const showcaseCount = Math.min(loggedIn ? 6 : 3, showcasePool.length);
   // Server component on a force-dynamic route: the day index picks today's

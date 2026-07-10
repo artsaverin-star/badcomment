@@ -3,9 +3,10 @@
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 
-export type SortKey = "hot" | "balance" | "money" | "simplicity" | "demand";
+export type SortKey = "founder" | "hot" | "balance" | "money" | "simplicity" | "demand";
 
 const OPTIONS: { key: SortKey; ru: string; en: string }[] = [
+  { key: "founder", ru: "🚀 Для соло-фаундера", en: "🚀 For a solo founder" },
   { key: "hot", ru: "🔥 Самые горячие", en: "🔥 Hottest" },
   { key: "money", ru: "Самые прибыльные", en: "Most profitable" },
   { key: "demand", ru: "Больше всего спроса", en: "Highest demand" },

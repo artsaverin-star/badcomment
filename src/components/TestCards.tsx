@@ -13,7 +13,9 @@ import type { Locale } from "@/lib/i18n";
 // personas and for ideas.
 
 type Persona = { name: string; job: string; payLevel: string; payNote: string; gap: string; servedBy: string[] };
-type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
+type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string; founder?: number; founderParts?: { promo: number; standout: number; monetization: number; demand: number }; founderWhy?: string };
+// Weighted founder total is 0-45; show it as a familiar 0-100 headline.
+const founder100 = (w: number) => Math.round((w / 45) * 100);
 // `category` is the card kicker (on niche pages it shows the paying segment);
 // `categoryName` is the real niche name — the only thing the paywall may show.
 type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categoryName?: string; categorySlug?: string; locked?: boolean; rank?: number };
@@ -129,11 +131,12 @@ const CHIP = "inline-flex items-center gap-1.5 rounded-full border border-[var(-
 // demand breakdown lives in the modal's ScoreBlock; four numbers per card made
 // the wall read as noise.
 function ScoreChip({ score }: { score: Score }) {
+  const headline = score.founder != null ? founder100(score.founder) : score.composite;
   return (
     <div className="flex flex-wrap items-center gap-1.5">
       <span className={`${CHIP} font-semibold text-[var(--color-text-primary)]`}>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><path d="M4 20V11M10 20V5M16 20v-6" /><path d="M3 20h18" /></svg>
-        {score.composite}<span className="font-normal text-[var(--color-text-tertiary)]">/100</span>
+        {headline}<span className="font-normal text-[var(--color-text-tertiary)]">/100</span>
       </span>
     </div>
   );
@@ -143,15 +146,26 @@ function ScoreChip({ score }: { score: Score }) {
 // (label above, number below, hairline separators), no bars and no colour.
 export function ScoreBlock({ score, locale = "ru" }: { score: Score; locale?: Locale }) {
   const ru = locale !== "en";
-  const cols = [
-    { l: ru ? "Итог" : "Score", v: score.composite, strong: true },
-    { l: ru ? "Деньги" : "Money", v: score.money },
-    { l: ru ? "Простота" : "Simplicity", v: score.simplicity },
-    { l: ru ? "Спрос" : "Demand", v: score.demand },
-  ];
+  const fp = score.founderParts;
+  // Founder scoring leads when present: promo + standout weighted for a solo
+  // builder. Sub-scores are 1-10, the headline is the weighted total as /100.
+  const cols = fp
+    ? [
+        { l: ru ? "Итог" : "Score", v: `${founder100(score.founder ?? 0)}`, strong: true },
+        { l: ru ? "Продвижение" : "Promo", v: `${fp.promo}` },
+        { l: ru ? "Заметность" : "Standout", v: `${fp.standout}` },
+        { l: ru ? "Деньги" : "Money", v: `${fp.monetization}` },
+        { l: ru ? "Спрос" : "Demand", v: `${fp.demand}` },
+      ]
+    : [
+        { l: ru ? "Итог" : "Score", v: `${score.composite}`, strong: true },
+        { l: ru ? "Деньги" : "Money", v: `${score.money}` },
+        { l: ru ? "Простота" : "Simplicity", v: `${score.simplicity}` },
+        { l: ru ? "Спрос" : "Demand", v: `${score.demand}` },
+      ];
   return (
     <div className="rounded-[18px] bg-[var(--color-surface-card)] p-5">
-      <div className="grid grid-cols-4 divide-x divide-[var(--color-border-subtle)] text-center">
+      <div className={`grid ${fp ? "grid-cols-5" : "grid-cols-4"} divide-x divide-[var(--color-border-subtle)] text-center`}>
         {cols.map((c, i) => (
           <div key={i} className="px-1">
             <div className="truncate text-caption text-[var(--color-text-tertiary)]">{c.l}</div>
@@ -159,6 +173,13 @@ export function ScoreBlock({ score, locale = "ru" }: { score: Score; locale?: Lo
           </div>
         ))}
       </div>
+      {fp && <div className="mt-2 text-center text-caption text-[var(--color-text-tertiary)]">{ru ? "оценка под соло-фаундера, продвижение и заметность весят больше" : "scored for a solo founder, promo and standout weigh more"}</div>}
+      {score.founderWhy && (
+        <div className="mt-4 border-t border-[var(--color-border-subtle)] pt-3.5">
+          <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Решающий фактор" : "Decisive factor"}</div>
+          <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{score.founderWhy}</p>
+        </div>
+      )}
       {score.whyPay && (
         <div className="mt-4 border-t border-[var(--color-border-subtle)] pt-3.5">
           <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Кто и сколько платит" : "Who pays and how much"}</div>
