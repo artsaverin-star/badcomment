@@ -263,7 +263,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {data.crowd.map((c, i) => (
-              <div key={i} className={`card-min relative overflow-hidden rounded-[22px] ${c.target ? "flame-ring" : ""}`}>
+              <div key={i} className={c.target ? "flame-ring" : undefined}>
+              <div className="card-min relative h-full overflow-hidden rounded-[22px]">
                 {c.target && (
                   <span className="absolute right-3 top-3 z-[1] inline-flex items-center gap-1.5 rounded-full bg-[#1c1c22]/85 py-1 pl-2 pr-2.5 shadow backdrop-blur">
                     <FlameIcon size={13} />
@@ -282,6 +283,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                   )}
                 </div>
               </div>
+              </div>
             ))}
           </div>
           {data.buyer && !data.crowd.some((c) => c.target) && (
@@ -295,7 +297,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 4 && (
         <section className="mt-8">
-          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто уже в нише и где у них дыры" : "Who is already here and where they leak"}</h2>
+          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто уже в нише" : "Who is already in the niche"}</h2>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru ? "Топ ниши по массе оценок. Их слабые места мы вытащили из отзывов, и это твой вход: людям уже есть с чем сравнивать." : "The niche's top by rating mass. Their weak spots come from the reviews, and that is your way in: people already have something to compare with."}
           </p>
