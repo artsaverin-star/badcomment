@@ -4,6 +4,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getNicheName } from "@/lib/ratingAppSlug";
 import { listIdeas } from "@/lib/ideas";
+import { scoreFor } from "@/lib/ideaScores";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import buildCopy from "@/data/buildCopy.json";
 import BuildProgress from "@/components/BuildProgress";
@@ -34,19 +35,26 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
 
   const copy = buildCopy as Record<string, Copy>;
   const rset = (RATING_BY_SLUG as Record<string, { totalReviews?: number; count?: number }>)[slug];
-  const pains = listIdeas()
+  // Only pains worth building a business on: the solo-founder score gates the
+  // list (weak ones are feature-fixes of someone else's app, not products).
+  // A niche always keeps its top five so no list goes empty.
+  const scored = listIdeas()
     .filter((i) => i.category === slug)
     .map((i) => {
       const c = copy[i.slug];
       const authored = ru ? c?.pain : c?.painEn;
+      const sc = scoreFor(i.slug, locale);
       return {
         idea: i.slug,
         painTitle: (ru ? c?.painTitle : c?.painTitleEn) || "",
         pain: authored || firstSentence(i.gap as string) || i.oneLiner,
         observations: i.stats?.observations ?? 0,
+        founder: sc?.founder != null ? Math.round((sc.founder / 45) * 100) : 0,
       };
     })
-    .sort((a, b) => b.observations - a.observations);
+    .sort((a, b) => b.founder - a.founder);
+  const strong = scored.filter((x) => x.founder >= 50);
+  const pains = strong.length >= 5 ? strong : scored.slice(0, 5);
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
@@ -73,6 +81,9 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
                 : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
               {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
             </div>
+            {p.founder > 0 && (
+              <span className={`mt-0.5 shrink-0 rounded-full px-2.5 py-1 text-caption font-bold tabular-nums ${p.founder >= 60 ? "bg-[#30d158]/15 text-[#1f9d47]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]"}`}>{p.founder}/100</span>
+            )}
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
         ))}

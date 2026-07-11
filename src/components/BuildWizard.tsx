@@ -438,8 +438,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         <span className="rounded-full bg-[#0a84ff]/12 px-2.5 py-1 text-caption font-bold text-[#0a84ff]">{ru ? `стор подсказывает его №${t.hintRank}` : `store suggests it #${t.hintRank}`}</span>
                       )}
                     </div>
-                    <h3 className="mt-3 text-headline font-bold text-[var(--color-text-primary)]">{label[0].toUpperCase() + label.slice(1)}</h3>
-                    <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{explain}</p>
+                    {tier !== "open" && <h3 className="mt-3 text-headline font-bold text-[var(--color-text-primary)]">{label[0].toUpperCase() + label.slice(1)}</h3>}
+                    <p className={`${tier !== "open" ? "mt-1" : "mt-3"} text-footnote text-[var(--color-text-secondary)]`}>{explain}</p>
                     {t.top[0] && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{ru ? "первый в выдаче: " : "first result: "}{t.top[0].title}</div>}
                   </div>
                 );
