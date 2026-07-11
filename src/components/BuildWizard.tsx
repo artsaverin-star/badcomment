@@ -340,7 +340,10 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 return (
                   <div key={i} className="card-min rounded-[20px] p-5">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-body font-semibold text-[var(--color-text-primary)]">{t.term}</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-3.5 py-1.5 text-callout font-semibold text-[var(--color-text-primary)]">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]"><circle cx="10.5" cy="10.5" r="6.2" stroke="currentColor" strokeWidth="2.2" /><path d="m18.6 18.6-3.5-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /></svg>
+                        {t.term}
+                      </span>
                       {t.hintRank != null && (
                         <span className="rounded-full bg-[#0a84ff]/12 px-2.5 py-1 text-caption font-bold text-[#0a84ff]">{ru ? `стор подсказывает его №${t.hintRank}` : `store suggests it #${t.hintRank}`}</span>
                       )}
