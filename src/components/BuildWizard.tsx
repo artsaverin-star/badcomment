@@ -523,7 +523,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Audience */}
             <section className={slide} style={d(3)}>
-              <div className="pr-4 text-title2 text-balance font-bold text-white">{ru ? "Аудитория" : "Audience"}</div>
+              {kicker("/build/people.png", ru ? "Аудитория" : "Audience")}
               <div className="mt-4 flex flex-col gap-2">
                 {data.crowd.map((c, i) => (
                   <div key={i} className={`flex items-center gap-3 px-4 py-2.5 ${inner}`}>

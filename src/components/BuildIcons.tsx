@@ -122,8 +122,7 @@ export function PeopleIcon({ size = 18, stroke = "currentColor" }: { size?: numb
   );
 }
 
-// index 3 (аудитория) пока без неонового рендера — рисуем PeopleIcon.
-export const STEP_IMG: (string | null)[] = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", null, "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
+export const STEP_IMG: (string | null)[] = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", "/build/people.png", "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
 
 // Per-step gradient backdrops, hue-matched to each render (см. фигма-блоки).
 export const STEP_GRADIENTS = [
