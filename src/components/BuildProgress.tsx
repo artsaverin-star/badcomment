@@ -42,13 +42,15 @@ export default function BuildProgress({
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
               ) : i === active ? (
-                <span className={`relative -mt-2 mb-0.5 flex size-12 items-center justify-center self-center rounded-full shadow-[0_8px_22px_-6px_rgba(0,0,0,0.45)] sm:-mt-3 sm:size-[54px] ${STEP_GRADIENTS[i]}`}>
+                <span className={`relative flex size-12 items-center justify-center self-center rounded-full shadow-[0_8px_22px_-6px_rgba(0,0,0,0.45)] sm:size-[54px] ${STEP_GRADIENTS[i]}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={STEP_IMG[i]} alt="" className="absolute left-1/2 top-1/2 w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 mix-blend-screen" />
+                  <img src={STEP_IMG[i]} alt="" className="absolute left-1/2 top-1/2 h-[128%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]" />
                 </span>
               ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={STEP_IMG[i]} alt="" loading="lazy" decoding="async" className="size-9 self-center rounded-full object-cover opacity-45 grayscale" />
+                <span className="flex size-9 items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={STEP_IMG[i]} alt="" loading="lazy" decoding="async" className="size-7 object-contain opacity-55 grayscale" />
+                </span>
               )}
               <span className={`truncate text-caption ${i === active ? "block font-bold text-[var(--color-text-primary)]" : "hidden text-[var(--color-text-tertiary)] sm:block"}`}>{s}</span>
             </>

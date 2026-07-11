@@ -35,9 +35,9 @@ export default async function BuildHome() {
     .sort((a, b) => b.promo - a.promo);
 
   const how = [
-    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_30%_35%,#ef8f3a_0%,#e03a2c_62%,#d92d2d_100%)]" },
-    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_28%_32%,#9b59f7_0%,#7431e0_62%,#5e21d6_100%)]" },
-    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_30%_35%,#6db3f5_0%,#3a77e8_62%,#2b62d9_100%)]" },
+    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_28%_30%,#ef8f3a_0%,#e04430_58%,#d92d2d_100%)]", pos: "top" },
+    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_25%_30%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid" },
+    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_28%_30%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top" },
   ];
 
   return (
@@ -52,11 +52,11 @@ export default async function BuildHome() {
       </header>
 
       <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-3">
-        {how.map(({ img, t, g }, i) => (
+        {how.map(({ img, t, g, pos }, i) => (
           <div key={i} className={`relative aspect-square overflow-hidden rounded-[20px] sm:rounded-[26px] ${g}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img} alt="" className="absolute -bottom-[16%] -right-[18%] w-[88%] max-w-none mix-blend-screen" />
-            <div className="absolute left-3.5 top-3 whitespace-pre-line text-footnote font-bold leading-tight text-white sm:left-5 sm:top-5 sm:text-title3">{t}</div>
+            <img src={img} alt="" className="absolute -right-[10%] top-1/2 h-[112%] max-w-none -translate-y-1/2 object-contain" />
+            <div className={`absolute left-3.5 whitespace-pre-line text-footnote font-bold leading-tight text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.3)] sm:left-5 sm:text-title3 ${pos === "mid" ? "top-1/2 -translate-y-1/2" : "top-3 sm:top-5"}`}>{t}</div>
           </div>
         ))}
       </div>

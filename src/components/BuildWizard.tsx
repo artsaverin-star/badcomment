@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
-import { FlameIcon, BulbIcon, PaletteIcon, CodeIcon } from "./BuildIcons";
+import { FlameIcon, BulbIcon } from "./BuildIcons";
 import { downloadZip, type ZipFile } from "@/lib/zipClient";
 
 // The «Создай свой апп» wizard, steps 3-7 of 7 (niche and pain were picked on
@@ -289,13 +289,18 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <p className="mt-2 text-title3 text-pretty text-[var(--color-text-primary)]">{data.buyer}</p>
               </div>
             )}
-            {data.pricePoint && (
-              <div className="card-min rounded-[22px] p-6">
-                <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Ценник в нише" : "Niche price point"}</div>
-                <p className="mt-2 text-stat tabular-nums text-[var(--color-text-primary)]">{data.pricePoint}</p>
-                <p className="mt-1 text-caption text-[var(--color-text-tertiary)]">{ru ? "столько люди уже платят за решение этой боли" : "what people already pay to solve this pain"}</p>
-              </div>
-            )}
+            {data.pricePoint && (() => {
+              const [pMain, ...pRest] = data.pricePoint.split(" (");
+              const rest = pRest.length ? `(${pRest.join(" (")}` : null;
+              return (
+                <div className="card-min rounded-[22px] p-6">
+                  <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Ценник в нише" : "Niche price point"}</div>
+                  <p className={`mt-2 tabular-nums text-[var(--color-text-primary)] ${pMain.length <= 14 ? "text-stat" : "text-title2"}`}>{pMain}</p>
+                  {rest && <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{rest}</p>}
+                  <p className="mt-1 text-caption text-[var(--color-text-tertiary)]">{ru ? "столько люди уже платят за решение этой боли" : "what people already pay to solve this pain"}</p>
+                </div>
+              );
+            })()}
           </div>
           {data.pay && (
             <div className="card-min mt-3 rounded-[22px] p-6">
@@ -398,12 +403,10 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         const body = "text-[color-mix(in_srgb,var(--color-bg-page)_78%,transparent)]";
         const inner = "rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_9%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]";
         const slide = "card-fade rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
-        const kicker = (art: string | ((p: { size?: number }) => React.ReactNode), t: string) => (
+        const kicker = (art: string, t: string) => (
           <div className="flex items-center gap-4">
-            {typeof art === "string"
-              // eslint-disable-next-line @next/next/no-img-element
-              ? <img src={art} alt="" className="-my-3 size-20 shrink-0 object-contain mix-blend-screen sm:-my-4 sm:size-24" />
-              : <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]">{art({ size: 24 })}</span>}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={art} alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
             <span className="text-title2 text-balance font-bold text-[var(--color-bg-page)]">{t}</span>
           </div>
         );
@@ -499,12 +502,17 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                     <p className="mt-1.5 text-body font-semibold text-[var(--color-bg-page)]">{data.buyer}</p>
                   </div>
                 )}
-                {data.pricePoint && (
-                  <div className={`px-5 py-4 ${inner}`}>
-                    <div className={`text-caption font-semibold ${sub}`}>{ru ? "Ценник в нише" : "Price point"}</div>
-                    <p className="mt-1.5 text-title2 tabular-nums text-[var(--color-bg-page)]">{data.pricePoint}</p>
-                  </div>
-                )}
+                {data.pricePoint && (() => {
+                  const [pMain, ...pRest] = data.pricePoint.split(" (");
+                  const rest = pRest.length ? `(${pRest.join(" (")}` : null;
+                  return (
+                    <div className={`px-5 py-4 ${inner}`}>
+                      <div className={`text-caption font-semibold ${sub}`}>{ru ? "Ценник в нише" : "Price point"}</div>
+                      <p className={`mt-1.5 tabular-nums text-[var(--color-bg-page)] ${pMain.length <= 14 ? "text-title2" : "text-title3"}`}>{pMain}</p>
+                      {rest && <p className={`mt-0.5 text-footnote ${body}`}>{rest}</p>}
+                    </div>
+                  );
+                })()}
               </div>
               {data.pay && <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>{data.pay}</p>}
               {data.risk && <p className={`mt-3 max-w-[56ch] text-footnote ${sub}`}><span className="font-semibold text-[#ff9500]">{ru ? "главный риск: " : "main risk: "}</span>{data.risk}</p>}
@@ -523,7 +531,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Design */}
             <section className={slide} style={d(6)}>
-              {kicker((p) => <PaletteIcon {...p} />, ru ? "Дизайн: нарисуй экраны в ChatGPT" : "Design: render the screens in ChatGPT")}
+              {kicker("/build/palette.png", ru ? "Дизайн: нарисуй экраны в ChatGPT" : "Design: render the screens in ChatGPT")}
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 {data.design.palette && (
                   <span className="flex gap-1.5">
@@ -553,10 +561,10 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         </span>
                       ) : (
                         <span className="flex aspect-[9/19] w-full items-center justify-center rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
-                          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={sub}>
-                            <rect x="3" y="4.5" width="18" height="15" rx="3.2" stroke="currentColor" strokeWidth="1.5" />
-                            <circle cx="9" cy="10" r="1.7" stroke="currentColor" strokeWidth="1.4" />
-                            <path d="M4.5 17.5l4.6-4.4a1.6 1.6 0 012.2 0l2.4 2.3 2.1-2a1.6 1.6 0 012.2 0l3.5 3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={sub}>
+                            <rect x="2.9" y="5" width="18.2" height="14" rx="3.6" stroke="currentColor" strokeWidth="1.4" />
+                            <circle cx="15.9" cy="9.4" r="1.5" fill="currentColor" />
+                            <path d="M3.4 16.9l4.5-4.5a1.5 1.5 0 012.12 0l5.48 5.48M13.6 16l1.9-1.9a1.5 1.5 0 012.12 0l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </span>
                       )}
@@ -564,9 +572,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={(e) => { e.preventDefault(); setSlot(i, null); }} className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-[var(--color-bg-page)] text-[11px] font-bold text-[var(--color-text-primary)] shadow">×</button>
                       )}
                     </label>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex w-full flex-col items-center gap-1.5">
                       <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
-                      <label className="shrink-0 cursor-pointer rounded-full border border-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)] px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
+                      <label className="cursor-pointer rounded-full border border-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)] px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
                         <span className={body}>{ru ? "Загрузить" : "Upload"}</span>
                         <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
                       </label>
@@ -578,7 +586,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Code */}
             <section className={slide} style={d(7)}>
-              {kicker((p) => <CodeIcon {...p} />, ru ? "Код: бриф для агента готов" : "Code: the agent brief is ready")}
+              {kicker("/build/code.png", ru ? "Код: бриф для агента готов" : "Code: the agent brief is ready")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>
                 {ru ? "Cursor или Claude Code, вставь целиком первым сообщением. Внутри стек, экраны из дизайн-спеки, модель данных и честный пейвол." : "Cursor or Claude Code, paste whole as the first message. Inside: the stack, screens from the design spec, data model and an honest paywall."}
                 {shotList.length > 0 && (ru ? " Прикрепи к брифу свои картинки экранов: агент соберёт интерфейс по ним." : " Attach your screen renders: the agent will build the UI after them.")}
