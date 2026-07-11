@@ -399,12 +399,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         const inner = "rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_9%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]";
         const slide = "card-fade rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
         const kicker = (art: string | ((p: { size?: number }) => React.ReactNode), t: string) => (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {typeof art === "string"
               // eslint-disable-next-line @next/next/no-img-element
-              ? <img src={art} alt="" className="-my-2 size-16 shrink-0 mix-blend-screen sm:size-20" />
-              : <span className="flex size-9 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]">{art({ size: 18 })}</span>}
-            <span className={`text-caption font-semibold ${sub}`}>{t}</span>
+              ? <img src={art} alt="" className="-my-3 size-20 shrink-0 object-contain mix-blend-screen sm:-my-4 sm:size-24" />
+              : <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]">{art({ size: 24 })}</span>}
+            <span className="text-title2 text-balance font-bold text-[var(--color-bg-page)]">{t}</span>
           </div>
         );
         const d = (k: number) => ({ animationDelay: `${120 + k * 130}ms` });

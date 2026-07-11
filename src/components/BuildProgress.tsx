@@ -1,4 +1,4 @@
-import { STEP_IMG, STEP_GRADIENT } from "./BuildIcons";
+import { STEP_IMG, STEP_GRADIENTS } from "./BuildIcons";
 
 // The builder path's shared progress shell: all seven steps visible from the
 // very first screen (Duolingo-style), so the user always sees the whole road.
@@ -42,9 +42,9 @@ export default function BuildProgress({
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
               ) : i === active ? (
-                <span className={`-my-1.5 flex size-12 items-center justify-center self-center overflow-hidden rounded-full shadow-[0_8px_22px_-6px_rgba(217,45,45,0.55)] sm:-my-2 sm:size-[54px] ${STEP_GRADIENT}`}>
+                <span className={`relative -mt-2 mb-0.5 flex size-12 items-center justify-center self-center rounded-full shadow-[0_8px_22px_-6px_rgba(0,0,0,0.45)] sm:-mt-3 sm:size-[54px] ${STEP_GRADIENTS[i]}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={STEP_IMG[i]} alt="" className="size-12 rounded-full object-cover mix-blend-screen sm:size-[54px]" />
+                  <img src={STEP_IMG[i]} alt="" className="absolute left-1/2 top-1/2 w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 mix-blend-screen" />
                 </span>
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element

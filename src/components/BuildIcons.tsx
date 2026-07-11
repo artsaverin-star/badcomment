@@ -113,4 +113,14 @@ export const BUILD_ICONS = [CompassIcon, FlameIcon, BulbIcon, SwordsIcon, CoinIc
 // no alpha — so always show them on dark or gradient surfaces with
 // mix-blend-screen: black dissolves into the backdrop, the neon glow stays.
 export const STEP_IMG = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
-export const STEP_GRADIENT = "bg-[radial-gradient(circle_at_45%_38%,#ee8f3c_0%,#e04a2b_55%,#d92d2d_100%)]";
+
+// Per-step gradient backdrops, hue-matched to each render (см. фигма-блоки).
+export const STEP_GRADIENTS = [
+  "bg-[radial-gradient(circle_at_42%_38%,#ee8f3c_0%,#e04a2b_55%,#d92d2d_100%)]", // компас — оранжево-красный
+  "bg-[radial-gradient(circle_at_40%_36%,#f0793a_0%,#e03a2c_60%,#d22a2a_100%)]", // огонь — красный
+  "bg-[radial-gradient(circle_at_38%_34%,#9b59f7_0%,#7431e0_60%,#5e21d6_100%)]", // лампа — фиолетовый
+  "bg-[radial-gradient(circle_at_40%_36%,#f0628f_0%,#d92a62_60%,#c21f55_100%)]", // мечи — малиновый
+  "bg-[radial-gradient(circle_at_40%_36%,#f5b63e_0%,#e88a24_60%,#dd7a1c_100%)]", // монета — золотой
+  "bg-[radial-gradient(circle_at_40%_36%,#f06ab8_0%,#d4359a_60%,#c22a8e_100%)]", // лупа — розовый
+  "bg-[radial-gradient(circle_at_40%_36%,#5fa8f2_0%,#3572e6_60%,#2b62d9_100%)]", // ракета — синий
+];
