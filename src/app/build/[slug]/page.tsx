@@ -87,9 +87,6 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
                 : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
               {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
             </div>
-            {p.founder > 0 && (
-              <span className={`mt-0.5 shrink-0 rounded-full px-2.5 py-1 text-caption font-bold tabular-nums ${p.founder >= 60 ? "bg-[#30d158]/15 text-[#1f9d47]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]"}`}>{p.founder}/100</span>
-            )}
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
         ))}
