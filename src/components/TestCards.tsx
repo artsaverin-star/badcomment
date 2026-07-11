@@ -232,7 +232,7 @@ function Icon({ name, className }: { name: string; className?: string }) {
   );
 }
 
-function Modal({ onClose, action, children, locale = "ru" }: { onClose: () => void; action?: React.ReactNode; children: React.ReactNode; locale?: Locale }) {
+function Modal({ onClose, action, children, favId, locale = "ru" }: { onClose: () => void; action?: React.ReactNode; children: React.ReactNode; favId?: string; locale?: Locale }) {
   const ru = locale !== "en";
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -252,6 +252,7 @@ function Modal({ onClose, action, children, locale = "ru" }: { onClose: () => vo
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mx-auto mt-3 h-1 w-9 shrink-0 rounded-full bg-[var(--color-border-strong)] sm:hidden" />
+        {favId && <FavButton id={favId} />}
         <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 sm:pt-7">{children}</div>
         <div className="flex shrink-0 flex-col gap-2 border-t border-[var(--color-border-subtle)] p-4">
           {action}
@@ -475,6 +476,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
         <Modal
           onClose={() => setOpen(null)}
           locale={locale}
+          favId={open.slug}
           action={open.categorySlug ? (
             <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
               {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
