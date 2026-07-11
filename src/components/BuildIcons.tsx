@@ -112,13 +112,25 @@ export const BUILD_ICONS = [CompassIcon, FlameIcon, BulbIcon, SwordsIcon, CoinIc
 // The glossy 3D renders (public/build/*.png). They sit on BLACK backgrounds —
 // no alpha — so always show them on dark or gradient surfaces with
 // mix-blend-screen: black dissolves into the backdrop, the neon glow stays.
-export const STEP_IMG = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
+export function PeopleIcon({ size = 18, stroke = "currentColor" }: { size?: number; stroke?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="9" cy="8.2" r="3.4" stroke={stroke} strokeWidth="1.9" />
+      <path d="M3.2 19.2c.7-3 3-4.6 5.8-4.6s5.1 1.6 5.8 4.6" stroke={stroke} strokeWidth="1.9" strokeLinecap="round" />
+      <path d="M15.4 5.6a3 3 0 011.9 5.5M17.6 14.9c2 .5 3.2 1.9 3.7 4" stroke={stroke} strokeWidth="1.9" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+// index 3 (аудитория) пока без неонового рендера — рисуем PeopleIcon.
+export const STEP_IMG: (string | null)[] = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", null, "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
 
 // Per-step gradient backdrops, hue-matched to each render (см. фигма-блоки).
 export const STEP_GRADIENTS = [
   "bg-[radial-gradient(circle_at_42%_38%,#ee8f3c_0%,#e04a2b_55%,#d92d2d_100%)]", // компас — оранжево-красный
   "bg-[radial-gradient(circle_at_40%_36%,#f0793a_0%,#e03a2c_60%,#d22a2a_100%)]", // огонь — красный
   "bg-[radial-gradient(circle_at_38%_34%,#9b59f7_0%,#7431e0_60%,#5e21d6_100%)]", // лампа — фиолетовый
+  "bg-[radial-gradient(circle_at_40%_36%,#46d17e_0%,#27ab5c_60%,#1f9d47_100%)]", // люди — зелёный
   "bg-[radial-gradient(circle_at_40%_36%,#f0628f_0%,#d92a62_60%,#c21f55_100%)]", // мечи — малиновый
   "bg-[radial-gradient(circle_at_40%_36%,#f5b63e_0%,#e88a24_60%,#dd7a1c_100%)]", // монета — золотой
   "bg-[radial-gradient(circle_at_40%_36%,#f06ab8_0%,#d4359a_60%,#c22a8e_100%)]", // лупа — розовый

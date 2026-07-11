@@ -13,6 +13,10 @@ import asoTerms from "@/data/asoTerms.json";
 import asoLive from "@/data/asoLive.json";
 import buildCopy from "@/data/buildCopy.json";
 import channelsData from "@/data/channels.json";
+import { DOSSIER_BY_SLUG } from "@/data/dossier";
+import dossierEn from "@/data/dossier.en.json";
+import personaCovers from "@/data/personaCovers.json";
+import ideaCovers from "@/data/ideaCovers.json";
 import channelsEn from "@/data/channels.en.json";
 import BuildWizard, { type BuildData } from "@/components/BuildWizard";
 
@@ -78,6 +82,20 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     ? `Имя должно нести дифференциатор идеи, а не жанр: «${enTitle}». Жанровые слова (${terms.slice(0, 2).join(", ") || "как у топов"}) оставь для подзаголовка в сторе.`
     : `The name must carry the idea's differentiator, not the genre: "${enTitle}". Keep the genre words (${terms.slice(0, 2).join(", ") || "like the leaders"}) for the store subtitle.`;
 
+  // Audience segments of the niche (from the dossier), with sketch covers.
+  type Seg = { name: string; job: string; payLevel: string };
+  const dsr = (DOSSIER_BY_SLUG as Record<string, { audience?: { segments?: Seg[] } }>)[slug];
+  const dsrEn = (dossierEn as Record<string, { audience?: { segments?: Seg[] } }>)[slug];
+  const crowd = (dsr?.audience?.segments ?? []).map((sg, i) => {
+    const e = dsrEn?.audience?.segments?.[i];
+    return {
+      name: (ru ? sg.name : e?.name || sg.name),
+      job: (ru ? sg.job : e?.job || sg.job),
+      payLevel: (ru ? sg.payLevel : e?.payLevel || sg.payLevel),
+      cover: (personaCovers as Record<string, string>)[`${slug}-${i}`],
+    };
+  });
+
   // Channels of the niche.
   type Ch = { name: string; note: string; count: number };
   const chRu = ((channelsData as Record<string, { channels?: Ch[] }>)[slug]?.channels ?? []).slice(0, 4);
@@ -94,6 +112,8 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     hrefNiches: `${lp}/build`,
     painLine,
     painQuote,
+    ideaCover: (ideaCovers as Record<string, string>)[ideaSlug],
+    crowd,
     pitch: (en?.pitch || idea.idea?.pitch) as string | undefined,
     features: (en?.features || idea.idea?.features || []) as string[],
     founder100: s?.founder != null ? Math.round((s.founder / 45) * 100) : undefined,
