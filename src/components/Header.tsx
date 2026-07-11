@@ -7,7 +7,6 @@ import AuthButton from "./AuthButton";
 import LangMenu from "./LangMenu";
 import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
-import HeaderSearch from "./HeaderSearch";
 import { type Locale } from "@/lib/i18n";
 
 // Center nav items: icon + label, active state driven by the current path.
@@ -39,7 +38,6 @@ export default function Header({
   showOffer?: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname() || "/";
   const ru = locale !== "en";
   // Prefix nav links with the active locale so navigation never falls back to
@@ -52,10 +50,6 @@ export default function Header({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Search is expanded at the top of the page; on scroll it folds into an icon
-  // that clicking re-expands. Back at the top it always shows expanded again.
-  const searchExpanded = !scrolled || searchOpen;
 
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
@@ -78,10 +72,9 @@ export default function Header({
           <Logo iconSize={26} textClassName="text-[23px]" />
         </Link>
 
-        {/* Section nav — in flow just after the wordmark so the right-side
-            search box always fits. Hidden on small screens (footer keeps the
-            links) and when the search is expanded on a condensed pill. */}
-        <nav className={`ml-1 hidden items-center gap-1 lg:ml-3 ${scrolled && searchOpen ? "md:hidden" : "md:flex"}`}>
+        {/* Center nav — absolutely centered so it stays put regardless of the
+            side widths. Hidden on small screens; the footer keeps the links. */}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
           {NAV.map((n) => {
             const active = n.key === activeKey;
             return (
@@ -103,22 +96,6 @@ export default function Header({
         </nav>
 
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
-          {/* Instant catalog search — desktop only; phones use the bottom search
-              tab and the mobile menu. Expanded at the top, an icon on scroll. */}
-          {searchExpanded ? (
-            <div className="mr-1 hidden w-[180px] md:block lg:w-[220px] xl:w-[260px]">
-              <HeaderSearch locale={locale} compact />
-            </div>
-          ) : (
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              aria-label={ru ? "Поиск" : "Search"}
-              className="hidden size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-primary)] md:inline-flex"
-            >
-              <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.7" /><path d="m17 17-3.2-3.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
-            </button>
-          )}
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />
           <LangMenu locale={locale} />

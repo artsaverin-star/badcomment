@@ -15,6 +15,9 @@ const SunIcon = () => (
 const MoonIcon = () => (
   <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 11.5A7 7 0 0 1 8.5 3a7 7 0 1 0 8.5 8.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
 );
+const SearchIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" /><path d="m17 17-3.2-3.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+);
 
 // Compact language control: a round chip showing the current locale; click it to
 // open a small picker. Closes on outside click / Escape.
@@ -72,7 +75,16 @@ export default function LangMenu({ locale }: { locale: Locale }) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[170px] rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-1.5 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.8)]">
+        <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[190px] rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-1.5 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.8)]">
+          <a
+            href={`/${locale}/search`}
+            onClick={() => setOpen(false)}
+            className="flex w-full items-center gap-2.5 rounded-[14px] px-3 py-2.5 text-[14px] font-semibold text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
+          >
+            <SearchIcon />
+            {ru ? "Поиск" : "Search"}
+          </a>
+          <div className="my-1.5 h-px bg-[var(--color-border-subtle)]" />
           {ORDER.map((l) => {
             const active = l === locale;
             return (
