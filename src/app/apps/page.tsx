@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { isActiveCategory } from "@/lib/categoryVisibility";
+import { appSlugify } from "@/lib/ratingAppSlug";
 
 export const dynamic = "force-dynamic";
 
@@ -41,14 +42,16 @@ export default async function AppsDirectory() {
   const groups = Object.entries(RATING)
     .filter(([slug]) => isActiveCategory(slug))
     .map(([slug, r]) => {
+      const seen = new Set<string>();
       const apps = (r.apps ?? [])
         .filter((a) => a.title)
         .sort((a, b) => (b.ratings || 0) - (a.ratings || 0))
-        .map((a) => a.title as string);
+        .map((a) => ({ title: a.title as string, app: appSlugify(a.title as string) }))
+        .filter((a) => (seen.has(a.app) ? false : (seen.add(a.app), true)));
       if (!apps.length) return null;
       return { slug, name: (ru ? r.name : r.nameEn) || r.name, apps };
     })
-    .filter((g): g is { slug: string; name: string; apps: string[] } => !!g)
+    .filter((g): g is { slug: string; name: string; apps: { title: string; app: string }[] } => !!g)
     .sort((a, b) => a.name.localeCompare(b.name, ru ? "ru" : "en"));
 
   const total = groups.reduce((s, g) => s + g.apps.length, 0);
@@ -69,9 +72,9 @@ export default async function AppsDirectory() {
               {g.name}
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
-              {g.apps.map((a, i) => (
-                <Link key={i} href={`${lp}/rating/${g.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
-                  {a}
+              {g.apps.map((a) => (
+                <Link key={a.app} href={`${lp}/rating/${g.slug}/${a.app}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
+                  {a.title}
                 </Link>
               ))}
             </div>
