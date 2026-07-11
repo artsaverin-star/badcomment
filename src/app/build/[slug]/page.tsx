@@ -10,6 +10,7 @@ import buildCopy from "@/data/buildCopy.json";
 import ideaAudit from "@/data/ideaAudit.json";
 import BuildProgress from "@/components/BuildProgress";
 import BuyButton from "@/components/BuyButton";
+import FloatingBar from "@/components/FloatingBar";
 import { FlameIcon } from "@/components/BuildIcons";
 import { getAccess } from "@/lib/access";
 import { canBuild, REGA_BUILD_IDEA } from "@/lib/buildAccess";
@@ -132,14 +133,14 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       </div>
 
       {/* Floating glass control bar, same idiom as the site header. */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">
+      <FloatingBar>
         <div className="pointer-events-auto flex items-center rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           <Link href={lp} className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
             <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4 6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             {ru ? "Назад" : "Back"}
           </Link>
         </div>
-      </div>
+      </FloatingBar>
     </main>
   );
 }

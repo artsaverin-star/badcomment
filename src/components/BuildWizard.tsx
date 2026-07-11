@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
+import FloatingBar from "./FloatingBar";
 import { downloadZip, type ZipFile } from "@/lib/zipClient";
 import { FlameIcon } from "./BuildIcons";
 
@@ -746,7 +747,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           next action is always visible without scrolling. The plan page has
           no bar: navigation lives in the clickable stepper. */}
       {!showResults && (
-      <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">
+      <FloatingBar>
         <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           
           <button
@@ -768,7 +769,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             </button>
           )}
         </div>
-      </div>
+      </FloatingBar>
       )}
     </div>
   );
