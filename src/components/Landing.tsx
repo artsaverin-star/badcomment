@@ -254,16 +254,6 @@ export default function Landing({
                 <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "over a million"}</span> App&nbsp;Store and Google&nbsp;Play reviews and found what people are missing and already pay for. Pick a niche, open the breakdown and take a ready, demand-backed idea, scored for a solo founder.</>
               )}
             </p>
-
-            <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
-              <Link
-                href={`${ru ? "/ru" : "/en"}/ideas`}
-                className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-              >
-                {ru ? "Смотреть идеи под спрос" : "See demand-backed ideas"}
-                <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </Link>
-            </div>
           </div>
         </section>
 
