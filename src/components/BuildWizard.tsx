@@ -198,7 +198,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     <div className="mx-auto w-full max-w-[720px]">
       <BuildProgress active={step} doneCount={maxDone} ru={ru} onStep={goTo} sticky={!showResults} />
 
-      <div className="mx-auto w-full max-w-[640px]">
+      {/* key={step} перемонтирует контент шага: смена раздела получает
+          входную анимацию (fade-up), как переходы по сайту */}
+      <div key={step} className="card-fade mx-auto w-full max-w-[640px]">
       {step === 2 && (
         <section className="mt-8">
           <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
