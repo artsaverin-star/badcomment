@@ -64,7 +64,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
   const router = useRouter();
   const [step, setStep] = useState(FIRST_STEP);
   const [maxDone, setMaxDone] = useState(FIRST_STEP); // steps 0..maxDone-1 are done
-  const [shots, setShots] = useState<{ file: File; url: string }[]>([]);
+  // Screen renders live in slots, one per design message: the user copies the
+  // prompt from a phone and uploads the render back into the same phone.
+  const [shots, setShots] = useState<({ file: File; url: string } | null)[]>([]);
   const [compOpen, setCompOpen] = useState<number | null>(null);
   const showResults = step === LAST_STEP;
 
@@ -110,11 +112,15 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     else setStep(i);
   };
 
-  const addShots = (files: FileList | null) => {
-    if (!files) return;
-    const add = Array.from(files).slice(0, 8 - shots.length).map((f) => ({ file: f, url: URL.createObjectURL(f) }));
-    if (add.length) setShots((s) => [...s, ...add]);
+  const setSlot = (i: number, f: File | null) => {
+    setShots((arr) => {
+      const next = [...arr];
+      while (next.length <= i) next.push(null);
+      next[i] = f ? { file: f, url: URL.createObjectURL(f) } : null;
+      return next;
+    });
   };
+  const shotList = shots.filter((x): x is { file: File; url: string } => !!x);
 
   // One archive with the whole plan: the summary, every design message, the
   // code brief and the user's rendered screens (if uploaded).
@@ -164,8 +170,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
       ...data.design.parts.map((p, i) => ({ name: `design/message-${i + 1}.txt`, data: enc.encode(p) })),
       { name: "code/brief.txt", data: enc.encode(data.codePrompt) },
     ];
-    for (let i = 0; i < shots.length; i++) {
-      const f = shots[i].file;
+    for (let i = 0; i < shotList.length; i++) {
+      const f = shotList[i].file;
       const ext = (f.name.split(".").pop() || "png").toLowerCase();
       files.push({ name: `shots/shot-${i + 1}.${ext}`, data: new Uint8Array(await f.arrayBuffer()) });
     }
@@ -410,9 +416,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <span className={`rounded-full px-3 py-1.5 text-caption font-semibold ${inner} ${body}`}>{data.nicheName}</span>
                 {data.founder100 != null && <span className="rounded-full bg-[var(--color-accent-brand)] px-3 py-1.5 text-caption font-bold tabular-nums text-white">{ru ? "для соло-фаундера" : "solo-founder score"} {data.founder100}/100</span>}
               </div>
-              {shots.length > 0 && (
+              {shotList.length > 0 && (
                 <div className="mt-6 flex gap-4 overflow-x-auto pb-2">
-                  {shots.map((sh, i) => (
+                  {shotList.map((sh, i) => (
                     <div key={i} className="w-[148px] shrink-0 overflow-hidden rounded-[26px] bg-black ring-4 ring-black/70 shadow-[0_18px_44px_-16px_rgba(0,0,0,0.7)]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={sh.url} alt="" className="aspect-[9/19] w-full object-cover" />
@@ -530,46 +536,32 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 </span>
               </div>
               <p className={`mt-4 max-w-[56ch] text-footnote ${sub}`}>
-                {ru ? "Каждый телефончик — одно сообщение в ChatGPT. Копируй промт под ним, вставляй в чат, и картинка займёт своё место." : "Each little phone is one ChatGPT message. Copy the prompt under it, paste into the chat, and the render takes its place."}
+                {ru ? "В каждом телефончике его промт. Копируй, вставляй в ChatGPT, а готовую картинку загрузи кликом в этот же телефончик." : "Each phone holds its prompt. Copy it, paste into ChatGPT, then click the same phone to drop the render in."}
               </p>
               <div className="mt-4 flex gap-4 overflow-x-auto pb-2">
                 {data.design.parts.map((p, i) => (
-                  <div key={i} className="flex w-[124px] shrink-0 flex-col items-center gap-2.5">
-                    {shots[i] ? (
-                      <div className="w-full overflow-hidden rounded-[22px] bg-black ring-4 ring-black/70">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={shots[i].url} alt="" className="aspect-[9/19] w-full object-cover" />
-                      </div>
-                    ) : (
-                      <div className="flex aspect-[9/19] w-full flex-col items-center justify-center gap-2 rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
-                        <PaletteIcon size={20} />
-                        <span className={`px-2 text-center text-caption ${sub}`}>{i === 0 ? (ru ? "стиль" : "style") : `${ru ? "экраны" : "screens"} ${i}`}</span>
-                      </div>
-                    )}
+                  <div key={i} className="flex w-[136px] shrink-0 flex-col items-center gap-2.5">
+                    <label className="relative block w-full cursor-pointer">
+                      <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
+                      {shots[i] ? (
+                        <span className="block overflow-hidden rounded-[22px] bg-black ring-4 ring-black/70">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={shots[i]!.url} alt="" className="aspect-[9/19] w-full object-cover" />
+                        </span>
+                      ) : (
+                        <span className="relative block overflow-hidden rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
+                          <span className={`block aspect-[9/19] w-full overflow-hidden p-2.5 text-left text-[8px] leading-[1.4] ${sub}`}>{p.slice(0, 600)}</span>
+                          <span className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--color-text-primary)] to-transparent" />
+                          <span className={`pointer-events-none absolute inset-x-0 bottom-2 text-center text-caption font-semibold ${body}`}>{i === 0 ? (ru ? "стиль" : "style") : `${ru ? "экраны" : "screens"} ${i}`}</span>
+                        </span>
+                      )}
+                      {shots[i] && (
+                        <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={(e) => { e.preventDefault(); setSlot(i, null); }} className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-[var(--color-bg-page)] text-[11px] font-bold text-[var(--color-text-primary)] shadow">×</button>
+                      )}
+                    </label>
                     <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
                   </div>
                 ))}
-              </div>
-              <div className="mt-4 rounded-[18px] border border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_28%,transparent)] p-4">
-                <p className={`text-footnote ${body}`}>
-                  {ru ? "Когда ChatGPT нарисует экраны, загрузи картинки сюда: они встанут в обложку презентации и в архив плана. Всё остаётся у тебя на устройстве." : "When ChatGPT renders the screens, upload them here: they go into the presentation cover and the plan archive. Everything stays on your device."}
-                </p>
-                <label className={`mt-3 inline-flex cursor-pointer items-center gap-2 rounded-full px-4 py-2.5 text-callout font-medium transition-opacity hover:opacity-85 ${inner} ${body}`}>
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-                  {ru ? "Загрузить картинки" : "Upload images"}
-                  <input type="file" accept="image/*" multiple className="hidden" onChange={(e) => { addShots(e.target.files); e.target.value = ""; }} />
-                </label>
-                {shots.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {shots.map((sh, i) => (
-                      <span key={i} className="relative">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={sh.url} alt="" className="h-24 rounded-[10px]" />
-                        <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={() => setShots((arr) => arr.filter((_, j) => j !== i))} className="absolute -right-1.5 -top-1.5 flex size-5 items-center justify-center rounded-full bg-[var(--color-bg-page)] text-[10px] font-bold text-[var(--color-text-primary)]">×</button>
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
             </section>
 
@@ -578,9 +570,13 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               {kicker((p) => <CodeIcon {...p} />, ru ? "Код: бриф для агента готов" : "Code: the agent brief is ready")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>
                 {ru ? "Cursor или Claude Code, вставь целиком первым сообщением. Внутри стек, экраны из дизайн-спеки, модель данных и честный пейвол." : "Cursor or Claude Code, paste whole as the first message. Inside: the stack, screens from the design spec, data model and an honest paywall."}
-                {shots.length > 0 && (ru ? " Прикрепи к брифу свои картинки экранов: агент соберёт интерфейс по ним." : " Attach your screen renders: the agent will build the UI after them.")}
+                {shotList.length > 0 && (ru ? " Прикрепи к брифу свои картинки экранов: агент соберёт интерфейс по ним." : " Attach your screen renders: the agent will build the UI after them.")}
               </p>
-              <div className="mt-4"><CopyBtn text={data.codePrompt} label={ru ? "Скопировать бриф" : "Copy the brief"} copiedLabel={ru ? "Скопировано" : "Copied"} /></div>
+              <div className={`relative mt-4 overflow-hidden ${inner}`}>
+                <pre className={`max-h-44 overflow-hidden whitespace-pre-wrap p-4 text-[10px] leading-[1.5] ${sub}`}>{data.codePrompt.slice(0, 1400)}</pre>
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--color-text-primary)] to-transparent" />
+              </div>
+              <div className="mt-3"><CopyBtn text={data.codePrompt} label={ru ? "Скопировать бриф целиком" : "Copy the whole brief"} copiedLabel={ru ? "Скопировано" : "Copied"} /></div>
             </section>
 
             {/* Launch */}
@@ -596,7 +592,15 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                     <span className={`shrink-0 text-footnote tabular-nums ${sub}`}>{c.count}</span>
                   </div>
                 ))}
-                {!data.channels.length && <p className={`text-callout ${sub}`}>{ru ? "Явных каналов в отзывах этой ниши не нашлось, начни с запросов из слайда про имя." : "No explicit channels in this niche's reviews, start from the query slide."}</p>}
+                {!data.channels.length && (
+                  <div className={`px-4 py-3 ${inner}`}>
+                    {data.buyer && <p className={`text-callout ${body}`}><span className="font-semibold text-[var(--color-bg-page)]">{ru ? "Твоя аудитория: " : "Your audience: "}</span>{data.buyer}</p>}
+                    <p className={`mt-1.5 text-footnote ${sub}`}>
+                      {ru ? "Явных каналов в отзывах этой ниши не нашлось. Начни с поиска в сторе: " : "No explicit channels in this niche's reviews. Start from store search: "}
+                      {(data.aso.live.length ? data.aso.live.map((l) => l.term) : data.aso.terms).slice(0, 3).join(" · ")}
+                    </p>
+                  </div>
+                )}
               </div>
               <p className={`mt-6 text-callout ${body}`}>
                 {ru ? "Выглядит уже как продукт. Осталось собрать: по сути это Lean Canvas, только заполненный реальными отзывами, а не гипотезами." : "Already looks like a product. Now build it: this is basically a Lean Canvas, filled with real reviews instead of hypotheses."}
