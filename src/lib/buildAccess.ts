@@ -7,7 +7,7 @@ import type { Access } from "./access";
 // spec, persona covers, live ASO), so the free run shows the builder at its
 // best.
 export const FREE_BUILD_IDEAS: { idea: string; category: string }[] = [
-  { idea: "mind-mapping-8", category: "mind-mapping" }, // витрина, открыта без входа
+  { idea: "flashcards-6", category: "flashcards" }, // витрина, открыта без входа
   { idea: "baby-tracking-2", category: "baby-tracking" }, // за бесплатную регистрацию
 ];
 export const DEMO_BUILD_IDEA = FREE_BUILD_IDEAS[0];
