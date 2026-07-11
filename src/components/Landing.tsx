@@ -244,16 +244,27 @@ export default function Landing({
           </div>
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="ld-fade text-display text-[var(--color-text-primary)] text-balance" style={{ animationDelay: "0.05s" }}>
-              {ru ? "Разбор категорий" : "Category breakdowns"}
+              {ru ? "Перестань гадать, какое приложение делать" : "Stop guessing what app to build"}
             </h1>
 
-            <p className="ld-fade mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
+            <p className="ld-fade mx-auto mt-5 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
               {ru ? (
-                <>Каждая ниша разобрана по&nbsp;реальным отзывам из&nbsp;<span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов App&nbsp;Store и&nbsp;Google&nbsp;Play: что хвалят, на&nbsp;что злятся, каких приложений не&nbsp;хватает и&nbsp;какие идеи напрашиваются.</>
+                <>Мы прочитали <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "больше миллиона"}</span> отзывов из&nbsp;App&nbsp;Store и&nbsp;Google&nbsp;Play и&nbsp;нашли, чего людям не&nbsp;хватает и&nbsp;за&nbsp;что они уже платят. Выбери нишу, открой разбор и&nbsp;забери готовую идею под&nbsp;спрос, оценённую под&nbsp;соло-фаундера.</>
               ) : (
-                <>Every niche broken down from <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> real App&nbsp;Store and Google&nbsp;Play reviews: what users love and hate, which apps are missing, and which ideas are worth building.</>
+                <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "over a million"}</span> App&nbsp;Store and Google&nbsp;Play reviews and found what people are missing and already pay for. Pick a niche, open the breakdown and take a ready, demand-backed idea, scored for a solo founder.</>
               )}
             </p>
+
+            <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
+              <Link
+                href={`${ru ? "/ru" : "/en"}/ideas`}
+                className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+              >
+                {ru ? "Смотреть идеи под спрос" : "See demand-backed ideas"}
+                <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </Link>
+              <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "или листай разборы ниш ниже" : "or browse the niche breakdowns below"}</span>
+            </div>
           </div>
         </section>
 

@@ -66,12 +66,12 @@ export default function LangMenu({ locale }: { locale: Locale }) {
     <div ref={box} className="relative">
       <button
         type="button"
-        aria-label={ru ? "Язык" : "Language"}
+        aria-label={ru ? "Меню" : "Menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[13px] font-bold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+        className="flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
       >
-        {SHORT[locale]}
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
       </button>
 
       {open && (
