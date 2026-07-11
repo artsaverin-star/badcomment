@@ -12,7 +12,7 @@ import BuildProgress from "@/components/BuildProgress";
 import BuildGate from "@/components/BuildGate";
 import { FlameIcon } from "@/components/BuildIcons";
 import { getAccess } from "@/lib/access";
-import { canBuild, DEMO_BUILD_IDEA } from "@/lib/buildAccess";
+import { canBuild, DEMO_BUILD_IDEA, FREE_BUILD_IDEAS } from "@/lib/buildAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -68,7 +68,12 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   // The free ladder: reading the pains is free, walking the wizard is gated.
   // Locked rows keep their content visible and lead to the gate below.
   const access = await getAccess();
-  const rows = pains.map((p) => ({ ...p, open: canBuild(access, slug, p.idea) }));
+  const rows = pains.map((p) => ({
+    ...p,
+    open: canBuild(access, slug, p.idea),
+    // Идеи четвёрки, ещё закрытые для гостя — откроются за бесплатный вход.
+    rega: !access.loggedIn && p.idea !== DEMO_BUILD_IDEA.idea && FREE_BUILD_IDEAS.some((f) => f.idea === p.idea),
+  }));
   const anyLocked = rows.some((r) => !r.open);
   const demoTitle = copy[DEMO_BUILD_IDEA.idea]?.[ru ? "painTitle" : "painTitleEn"] || "";
 
@@ -94,7 +99,8 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
                   ? <>
                       <p className="text-body font-semibold text-pretty text-[var(--color-text-primary)]">
                         {p.painTitle}
-                        {p.open && anyLocked && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#30d158]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#1f9d47]">{ru ? "открыто" : "open"}</span>}
+                        {p.open && anyLocked && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#30d158]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#30d158]">{ru ? "бесплатно" : "free"}</span>}
+                        {p.rega && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#ff9f0a]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#ff9f0a]">{ru ? "за регистрацию" : "with sign-in"}</span>}
                       </p>
                       <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>
                     </>
@@ -126,7 +132,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       {/* Floating glass control bar, same idiom as the site header. */}
       <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">
         <div className="pointer-events-auto flex items-center rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-          <Link href={`${lp}/build`} className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+          <Link href={lp} className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
             <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4 6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             {ru ? "Назад" : "Back"}
           </Link>

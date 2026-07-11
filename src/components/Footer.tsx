@@ -13,7 +13,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const pathname = usePathname();
   if (pathname === "/cards") return null;
   const links = [
-    { href: "/build", label: ru ? "Создание" : "Create" },
+    { href: "/", label: ru ? "Создание" : "Create" },
     { href: "/categories", label: ru ? "Разборы" : "Breakdowns" },
     { href: "/ideas", label: ru ? "Идеи" : "Ideas" },
     { href: "/rating", label: ru ? "Рейтинг" : "Rating" },

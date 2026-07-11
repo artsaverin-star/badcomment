@@ -12,7 +12,7 @@ import { type Locale } from "@/lib/i18n";
 // Center nav items: icon + label, active state driven by the current path.
 const NAV: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "build", href: "/build", ru: "Создание", en: "Create",
+    key: "build", href: "/", ru: "Создание", en: "Create",
     icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
@@ -79,22 +79,26 @@ export default function Header({
 
         {/* Center nav — absolutely centered so it stays put regardless of the
             side widths. Hidden on small screens; the footer keeps the links. */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
-          {NAV.map((n) => {
+        {/* When the row gets tight (offer badge + sign-in on the right) the
+            item icons go first, then the last label ellipsizes — the nav never
+            slides under the controls. */}
+        <nav className="absolute left-1/2 hidden max-w-[40vw] -translate-x-1/2 items-center gap-1 md:flex min-[1200px]:max-w-none">
+          {NAV.map((n, i) => {
             const active = n.key === activeKey;
+            const last = i === NAV.length - 1;
             return (
               <Link
                 key={n.key}
                 href={`${lp}${n.href === "/" ? "" : n.href}`}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
+                className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${last ? "min-w-0" : "shrink-0"} ${
                   active
                     ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
                     : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{n.icon}</svg>
-                {ru ? n.ru : n.en}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="hidden shrink-0 min-[1100px]:block">{n.icon}</svg>
+                <span className={last ? "truncate" : undefined}>{ru ? n.ru : n.en}</span>
               </Link>
             );
           })}

@@ -8,7 +8,7 @@ import { type Locale } from "@/lib/i18n";
 // Three surfaces: ideas / breakdowns / rating, active state from the path.
 const TABS: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "build", href: "/build", ru: "Создание", en: "Create",
+    key: "build", href: "/", ru: "Создание", en: "Create",
     icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {

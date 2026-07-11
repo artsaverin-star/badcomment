@@ -22,6 +22,8 @@ export default function BuyButton({
   categorySlug,
   categoryPrice,
   categoryName,
+  children,
+  triggerClassName,
 }: {
   loggedIn: boolean;
   locale?: Locale;
@@ -33,6 +35,10 @@ export default function BuyButton({
   categorySlug?: string;
   categoryPrice?: number;
   categoryName?: string;
+  // Custom trigger: render these children as the click surface instead of the
+  // default shimmer pill (e.g. a locked niche row that opens the popup).
+  children?: React.ReactNode;
+  triggerClassName?: string;
   // ── accepted for backward-compat, no longer drive the SKU ──
   kind?: string;
   slug?: string;
@@ -245,9 +251,9 @@ export default function BuyButton({
       <button
         type="button"
         onClick={onClick}
-        className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+        className={triggerClassName ?? "btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"}
       >
-        {loggedIn ? triggerLabel : ru ? "Войти и открыть" : "Sign in to unlock"}
+        {children ?? (loggedIn ? triggerLabel : ru ? "Войти и открыть" : "Sign in to unlock")}
       </button>
 
       {open && typeof document !== "undefined" && createPortal(
