@@ -183,11 +183,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 2 && (
         <section className="mt-8">
-          <div className="flex items-center gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/build/bulb.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
-            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
-          </div>
+          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru ? "Смотри: вот твоя боль, и вот продукт, который её закрывает. Механика выведена из отзывов, спрос посчитан, простота оценена под одного человека." : "Look: here is your pain, and here is the product that closes it. Mechanics derived from reviews, demand counted, buildability scored for one person."}
           </p>
@@ -241,11 +237,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 3 && (
         <section className="mt-8">
-          <div className="flex items-center gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/build/swords.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
-            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто уже в нише и где у них дыры" : "Who is already here and where they leak"}</h2>
-          </div>
+          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто уже в нише и где у них дыры" : "Who is already here and where they leak"}</h2>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru ? "Топ ниши по массе оценок. Их слабые места мы вытащили из отзывов, и это твой вход: людям уже есть с чем сравнивать." : "The niche's top by rating mass. Their weak spots come from the reviews, and that is your way in: people already have something to compare with."}
           </p>
@@ -289,11 +281,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 4 && (
         <section className="mt-8">
-          <div className="flex items-center gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/build/coin.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
-            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто заплатит и сколько" : "Who pays and how much"}</h2>
-          </div>
+          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто заплатит и сколько" : "Who pays and how much"}</h2>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">{ru ? "Мы не гадаем: платящий найден в отзывах, ценник взят из того, что люди уже платят в нише." : "No guessing: the payer was found in the reviews, the price anchored to what people already pay in the niche."}</p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {data.buyer && (
@@ -332,11 +320,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 5 && (
         <section className="mt-8">
-          <div className="flex items-center gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/build/search.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
-            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Как тебя найдут в сторе" : "How they will find you"}</h2>
-          </div>
+          <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Как тебя найдут в сторе" : "How they will find you"}</h2>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru
               ? "Каждое слово мы проверили прямо в App Store. Смотрели две вещи: подсказывает ли его стор при вводе (значит люди правда так ищут) и насколько занят топ по этому слову."
