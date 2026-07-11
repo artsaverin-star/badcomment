@@ -23,7 +23,7 @@ export type BuildData = {
   painLine: string;
   painQuote?: { quote: string; app: string };
   ideaCover?: string;
-  crowd: { name: string; job: string; payLevel: string; cover?: string }[];
+  crowd: { name: string; job: string; payLevel: string; cover?: string; target?: boolean }[];
   pitch?: string;
   features: string[];
   founder100?: number;
@@ -45,14 +45,17 @@ export type BuildData = {
 const FIRST_STEP = 2; // «Решение»: steps 0 (ниша) and 1 (боль) live on prior pages
 const LAST_STEP = 7; // «План»: the results page
 
-function CopyBtn({ text, label, copiedLabel }: { text: string; label: string; copiedLabel: string }) {
+function CopyBtn({ text, label, copiedLabel, withIcon = false }: { text: string; label: string; copiedLabel: string; withIcon?: boolean }) {
   const [ok, setOk] = useState(false);
   return (
     <button
       type="button"
       onClick={() => { try { navigator.clipboard.writeText(text); setOk(true); setTimeout(() => setOk(false), 1600); } catch {} }}
-      className="shrink-0 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-caption font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-caption font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
     >
+      {withIcon && (
+        <svg width="12" height="12" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="9.5" height="9.5" rx="2" stroke="currentColor" strokeWidth="1.6" /><path d="M13 4.5V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h.5" stroke="currentColor" strokeWidth="1.6" /></svg>
+      )}
       {ok ? copiedLabel : label}
     </button>
   );
@@ -98,14 +101,6 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     try { localStorage.setItem("feed:saved", JSON.stringify(next.slice(0, 100))); } catch {}
   };
 
-  // Lock background scroll while the competitor sheet is open.
-  useEffect(() => {
-    if (compOpen == null) return;
-    const html = document.documentElement;
-    const prev = html.style.overflow;
-    html.style.overflow = "hidden";
-    return () => { html.style.overflow = prev; };
-  }, [compOpen]);
 
   // A new step always opens from the top — without this the scroll position
   // of the previous step carries over and lands the user mid-screen.
@@ -207,8 +202,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {ru ? "Смотри: вот твоя боль, и вот продукт, который её закрывает. Механика выведена из отзывов, спрос посчитан, простота оценена под одного человека." : "Look: here is your pain, and here is the product that closes it. Mechanics derived from reviews, demand counted, buildability scored for one person."}
           </p>
 
-          <div className="mt-7 grid gap-4 lg:grid-cols-2 lg:items-start">
-          <div className="heal-card rounded-[24px] p-6">
+          <div className="heal-card mt-7 rounded-[24px] p-6">
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Боль, которую лечим" : "The pain we treat"}</h3>
               <span className="heal-pop inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#30d158]/15 px-3 py-1 text-caption font-bold text-[#1f9d47]" style={{ animationDelay: "1.5s" }}>
@@ -225,12 +219,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             )}
           </div>
 
-          <div className="heal-rise flex items-center justify-center gap-2 text-caption font-semibold text-[var(--color-text-tertiary)] lg:hidden" style={{ animationDelay: "1.7s" }}>
+          <div className="heal-rise mt-4 flex items-center justify-center gap-2 text-caption font-semibold text-[var(--color-text-tertiary)]" style={{ animationDelay: "1.7s" }}>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             {ru ? "наше решение" : "our solution"}
           </div>
 
-          <div className="heal-rise card-min overflow-hidden rounded-[24px] p-7" style={{ animationDelay: "1.9s" }}>
+          <div className="heal-rise card-min mt-4 overflow-hidden rounded-[24px] p-7" style={{ animationDelay: "1.9s" }}>
             {data.ideaCover && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={data.ideaCover} alt="" className="-mx-7 -mt-7 mb-6 aspect-[16/8] w-[calc(100%+56px)] max-w-none object-cover" />
@@ -254,7 +248,6 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               </ul>
             )}
           </div>
-          </div>
         </section>
       )}
 
@@ -266,7 +259,10 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {data.crowd.map((c, i) => (
-              <div key={i} className="card-min overflow-hidden rounded-[22px]">
+              <div key={i} className={`card-min relative overflow-hidden rounded-[22px] ${c.target ? "border-[#30d158]/50 ring-1 ring-[#30d158]/40" : ""}`}>
+                {c.target && (
+                  <span className="absolute right-3 top-3 rounded-full bg-[#30d158] px-2.5 py-1 text-caption font-bold text-white shadow">{ru ? "твоя идея метит сюда" : "your idea aims here"}</span>
+                )}
                 {c.cover && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={c.cover} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
@@ -281,7 +277,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               </div>
             ))}
           </div>
-          {data.buyer && (
+          {data.buyer && !data.crowd.some((c) => c.target) && (
             <div className="card-min mt-4 rounded-[22px] border-[#30d158]/35 bg-[#30d158]/8 p-5">
               <span className="text-caption font-semibold text-[#1f9d47]">{ru ? "Твоя идея метит сюда: " : "Your idea aims here: "}</span>
               <span className="text-callout text-[var(--color-text-secondary)]">{data.buyer}</span>
@@ -297,29 +293,53 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {ru ? "Топ ниши по массе оценок. Их слабые места мы вытащили из отзывов, и это твой вход: людям уже есть с чем сравнивать." : "The niche's top by rating mass. Their weak spots come from the reviews, and that is your way in: people already have something to compare with."}
           </p>
           <div className="mt-7 flex flex-col gap-3">
-            {data.competitors.map((c, i) => (
-              <button key={i} type="button" onClick={() => setCompOpen(i)} className="card-min group rounded-[22px] p-5 text-left transition-colors hover:border-[var(--color-border-strong)]">
-                <div className="flex items-center gap-3.5">
-                  {c.icon
-                    // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                    : <span className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)]" />}
-                  <div className="min-w-0 flex-1">
-                    <div className="truncate text-body font-semibold text-[var(--color-text-primary)]">{c.title}</div>
-                    <div className="mt-0.5 text-caption tabular-nums text-[var(--color-text-tertiary)]">{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}{c.realScore != null ? ` · ${ru ? "честный балл" : "honest score"} ${c.realScore}` : ""}</div>
+            {data.competitors.map((c, i) => {
+              const openC = compOpen === i;
+              return (
+                <div key={i} className="card-min overflow-hidden rounded-[22px]">
+                  <button type="button" onClick={() => setCompOpen(openC ? null : i)} aria-expanded={openC} className="group flex w-full items-center gap-3.5 p-5 text-left">
+                    {c.icon
+                      // eslint-disable-next-line @next/next/no-img-element
+                      ? <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                      : <span className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)]" />}
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-body font-semibold text-[var(--color-text-primary)]">{c.title}</div>
+                      <div className="mt-0.5 text-caption tabular-nums text-[var(--color-text-tertiary)]">{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}{c.realScore != null ? ` · ${ru ? "честный балл" : "honest score"} ${c.realScore}` : ""}</div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={`shrink-0 text-[var(--color-text-tertiary)] transition-transform ${openC ? "rotate-180" : ""}`}><path d="M4 6.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </button>
+                  <div className="px-5 pb-5">
+                    {c.weak && (
+                      <p className="rounded-[14px] bg-[#ff453a]/8 px-4 py-3 text-callout text-[var(--color-text-secondary)]">
+                        <span className="font-semibold text-[#d70015]">{ru ? "Слабое место: " : "Weak spot: "}</span>{c.weak}
+                      </p>
+                    )}
+                    {openC && (
+                      <div className="mt-3 flex flex-col gap-3">
+                        {c.verdict && <p className="text-callout text-[var(--color-text-secondary)]">{c.verdict}</p>}
+                        {c.loved && (
+                          <p className="rounded-[14px] bg-[#30d158]/10 px-4 py-3 text-callout text-[var(--color-text-secondary)]">
+                            <span className="font-semibold text-[#1f9d47]">{ru ? "За что любят: " : "What they love: "}</span>{c.loved}
+                          </p>
+                        )}
+                        {c.shots.length > 0 && (
+                          <div className="flex snap-x gap-3 overflow-x-auto pb-1">
+                            {c.shots.map((sh, j) => (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img key={j} src={sh} alt="" loading="lazy" decoding="async" className="h-52 shrink-0 snap-start rounded-[14px] ring-1 ring-[var(--color-border-subtle)]" />
+                            ))}
+                          </div>
+                        )}
+                        <Link href={c.href} className="inline-flex w-fit items-center gap-1.5 rounded-full bg-[var(--color-text-primary)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
+                          {ru ? "Полная страница приложения" : "Full app page"}
+                          <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                  <span className="inline-flex shrink-0 items-center gap-1 text-caption font-semibold text-[var(--color-text-tertiary)] transition-colors group-hover:text-[var(--color-text-primary)]">
-                    {ru ? "смотреть" : "view"}
-                    <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
                 </div>
-                {c.weak && (
-                  <p className="mt-3 rounded-[14px] bg-[#ff453a]/8 px-4 py-3 text-callout text-[var(--color-text-secondary)]">
-                    <span className="font-semibold text-[#d70015]">{ru ? "Слабое место: " : "Weak spot: "}</span>{c.weak}
-                  </p>
-                )}
-              </button>
-            ))}
+              );
+            })}
           </div>
           {data.pitch && (
             <div className="card-min mt-4 rounded-[22px] border-[#30d158]/35 bg-[#30d158]/8 p-6">
@@ -355,13 +375,13 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           </div>
           {data.pay && (
             <div className="card-min mt-3 rounded-[22px] p-6">
-              <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Почему заплатит" : "Why they will pay"}</div>
+              <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Почему заплатит" : "Why they will pay"}</h3>
               <p className="mt-2 text-body text-[var(--color-text-secondary)]">{data.pay}</p>
             </div>
           )}
           {data.risk && (
             <div className="card-min mt-3 rounded-[22px] border-[#ff9500]/40 bg-[#ff9500]/8 p-6">
-              <div className="text-caption font-semibold text-[#c25e00]">{ru ? "Честно про главный риск" : "Honestly about the main risk"}</div>
+              <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Честно про главный риск" : "Honestly about the main risk"}</h3>
               <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{data.risk}</p>
             </div>
           )}
@@ -377,10 +397,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               : "We checked every word right in the App Store. Two things: does the store suggest it while typing (so people really search it) and how occupied the top is for it."}
           </p>
           {data.aso.live.length > 0 ? (
-            <div className="mt-7 flex flex-col gap-2.5">
+            <div className="mt-7 grid gap-2.5 lg:grid-cols-2">
               {data.aso.live.map((t, i) => {
                 const tier = t.min <= 0 ? "none" : t.min < 20000 ? "open" : t.min < 100000 ? "mid" : "giants";
-                const dot = tier === "open" ? "bg-[#30d158]" : tier === "mid" ? "bg-[#ff9500]" : tier === "giants" ? "bg-[#ff453a]" : "bg-[var(--color-border-strong)]";
                 const label = ru
                   ? tier === "open" ? "новичку можно" : tier === "mid" ? "плотно, но реально" : tier === "giants" ? "топ у гигантов" : "мало данных"
                   : tier === "open" ? "newcomer friendly" : tier === "mid" ? "tight but doable" : tier === "giants" ? "giants own the top" : "little data";
@@ -410,13 +429,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         <span className="rounded-full bg-[#0a84ff]/12 px-2.5 py-1 text-caption font-bold text-[#0a84ff]">{ru ? `стор подсказывает его №${t.hintRank}` : `store suggests it #${t.hintRank}`}</span>
                       )}
                     </div>
-                    <div className="mt-2.5 flex items-start gap-2">
-                      <span className={`mt-[5px] size-2.5 shrink-0 rounded-full ${dot}`} />
-                      <div className="text-footnote text-[var(--color-text-secondary)]">
-                        <span className="font-bold text-[var(--color-text-primary)]">{label}.</span> {explain}
-                      </div>
-                    </div>
-                    {t.top[0] && <div className="mt-1.5 pl-[18px] text-caption text-[var(--color-text-tertiary)]">{ru ? "первый в выдаче: " : "first result: "}{t.top[0].title}</div>}
+                    <h3 className="mt-3 text-headline font-bold text-[var(--color-text-primary)]">{label[0].toUpperCase() + label.slice(1)}</h3>
+                    <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{explain}</p>
+                    {t.top[0] && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{ru ? "первый в выдаче: " : "first result: "}{t.top[0].title}</div>}
                   </div>
                 );
               })}
@@ -565,7 +580,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                   </div>
                 ))}
               </div>
-              {data.pitch && <p className={`mt-4 text-callout ${body}`}><span className="font-semibold text-[#30d158]">{ru ? "Твой обход: " : "Your way around: "}</span>{data.pitch}</p>}
+              {data.pitch && (
+                <div className="mt-5">
+                  <h3 className="text-title3 font-bold text-white">{ru ? "Твой обход" : "Your way around"}</h3>
+                  <p className={`mt-2 text-callout ${body}`}>{data.pitch}</p>
+                </div>
+              )}
             </section>
 
             {/* Who pays */}
@@ -590,7 +610,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 })()}
               </div>
               {data.pay && <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>{data.pay}</p>}
-              {data.risk && <p className={`mt-3 max-w-[56ch] text-footnote ${sub}`}><span className="font-semibold text-[#ff9500]">{ru ? "главный риск: " : "main risk: "}</span>{data.risk}</p>}
+              {data.risk && (
+                <div className="mt-5">
+                  <h3 className="text-title3 font-bold text-white">{ru ? "Главный риск" : "Main risk"}</h3>
+                  <p className={`mt-2 max-w-[56ch] text-callout ${body}`}>{data.risk}</p>
+                </div>
+              )}
             </section>
 
             {/* Name & ASO */}
@@ -606,7 +631,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Design */}
             <section className={slide} style={d(7)}>
-              {kicker("/build/palette.png", ru ? "Дизайн: нарисуй экраны в ChatGPT" : "Design: render the screens in ChatGPT")}
+              {kicker("/build/palette.png", ru ? "Дизайн" : "Design")}
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 {data.design.palette && (
                   <span className="flex gap-1.5">
@@ -648,8 +673,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                       )}
                     </label>
                     <div className="flex w-full flex-col items-center gap-1.5">
-                      <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
-                      <label className="cursor-pointer rounded-full border border-white/25 px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
+                      <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} withIcon />
+                      <label className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-white/25 px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
+                        <svg width="12" height="12" viewBox="0 0 20 20" fill="none" aria-hidden="true" className={body}><path d="M10 13V4M6.5 7.5 10 4l3.5 3.5M4 16h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         <span className={body}>{ru ? "Загрузить" : "Upload"}</span>
                         <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
                       </label>
@@ -661,7 +687,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Code */}
             <section className={slide} style={d(8)}>
-              {kicker("/build/code.png", ru ? "Код: бриф для агента готов" : "Code: the agent brief is ready")}
+              {kicker("/build/code.png", ru ? "Код" : "Code")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>
                 {ru ? "Cursor или Claude Code, вставь целиком первым сообщением. Внутри стек, экраны из дизайн-спеки, модель данных и честный пейвол." : "Cursor or Claude Code, paste whole as the first message. Inside: the stack, screens from the design spec, data model and an honest paywall."}
                 {shotList.length > 0 && (ru ? " Прикрепи к брифу свои картинки экранов: агент соберёт интерфейс по ним." : " Attach your screen renders: the agent will build the UI after them.")}
@@ -675,12 +701,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Launch */}
             <section className={slide} style={d(9)}>
-              {kicker("/build/rocket.png", ru ? "Запуск: первые пользователи" : "Launch: the first users")}
+              {kicker("/build/rocket.png", ru ? "Запуск" : "Launch")}
               <div className="mt-4 flex flex-col gap-2.5">
                 {data.channels.map((c, i) => (
                   <div key={i} className={`flex items-start justify-between gap-4 px-4 py-3 ${inner}`}>
                     <div className="min-w-0">
-                      <div className="text-callout font-semibold text-white">{c.name}</div>
+                      <div className="text-headline font-bold text-white">{c.name.charAt(0).toUpperCase() + c.name.slice(1)}</div>
                       <p className={`mt-0.5 text-footnote ${body}`}>{c.note}</p>
                     </div>
                     <span className={`shrink-0 text-footnote tabular-nums ${sub}`}>{c.count}</span>
@@ -696,61 +722,11 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                   </div>
                 )}
               </div>
-              <p className={`mt-6 text-callout ${body}`}>
-                {ru ? "Выглядит уже как продукт. Осталось собрать: по сути это Lean Canvas, только заполненный реальными отзывами, а не гипотезами." : "Already looks like a product. Now build it: this is basically a Lean Canvas, filled with real reviews instead of hypotheses."}
-              </p>
             </section>
           </div>
         );
       })()}
 
-      {/* Competitor sheet: the app up close without leaving the wizard. */}
-      {compOpen != null && data.competitors[compOpen] && (() => {
-        const c = data.competitors[compOpen]!;
-        return (
-          <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-6" role="dialog" aria-modal="true">
-            <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setCompOpen(null)} className="absolute inset-0 bg-black/45 backdrop-blur-[2px]" />
-            <div className="relative max-h-[88vh] w-full max-w-[560px] overflow-y-auto rounded-t-[28px] bg-[var(--color-bg-page)] p-6 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] sm:rounded-[28px] sm:p-7">
-              <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setCompOpen(null)} className="absolute right-4 top-4 flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-              </button>
-              <div className="flex items-center gap-4 pr-10">
-                {c.icon
-                  // eslint-disable-next-line @next/next/no-img-element
-                  ? <img src={c.icon} alt="" className="size-14 shrink-0 rounded-[15px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                  : <span className="size-14 shrink-0 rounded-[15px] bg-[var(--color-bg-muted)]" />}
-                <div className="min-w-0">
-                  <div className="text-title3 text-[var(--color-text-primary)]">{c.title}</div>
-                  <div className="mt-0.5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}{c.realScore != null ? ` · ${ru ? "честный балл" : "honest score"} ${c.realScore}` : ""}</div>
-                </div>
-              </div>
-              {c.verdict && <p className="mt-5 text-callout text-[var(--color-text-secondary)]">{c.verdict}</p>}
-              {c.loved && (
-                <p className="mt-4 rounded-[14px] bg-[#30d158]/10 px-4 py-3 text-callout text-[var(--color-text-secondary)]">
-                  <span className="font-semibold text-[#1f9d47]">{ru ? "За что любят: " : "What they love: "}</span>{c.loved}
-                </p>
-              )}
-              {c.weak && (
-                <p className="mt-2.5 rounded-[14px] bg-[#ff453a]/8 px-4 py-3 text-callout text-[var(--color-text-secondary)]">
-                  <span className="font-semibold text-[#d70015]">{ru ? "Слабое место: " : "Weak spot: "}</span>{c.weak}
-                </p>
-              )}
-              {c.shots.length > 0 && (
-                <div className="mt-5 flex gap-3 overflow-x-auto pb-1">
-                  {c.shots.map((sh, i) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img key={i} src={sh} alt="" loading="lazy" decoding="async" className="h-56 shrink-0 rounded-[14px] ring-1 ring-[var(--color-border-subtle)]" />
-                  ))}
-                </div>
-              )}
-              <Link href={c.href} className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-text-primary)] px-5 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
-                {ru ? "Полная страница приложения" : "Full app page"}
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </Link>
-            </div>
-          </div>
-        );
-      })()}
 
       {/* Floating glass control bar, same idiom as the site header — the
           next action is always visible without scrolling. The plan page has

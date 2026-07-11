@@ -50,7 +50,6 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
       <BuildProgress active={1} doneCount={1} ru={ru} />
-
       <header className="mt-10">
         <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{ru ? `Что болит у людей в «${niche}»` : `What hurts people in ${niche}`}</h1>
         <p className="mt-4 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">

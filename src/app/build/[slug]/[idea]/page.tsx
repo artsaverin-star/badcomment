@@ -86,7 +86,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   type Seg = { name: string; job: string; payLevel: string };
   const dsr = (DOSSIER_BY_SLUG as Record<string, { audience?: { segments?: Seg[] } }>)[slug];
   const dsrEn = (dossierEn as Record<string, { audience?: { segments?: Seg[] } }>)[slug];
-  const crowd = (dsr?.audience?.segments ?? []).map((sg, i) => {
+  const crowdBase = (dsr?.audience?.segments ?? []).map((sg, i) => {
     const e = dsrEn?.audience?.segments?.[i];
     return {
       name: (ru ? sg.name : e?.name || sg.name),
@@ -95,6 +95,18 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
       cover: (personaCovers as Record<string, string>)[`${slug}-${i}`],
     };
   });
+  // Highlight the segment the idea aims at: word overlap between the idea's
+  // payer/title and the segment's name/job (RU corpus shares the vocabulary).
+  const words = (t: string) => new Set(t.toLowerCase().replace(/ё/g, "е").split(/[^a-zа-я0-9]+/).filter((w) => w.length > 3));
+  const buyerWords = words(`${copy?.buyer ?? ""} ${s?.targetSegment ?? ""} ${idea.title}`);
+  let targetIdx = -1;
+  let targetScore = 0;
+  crowdBase.forEach((c, i) => {
+    let sc = 0;
+    for (const w of words(`${c.name} ${c.job}`)) if (buyerWords.has(w)) sc++;
+    if (sc > targetScore) { targetScore = sc; targetIdx = i; }
+  });
+  const crowd = crowdBase.map((c, i) => ({ ...c, target: i === targetIdx && targetScore >= 1 }));
 
   // Channels of the niche.
   type Ch = { name: string; note: string; count: number };
@@ -138,10 +150,6 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
 
   return (
     <main className="mx-auto w-full max-w-[880px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
-      <div className="mx-auto mb-10 max-w-[720px]">
-        <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{data.ideaTitle}</h1>
-        <p className="mt-3 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">{data.oneLiner}</p>
-      </div>
       <BuildWizard data={data} locale={locale} />
     </main>
   );

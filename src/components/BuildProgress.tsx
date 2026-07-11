@@ -24,14 +24,19 @@ export default function BuildProgress({
 }) {
   const steps = ru ? BUILD_STEPS_RU : BUILD_STEPS_EN;
   const progress = Math.round((doneCount / steps.length) * 100);
+  // On the final step the road is walked — the bar would show 8/8 anyway,
+  // so it disappears and only the step icons remain.
+  const finished = active >= steps.length - 1;
   return (
     <div className={`z-20 -mx-1 rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_94%,transparent)] px-1 py-3 backdrop-blur-xl lg:-mx-16 lg:px-5 xl:-mx-24 ${sticky ? "sticky top-16 sm:top-20" : ""}`}>
-      <div className="flex items-center gap-3">
-        <div className="h-3.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-          <div className="h-full rounded-full bg-[var(--color-accent-brand)] transition-all duration-500" style={{ width: `${Math.max(progress, 4)}%` }} />
+      {!finished && (
+        <div className="flex items-center gap-3">
+          <div className="h-3.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+            <div className="h-full rounded-full bg-[var(--color-accent-brand)] transition-all duration-500" style={{ width: `${Math.max(progress, 4)}%` }} />
+          </div>
+          <span className="text-footnote font-bold tabular-nums text-[var(--color-text-secondary)]">{Math.min(active + 1, steps.length)}/{steps.length}</span>
         </div>
-        <span className="text-footnote font-bold tabular-nums text-[var(--color-text-secondary)]">{Math.min(active + 1, steps.length)}/{steps.length}</span>
-      </div>
+      )}
       <div className="mt-2.5 flex justify-between">
         {steps.map((s, i) => {
           const clickable = !!onStep && i <= doneCount && i !== active;
