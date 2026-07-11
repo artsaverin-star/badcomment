@@ -1,10 +1,12 @@
+import { BUILD_ICONS } from "./BuildIcons";
+
 // The builder path's shared progress shell: all eight steps visible from the
 // very first screen (Duolingo-style), so the user always sees the whole road.
-// Pure render — usable from server pages and the client wizard alike.
+// Icons are animated SVGs (no emoji); only the ACTIVE step animates — a row of
+// eight looping icons would read as noise. Pure render, server-safe.
 
 export const BUILD_STEPS_RU = ["Ниша", "Боль", "Решение", "Кто платит", "Имя и ASO", "Дизайн", "Код", "Запуск"];
 export const BUILD_STEPS_EN = ["Niche", "Pain", "Solution", "Who pays", "Name & ASO", "Design", "Code", "Launch"];
-export const BUILD_EMOJI = ["🧭", "🔥", "💡", "💸", "🔎", "🎨", "🧑‍💻", "🚀"];
 
 export default function BuildProgress({ active, doneCount, ru }: { active: number; doneCount: number; ru: boolean }) {
   const steps = ru ? BUILD_STEPS_RU : BUILD_STEPS_EN;
@@ -18,14 +20,21 @@ export default function BuildProgress({ active, doneCount, ru }: { active: numbe
         <span className="text-footnote font-bold tabular-nums text-[var(--color-text-secondary)]">{progress}%</span>
       </div>
       <div className="mt-2.5 flex justify-between">
-        {steps.map((s, i) => (
-          <div key={i} className="flex min-w-0 flex-col items-center gap-1">
-            <span className={`flex size-8 items-center justify-center rounded-full text-[15px] transition-all ${i === active ? "scale-110 bg-[var(--color-text-primary)]" : i < doneCount ? "bg-[#30d158]/15" : "bg-[var(--color-bg-muted)]"}`}>
-              {i < doneCount && i !== active ? "✓" : BUILD_EMOJI[i]}
-            </span>
-            <span className={`hidden truncate text-caption sm:block ${i === active ? "font-bold text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{s}</span>
-          </div>
-        ))}
+        {steps.map((s, i) => {
+          const Icon = BUILD_ICONS[i];
+          return (
+            <div key={i} className="flex min-w-0 flex-col items-center gap-1">
+              <span className={`flex size-9 items-center justify-center rounded-full transition-all ${i === active ? "scale-110 bg-[var(--color-surface-card)] shadow-[0_4px_14px_-4px_rgba(18,18,22,0.25)] ring-1 ring-[var(--color-border-subtle)]" : i < doneCount ? "bg-[#30d158]/15" : "bg-[var(--color-bg-muted)] opacity-55 grayscale"}`}>
+                {i < doneCount && i !== active
+                  ? <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  : i === active
+                    ? <Icon size={20} />
+                    : <span className="pointer-events-none [&_*]:!animate-none"><Icon size={18} /></span>}
+              </span>
+              <span className={`hidden truncate text-caption sm:block ${i === active ? "font-bold text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{s}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

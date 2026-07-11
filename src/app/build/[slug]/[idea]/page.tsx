@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getSessionUser } from "@/lib/session";
 import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
@@ -30,7 +29,6 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
   const niche = getNicheName(slug, locale);
   const idea = getIdea(ideaSlug);
   if (!niche || !idea || idea.category !== slug) notFound();
@@ -85,13 +83,6 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
 
   return (
     <main className="mx-auto w-full max-w-[880px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
-      <div className="mx-auto mb-8 flex max-w-[720px] items-center justify-between gap-3">
-        <Link href={`${lp}/build/${slug}`} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          {niche}
-        </Link>
-        <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "прототип · админ" : "prototype · admin"}</span>
-      </div>
       <div className="mx-auto mb-10 max-w-[720px]">
         <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{data.ideaTitle}</h1>
         <p className="mt-3 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">{data.oneLiner}</p>

@@ -25,6 +25,12 @@ const NAV: { key: string; href: string; ru: string; en: string; icon: React.Reac
   },
 ];
 
+// The builder section — shown only to admins while it's a prototype.
+const BUILD_ITEM: (typeof NAV)[number] = {
+  key: "build", href: "/build", ru: "Создание", en: "Create",
+  icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
+};
+
 // Floating header. At the top it's chrome-less; on scroll it condenses into a
 // glass pill. Wordmark left, section nav centered (icon + label, active-aware),
 // account/settings right.
@@ -32,10 +38,12 @@ export default function Header({
   locale,
   loggedIn = false,
   showOffer = false,
+  showBuild = false,
 }: {
   locale: Locale;
   loggedIn?: boolean;
   showOffer?: boolean;
+  showBuild?: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() || "/";
@@ -54,7 +62,8 @@ export default function Header({
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const activeKey =
-    path.startsWith("/ideas") ? "ideas"
+    path.startsWith("/build") ? "build"
+      : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
       : path.startsWith("/categories") || path.startsWith("/segment") || path === "/" ? "breakdowns"
       : "";
@@ -75,7 +84,7 @@ export default function Header({
         {/* Center nav — absolutely centered so it stays put regardless of the
             side widths. Hidden on small screens; the footer keeps the links. */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
-          {NAV.map((n) => {
+          {(showBuild ? [...NAV, BUILD_ITEM] : NAV).map((n) => {
             const active = n.key === activeKey;
             return (
               <Link

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
+import { BUILD_ICONS, RocketIcon } from "./BuildIcons";
 
 // Admin prototype of the «Создай свой апп» builder path, steps 3-8 of 8
 // (niche and pain were picked on the previous screens). Duolingo-flavored:
@@ -48,6 +49,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
   const [maxDone, setMaxDone] = useState(FIRST_STEP); // steps 0..maxDone-1 are done
   const [shot, setShot] = useState<string | null>(null);
   const finished = maxDone > LAST_STEP;
+  const showResults = finished && step === LAST_STEP;
 
   const next = () => {
     setMaxDone((d) => Math.max(d, step + 1));
@@ -58,7 +60,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     <div className="mx-auto w-full max-w-[720px]">
       <BuildProgress active={step} doneCount={maxDone} ru={ru} />
 
-      <div className="mt-8">
+      <div className="mt-8" hidden={showResults}>
         {step === 2 && (
           <section>
             <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
@@ -228,26 +230,61 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         )}
       </div>
 
-      <div className="mt-10 flex flex-col items-center gap-3">
-        {finished && step === LAST_STEP ? (
-          <div className="w-full rounded-[24px] bg-[var(--color-text-primary)] p-8 text-center">
-            <div className="text-[40px]">🎉</div>
-            <div className="mt-2 text-title2 text-[var(--color-bg-page)]">{ru ? "План приложения собран" : "Your app plan is ready"}</div>
+      {/* Results road: the last step is a full recap page — every step of the
+          journey as an animated timeline row with its key artifact. */}
+      {showResults && (
+        <div className="mt-12">
+          <div className="card-fade rounded-[26px] bg-[var(--color-text-primary)] p-8 text-center">
+            <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]"><RocketIcon size={34} /></div>
+            <div className="mt-4 text-title1 text-[var(--color-bg-page)]">{ru ? "План приложения собран" : "Your app plan is ready"}</div>
             <p className="mx-auto mt-2 max-w-[44ch] text-callout text-[color-mix(in_srgb,var(--color-bg-page)_75%,transparent)]">
-              {ru ? "Ниша, боль, решение, платящий, имя, дизайн-промпты, код-бриф и каналы. Дальше вечер с ChatGPT и Cursor." : "Niche, pain, solution, payer, name, design prompts, code brief and channels. Next: an evening with ChatGPT and Cursor."}
+              {ru ? "Вот вся дорожка, которую ты прошёл, и артефакты каждого шага." : "Here is the whole road you walked and each step's artifact."}
             </p>
           </div>
-        ) : (
+
+          <div className="relative mt-6 flex flex-col gap-3 pl-6">
+            <span aria-hidden className="absolute bottom-6 left-[10px] top-2 w-[2px] rounded-full bg-[var(--color-border-subtle)]" />
+            {[
+              { i: 0, t: ru ? "Ниша" : "Niche", body: <p className="text-body font-medium text-[var(--color-text-primary)]">{data.nicheName}</p> },
+              { i: 1, t: ru ? "Боль" : "Pain", body: <p className="text-callout text-[var(--color-text-secondary)]">{data.gap}</p> },
+              { i: 2, t: ru ? "Решение" : "Solution", body: <div><p className="text-body font-medium text-[var(--color-text-primary)]">{data.ideaTitle}{data.founder100 != null && <span className="ml-2 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-bold tabular-nums text-white">{data.founder100}/100</span>}</p><p className="mt-1 text-callout text-[var(--color-text-secondary)]">{data.oneLiner}</p></div> },
+              { i: 3, t: ru ? "Кто платит" : "Who pays", body: <p className="text-callout text-[var(--color-text-secondary)]">{data.audience.targetSegment}{data.audience.pricePoint ? ` · ${data.audience.pricePoint}` : ""}</p> },
+              { i: 4, t: ru ? "Имя и ASO" : "Name & ASO", body: <div className="flex flex-wrap gap-1.5">{data.aso.terms.slice(0, 5).map((x, j) => <span key={j} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-caption font-medium text-[var(--color-text-primary)]">{x}</span>)}</div> },
+              { i: 5, t: ru ? "Дизайн" : "Design", body: <div className="flex items-center gap-3">{data.design.palette && <span className="flex gap-1">{[data.design.palette.bg, data.design.palette.surface, data.design.palette.accent, data.design.palette.textPrimary].map((c, j) => <span key={j} className="size-6 rounded-[7px] ring-1 ring-[var(--color-border-subtle)]" style={{ background: c }} />)}</span>}<span className="text-callout text-[var(--color-text-secondary)]">{data.design.screens} {ru ? "экранов" : "screens"} · {data.design.parts.length} {ru ? "сообщений" : "messages"}</span><CopyBtn text={data.design.parts.join("\n\n———\n\n")} label={ru ? "Скопировать все" : "Copy all"} copiedLabel={ru ? "Скопировано" : "Copied"} /></div> },
+              { i: 6, t: ru ? "Код" : "Code", body: <div className="flex items-center gap-3"><span className="text-callout text-[var(--color-text-secondary)]">{ru ? "Стартовый бриф для Cursor или Claude Code" : "Starter brief for Cursor or Claude Code"}</span><CopyBtn text={data.codePrompt} label={ru ? "Скопировать" : "Copy"} copiedLabel={ru ? "Скопировано" : "Copied"} /></div> },
+              { i: 7, t: ru ? "Запуск" : "Launch", body: <p className="text-callout text-[var(--color-text-secondary)]">{data.channels.length ? data.channels.map((c) => c.name).join(" · ") : (ru ? "начни с ASO-запросов" : "start from the ASO queries")}</p> },
+            ].map((row, k) => {
+              const Icon = BUILD_ICONS[row.i];
+              return (
+                <div key={k} className="card-fade relative" style={{ animationDelay: `${150 + k * 120}ms` }}>
+                  <span className="absolute -left-6 top-5 flex size-6 items-center justify-center rounded-full bg-[var(--color-bg-page)] ring-2 ring-[var(--color-border-subtle)]"><Icon size={14} /></span>
+                  <div className="card-min ml-2 rounded-[20px] p-5">
+                    <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{row.t}</div>
+                    <div className="mt-1.5">{row.body}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="card-fade mt-8 text-center text-callout text-[var(--color-text-secondary)]" style={{ animationDelay: "1.2s" }}>
+            {ru ? "Дальше вечер с ChatGPT и Cursor. Возвращайся с приложением." : "Next: an evening with ChatGPT and Cursor. Come back with an app."}
+          </p>
+        </div>
+      )}
+
+      {!showResults && (
+        <div className="mt-10 flex flex-col items-center gap-3">
           <button
             type="button"
             onClick={next}
             className="btn-shimmer inline-flex items-center gap-2 rounded-full px-8 py-4 text-body font-bold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
           >
-            {step === LAST_STEP ? (ru ? "Готово" : "Done") : (ru ? "Дальше" : "Continue")}
+            {step === LAST_STEP ? (ru ? "Собрать план" : "Assemble the plan") : (ru ? "Дальше" : "Continue")}
             <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -95,7 +95,7 @@ export default async function RootLayout({
             }),
           }}
         />
-        <Header locale={locale} loggedIn={access.loggedIn} showOffer={!access.unlimited} />
+        <Header locale={locale} loggedIn={access.loggedIn} showOffer={!access.unlimited} showBuild={!!access.user?.isAdmin} />
         <PageTracker />
         <FavSync enabled={access.loggedIn} />
         {children}

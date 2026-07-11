@@ -36,15 +36,14 @@ export default async function BuildNichePicker() {
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
-      <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Создай свой апп · прототип · только для админа" : "Build your app · prototype · admin only"}</div>
-      <div className="mt-6"><BuildProgress active={0} doneCount={0} ru={ru} /></div>
+      <BuildProgress active={0} doneCount={0} ru={ru} />
 
       <header className="mt-10">
         <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{ru ? "Мы прочитали весь App Store за тебя" : "We read the whole App Store for you"}</h1>
         <p className="mt-4 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <><span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов, {all.length} ниш. Оставили только те, где аудитория уже платит и громко страдает. Выше стоят ниши, куда новичку легче пробиться.</>
-            : <><span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews, {all.length} niches. We kept only the ones where the audience already pays and loudly suffers. The easiest niches to break into are on top.</>}
+            ? <><span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов, {all.length} ниш. Оставили только те, где аудитория уже платит и громко страдает. Выше стоят ниши, где у новичка больше шансов: меньше гигантов и накрутки.</>
+            : <><span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews, {all.length} niches. We kept only the ones where the audience already pays and loudly suffers. Niches where a newcomer has the best odds are on top: fewer giants, less fakery.</>}
         </p>
       </header>
 
@@ -61,7 +60,7 @@ export default async function BuildNichePicker() {
             </div>
             {n.promo > 0 && (
               <span className={`shrink-0 rounded-full px-3 py-1.5 text-caption font-bold tabular-nums ${n.promo >= 60 ? "bg-[#30d158]/15 text-[#1f9d47]" : n.promo >= 45 ? "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"}`}>
-                {ru ? `пробиваемость ${n.promo}` : `break-in ${n.promo}`}
+                {ru ? `шанс новичка ${n.promo}` : `newcomer odds ${n.promo}`}
               </span>
             )}
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
