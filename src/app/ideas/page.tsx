@@ -10,7 +10,6 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import { byNicheMoney } from "@/lib/nicheMoney";
 import ideaCovers from "@/data/ideaCovers.json";
-import Link from "next/link";
 import IdeasDeck from "@/components/IdeasDeck";
 import { IdeaCards } from "@/components/TestCards";
 import IdeaSortTabs, { type SortKey } from "@/components/IdeaSortTabs";
@@ -197,25 +196,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <header className="text-center">
-        <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Хватит гадать, что строить" : "Stop guessing what to build"}</h1>
+        <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Готовые идеи приложений под спрос" : "Ready app ideas backed by demand"}</h1>
         <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
             ? <>Мы прочитали <span className="tabular-nums">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзыва App Store и Google Play и нашли места, где люди уже платят, но остаются недовольны. Каждая идея показывает, чего не хватает, кто и сколько платит, и что по силам собрать одному.</>
             : <>We read <span className="tabular-nums">{totalReviews.toLocaleString("en-US")}</span> real App Store and Google Play reviews and found the places where people already pay but stay unhappy. Every idea shows what is missing, who pays and how much, and what one person can build.</>}
-        </p>
-        {/* One quiet line tells the free/paid story — no pills, no badges. */}
-        <p className="mx-auto mt-5 max-w-[52ch] text-footnote text-pretty text-[var(--color-text-tertiary)]">
-          {ru ? (
-            <>
-              Честный <Link href={`/${ru ? "ru" : "en"}/rating`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">рейтинг приложений</Link> и{" "}
-              <Link href={`/${ru ? "ru" : "en"}/categories`} className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">разборы ниш</Link> бесплатны. Полные идеи открывает один платёж.
-            </>
-          ) : (
-            <>
-              The honest <Link href="/en/rating" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">app rating</Link> and{" "}
-              <Link href="/en/categories" className="underline decoration-[var(--color-border-strong)] underline-offset-2 transition-colors hover:text-[var(--color-text-secondary)]">niche breakdowns</Link> are free. One payment opens the full ideas.
-            </>
-          )}
         </p>
       </header>
 

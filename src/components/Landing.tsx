@@ -263,7 +263,6 @@ export default function Landing({
                 {ru ? "Смотреть идеи под спрос" : "See demand-backed ideas"}
                 <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
-              <span className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "или листай разборы ниш ниже" : "or browse the niche breakdowns below"}</span>
             </div>
           </div>
         </section>
