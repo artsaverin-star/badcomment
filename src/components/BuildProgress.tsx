@@ -71,7 +71,7 @@ export default function BuildProgress({
                     : <span className="opacity-55 text-[var(--color-text-tertiary)]"><PeopleIcon size={condensed ? 14 : 20} /></span>}
                 </span>
               )}
-              <span className={`truncate text-caption ${i === active ? "block font-bold text-[var(--color-text-primary)]" : condensed ? "hidden" : "hidden text-[var(--color-text-tertiary)] sm:block"}`}>{s}</span>
+              <span className={`truncate text-caption ${condensed ? "hidden" : i === active ? "block font-bold text-[var(--color-text-primary)]" : "hidden text-[var(--color-text-tertiary)] sm:block"}`}>{s}</span>
             </>
           );
           return clickable ? (
