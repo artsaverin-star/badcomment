@@ -44,11 +44,12 @@ export default async function BuildHome() {
       const icon = [...(r.apps ?? [])].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).find((a) => a.icon)?.icon ?? null;
       const owned = access.unlimited || access.has("category", slug) || access.has("chapter", slug);
       const free = !owned && freeCats.has(slug);
-      // Ниши четвёрки, ещё закрытые для гостя — откроются за бесплатный вход.
+      // Ниша второй бесплатной идеи, пока закрытая для гостя — за вход.
       const rega = !owned && !free && FREE_BUILD_IDEAS.some((f) => f.category === slug);
       return { slug, name: (ru ? r.name : r.nameEn) || r.name, icon, owned, free, rega, ideas: ideas.filter((i) => i.category === slug).length, promo: promoScore(slug)?.score ?? 0 };
     })
-    .sort((a, b) => b.promo - a.promo);
+    // Бесплатная и «за регистрацию» всплывают наверх, остальное по шансу.
+    .sort((a, b) => (Number(b.free) - Number(a.free)) || (Number(b.rega) - Number(a.rega)) || (b.promo - a.promo));
 
   // Геометрия из фигмы (Port, 2252:3067), позиционирование от ЦЕНТРА
   // повёрнутого бокса: огонь центр 61/63 при 115% и 18°, лампа 65/50 при
@@ -87,12 +88,18 @@ export default async function BuildHome() {
         <p className="mt-2 max-w-[58ch] text-callout text-[var(--color-text-secondary)]">
           {ru ? "Выше стоят ниши, где у новичка больше шансов: меньше гигантов и накрутки." : "Niches where a newcomer has the best odds are on top: fewer giants, less fakery."}
           {!access.unlimited && (ru
-            ? " Одна идея открыта всем как пример, вход открывает четыре отобранные, один платёж открывает всё."
-            : " One idea is open to everyone as the example, a sign-in opens four hand-picked ones, a single payment opens everything.")}
+            ? " Одна идея открыта всем как пример, вход открывает ещё одну, один платёж открывает всё."
+            : " One idea is open to everyone as the example, a sign-in opens one more, a single payment opens everything.")}
         </p>
         <div className="mt-6 flex flex-col gap-2.5">
           {niches.map((n) => {
-            const rowClass = `card-min group flex w-full items-center gap-4 rounded-[20px] p-4 text-left transition-colors sm:p-5 ${n.free ? "border-[#30d158]/60 shadow-[0_0_22px_-6px_rgba(48,209,88,0.55)] hover:border-[#30d158]" : "hover:border-[var(--color-border-strong)]"}`;
+            const rowClass = `card-min group flex w-full items-center gap-4 rounded-[20px] p-4 text-left transition-colors sm:p-5 ${
+              n.free
+                ? "border-[#30d158]/60 shadow-[0_0_22px_-6px_rgba(48,209,88,0.55)] hover:border-[#30d158]"
+                : n.rega
+                  ? "border-[#ff9f0a]/60 shadow-[0_0_22px_-6px_rgba(255,159,10,0.55)] hover:border-[#ff9f0a]"
+                  : "hover:border-[var(--color-border-strong)]"
+            }`;
             const body = (
               <>
                 {n.icon
@@ -104,12 +111,12 @@ export default async function BuildHome() {
                   <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">{n.ideas} {ru ? "проверенных болей" : "verified pains"}</div>
                 </div>
                 {n.free && (
-                  <span className="shrink-0 rounded-full bg-[#30d158]/15 px-3 py-1.5 text-caption font-bold text-[#30d158]">
+                  <span className="shrink-0 rounded-full bg-[#30d158]/15 px-3 py-1.5 text-caption font-bold text-[#30d158] shadow-[0_0_14px_rgba(48,209,88,0.4)]">
                     {ru ? "бесплатно" : "free"}
                   </span>
                 )}
                 {n.rega && (
-                  <span className="shrink-0 rounded-full bg-[#ff9f0a]/15 px-3 py-1.5 text-caption font-bold text-[#ff9f0a]">
+                  <span className="shrink-0 rounded-full bg-[#ff9f0a]/15 px-3 py-1.5 text-caption font-bold text-[#ff9f0a] shadow-[0_0_14px_rgba(255,159,10,0.4)]">
                     {ru ? "за регистрацию" : "with sign-in"}
                   </span>
                 )}

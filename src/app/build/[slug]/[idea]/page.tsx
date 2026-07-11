@@ -51,7 +51,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   // The wizard is the paid payload — a crafted URL must not walk around the
   // pain-picker locks. Locked ideas bounce back to the picker's gate.
   const access = await getAccess();
-  if (!canBuild(access, slug, ideaSlug)) redirect(`${lp}/build/${slug}#unlock`);
+  if (!canBuild(access, slug, ideaSlug)) redirect(`${lp}/build/${slug}`);
 
   const en = !ru ? ideaContentEn(ideaSlug, locale) : null;
   const s = scoreFor(ideaSlug, locale);

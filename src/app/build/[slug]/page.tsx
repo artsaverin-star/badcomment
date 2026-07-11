@@ -9,10 +9,11 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import buildCopy from "@/data/buildCopy.json";
 import ideaAudit from "@/data/ideaAudit.json";
 import BuildProgress from "@/components/BuildProgress";
-import BuildGate from "@/components/BuildGate";
+import BuyButton from "@/components/BuyButton";
 import { FlameIcon } from "@/components/BuildIcons";
 import { getAccess } from "@/lib/access";
-import { canBuild, DEMO_BUILD_IDEA, FREE_BUILD_IDEAS } from "@/lib/buildAccess";
+import { canBuild, REGA_BUILD_IDEA } from "@/lib/buildAccess";
+import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -66,16 +67,15 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   const pains = strong.length >= 5 ? strong : [...strong, ...rest].slice(0, 5);
 
   // The free ladder: reading the pains is free, walking the wizard is gated.
-  // Locked rows keep their content visible and lead to the gate below.
+  // Locked rows keep their content visible and open the payment popup on tap
+  // (guests see the sign-in first). The sign-in idea wears the orange chip.
   const access = await getAccess();
   const rows = pains.map((p) => ({
     ...p,
     open: canBuild(access, slug, p.idea),
-    // Идеи четвёрки, ещё закрытые для гостя — откроются за бесплатный вход.
-    rega: !access.loggedIn && p.idea !== DEMO_BUILD_IDEA.idea && FREE_BUILD_IDEAS.some((f) => f.idea === p.idea),
+    rega: !access.loggedIn && p.idea === REGA_BUILD_IDEA.idea,
   }));
   const anyLocked = rows.some((r) => !r.open);
-  const demoTitle = copy[DEMO_BUILD_IDEA.idea]?.[ru ? "painTitle" : "painTitleEn"] || "";
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
@@ -115,19 +115,21 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
               <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
           ) : (
-            <a key={p.idea} href="#unlock" className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
+            <BuyButton
+              key={p.idea}
+              loggedIn={access.loggedIn}
+              locale={locale}
+              categorySlug={p.rega ? undefined : slug}
+              categoryPrice={p.rega ? undefined : CATEGORY_PRICE_RUB}
+              categoryName={p.rega ? undefined : niche}
+              triggerClassName="card-min group flex w-full items-start gap-4 rounded-[20px] p-5 text-left transition-colors hover:border-[var(--color-border-strong)]"
+            >
               {body}
               <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>
-            </a>
+            </BuyButton>
           );
         })}
       </div>
-
-      {anyLocked && (
-        <div id="unlock" className="mt-10 scroll-mt-28">
-          <BuildGate loggedIn={access.loggedIn} demoHref={`${lp}/build/${DEMO_BUILD_IDEA.category}/${DEMO_BUILD_IDEA.idea}`} demoTitle={demoTitle} locale={locale} />
-        </div>
-      )}
 
       {/* Floating glass control bar, same idiom as the site header. */}
       <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">

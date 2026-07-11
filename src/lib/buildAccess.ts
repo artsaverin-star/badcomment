@@ -1,17 +1,17 @@
 import type { Access } from "./access";
 
-// The builder's free ladder: one showcase idea is open to everyone, a free
-// sign-in opens four hand-picked super ideas, the single lifetime purchase
-// opens every niche. The four are curated by hand — the most product-shaped
-// ideas of the catalog with the full asset kit (cover, design spec, persona
-// covers, live ASO), so the free run shows the builder at its best.
+// The builder's free ladder: exactly two hand-picked ideas are free. The
+// showcase one is open to everyone with no account, the second opens after a
+// free sign-in, everything else takes the single lifetime purchase. Both are
+// genuinely solo-buildable products with the full asset kit (cover, design
+// spec, persona covers, live ASO), so the free run shows the builder at its
+// best.
 export const FREE_BUILD_IDEAS: { idea: string; category: string }[] = [
-  { idea: "workout-fitness-4", category: "workout-fitness" }, // витрина, открыта без входа
-  { idea: "focus-productivity-5", category: "focus-productivity" },
-  { idea: "recipes-meal-planning-2", category: "recipes-meal-planning" },
-  { idea: "baby-tracking-2", category: "baby-tracking" },
+  { idea: "mind-mapping-8", category: "mind-mapping" }, // витрина, открыта без входа
+  { idea: "baby-tracking-2", category: "baby-tracking" }, // за бесплатную регистрацию
 ];
 export const DEMO_BUILD_IDEA = FREE_BUILD_IDEAS[0];
+export const REGA_BUILD_IDEA = FREE_BUILD_IDEAS[1];
 
 // The free idea slugs open at this viewer's tier of the ladder.
 export function openFreeIdeas(access: Access): Set<string> {
