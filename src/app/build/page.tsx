@@ -51,8 +51,8 @@ export default async function BuildHome() {
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Собери своё приложение" : "Build your own app"}</h1>
         <p className="mx-auto mt-5 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <>Твоя суперсила: ты заранее видишь, за что люди уже платят и на что жалуются. Мы разобрали <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов в {all.length} нишах и собрали {totalIdeas} проверенных болей. Выбираешь одну, получаешь план и собираешь приложение за вечер с ChatGPT и Cursor.</>
-            : <>Your superpower: you see in advance what people already pay for and complain about. We went through <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews across {all.length} niches and verified {totalIdeas} pains. Pick one, get the plan and build the app in an evening with ChatGPT and Cursor.</>}
+            ? <>Мы разобрали <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов в {all.length} нишах и собрали {totalIdeas} проверенных болей: видно заранее, за что люди уже платят и на что жалуются. Выбираешь боль, получаешь план и собираешь приложение за вечер с ChatGPT и Cursor.</>
+            : <>We went through <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews across {all.length} niches and verified {totalIdeas} pains: you see in advance what people already pay for and complain about. Pick a pain, get the plan and build the app in an evening with ChatGPT and Cursor.</>}
         </p>
       </header>
 
