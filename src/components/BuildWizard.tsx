@@ -107,6 +107,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     return () => { html.style.overflow = prev; };
   }, [compOpen]);
 
+  // A new step always opens from the top — without this the scroll position
+  // of the previous step carries over and lands the user mid-screen.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step]);
+
   const next = () => {
     setMaxDone((d) => Math.max(d, step + 1));
     if (step < LAST_STEP) setStep(step + 1);
