@@ -16,7 +16,7 @@ const NAV: { key: string; href: string; ru: string; en: string; icon: React.Reac
     icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
-    key: "breakdowns", href: "/", ru: "Разборы", en: "Breakdowns",
+    key: "breakdowns", href: "/categories", ru: "Разборы", en: "Breakdowns",
     icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
   },
   {
@@ -58,10 +58,10 @@ export default function Header({
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const activeKey =
-    path.startsWith("/build") ? "build"
+    path.startsWith("/build") || path === "/" ? "build"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
-      : path.startsWith("/categories") || path.startsWith("/segment") || path === "/" ? "breakdowns"
+      : path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : "";
 
   return (

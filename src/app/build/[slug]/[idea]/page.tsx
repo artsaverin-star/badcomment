@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
-import { getNicheName } from "@/lib/ratingAppSlug";
+import { getNicheName, appSlugify } from "@/lib/ratingAppSlug";
 import { getIdea } from "@/lib/ideas";
 import { ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
@@ -24,7 +24,7 @@ export const dynamic = "force-dynamic";
 type Spec = { theme?: string; palette?: { bg: string; surface: string; accent: string; textPrimary: string }; motif?: string; screens?: unknown[] };
 type Copy = { pain?: string; painEn?: string; buyer?: string; pay?: string; risk?: string };
 type LiveTerm = { term: string; hintRank: number | null; median: number; min: number; top: { title: string; ratings: number }[] };
-type RApp = { title: string; icon?: string | null; ratings?: number; realScore?: number; weak?: string; en?: { weak?: string } };
+type RApp = { title: string; icon?: string | null; ratings?: number; realScore?: number; weak?: string; verdict?: string; loved?: string; shots?: string[]; en?: { weak?: string; verdict?: string; loved?: string } };
 
 const firstSentence = (t?: string) => {
   if (!t) return "";
@@ -63,6 +63,10 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     ratings: a.ratings || 0,
     realScore: a.realScore,
     weak: (ru ? a.weak : a.en?.weak || a.weak) || "",
+    verdict: (ru ? a.verdict : a.en?.verdict || a.verdict) || "",
+    loved: (ru ? a.loved : a.en?.loved || a.loved) || "",
+    shots: (a.shots ?? []).slice(0, 4),
+    href: `${lp}/rating/${slug}/${appSlugify(a.title)}`,
   }));
 
   // ASO: baked niche terms + live App Store signals (autocomplete rank and
@@ -85,6 +89,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     ideaTitle: (en?.title || idea.title) as string,
     oneLiner: (en?.oneLiner || idea.oneLiner) as string,
     nicheName: niche,
+    nicheSlug: slug,
     hrefBack: `${lp}/build/${slug}`,
     hrefNiches: `${lp}/build`,
     painLine,
