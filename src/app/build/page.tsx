@@ -34,12 +34,13 @@ export default async function BuildHome() {
     })
     .sort((a, b) => b.promo - a.promo);
 
-  // Геометрия из фигмы (Port, 2252:3067): арт 115% ширины карточки, поворот
-  // ~18°, вынесен за края и обрезается карточкой; текст 6-8% от края.
+  // Геометрия из фигмы (Port, 2252:3067), позиционирование от ЦЕНТРА
+  // повёрнутого бокса: огонь центр 61/63 при 115% и 18°, лампа 65/50 при
+  // 105% (режется сверху и снизу), ракета 72/55 при 95%.
   const how = [
-    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_50%_46%,#e87e28_28%,#e6402b_64%,#e4022d_96%)]", pos: "top", art: { width: "115%", left: "-16%", top: "-27%", transform: "rotate(18deg)" } },
-    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_32%_42%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid", art: { width: "108%", left: "16%", top: "-24%" } },
-    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_35%_38%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top", art: { width: "100%", left: "26%", top: "-8%" } },
+    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_50%_46%,#e87e28_28%,#e6402b_64%,#e4022d_96%)]", pos: "top", art: { width: "115%", left: "61%", top: "63%", transform: "translate(-50%, -50%) rotate(18.44deg)" } },
+    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_32%_42%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid", art: { width: "105%", left: "65%", top: "50%", transform: "translate(-50%, -50%)" } },
+    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_35%_38%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top", art: { width: "95%", left: "72%", top: "55%", transform: "translate(-50%, -50%)" } },
   ];
 
   return (
