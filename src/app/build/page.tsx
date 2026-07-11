@@ -5,7 +5,7 @@ import { isActiveCategory } from "@/lib/categoryVisibility";
 import { promoScore } from "@/lib/promoScore";
 import ideasData from "@/data/ideas.json";
 import BuildProgress from "@/components/BuildProgress";
-import { FlameIcon, BulbIcon, RocketIcon } from "@/components/BuildIcons";
+import { STEP_GRADIENT } from "@/components/BuildIcons";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +24,7 @@ export default async function BuildHome() {
 
   const all = Object.entries(RATING_BY_SLUG as Record<string, RSet>).filter(([slug]) => isActiveCategory(slug) && ideas.some((i) => i.category === slug));
   const totalReviews = all.reduce((s, [, r]) => s + (r.totalReviews || 0), 0);
+  const totalApps = all.reduce((s, [, r]) => s + (r.apps?.length || 0), 0);
   const totalIdeas = all.reduce((s, [slug]) => s + ideas.filter((i) => i.category === slug).length, 0);
 
   const niches = all
@@ -33,17 +34,11 @@ export default async function BuildHome() {
     })
     .sort((a, b) => b.promo - a.promo);
 
-  const how = ru
-    ? [
-        { Icon: FlameIcon, t: "Выбери боль", d: "Ниши и боли не придуманы: каждая проверена сотнями реальных отзывов." },
-        { Icon: BulbIcon, t: "Получи план", d: "Решение, конкуренты, кто заплатит, имя и запросы в сторе." },
-        { Icon: RocketIcon, t: "Собери и запусти", d: "Готовые промты для дизайна и кода плюс каналы первых пользователей." },
-      ]
-    : [
-        { Icon: FlameIcon, t: "Pick a pain", d: "Niches and pains aren't invented: each is verified by hundreds of real reviews." },
-        { Icon: BulbIcon, t: "Get the plan", d: "Solution, competitors, who pays, the name and store queries." },
-        { Icon: RocketIcon, t: "Build and launch", d: "Ready prompts for design and code plus channels for the first users." },
-      ];
+  const how = [
+    { img: "/build/flame.png", t: ru ? "Выбери боль" : "Pick a pain" },
+    { img: "/build/bulb.png", t: ru ? "Получи план" : "Get the plan" },
+    { img: "/build/rocket.png", t: ru ? "Собери и запусти" : "Build and launch" },
+  ];
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
@@ -51,17 +46,17 @@ export default async function BuildHome() {
         <h1 className="text-display text-balance text-[var(--color-text-primary)]">{ru ? "Собери своё приложение" : "Build your own app"}</h1>
         <p className="mx-auto mt-5 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <>Мы разобрали <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов в {all.length} нишах и собрали {totalIdeas} проверенных болей: видно заранее, за что люди уже платят и на что жалуются. Выбираешь боль, получаешь план и собираешь приложение за вечер с ChatGPT и Cursor.</>
-            : <>We went through <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews across {all.length} niches and verified {totalIdeas} pains: you see in advance what people already pay for and complain about. Pick a pain, get the plan and build the app in an evening with ChatGPT and Cursor.</>}
+            ? <>Мы детально разобрали <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalApps.toLocaleString("ru-RU")}</span> приложений и <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("ru-RU")}</span> реальных отзывов в {all.length} нишах, собрали {totalIdeas} проверенных болей: видно заранее, за что люди уже платят и на что жалуются. Выбираешь боль, получаешь план и собираешь приложение за вечер с любой нейросетью.</>
+            : <>We took apart <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalApps.toLocaleString("en-US")}</span> apps and <span className="tabular-nums font-semibold text-[var(--color-text-primary)]">{totalReviews.toLocaleString("en-US")}</span> real reviews across {all.length} niches and verified {totalIdeas} pains: you see in advance what people already pay for and complain about. Pick a pain, get the plan and build the app in an evening with whatever AI you use.</>}
         </p>
       </header>
 
-      <div className="mt-10 grid gap-3 sm:grid-cols-3">
-        {how.map(({ Icon, t, d }, i) => (
-          <div key={i} className="card-min rounded-[22px] p-5">
-            <span className="flex size-10 items-center justify-center rounded-full bg-[var(--color-bg-muted)]"><Icon size={22} /></span>
-            <div className="mt-3 text-body font-semibold text-[var(--color-text-primary)]">{t}</div>
-            <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{d}</p>
+      <div className="mt-10 grid grid-cols-3 gap-3">
+        {how.map(({ img, t }, i) => (
+          <div key={i} className={`relative aspect-square overflow-hidden rounded-[22px] sm:rounded-[26px] ${STEP_GRADIENT}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img} alt="" className="absolute left-1/2 top-[42%] w-[62%] -translate-x-1/2 -translate-y-1/2 mix-blend-screen" />
+            <div className="absolute inset-x-3 bottom-3 text-center text-footnote font-bold text-white sm:inset-x-5 sm:bottom-5 sm:text-title3">{t}</div>
           </div>
         ))}
       </div>
@@ -86,7 +81,7 @@ export default async function BuildHome() {
               </div>
               {n.promo > 0 && (
                 <span className={`shrink-0 rounded-full px-3 py-1.5 text-caption font-bold tabular-nums ${n.promo >= 60 ? "bg-[#30d158]/15 text-[#1f9d47]" : n.promo >= 45 ? "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"}`}>
-                  {ru ? `шанс новичка ${n.promo}` : `newcomer odds ${n.promo}`}
+                  {ru ? `шанс ${n.promo}` : `odds ${n.promo}`}
                 </span>
               )}
               <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>

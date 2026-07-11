@@ -108,3 +108,9 @@ export function SwordsIcon({ size = 18 }: { size?: number }) {
 // Ordered per builder step: ниша, боль, решение, конкуренты, кто платит,
 // имя и ASO, план. Palette/Code/Rocket also serve the result-page work items.
 export const BUILD_ICONS = [CompassIcon, FlameIcon, BulbIcon, SwordsIcon, CoinIcon, SearchAnimIcon, RocketIcon];
+
+// The glossy 3D renders (public/build/*.png). They sit on BLACK backgrounds —
+// no alpha — so always show them on dark or gradient surfaces with
+// mix-blend-screen: black dissolves into the backdrop, the neon glow stays.
+export const STEP_IMG = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
+export const STEP_GRADIENT = "bg-[radial-gradient(circle_at_45%_38%,#ee8f3c_0%,#e04a2b_55%,#d92d2d_100%)]";

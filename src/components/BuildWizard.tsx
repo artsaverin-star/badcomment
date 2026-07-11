@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
-import { FlameIcon, BulbIcon, SwordsIcon, CoinIcon, SearchAnimIcon, PaletteIcon, CodeIcon, RocketIcon } from "./BuildIcons";
+import { FlameIcon, BulbIcon, PaletteIcon, CodeIcon } from "./BuildIcons";
 import { downloadZip, type ZipFile } from "@/lib/zipClient";
 
 // The «Создай свой апп» wizard, steps 3-7 of 7 (niche and pain were picked on
@@ -397,10 +397,13 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         const sub = "text-[color-mix(in_srgb,var(--color-bg-page)_58%,transparent)]";
         const body = "text-[color-mix(in_srgb,var(--color-bg-page)_78%,transparent)]";
         const inner = "rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_9%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]";
-        const slide = "card-fade rounded-[28px] bg-[var(--color-text-primary)] p-7 sm:p-8";
-        const kicker = (Icon: (p: { size?: number }) => React.ReactNode, t: string) => (
-          <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]">{Icon({ size: 18 })}</span>
+        const slide = "card-fade rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
+        const kicker = (art: string | ((p: { size?: number }) => React.ReactNode), t: string) => (
+          <div className="flex items-center gap-3">
+            {typeof art === "string"
+              // eslint-disable-next-line @next/next/no-img-element
+              ? <img src={art} alt="" className="-my-2 size-16 shrink-0 mix-blend-screen sm:size-20" />
+              : <span className="flex size-9 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_12%,transparent)]">{art({ size: 18 })}</span>}
             <span className={`text-caption font-semibold ${sub}`}>{t}</span>
           </div>
         );
@@ -417,9 +420,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 {data.founder100 != null && <span className="rounded-full bg-[var(--color-accent-brand)] px-3 py-1.5 text-caption font-bold tabular-nums text-white">{ru ? "для соло-фаундера" : "solo-founder score"} {data.founder100}/100</span>}
               </div>
               {shotList.length > 0 && (
-                <div className="mt-6 flex gap-4 overflow-x-auto pb-2">
+                <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-2">
                   {shotList.map((sh, i) => (
-                    <div key={i} className="w-[148px] shrink-0 overflow-hidden rounded-[26px] bg-black ring-4 ring-black/70 shadow-[0_18px_44px_-16px_rgba(0,0,0,0.7)]">
+                    <div key={i} className="w-[148px] shrink-0 snap-start overflow-hidden rounded-[26px] bg-black ring-4 ring-black/70 shadow-[0_18px_44px_-16px_rgba(0,0,0,0.7)]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={sh.url} alt="" className="aspect-[9/19] w-full object-cover" />
                     </div>
@@ -440,7 +443,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Pain */}
             <section className={slide} style={d(1)}>
-              {kicker((p) => <FlameIcon {...p} />, ru ? "Боль" : "The pain")}
+              {kicker("/build/flame.png", ru ? "Боль" : "The pain")}
               <p className="mt-4 text-title3 text-pretty text-[var(--color-bg-page)]">{data.painLine}</p>
               {data.painQuote && (
                 <figure className={`mt-5 px-4 py-3 ${inner}`}>
@@ -452,7 +455,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Solution */}
             <section className={slide} style={d(2)}>
-              {kicker((p) => <BulbIcon {...p} />, ru ? "Решение" : "The solution")}
+              {kicker("/build/bulb.png", ru ? "Решение" : "The solution")}
               {data.pitch && <p className={`mt-4 max-w-[56ch] text-body ${body}`}>{data.pitch}</p>}
               {data.features.length > 0 && (
                 <ul className="mt-5 flex flex-col gap-2.5">
@@ -468,7 +471,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Competitors */}
             <section className={slide} style={d(3)}>
-              {kicker((p) => <SwordsIcon {...p} />, ru ? "Конкуренты и твой обход" : "Competitors and your way in")}
+              {kicker("/build/swords.png", ru ? "Конкуренты и твой обход" : "Competitors and your way in")}
               <div className="mt-4 flex flex-col gap-2.5">
                 {data.competitors.map((c, i) => (
                   <div key={i} className={`flex items-start gap-3 px-4 py-3 ${inner}`}>
@@ -488,7 +491,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Who pays */}
             <section className={slide} style={d(4)}>
-              {kicker((p) => <CoinIcon {...p} />, ru ? "Кто платит" : "Who pays")}
+              {kicker("/build/coin.png", ru ? "Кто платит" : "Who pays")}
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {data.buyer && (
                   <div className={`px-5 py-4 ${inner}`}>
@@ -509,7 +512,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Name & ASO */}
             <section className={slide} style={d(5)}>
-              {kicker((p) => <SearchAnimIcon {...p} />, ru ? "Имя и запросы в сторе" : "Name and store queries")}
+              {kicker("/build/search.png", ru ? "Имя и запросы в сторе" : "Name and store queries")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>{data.aso.namingHint}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {(data.aso.live.length ? data.aso.live.map((l) => l.term) : data.aso.terms).slice(0, 8).map((x, j) => (
@@ -538,9 +541,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               <p className={`mt-4 max-w-[56ch] text-footnote ${sub}`}>
                 {ru ? "В каждом телефончике его промт. Копируй, вставляй в ChatGPT, а готовую картинку загрузи кликом в этот же телефончик." : "Each phone holds its prompt. Copy it, paste into ChatGPT, then click the same phone to drop the render in."}
               </p>
-              <div className="mt-4 flex gap-4 overflow-x-auto pb-2">
+              <div className="mt-4 flex snap-x gap-4 overflow-x-auto pb-2">
                 {data.design.parts.map((p, i) => (
-                  <div key={i} className="flex w-[136px] shrink-0 flex-col items-center gap-2.5">
+                  <div key={i} className="flex w-[136px] shrink-0 snap-start flex-col items-center gap-2.5">
                     <label className="relative block w-full cursor-pointer">
                       <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
                       {shots[i] ? (
@@ -581,7 +584,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Launch */}
             <section className={slide} style={d(8)}>
-              {kicker((p) => <RocketIcon {...p} />, ru ? "Запуск: первые пользователи" : "Launch: the first users")}
+              {kicker("/build/rocket.png", ru ? "Запуск: первые пользователи" : "Launch: the first users")}
               <div className="mt-4 flex flex-col gap-2.5">
                 {data.channels.map((c, i) => (
                   <div key={i} className={`flex items-start justify-between gap-4 px-4 py-3 ${inner}`}>
@@ -658,11 +661,11 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         );
       })()}
 
-      <div className="mt-10 flex items-center justify-center gap-3">
+      <div className="sticky bottom-4 z-30 mt-10 flex items-center justify-center gap-3 sm:static">
         <button
           type="button"
           onClick={back}
-          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-3.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-3.5 text-callout font-semibold text-[var(--color-text-secondary)] shadow-[0_10px_28px_-12px_rgba(0,0,0,0.35)] transition-colors hover:text-[var(--color-text-primary)] sm:shadow-none"
         >
           <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4 6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
           {ru ? "Назад" : "Back"}

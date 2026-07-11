@@ -1,4 +1,4 @@
-import { BUILD_ICONS } from "./BuildIcons";
+import { STEP_IMG, STEP_GRADIENT } from "./BuildIcons";
 
 // The builder path's shared progress shell: all seven steps visible from the
 // very first screen (Duolingo-style), so the user always sees the whole road.
@@ -34,18 +34,23 @@ export default function BuildProgress({
       </div>
       <div className="mt-2.5 flex justify-between">
         {steps.map((s, i) => {
-          const Icon = BUILD_ICONS[i];
           const clickable = !!onStep && i <= doneCount && i !== active;
           const inner = (
             <>
-              <span className={`flex size-9 items-center justify-center rounded-full transition-all ${i === active ? "scale-110 bg-[var(--color-surface-card)] shadow-[0_4px_14px_-4px_rgba(18,18,22,0.25)] ring-1 ring-[var(--color-border-subtle)]" : i < doneCount ? "bg-[#30d158]/15" : "bg-[var(--color-bg-muted)] opacity-55 grayscale"}`}>
-                {i < doneCount && i !== active
-                  ? <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  : i === active
-                    ? <Icon size={20} />
-                    : <span className="pointer-events-none [&_*]:!animate-none"><Icon size={18} /></span>}
-              </span>
-              <span className={`hidden truncate text-caption sm:block ${i === active ? "font-bold text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{s}</span>
+              {i < doneCount && i !== active ? (
+                <span className="flex size-9 items-center justify-center self-center rounded-full bg-[#30d158]/15">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
+              ) : i === active ? (
+                <span className={`-my-1.5 flex size-12 items-center justify-center self-center overflow-hidden rounded-full shadow-[0_8px_22px_-6px_rgba(217,45,45,0.55)] sm:-my-2 sm:size-[54px] ${STEP_GRADIENT}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={STEP_IMG[i]} alt="" className="size-12 rounded-full object-cover mix-blend-screen sm:size-[54px]" />
+                </span>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={STEP_IMG[i]} alt="" loading="lazy" decoding="async" className="size-9 self-center rounded-full object-cover opacity-45 grayscale" />
+              )}
+              <span className={`truncate text-caption ${i === active ? "block font-bold text-[var(--color-text-primary)]" : "hidden text-[var(--color-text-tertiary)] sm:block"}`}>{s}</span>
             </>
           );
           return clickable ? (
