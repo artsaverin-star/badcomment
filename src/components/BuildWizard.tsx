@@ -446,17 +446,17 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
       {/* The plan: a keynote. The whole road retold as presentation slides,
           dark cards one under another, ending with the archive and bookmark. */}
       {showResults && (() => {
-        const sub = "text-[color-mix(in_srgb,var(--color-bg-page)_58%,transparent)]";
-        const body = "text-[color-mix(in_srgb,var(--color-bg-page)_78%,transparent)]";
-        const inner = "rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_9%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]";
-        const slide = "card-fade relative isolate overflow-hidden rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
+        const sub = "text-white/55";
+        const body = "text-white/80";
+        const inner = "rounded-[18px] bg-white/[0.07] ring-1 ring-white/10";
+        const slide = "card-fade relative isolate overflow-hidden rounded-[24px] bg-[#121216] p-5 sm:rounded-[28px] sm:p-8";
         // Illustration bleeds out of the slide's top-right corner, cropped by
         // the card (isolate + negative z keeps it behind the content).
         const kicker = (art: string, t: string) => (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={art} alt="" aria-hidden className="pointer-events-none absolute -right-7 -top-8 -z-10 size-36 object-contain sm:-right-9 sm:-top-10 sm:size-48" />
-            <div className="pr-20 text-title2 text-balance font-bold text-[var(--color-bg-page)] sm:pr-32">{t}</div>
+            <div className="pr-20 text-title2 text-balance font-bold text-white sm:pr-32">{t}</div>
           </>
         );
         const d = (k: number) => ({ animationDelay: `${120 + k * 130}ms` });
@@ -465,7 +465,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {/* Cover */}
             <section className={slide} style={d(0)}>
               <div className={`text-caption font-semibold ${sub}`}>{ru ? "Презентация твоего приложения" : "Your app's presentation"}</div>
-              <h2 className="mt-2 text-title1 text-balance text-[var(--color-bg-page)]">{data.ideaTitle}</h2>
+              <h2 className="mt-2 text-title1 text-balance text-white">{data.ideaTitle}</h2>
               <p className={`mt-3 max-w-[54ch] text-lead text-pretty ${body}`}>{data.oneLiner}</p>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className={`rounded-full px-3 py-1.5 text-caption font-semibold ${inner} ${body}`}>{data.nicheName}</span>
@@ -482,7 +482,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 </div>
               )}
               <div className="mt-6 flex flex-wrap items-center gap-2.5">
-                <button type="button" onClick={downloadPlan} className="inline-flex items-center gap-2 rounded-full bg-[var(--color-bg-page)] px-5 py-3 text-callout font-bold text-[var(--color-text-primary)] transition-transform hover:scale-[1.02] active:scale-[0.99]">
+                <button type="button" onClick={downloadPlan} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-callout font-bold text-[#121216] transition-transform hover:scale-[1.02] active:scale-[0.99]">
                   <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v9M6 9l4 4 4-4M4 16h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   {ru ? "Скачать план архивом" : "Download the plan"}
                 </button>
@@ -496,7 +496,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {/* Pain */}
             <section className={slide} style={d(1)}>
               {kicker("/build/flame.png", ru ? "Боль" : "The pain")}
-              <p className="mt-4 text-title3 text-pretty text-[var(--color-bg-page)]">{data.painLine}</p>
+              <p className="mt-4 text-title3 text-pretty text-white">{data.painLine}</p>
               {data.painQuote && (
                 <figure className={`mt-5 px-4 py-3 ${inner}`}>
                   <p className={`text-callout italic ${body}`}>{data.painQuote.quote}</p>
@@ -523,16 +523,16 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Audience */}
             <section className={slide} style={d(3)}>
-              <div className="pr-4 text-title2 text-balance font-bold text-[var(--color-bg-page)]">{ru ? "Аудитория" : "Audience"}</div>
+              <div className="pr-4 text-title2 text-balance font-bold text-white">{ru ? "Аудитория" : "Audience"}</div>
               <div className="mt-4 flex flex-col gap-2">
                 {data.crowd.map((c, i) => (
                   <div key={i} className={`flex items-center gap-3 px-4 py-2.5 ${inner}`}>
                     {c.cover
                       // eslint-disable-next-line @next/next/no-img-element
                       ? <img src={c.cover} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-full object-cover" />
-                      : <span className="size-10 shrink-0 rounded-full bg-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]" />}
+                      : <span className="size-10 shrink-0 rounded-full bg-white/12" />}
                     <div className="min-w-0">
-                      <span className="text-callout font-semibold text-[var(--color-bg-page)]">{c.name}</span>
+                      <span className="text-callout font-semibold text-white">{c.name}</span>
                       {c.payLevel && <span className={`ml-2 text-caption ${sub}`}>{c.payLevel}</span>}
                     </div>
                   </div>
@@ -549,9 +549,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                     {c.icon
                       // eslint-disable-next-line @next/next/no-img-element
                       ? <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-[10px] object-cover" />
-                      : <span className="size-9 shrink-0 rounded-[10px] bg-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]" />}
+                      : <span className="size-9 shrink-0 rounded-[10px] bg-white/12" />}
                     <div className="min-w-0">
-                      <div className="text-callout font-semibold text-[var(--color-bg-page)]">{c.title} <span className={`ml-1 text-caption font-medium tabular-nums ${sub}`}>{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}</span></div>
+                      <div className="text-callout font-semibold text-white">{c.title} <span className={`ml-1 text-caption font-medium tabular-nums ${sub}`}>{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}</span></div>
                       {c.weak && <p className={`mt-0.5 text-footnote ${body}`}><span className="font-semibold text-[#ff6961]">{ru ? "слабое место: " : "weak spot: "}</span>{c.weak}</p>}
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 {data.buyer && (
                   <div className={`px-5 py-4 ${inner}`}>
                     <div className={`text-caption font-semibold ${sub}`}>{ru ? "Твой платящий" : "Your payer"}</div>
-                    <p className="mt-1.5 text-body font-semibold text-[var(--color-bg-page)]">{data.buyer}</p>
+                    <p className="mt-1.5 text-body font-semibold text-white">{data.buyer}</p>
                   </div>
                 )}
                 {data.pricePoint && (() => {
@@ -575,7 +575,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                   return (
                     <div className={`px-5 py-4 ${inner}`}>
                       <div className={`text-caption font-semibold ${sub}`}>{ru ? "Ценник в нише" : "Price point"}</div>
-                      <p className={`mt-1.5 tabular-nums text-[var(--color-bg-page)] ${pMain.length <= 14 ? "text-title2" : "text-title3"}`}>{pMain}</p>
+                      <p className={`mt-1.5 tabular-nums text-white ${pMain.length <= 14 ? "text-title2" : "text-title3"}`}>{pMain}</p>
                       {rest && <p className={`mt-0.5 text-footnote ${body}`}>{rest}</p>}
                     </div>
                   );
@@ -603,7 +603,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 {data.design.palette && (
                   <span className="flex gap-1.5">
                     {[data.design.palette.bg, data.design.palette.surface, data.design.palette.accent, data.design.palette.textPrimary].map((c, i) => (
-                      <span key={i} className="size-8 rounded-[9px] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_20%,transparent)]" style={{ background: c }} />
+                      <span key={i} className="size-8 rounded-[9px] ring-1 ring-white/20" style={{ background: c }} />
                     ))}
                   </span>
                 )}
@@ -627,7 +627,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                           <img src={shots[i]!.url} alt="" className="aspect-[9/19] w-full object-cover" />
                         </span>
                       ) : (
-                        <span className="flex aspect-[9/19] w-full items-center justify-center rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
+                        <span className="flex aspect-[9/19] w-full items-center justify-center rounded-[22px] border-2 border-dashed border-white/25">
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={sub}>
                             <rect x="2.9" y="5" width="18.2" height="14" rx="3.6" stroke="currentColor" strokeWidth="1.4" />
                             <circle cx="15.9" cy="9.4" r="1.5" fill="currentColor" />
@@ -636,12 +636,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         </span>
                       )}
                       {shots[i] && (
-                        <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={(e) => { e.preventDefault(); setSlot(i, null); }} className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-[var(--color-bg-page)] text-[11px] font-bold text-[var(--color-text-primary)] shadow">×</button>
+                        <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={(e) => { e.preventDefault(); setSlot(i, null); }} className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-white text-[11px] font-bold text-[#121216] shadow">×</button>
                       )}
                     </label>
                     <div className="flex w-full flex-col items-center gap-1.5">
                       <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
-                      <label className="cursor-pointer rounded-full border border-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)] px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
+                      <label className="cursor-pointer rounded-full border border-white/25 px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
                         <span className={body}>{ru ? "Загрузить" : "Upload"}</span>
                         <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
                       </label>
@@ -660,7 +660,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
               </p>
               <div className={`relative mt-4 overflow-hidden ${inner}`}>
                 <pre className={`max-h-44 overflow-hidden whitespace-pre-wrap p-4 text-[10px] leading-[1.5] ${sub}`}>{data.codePrompt.slice(0, 1400)}</pre>
-                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--color-text-primary)] to-transparent" />
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#121216] to-transparent" />
               </div>
               <div className="mt-3"><CopyBtn text={data.codePrompt} label={ru ? "Скопировать бриф целиком" : "Copy the whole brief"} copiedLabel={ru ? "Скопировано" : "Copied"} /></div>
             </section>
@@ -672,7 +672,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 {data.channels.map((c, i) => (
                   <div key={i} className={`flex items-start justify-between gap-4 px-4 py-3 ${inner}`}>
                     <div className="min-w-0">
-                      <div className="text-callout font-semibold text-[var(--color-bg-page)]">{c.name}</div>
+                      <div className="text-callout font-semibold text-white">{c.name}</div>
                       <p className={`mt-0.5 text-footnote ${body}`}>{c.note}</p>
                     </div>
                     <span className={`shrink-0 text-footnote tabular-nums ${sub}`}>{c.count}</span>
@@ -680,7 +680,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 ))}
                 {!data.channels.length && (
                   <div className={`px-4 py-3 ${inner}`}>
-                    {data.buyer && <p className={`text-callout ${body}`}><span className="font-semibold text-[var(--color-bg-page)]">{ru ? "Твоя аудитория: " : "Your audience: "}</span>{data.buyer}</p>}
+                    {data.buyer && <p className={`text-callout ${body}`}><span className="font-semibold text-white">{ru ? "Твоя аудитория: " : "Your audience: "}</span>{data.buyer}</p>}
                     <p className={`mt-1.5 text-footnote ${sub}`}>
                       {ru ? "Явных каналов в отзывах этой ниши не нашлось. Начни с поиска в сторе: " : "No explicit channels in this niche's reviews. Start from store search: "}
                       {(data.aso.live.length ? data.aso.live.map((l) => l.term) : data.aso.terms).slice(0, 3).join(" · ")}
