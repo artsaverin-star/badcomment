@@ -22,7 +22,7 @@ export default function HeaderSearch({ locale = "ru", compact = false }: { local
     if (term.length < 2) return;
     const ctrl = new AbortController();
     const id = setTimeout(() => {
-      fetch(`/api/catalog-search?q=${encodeURIComponent(term)}`, { signal: ctrl.signal })
+      fetch(`/api/catalog-search?q=${encodeURIComponent(term)}&l=${ru ? "ru" : "en"}`, { signal: ctrl.signal })
         .then((r) => r.json())
         .then((d) => {
           setHits(d.results || []);

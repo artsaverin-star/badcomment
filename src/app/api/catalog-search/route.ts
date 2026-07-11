@@ -17,10 +17,14 @@ type RSet = { name: string; nameEn?: string; apps?: RApp[] };
 // and EN name so «рыбалка» and "fishing" both hit); apps come from the analyzed
 // catalog. No external calls — used by the header search box.
 export async function GET(req: Request) {
-  const q = (new URL(req.url).searchParams.get("q") || "").trim().toLowerCase();
+  const url = new URL(req.url);
+  const q = (url.searchParams.get("q") || "").trim().toLowerCase();
   if (q.length < 2) return NextResponse.json({ results: [] });
 
-  const locale = await getLocale();
+  // Prefer the caller's locale (the header box passes it) so names match the
+  // page language; fall back to the cookie.
+  const lParam = url.searchParams.get("l");
+  const locale = lParam === "ru" || lParam === "en" ? lParam : await getLocale();
   const ru = locale !== "en";
   const cats: Hit[] = [];
   const apps: Hit[] = [];
@@ -36,9 +40,13 @@ export async function GET(req: Request) {
     cats.push({ type: "category", name: (ru ? nameRu : nameEn) || nameRu, slug: `/segment/${slug}`, sub: ru ? "разбор ниши" : "niche breakdown", icon });
   }
 
-  // Apps: analyzed apps that have their own insight page.
+  // Apps: analyzed apps that have their own insight page AND live in an active
+  // category. The app page (resolve() in /[slug]) only renders when the app is
+  // found inside an active niche, so an app from a shelved niche (e.g. Bark in
+  // the unpublished parental-controls) would 404 — never surface those.
   for (const d of listDomains(locale)) {
     for (const c of d.categories) {
+      if (!isActiveCategory(c.slug)) continue;
       for (const a of c.apps) {
         if (!a.productId || !hasInsight(a.productId)) continue;
         const slug = getSlugByProductId(a.productId);
