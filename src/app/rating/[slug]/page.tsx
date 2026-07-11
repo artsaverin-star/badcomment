@@ -9,6 +9,7 @@ import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import RatingShots from "@/components/RatingShots";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { appSlugify } from "@/lib/ratingAppSlug";
 
 export const dynamic = "force-dynamic";
 
@@ -147,7 +148,9 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                   ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-14 shrink-0 rounded-[14px] object-cover" />
                   : <span className="size-14 shrink-0 rounded-[14px] bg-[var(--color-bg-muted)]" />}
                 <div className="min-w-0 flex-1">
-                  <h2 className="text-headline text-[var(--color-text-primary)]">{a.title}</h2>
+                  <h2 className="text-headline text-[var(--color-text-primary)]">
+                    <Link href={`/${ru ? "ru" : "en"}/rating/${slug}/${appSlugify(a.title)}`} className="transition-colors hover:text-[var(--color-text-brand)]">{a.title}</Link>
+                  </h2>
                   <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
                     <span className="tabular-nums">№{i + 1}</span>
                     {" · "}<span className="tabular-nums">{a.storeAvg?.toFixed(1) ?? "—"}★</span> {ru ? "в сторе" : "in store"}
