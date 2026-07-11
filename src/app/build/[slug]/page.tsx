@@ -7,6 +7,7 @@ import { listIdeas } from "@/lib/ideas";
 import { scoreFor } from "@/lib/ideaScores";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import buildCopy from "@/data/buildCopy.json";
+import ideaAudit from "@/data/ideaAudit.json";
 import BuildProgress from "@/components/BuildProgress";
 import { FlameIcon } from "@/components/BuildIcons";
 
@@ -53,8 +54,13 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       };
     })
     .sort((a, b) => b.founder - a.founder);
-  const strong = scored.filter((x) => x.founder >= 50);
-  const pains = strong.length >= 5 ? strong : scored.slice(0, 5);
+  // Пограничная полоса (50-55) прошла ручной аудит: weak-вердикты (фикс
+  // чужого бага, мелкая боль, слабые деньги, дубликат) исключаются.
+  const audit = ideaAudit as Record<string, { verdict?: string }>;
+  const ok = (x: { idea: string; founder: number }) => x.founder >= 50 && audit[x.idea]?.verdict !== "weak";
+  const strong = scored.filter(ok);
+  const rest = scored.filter((x) => !ok(x));
+  const pains = strong.length >= 5 ? strong : [...strong, ...rest].slice(0, 5);
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">

@@ -1,0 +1,567 @@
+{
+ "crypto-investing-8": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "honeypot.is, TokenSniffer, RugCheck и GoPlus делают то же бесплатно, а понятный вердикт это надстройка, не продукт"
+ },
+ "travel-planning-1": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "это StaffTraveler, только с репутацией: чужая сеть, холодный старт двусторонней биржи убивает ценность данных"
+ },
+ "music-streaming-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "перенос уже закрыт SongShift и FreeYourMusic, а за пассивную страховку-бэкап поверх стриминга вторую подписку не берут"
+ },
+ "video-streaming-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "JustWatch и Reelgood владеют категорией, алерт об уходе это фича, а данные каталогов соло-фаундеру недоступны"
+ },
+ "astrology-4": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "целевая аудитория в зависимости не покупает отрезвляющий инструмент, разовые 5-10 долларов с узкой базы не окупают усилия"
+ },
+ "dating-apps-3": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "родители уже платят Stir и Match 15-20 в месяц, а матчинг по календарю свободных вечеров это свой механизм, не фикс чужого"
+ },
+ "personal-finance-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "почти клон Daily Budget Original на полке, забитой Fudget и Buddy, без видимого отличия"
+ },
+ "ai-writing-2": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "студент хочет готовый текст, а не вопросы, платит родитель против воли пользователя, и ChatGPT Study Mode делает это бесплатно"
+ },
+ "pet-care-8": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "это приложение Whisker без лимита 30 дней, но без API к данным лотка остаётся ручной журнал, ядро обещания не выполнимо"
+ },
+ "blood-pressure-log-6": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "режим серии из трёх замеров это одна мелкая функция, лидер добавит её одним апдейтом, 399 руб разово не бизнес"
+ },
+ "stock-investing-6": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "бесплатный Empower и калькуляторы брокеров уже дают агрегат и прогноз, а заход раз в месяц убивает подписку"
+ },
+ "hiking-trails-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Gaia GPS уже продаёт слой частных земель пешим, а отличие сводится к «дешевле onX» при неподъёмной лицензии кадастра"
+ },
+ "teleprompter-captions-1": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "это PromptSmart, только слежение реально работает: невидимый в сторе фикс чужого косяка ценой тяжёлой ML-задачи"
+ },
+ "teleprompter-captions-4": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "консоль оператора с правкой на лету это новая роль, а не пульт, платит профи, который зарабатывает на съёмках и отбивает 4900 руб одной сменой"
+ },
+ "language-learning-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "каждый гигант уже заявляет placement test, отличие невидимо в сторе, а использование эпизодическое перед поездкой"
+ },
+ "intermittent-fasting-3": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "это Zero, только фазы честнее: лобовая атака на ключевую фичу лидера с отличием, которое не читается на скриншоте"
+ },
+ "wallpapers-widgets-4": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "весь продукт это обход ограничения iOS, которое Apple может закрыть или починить сама, боль эпизодическая и стоит 4.99 разово"
+ },
+ "step-counter-4": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "это Stridekick и Pacer, только шаги не теряются: обещание надёжности вместо своего механизма плюс тяжёлые интеграции для одиночки"
+ },
+ "cycling-8": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "ProBikeGarage и трекинг компонентов Strava уже делают ровно это, включая импорт пробега, догоняющий продукт"
+ },
+ "couples-relationship-6": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это Just Between Us без их косяков (таймер, длина видео, чистка галереи), а базовую работу бесплатно закрывают Signal и исчезающие сообщения."
+ },
+ "crypto-investing-1": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Реальная налоговая работа, за которую уже платят $160-400 в год и ненавидят подписку, а отличие (прослеживаемая разметка + разовый сезонный платёж) осмысленное и продаваемое."
+ },
+ "dating-apps-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Тот же цикл Paired (вопрос дня, взаимное раскрытие, питомец), а единственное отличие — вопросы из истории пары — невидимо в сторе и копируется лидером за спринт."
+ },
+ "meditation-mindfulness-1": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Проверенный ценник $70-100/год (Waking Up, The Way), свой механизм (один учитель, линейный путь) и встроенная дистрибуция через аудиторию учителя — повторяемая модель, а не клон."
+ },
+ "notes-pkm-8": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Юристы и врачи, которым запрещено чужое облако, уже платят $20/мес, а офлайн-режим с постраничными цитатами — реальный механизм, который NotebookLM по своей природе дать не может."
+ },
+ "focus-productivity-2": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Арифметика «часы на дни», которую студент держит в таблице, разово $4.99 с отвалом после экзамена — founderWhy сам признаёт, что это не бизнес."
+ },
+ "invoice-maker-2": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Депозиты и частичные платежи уже умеют Joist, QuickBooks и Wave — это UX-починка одной функции, фича внутри чужого продукта, а не самостоятельный продукт."
+ },
+ "wallpapers-widgets-3": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Обои — категория с почти нулевой готовностью платить, разовые $9.99 ещё и делятся с двадцатью художниками, а боль «хочу картинку от человека» редкая и слабая."
+ },
+ "driving-test-prep-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Проверенная платная категория (test prep), реальный экзамен с ценой провала, аудитория уже платит единственному кривому конкуренту, а US-корректный контент — конкретный дифференциатор при низкой стоимости сборки."
+ },
+ "cycling-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Ядро продукта — живые отсечки и группы — сидит на дорогих лицензируемых данных, недоступных одиночке, а $15-20 в год с узкой сезонной ниши усилия не окупают."
+ },
+ "crypto-investing-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Покупка раз в жизни за $20-50 без LTV, при этом самая параноидальная аудитория не доверит переезд накоплений неизвестному приложению, а чеклист-часть закрыта бесплатными гайдами Ledger."
+ },
+ "music-streaming-4": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это возврат кнопок, которые Mixcloud убрал (перемотка, память позиции), для крошечной доли слушателей с локальными файлами — миксы люди стримят, а не хранят."
+ },
+ "shopping-ecommerce-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Охотники за скидками платят неохотно по определению, $3-5/мес тонко, партнёрка требует масштаба, а Lyst и Karma уже делают смежные оповещения поверх хрупкого скрейпинга."
+ },
+ "ai-chatbot-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Жанр компаньонов занят ChatGPT, Replika и Pi, а дифференциатор «мы честнее и без докупок» — не механизм, а обещание быть приятнее, невидимое в сторе и съедающее маржу на LLM."
+ },
+ "meal-prep-grocery-5": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Арифметика корзины с налогом за разовые $2.99 у самой бедной аудитории — потолок выручки мизерный, без LTV, а половину боли закрывает калькулятор."
+ },
+ "fishing-5": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Весь продукт — обещание точного прогноза клёва, которого никто не даёт, и честная статистика скорее всего сама его опровергнет, а разовые $8-10 не окупят модели по видам и данные о погоде."
+ },
+ "weather-apps-8": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это облако Ambient, только не теряющее аккаунт при переезде: фикс косяка вендора на его же закрытом API, при том что Weather Underground принимает данные станций бесплатно."
+ },
+ "password-manager-5": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Разовые $10 в момент паники без повторного использования, при этом испуганный человек не загрузит экспорт паролей в неизвестное приложение, а приоритизацию Apple может дописать сама."
+ },
+ "journaling-mood-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Day One уже делает голос с транскрипцией, а позиционирование «та же база, только сделана аккуратно» — пересказ лидера без видимого отличия, за которое платят."
+ },
+ "intermittent-fasting-2": {
+  "verdict": "weak",
+  "pattern": "tiny-pain",
+  "reason": "Второй таймер это микро-удобство, остаток окна считается в уме, подписка за часы не продастся"
+ },
+ "run-tracking-6": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это Runna с починенным переносом тренировок, одна функция расписания, а аудитория уже отвалилась от платных планов"
+ },
+ "wallpapers-widgets-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Середина между Widgetsmith и Widgy без своего механизма, дифференциатор «проще» не виден и не ищется"
+ },
+ "password-manager-4": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Наследование доступа это своя работа, семьи уже платят $40-75 в год за планы, механизм двух ключей отличим"
+ },
+ "wardrobe-outfit-6": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Cost-per-wear уже есть у Stylebook и Acloset, отличие сводится к удобной отметке в одно касание"
+ },
+ "meal-prep-grocery-7": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "SuperCook делает это бесплатно, ChatGPT добил жанр, а список кладовой никто не ведёт дольше недели"
+ },
+ "pregnancy-tracker-3": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Бесплатный Count the Kicks рекомендуют врачи, платить три месяца по 299 руб не экономика, плюс риск ответственности"
+ },
+ "focus-productivity-8": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Инкремент к one sec с одной функцией выхода, ScreenZen уже даёт таймированный вход бесплатно"
+ },
+ "scanner-pdf-1": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Expensify, Dext и Smart Receipts делают ровно этот флоу, дыра выдумана, категория переполнена"
+ },
+ "run-tracking-1": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Адаптивный алгоритм это реальный механизм, новички платят Runna $16 в месяц, поток новичков не иссякает"
+ },
+ "resume-builder-3": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Глубокая библиотека формулировок по профессиям это авторский актив, аудитория уже платит $10-15 за меньшее"
+ },
+ "qr-scanner-6": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "B2B на потоке платит легко, Patronscan берёт на порядок больше, on-device приватность отличима"
+ },
+ "wallpapers-widgets-8": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это Sticky Widgets без их бага потери данных, надёжность не видна на скриншоте до покупки"
+ },
+ "password-manager-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Документы как главная работа, а не сноска, ценник $20-30 разово проверен mSecure и eWallet десятилетиями"
+ },
+ "wardrobe-outfit-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Одно правило «без повторов» поверх готовых гардеробных приложений, а вход требует отснять весь шкаф"
+ },
+ "astronomy-stargazing-6": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Аудитория доказанно платит повторно за лунные модули, просьба про календарь дословная, сборка дешёвая"
+ },
+ "interior-design-4": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Pinterest Lens и IKEA делают shop-the-look бесплатно, а каталоги магазинов для соло операционное болото"
+ },
+ "travel-planning-7": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Лобовой клон Polarsteps, отличия невидимы рядом с 10M установок, плюс печать это тяжёлый ops"
+ },
+ "food-delivery-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Одноразовый инсайт, урок выучен за месяц, сам ценник $10-15 в год признаёт слабые деньги"
+ },
+ "messaging-apps-2": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это Marco Polo без их пейвола на субтитры и дешевле, а не своя работа: дифференциатор копируется одним изменением тарифа, плюс нужен сетевой эффект целой семьи"
+ },
+ "shopping-ecommerce-2": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Legit App, CheckCheck и LegitGrails уже делают фото-аутентификацию за те же деньги и быстрее, заявленной дыры нет, а сеть живых экспертов это сервис, не приложение"
+ },
+ "nutrition-calories-8": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Ate уже занимает фотодневник без цифр, а клиническую сторону держит Recovery Record, оставшееся отличие слишком тонкое для переключения"
+ },
+ "meditation-mindfulness-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Quenza продаёт терапевтам ровно этот цикл назначил-увидел-выполнил по той же цене, у идеи нет отличия от действующего лидера"
+ },
+ "habit-tracking-1": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Прощающие серии это настройка, которую Finch, Streaks и Habitica уже дают, отдельного продукта из тумблера в перегретом жанре не выйдет"
+ },
+ "crypto-investing-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "CoinStats, Delta и CoinTracker обещают ровно тот же P&L, отличие «мы точнее склеиваем переводы» невидимо до недель использования и есть фикс чужих косяков"
+ },
+ "crypto-investing-5": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Риск-терминал поверх бирж это своя работа, за которую активные трейдеры уже платят $15+ в месяц, и цена одной спасённой позиции окупает год подписки"
+ },
+ "shopping-ecommerce-3": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Улики нужно собирать до проблемы, а покупатель приходит после, разовые $10 за редкий спор о $50-100 не дают экономики"
+ },
+ "ai-avatars-headshots-1": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Продукт идентичен HeadshotPro, всё отличие это оплата после превью, то есть фикс их тёмного паттерна, который лидер копирует за неделю, а GPU на неплатящих жгёт кассу"
+ },
+ "voice-recorder-4": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Клин в сломанной выгрузке Otter и Wave это одна фича последней мили в самой перегретой категории, инкамбент чинит её одним релизом"
+ },
+ "driving-test-prep-5": {
+  "verdict": "weak",
+  "pattern": "tiny-pain",
+  "reason": "Узкий дриль по знакам с потолком $4 разово, бесплатных квизов по знакам полно, это фича основного приложения, а не продукт"
+ },
+ "teleprompter-captions-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Ниша уже платит поминутными пакетами даже за плохой перевод, построчный контроль с глоссарием и RTL это отдельная рабочая ценность с B2B-углом"
+ },
+ "ride-hailing-6": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Бесплатный Life360 и встроенный share trip в Uber и Lyft закрывают сценарий, а ручной ввод маршрута перед каждой поездкой убивает привычку и подписку"
+ },
+ "dating-apps-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Ещё один дейтинг с холодным стартом двух сторон, механику дедлайнов уже пробовали CMB и First Round's on Me без прорыва, а честная модель режет выручку на старте"
+ },
+ "photo-editing-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Рабочий фотограф уже платит за инструменты съёмочного дня, полевой отбор и правка с карты без каталога это отдельный workflow, за который на десктопе берут $139 (Photo Mechanic)"
+ },
+ "period-cycle-3": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Приватная аудитория тянется к бесплатным Euki и Drip и платит плохо, разовые $10-15 не окупают, а импорт из Flo может быть технически невозможен"
+ },
+ "period-cycle-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Родитель уже платит за подростковые приложения (Bark, Pinkllama premium), а управляемая девочкой видимость это реальный отличимый механизм, которого нет ни у взрослых, ни у детских трекеров"
+ },
+ "calendars-tasks-6": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Студенты платят хуже всех, вуз даёт Canvas, Notion бесплатен, тезис про платящих медиков и юристов ничем не подтверждён, плюс сезонный отток"
+ },
+ "ai-chatbot-2": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Голосовой режим ChatGPT бесплатен и отличен, платить за PTT-обёртку поверх чужого API мало кто станет, а целевая аудитория монетизируется слабо"
+ },
+ "translator-7": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Продукт равен переводчику с починенной галочкой диалекта, Google Translate и DeepL закрывают это бесплатно"
+ },
+ "voice-recorder-5": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Apple Voice Memos уже даёт транскрипт с поиском и разрыв закрывается системно, а подписка за эпизодический поиск не держится"
+ },
+ "resume-builder-1": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Разовые 10 долларов один раз в жизни при бесплатном ChatGPT, спрос и LTV структурно ограничены"
+ },
+ "qr-scanner-1": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Физлица не платят за превью (notWorth 267 против worthIt 28), а корпоративный канал соло-фаундеру без прямых продаж недоступен"
+ },
+ "wallpapers-widgets-5": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Ядро невыполнимо, iOS не отдаёт список установленных приложений, а подростки-эстеты платят неохотно до 3 долларов"
+ },
+ "wallpapers-widgets-7": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Дифференциатор равен починке чужого сбитого счётчика в насмерть забитой микрокатегории виджетов отсчёта"
+ },
+ "meal-prep-grocery-3": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "По сути Pantry Check без запрета на второй телефон, при этом инвентаризацию кладовой массово забрасывают и чек 20 долларов в год на семью"
+ },
+ "stock-investing-4": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Новички платят неохотно и уходят по мере обучения, отток встроен в саму механику продукта"
+ },
+ "interior-design-5": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Behr, Dulux и Sherwin-Williams раздают визуализаторы краски бесплатно как маркетинг, боль закрыта даром и одноразова"
+ },
+ "travel-planning-3": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Это TravelSpend с починенными косяками (история, офлайн), а не своя работа, и чек у экономных бэкпекеров упирается в 8-10 долларов разово"
+ },
+ "food-delivery-4": {
+  "verdict": "weak",
+  "pattern": null,
+  "reason": "Ядро нереализуемо, у DoorDash и Uber Eats нет API для сторонних заказов, обещание не построить без ломкой автоматизации против ToS"
+ },
+ "shopping-ecommerce-1": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Пересказ Slickdeals и Brad's Deals в узкой нише, это медиа с вечной редакторской беговой дорожкой, а не продукт соло-фаундера"
+ },
+ "plant-care-8": {
+  "verdict": "weak",
+  "pattern": "tiny-pain",
+  "reason": "Передача полива случается пару раз в год, двойной полив мелкая неприятность, это фича для Planta или Greg, а не продукт"
+ },
+ "recipes-meal-planning-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "SuperCook, Samsung Food и Cooklist уже делают рецепты из остатков, а инвентарь пользователи не поддерживают актуальным"
+ },
+ "intermittent-fasting-6": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Zero уже позволяет старт в любое время с целью по часам, уникален только конструктор смешанной недели и этого мало"
+ },
+ "run-tracking-5": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Runna и WorkOutDoors уже делают pace-алерты на бегу, отличие в озвучке диапазона слишком тонкое для выживания в сторе"
+ },
+ "resume-builder-2": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Проверка экспорта это одна функция, бесплатные ATS-чекеры Jobscan и Resume Worded раздаются как лид-магниты, разовые 10 долларов при эпизодическом использовании"
+ },
+ "water-hydration-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "WaterMinder уже показывает вклад напитков в гидратацию, отличие в коэффициентах слишком тонкое против лидера категории"
+ },
+ "ai-image-generation-4": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Категория забита PixAI, Neko AI и NovelAI, стабильность стиля не показать на скриншоте, а подростковая аудитория платит слабо при дорогом инференсе"
+ },
+ "wardrobe-outfit-1": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Продукт = Stylebook/Whering без косяка вырезания фона, контроль качества сегментации это фича онбординга, а не своя работа"
+ },
+ "blood-pressure-log-3": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Без закрытых Bluetooth-протоколов это обёртка над Apple Health, который сам бесплатно закрывает боль единого архива"
+ },
+ "dating-apps-1": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Верификацию обещают все крупные игроки, а двусторонний холодный старт и ручная модерация соло-фаундеру не по силам"
+ },
+ "photo-editing-9": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Жанр задавлен Picsart/Photoshop/Canva, а отличие «слои не отберут» это обещание в тексте, не отличимый механизм"
+ },
+ "language-learning-4": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Платящий взрослый доказан рядом (Bunpo, Ella Verbs продают lifetime), механизм три шага плюс возврат правил отличим, работа своя, а не фикс чужой"
+ },
+ "personal-finance-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Запрос «бюджет для пары» занят бесплатной Zeta и Honeydue, ролевой твист слишком тонкий, чтобы быть продуктом"
+ },
+ "scanner-pdf-7": {
+  "verdict": "weak",
+  "pattern": "bugfix",
+  "reason": "Adobe Fill & Sign бесплатен и разметка PDF встроена в iOS, боль закрывается бесплатной альтернативой и самой платформой"
+ },
+ "blood-pressure-log-7": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Спокойная трактовка воспринимается как приятное свойство, а не повод платить, разовые 399 руб и сам текст признаёт деньги ниже среднего"
+ },
+ "cycling-1": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Ценность целиком в краудсорсных данных, которых на старте ноль, а Strava Heatmap и Komoot уже делают это с миллионами треков"
+ },
+ "couples-relationship-1": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Пары уже платят $33-53 в год и уходят ровно из-за иссякших вопросов, генеративная бесконечность с привязкой к этапу пары это отличимый механизм с доказанным ценником"
+ },
+ "couples-relationship-4": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Разбор расхождений это фича, которую Paired и Agape уже частично добавляют, а не отдельный продукт"
+ },
+ "couples-relationship-7": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Аудитория доказанно платит $10-13 и покупает по два приложения подряд, калибровка границ пары это механизм, а не просто «тексты получше», контент соло-посилен"
+ },
+ "weight-tracker-2": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Аудитория удержания нигде не собрана и ничего не ищет, боль низкой интенсивности за разовые 599 руб не строит экономику"
+ },
+ "weight-tracker-8": {
+  "verdict": "weak",
+  "pattern": "tiny-pain",
+  "reason": "Боль это ввод одной цифры, которую Happy Scale и Apple Health уже закрывают бесплатно, потолок разовые $7"
+ },
+ "mind-mapping-2": {
+  "verdict": "strong",
+  "pattern": null,
+  "reason": "Беженцы iThoughts это готовый поисковый интент с привычкой платить $10-30, keyboard-first это отличимый механизм, реализация за недели окупает даже узкую нишу"
+ },
+ "mind-mapping-3": {
+  "verdict": "weak",
+  "pattern": "weak-money",
+  "reason": "Студенческая аудитория платит неохотно, использование эпизодическое, а связи вне дерева это надстройка над фичей SimpleMind Pro"
+ },
+ "fishing-3": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Категория забита Picture Fish и FishVerify, твист «чем виды отличаются» не виден в сторе, а точное распознавание соло не вытянуть"
+ },
+ "resume-builder-6": {
+  "verdict": "weak",
+  "pattern": "duplicate",
+  "reason": "Генератор писем встроен в каждый AI-резюме-инструмент и ChatGPT делает это бесплатно, единый стиль комплекта слишком мягкое отличие"
+ }
+}
