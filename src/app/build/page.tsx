@@ -38,9 +38,9 @@ export default async function BuildHome() {
   // повёрнутого бокса: огонь центр 61/63 при 115% и 18°, лампа 65/50 при
   // 105% (режется сверху и снизу), ракета 72/55 при 95%.
   const how = [
-    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_50%_46%,#e87e28_28%,#e6402b_64%,#e4022d_96%)]", pos: "top", art: { width: "115%", left: "61%", top: "63%", transform: "translate(-50%, -50%) rotate(18.44deg)" } },
-    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_32%_42%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid", art: { width: "100%", left: "70%", top: "50%", transform: "translate(-50%, -50%)" } },
-    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_35%_38%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top", art: { width: "95%", left: "72%", top: "55%", transform: "translate(-50%, -50%)" } },
+    { img: "/build/flame.webp", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_50%_46%,#e87e28_28%,#e6402b_64%,#e4022d_96%)]", pos: "top", art: { width: "115%", left: "61%", top: "63%", transform: "translate(-50%, -50%) rotate(18.44deg)" } },
+    { img: "/build/bulb.webp", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_50%_46%,#8f43ea_30%,#722cc7_68%,#5615a4_96%)]", pos: "mid", art: { width: "132%", left: "75%", top: "50%", transform: "translate(-50%, -50%) rotate(8.33deg)" } },
+    { img: "/build/rocket.webp", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_35%_38%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top", art: { width: "112%", left: "66%", top: "56%", transform: "translate(-50%, -50%)" } },
   ];
 
   return (

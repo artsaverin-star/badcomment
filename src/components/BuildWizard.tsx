@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
 import { downloadZip, type ZipFile } from "@/lib/zipClient";
+import { FlameIcon } from "./BuildIcons";
 
 // The «Создай свой апп» wizard, steps 3-7 of 7 (niche and pain were picked on
 // the previous screens). Duolingo-flavored: one thought per screen, big
@@ -21,6 +22,7 @@ export type BuildData = {
   hrefBack: string;
   hrefNiches: string;
   painLine: string;
+  painTitle?: string;
   painQuote?: { quote: string; app: string };
   ideaCover?: string;
   crowd: { name: string; job: string; payLevel: string; cover?: string; target?: boolean }[];
@@ -145,6 +147,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
       data.founder100 != null ? `${ru ? "Оценка для соло-фаундера" : "Solo-founder score"}: ${data.founder100}/100` : "",
       "",
       `## ${ru ? "Боль" : "Pain"}`,
+      data.painTitle ?? "",
       data.painLine,
       data.painQuote ? `\n> ${data.painQuote.quote}\n> (${data.painQuote.app})` : "",
       "",
@@ -195,6 +198,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
     <div className="mx-auto w-full max-w-[720px]">
       <BuildProgress active={step} doneCount={maxDone} ru={ru} onStep={goTo} sticky={!showResults} />
 
+      <div className="mx-auto w-full max-w-[640px]">
       {step === 2 && (
         <section className="mt-8">
           <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
@@ -204,7 +208,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
           <div className="heal-card mt-7 rounded-[24px] p-6">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Боль, которую лечим" : "The pain we treat"}</h3>
+              <h3 className="text-title3 font-bold text-pretty text-[var(--color-text-primary)]">{data.painTitle || (ru ? "Боль, которую лечим" : "The pain we treat")}</h3>
               <span className="heal-pop inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#30d158]/15 px-3 py-1 text-caption font-bold text-[#1f9d47]" style={{ animationDelay: "1.5s" }}>
                 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 {ru ? "решаемо" : "treatable"}
@@ -259,9 +263,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {data.crowd.map((c, i) => (
-              <div key={i} className={`card-min relative overflow-hidden rounded-[22px] ${c.target ? "border-[#30d158]/50 ring-1 ring-[#30d158]/40" : ""}`}>
+              <div key={i} className={`card-min relative overflow-hidden rounded-[22px] ${c.target ? "flame-ring" : ""}`}>
                 {c.target && (
-                  <span className="absolute right-3 top-3 rounded-full bg-[#30d158] px-2.5 py-1 text-caption font-bold text-white shadow">{ru ? "твоя идея метит сюда" : "your idea aims here"}</span>
+                  <span className="absolute right-3 top-3 z-[1] inline-flex items-center gap-1.5 rounded-full bg-[#1c1c22]/85 py-1 pl-2 pr-2.5 shadow backdrop-blur">
+                    <FlameIcon size={13} />
+                    <span className="text-caption font-bold text-[#ff9500]">{ru ? "твоя идея метит сюда" : "your idea aims here"}</span>
+                  </span>
                 )}
                 {c.cover && (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -446,12 +453,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             )
           )}
           <div className="card-min mt-5 rounded-[22px] p-6">
-            <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Подсказка для имени" : "Naming hint"}</div>
+            <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Подсказка для имени" : "Naming hint"}</h3>
             <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{data.aso.namingHint}</p>
           </div>
           {data.competitors.length > 0 && (
             <div className="card-min mt-3 rounded-[22px] p-6">
-              <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Не зови себя как они (топ уже занят)" : "Do not name yourself like these (the top is taken)"}</div>
+              <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Не зови себя как они (топ уже занят)" : "Do not name yourself like these (the top is taken)"}</h3>
               <div className="mt-3 flex flex-col gap-2">
                 {data.competitors.map((c, i) => (
                   <div key={i} className="flex items-baseline justify-between gap-3 text-callout"><span className="text-[var(--color-text-primary)]">{c.title}</span><span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}</span></div>
@@ -461,6 +468,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           )}
         </section>
       )}
+      </div>
 
       {/* The plan: a keynote. The whole road retold as presentation slides,
           dark cards one under another, ending with the archive and bookmark. */}
@@ -518,8 +526,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Pain */}
             <section className={slide} style={d(1)}>
-              {kicker("/build/flame.png", ru ? "Боль" : "The pain")}
-              <p className="mt-4 text-title3 text-pretty text-white">{data.painLine}</p>
+              {kicker("/build/flame.webp", ru ? "Боль" : "The pain")}
+              {data.painTitle && <h3 className="mt-4 text-title3 font-bold text-pretty text-white">{data.painTitle}</h3>}
+              <p className={`${data.painTitle ? "mt-2 text-callout" : "mt-4 text-title3"} text-pretty ${data.painTitle ? "text-white/80" : "text-white"}`}>{data.painLine}</p>
               {data.painQuote && (
                 <figure className={`mt-5 px-4 py-3 ${inner}`}>
                   <p className={`text-callout italic ${body}`}>{data.painQuote.quote}</p>
@@ -530,7 +539,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Solution */}
             <section className={slide} style={d(2)}>
-              {kicker("/build/bulb.png", ru ? "Решение" : "The solution")}
+              {kicker("/build/bulb.webp", ru ? "Решение" : "The solution")}
               {data.pitch && <p className={`mt-4 max-w-[56ch] text-body ${body}`}>{data.pitch}</p>}
               {data.features.length > 0 && (
                 <ul className="mt-5 flex flex-col gap-2.5">
@@ -546,7 +555,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Audience */}
             <section className={slide} style={d(3)}>
-              {kicker("/build/people.png", ru ? "Аудитория" : "Audience")}
+              {kicker("/build/people.webp", ru ? "Аудитория" : "Audience")}
               <div className="mt-4 flex flex-col gap-2">
                 {data.crowd.map((c, i) => (
                   <div key={i} className={`flex items-center gap-3 px-4 py-2.5 ${inner}`}>
@@ -565,7 +574,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Competitors */}
             <section className={slide} style={d(4)}>
-              {kicker("/build/swords.png", ru ? "Конкуренты и твой обход" : "Competitors and your way in")}
+              {kicker("/build/swords.webp", ru ? "Конкуренты и твой обход" : "Competitors and your way in")}
               <div className="mt-4 flex flex-col gap-2.5">
                 {data.competitors.map((c, i) => (
                   <div key={i} className={`flex items-start gap-3 px-4 py-3 ${inner}`}>
@@ -590,7 +599,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Who pays */}
             <section className={slide} style={d(5)}>
-              {kicker("/build/coin.png", ru ? "Кто платит" : "Who pays")}
+              {kicker("/build/coin.webp", ru ? "Кто платит" : "Who pays")}
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {data.buyer && (
                   <div className={`px-5 py-4 ${inner}`}>
@@ -620,7 +629,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Name & ASO */}
             <section className={slide} style={d(6)}>
-              {kicker("/build/search.png", ru ? "Имя и запросы в сторе" : "Name and store queries")}
+              {kicker("/build/search.webp", ru ? "Имя и запросы в сторе" : "Name and store queries")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>{data.aso.namingHint}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {(data.aso.live.length ? data.aso.live.map((l) => l.term) : data.aso.terms).slice(0, 8).map((x, j) => (
@@ -631,7 +640,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Design */}
             <section className={slide} style={d(7)}>
-              {kicker("/build/palette.png", ru ? "Дизайн" : "Design")}
+              {kicker("/build/palette.webp", ru ? "Дизайн" : "Design")}
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 {data.design.palette && (
                   <span className="flex gap-1.5">
@@ -687,7 +696,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Code */}
             <section className={slide} style={d(8)}>
-              {kicker("/build/code.png", ru ? "Код" : "Code")}
+              {kicker("/build/code.webp", ru ? "Код" : "Code")}
               <p className={`mt-4 max-w-[56ch] text-callout ${body}`}>
                 {ru ? "Cursor или Claude Code, вставь целиком первым сообщением. Внутри стек, экраны из дизайн-спеки, модель данных и честный пейвол." : "Cursor or Claude Code, paste whole as the first message. Inside: the stack, screens from the design spec, data model and an honest paywall."}
                 {shotList.length > 0 && (ru ? " Прикрепи к брифу свои картинки экранов: агент соберёт интерфейс по ним." : " Attach your screen renders: the agent will build the UI after them.")}
@@ -701,7 +710,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
             {/* Launch */}
             <section className={slide} style={d(9)}>
-              {kicker("/build/rocket.png", ru ? "Запуск" : "Launch")}
+              {kicker("/build/rocket.webp", ru ? "Запуск" : "Launch")}
               <div className="mt-4 flex flex-col gap-2.5">
                 {data.channels.map((c, i) => (
                   <div key={i} className={`flex items-start justify-between gap-4 px-4 py-3 ${inner}`}>
@@ -734,6 +743,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
       {!showResults && (
       <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+14px)] z-40 flex justify-center px-4">
         <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+          
           <button
             type="button"
             onClick={back}

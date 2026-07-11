@@ -122,7 +122,7 @@ export function PeopleIcon({ size = 18, stroke = "currentColor" }: { size?: numb
   );
 }
 
-export const STEP_IMG: (string | null)[] = ["/build/compass.png", "/build/flame.png", "/build/bulb.png", "/build/people.png", "/build/swords.png", "/build/coin.png", "/build/search.png", "/build/rocket.png"];
+export const STEP_IMG: (string | null)[] = ["/build/compass.webp", "/build/flame.webp", "/build/bulb.webp", "/build/people.webp", "/build/swords.webp", "/build/coin.webp", "/build/search.webp", "/build/rocket.webp"];
 
 // Per-step gradient backdrops, hue-matched to each render (см. фигма-блоки).
 export const STEP_GRADIENTS = [

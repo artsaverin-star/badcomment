@@ -38,7 +38,8 @@ export default function BottomNav({ locale }: { locale: Locale }) {
       : "";
 
   // Inside the builder flow (pain picker, wizard) the wizard's own floating
-  // controls own the bottom edge — the tab bar would collide with them.
+  // controls own the bottom edge — по задумке пунктов меню в режиме создания
+  // нет, фокус на флоу.
   if (path.startsWith("/build/")) return null;
 
   return (

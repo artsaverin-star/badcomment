@@ -26,7 +26,7 @@ export const dynamic = "force-dynamic";
 // assembled server-side from existing catalog data — no runtime LLM.
 
 type Spec = { theme?: string; palette?: { bg: string; surface: string; accent: string; textPrimary: string }; motif?: string; screens?: unknown[] };
-type Copy = { pain?: string; painEn?: string; buyer?: string; pay?: string; risk?: string };
+type Copy = { pain?: string; painEn?: string; painTitle?: string; painTitleEn?: string; buyer?: string; pay?: string; risk?: string };
 type LiveTerm = { term: string; hintRank: number | null; median: number; min: number; top: { title: string; ratings: number }[] };
 type RApp = { title: string; icon?: string | null; ratings?: number; realScore?: number; weak?: string; verdict?: string; loved?: string; shots?: string[]; en?: { weak?: string; verdict?: string; loved?: string } };
 
@@ -123,6 +123,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     hrefBack: `${lp}/build/${slug}`,
     hrefNiches: `${lp}/build`,
     painLine,
+    painTitle: (ru ? copy?.painTitle : copy?.painTitleEn) || undefined,
     painQuote,
     ideaCover: (ideaCovers as Record<string, string>)[ideaSlug],
     crowd,

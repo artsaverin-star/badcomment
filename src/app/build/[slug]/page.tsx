@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 // choosing the pain IS choosing the idea, the user just doesn't know it yet.
 // Pain lines are authored from the corpus (buildCopy), not the analyst gap.
 
-type Copy = { pain?: string; painEn?: string };
+type Copy = { pain?: string; painEn?: string; painTitle?: string; painTitleEn?: string };
 
 const firstSentence = (t?: string) => {
   if (!t) return "";
@@ -41,6 +41,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       const authored = ru ? c?.pain : c?.painEn;
       return {
         idea: i.slug,
+        painTitle: (ru ? c?.painTitle : c?.painTitleEn) || "",
         pain: authored || firstSentence(i.gap as string) || i.oneLiner,
         observations: i.stats?.observations ?? 0,
       };
@@ -64,7 +65,12 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
           <Link key={p.idea} href={`${lp}/build/${slug}/${p.idea}`} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
             <span className="mt-0.5 shrink-0"><FlameIcon size={20} /></span>
             <div className="min-w-0 flex-1">
-              <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>
+              {p.painTitle
+                ? <>
+                    <p className="text-body font-semibold text-pretty text-[var(--color-text-primary)]">{p.painTitle}</p>
+                    <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>
+                  </>
+                : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
               {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
             </div>
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
