@@ -207,7 +207,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {ru ? "Смотри: вот твоя боль, и вот продукт, который её закрывает. Механика выведена из отзывов, спрос посчитан, простота оценена под одного человека." : "Look: here is your pain, and here is the product that closes it. Mechanics derived from reviews, demand counted, buildability scored for one person."}
           </p>
 
-          <div className="heal-card mt-7 rounded-[24px] p-6">
+          <div className="mt-7 grid gap-4 lg:grid-cols-2 lg:items-start">
+          <div className="heal-card rounded-[24px] p-6">
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Боль, которую лечим" : "The pain we treat"}</h3>
               <span className="heal-pop inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#30d158]/15 px-3 py-1 text-caption font-bold text-[#1f9d47]" style={{ animationDelay: "1.5s" }}>
@@ -224,12 +225,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             )}
           </div>
 
-          <div className="heal-rise mt-4 flex items-center justify-center gap-2 text-caption font-semibold text-[var(--color-text-tertiary)]" style={{ animationDelay: "1.7s" }}>
+          <div className="heal-rise flex items-center justify-center gap-2 text-caption font-semibold text-[var(--color-text-tertiary)] lg:hidden" style={{ animationDelay: "1.7s" }}>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             {ru ? "наше решение" : "our solution"}
           </div>
 
-          <div className="heal-rise card-min mt-4 overflow-hidden rounded-[24px] p-7" style={{ animationDelay: "1.9s" }}>
+          <div className="heal-rise card-min overflow-hidden rounded-[24px] p-7" style={{ animationDelay: "1.9s" }}>
             {data.ideaCover && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={data.ideaCover} alt="" className="-mx-7 -mt-7 mb-6 aspect-[16/8] w-[calc(100%+56px)] max-w-none object-cover" />
@@ -252,6 +253,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 ))}
               </ul>
             )}
+          </div>
           </div>
         </section>
       )}
@@ -473,6 +475,10 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <span className={`rounded-full px-3 py-1.5 text-caption font-semibold ${inner} ${body}`}>{data.nicheName}</span>
                 {data.founder100 != null && <span className="rounded-full bg-[var(--color-accent-brand)] px-3 py-1.5 text-caption font-bold tabular-nums text-white">{ru ? "для соло-фаундера" : "solo-founder score"} {data.founder100}/100</span>}
               </div>
+              {data.ideaCover && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={data.ideaCover} alt="" loading="lazy" decoding="async" className="mt-6 aspect-[16/7] w-full rounded-[18px] object-cover sm:aspect-[16/6]" />
+              )}
               {shotList.length > 0 && (
                 <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-2">
                   {shotList.map((sh, i) => (
