@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 import BuildProgress from "./BuildProgress";
-import { FlameIcon, BulbIcon } from "./BuildIcons";
 import { downloadZip, type ZipFile } from "@/lib/zipClient";
 
 // The «Создай свой апп» wizard, steps 3-7 of 7 (niche and pain were picked on
@@ -180,18 +179,23 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
   return (
     <div className="mx-auto w-full max-w-[720px]">
-      <BuildProgress active={step} doneCount={maxDone} ru={ru} onStep={goTo} />
+      <BuildProgress active={step} doneCount={maxDone} ru={ru} onStep={goTo} sticky={!showResults} />
 
       {step === 2 && (
         <section className="mt-8">
-          <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
+          <div className="flex items-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/build/bulb.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
+            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Мы уже придумали, как это решить" : "We already worked out how to solve it"}</h2>
+          </div>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru ? "Смотри: вот твоя боль, и вот продукт, который её закрывает. Механика выведена из отзывов, спрос посчитан, простота оценена под одного человека." : "Look: here is your pain, and here is the product that closes it. Mechanics derived from reviews, demand counted, buildability scored for one person."}
           </p>
 
           <div className="heal-card mt-7 rounded-[24px] p-6">
             <div className="flex items-center gap-2.5">
-              <FlameIcon size={18} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/build/flame.png" alt="" className="size-6 shrink-0 object-contain" />
               <span className="text-caption font-semibold text-[var(--color-text-tertiary)]">{ru ? "Боль, которую лечим" : "The pain we treat"}</span>
               <span className="heal-pop ml-auto inline-flex items-center gap-1.5 rounded-full bg-[#30d158]/15 px-3 py-1 text-caption font-bold text-[#1f9d47]" style={{ animationDelay: "1.5s" }}>
                 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -237,7 +241,11 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 3 && (
         <section className="mt-8">
-          <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Кто уже в нише и где у них дыры" : "Who is already here and where they leak"}</h2>
+          <div className="flex items-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/build/swords.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
+            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто уже в нише и где у них дыры" : "Who is already here and where they leak"}</h2>
+          </div>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru ? "Топ ниши по массе оценок. Их слабые места мы вытащили из отзывов, и это твой вход: людям уже есть с чем сравнивать." : "The niche's top by rating mass. Their weak spots come from the reviews, and that is your way in: people already have something to compare with."}
           </p>
@@ -268,7 +276,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           </div>
           {data.pitch && (
             <div className="card-min mt-4 flex items-start gap-3.5 rounded-[22px] border-[#30d158]/35 bg-[#30d158]/8 p-5">
-              <span className="mt-0.5 shrink-0"><BulbIcon size={20} /></span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/build/bulb.png" alt="" className="mt-0.5 size-8 shrink-0 object-contain" />
               <div>
                 <div className="text-caption font-semibold text-[#1f9d47]">{ru ? "Твой обход" : "Your way around them"}</div>
                 <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{data.pitch}</p>
@@ -280,7 +289,11 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 4 && (
         <section className="mt-8">
-          <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Кто заплатит и сколько" : "Who pays and how much"}</h2>
+          <div className="flex items-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/build/coin.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
+            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Кто заплатит и сколько" : "Who pays and how much"}</h2>
+          </div>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">{ru ? "Мы не гадаем: платящий найден в отзывах, ценник взят из того, что люди уже платят в нише." : "No guessing: the payer was found in the reviews, the price anchored to what people already pay in the niche."}</p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {data.buyer && (
@@ -319,7 +332,11 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
 
       {step === 5 && (
         <section className="mt-8">
-          <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Как тебя найдут в сторе" : "How they will find you"}</h2>
+          <div className="flex items-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/build/search.png" alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
+            <h2 className="text-title2 text-balance text-[var(--color-text-primary)]">{ru ? "Как тебя найдут в сторе" : "How they will find you"}</h2>
+          </div>
           <p className="mt-3 max-w-[56ch] text-callout text-[var(--color-text-secondary)]">
             {ru
               ? "Каждое слово мы проверили прямо в App Store. Смотрели две вещи: подсказывает ли его стор при вводе (значит люди правда так ищут) и насколько занят топ по этому слову."
@@ -402,13 +419,15 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
         const sub = "text-[color-mix(in_srgb,var(--color-bg-page)_58%,transparent)]";
         const body = "text-[color-mix(in_srgb,var(--color-bg-page)_78%,transparent)]";
         const inner = "rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_9%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--color-bg-page)_14%,transparent)]";
-        const slide = "card-fade rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
+        const slide = "card-fade relative isolate overflow-hidden rounded-[24px] bg-[var(--color-text-primary)] p-5 sm:rounded-[28px] sm:p-8";
+        // Illustration bleeds out of the slide's top-right corner, cropped by
+        // the card (isolate + negative z keeps it behind the content).
         const kicker = (art: string, t: string) => (
-          <div className="flex items-center gap-4">
+          <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={art} alt="" className="-my-3 size-20 shrink-0 object-contain sm:-my-4 sm:size-24" />
-            <span className="text-title2 text-balance font-bold text-[var(--color-bg-page)]">{t}</span>
-          </div>
+            <img src={art} alt="" aria-hidden className="pointer-events-none absolute -right-7 -top-8 -z-10 size-36 object-contain sm:-right-9 sm:-top-10 sm:size-48" />
+            <div className="pr-20 text-title2 text-balance font-bold text-[var(--color-bg-page)] sm:pr-32">{t}</div>
+          </>
         );
         const d = (k: number) => ({ animationDelay: `${120 + k * 130}ms` });
         return (

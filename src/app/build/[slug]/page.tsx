@@ -49,8 +49,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
 
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
-      <Link href={`${lp}/build`} className="text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-primary)]">← {ru ? "к нишам" : "to niches"}</Link>
-      <div className="mt-6"><BuildProgress active={1} doneCount={1} ru={ru} /></div>
+      <BuildProgress active={1} doneCount={1} ru={ru} />
 
       <header className="mt-10">
         <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{ru ? `Что болит у людей в «${niche}»` : `What hurts people in ${niche}`}</h1>
@@ -72,6 +71,13 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
         ))}
+      </div>
+
+      <div className="sticky bottom-4 z-30 mt-10 flex justify-center sm:static">
+        <Link href={`${lp}/build`} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-3.5 text-callout font-semibold text-[var(--color-text-secondary)] shadow-[0_10px_28px_-12px_rgba(0,0,0,0.35)] transition-colors hover:text-[var(--color-text-primary)] sm:shadow-none">
+          <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4 6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {ru ? "Назад" : "Back"}
+        </Link>
       </div>
     </main>
   );

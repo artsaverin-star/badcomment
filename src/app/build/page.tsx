@@ -34,10 +34,12 @@ export default async function BuildHome() {
     })
     .sort((a, b) => b.promo - a.promo);
 
+  // Геометрия из фигмы (Port, 2252:3067): арт 115% ширины карточки, поворот
+  // ~18°, вынесен за края и обрезается карточкой; текст 6-8% от края.
   const how = [
-    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_28%_30%,#ef8f3a_0%,#e04430_58%,#d92d2d_100%)]", pos: "top" },
-    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_25%_30%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid" },
-    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_28%_30%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top" },
+    { img: "/build/flame.png", t: ru ? "Выбери\nболь людей" : "Pick\na real pain", g: "bg-[radial-gradient(circle_at_50%_46%,#e87e28_28%,#e6402b_64%,#e4022d_96%)]", pos: "top", art: { width: "115%", left: "-16%", top: "-27%", transform: "rotate(18deg)" } },
+    { img: "/build/bulb.png", t: ru ? "Получи\nидею" : "Get\nthe idea", g: "bg-[radial-gradient(circle_at_32%_42%,#8a4cf2_0%,#6d28d9_60%,#5a19cd_100%)]", pos: "mid", art: { width: "108%", left: "16%", top: "-24%" } },
+    { img: "/build/rocket.png", t: ru ? "Собери\nи запусти" : "Build\nand launch", g: "bg-[radial-gradient(circle_at_35%_38%,#63a5f2_0%,#3670e4_62%,#2b62d9_100%)]", pos: "top", art: { width: "100%", left: "26%", top: "-8%" } },
   ];
 
   return (
@@ -52,10 +54,10 @@ export default async function BuildHome() {
       </header>
 
       <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-3">
-        {how.map(({ img, t, g, pos }, i) => (
+        {how.map(({ img, t, g, pos, art }, i) => (
           <div key={i} className={`relative aspect-square overflow-hidden rounded-[20px] sm:rounded-[26px] ${g}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img} alt="" className="absolute -right-[10%] top-1/2 h-[112%] max-w-none -translate-y-1/2 object-contain" />
+            <img src={img} alt="" className="absolute max-w-none" style={art} />
             <div className={`absolute left-3.5 whitespace-pre-line text-footnote font-bold leading-tight text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.3)] sm:left-5 sm:text-title3 ${pos === "mid" ? "top-1/2 -translate-y-1/2" : "top-3 sm:top-5"}`}>{t}</div>
           </div>
         ))}
