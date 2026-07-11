@@ -3,7 +3,11 @@ import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { promoScore } from "@/lib/promoScore";
+import { getAccess } from "@/lib/access";
+import { openFreeIdeas, FREE_BUILD_IDEAS, DEMO_BUILD_IDEA } from "@/lib/buildAccess";
 import ideasData from "@/data/ideas.json";
+import buildCopy from "@/data/buildCopy.json";
+import ideaCovers from "@/data/ideaCovers.json";
 import BuildProgress from "@/components/BuildProgress";
 
 
@@ -27,12 +31,31 @@ export default async function BuildHome() {
   const totalApps = all.reduce((s, [, r]) => s + (r.apps?.length || 0), 0);
   const totalIdeas = all.reduce((s, [slug]) => s + ideas.filter((i) => i.category === slug).length, 0);
 
+  // The free ladder: which niches have at least one buildable idea at this
+  // viewer's tier. Everything else wears a lock (the pains stay readable).
+  const access = await getAccess();
+  const freeSet = openFreeIdeas(access);
+  const freeCats = new Set(FREE_BUILD_IDEAS.filter((f) => freeSet.has(f.idea)).map((f) => f.category));
+
   const niches = all
     .map(([slug, r]) => {
       const icon = [...(r.apps ?? [])].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).find((a) => a.icon)?.icon ?? null;
-      return { slug, name: (ru ? r.name : r.nameEn) || r.name, icon, ideas: ideas.filter((i) => i.category === slug).length, promo: promoScore(slug)?.score ?? 0 };
+      const open = access.unlimited || access.has("category", slug) || access.has("chapter", slug) || freeCats.has(slug);
+      return { slug, name: (ru ? r.name : r.nameEn) || r.name, icon, open, ideas: ideas.filter((i) => i.category === slug).length, promo: promoScore(slug)?.score ?? 0 };
     })
     .sort((a, b) => b.promo - a.promo);
+
+  // The showcase idea: open with no account, shown right at the start.
+  const demoCopy = (buildCopy as Record<string, { painTitle?: string; painTitleEn?: string }>)[DEMO_BUILD_IDEA.idea];
+  const demo = {
+    href: `${lp}/build/${DEMO_BUILD_IDEA.category}/${DEMO_BUILD_IDEA.idea}`,
+    title: (ru ? demoCopy?.painTitle : demoCopy?.painTitleEn) || "",
+    cover: (ideaCovers as Record<string, string>)[DEMO_BUILD_IDEA.idea],
+    niche: (() => {
+      const r = (RATING_BY_SLUG as Record<string, RSet>)[DEMO_BUILD_IDEA.category];
+      return (ru ? r?.name : r?.nameEn) || r?.name || "";
+    })(),
+  };
 
   // Геометрия из фигмы (Port, 2252:3067), позиционирование от ЦЕНТРА
   // повёрнутого бокса: огонь центр 61/63 при 115% и 18°, лампа 65/50 при
@@ -64,12 +87,30 @@ export default async function BuildHome() {
         ))}
       </div>
 
+      {!access.unlimited && demo.title && (
+        <Link href={demo.href} className="card-min group mt-10 flex items-center gap-4 rounded-[24px] p-4 transition-colors hover:border-[var(--color-border-strong)] sm:gap-5 sm:p-5">
+          {demo.cover && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={demo.cover} alt="" loading="lazy" decoding="async" className="h-[72px] w-[104px] shrink-0 rounded-[16px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+          )}
+          <div className="min-w-0 flex-1">
+            <div className="text-caption font-bold text-[#1f9d47]">{ru ? "Пример открыт всем" : "Open example"}</div>
+            <div className="mt-1 text-body font-semibold text-pretty text-[var(--color-text-primary)]">{demo.title}</div>
+            <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">{ru ? `Пройди сборку от боли до плана в нише «${demo.niche}»` : `Walk the build from pain to plan in ${demo.niche}`}</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </Link>
+      )}
+
       <div className="mt-10"><BuildProgress active={0} doneCount={0} ru={ru} sticky={false} /></div>
 
       <section className="mt-10">
         <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Шаг 1. Выбери нишу" : "Step 1. Pick the niche"}</h2>
         <p className="mt-2 max-w-[58ch] text-callout text-[var(--color-text-secondary)]">
           {ru ? "Выше стоят ниши, где у новичка больше шансов: меньше гигантов и накрутки." : "Niches where a newcomer has the best odds are on top: fewer giants, less fakery."}
+          {!access.unlimited && (ru
+            ? " Боли каждой ниши видны бесплатно. Одна идея открыта всем как пример, вход открывает четыре отобранные, один платёж открывает всё."
+            : " Every niche's pains are free to read. One idea is open to everyone as the example, a sign-in opens four hand-picked ones, a single payment opens everything.")}
         </p>
         <div className="mt-6 flex flex-col gap-2.5">
           {niches.map((n) => (
@@ -87,7 +128,9 @@ export default async function BuildHome() {
                   {ru ? `шанс ${n.promo}` : `odds ${n.promo}`}
                 </span>
               )}
-              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {n.open
+                ? <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                : <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>}
             </Link>
           ))}
         </div>

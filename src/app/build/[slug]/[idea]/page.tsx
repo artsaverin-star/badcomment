@@ -1,5 +1,7 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getLocale } from "@/lib/i18n.server";
+import { getAccess } from "@/lib/access";
+import { canBuild } from "@/lib/buildAccess";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getNicheName, appSlugify } from "@/lib/ratingAppSlug";
 import { getIdea } from "@/lib/ideas";
@@ -45,6 +47,11 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   const niche = getNicheName(slug, locale);
   const idea = getIdea(ideaSlug);
   if (!niche || !idea || idea.category !== slug) notFound();
+
+  // The wizard is the paid payload — a crafted URL must not walk around the
+  // pain-picker locks. Locked ideas bounce back to the picker's gate.
+  const access = await getAccess();
+  if (!canBuild(access, slug, ideaSlug)) redirect(`${lp}/build/${slug}#unlock`);
 
   const en = !ru ? ideaContentEn(ideaSlug, locale) : null;
   const s = scoreFor(ideaSlug, locale);

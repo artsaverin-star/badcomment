@@ -9,7 +9,10 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import buildCopy from "@/data/buildCopy.json";
 import ideaAudit from "@/data/ideaAudit.json";
 import BuildProgress from "@/components/BuildProgress";
+import BuildGate from "@/components/BuildGate";
 import { FlameIcon } from "@/components/BuildIcons";
+import { getAccess } from "@/lib/access";
+import { canBuild, DEMO_BUILD_IDEA } from "@/lib/buildAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -62,6 +65,13 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   const rest = scored.filter((x) => !ok(x));
   const pains = strong.length >= 5 ? strong : [...strong, ...rest].slice(0, 5);
 
+  // The free ladder: reading the pains is free, walking the wizard is gated.
+  // Locked rows keep their content visible and lead to the gate below.
+  const access = await getAccess();
+  const rows = pains.map((p) => ({ ...p, open: canBuild(access, slug, p.idea) }));
+  const anyLocked = rows.some((r) => !r.open);
+  const demoTitle = copy[DEMO_BUILD_IDEA.idea]?.[ru ? "painTitle" : "painTitleEn"] || "";
+
   return (
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
       <BuildProgress active={1} doneCount={1} ru={ru} />
@@ -75,22 +85,43 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       </header>
 
       <div className="mt-8 flex flex-col gap-2.5">
-        {pains.map((p) => (
-          <Link key={p.idea} href={`${lp}/build/${slug}/${p.idea}`} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
-            <span className="mt-0.5 shrink-0"><FlameIcon size={20} /></span>
-            <div className="min-w-0 flex-1">
-              {p.painTitle
-                ? <>
-                    <p className="text-body font-semibold text-pretty text-[var(--color-text-primary)]">{p.painTitle}</p>
-                    <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>
-                  </>
-                : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
-              {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
-            </div>
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </Link>
-        ))}
+        {rows.map((p) => {
+          const body = (
+            <>
+              <span className="mt-0.5 shrink-0"><FlameIcon size={20} /></span>
+              <div className="min-w-0 flex-1">
+                {p.painTitle
+                  ? <>
+                      <p className="text-body font-semibold text-pretty text-[var(--color-text-primary)]">
+                        {p.painTitle}
+                        {p.open && anyLocked && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#30d158]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#1f9d47]">{ru ? "открыто" : "open"}</span>}
+                      </p>
+                      <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>
+                    </>
+                  : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
+                {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
+              </div>
+            </>
+          );
+          return p.open ? (
+            <Link key={p.idea} href={`${lp}/build/${slug}/${p.idea}`} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
+              {body}
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </Link>
+          ) : (
+            <a key={p.idea} href="#unlock" className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
+              {body}
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.4" /></svg>
+            </a>
+          );
+        })}
       </div>
+
+      {anyLocked && (
+        <div id="unlock" className="mt-10 scroll-mt-28">
+          <BuildGate loggedIn={access.loggedIn} demoHref={`${lp}/build/${DEMO_BUILD_IDEA.category}/${DEMO_BUILD_IDEA.idea}`} demoTitle={demoTitle} locale={locale} />
+        </div>
+      )}
 
       {/* Floating glass control bar, same idiom as the site header. */}
       <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">
