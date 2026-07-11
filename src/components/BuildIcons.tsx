@@ -92,5 +92,19 @@ export function RocketIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-// Ordered per builder step.
-export const BUILD_ICONS = [CompassIcon, FlameIcon, BulbIcon, CoinIcon, SearchAnimIcon, PaletteIcon, CodeIcon, RocketIcon];
+export function SwordsIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" className="overflow-visible">
+      <g className="bi-sway">
+        <path d="M5 5l9.5 9.5" stroke="#8e8e93" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M19 5 9.5 14.5" stroke="#ff6482" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M13.5 16.5 16.5 19.5M7.5 16.5 4.5 19.5" stroke="#c98a2e" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M12 15 15 18M12 15 9 18" stroke="#c98a2e" strokeWidth="0" />
+      </g>
+    </svg>
+  );
+}
+
+// Ordered per builder step: ниша, боль, решение, конкуренты, кто платит,
+// имя и ASO, план. Palette/Code/Rocket also serve the result-page work items.
+export const BUILD_ICONS = [CompassIcon, FlameIcon, BulbIcon, SwordsIcon, CoinIcon, SearchAnimIcon, RocketIcon];

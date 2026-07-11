@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { getSessionUser } from "@/lib/session";
 import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getNicheName } from "@/lib/ratingAppSlug";
@@ -11,24 +10,34 @@ import { buildCodePrompt } from "@/lib/codePrompt";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import designSpecs from "@/data/designSpecs.json";
 import asoTerms from "@/data/asoTerms.json";
+import asoLive from "@/data/asoLive.json";
+import buildCopy from "@/data/buildCopy.json";
 import channelsData from "@/data/channels.json";
 import channelsEn from "@/data/channels.en.json";
 import BuildWizard, { type BuildData } from "@/components/BuildWizard";
 
 export const dynamic = "force-dynamic";
 
-// The builder wizard itself (admin-only prototype). Every artifact is
+// The builder wizard, steps 3-7 (solution → plan). Every artifact is
 // assembled server-side from existing catalog data — no runtime LLM.
 
 type Spec = { theme?: string; palette?: { bg: string; surface: string; accent: string; textPrimary: string }; motif?: string; screens?: unknown[] };
+type Copy = { pain?: string; painEn?: string; buyer?: string; pay?: string; risk?: string };
+type LiveTerm = { term: string; hintRank: number | null; median: number; min: number; top: { title: string; ratings: number }[] };
+type RApp = { title: string; icon?: string | null; ratings?: number; realScore?: number; weak?: string; en?: { weak?: string } };
+
+const firstSentence = (t?: string) => {
+  if (!t) return "";
+  const m = t.match(/^.*?[.!?…](\s|$)/);
+  return (m ? m[0] : t).trim();
+};
 
 export default async function BuildWizardPage({ params }: { params: Promise<{ slug: string; idea: string }> }) {
-  const me = await getSessionUser();
-  if (!me || !me.isAdmin) notFound();
   const { slug, idea: ideaSlug } = await params;
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
+  const lp = ru ? "/ru" : "/en";
   const niche = getNicheName(slug, locale);
   const idea = getIdea(ideaSlug);
   if (!niche || !idea || idea.category !== slug) notFound();
@@ -38,14 +47,28 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   const spec = (designSpecs as Record<string, Spec>)[ideaSlug];
   const design = buildDesignPrompt(ideaSlug);
   const code = buildCodePrompt(ideaSlug);
+  const copy = (buildCopy as Record<string, Copy>)[ideaSlug];
 
-  // Pains: the idea's own demand quotes (RU overlay when present).
-  const pains = (idea.reviewGrid ?? []).slice(0, 6).map((q) => ({ quote: (ru && q.quoteRu ? q.quoteRu : q.quote).slice(0, 220), app: q.app }));
+  // The chosen pain: authored line from the corpus + the strongest real quote.
+  const painLine = (ru ? copy?.pain : copy?.painEn) || firstSentence((en?.gap || idea.gap) as string) || (en?.oneLiner || idea.oneLiner);
+  const q0 = (idea.reviewGrid ?? [])[0];
+  const painQuote = q0 ? { quote: (ru && q0.quoteRu ? q0.quoteRu : q0.quote).slice(0, 220), app: q0.app } : undefined;
 
-  // ASO: baked niche search terms (33 niches) + idea title as the long-tail hint.
+  // Competitors: the niche's top apps by rating mass, with their weak spots.
+  const rset = (RATING_BY_SLUG as Record<string, { apps?: RApp[] }>)[slug];
+  const topApps = [...(rset?.apps ?? [])].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
+  const competitors = topApps.slice(0, 3).map((a) => ({
+    title: a.title,
+    icon: a.icon ?? null,
+    ratings: a.ratings || 0,
+    realScore: a.realScore,
+    weak: (ru ? a.weak : a.en?.weak || a.weak) || "",
+  }));
+
+  // ASO: baked niche terms + live App Store signals (autocomplete rank and
+  // how occupied the top-10 is per query).
   const terms = ((asoTerms as Record<string, string[]>)[slug] ?? []).slice(0, 10);
-  const rset = (RATING_BY_SLUG as Record<string, { apps?: { title: string; ratings?: number }[] }>)[slug];
-  const competitors = [...(rset?.apps ?? [])].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).slice(0, 3).map((a) => ({ title: a.title, ratings: a.ratings || 0 }));
+  const live = ((asoLive as Record<string, { terms?: LiveTerm[] }>)[slug]?.terms ?? []).slice(0, 8);
   const enTitle = ideaContentEn(ideaSlug, "en")?.title || idea.title;
   const namingHint = ru
     ? `Имя должно нести дифференциатор идеи, а не жанр: «${enTitle}». Жанровые слова (${terms.slice(0, 2).join(", ") || "как у топов"}) оставь для подзаголовка в сторе.`
@@ -62,13 +85,20 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     ideaTitle: (en?.title || idea.title) as string,
     oneLiner: (en?.oneLiner || idea.oneLiner) as string,
     nicheName: niche,
-    gap: (en?.gap || idea.gap) as string | undefined,
+    hrefBack: `${lp}/build/${slug}`,
+    hrefNiches: `${lp}/build`,
+    painLine,
+    painQuote,
     pitch: (en?.pitch || idea.idea?.pitch) as string | undefined,
     features: (en?.features || idea.idea?.features || []) as string[],
     founder100: s?.founder != null ? Math.round((s.founder / 45) * 100) : undefined,
-    pains,
-    audience: { targetSegment: s?.targetSegment, whyPay: s?.whyPay, pricePoint: s?.pricePoint, founderWhy: s?.founderWhy },
-    aso: { terms, competitors, namingHint },
+    buyer: (ru ? copy?.buyer : undefined) || s?.targetSegment,
+    pay: (ru ? copy?.pay : undefined) || s?.whyPay,
+    // Never show the English rationale on the RU locale: authored RU or nothing.
+    risk: ru ? copy?.risk : s?.founderWhy,
+    pricePoint: s?.pricePoint,
+    competitors,
+    aso: { terms, live, namingHint },
     design: {
       hasSpec: !!spec,
       theme: spec?.theme,

@@ -244,7 +244,7 @@ export default function Landing({
           </div>
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="ld-fade text-display text-[var(--color-text-primary)] text-balance" style={{ animationDelay: "0.05s" }}>
-              {ru ? "Перестань гадать, какое приложение делать" : "Stop guessing what app to build"}
+              {ru ? "Разборы ниш приложений" : "App niche breakdowns"}
             </h1>
 
             <p className="ld-fade mx-auto mt-5 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>

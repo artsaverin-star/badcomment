@@ -1,18 +1,21 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getSessionUser } from "@/lib/session";
 import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getNicheName } from "@/lib/ratingAppSlug";
 import { listIdeas } from "@/lib/ideas";
-import { ideaContentEn } from "@/lib/regenCards";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import buildCopy from "@/data/buildCopy.json";
 import BuildProgress from "@/components/BuildProgress";
+import { FlameIcon } from "@/components/BuildIcons";
 
 export const dynamic = "force-dynamic";
 
-// Step 2 of 8: pick the pain. Every idea in the niche is a verified pain —
+// Step 2 of 7: pick the pain. Every idea in the niche is a verified pain —
 // choosing the pain IS choosing the idea, the user just doesn't know it yet.
+// Pain lines are authored from the corpus (buildCopy), not the analyst gap.
+
+type Copy = { pain?: string; painEn?: string };
 
 const firstSentence = (t?: string) => {
   if (!t) return "";
@@ -21,8 +24,6 @@ const firstSentence = (t?: string) => {
 };
 
 export default async function BuildPainPicker({ params }: { params: Promise<{ slug: string }> }) {
-  const me = await getSessionUser();
-  if (!me || !me.isAdmin) notFound();
   const { slug } = await params;
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
@@ -31,14 +32,16 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   const niche = getNicheName(slug, locale);
   if (!niche) notFound();
 
+  const copy = buildCopy as Record<string, Copy>;
   const rset = (RATING_BY_SLUG as Record<string, { totalReviews?: number; count?: number }>)[slug];
   const pains = listIdeas()
     .filter((i) => i.category === slug)
     .map((i) => {
-      const en = !ru ? ideaContentEn(i.slug, locale) : null;
+      const c = copy[i.slug];
+      const authored = ru ? c?.pain : c?.painEn;
       return {
         idea: i.slug,
-        pain: firstSentence((en?.gap || i.gap) as string) || (en?.oneLiner || i.oneLiner),
+        pain: authored || firstSentence(i.gap as string) || i.oneLiner,
         observations: i.stats?.observations ?? 0,
       };
     })
@@ -61,7 +64,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       <div className="mt-8 flex flex-col gap-2.5">
         {pains.map((p) => (
           <Link key={p.idea} href={`${lp}/build/${slug}/${p.idea}`} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
-            <span className="mt-0.5 text-[18px]">🔥</span>
+            <span className="mt-0.5 shrink-0"><FlameIcon size={20} /></span>
             <div className="min-w-0 flex-1">
               <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>
               {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}
