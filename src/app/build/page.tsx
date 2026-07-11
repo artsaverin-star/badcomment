@@ -76,7 +76,7 @@ export default async function BuildHome() {
             <Link key={n.slug} href={`${lp}/build/${n.slug}`} className="card-min group flex items-center gap-4 rounded-[20px] p-4 transition-colors hover:border-[var(--color-border-strong)] sm:p-5">
               {n.icon
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img src={n.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[13px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                ? <img src={n.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)] object-cover ring-1 ring-[var(--color-border-subtle)]" />
                 : <span className="size-11 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />}
               <div className="min-w-0 flex-1">
                 <div className="text-body font-semibold text-[var(--color-text-primary)]">{n.name}</div>

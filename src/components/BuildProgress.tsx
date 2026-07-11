@@ -38,8 +38,14 @@ export default function BuildProgress({
           const inner = (
             <>
               {i < doneCount && i !== active ? (
-                <span className="flex size-10 items-center justify-center self-center rounded-full bg-[#30d158]/15 sm:size-12">
-                  <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[#1f9d47]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                <span className="relative flex size-10 items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)] sm:size-12">
+                  {STEP_IMG[i]
+                    // eslint-disable-next-line @next/next/no-img-element
+                    ? <img src={STEP_IMG[i]!} alt="" loading="lazy" decoding="async" className="size-8 object-contain sm:size-9" />
+                    : <span className="text-[var(--color-text-secondary)]"><PeopleIcon size={20} /></span>}
+                  <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#30d158] ring-2 ring-[var(--color-bg-page)]">
+                    <svg width="9" height="9" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-white"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
                 </span>
               ) : i === active ? (
                 <span className={`relative flex size-16 items-center justify-center self-center rounded-full shadow-[0_10px_26px_-8px_rgba(0,0,0,0.45)] sm:size-20 ${STEP_GRADIENTS[i]}`}>

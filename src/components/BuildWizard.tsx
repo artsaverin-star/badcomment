@@ -300,8 +300,8 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <div className="flex items-center gap-3.5">
                   {c.icon
                     // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[13px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-                    : <span className="size-11 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />}
+                    ? <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+                    : <span className="size-11 shrink-0 rounded-[24%] bg-[var(--color-bg-muted)]" />}
                   <div className="min-w-0 flex-1">
                     <div className="truncate text-body font-semibold text-[var(--color-text-primary)]">{c.title}</div>
                     <div className="mt-0.5 text-caption tabular-nums text-[var(--color-text-tertiary)]">{fmt(c.ratings, ru)} {ru ? "оценок" : "ratings"}{c.realScore != null ? ` · ${ru ? "честный балл" : "honest score"} ${c.realScore}` : ""}</div>
@@ -320,13 +320,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             ))}
           </div>
           {data.pitch && (
-            <div className="card-min mt-4 flex items-start gap-3.5 rounded-[22px] border-[#30d158]/35 bg-[#30d158]/8 p-5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/build/bulb.png" alt="" className="mt-0.5 size-8 shrink-0 object-contain" />
-              <div>
-                <div className="text-caption font-semibold text-[#1f9d47]">{ru ? "Твой обход" : "Your way around them"}</div>
-                <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{data.pitch}</p>
-              </div>
+            <div className="card-min mt-4 rounded-[22px] border-[#30d158]/35 bg-[#30d158]/8 p-6">
+              <h3 className="text-title3 font-bold text-[var(--color-text-primary)]">{ru ? "Твой обход" : "Your way around them"}</h3>
+              <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{data.pitch}</p>
             </div>
           )}
         </section>
@@ -751,7 +747,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
       })()}
 
       {/* Floating glass control bar, same idiom as the site header — the
-          next action is always visible without scrolling. */}
+          next action is always visible without scrolling. The plan page has
+          no bar: navigation lives in the clickable stepper. */}
+      {!showResults && (
       <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+14px)] z-40 flex justify-center px-4">
         <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           <button
@@ -774,6 +772,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           )}
         </div>
       </div>
+      )}
     </div>
   );
 }

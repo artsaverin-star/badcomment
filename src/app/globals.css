@@ -841,7 +841,9 @@ html:not([data-theme="dark"]) .glow-sweep {
 }
 /* Переход между разделами — мягкий фейд-вверх контента страницы. */
 .route-fade {
-  animation: ld-fade-up 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* Без fill-mode: залипший transform превращал fixed-потомков (плавающие
+     кнопки визарда) в приклеенные к низу СТРАНИЦЫ, а не экрана. */
+  animation: ld-fade-up 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 /* Scroll-reveal (Reveal.tsx): появление секции при заходе во вьюпорт. */
 .reveal-init {
