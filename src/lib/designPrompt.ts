@@ -182,6 +182,29 @@ export function buildDesignPrompt(slug: string): { parts: string[] } | null {
 
 // Authored path: our studio already did the design thinking. The setup hands
 // the model a locked spec, batches walk the spec's own screen plan.
+// Builder phones: each prompt renders exactly ONE screen as a full-bleed
+// 9:19.5 UI image (no device frame, no scene) so the result drops straight
+// into its phone slot. Self-contained: spec + one screen per message.
+export function buildScreenPrompts(ideaSlug: string): { title: string; prompt: string }[] | null {
+  const spec = SPECS[ideaSlug];
+  if (!spec) return null;
+  const p = spec.palette;
+  const screens = spec.screens.slice(0, 8);
+  return screens.map((sc, i) => ({
+    title: sc.title,
+    prompt: [
+      `You are a senior product designer rendering ONE screen of an iOS app from a locked design spec written by our studio. Do not redesign it, execute it with craft.`,
+      ``,
+      `EMOTIONAL TERRITORY: ${spec.territory}`,
+      `DESIGN SPEC (follow exactly): theme ${spec.theme}. Background ${p.bg}, surfaces ${p.surface}, primary text ${p.textPrimary}, secondary ${p.textSecondary}, single accent ${p.accent}.${p.note ? ` ${p.note}` : ""} Typography: ${spec.typography} Visual motif: ${spec.motif} Tab bar: ${spec.ia.tabs.join(" / ")}. iOS conventions (status bar, home indicator), believable data only, no lorem ipsum.`,
+      ``,
+      `SCREEN ${i + 1} of ${screens.length}: ${sc.title}. Purpose: ${sc.purpose} Hero: ${sc.hero}. Show: ${sc.data}`,
+      ``,
+      `OUTPUT: ONE image. A single iPhone app screen, portrait 9:19.5, flat frontal view, full-bleed UI filling the whole image. No device frame, no bezel, no hands, no background scene, no other phones. The image IS the screen.`,
+    ].join("\n"),
+  }));
+}
+
 function buildFromSpec(spec: DesignSpec): { parts: string[] } {
   const p = spec.palette;
   const setup = [

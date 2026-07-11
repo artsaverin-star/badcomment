@@ -5,7 +5,7 @@ import { getNicheName, appSlugify } from "@/lib/ratingAppSlug";
 import { getIdea } from "@/lib/ideas";
 import { ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
-import { buildDesignPrompt } from "@/lib/designPrompt";
+import { buildDesignPrompt, buildScreenPrompts } from "@/lib/designPrompt";
 import { buildCodePrompt } from "@/lib/codePrompt";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import designSpecs from "@/data/designSpecs.json";
@@ -50,6 +50,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   const s = scoreFor(ideaSlug, locale);
   const spec = (designSpecs as Record<string, Spec>)[ideaSlug];
   const design = buildDesignPrompt(ideaSlug);
+  const screenPrompts = buildScreenPrompts(ideaSlug);
   const code = buildCodePrompt(ideaSlug);
   const copy = (buildCopy as Record<string, Copy>)[ideaSlug];
 
@@ -142,8 +143,9 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
       theme: spec?.theme,
       palette: spec?.palette,
       motif: spec?.motif,
-      screens: spec?.screens?.length ?? 0,
-      parts: design?.parts ?? [],
+      screens: screenPrompts?.length ?? spec?.screens?.length ?? 0,
+      parts: screenPrompts ? screenPrompts.map((x) => x.prompt) : design?.parts ?? [],
+      screenTitles: screenPrompts ? screenPrompts.map((x) => x.title) : [],
     },
     codePrompt: code ?? "",
     channels,

@@ -57,7 +57,7 @@ export default function BuildProgress({
                   </span>
                 </span>
               ) : i === active ? (
-                <span className={`relative flex items-center justify-center self-center rounded-full shadow-[0_10px_26px_-8px_rgba(0,0,0,0.45)] ${condensed ? "size-9" : "size-16 sm:size-20"} ${STEP_GRADIENTS[i]}`}>
+                <span className={`relative flex items-center justify-center self-center rounded-full shadow-[0_10px_26px_-8px_rgba(0,0,0,0.45)] ${condensed ? "size-7" : "size-16 sm:size-20"} ${STEP_GRADIENTS[i]}`}>
                   {STEP_IMG[i]
                     // eslint-disable-next-line @next/next/no-img-element
                     ? <img src={STEP_IMG[i]!} alt="" className="absolute left-1/2 top-1/2 h-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]" />

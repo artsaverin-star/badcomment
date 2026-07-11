@@ -39,7 +39,7 @@ export type BuildData = {
     live: { term: string; hintRank: number | null; median: number; min: number; top: { title: string; ratings: number }[] }[];
     namingHint: string;
   };
-  design: { hasSpec: boolean; theme?: string; palette?: { bg: string; surface: string; accent: string; textPrimary: string }; motif?: string; screens: number; parts: string[] };
+  design: { hasSpec: boolean; theme?: string; palette?: { bg: string; surface: string; accent: string; textPrimary: string }; motif?: string; screens: number; parts: string[]; screenTitles: string[] };
   codePrompt: string;
   channels: { name: string; note: string; count: number }[];
 };
@@ -653,12 +653,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 )}
                 <span className={`text-footnote ${sub}`}>
                   {data.design.hasSpec
-                    ? <>{data.design.theme === "dark" ? (ru ? "тёмная тема" : "dark theme") : (ru ? "светлая тема" : "light theme")} · {data.design.screens} {ru ? "экранов" : "screens"} · {data.design.parts.length} {ru ? "сообщений по порядку" : "messages in order"}</>
+                    ? <>{data.design.theme === "dark" ? (ru ? "тёмная тема" : "dark theme") : (ru ? "светлая тема" : "light theme")} · {data.design.parts.length} {ru ? "экранов, промт на каждый" : "screens, one prompt each"}</>
                     : (ru ? "универсальный дизайн-бриф" : "universal design brief")}
                 </span>
               </div>
               <p className={`mt-4 max-w-[56ch] text-footnote ${sub}`}>
-                {ru ? "В каждом телефончике его промт. Копируй, вставляй в ChatGPT, а готовую картинку загрузи кликом в этот же телефончик." : "Each phone holds its prompt. Copy it, paste into ChatGPT, then click the same phone to drop the render in."}
+                {ru ? "Один промт = один экран. Копируй, вставляй в ChatGPT, получай картинку ровно под рамку и загружай её в этот же телефончик." : "One prompt = one screen. Copy, paste into ChatGPT, get an image that fits the frame and drop it back into the same phone."}
               </p>
               <div className="mt-4 flex snap-x gap-4 overflow-x-auto pb-2">
                 {data.design.parts.map((p, i) => (
@@ -671,12 +671,13 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                           <img src={shots[i]!.url} alt="" className="aspect-[9/19] w-full object-cover" />
                         </span>
                       ) : (
-                        <span className="flex aspect-[9/19] w-full items-center justify-center rounded-[22px] border-2 border-dashed border-white/25">
+                        <span className="flex aspect-[9/19] w-full flex-col items-center justify-center gap-2 rounded-[22px] border-2 border-dashed border-white/25 px-2">
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={sub}>
                             <rect x="2.9" y="5" width="18.2" height="14" rx="3.6" stroke="currentColor" strokeWidth="1.4" />
                             <circle cx="15.9" cy="9.4" r="1.5" fill="currentColor" />
                             <path d="M3.4 16.9l4.5-4.5a1.5 1.5 0 012.12 0l5.48 5.48M13.6 16l1.9-1.9a1.5 1.5 0 012.12 0l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
+                          {data.design.screenTitles[i] && <span className={`text-center text-caption ${sub}`}>{data.design.screenTitles[i]}</span>}
                         </span>
                       )}
                       {shots[i] && (
