@@ -562,7 +562,13 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                         <button type="button" aria-label={ru ? "Убрать" : "Remove"} onClick={(e) => { e.preventDefault(); setSlot(i, null); }} className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-[var(--color-bg-page)] text-[11px] font-bold text-[var(--color-text-primary)] shadow">×</button>
                       )}
                     </label>
-                    <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
+                    <div className="flex items-center gap-1.5">
+                      <CopyBtn text={p} label={`${ru ? "Промт" : "Prompt"} ${i + 1}`} copiedLabel={ru ? "Скопировано" : "Copied"} />
+                      <label className="shrink-0 cursor-pointer rounded-full border border-[color-mix(in_srgb,var(--color-bg-page)_25%,transparent)] px-3.5 py-1.5 text-caption font-semibold transition-opacity hover:opacity-85">
+                        <span className={body}>{ru ? "Загрузить" : "Upload"}</span>
+                        <input type="file" accept="image/*" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) setSlot(i, f); e.target.value = ""; }} />
+                      </label>
+                    </div>
                   </div>
                 ))}
               </div>
