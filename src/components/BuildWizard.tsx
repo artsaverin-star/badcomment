@@ -475,9 +475,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <span className={`rounded-full px-3 py-1.5 text-caption font-semibold ${inner} ${body}`}>{data.nicheName}</span>
                 {data.founder100 != null && <span className="rounded-full bg-[var(--color-accent-brand)] px-3 py-1.5 text-caption font-bold tabular-nums text-white">{ru ? "для соло-фаундера" : "solo-founder score"} {data.founder100}/100</span>}
               </div>
-              {data.ideaCover && (
+              {(shotList[0] || data.ideaCover) && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={data.ideaCover} alt="" loading="lazy" decoding="async" className="mt-6 aspect-[16/7] w-full rounded-[18px] object-cover sm:aspect-[16/6]" />
+                <img src={shotList[0]?.url ?? data.ideaCover} alt="" loading="lazy" decoding="async" className="mt-6 aspect-[16/7] w-full rounded-[18px] object-cover sm:aspect-[16/6]" />
               )}
               {shotList.length > 0 && (
                 <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-2">
