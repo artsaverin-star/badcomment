@@ -500,9 +500,9 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                 <span className={`rounded-full px-3 py-1.5 text-caption font-semibold ${inner} ${body}`}>{data.nicheName}</span>
                 {data.founder100 != null && <span className="rounded-full bg-[var(--color-accent-brand)] px-3 py-1.5 text-caption font-bold tabular-nums text-white">{ru ? "для соло-фаундера" : "solo-founder score"} {data.founder100}/100</span>}
               </div>
-              {(shotList[0] || data.ideaCover) && (
+              {!shotList.length && data.ideaCover && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={shotList[0]?.url ?? data.ideaCover} alt="" loading="lazy" decoding="async" className="mt-6 aspect-[16/7] w-full rounded-[18px] object-cover sm:aspect-[16/6]" />
+                <img src={data.ideaCover} alt="" loading="lazy" decoding="async" className="mt-6 aspect-[16/7] w-full rounded-[18px] object-cover sm:aspect-[16/6]" />
               )}
               {shotList.length > 0 && (
                 <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-2">
@@ -558,16 +558,16 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
             {/* Audience */}
             <section className={slide} style={d(3)}>
               {kicker("/build/people.webp", ru ? "Аудитория" : "Audience")}
-              <div className="mt-4 flex flex-col gap-2">
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
                 {data.crowd.map((c, i) => (
-                  <div key={i} className={`flex items-center gap-3 px-4 py-2.5 ${inner}`}>
-                    {c.cover
+                  <div key={i} className={`overflow-hidden ${inner}`}>
+                    {c.cover && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      ? <img src={c.cover} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-full object-cover" />
-                      : <span className="size-10 shrink-0 rounded-full bg-white/12" />}
-                    <div className="min-w-0">
-                      <span className="text-callout font-semibold text-white">{c.name}</span>
-                      {c.payLevel && <span className={`ml-2 text-caption ${sub}`}>{c.payLevel}</span>}
+                      <img src={c.cover} alt="" loading="lazy" decoding="async" className="aspect-[16/8] w-full object-cover" />
+                    )}
+                    <div className="p-3.5">
+                      <div className="text-callout font-semibold text-white">{c.name}</div>
+                      {c.payLevel && <div className={`mt-0.5 text-caption ${sub}`}>{c.payLevel}</div>}
                     </div>
                   </div>
                 ))}
@@ -744,7 +744,7 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
           next action is always visible without scrolling. The plan page has
           no bar: navigation lives in the clickable stepper. */}
       {!showResults && (
-      <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+14px)] z-40 flex justify-center px-4">
+      <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+28px)] z-40 flex justify-center px-4">
         <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           
           <button
