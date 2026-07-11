@@ -1,12 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getLocale } from "@/lib/i18n.server";
-import { getCategoryBySlug } from "@/lib/researchCategories";
-import { getSlugByProductId } from "@/lib/appSlugs";
-import { hasInsight } from "@/lib/readyApps";
-import active from "@/data/active-categories.json";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { isActiveCategory } from "@/lib/categoryVisibility";
 
 export const dynamic = "force-dynamic";
+
+type RApp = { title?: string; ratings?: number };
+type RSet = { name: string; nameEn?: string; apps?: RApp[] };
+const RATING = RATING_BY_SLUG as Record<string, RSet>;
 
 // Crawlable directory of every app teardown, grouped by niche. Footer-linked so
 // search engines have a path to all per-app pages (otherwise they'd be orphans).
@@ -33,18 +35,21 @@ export default async function AppsDirectory() {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
 
-  const groups = (active as string[])
-    .map((cs) => {
-      const cat = getCategoryBySlug(cs, locale);
-      if (!cat) return null;
-      const apps = cat.apps
-        .filter((a) => a.productId && hasInsight(a.productId))
-        .map((a) => ({ name: a.name, slug: getSlugByProductId(a.productId as string) }))
-        .filter((a): a is { name: string; slug: string } => !!a.slug);
+  // Built straight from the people's-rating catalog so every active niche and
+  // its analyzed apps are here — the authoritative, current source. Each app
+  // links to its niche rating page, where its verdict lives.
+  const groups = Object.entries(RATING)
+    .filter(([slug]) => isActiveCategory(slug))
+    .map(([slug, r]) => {
+      const apps = (r.apps ?? [])
+        .filter((a) => a.title)
+        .sort((a, b) => (b.ratings || 0) - (a.ratings || 0))
+        .map((a) => a.title as string);
       if (!apps.length) return null;
-      return { slug: cs, name: cat.name, apps };
+      return { slug, name: (ru ? r.name : r.nameEn) || r.name, apps };
     })
-    .filter((g): g is { slug: string; name: string; apps: { name: string; slug: string }[] } => !!g);
+    .filter((g): g is { slug: string; name: string; apps: string[] } => !!g)
+    .sort((a, b) => a.name.localeCompare(b.name, ru ? "ru" : "en"));
 
   const total = groups.reduce((s, g) => s + g.apps.length, 0);
 
@@ -54,19 +59,19 @@ export default async function AppsDirectory() {
         {ru ? "Все приложения" : "All apps"}
       </h1>
       <p className="mt-2 text-callout text-[var(--color-text-tertiary)]">
-        {ru ? `${total} приложений с разбором отзывов в ${groups.length} нишах` : `${total} apps with review breakdowns across ${groups.length} niches`}
+        {ru ? `${total.toLocaleString("ru-RU")} приложений с разбором отзывов в ${groups.length} нишах` : `${total.toLocaleString("en-US")} apps with review breakdowns across ${groups.length} niches`}
       </p>
 
       <div className="mt-10 flex flex-col gap-9">
         {groups.map((g) => (
           <section key={g.slug}>
-            <Link href={`${lp}/segment/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
+            <Link href={`${lp}/rating/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
               {g.name}
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
-              {g.apps.map((a) => (
-                <Link key={a.slug} href={`${lp}/${a.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
-                  {a.name}
+              {g.apps.map((a, i) => (
+                <Link key={i} href={`${lp}/rating/${g.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
+                  {a}
                 </Link>
               ))}
             </div>
