@@ -552,10 +552,12 @@ export default function BuildWizard({ data, locale = "ru" }: { data: BuildData; 
                           <img src={shots[i]!.url} alt="" className="aspect-[9/19] w-full object-cover" />
                         </span>
                       ) : (
-                        <span className="relative block overflow-hidden rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
-                          <span className={`block aspect-[9/19] w-full overflow-hidden p-2.5 text-left text-[8px] leading-[1.4] ${sub}`}>{p.slice(0, 600)}</span>
-                          <span className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--color-text-primary)] to-transparent" />
-                          <span className={`pointer-events-none absolute inset-x-0 bottom-2 text-center text-caption font-semibold ${body}`}>{i === 0 ? (ru ? "стиль" : "style") : `${ru ? "экраны" : "screens"} ${i}`}</span>
+                        <span className="flex aspect-[9/19] w-full items-center justify-center rounded-[22px] border-2 border-dashed border-[color-mix(in_srgb,var(--color-bg-page)_30%,transparent)]">
+                          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={sub}>
+                            <rect x="3" y="4.5" width="18" height="15" rx="3.2" stroke="currentColor" strokeWidth="1.5" />
+                            <circle cx="9" cy="10" r="1.7" stroke="currentColor" strokeWidth="1.4" />
+                            <path d="M4.5 17.5l4.6-4.4a1.6 1.6 0 012.2 0l2.4 2.3 2.1-2a1.6 1.6 0 012.2 0l3.5 3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                         </span>
                       )}
                       {shots[i] && (
