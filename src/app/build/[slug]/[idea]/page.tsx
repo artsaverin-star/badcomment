@@ -152,7 +152,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   };
 
   return (
-    <main className="mx-auto w-full max-w-[880px] px-4 pb-28 pt-16 sm:px-6 sm:pt-20">
+    <main className="mx-auto w-full max-w-[880px] px-4 pb-28 pt-4 sm:px-6 sm:pt-6">
       <BuildWizard data={data} locale={locale} />
     </main>
   );

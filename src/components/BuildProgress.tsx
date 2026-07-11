@@ -47,27 +47,27 @@ export default function BuildProgress({
           const inner = (
             <>
               {i < doneCount && i !== active ? (
-                <span className={`relative flex items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)] ${condensed ? "size-7" : "size-10 sm:size-12"}`}>
+                <span className={`relative flex items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)] transition-all duration-300 ease-out ${condensed ? "size-7" : "size-10 sm:size-12"}`}>
                   {STEP_IMG[i]
                     // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={STEP_IMG[i]!} alt="" loading="lazy" decoding="async" className={condensed ? "size-5 object-contain" : "size-8 object-contain sm:size-9"} />
+                    ? <img src={STEP_IMG[i]!} alt="" loading="lazy" decoding="async" className={`object-contain transition-all duration-300 ease-out ${condensed ? "size-5" : "size-8 sm:size-9"}`} />
                     : <span className="text-[var(--color-text-secondary)]"><PeopleIcon size={condensed ? 14 : 20} /></span>}
                   <span className={`absolute -right-0.5 -top-0.5 flex items-center justify-center rounded-full bg-[#30d158] ring-2 ring-[var(--color-bg-page)] ${condensed ? "size-3" : "size-4"}`}>
                     <svg width="9" height="9" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-white"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
                 </span>
               ) : i === active ? (
-                <span className={`relative flex items-center justify-center self-center rounded-full shadow-[0_10px_26px_-8px_rgba(0,0,0,0.45)] ${condensed ? "size-7" : "size-16 sm:size-20"} ${STEP_GRADIENTS[i]}`}>
+                <span className={`relative flex items-center justify-center self-center rounded-full shadow-[0_10px_26px_-8px_rgba(0,0,0,0.45)] transition-all duration-300 ease-out ${condensed ? "size-7" : "size-16 sm:size-20"} ${STEP_GRADIENTS[i]}`}>
                   {STEP_IMG[i]
                     // eslint-disable-next-line @next/next/no-img-element
                     ? <img src={STEP_IMG[i]!} alt="" className="absolute left-1/2 top-1/2 h-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]" />
                     : <PeopleIcon size={condensed ? 20 : 34} stroke="#fff" />}
                 </span>
               ) : (
-                <span className={`flex items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)] ${condensed ? "size-7" : "size-10 sm:size-12"}`}>
+                <span className={`flex items-center justify-center self-center rounded-full bg-[var(--color-bg-muted)] transition-all duration-300 ease-out ${condensed ? "size-7" : "size-10 sm:size-12"}`}>
                   {STEP_IMG[i]
                     // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={STEP_IMG[i]!} alt="" loading="lazy" decoding="async" className={`object-contain opacity-55 grayscale ${condensed ? "size-5" : "size-8 sm:size-9"}`} />
+                    ? <img src={STEP_IMG[i]!} alt="" loading="lazy" decoding="async" className={`object-contain opacity-55 grayscale transition-all duration-300 ease-out ${condensed ? "size-5" : "size-8 sm:size-9"}`} />
                     : <span className="opacity-55 text-[var(--color-text-tertiary)]"><PeopleIcon size={condensed ? 14 : 20} /></span>}
                 </span>
               )}
