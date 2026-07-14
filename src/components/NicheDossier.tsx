@@ -120,8 +120,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
   const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
   const bot = process.env.BOT_USERNAME || "inAppProBot";
-  const catStarsHref = access.user ? `https://t.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
-  const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
+  const catStarsHref = access.user ? `https://telegram.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
+  const lifeStarsHref = access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined;
   const aud = dossier.audience;
   const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
   // payNote is a paid conclusion: for locked users it must not reach the

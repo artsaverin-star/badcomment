@@ -12,5 +12,5 @@ export async function POST() {
   const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
   await prisma.loginToken.create({ data: { token, expiresAt } });
   const bot = process.env.BOT_USERNAME || "inAppProBot";
-  return NextResponse.json({ token, url: `https://t.me/${bot}?start=login_${token}` });
+  return NextResponse.json({ token, url: `https://telegram.me/${bot}?start=login_${token}` });
 }

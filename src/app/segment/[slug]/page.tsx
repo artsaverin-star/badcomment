@@ -228,9 +228,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
   const pregenDate = ru ? PREGEN_DATE_RU : PREGEN_DATE_EN;
   const bot = process.env.BOT_USERNAME || "inAppProBot";
-  const catStarsHref = access.user ? `https://t.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
+  const catStarsHref = access.user ? `https://telegram.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
   const catStarsLabel = `${CATEGORY_STARS} ⭐ Telegram`;
-  const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
+  const lifeStarsHref = access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined;
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const catProduct = (categoryCards(slug, locale)?.product ?? []).slice().sort((a, b) => b.count - a.count);

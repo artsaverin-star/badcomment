@@ -71,7 +71,7 @@ export default async function RootLayout({
                   alternateName: "inApp.pro",
                   logo: "https://inapp.pro/api/og?logo=1",
                   image: "https://inapp.pro/api/og?logo=1",
-                  sameAs: ["https://t.me/inAppProBot"],
+                  sameAs: ["https://telegram.me/inAppProBot"],
                   url: "https://inapp.pro",
                   description:
                     locale === "en"

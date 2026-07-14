@@ -99,9 +99,9 @@ export default async function IdeasTopPage() {
           loggedIn={loggedIn}
           locale={locale}
           deckPrice={DECK_PRICE_RUB}
-          starsHref={access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined}
+          starsHref={access.user ? `https://telegram.me/${bot}?start=deck_${access.user.id}` : undefined}
           starsLabel={`${DECK_STARS} ⭐ Telegram`}
-          lifetimeStarsHref={access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined}
+          lifetimeStarsHref={access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined}
           lifetimePrice={LIFETIME.rub}
         />
       </div>
