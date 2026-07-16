@@ -20,8 +20,8 @@ export async function generateMetadata() {
   const lp = ru ? "ru" : "en";
   const url = `https://inapp.pro/${lp}`;
   const title = ru
-    ? "Разбор категорий приложений по реальным отзывам"
-    : "App category breakdowns from real reviews";
+    ? "Идеи приложений, за которые люди уже платят — по реальным отзывам"
+    : "App ideas people already pay for — from real reviews";
   const description = ru
     ? "Читаем отзывы из App Store и Google Play по нишам и собираем в готовые разборы: что хвалят, на что злятся, каких приложений не хватает и какие идеи напрашиваются."
     : "We read App Store and Google Play reviews by niche and turn them into clear breakdowns: what users love and hate, which apps are missing, and which ideas are worth building.";
