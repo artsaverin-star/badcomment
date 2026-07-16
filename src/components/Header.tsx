@@ -12,12 +12,12 @@ import { type Locale } from "@/lib/i18n";
 // Center nav items: icon + label, active state driven by the current path.
 const NAV: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "build", href: "/", ru: "Создание", en: "Create",
-    icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
+    key: "breakdowns", href: "/", ru: "Разборы", en: "Breakdowns",
+    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
   },
   {
-    key: "breakdowns", href: "/categories", ru: "Разборы", en: "Breakdowns",
-    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
+    key: "build", href: "/build", ru: "Создание", en: "Create",
+    icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
     key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
@@ -58,10 +58,10 @@ export default function Header({
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const activeKey =
-    path.startsWith("/build") || path === "/" ? "build"
+    path.startsWith("/build") ? "build"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
-      : path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
+      : path === "/" || path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : "";
 
   return (

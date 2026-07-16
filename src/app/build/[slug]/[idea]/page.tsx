@@ -129,7 +129,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     nicheName: niche,
     nicheSlug: slug,
     hrefBack: `${lp}/build/${slug}`,
-    hrefNiches: lp,
+    hrefNiches: `${lp}/build`,
     painLine,
     painTitle: (ru ? copy?.painTitle : copy?.painTitleEn) || undefined,
     painQuote,

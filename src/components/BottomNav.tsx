@@ -8,12 +8,12 @@ import { type Locale } from "@/lib/i18n";
 // Three surfaces: ideas / breakdowns / rating, active state from the path.
 const TABS: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "build", href: "/", ru: "Создание", en: "Create",
-    icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
+    key: "breakdowns", href: "/", ru: "Разборы", en: "Breakdowns",
+    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
   },
   {
-    key: "breakdowns", href: "/categories", ru: "Разборы", en: "Breakdowns",
-    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
+    key: "build", href: "/build", ru: "Создание", en: "Create",
+    icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
     key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
@@ -31,10 +31,10 @@ export default function BottomNav({ locale }: { locale: Locale }) {
   const path = raw.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const lp = ru ? "/ru" : "/en";
   const active =
-    path.startsWith("/build") || path === "/" ? "build"
+    path.startsWith("/build") ? "build"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
-      : path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
+      : path === "/" || path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : "";
 
   // Inside the builder flow (pain picker, wizard) the wizard's own floating
