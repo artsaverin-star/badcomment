@@ -31,6 +31,8 @@ import NicheDossier from "@/components/NicheDossier";
 // Categories migrated to the new dossier layout (market + audience + honest
 // rating + breakdown + idea cards). Rolled out one niche at a time.
 const DOSSIER_SLUGS = new Set([
+  "faith-prayer-bible", "white-noise-sleep-sounds", "ai-species-identifier", "tarot-reading",
+  "ai-homework-solver", "ai-companion-roleplay", "guitar-tuner-learn", "ai-photo-restore",
   "stock-investing",
   "weight-tracker",
   "driving-test-prep",

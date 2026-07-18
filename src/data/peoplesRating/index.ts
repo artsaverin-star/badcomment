@@ -66,7 +66,17 @@ import couplesRelationship from "./couples-relationship.json";
 import hikingTrails from "./hiking-trails.json";
 import teleprompterCaptions from "./teleprompter-captions.json";
 
+import faithPrayerBible from "./faith-prayer-bible.json";
+import whiteNoiseSleepSounds from "./white-noise-sleep-sounds.json";
+import aiSpeciesIdentifier from "./ai-species-identifier.json";
+import tarotReading from "./tarot-reading.json";
+import aiHomeworkSolver from "./ai-homework-solver.json";
+import aiCompanionRoleplay from "./ai-companion-roleplay.json";
+import guitarTunerLearn from "./guitar-tuner-learn.json";
+import aiPhotoRestore from "./ai-photo-restore.json";
+
 export const RATING_BY_SLUG: Record<string, unknown> = {
+  "faith-prayer-bible": faithPrayerBible, "white-noise-sleep-sounds": whiteNoiseSleepSounds, "ai-species-identifier": aiSpeciesIdentifier, "tarot-reading": tarotReading, "ai-homework-solver": aiHomeworkSolver, "ai-companion-roleplay": aiCompanionRoleplay, "guitar-tuner-learn": guitarTunerLearn, "ai-photo-restore": aiPhotoRestore,
   "astronomy-stargazing": astronomyStargazing,
   cycling,
   "interior-design": interiorDesign,

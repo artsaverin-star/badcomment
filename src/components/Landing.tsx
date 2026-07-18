@@ -69,8 +69,9 @@ function firstSentence(t?: string) {
 // Niches shipped in the latest wave — flagged with a small «new» badge until
 // the next wave lands. Keep in sync with the newest RATING_BY_SLUG additions.
 const NEW_NICHES = new Set([
-  "astronomy-stargazing", "cycling", "interior-design", "fishing",
-  "couples-relationship", "hiking-trails", "teleprompter-captions",
+  "faith-prayer-bible", "white-noise-sleep-sounds", "ai-species-identifier",
+  "tarot-reading", "ai-homework-solver", "ai-companion-roleplay",
+  "guitar-tuner-learn", "ai-photo-restore",
 ]);
 
 function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
@@ -133,7 +134,7 @@ export default function Landing({
   // software utilities at the top, then content/AI-heavier apps, then data-dependent
   // ones, and non-replicable marketplaces/infra (ride-hailing, streaming, crypto) at
   // the bottom — great for SEO but impossible to build solo.
-  const ULTRA = ["astronomy-stargazing", "cycling", "interior-design", "fishing", "couples-relationship", "hiking-trails", "teleprompter-captions", "stock-investing", "weight-tracker", "driving-test-prep", "step-counter", "blood-pressure-log", "pregnancy-tracker", "meal-prep-grocery", "wardrobe-outfit", "car-maintenance", "ai-image-generation", "password-manager", "pet-care", "water-hydration", "wallpapers-widgets", "qr-scanner", "mind-mapping", "scanner-pdf", "ai-chatbot", "intermittent-fasting", "flashcards", "translator", "run-tracking", "voice-recorder", "resume-builder", "invoice-maker", "sobriety", "ai-writing", "journaling-mood", "focus-productivity", "habit-tracking", "notes-pkm", "sleep-tracking", "recipes-meal-planning", "plant-care", "baby-tracking", "workout-fitness", "calendars-tasks", "period-cycle", "nutrition-calories", "personal-finance", "meditation-mindfulness", "astrology", "photo-editing", "ai-avatars-headshots", "language-learning", "weather-apps", "travel-planning", "shopping-ecommerce", "food-delivery", "ride-hailing", "dating-apps", "messaging-apps", "music-streaming", "video-streaming", "crypto-investing"];
+  const ULTRA = ["faith-prayer-bible", "white-noise-sleep-sounds", "ai-species-identifier", "tarot-reading", "ai-homework-solver", "ai-companion-roleplay", "guitar-tuner-learn", "ai-photo-restore", "astronomy-stargazing", "cycling", "interior-design", "fishing", "couples-relationship", "hiking-trails", "teleprompter-captions", "stock-investing", "weight-tracker", "driving-test-prep", "step-counter", "blood-pressure-log", "pregnancy-tracker", "meal-prep-grocery", "wardrobe-outfit", "car-maintenance", "ai-image-generation", "password-manager", "pet-care", "water-hydration", "wallpapers-widgets", "qr-scanner", "mind-mapping", "scanner-pdf", "ai-chatbot", "intermittent-fasting", "flashcards", "translator", "run-tracking", "voice-recorder", "resume-builder", "invoice-maker", "sobriety", "ai-writing", "journaling-mood", "focus-productivity", "habit-tracking", "notes-pkm", "sleep-tracking", "recipes-meal-planning", "plant-care", "baby-tracking", "workout-fitness", "calendars-tasks", "period-cycle", "nutrition-calories", "personal-finance", "meditation-mindfulness", "astrology", "photo-editing", "ai-avatars-headshots", "language-learning", "weather-apps", "travel-planning", "shopping-ecommerce", "food-delivery", "ride-hailing", "dating-apps", "messaging-apps", "music-streaming", "video-streaming", "crypto-investing"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
