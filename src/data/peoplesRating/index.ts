@@ -75,7 +75,11 @@ import aiCompanionRoleplay from "./ai-companion-roleplay.json";
 import guitarTunerLearn from "./guitar-tuner-learn.json";
 import aiPhotoRestore from "./ai-photo-restore.json";
 
+import yoga from "./yoga.json";
+import cosmeticsIngredientChecker from "./cosmetics-ingredient-checker.json";
+
 export const RATING_BY_SLUG: Record<string, unknown> = {
+  yoga, "cosmetics-ingredient-checker": cosmeticsIngredientChecker,
   "faith-prayer-bible": faithPrayerBible, "white-noise-sleep-sounds": whiteNoiseSleepSounds, "ai-species-identifier": aiSpeciesIdentifier, "tarot-reading": tarotReading, "ai-homework-solver": aiHomeworkSolver, "ai-companion-roleplay": aiCompanionRoleplay, "guitar-tuner-learn": guitarTunerLearn, "ai-photo-restore": aiPhotoRestore,
   "astronomy-stargazing": astronomyStargazing,
   cycling,

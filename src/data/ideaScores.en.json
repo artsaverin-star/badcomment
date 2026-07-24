@@ -2302,5 +2302,69 @@
  "ai-photo-restore-8": {
   "whyPay": "People show up not with one photo but with a box of 18 shots: genealogy, autobiography, family legacy. Competitors either do not allow a batch or cut it down to six photos at weak quality (a direct review about a batch of 6 and a downgraded 2x instead of 4x). The people who pay to process a whole album without manual grind are the ones with hundreds of photos, and they praise a straight one-time price with no coins and no limits. Willingness to pay is good, closer to wholesale. Technically a batch on its own is not hard, but it runs into the cost and parallelism of processing: a queue, progress, background work, resilience to failures across dozens of images. There is more logistics here than ML, which is why simplicity sits in the middle.",
   "targetSegment": "People going through a whole archive for genealogy and an autobiography"
+ },
+ "yoga-1": {
+  "whyPay": "The biggest pain in this niche: the video rushes ahead while the person can't keep up. People happily pay one-time fees for yoga apps here (Pocket Yoga, the old Simply Yoga), and they openly praise the one-time payment model. Technically simple: a set of pose images, a hold timer, manual progression by tap or voice, all logic on-device. The money ceiling: people pay a one-time $5-10 for self-paced control, not a premium subscription, so the ticket is modest.",
+  "targetSegment": "beginners and older users who quit fast-paced video classes and have been writing for years that yoga needs to be unhurried"
+ },
+ "yoga-2": {
+  "whyPay": "Experienced practitioners keep an app for years to build their own sequences and pay for a sequence builder (Pocket Yoga and Pocket Yoga Teacher charge $8-15 one-time). Willingness to pay is above average: this is a tool, not content, and YouTube can't replace it. Technically harder than idea one: you need a pose library with Sanskrit names, drag-and-drop assembly, reliable sequence storage that survives updates, and file export, but it all works offline with no backend.",
+  "targetSegment": "advanced practitioners and teachers who build their own sequences and get frustrated when the builder gets stripped down or their sequences get wiped"
+ },
+ "yoga-3": {
+  "whyPay": "Real pain (no staring at the screen, screen won't dim), but people solve it with cheap workarounds rather than a separate paid product. Users value a calm voice over video, but that translates to a one-time $5-10, not a premium subscription. The main money risk: voiceover must be recorded by a real human (reviews specifically call out robotic voices), which means manual work for every session. Technically mid-level: keep-awake, large pose images, an audio player, and battery savings are all doable, but content production bottlenecks on voice recording.",
+  "targetSegment": "practitioners tired of holding the phone and glancing at the screen throughout a session, who prefer to practice with their eyes closed"
+ },
+ "yoga-4": {
+  "whyPay": "Demand is proven: the only competitor, Yoga Wake Up, built a fanbase around the morning yoga alarm format and charges a subscription. People are willing to pay $4-6 a month. But execution is the real risk: the entire value is a reliable alarm, and that is exactly where the competitor fails (it misfires in half of cases). On iOS, a background audio alarm is technically finicky (background execution limits, earbuds dropping out), and a solo developer can easily reproduce the same bug. This is the most engineering-risky slot in the niche.",
+  "targetSegment": "fans of a gentle wake-up with yoga in bed who have been burned by the unreliable alarm in the only similar app"
+ },
+ "yoga-5": {
+  "whyPay": "The biggest audience in the niche: true beginners arrive constantly, and the 'beginner' label on competitor apps is a lie. People pay $5-8 a month or $30-50 one-time for a real from-scratch onboarding course, and willingness is high because the alternative is a studio that costs much more. Technically doable, but content-heavy: step-by-step breakdowns of how to enter each pose, easier variations, and a mandatory warm-up. The main work is not code but quality instructional content and filming pose variations.",
+  "targetSegment": "people on the mat for the first time or returning after a long break who got burned by a dishonest beginner label or picked up an injury"
+ },
+ "yoga-6": {
+  "whyPay": "People listen to yoga nidra every night and pay for it, while competitors sell literally one track disguised as a library and users call it a scam. Willingness to pay is medium-plus: $3-5 a month or $10-20 one-time for a proper library. Technically the simplest idea in the niche: an audio player, a track catalog, music fade-out, long pauses, sleep fade, all offline. The money ceiling: YouTube has plenty of free nidra, so competing means winning on quality and volume of recordings.",
+  "targetSegment": "people with insomnia and anxiety who listen to yoga nidra every night to fall asleep and are fed up with a single paid track"
+ },
+ "yoga-7": {
+  "whyPay": "The pain is real (a paid subscription is useless without a connection), but people pay here for content, and all the content is video classes. A solo developer has no source for a large library of quality yoga videos, and licensing or filming is expensive. That means a backend, storage, and rights issues. Subscriptions in the niche run $5-8 a month, but offline is a feature, not a product on its own. The lowest simplicity score in the niche because of the video infrastructure and content barrier that a solo founder honestly cannot clear.",
+  "targetSegment": "frequent travelers and people with poor connectivity who are frustrated that their paid subscription is useless without internet"
+ },
+ "yoga-8": {
+  "whyPay": "The strongest willingness to pay in the niche: people with bad knees, back pain, arthritis, or post-surgery recovery are afraid of hurting themselves and pay to feel taken care of. A $5-8 monthly subscription or $30-50 one-time is normal for them. The pain is sharp and shows up repeatedly in reviews of competitors who ask about limitations and then ignore them entirely. Technically mid-level: you need a matching engine that genuinely excludes dangerous poses and substitutes alternatives, plus a pose library tagged by body part and chair yoga options, but all of it runs on-device.",
+  "targetSegment": "people with bad knees, back pain, joint issues, and older adults who chose chair yoga and got burned by an empty promise to respect their limitations"
+ },
+ "cosmetics-ingredient-checker-1": {
+  "whyPay": "People explicitly ask for paste-from-clipboard in EWG and Clearya reviews, and it is not there, so demand is proven in their own words. They pay because online cosmetics shopping is mainstream and camera scanners are useless for it. The real engineering challenge is not the input field but the ingredient knowledge base and reliable INCI parsing from messy marketplace text. Labeling 5,000 to 10,000 components from open INCI databases is doable solo, but it takes weeks, not a weekend.",
+  "targetSegment": "Online cosmetics shoppers who check ingredient lists right inside a marketplace product page before placing an order."
+ },
+ "cosmetics-ingredient-checker-2": {
+  "whyPay": "The highest-revenue idea in the pack: the audience has a medical need confirmed by a dermatologist after patch testing, the cost of a mistake is a week-long rash, so they pay willingly and complain that the basic check is hidden behind a subscription. Technically harder than the others: you need synonym normalization for trade names of the same substance (methylisothiazolinone hides under a dozen labels), otherwise the checker silently misses an allergen and destroys trust. Importing a patch-test report from a photo requires a separate OCR module. The synonym database can be assembled from CosIng and reference guides, but it demands care.",
+  "targetSegment": "People with contact dermatitis, eczema, or confirmed allergies to specific substances who arrive with a patch-test list from their dermatologist."
+ },
+ "cosmetics-ingredient-checker-3": {
+  "whyPay": "Users praise Thea for ingredient compatibility (one person learned vitamin C conflicts with exfoliants and regrets not knowing sooner), and someone is furious that SkinSort has no conflict checker at all. People pay for a focused tool that exists nowhere else on its own. Technically harder than a dictionary: you have to parse the key actives by concentration from a full INCI list, build a conflict matrix for retinol, acids, vitamin C, and niacinamide, and account for prescription tretinoin. The conflict matrix itself is small and can be built by hand, but extracting actives reliably from raw INCI strings takes careful logic.",
+  "targetSegment": "Multi-step skincare enthusiasts who are building a morning and evening routine from several active products."
+ },
+ "cosmetics-ingredient-checker-4": {
+  "whyPay": "People love INCI and Clearya for plain-language explanations without scare tactics, and criticize Yuka for using alarming words nobody recognizes. This is the most appreciated value in the niche, but it is also the closest to free: people pay less for a glossary than for a personal check tied to their specific concern, so willingness to pay is lower, which explains the modest money score. Technically simpler than most ideas: the core is a quality ingredient card database with source citations, plus parsing and search. The main work is editorial, not engineering, though keeping it accurate over time is expensive.",
+  "targetSegment": "Anxious skincare beginners who are overwhelmed by chemical names and want a calm, plain-English explanation without panic."
+ },
+ "cosmetics-ingredient-checker-5": {
+  "whyPay": "K-beauty fans spend a lot on the products themselves (Beauty of Joseon, COSRX, Anua), but scanners fail on Korean items: OnSkin cannot find almost every K-beauty product, and Lovi markets itself as Korean-friendly but does not actually cover them. Just being able to check an Asian product is a relief for these users. It is an active buying audience that nobody serves. Technically moderate: paste-from-clipboard removes the out-of-database problem, but you need coverage of typical Asian ingredient labeling and a fungal-acne-safe flag, which requires a separate trigger database.",
+  "targetSegment": "Korean and Asian skincare fans who order K-beauty products and cannot find them in Western ingredient scanners."
+ },
+ "cosmetics-ingredient-checker-6": {
+  "whyPay": "Side-by-side comparison was a favorite SkinSort feature, it was moved behind a paywall, and a user complained about this directly, so demand is proven. But the task is one-time and situational (choosing between two bottles at a shelf), and willingness to pay for that specifically is lower than for a tool tied to an ongoing personal concern, which is why the money score is restrained. Technically the simplest idea in the pack: two input fields, the same ingredient parsing used by the other tools, and a column diff of the two lists. No new backend beyond the shared ingredient dictionary, everything runs on the client.",
+  "targetSegment": "Thoughtful shoppers who are torn between two similar products at the shelf or on a brand website."
+ },
+ "cosmetics-ingredient-checker-7": {
+  "whyPay": "A narrow audience with an acute pain point: fungal acne and perioral dermatitis often appear together, but products address only one of them. Users directly ask Skan to add a fungal-acne-safe check, and it is not there. The cost of a mistake is days of broken skin, so people pay readily despite the small segment size. Technically harder than a glossary: you need a curated trigger database (which oils and esters feed Malassezia, what dilates vessels in rosacea) and logic that highlights issues across multiple selected conditions at once. The trigger list is finite and can be compiled from public sources, but accuracy is critical.",
+  "targetSegment": "People with fungal acne, perioral dermatitis, or rosacea whose skin is easily aggravated by a new product."
+ },
+ "cosmetics-ingredient-checker-8": {
+  "whyPay": "Two real pain points: SkinSort users ask for a way to track when they opened and finished a product, and INCI gets praised for remembering the formula after the box is thrown away. People with large collections want to stop buying a fifth serum they already own. But a shelf tracker is a utility organizer, and people pay less for it than for a check tied to a medical concern, so willingness to pay sits in the lower half. Technically moderate: ingredient parsing plus local shelf storage, an open date, PAO-based expiry calculation, and local reminders. Everything stays on-device without a complex backend, but there are many features, which pulls simplicity down compared to single-function ideas.",
+  "targetSegment": "People with large cosmetics collections who lose track of packaging and forget what they opened and when."
  }
 }
