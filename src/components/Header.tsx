@@ -27,6 +27,10 @@ const NAV: { key: string; href: string; ru: string; en: string; icon: React.Reac
     key: "rating", href: "/rating", ru: "Рейтинг", en: "Rating",
     icon: <path d="M12 3.5l2.6 5.3 5.9.86-4.25 4.15 1 5.87L12 17.1l-5.25 2.76 1-5.87L3.5 9.66l5.9-.86L12 3.5Z" />,
   },
+  {
+    key: "reviews", href: "/reviews", ru: "Отзывы", en: "Reviews",
+    icon: <><path d="M21 11.5a8.38 8.38 0 0 1-9 8.32L3 21l1.18-9A8.5 8.5 0 1 1 21 11.5Z" /><path d="M8 10h8M8 13.5h5" /></>,
+  },
 ];
 
 // Floating header. At the top it's chrome-less; on scroll it condenses into a
@@ -61,6 +65,7 @@ export default function Header({
     path.startsWith("/build") ? "build"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
+      : path.startsWith("/reviews") ? "reviews"
       : path === "/" || path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : "";
 
