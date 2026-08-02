@@ -1,53 +1,129 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
-import ReviewBrowser, { type Theme } from "@/components/ReviewBrowser";
-import reviewsIndex from "@/data/reviewsIndex.json";
+import { getNiche, nicheName, split, loudest } from "@/lib/reviews";
+import { plural } from "@/lib/format";
+import { isActiveCategory } from "@/lib/categoryVisibility";
+import PolarityBar from "@/components/PolarityBar";
+import NicheAppList from "@/components/NicheAppList";
 
 export const dynamic = "force-dynamic";
 
-type App = { id: string; title: string; total: number; themes: Theme[] };
-type Idx = Record<string, { name: string; apps: App[] }>;
-const IDX = reviewsIndex as Idx;
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const niche = IDX[slug];
-  const ru = (await getLocale()) !== "en";
+  const niche = getNiche(slug);
   if (!niche) return {};
-  const title = ru ? `Отзывы: ${niche.name} — inApp` : `Reviews: ${niche.name} — inApp`;
-  return { title, alternates: { canonical: `/reviews/${slug}` } };
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const name = nicheName(niche, locale);
+  const reviews = niche.apps.reduce((s, a) => s + a.total, 0);
+  const title = ru ? `Отзывы: ${name} — inApp` : `Reviews: ${name} — inApp`;
+  const description = ru
+    ? `${reviews.toLocaleString("ru-RU")} отзывов о ${niche.apps.length} приложениях ниши «${name}», разобранных по темам: что хвалят и на что жалуются.`
+    : `${reviews.toLocaleString("en-US")} reviews across ${niche.apps.length} "${name}" apps, broken down by theme: what people praise and what they complain about.`;
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/reviews/${slug}`,
+      languages: {
+        ru: `https://inapp.pro/ru/reviews/${slug}`,
+        en: `https://inapp.pro/en/reviews/${slug}`,
+        "x-default": `https://inapp.pro/en/reviews/${slug}`,
+      },
+    },
+    openGraph: { title, description, type: "website", siteName: "inApp" },
+  };
 }
 
 export default async function NicheReviews({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const niche = IDX[slug];
+  const niche = getNiche(slug);
   if (!niche) notFound();
-  const ru = (await getLocale()) !== "en";
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const lc = ru ? "ru-RU" : "en-US";
+  const lp = ru ? "/ru" : "/en";
+
+  const allThemes = niche.apps.flatMap((a) => a.themes);
+  const s = split(allThemes);
+  const reviews = niche.apps.reduce((n, a) => n + a.total, 0);
+  const topPain = loudest(niche.apps, "pain");
+  const topLove = loudest(niche.apps, "love");
+  const linked = isActiveCategory(slug);
+
+  const apps = niche.apps.map((a) => ({
+    id: a.id,
+    title: a.title,
+    total: a.total,
+    icon: a.icon,
+    themes: a.themes,
+    split: split(a.themes),
+  }));
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
-      <BackLink fallback={`${ru ? "/ru" : "/en"}/reviews`}>{ru ? "Отзывы" : "Reviews"}</BackLink>
-      <h1 className="mt-3 text-display font-bold text-[var(--color-text-primary)]">{niche.name}</h1>
-      <p className="mt-2 text-footnote text-[var(--color-text-tertiary)]">
-        <span className="tabular-nums">{niche.apps.length}</span> {ru ? "приложений, отзывы по темам" : "apps, reviews by theme"}
-      </p>
+      <BackLink fallback={`${lp}/reviews`}>{ru ? "Отзывы" : "Reviews"}</BackLink>
 
-      <ol className="mt-8 flex flex-col gap-8">
-        {niche.apps.map((a, i) => (
-          <li key={a.id} className="border-t border-[var(--color-border-subtle)] pt-6 first:border-t-0 first:pt-0">
-            <div className="flex items-baseline gap-2">
-              <span className="tabular-nums text-footnote text-[var(--color-text-tertiary)]">№{i + 1}</span>
-              <h2 className="text-headline text-[var(--color-text-primary)]">{a.title}</h2>
-              <span className="ml-auto shrink-0 text-caption text-[var(--color-text-tertiary)]">
-                <span className="tabular-nums">{a.total}</span> {ru ? "отзывов" : "reviews"}
-              </span>
+      <h1 className="mt-3 text-title1 text-[var(--color-text-primary)]">{nicheName(niche, locale)}</h1>
+      <p className="mt-2 text-footnote text-[var(--color-text-tertiary)]">
+        <span className="tabular-nums">{niche.apps.length}</span> {ru ? plural(niche.apps.length, "приложение", "приложения", "приложений") : "apps"} ·{" "}
+        <span className="tabular-nums">{reviews.toLocaleString(lc)}</span> {ru ? plural(reviews, "отзыв", "отзыва", "отзывов") : "reviews"} ·{" "}
+        <span className="tabular-nums">{allThemes.length}</span> {ru ? plural(allThemes.length, "тема", "темы", "тем") : "themes"}
+      </p>
+      {niche.apps.length < (niche.appsPlanned || 0) && (
+        <p className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">
+          <span className="mr-1.5 inline-block size-1.5 animate-pulse rounded-full bg-[var(--color-accent-brand)] align-middle" />
+          {ru
+            ? `Ниша ещё размечается, готово ${niche.apps.length} из ${niche.appsPlanned}.`
+            : `Still labelling this niche: ${niche.apps.length} of ${niche.appsPlanned} apps done.`}
+        </p>
+      )}
+
+      <PolarityBar split={s} className="mt-4" />
+      <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-caption text-[var(--color-text-tertiary)]">
+        <span>{ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span></span>
+        <span>{ru ? "смешанно" : "mixed"} <span className="tabular-nums">{Math.round(s.mixedPct)}%</span></span>
+        <span>{ru ? "ругают" : "complain"} <span className="tabular-nums">{Math.round(s.painPct)}%</span></span>
+      </div>
+
+      {(topPain || topLove) && (
+        <dl className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {topLove && (
+            <div className="card-min rounded-2xl px-4 py-3">
+              <dt className="text-caption text-[var(--color-text-tertiary)]">{ru ? "чаще всего хвалят" : "most praised"}</dt>
+              <dd className="mt-1 text-footnote text-[var(--color-text-primary)]">
+                {ru ? topLove.name : topLove.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topLove.count}</span>
+              </dd>
             </div>
-            <ReviewBrowser slug={slug} id={a.id} themes={a.themes} total={a.total} ru={ru} />
-          </li>
-        ))}
-      </ol>
+          )}
+          {topPain && (
+            <div className="card-min rounded-2xl px-4 py-3">
+              <dt className="text-caption text-[var(--color-text-tertiary)]">{ru ? "чаще всего ругают" : "most complained about"}</dt>
+              <dd className="mt-1 text-footnote text-[var(--color-text-primary)]">
+                {ru ? topPain.name : topPain.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topPain.count}</span>
+              </dd>
+            </div>
+          )}
+        </dl>
+      )}
+
+      {linked && (
+        <nav className="mt-5 flex flex-wrap gap-2">
+          <Link href={`${lp}/rating/${slug}`} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+            {ru ? "Народный рейтинг ниши" : "People's rating"}
+          </Link>
+          <Link href={`${lp}/segment/${slug}`} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+            {ru ? "Разбор ниши" : "Niche breakdown"}
+          </Link>
+        </nav>
+      )}
+
+      <div className="mt-8">
+        <NicheAppList slug={slug} apps={apps} ru={ru} />
+      </div>
     </main>
   );
 }

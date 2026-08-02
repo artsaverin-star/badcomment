@@ -4,6 +4,7 @@ import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { PEOPLES_RATING_SLUGS } from "@/lib/ultra";
+import reviewsIndex from "@/data/reviewsIndex.json";
 
 const BASE = "https://inapp.pro";
 
@@ -25,8 +26,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Every app's reviews-by-theme page is a real page of primary source text —
+  // exactly what search engines and LLMs cite, so all of them go in.
+  const reviewNiches = Object.entries(reviewsIndex as Record<string, { apps: { id: string }[] }>);
+
   const paths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
+    { p: "/mcp", priority: 0.8 },
+    { p: "/reviews", priority: 0.9 },
+    ...reviewNiches.map(([s]) => ({ p: `/reviews/${s}`, priority: 0.8 })),
+    ...reviewNiches.flatMap(([s, n]) => n.apps.map((a) => ({ p: `/reviews/${s}/${a.id}`, priority: 0.6 }))),
     { p: "/build", priority: 0.9 },
     { p: "/ideas", priority: 0.95 },
     { p: "/rating", priority: 0.95 },
