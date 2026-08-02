@@ -102,27 +102,24 @@ export default function Header({
         </Link>
 
         {/* Center nav — absolutely centered so it stays put regardless of the
-            side widths. Hidden on small screens; the footer keeps the links. */}
-        {/* When the row gets tight (offer badge + sign-in on the right) the
-            item icons go first, then the last label ellipsizes — the nav never
-            slides under the controls. */}
-        <nav className="absolute left-1/2 hidden max-w-[40vw] -translate-x-1/2 items-center gap-1 md:flex min-[1200px]:max-w-none">
-          {NAV.map((n, i) => {
+            side widths. Six sections need real room, so it only renders on wide
+            screens (≥1200px); everything narrower gets the burger sheet. */}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 min-[1200px]:flex">
+          {NAV.map((n) => {
             const active = n.key === activeKey;
-            const last = i === NAV.length - 1;
             return (
               <Link
                 key={n.key}
                 href={`${lp}${n.href === "/" ? "" : n.href}`}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${last ? "min-w-0" : "shrink-0"} ${
+                className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active
                     ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
                     : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="hidden shrink-0 min-[1100px]:block">{n.icon}</svg>
-                <span className={last ? "truncate" : undefined}>{ru ? n.ru : n.en}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">{n.icon}</svg>
+                {ru ? n.ru : n.en}
               </Link>
             );
           })}
@@ -137,7 +134,7 @@ export default function Header({
             aria-label={menuOpen ? (ru ? "Закрыть меню" : "Close menu") : ru ? "Меню" : "Menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className="flex size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] md:hidden"
+            className="flex size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] min-[1200px]:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -155,9 +152,9 @@ export default function Header({
             aria-hidden="true"
             tabIndex={-1}
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 z-30 cursor-default bg-black/40 [animation:sheet-backdrop-in_.2s_ease] md:hidden"
+            className="fixed inset-0 z-30 cursor-default bg-black/40 [animation:sheet-backdrop-in_.2s_ease] min-[1200px]:hidden"
           />
-          <div className="absolute inset-x-3 top-full z-40 mt-2 origin-top rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)] [animation:sheet-down_.22s_cubic-bezier(0.32,0.72,0,1)] md:hidden">
+          <div className="absolute inset-x-3 top-full z-40 mt-2 origin-top rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)] [animation:sheet-down_.22s_cubic-bezier(0.32,0.72,0,1)] sm:left-auto sm:right-4 sm:w-80 min-[1200px]:hidden">
             <nav className="flex flex-col">
               {NAV.map((n) => {
                 const active = n.key === activeKey;

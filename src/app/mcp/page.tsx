@@ -14,6 +14,11 @@ import CopyLine from "@/components/CopyLine";
 export const dynamic = "force-dynamic";
 
 const ENDPOINT = "https://inapp.pro/api/mcp";
+// The plain commands — no key inside. The server answers 401 with OAuth
+// discovery, the client opens the browser, the user signs in and allows.
+const CLI = `claude mcp add inapp --scope user --transport http ${ENDPOINT}`;
+const CURSOR_JSON = `{"mcpServers":{"inapp":{"url":"${ENDPOINT}"}}}`;
+// Manual fallback for clients without OAuth support.
 const cli = (k: string) => `claude mcp add inapp --scope user --transport http ${ENDPOINT} --header "Authorization: Bearer ${k}"`;
 const cursorJson = (k: string) => `{"mcpServers":{"inapp":{"url":"${ENDPOINT}","headers":{"Authorization":"Bearer ${k}"}}}}`;
 
@@ -166,7 +171,7 @@ export default async function McpPage() {
         },
         {
           q: "Нужен ли аккаунт?",
-          a: "Да. Сервер работает по личному ключу, ключ появляется после входа на сайт. Инструменты отвечают после оплаты пожизненного доступа.",
+          a: "Да. При подключении клиент откроет браузер, войдёшь на сайте и нажмёшь «Разрешить», ключ прилетит в редактор сам. Инструменты отвечают после оплаты пожизненного доступа.",
         },
         {
           q: "Откуда данные?",
@@ -192,7 +197,7 @@ export default async function McpPage() {
         },
         {
           q: "Do I need an account?",
-          a: "Yes. The server runs on a personal key, and the key appears once you sign in on the site. The tools answer after the lifetime purchase.",
+          a: "Yes. On connect the client opens the browser, you sign in on the site and tap allow, and the key lands in your editor by itself. The tools answer after the lifetime purchase.",
         },
         {
           q: "Where does the data come from?",
@@ -246,15 +251,14 @@ export default async function McpPage() {
       </div>
 
       <div className="mt-8">
-        {paid && key ? (
-          <>
-            <CopyLine value={cli(key)} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} mask ru={ru} />
-            <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
-              {ru ? "Другой клиент? Ниже пошаговое подключение." : "Another client? Step-by-step setup below."}
-            </p>
-          </>
-        ) : (
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+        <CopyLine value={CLI} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} ru={ru} />
+        <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
+          {ru
+            ? "Ключ вставлять не нужно: клиент сам откроет браузер, войдёшь и нажмёшь «Разрешить»."
+            : "No key to paste: the client opens the browser, you sign in and tap allow."}
+        </p>
+        {!paid && (
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
             <BuyButton loggedIn={!!user} locale={locale} />
             <p className="max-w-[38ch] text-footnote text-[var(--color-text-secondary)]">
               {ru
@@ -322,35 +326,28 @@ export default async function McpPage() {
 
       <Section kicker={ru ? "Подключение" : "Setup"} title={ru ? "Три шага, около минуты" : "Three steps, about a minute"}>
         <ol className="flex flex-col gap-8">
-          <Step n={1} title={ru ? "Открой доступ" : "Get access"}>
-            {paid ? (
-              <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-                {ru ? "Доступ уже открыт. Личный ключ и команды ниже." : "Access is already open. Your key and the commands are below."}
-              </p>
-            ) : (
-              <div className="flex flex-col items-start gap-3">
-                <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-                  {ru
-                    ? `Войди и оплати пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и MCP-сервер навсегда.`
-                    : `Sign in and pay for lifetime access: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the MCP server forever.`}
-                </p>
-                <BuyButton loggedIn={!!user} locale={locale} />
-              </div>
-            )}
-          </Step>
-          <Step n={2} title={ru ? "Добавь сервер с личным ключом" : "Add the server with your key"}>
+          <Step n={1} title={ru ? "Добавь сервер" : "Add the server"}>
             <div className="flex flex-col gap-4">
-              <CopyLine value={cli(key ?? (ru ? "КЛЮЧ" : "YOUR_KEY"))} label="Claude Code" mask={!!key} ru={ru} />
-              <CopyLine value={cursorJson(key ?? (ru ? "КЛЮЧ" : "YOUR_KEY"))} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} mask={!!key} ru={ru} />
+              <CopyLine value={CLI} label="Claude Code" ru={ru} />
+              <CopyLine value={CURSOR_JSON} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} ru={ru} />
               <p className="text-caption text-[var(--color-text-tertiary)]">
                 {ru ? "Любой другой клиент: адрес сервера " : "Any other client: server URL "}
                 <code className="font-mono text-[var(--color-text-secondary)]">{ENDPOINT}</code>
-                {ru
-                  ? ", транспорт http, ключ в заголовке Authorization."
-                  : ", http transport, the key in the Authorization header."}
-                {!key && (ru ? " Ключ появится здесь после входа." : " The key appears here after you sign in.")}
+                {ru ? ", транспорт http." : ", http transport."}
               </p>
             </div>
+          </Step>
+          <Step n={2} title={ru ? "Авторизуйся в браузере" : "Authorize in the browser"}>
+            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+              {ru
+                ? "При первом обращении клиент откроет сайт: войди и нажми «Разрешить». В Claude Code это меню /mcp, пункт inapp, кнопка Authenticate. Инструменты отвечают на аккаунте с пожизненным доступом."
+                : "On first use the client opens the site: sign in and tap allow. In Claude Code that is the /mcp menu, the inapp entry, the Authenticate button. The tools answer on an account with lifetime access."}
+            </p>
+            {!paid && (
+              <div className="mt-3">
+                <BuyButton loggedIn={!!user} locale={locale} />
+              </div>
+            )}
           </Step>
           <Step n={3} title={ru ? "Спрашивай обычным языком" : "Ask in plain language"}>
             <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
@@ -402,15 +399,17 @@ export default async function McpPage() {
         </p>
       </Section>
 
-      <Section kicker={ru ? "Ключ" : "Key"} title={ru ? "Личный ключ" : "Your personal key"}>
+      <Section kicker={ru ? "Ключ" : "Key"} title={ru ? "Ключ вручную, если клиент без OAuth" : "Manual key, for clients without OAuth"}>
         <p className="max-w-[62ch] text-callout text-[var(--color-text-secondary)]">
           {ru
-            ? "Сервер работает по личному ключу. Ключ привязан к аккаунту: одна оплата открывает одни и те же данные на сайте и в редакторе."
-            : "The server runs on a personal key. It is tied to your account: one payment opens the same data on the site and in your editor."}
+            ? "Авторизация через браузер выдаёт тот же личный ключ автоматически. Если твой клиент её не умеет, вставь ключ руками: одна оплата открывает одни и те же данные на сайте и в редакторе."
+            : "The browser flow hands out the same personal key automatically. If your client can't do it, paste the key by hand: one payment opens the same data on the site and in your editor."}
         </p>
         {key ? (
           <div className="mt-5 flex flex-col gap-3">
             <CopyLine value={key} label={ru ? "Твой личный ключ" : "Your personal key"} mask ru={ru} />
+            <CopyLine value={cli(key)} label={ru ? "Claude Code с ключом" : "Claude Code with the key"} mask ru={ru} />
+            <CopyLine value={cursorJson(key)} label={ru ? "Cursor с ключом" : "Cursor with the key"} mask ru={ru} />
             {!paid && (
               <p className="text-caption text-[var(--color-text-tertiary)]">
                 {ru ? "Инструменты ответят после оплаты пожизненного доступа." : "The tools start answering after the lifetime purchase."}

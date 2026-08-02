@@ -25,7 +25,7 @@ Typical flow: list_niches to find the category, get_niche_brief for the market a
 
 Every count traces to reviews we actually read, and quotes are verbatim. Nothing here is generated from a model's guess about the market.
 
-The server is part of the paid tier: one lifetime payment on the site opens everything, MCP included. Pass the personal key as an Authorization: Bearer header. Keys live at https://inapp.pro/ru/mcp.`;
+The server is part of the paid tier: one lifetime payment on the site opens everything, MCP included. Connect via your client's OAuth flow (sign in in the browser when prompted), or pass the personal key from https://inapp.pro/ru/mcp as an Authorization: Bearer header.`;
 
 type Idx = Record<string, { name: string; nameEn?: string; apps: { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string }[] }>;
 const IDX = reviewsIndex as unknown as Idx;

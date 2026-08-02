@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { userFromAuthHeader } from "@/lib/mcp/apiKey";
+import { requestOrigin } from "@/lib/mcp/oauth";
 import { TOOLS, callTool, SERVER_INSTRUCTIONS } from "@/lib/mcp/tools";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +35,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "forbidden origin" }, { status: 403 });
   }
 
+  // No valid token → 401 with the OAuth discovery pointer (спека MCP auth).
+  // The client opens the browser, the user signs in on the site and taps
+  // «Разрешить», and the client comes back with the personal key as a Bearer
+  // token. Manually pasted keys travel the exact same header.
+  const auth = req.headers.get("authorization");
+  const user = await userFromAuthHeader(auth);
+  if (!user) {
+    const site = requestOrigin(req);
+    return NextResponse.json(
+      { error: auth?.trim() ? "invalid_token" : "authorization_required" },
+      {
+        status: 401,
+        headers: { "www-authenticate": `Bearer resource_metadata="${site}/.well-known/oauth-protected-resource"` },
+      },
+    );
+  }
+
   let msg: Rpc;
   try {
     msg = (await req.json()) as Rpc;
@@ -64,10 +82,8 @@ export async function POST(req: Request) {
     const name = typeof params?.name === "string" ? params.name : "";
     const args = (params?.arguments as Record<string, unknown>) || {};
     if (!TOOLS.some((t) => t.name === name)) return err(id, -32602, `Unknown tool: ${name}`);
-    const auth = req.headers.get("authorization");
-    const user = await userFromAuthHeader(auth);
     try {
-      const text = await callTool(name, args, { user, keyPresent: !!auth?.trim() });
+      const text = await callTool(name, args, { user, keyPresent: true });
       return ok(id, { content: [{ type: "text", text }] });
     } catch (e) {
       // Tool failures belong in the result so the model can see and correct them.
