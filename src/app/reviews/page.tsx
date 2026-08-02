@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { listNiches, totals, progress } from "@/lib/reviews";
 import { plural } from "@/lib/format";
-import PolarityBar from "@/components/PolarityBar";
 
 export const dynamic = "force-dynamic";
 
@@ -63,7 +62,6 @@ export default async function ReviewsHome() {
 
       {/* Honest coverage. The section ships as the pass goes, so say where it is. */}
       <p className="mt-4 border-b border-[var(--color-border-subtle)] pb-5 text-caption text-[var(--color-text-tertiary)]">
-        <span className="mr-1.5 inline-block size-1.5 animate-pulse rounded-full bg-[var(--color-accent-brand)] align-middle" />
         {ru
           ? `Раздел собирается прямо сейчас: разобрано ${progress.appsDone.toLocaleString(lc)} приложений из ${progress.appsPlanned.toLocaleString(lc)}, ${progress.nichesDone} ниш из ${progress.nichesPlanned}. Обновлено ${progress.updatedAt}.`
           : `This section is still being built: ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps done, ${progress.nichesDone} of ${progress.nichesPlanned} niches. Updated ${progress.updatedAt}.`}
@@ -72,37 +70,34 @@ export default async function ReviewsHome() {
       {niches.length === 0 ? (
         <p className="mt-10 text-body text-[var(--color-text-tertiary)]">{ru ? "Скоро." : "Coming soon."}</p>
       ) : (
-        <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <ul className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
           {niches.map((n) => (
-            <li key={n.slug}>
-              <Link href={`${lp}/reviews/${n.slug}`} className="card-min flex h-full flex-col rounded-3xl px-5 py-4.5">
-                <div className="flex items-baseline gap-3">
-                  <span className="min-w-0 flex-1 truncate text-headline text-[var(--color-text-primary)]">{n.name}</span>
+            <li key={n.slug} className="border-b border-[var(--color-border-subtle)]">
+              <Link href={`${lp}/reviews/${n.slug}`} className="group block py-3.5">
+                <span className="flex items-baseline gap-4">
+                  <span className="min-w-0 flex-1 truncate text-headline text-[var(--color-text-primary)] transition-opacity group-hover:opacity-60">
+                    {n.name}
+                  </span>
                   <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
                     {n.reviews.toLocaleString(lc)}
                   </span>
-                </div>
-                <p className="mt-1 text-caption text-[var(--color-text-tertiary)]">
-                  <span className="tabular-nums">{n.apps}</span>
-                  {n.apps < n.appsPlanned && <span className="tabular-nums opacity-70"> {ru ? "из" : "of"} {n.appsPlanned}</span>}{" "}
-                  {ru ? plural(n.apps, "приложение", "приложения", "приложений") : "apps"} · <span className="tabular-nums">{n.themes}</span>{" "}
-                  {ru ? plural(n.themes, "тема", "темы", "тем") : "themes"}
-                </p>
-
-                <PolarityBar split={n.split} className="mt-3.5" />
-
-                {n.topPain && (
-                  <p className="mt-3 line-clamp-2 text-footnote text-[var(--color-text-secondary)]">
-                    <span className="text-[var(--color-text-tertiary)]">{ru ? "громче всего: " : "loudest: "}</span>
-                    {ru ? n.topPain.name : n.topPain.nameEn}
-                    <span className="tabular-nums text-[var(--color-text-tertiary)]"> · {n.topPain.count}</span>
-                  </p>
-                )}
+                </span>
+                <span className="mt-0.5 block text-caption text-[var(--color-text-tertiary)]">
+                  <span className="tabular-nums">{n.apps}</span> {ru ? plural(n.apps, "приложение", "приложения", "приложений") : "apps"} ·{" "}
+                  <span className="tabular-nums">{n.themes}</span> {ru ? plural(n.themes, "тема", "темы", "тем") : "themes"}
+                </span>
               </Link>
             </li>
           ))}
         </ul>
       )}
+
+      <p className="mt-10 text-footnote text-[var(--color-text-tertiary)]">
+        {ru ? "Эти же данные доступны твоему ИИ-агенту: " : "The same data is available to your AI agent: "}
+        <Link href={`${lp}/mcp`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
+          {ru ? "MCP-сервер inApp" : "the inApp MCP server"}
+        </Link>
+      </p>
     </main>
   );
 }

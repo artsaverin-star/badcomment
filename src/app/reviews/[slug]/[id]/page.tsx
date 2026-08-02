@@ -5,7 +5,6 @@ import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
 import { getApp, getNiche, nicheName, readReviews, split } from "@/lib/reviews";
 import { isActiveCategory } from "@/lib/categoryVisibility";
-import PolarityBar from "@/components/PolarityBar";
 import ReviewBrowser from "@/components/ReviewBrowser";
 
 export const dynamic = "force-dynamic";
@@ -80,14 +79,12 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
             <span className="tabular-nums">{app.total.toLocaleString(lc)}</span> {ru ? "прочитанных отзывов" : "reviews read"} ·{" "}
             <span className="tabular-nums">{app.themes.length}</span> {ru ? "тем" : "themes"}
           </p>
+          <p className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
+            {ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span> · {ru ? "смешанно" : "mixed"}{" "}
+            <span className="tabular-nums">{Math.round(s.mixedPct)}%</span> · {ru ? "ругают" : "complain"}{" "}
+            <span className="tabular-nums">{Math.round(s.painPct)}%</span>
+          </p>
         </div>
-      </div>
-
-      <PolarityBar split={s} className="mt-5" />
-      <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-caption text-[var(--color-text-tertiary)]">
-        <span>{ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span></span>
-        <span>{ru ? "смешанно" : "mixed"} <span className="tabular-nums">{Math.round(s.mixedPct)}%</span></span>
-        <span>{ru ? "ругают" : "complain"} <span className="tabular-nums">{Math.round(s.painPct)}%</span></span>
       </div>
 
       {isActiveCategory(slug) && (

@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { POLARITY_COLOR } from "./PolarityBar";
 
-// Per-app review reader. The app's OWN themes are the navigation: each row shows
-// the theme, how many reviews landed in it, and its share of the whole. Picking
-// one filters the stream below, and stars and free text narrow it further.
+// Per-app review reader. The app's OWN themes are the navigation, grouped the
+// way people actually ask about them: what gets praised, what gets complained
+// about, what splits opinion. Picking a theme filters the stream below, and
+// stars and free text narrow it further.
 //
 // The first screen is server-rendered (readable and indexable without JS); the
 // full review file is prefetched in the background right after mount, so every
@@ -20,7 +20,7 @@ function Stars({ n }: { n: number }) {
   const v = Math.max(1, Math.min(5, n));
   return (
     <span className="shrink-0 text-caption tabular-nums" aria-label={`${v}/5`}>
-      <span style={{ color: v >= 4 ? "#eab308" : v <= 2 ? "#f97316" : "#94a3b8" }}>{"★".repeat(v)}</span>
+      <span className="text-[var(--color-text-secondary)]">{"★".repeat(v)}</span>
       <span className="text-[var(--color-border-strong)]">{"★".repeat(5 - v)}</span>
     </span>
   );
@@ -29,10 +29,12 @@ function Stars({ n }: { n: number }) {
 function Chip({
   on,
   onClick,
+  disabled = false,
   children,
 }: {
   on: boolean;
   onClick: () => void;
+  disabled?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -40,7 +42,8 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={on}
-      className={`shrink-0 rounded-full border px-3 py-1.5 text-caption transition-colors ${
+      disabled={disabled}
+      className={`shrink-0 rounded-full border px-3 py-1.5 text-caption transition-colors disabled:opacity-40 ${
         on
           ? "border-transparent bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
           : "border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
@@ -122,8 +125,16 @@ export default function ReviewBrowser({
   const exact = all !== null;
   const matched = exact ? shown.length : theme ? (themes.find((t) => t.name === theme)?.count ?? shown.length) : total;
   const activeTheme = themes.find((t) => t.name === theme);
-  const maxTheme = Math.max(...themes.map((t) => t.count), 1);
-  const maxStars = Math.max(...ratingCounts, 1);
+
+  const groups = (
+    [
+      { key: "love", label: ru ? "Хвалят" : "Praised" },
+      { key: "pain", label: ru ? "Ругают" : "Complained about" },
+      { key: "mixed", label: ru ? "Смешанно" : "Mixed" },
+    ] as const
+  )
+    .map((g) => ({ ...g, items: themes.filter((t) => t.polarity === g.key).sort((a, b) => b.count - a.count) }))
+    .filter((g) => g.items.length > 0);
 
   return (
     <div className="mt-10">
@@ -134,77 +145,43 @@ export default function ReviewBrowser({
           : "This app's own themes, not generic labels. Tap a theme to read only its reviews."}
       </p>
 
-      <ul className="mt-5 flex flex-col">
-        {themes.map((t) => {
-          const on = theme === t.name;
-          return (
-            <li key={t.name}>
-              <button
-                type="button"
-                onClick={() => {
-                  setTheme(on ? null : t.name);
-                  setLimit(PAGE);
-                }}
-                aria-pressed={on}
-                className={`w-full rounded-xl border-b border-[var(--color-border-subtle)] px-2.5 py-3 text-left transition-colors ${
-                  on ? "bg-[var(--color-surface-card-subtle)]" : "hover:bg-[var(--color-surface-card-subtle)]"
-                }`}
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="size-2 shrink-0 translate-y-[-1px] rounded-full" style={{ backgroundColor: POLARITY_COLOR[t.polarity] }} />
-                  <span className={`min-w-0 flex-1 text-callout ${on ? "font-medium text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>
-                    {ru ? t.name : t.nameEn}
-                  </span>
-                  <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
-                    {Math.round((t.count / Math.max(1, total)) * 100)}% · {t.count}
-                  </span>
-                </div>
-                <div className="mt-2 ml-5 h-[3px] overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-                  <div
-                    className="h-full rounded-full transition-[width] duration-500"
-                    style={{ width: `${(t.count / maxTheme) * 100}%`, backgroundColor: POLARITY_COLOR[t.polarity], opacity: on ? 1 : 0.55 }}
-                  />
-                </div>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* Star histogram doubles as a filter: it shows the shape of the rating
-          spread and narrows the stream in one tap. */}
-      <div className="mt-7 flex flex-wrap items-end gap-1.5">
-        {[5, 4, 3, 2, 1].map((n) => {
-          const c = ratingCounts[n - 1] ?? 0;
-          const on = stars === n;
-          return (
-            <button
-              key={n}
-              type="button"
-              onClick={() => {
-                setStars(on ? null : n);
-                setLimit(PAGE);
-              }}
-              aria-pressed={on}
-              disabled={!c}
-              className={`min-w-16 flex-1 rounded-xl border px-2.5 py-2 text-left transition-colors disabled:opacity-40 ${
-                on ? "border-[var(--color-border-strong)] bg-[var(--color-surface-card-subtle)]" : "border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)]"
-              }`}
-            >
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="text-caption tabular-nums text-[var(--color-text-secondary)]">{n}★</span>
-                <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{c}</span>
-              </div>
-              <div className="mt-1.5 h-[3px] overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-                <div className="h-full rounded-full" style={{ width: `${(c / maxStars) * 100}%`, backgroundColor: n >= 4 ? "#22c55e" : n <= 2 ? "#f97316" : "#94a3b8" }} />
-              </div>
-            </button>
-          );
-        })}
+      <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
+        {groups.map((g) => (
+          <div key={g.key} className="min-w-0 flex-1">
+            <h3 className="border-b border-[var(--color-border-subtle)] pb-2 text-caption text-[var(--color-text-tertiary)]">{g.label}</h3>
+            <ul className="flex flex-col">
+              {g.items.map((t) => {
+                const on = theme === t.name;
+                return (
+                  <li key={t.name} className="border-b border-[var(--color-border-subtle)]">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setTheme(on ? null : t.name);
+                        setLimit(PAGE);
+                      }}
+                      aria-pressed={on}
+                      className="flex w-full items-baseline gap-3 py-2.5 text-left transition-colors"
+                    >
+                      <span
+                        className={`min-w-0 flex-1 text-footnote ${
+                          on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                        }`}
+                      >
+                        {ru ? t.name : t.nameEn}
+                      </span>
+                      <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{t.count}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
       </div>
 
       {/* Sticky control bar: what you are reading, how many, and the way out. */}
-      <div className="sticky top-[4.5rem] z-10 -mx-4 mt-6 border-y border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_88%,transparent)] px-4 py-2.5 backdrop-blur-xl">
+      <div className="sticky top-[4.5rem] z-10 -mx-4 mt-8 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] px-4 pb-2.5 pt-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-footnote text-[var(--color-text-primary)]">
             {activeTheme ? (ru ? activeTheme.name : activeTheme.nameEn) : ru ? "Все отзывы" : "All reviews"}
@@ -221,6 +198,25 @@ export default function ReviewBrowser({
             )}
           </div>
         </div>
+        <div className="mt-2 flex items-center gap-1.5 overflow-x-auto">
+          {[5, 4, 3, 2, 1].map((n) => {
+            const c = ratingCounts[n - 1] ?? 0;
+            const on = stars === n;
+            return (
+              <Chip
+                key={n}
+                on={on}
+                disabled={!c}
+                onClick={() => {
+                  setStars(on ? null : n);
+                  setLimit(PAGE);
+                }}
+              >
+                {n}★ <span className="tabular-nums opacity-60">{c}</span>
+              </Chip>
+            );
+          })}
+        </div>
         <input
           type="search"
           value={q}
@@ -229,7 +225,7 @@ export default function ReviewBrowser({
             setLimit(PAGE);
           }}
           placeholder={ru ? "поиск по тексту отзывов" : "search review text"}
-          className="mt-2 w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+          className="mt-2 w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 py-2 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
         />
       </div>
 
@@ -245,34 +241,27 @@ export default function ReviewBrowser({
         </p>
       )}
 
-      <ol className="mt-4 flex flex-col gap-2">
-        {shown.slice(0, limit).map((r, i) => {
-          const pol = themes.find((t) => t.name === r.theme)?.polarity ?? "mixed";
-          return (
-            <li
-              key={`${i}-${r.rating}`}
-              className="card-min rounded-2xl border-l-2 px-4 py-3"
-              style={{ borderLeftColor: POLARITY_COLOR[pol] }}
-            >
-              <div className="flex items-baseline gap-2.5">
-                <Stars n={r.rating} />
-                {!theme && (
-                  <span className="min-w-0 truncate text-caption text-[var(--color-text-tertiary)]">
-                    {ru ? r.theme : themes.find((t) => t.name === r.theme)?.nameEn ?? r.theme}
-                  </span>
-                )}
-              </div>
-              <p className="mt-1.5 text-footnote text-pretty text-[var(--color-text-secondary)]">{r.text}</p>
-            </li>
-          );
-        })}
+      <ol className="flex flex-col">
+        {shown.slice(0, limit).map((r, i) => (
+          <li key={`${i}-${r.rating}`} className="border-b border-[var(--color-border-subtle)] py-3.5">
+            <div className="flex items-baseline gap-2.5">
+              <Stars n={r.rating} />
+              {!theme && (
+                <span className="min-w-0 truncate text-caption text-[var(--color-text-tertiary)]">
+                  {ru ? r.theme : themes.find((t) => t.name === r.theme)?.nameEn ?? r.theme}
+                </span>
+              )}
+            </div>
+            <p className="mt-1.5 text-footnote text-pretty text-[var(--color-text-secondary)]">{r.text}</p>
+          </li>
+        ))}
       </ol>
 
       {shown.length > limit && (
         <button
           type="button"
           onClick={() => setLimit((l) => l + PAGE * 3)}
-          className="mt-4 w-full rounded-full border border-[var(--color-border-subtle)] py-2.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+          className="mt-5 w-full rounded-full border border-[var(--color-border-subtle)] py-2.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
         >
           {ru ? `Показать ещё, осталось ${(shown.length - limit).toLocaleString(lc)}` : `Show more, ${(shown.length - limit).toLocaleString(lc)} left`}
         </button>

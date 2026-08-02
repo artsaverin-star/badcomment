@@ -5,7 +5,7 @@ import { getSessionUser } from "@/lib/session";
 import { mintApiKey } from "@/lib/mcp/apiKey";
 import { TOOLS } from "@/lib/mcp/tools";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
-import { totals } from "@/lib/reviews";
+import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
 import { FRIEND_PRICE_RUB, CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
 import { plural } from "@/lib/format";
 import CopyLine from "@/components/CopyLine";
@@ -14,6 +14,7 @@ export const dynamic = "force-dynamic";
 
 const ENDPOINT = "https://inapp.pro/api/mcp";
 const CLI = `claude mcp add inapp --scope user --transport http ${ENDPOINT}`;
+const CURSOR_JSON = `{"mcpServers":{"inapp":{"url":"${ENDPOINT}"}}}`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const ru = (await getLocale()) !== "en";
@@ -44,8 +45,21 @@ function Section({ kicker, title, children }: { kicker: string; title: string; c
   );
 }
 
+function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+  return (
+    <li className="flex gap-4">
+      <span className="w-5 shrink-0 pt-0.5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{n}</span>
+      <div className="min-w-0 flex-1">
+        <h3 className="text-subhead text-[var(--color-text-primary)]">{title}</h3>
+        <div className="mt-2.5">{children}</div>
+      </div>
+    </li>
+  );
+}
+
 export default async function McpPage() {
-  const ru = (await getLocale()) !== "en";
+  const locale = await getLocale();
+  const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
   const user = await getSessionUser();
@@ -56,6 +70,19 @@ export default async function McpPage() {
   const apps = sets.reduce((n, s) => n + (s.apps?.length ?? 0), 0);
   const reviews = sets.reduce((n, s) => n + (s.totalReviews ?? 0), 0);
   const t = totals();
+
+  // A live example instead of an invented one: the biggest labelled niche and
+  // its loudest complaint themes, straight from the same data the server sends.
+  const labelled = listNiches(locale).sort((a, b) => b.reviews - a.reviews);
+  const example = labelled[0];
+  const exampleNiche = example ? getNiche(example.slug) : null;
+  const examplePains: ReviewTheme[] = exampleNiche
+    ? exampleNiche.apps
+        .flatMap((a) => a.themes)
+        .filter((th) => th.polarity === "pain")
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 3)
+    : [];
 
   const PROMPTS = ru
     ? [
@@ -73,6 +100,36 @@ export default async function McpPage() {
         "Break down the notes niche and suggest how a new app could differ.",
         "Design an onboarding that closes the biggest pain in the sobriety niche.",
         "Where do users of language learning apps come from?",
+      ];
+
+  const GIVES = ru
+    ? [
+        {
+          h: "Реальные отзывы вместо догадок",
+          p: "Агент видит темы, на которые распадаются отзывы каждого приложения, и может процитировать сами тексты. С фильтром по теме и звёздам.",
+        },
+        {
+          h: "Честный рейтинг ниш",
+          p: "Кто лидирует по реальному качеству, а у кого рейтинг накручен. По каждому приложению есть вердикт с объяснением.",
+        },
+        {
+          h: "Разборы и идеи",
+          p: "Тезис ниши, сегменты аудитории, каналы привлечения и идеи со скорингом. Всё то же, что на сайте, но в контексте твоего кода.",
+        },
+      ]
+    : [
+        {
+          h: "Real reviews instead of guesses",
+          p: "The agent sees the themes each app's reviews fall into and can quote the texts themselves. Filterable by theme and stars.",
+        },
+        {
+          h: "An honest niche rating",
+          p: "Who leads on real quality and whose rating is inflated. Every app comes with an explained verdict.",
+        },
+        {
+          h: "Breakdowns and ideas",
+          p: "The niche thesis, audience segments, acquisition channels and scored ideas. Everything the site has, in the context of your code.",
+        },
       ];
 
   const RU_LABEL: Record<string, string> = {
@@ -101,6 +158,10 @@ export default async function McpPage() {
   const FAQ = ru
     ? [
         {
+          q: "Что такое MCP?",
+          a: "Model Context Protocol, открытый стандарт, по которому редакторы и агенты подключают внешние источники данных. Его поддерживают Claude Code, Claude Desktop, Cursor и другие. Ты один раз добавляешь сервер, и агент сам решает, когда к нему обратиться.",
+        },
+        {
           q: "Нужен ли аккаунт?",
           a: "Нет. Ниши, рейтинг, отзывы по темам, каналы и выводы разбора открыты без ключа. Ключ нужен только для полного текста идей: питч, что строить, чего не строить и как брать деньги.",
         },
@@ -122,6 +183,10 @@ export default async function McpPage() {
         },
       ]
     : [
+        {
+          q: "What is MCP?",
+          a: "Model Context Protocol, an open standard editors and agents use to plug in external data sources. Claude Code, Claude Desktop, Cursor and others support it. You add the server once and the agent decides when to reach for it.",
+        },
         {
           q: "Do I need an account?",
           a: "No. Niches, ratings, reviews by theme, channels and breakdown findings are open without a key. A key is only needed for the full idea payload: the pitch, what to build, what to skip and how to charge.",
@@ -156,6 +221,11 @@ export default async function McpPage() {
             ? "Агент, который пишет твоё приложение, обычно угадывает рынок. Подключи inApp, и он сможет спросить: на что жалуются пользователи в этой нише, кто там лидирует по-настоящему, за что люди платят. Ответ придёт из реальных отзывов с цитатами."
             : "The agent writing your app usually guesses about the market. Connect inApp and it can ask instead: what users of this niche complain about, who genuinely leads, what people pay for. The answer comes back from real reviews, with quotes."}
         </p>
+        <p className="mt-3 max-w-[62ch] text-footnote text-[var(--color-text-tertiary)]">
+          {ru
+            ? "MCP расшифровывается как Model Context Protocol. Это открытый стандарт, по которому Claude Code, Cursor и другие агенты подключают внешние источники данных."
+            : "MCP stands for Model Context Protocol, an open standard Claude Code, Cursor and other agents use to plug in external data sources."}
+        </p>
       </header>
 
       <div className="mt-8 grid grid-cols-2 gap-6 border-y border-[var(--color-border-subtle)] py-5 sm:grid-cols-4">
@@ -173,18 +243,101 @@ export default async function McpPage() {
       </div>
 
       <div className="mt-8">
-        <CopyLine value={CLI} label={ru ? "Подключение в Claude Code" : "Connect in Claude Code"} ru={ru} />
+        <CopyLine value={CLI} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} ru={ru} />
         <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
-          {ru ? "Другой клиент? Адрес сервера: " : "Another client? Server URL: "}
-          <code className="font-mono text-[var(--color-text-secondary)]">{ENDPOINT}</code>
-          {ru ? ", транспорт http." : ", http transport."}
+          {ru ? "Другой клиент? Ниже пошаговое подключение." : "Another client? Step-by-step setup below."}
         </p>
       </div>
 
-      <Section kicker={ru ? "Как спрашивать" : "How to ask"} title={ru ? "Обычным языком, без имён инструментов" : "In plain language, no tool names"}>
-        <ul className="flex flex-col gap-2.5">
+      <Section kicker={ru ? "Что даёт" : "What it gives"} title={ru ? "Три вещи, которых нет у агента из коробки" : "Three things your agent lacks out of the box"}>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+          {GIVES.map((g) => (
+            <div key={g.h}>
+              <h3 className="text-subhead text-[var(--color-text-primary)]">{g.h}</h3>
+              <p className="mt-1.5 text-footnote text-[var(--color-text-secondary)]">{g.p}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {example && examplePains.length > 0 && (
+        <Section kicker={ru ? "Как это выглядит" : "What it looks like"} title={ru ? "Живой пример на наших данных" : "A live example on our data"}>
+          <p className="text-callout text-[var(--color-text-secondary)]">
+            {ru ? (
+              <>Спроси агента: «На что жалуются в нише „{example.name}“?»</>
+            ) : (
+              <>Ask the agent: &ldquo;What do people complain about in the {example.name} niche?&rdquo;</>
+            )}
+          </p>
+          <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
+            {ru ? "Он вызовет search_themes и вернёт самые громкие темы жалоб:" : "It calls search_themes and returns the loudest complaint themes:"}
+          </p>
+          <ul className="mt-2 border-t border-[var(--color-border-subtle)]">
+            {examplePains.map((p) => (
+              <li key={p.name} className="flex items-baseline gap-3 border-b border-[var(--color-border-subtle)] py-2.5">
+                <span className="min-w-0 flex-1 text-footnote text-[var(--color-text-primary)]">{ru ? p.name : p.nameEn}</span>
+                <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+                  {p.count} {ru ? plural(p.count, "отзыв", "отзыва", "отзывов") : "reviews"}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 max-w-[62ch] text-footnote text-[var(--color-text-tertiary)]">
+            {ru ? (
+              <>
+                Это реальные цифры из разметки, а не сочинённый пример. По каждой теме агент может процитировать сами отзывы. Проверить можно руками:{" "}
+                <Link href={`${lp}/reviews/${example.slug}`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
+                  {ru ? "отзывы ниши" : "niche reviews"}
+                </Link>
+                .
+              </>
+            ) : (
+              <>
+                These are real numbers from the labelling, not a made-up example. For every theme the agent can quote the reviews themselves. Check it by hand:{" "}
+                <Link href={`${lp}/reviews/${example.slug}`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
+                  niche reviews
+                </Link>
+                .
+              </>
+            )}
+          </p>
+        </Section>
+      )}
+
+      <Section kicker={ru ? "Подключение" : "Setup"} title={ru ? "Три шага, около минуты" : "Three steps, about a minute"}>
+        <ol className="flex flex-col gap-8">
+          <Step n={1} title={ru ? "Добавь сервер в свой клиент" : "Add the server to your client"}>
+            <div className="flex flex-col gap-4">
+              <CopyLine value={CLI} label="Claude Code" ru={ru} />
+              <CopyLine value={CURSOR_JSON} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} ru={ru} />
+              <p className="text-caption text-[var(--color-text-tertiary)]">
+                {ru ? "Любой другой клиент: адрес сервера " : "Any other client: server URL "}
+                <code className="font-mono text-[var(--color-text-secondary)]">{ENDPOINT}</code>
+                {ru ? ", транспорт http, без ключа." : ", http transport, no key."}
+              </p>
+            </div>
+          </Step>
+          <Step n={2} title={ru ? "Разреши инструменты" : "Allow the tools"}>
+            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+              {ru
+                ? "При первом вопросе клиент спросит, можно ли вызвать инструмент inApp. Разреши, регистрация и ключ для этого не нужны."
+                : "On the first question your client asks whether the inApp tool may run. Allow it, no account or key needed."}
+            </p>
+          </Step>
+          <Step n={3} title={ru ? "Спрашивай обычным языком" : "Ask in plain language"}>
+            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+              {ru
+                ? "Имена инструментов знать не нужно. Опиши, что хочешь узнать про нишу или приложение, и агент сам выберет, что вызвать. Примеры ниже."
+                : "No need to know tool names. Describe what you want to learn about a niche or an app and the agent picks the right call. Examples below."}
+            </p>
+          </Step>
+        </ol>
+      </Section>
+
+      <Section kicker={ru ? "Как спрашивать" : "How to ask"} title={ru ? "Вопросы, с которых стоит начать" : "Questions to start with"}>
+        <ul className="border-t border-[var(--color-border-subtle)]">
           {PROMPTS.map((p) => (
-            <li key={p} className="msg-bubble max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">
+            <li key={p} className="border-b border-[var(--color-border-subtle)] py-3 text-callout text-[var(--color-text-secondary)]">
               {p}
             </li>
           ))}

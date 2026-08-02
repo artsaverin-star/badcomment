@@ -6,7 +6,6 @@ import { getLocale } from "@/lib/i18n.server";
 import { getNiche, nicheName, split, loudest } from "@/lib/reviews";
 import { plural } from "@/lib/format";
 import { isActiveCategory } from "@/lib/categoryVisibility";
-import PolarityBar from "@/components/PolarityBar";
 import NicheAppList from "@/components/NicheAppList";
 
 export const dynamic = "force-dynamic";
@@ -60,7 +59,6 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
     total: a.total,
     icon: a.icon,
     themes: a.themes,
-    split: split(a.themes),
   }));
 
   return (
@@ -75,40 +73,31 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
       </p>
       {niche.apps.length < (niche.appsPlanned || 0) && (
         <p className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">
-          <span className="mr-1.5 inline-block size-1.5 animate-pulse rounded-full bg-[var(--color-accent-brand)] align-middle" />
           {ru
             ? `Ниша ещё размечается, готово ${niche.apps.length} из ${niche.appsPlanned}.`
             : `Still labelling this niche: ${niche.apps.length} of ${niche.appsPlanned} apps done.`}
         </p>
       )}
 
-      <PolarityBar split={s} className="mt-4" />
-      <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-caption text-[var(--color-text-tertiary)]">
-        <span>{ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span></span>
-        <span>{ru ? "смешанно" : "mixed"} <span className="tabular-nums">{Math.round(s.mixedPct)}%</span></span>
-        <span>{ru ? "ругают" : "complain"} <span className="tabular-nums">{Math.round(s.painPct)}%</span></span>
+      <div className="mt-6 border-y border-[var(--color-border-subtle)]">
+        <p className="flex flex-wrap gap-x-5 gap-y-1 py-3 text-footnote text-[var(--color-text-secondary)]">
+          <span>{ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span></span>
+          <span>{ru ? "смешанно" : "mixed"} <span className="tabular-nums">{Math.round(s.mixedPct)}%</span></span>
+          <span>{ru ? "ругают" : "complain"} <span className="tabular-nums">{Math.round(s.painPct)}%</span></span>
+        </p>
+        {topLove && (
+          <p className="border-t border-[var(--color-border-subtle)] py-3 text-footnote text-[var(--color-text-secondary)]">
+            <span className="text-[var(--color-text-tertiary)]">{ru ? "чаще всего хвалят: " : "most praised: "}</span>
+            {ru ? topLove.name : topLove.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topLove.count}</span>
+          </p>
+        )}
+        {topPain && (
+          <p className="border-t border-[var(--color-border-subtle)] py-3 text-footnote text-[var(--color-text-secondary)]">
+            <span className="text-[var(--color-text-tertiary)]">{ru ? "чаще всего ругают: " : "most complained about: "}</span>
+            {ru ? topPain.name : topPain.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topPain.count}</span>
+          </p>
+        )}
       </div>
-
-      {(topPain || topLove) && (
-        <dl className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-          {topLove && (
-            <div className="card-min rounded-2xl px-4 py-3">
-              <dt className="text-caption text-[var(--color-text-tertiary)]">{ru ? "чаще всего хвалят" : "most praised"}</dt>
-              <dd className="mt-1 text-footnote text-[var(--color-text-primary)]">
-                {ru ? topLove.name : topLove.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topLove.count}</span>
-              </dd>
-            </div>
-          )}
-          {topPain && (
-            <div className="card-min rounded-2xl px-4 py-3">
-              <dt className="text-caption text-[var(--color-text-tertiary)]">{ru ? "чаще всего ругают" : "most complained about"}</dt>
-              <dd className="mt-1 text-footnote text-[var(--color-text-primary)]">
-                {ru ? topPain.name : topPain.nameEn} <span className="tabular-nums text-[var(--color-text-tertiary)]">{topPain.count}</span>
-              </dd>
-            </div>
-          )}
-        </dl>
-      )}
 
       {linked && (
         <nav className="mt-5 flex flex-wrap gap-2">
