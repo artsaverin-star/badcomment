@@ -2,25 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
-import { mintApiKey } from "@/lib/mcp/apiKey";
 import { TOOLS } from "@/lib/mcp/tools";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
 import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
+import InstallPicker from "./InstallPicker";
 import { plural } from "@/lib/format";
-import CopyLine from "@/components/CopyLine";
 
 export const dynamic = "force-dynamic";
-
-const ENDPOINT = "https://inapp.pro/api/mcp";
-// The plain commands — no key inside. The server answers 401 with OAuth
-// discovery, the client opens the browser, the user signs in and allows.
-const CLI = `claude mcp add inapp --scope user --transport http ${ENDPOINT}`;
-const CURSOR_JSON = `{"mcpServers":{"inapp":{"url":"${ENDPOINT}"}}}`;
-// Manual fallback for clients without OAuth support.
-const cli = (k: string) => `claude mcp add inapp --scope user --transport http ${ENDPOINT} --header "Authorization: Bearer ${k}"`;
-const cursorJson = (k: string) => `{"mcpServers":{"inapp":{"url":"${ENDPOINT}","headers":{"Authorization":"Bearer ${k}"}}}}`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const ru = (await getLocale()) !== "en";
@@ -41,25 +31,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 type Rating = { apps?: unknown[]; totalReviews?: number };
 
-function Section({ kicker, title, children }: { kicker: string; title: string; children: React.ReactNode }) {
+function Section({ kicker, title, children, id }: { kicker: string; title: string; children: React.ReactNode; id?: string }) {
   return (
-    <section className="mt-16 border-t border-[var(--color-border-subtle)] pt-8 sm:mt-20">
+    <section id={id} className="mt-16 scroll-mt-24 border-t border-[var(--color-border-subtle)] pt-8 sm:mt-20">
       <p className="text-footnote text-[var(--color-text-tertiary)]">{kicker}</p>
       <h2 className="mt-2 text-title2 text-balance text-[var(--color-text-primary)]">{title}</h2>
       <div className="mt-6">{children}</div>
     </section>
-  );
-}
-
-function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
-  return (
-    <li className="flex gap-4">
-      <span className="w-5 shrink-0 pt-0.5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{n}</span>
-      <div className="min-w-0 flex-1">
-        <h3 className="text-subhead text-[var(--color-text-primary)]">{title}</h3>
-        <div className="mt-2.5">{children}</div>
-      </div>
-    </li>
   );
 }
 
@@ -71,7 +49,6 @@ export default async function McpPage() {
   const access = await getAccess();
   const user = access.user;
   const paid = access.unlimited;
-  const key = user ? mintApiKey(user.id) : null;
 
   const sets = Object.values(RATING_BY_SLUG as Record<string, Rating>);
   const niches = sets.length;
@@ -171,7 +148,7 @@ export default async function McpPage() {
         },
         {
           q: "Нужен ли аккаунт?",
-          a: "Да. При подключении клиент откроет браузер, войдёшь на сайте и нажмёшь «Разрешить», ключ прилетит в редактор сам. Инструменты отвечают после оплаты пожизненного доступа.",
+          a: "Да. При подключении клиент откроет браузер: войдёшь на сайте и нажмёшь «Разрешить», больше ничего настраивать не нужно. Инструменты отвечают после оплаты пожизненного доступа.",
         },
         {
           q: "Откуда данные?",
@@ -179,7 +156,7 @@ export default async function McpPage() {
         },
         {
           q: "С какими клиентами работает?",
-          a: "С любым, кто умеет в удалённый MCP по HTTP: Claude Code, Claude Desktop, Cursor и другие. Транспорт обычный, без SSE и сессий.",
+          a: "Claude Code, Cursor, Claude Desktop, VS Code, Codex и любой другой клиент с удалёнными MCP по HTTP. Вход через браузер, ключи вставлять не нужно.",
         },
         {
           q: "Сколько стоит?",
@@ -197,7 +174,7 @@ export default async function McpPage() {
         },
         {
           q: "Do I need an account?",
-          a: "Yes. On connect the client opens the browser, you sign in on the site and tap allow, and the key lands in your editor by itself. The tools answer after the lifetime purchase.",
+          a: "Yes. On connect the client opens the browser: you sign in on the site and tap allow, nothing else to configure. The tools answer after the lifetime purchase.",
         },
         {
           q: "Where does the data come from?",
@@ -205,7 +182,7 @@ export default async function McpPage() {
         },
         {
           q: "Which clients work?",
-          a: "Any client that speaks remote MCP over HTTP: Claude Code, Claude Desktop, Cursor and others. Plain transport, no SSE and no sessions.",
+          a: "Claude Code, Cursor, Claude Desktop, VS Code, Codex and any other client that speaks remote MCP over HTTP. Sign-in happens in the browser, no keys to paste.",
         },
         {
           q: "What does it cost?",
@@ -250,24 +227,16 @@ export default async function McpPage() {
         ))}
       </div>
 
-      <div className="mt-8">
-        <CopyLine value={CLI} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} ru={ru} />
-        <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
-          {ru
-            ? "Ключ вставлять не нужно: клиент сам откроет браузер, войдёшь и нажмёшь «Разрешить»."
-            : "No key to paste: the client opens the browser, you sign in and tap allow."}
-        </p>
-        {!paid && (
-          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <BuyButton loggedIn={!!user} locale={locale} />
-            <p className="max-w-[38ch] text-footnote text-[var(--color-text-secondary)]">
-              {ru
-                ? `MCP входит в пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и сервер навсегда.`
-                : `MCP is part of the lifetime tier: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the server forever.`}
-            </p>
-          </div>
-        )}
-      </div>
+      {!paid && (
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <BuyButton loggedIn={!!user} locale={locale} />
+          <p className="max-w-[38ch] text-footnote text-[var(--color-text-secondary)]">
+            {ru
+              ? `MCP входит в пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и сервер навсегда.`
+              : `MCP is part of the lifetime tier: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the server forever.`}
+          </p>
+        </div>
+      )}
 
       <Section kicker={ru ? "Что даёт" : "What it gives"} title={ru ? "Три вещи, которых нет у агента из коробки" : "Three things your agent lacks out of the box"}>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
@@ -324,39 +293,8 @@ export default async function McpPage() {
         </Section>
       )}
 
-      <Section kicker={ru ? "Подключение" : "Setup"} title={ru ? "Три шага, около минуты" : "Three steps, about a minute"}>
-        <ol className="flex flex-col gap-8">
-          <Step n={1} title={ru ? "Добавь сервер" : "Add the server"}>
-            <div className="flex flex-col gap-4">
-              <CopyLine value={CLI} label="Claude Code" ru={ru} />
-              <CopyLine value={CURSOR_JSON} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} ru={ru} />
-              <p className="text-caption text-[var(--color-text-tertiary)]">
-                {ru ? "Любой другой клиент: адрес сервера " : "Any other client: server URL "}
-                <code className="font-mono text-[var(--color-text-secondary)]">{ENDPOINT}</code>
-                {ru ? ", транспорт http." : ", http transport."}
-              </p>
-            </div>
-          </Step>
-          <Step n={2} title={ru ? "Авторизуйся в браузере" : "Authorize in the browser"}>
-            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-              {ru
-                ? "При первом обращении клиент откроет сайт: войди и нажми «Разрешить». В Claude Code это меню /mcp, пункт inapp, кнопка Authenticate. Инструменты отвечают на аккаунте с пожизненным доступом."
-                : "On first use the client opens the site: sign in and tap allow. In Claude Code that is the /mcp menu, the inapp entry, the Authenticate button. The tools answer on an account with lifetime access."}
-            </p>
-            {!paid && (
-              <div className="mt-3">
-                <BuyButton loggedIn={!!user} locale={locale} />
-              </div>
-            )}
-          </Step>
-          <Step n={3} title={ru ? "Спрашивай обычным языком" : "Ask in plain language"}>
-            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-              {ru
-                ? "Имена инструментов знать не нужно. Опиши, что хочешь узнать про нишу или приложение, и агент сам выберет, что вызвать. Примеры ниже."
-                : "No need to know tool names. Describe what you want to learn about a niche or an app and the agent picks the right call. Examples below."}
-            </p>
-          </Step>
-        </ol>
+      <Section id="install" kicker={ru ? "Подключение" : "Setup"} title={ru ? "Пара минут в любом клиенте" : "A couple of minutes in any client"}>
+        <InstallPicker ru={ru} paid={paid} loggedIn={!!user} locale={locale} />
       </Section>
 
       <Section kicker={ru ? "Как спрашивать" : "How to ask"} title={ru ? "Вопросы, с которых стоит начать" : "Questions to start with"}>
@@ -397,33 +335,6 @@ export default async function McpPage() {
             ? `Разметка отзывов по темам сейчас покрывает ${t.niches} ниш и ${t.reviews.toLocaleString(lc)} отзывов, и растёт на весь каталог. Всё остальное доступно по всем ${niches} нишам.`
             : `Theme-level review data currently covers ${t.niches} niches and ${t.reviews.toLocaleString(lc)} reviews, and is expanding across the catalog. Everything else covers all ${niches} niches.`}
         </p>
-      </Section>
-
-      <Section kicker={ru ? "Ключ" : "Key"} title={ru ? "Ключ вручную, если клиент без OAuth" : "Manual key, for clients without OAuth"}>
-        <p className="max-w-[62ch] text-callout text-[var(--color-text-secondary)]">
-          {ru
-            ? "Авторизация через браузер выдаёт тот же личный ключ автоматически. Если твой клиент её не умеет, вставь ключ руками: одна оплата открывает одни и те же данные на сайте и в редакторе."
-            : "The browser flow hands out the same personal key automatically. If your client can't do it, paste the key by hand: one payment opens the same data on the site and in your editor."}
-        </p>
-        {key ? (
-          <div className="mt-5 flex flex-col gap-3">
-            <CopyLine value={key} label={ru ? "Твой личный ключ" : "Your personal key"} mask ru={ru} />
-            <CopyLine value={cli(key)} label={ru ? "Claude Code с ключом" : "Claude Code with the key"} mask ru={ru} />
-            <CopyLine value={cursorJson(key)} label={ru ? "Cursor с ключом" : "Cursor with the key"} mask ru={ru} />
-            {!paid && (
-              <p className="text-caption text-[var(--color-text-tertiary)]">
-                {ru ? "Инструменты ответят после оплаты пожизненного доступа." : "The tools start answering after the lifetime purchase."}
-              </p>
-            )}
-            <p className="text-caption text-[var(--color-text-tertiary)]">
-              {ru ? "Ключ равен доступу к аккаунту, не публикуй его." : "The key equals account access, do not publish it."}
-            </p>
-          </div>
-        ) : (
-          <p className="mt-5 text-callout text-[var(--color-text-secondary)]">
-            {ru ? "Войди на сайте, и ключ появится здесь." : "Sign in on the site and your key appears here."}
-          </p>
-        )}
       </Section>
 
       <Section kicker="FAQ" title={ru ? "Короткие ответы" : "Short answers"}>
