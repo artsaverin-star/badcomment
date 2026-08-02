@@ -141,6 +141,7 @@ model User {
   ledger    TokenLedger[]
   pageViews PageView[]
   favorites Favorite[]
+  mcpCalls  McpCall[]
 }
 
 // An idea a user bookmarked. Server-side so it survives across devices and cache
@@ -188,6 +189,21 @@ model TokenLedger {
 }
 
 // Page-view log — what each user opened, for the admin activity history.
+// One row per authenticated MCP tool call: who uses the server, which tool,
+// and whether the paid gate answered ("ok") or bounced ("denied" — a signal
+// the person tried MCP before buying).
+model McpCall {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  tool      String
+  status    String   @default("ok")
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
 model PageView {
   id        String   @id @default(cuid())
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)

@@ -10,6 +10,13 @@ import { listIdeas, getIdea } from "@/lib/ideas";
 import { categoryCards } from "@/lib/regenCards";
 import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
 import { accessForUser, ownsIdea } from "./access";
+import { prisma } from "@/lib/prisma";
+
+// Usage log for the admin page: one row per authenticated call, fire-and-forget
+// so a logging hiccup can never fail the tool itself.
+function logCall(userId: string, tool: string, status: "ok" | "denied") {
+  prisma.mcpCall.create({ data: { userId, tool, status } }).catch(() => {});
+}
 
 // Tool surface of the inApp MCP server. Everything here answers one question an
 // agent has while building an app: what do real users of this kind of app
@@ -279,10 +286,12 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         `The inApp MCP server is part of the paid tier: one payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever. Sign in and buy at https://inapp.pro/ru/mcp, then pass the personal key as an Authorization: Bearer header.`,
       );
     }
+    logCall(user.id, name, "denied");
     throw new Error(
       `This account has no lifetime access yet. One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever: https://inapp.pro/ru/mcp`,
     );
   }
+  if (user) logCall(user.id, name, "ok");
 
   switch (name) {
     case "list_niches": {

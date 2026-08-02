@@ -87,6 +87,30 @@ export default async function AdminPage() {
   const revenueRub = paidEntries.reduce((s, [, m]) => s + m.rub, 0);
   const revenueStars = paidEntries.reduce((s, [, m]) => s + m.stars, 0);
 
+  // ── MCP: кто реально дёргает сервер из редактора ──
+  // Одна строка на вызов инструмента; "denied" = стучался без оплаты (тёплый лид).
+  const mcpRows = await prisma.mcpCall.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 5000,
+    select: { userId: true, tool: true, status: true, createdAt: true },
+  });
+  type McpAgg = { calls: number; denied: number; lastAt: Date; tools: Map<string, number> };
+  const mcpBy = new Map<string, McpAgg>();
+  for (const r of mcpRows) {
+    const a = mcpBy.get(r.userId) ?? { calls: 0, denied: 0, lastAt: r.createdAt, tools: new Map<string, number>() };
+    a.calls++;
+    if (r.status === "denied") a.denied++;
+    if (r.createdAt > a.lastAt) a.lastAt = r.createdAt;
+    a.tools.set(r.tool, (a.tools.get(r.tool) ?? 0) + 1);
+    mcpBy.set(r.userId, a);
+  }
+  const mcpUsers = [...mcpBy.entries()].sort((a, b) => b[1].lastAt.getTime() - a[1].lastAt.getTime());
+  const userById = new Map(users.map((u) => [u.id, u]));
+  const displayName = (id: string) => {
+    const u = userById.get(id);
+    return u ? u.firstName || u.username || u.email || id.slice(0, 8) : id.slice(0, 8);
+  };
+
   const fmtDateTime = (d: Date) =>
     new Date(d)
       .toLocaleString("ru-RU", {
@@ -221,6 +245,57 @@ export default async function AdminPage() {
           </tbody>
         </table>
       </div>
+
+      <h2 className="mt-10 text-[20px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">MCP</h2>
+      <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">
+        Вызовов инструментов: <b className="tabular-nums">{mcpRows.length.toLocaleString("ru-RU")}</b> · пользователей:{" "}
+        <b className="tabular-nums">{mcpUsers.length}</b>
+        {mcpRows.length >= 5000 ? " · показаны последние 5000" : ""}
+      </p>
+      {mcpUsers.length === 0 ? (
+        <p className="mt-3 text-footnote text-[var(--color-text-tertiary)]">Сервером ещё никто не пользовался.</p>
+      ) : (
+        <div className="mt-4 overflow-x-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
+          <table className="w-full text-left">
+            <thead className="bg-[var(--color-bg-muted)] text-caption tracking-wide text-[var(--color-text-tertiary)]">
+              <tr>
+                <th className="px-4 py-2.5 font-semibold">Пользователь</th>
+                <th className="px-4 py-2.5 font-semibold">Вызовов</th>
+                <th className="px-4 py-2.5 font-semibold">Без оплаты</th>
+                <th className="px-4 py-2.5 font-semibold">Частые инструменты</th>
+                <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Последний вызов (МСК)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mcpUsers.map(([id, a]) => (
+                <tr key={id} className="border-t border-[var(--color-border-subtle)] text-footnote">
+                  <td className="px-4 py-2.5 text-[var(--color-text-primary)]">{displayName(id)}</td>
+                  <td className="px-4 py-2.5 tabular-nums">{a.calls.toLocaleString("ru-RU")}</td>
+                  <td className="px-4 py-2.5 tabular-nums">
+                    {a.denied ? (
+                      <span className="font-medium text-[var(--color-text-brand)]" title="Стучался в инструменты без оплаченного доступа">
+                        {a.denied}
+                      </span>
+                    ) : (
+                      <span className="text-[var(--color-text-tertiary)]">—</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-secondary)]">
+                    {[...a.tools.entries()]
+                      .sort((x, y) => y[1] - x[1])
+                      .slice(0, 3)
+                      .map(([tool, n]) => `${tool} ×${n}`)
+                      .join(" · ")}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">
+                    {fmtDateTime(a.lastAt)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </main>
   );
 }
