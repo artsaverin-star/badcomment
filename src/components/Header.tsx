@@ -5,8 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AuthButton from "./AuthButton";
 import LangMenu from "./LangMenu";
+import LangSwitch from "./LangSwitch";
 import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
+import ThemeSwitch from "./ThemeSwitch";
 import { type Locale } from "@/lib/i18n";
 
 // Center nav items: icon + label, active state driven by the current path.
@@ -44,10 +46,12 @@ export default function Header({
   locale,
   loggedIn = false,
   showOffer = false,
+  theme = "dark",
 }: {
   locale: Locale;
   loggedIn?: boolean;
   showOffer?: boolean;
+  theme?: "light" | "dark";
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -93,7 +97,7 @@ export default function Header({
       <div
         className={`relative mx-auto flex h-12 items-center gap-2 rounded-full pr-2 transition-all duration-300 ease-out sm:h-14 sm:pr-2.5 ${
           scrolled
-            ? "max-w-3xl border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] pl-4 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:pl-5"
+            ? "max-w-4xl border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] pl-4 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:pl-5"
             : "max-w-6xl border border-transparent bg-transparent pl-1 shadow-none sm:pl-1"
         }`}
       >
@@ -112,13 +116,12 @@ export default function Header({
                 key={n.key}
                 href={`${lp}${n.href === "/" ? "" : n.href}`}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
+                className={`inline-flex shrink-0 items-center rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active
                     ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
                     : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">{n.icon}</svg>
                 {ru ? n.ru : n.en}
               </Link>
             );
@@ -128,7 +131,11 @@ export default function Header({
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />
-          <LangMenu locale={locale} />
+          {/* LangMenu's trigger is a hamburger too — below 1200px the burger
+              sheet owns language/theme, so only one hamburger ever shows. */}
+          <div className="hidden min-[1200px]:block">
+            <LangMenu locale={locale} />
+          </div>
           <button
             type="button"
             aria-label={menuOpen ? (ru ? "Закрыть меню" : "Close menu") : ru ? "Меню" : "Menu"}
@@ -175,6 +182,10 @@ export default function Header({
                   </Link>
                 );
               })}
+              <div className="mt-1 flex items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] px-4 py-3.5">
+                <LangSwitch locale={locale} />
+                <ThemeSwitch theme={theme} />
+              </div>
             </nav>
           </div>
         </>
