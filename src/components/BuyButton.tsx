@@ -7,11 +7,10 @@ import { LIFETIME, FRIEND_PRICE_RUB, FRIEND_DISCOUNT_PCT, LAUNCH_PROMO } from "@
 import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
-// The site's single paywall. The base offer is lifetime («весь сайт навсегда»).
-// When categorySlug+categoryPrice are passed (niche surfaces), the popup adds a
-// cheaper entry SKU — this one niche forever — next to the lifetime option.
-// Pays via card РФ / СБП. Other legacy props (kind, price, stars) are still
-// accepted so existing call sites compile, but don't drive anything.
+// The site's single paywall, and the site's single SKU: lifetime access to
+// everything («весь сайт навсегда») for one payment. Pays via card РФ / СБП.
+// Legacy props (kind, price, category*, stars) are still accepted so existing
+// call sites compile, but nothing drives a second SKU anymore.
 export default function BuyButton({
   loggedIn,
   locale = "ru",
@@ -19,9 +18,6 @@ export default function BuyButton({
   title,
   subtitle,
   inline = false,
-  categorySlug,
-  categoryPrice,
-  categoryName,
   children,
   triggerClassName,
 }: {
@@ -31,18 +27,17 @@ export default function BuyButton({
   title?: string;
   subtitle?: string;
   inline?: boolean;
-  // Entry SKU: unlock one niche forever (shown only when both are passed).
-  categorySlug?: string;
-  categoryPrice?: number;
-  categoryName?: string;
   // Custom trigger: render these children as the click surface instead of the
   // default shimmer pill (e.g. a locked niche row that opens the popup).
   children?: React.ReactNode;
   triggerClassName?: string;
-  // ── accepted for backward-compat, no longer drive the SKU ──
+  // ── accepted for backward-compat, no longer drive anything ──
   kind?: string;
   slug?: string;
   price?: number;
+  categorySlug?: string;
+  categoryPrice?: number;
+  categoryName?: string;
   starsHref?: string;
   starsLabel?: string;
   lifetimePrice?: number;
@@ -54,13 +49,9 @@ export default function BuyButton({
   const [busy, setBusy] = useState<string | null>(null);
   const [err, setErr] = useState<string | null>(null);
 
-  const catAvailable = !!(categorySlug && categoryPrice);
-  const [sku, setSku] = useState<"lifetime" | "category">(catAvailable ? "category" : "lifetime");
-
   // The lifetime price: discounted launch price while the promo is on, else the
   // standard one.
   const eff = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
-  const chosenPrice = sku === "category" && catAvailable ? (categoryPrice as number) : eff;
 
   // Single-offer copy is owned here, not by call sites — every paywall on the
   // site shows the same wording and price. The label/title/subtitle props are
@@ -69,21 +60,13 @@ export default function BuyButton({
   // it is framed as a founding price («Доступ для первых») that will rise — honest
   // urgency that makes raising the number later natural.
   void label; void title; void subtitle;
-  const ttl = catAvailable
-    ? (ru ? "Открыть навсегда" : "Unlock forever")
-    : LAUNCH_PROMO
-      ? (ru ? "Доступ для первых" : "Founding access")
-      : (ru ? "Весь сайт навсегда" : "The whole site, forever");
-  const sub = sku === "category" && catAvailable
-    ? (ru
-      ? "Открываешь эту нишу целиком и навсегда: идеи, выводы и деньги."
-      : "Open this niche in full, forever: the ideas, the findings and the money.")
-    : (ru
-      ? "Забираешь весь сайт навсегда: все разборы, идеи под спрос и народный рейтинг, включая всё, что выйдет дальше."
-      : "Take the whole site forever: every breakdown, demand-backed idea and the people's rating, including everything that comes next.");
-  const triggerLabel = catAvailable
-    ? (ru ? `Открыть за ${categoryPrice} ₽` : `Unlock for ${categoryPrice} ₽`)
-    : (ru ? `Открыть весь сайт за ${eff} ₽` : `Unlock the whole site, ${eff} ₽`);
+  const ttl = LAUNCH_PROMO
+    ? (ru ? "Доступ для первых" : "Founding access")
+    : (ru ? "Весь сайт навсегда" : "The whole site, forever");
+  const sub = ru
+    ? "Забираешь весь сайт навсегда: все разборы, идеи под спрос, народный рейтинг и MCP-сервер, включая всё, что выйдет дальше."
+    : "Take the whole site forever: every breakdown, demand-backed idea, the people's rating and the MCP server, including everything that comes next.";
+  const triggerLabel = ru ? `Открыть весь сайт за ${eff} ₽` : `Unlock the whole site, ${eff} ₽`;
 
   function onClick() {
     if (!loggedIn) {
@@ -91,32 +74,19 @@ export default function BuyButton({
       return;
     }
     setErr(null);
-    trackBeginCheckout(
-      sku === "category" && catAvailable
-        ? { id: "category", name: "Разбор ниши", price: chosenPrice }
-        : { id: "lifetime", name: "Весь сайт навсегда", price: eff },
-    );
+    trackBeginCheckout({ id: "lifetime", name: "Весь сайт навсегда", price: eff });
     setOpen(true);
   }
 
   async function pay(method: "bank_card" | "sbp") {
-    trackAddPaymentInfo(
-      sku === "category" && catAvailable
-        ? { id: "category", name: "Разбор ниши", price: chosenPrice }
-        : { id: "lifetime", name: "Весь сайт навсегда", price: eff },
-      method,
-    );
+    trackAddPaymentInfo({ id: "lifetime", name: "Весь сайт навсегда", price: eff }, method);
     setBusy(method);
     setErr(null);
     try {
       const r = await fetch("/api/pay/yookassa", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(
-          sku === "category" && catAvailable
-            ? { kind: "category", slug: categorySlug, method }
-            : { kind: "lifetime", method },
-        ),
+        body: JSON.stringify({ kind: "lifetime", method }),
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.url) return window.location.assign(d.url);
@@ -129,40 +99,9 @@ export default function BuyButton({
   }
 
   // Card РФ / СБП + the «what you get» list — shared by the popup and inline panel.
-  const benefits = sku === "category" && catAvailable
-    ? (ru
-      ? ["Все идеи ниши с механикой и деньгами", "Закрытые выводы с цитатами", "Оценка выручки и вывод о деньгах", "Дизайн-промпт экранов в ChatGPT у каждой идеи"]
-      : ["Every idea in the niche, with mechanics and money", "The locked findings with quotes", "Revenue estimate and the money takeaway", "A ChatGPT screens prompt with every idea"])
-    : (ru
-      ? ["Все категории и идеи под подтверждённый спрос", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
-      : ["Every category and demand-backed idea", "New niches included, no extra cost", "One payment, access forever"]);
-
-  // Two-SKU picker (niche surfaces only): this niche alone or everything.
-  const skuPicker = catAvailable ? (
-    <div className="flex flex-col gap-2">
-      {([
-        { id: "category" as const, t: ru ? "Только эта ниша" : "This niche only", s: categoryName, p: `${categoryPrice} ₽`, strike: undefined as string | undefined },
-        { id: "lifetime" as const, t: ru ? "Весь сайт навсегда" : "The whole site forever", s: ru ? "все ниши, включая новые" : "every niche, including new ones", p: `${eff} ₽`, strike: LAUNCH_PROMO ? `${LIFETIME.rub} ₽` : undefined },
-      ]).map((o) => (
-        <button
-          key={o.id}
-          type="button"
-          onClick={() => setSku(o.id)}
-          aria-pressed={sku === o.id}
-          className={`flex items-baseline justify-between gap-3 rounded-[14px] border px-4 py-3 text-left transition-colors ${sku === o.id ? "border-[var(--color-text-primary)]" : "border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)]"}`}
-        >
-          <span className="min-w-0">
-            <span className="block text-callout font-semibold text-[var(--color-text-primary)]">{o.t}</span>
-            {o.s && <span className="mt-0.5 block truncate text-caption text-[var(--color-text-tertiary)]">{o.s}</span>}
-          </span>
-          <span className="shrink-0 text-callout font-semibold tabular-nums text-[var(--color-text-primary)]">
-            {o.p}
-            {o.strike && <s className="ml-1.5 font-normal text-[var(--color-text-tertiary)]">{o.strike}</s>}
-          </span>
-        </button>
-      ))}
-    </div>
-  ) : null;
+  const benefits = ru
+    ? ["Все категории и идеи под подтверждённый спрос", "MCP-сервер: те же данные у твоего ИИ-агента", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
+    : ["Every category and demand-backed idea", "The MCP server: the same data for your AI agent", "New niches included, no extra cost", "One payment, access forever"];
 
   const methods = (
     <>
@@ -235,9 +174,8 @@ export default function BuyButton({
           <div className="flex w-full max-w-[420px] flex-col gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-6 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.5)]">
             <div className="min-w-0">
               <div className="text-headline text-[var(--color-text-primary)]">{ttl}</div>
-              {!catAvailable && priceBlock}
+              {priceBlock}
             </div>
-            {skuPicker}
             {methods}
           </div>
         )}
@@ -265,13 +203,12 @@ export default function BuyButton({
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <div className="text-headline text-[var(--color-text-primary)]">{ttl}</div>
-                {!catAvailable && priceBlock}
+                {priceBlock}
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" strokeLinecap="round" /></svg>
               </button>
             </div>
-            {skuPicker}
             {methods}
           </div>
         </div>,

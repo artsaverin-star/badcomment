@@ -17,9 +17,11 @@ export const FRIEND_PRICE_RUB = 990;
 export const FRIEND_DISCOUNT_PCT = 70; // advertised launch discount
 export const LAUNCH_PROMO = true;
 
-// ── Direct-₽ model ─────────────────────────────────────────────────────────
-export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever
-export const CATEGORY_PRICE_RUB = 290; // unlock one full niche (ideas + findings + money) — the entry SKU next to lifetime
+// ── Historical SKUs — NOT sold anymore (lifetime is the only offer). Kept so
+// the admin revenue report can price old ledger rows and in-flight checkouts
+// still fulfill. ──
+export const DECK_PRICE_RUB = 290; // historical: the best-of deck
+export const CATEGORY_PRICE_RUB = 290; // historical: one full niche
 export const DECK_STARS = 150; // Telegram Stars price for the deck (mirror in bot/bot.mjs)
 export const CATEGORY_STARS = 150; // Telegram Stars price for a category (mirror in bot/bot.mjs)
 export const DECK_CREDIT_RUB = DECK_PRICE_RUB; // deck price credits toward a later category/lifetime

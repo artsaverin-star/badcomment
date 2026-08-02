@@ -50,6 +50,7 @@ export default function Header({
   showOffer?: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname() || "/";
   const ru = locale !== "en";
   // Prefix nav links with the active locale so navigation never falls back to
@@ -62,6 +63,19 @@ export default function Header({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Lock body scroll + wire Escape while the burger sheet is up. Links close it
+  // via onClick, so no pathname effect is needed.
+  useEffect(() => {
+    if (!menuOpen) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
@@ -118,8 +132,56 @@ export default function Header({
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />
           <LangMenu locale={locale} />
+          <button
+            type="button"
+            aria-label={menuOpen ? (ru ? "Закрыть меню" : "Close menu") : ru ? "Меню" : "Menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] md:hidden"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Burger sheet: the whole section nav on phones (the header center nav
+          is desktop-only, and the old bottom tab bar is gone). */}
+      {menuOpen && (
+        <>
+          <button
+            type="button"
+            aria-hidden="true"
+            tabIndex={-1}
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 z-30 cursor-default bg-black/40 [animation:sheet-backdrop-in_.2s_ease] md:hidden"
+          />
+          <div className="absolute inset-x-3 top-full z-40 mt-2 origin-top rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)] [animation:sheet-down_.22s_cubic-bezier(0.32,0.72,0,1)] md:hidden">
+            <nav className="flex flex-col">
+              {NAV.map((n) => {
+                const active = n.key === activeKey;
+                return (
+                  <Link
+                    key={n.key}
+                    href={`${lp}${n.href === "/" ? "" : n.href}`}
+                    onClick={() => setMenuOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-headline transition-colors ${
+                      active
+                        ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)]"
+                        : "text-[var(--color-text-secondary)]"
+                    }`}
+                  >
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">{n.icon}</svg>
+                    {ru ? n.ru : n.en}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </>
+      )}
     </header>
   );
 }

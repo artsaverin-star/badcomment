@@ -8,7 +8,7 @@ import { getNicheThesis } from "@/lib/nicheThesis";
 import { marketFor, scoreFor } from "@/lib/ideaScores";
 import { listIdeas, getIdea } from "@/lib/ideas";
 import { categoryCards } from "@/lib/regenCards";
-import { FRIEND_PRICE_RUB, CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
+import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
 import { accessForUser, ownsIdea } from "./access";
 
 // Tool surface of the inApp MCP server. Everything here answers one question an
@@ -25,7 +25,7 @@ Typical flow: list_niches to find the category, get_niche_brief for the market a
 
 Every count traces to reviews we actually read, and quotes are verbatim. Nothing here is generated from a model's guess about the market.
 
-Idea payloads (get_idea) are the paid layer. Pass a personal key as an Authorization: Bearer header to unlock the ones the account owns. Keys live at https://inapp.pro/ru/mcp.`;
+The server is part of the paid tier: one lifetime payment on the site opens everything, MCP included. Pass the personal key as an Authorization: Bearer header. Keys live at https://inapp.pro/ru/mcp.`;
 
 type Idx = Record<string, { name: string; nameEn?: string; apps: { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string }[] }>;
 const IDX = reviewsIndex as unknown as Idx;
@@ -250,7 +250,7 @@ export const TOOLS: Tool[] = [
   },
 ];
 
-const LOCK_NOTE = "locked — send a personal key as an Authorization: Bearer header (https://inapp.pro/ru/mcp)";
+const LOCK_NOTE = "locked — MCP is part of the paid tier, see https://inapp.pro/ru/mcp";
 
 const json = (v: unknown) => JSON.stringify(v, null, 1);
 const clamp = (n: unknown, def: number, max: number) => {
@@ -265,6 +265,25 @@ export type McpCaller = { user: SessionUser | null; keyPresent: boolean };
 
 export async function callTool(name: string, args: Record<string, unknown>, caller: McpCaller): Promise<string> {
   const { user } = caller;
+
+  // The whole server is part of the paid tier: one lifetime payment on the
+  // site opens every tool. Old per-niche unlocks keep working on the site but
+  // do not include MCP.
+  const gate = await accessForUser(user);
+  if (!gate.unlimited) {
+    if (!user && caller.keyPresent) {
+      throw new Error("The key sent is not valid. Copy the current one from https://inapp.pro/ru/mcp.");
+    }
+    if (!user) {
+      throw new Error(
+        `The inApp MCP server is part of the paid tier: one payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever. Sign in and buy at https://inapp.pro/ru/mcp, then pass the personal key as an Authorization: Bearer header.`,
+      );
+    }
+    throw new Error(
+      `This account has no lifetime access yet. One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever: https://inapp.pro/ru/mcp`,
+    );
+  }
+
   switch (name) {
     case "list_niches": {
       const themed = new Map(listNiches("ru").map((n) => [n.slug, n]));
@@ -429,11 +448,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
           ...base,
           locked: true,
           missing: ["gap", "pitch", "features", "antiFeatures", "monetization", "reviewQuotes"],
-          howToUnlock: acc.user
-            ? `This account does not own it yet. One niche costs ${CATEGORY_PRICE_RUB} RUB, everything forever ${FRIEND_PRICE_RUB} RUB, at https://inapp.pro/ru/segment/${i.category}`
-            : caller.keyPresent
-              ? `The key sent is not valid. Copy the current one from https://inapp.pro/ru/mcp.`
-              : `No key was sent. Get one at https://inapp.pro/ru/mcp and pass it as an Authorization: Bearer header.`,
+          howToUnlock: `One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever: https://inapp.pro/ru/mcp`,
         });
       }
       return json({

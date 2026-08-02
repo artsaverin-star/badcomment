@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
-import { getSessionUser } from "@/lib/session";
+import { getAccess } from "@/lib/access";
 import { mintApiKey } from "@/lib/mcp/apiKey";
 import { TOOLS } from "@/lib/mcp/tools";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
-import { FRIEND_PRICE_RUB, CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
+import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
+import BuyButton from "@/components/BuyButton";
 import { plural } from "@/lib/format";
 import CopyLine from "@/components/CopyLine";
 
 export const dynamic = "force-dynamic";
 
 const ENDPOINT = "https://inapp.pro/api/mcp";
-const CLI = `claude mcp add inapp --scope user --transport http ${ENDPOINT}`;
-const CURSOR_JSON = `{"mcpServers":{"inapp":{"url":"${ENDPOINT}"}}}`;
+const cli = (k: string) => `claude mcp add inapp --scope user --transport http ${ENDPOINT} --header "Authorization: Bearer ${k}"`;
+const cursorJson = (k: string) => `{"mcpServers":{"inapp":{"url":"${ENDPOINT}","headers":{"Authorization":"Bearer ${k}"}}}}`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const ru = (await getLocale()) !== "en";
@@ -62,7 +63,9 @@ export default async function McpPage() {
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
-  const user = await getSessionUser();
+  const access = await getAccess();
+  const user = access.user;
+  const paid = access.unlimited;
   const key = user ? mintApiKey(user.id) : null;
 
   const sets = Object.values(RATING_BY_SLUG as Record<string, Rating>);
@@ -145,7 +148,7 @@ export default async function McpPage() {
     get_app_themes: "темы одного приложения с долями",
     get_app_reviews: "сами тексты отзывов, с фильтром по теме и звёздам",
     list_ideas: "идеи ниши со скорингом",
-    get_idea: "полный разбор идеи, платный слой",
+    get_idea: "полный разбор идеи: питч, фичи, монетизация",
   };
 
   const GROUPS = [
@@ -163,7 +166,7 @@ export default async function McpPage() {
         },
         {
           q: "Нужен ли аккаунт?",
-          a: "Нет. Ниши, рейтинг, отзывы по темам, каналы и выводы разбора открыты без ключа. Ключ нужен только для полного текста идей: питч, что строить, чего не строить и как брать деньги.",
+          a: "Да. Сервер работает по личному ключу, ключ появляется после входа на сайт. Инструменты отвечают после оплаты пожизненного доступа.",
         },
         {
           q: "Откуда данные?",
@@ -175,7 +178,7 @@ export default async function McpPage() {
         },
         {
           q: "Сколько стоит?",
-          a: `Всё, кроме идей, бесплатно и без регистрации. Одна ниша целиком ${CATEGORY_PRICE_RUB} рублей, весь каталог навсегда ${FRIEND_PRICE_RUB} рублей. Покупка на сайте открывает те же идеи и в редакторе.`,
+          a: `Один платёж ${FRIEND_PRICE_RUB} рублей открывает весь сайт навсегда: разборы, идеи, рейтинг, отзывы и MCP-сервер. Без подписок и отдельных тарифов.`,
         },
         {
           q: "Данные обновляются?",
@@ -189,7 +192,7 @@ export default async function McpPage() {
         },
         {
           q: "Do I need an account?",
-          a: "No. Niches, ratings, reviews by theme, channels and breakdown findings are open without a key. A key is only needed for the full idea payload: the pitch, what to build, what to skip and how to charge.",
+          a: "Yes. The server runs on a personal key, and the key appears once you sign in on the site. The tools answer after the lifetime purchase.",
         },
         {
           q: "Where does the data come from?",
@@ -201,7 +204,7 @@ export default async function McpPage() {
         },
         {
           q: "What does it cost?",
-          a: `Everything except ideas is free and needs no account. One full niche is ${CATEGORY_PRICE_RUB} RUB, the whole catalog forever is ${FRIEND_PRICE_RUB} RUB. Buying on the site unlocks the same ideas in your editor.`,
+          a: `One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site forever: breakdowns, ideas, the rating, the reviews and the MCP server. No subscriptions and no separate tiers.`,
         },
         {
           q: "Is the data refreshed?",
@@ -243,10 +246,23 @@ export default async function McpPage() {
       </div>
 
       <div className="mt-8">
-        <CopyLine value={CLI} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} ru={ru} />
-        <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
-          {ru ? "Другой клиент? Ниже пошаговое подключение." : "Another client? Step-by-step setup below."}
-        </p>
+        {paid && key ? (
+          <>
+            <CopyLine value={cli(key)} label={ru ? "Подключение в Claude Code, одна команда" : "Connect in Claude Code, one command"} mask ru={ru} />
+            <p className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">
+              {ru ? "Другой клиент? Ниже пошаговое подключение." : "Another client? Step-by-step setup below."}
+            </p>
+          </>
+        ) : (
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            <BuyButton loggedIn={!!user} locale={locale} />
+            <p className="max-w-[38ch] text-footnote text-[var(--color-text-secondary)]">
+              {ru
+                ? `MCP входит в пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и сервер навсегда.`
+                : `MCP is part of the lifetime tier: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the server forever.`}
+            </p>
+          </div>
+        )}
       </div>
 
       <Section kicker={ru ? "Что даёт" : "What it gives"} title={ru ? "Три вещи, которых нет у агента из коробки" : "Three things your agent lacks out of the box"}>
@@ -306,23 +322,35 @@ export default async function McpPage() {
 
       <Section kicker={ru ? "Подключение" : "Setup"} title={ru ? "Три шага, около минуты" : "Three steps, about a minute"}>
         <ol className="flex flex-col gap-8">
-          <Step n={1} title={ru ? "Добавь сервер в свой клиент" : "Add the server to your client"}>
+          <Step n={1} title={ru ? "Открой доступ" : "Get access"}>
+            {paid ? (
+              <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+                {ru ? "Доступ уже открыт. Личный ключ и команды ниже." : "Access is already open. Your key and the commands are below."}
+              </p>
+            ) : (
+              <div className="flex flex-col items-start gap-3">
+                <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+                  {ru
+                    ? `Войди и оплати пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и MCP-сервер навсегда.`
+                    : `Sign in and pay for lifetime access: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the MCP server forever.`}
+                </p>
+                <BuyButton loggedIn={!!user} locale={locale} />
+              </div>
+            )}
+          </Step>
+          <Step n={2} title={ru ? "Добавь сервер с личным ключом" : "Add the server with your key"}>
             <div className="flex flex-col gap-4">
-              <CopyLine value={CLI} label="Claude Code" ru={ru} />
-              <CopyLine value={CURSOR_JSON} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} ru={ru} />
+              <CopyLine value={cli(key ?? (ru ? "КЛЮЧ" : "YOUR_KEY"))} label="Claude Code" mask={!!key} ru={ru} />
+              <CopyLine value={cursorJson(key ?? (ru ? "КЛЮЧ" : "YOUR_KEY"))} label={ru ? "Cursor, файл ~/.cursor/mcp.json" : "Cursor, the ~/.cursor/mcp.json file"} mask={!!key} ru={ru} />
               <p className="text-caption text-[var(--color-text-tertiary)]">
                 {ru ? "Любой другой клиент: адрес сервера " : "Any other client: server URL "}
                 <code className="font-mono text-[var(--color-text-secondary)]">{ENDPOINT}</code>
-                {ru ? ", транспорт http, без ключа." : ", http transport, no key."}
+                {ru
+                  ? ", транспорт http, ключ в заголовке Authorization."
+                  : ", http transport, the key in the Authorization header."}
+                {!key && (ru ? " Ключ появится здесь после входа." : " The key appears here after you sign in.")}
               </p>
             </div>
-          </Step>
-          <Step n={2} title={ru ? "Разреши инструменты" : "Allow the tools"}>
-            <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-              {ru
-                ? "При первом вопросе клиент спросит, можно ли вызвать инструмент inApp. Разреши, регистрация и ключ для этого не нужны."
-                : "On the first question your client asks whether the inApp tool may run. Allow it, no account or key needed."}
-            </p>
           </Step>
           <Step n={3} title={ru ? "Спрашивай обычным языком" : "Ask in plain language"}>
             <p className="max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
@@ -374,21 +402,20 @@ export default async function McpPage() {
         </p>
       </Section>
 
-      <Section kicker={ru ? "Ключ" : "Key"} title={ru ? "Платный слой идей" : "The paid idea layer"}>
+      <Section kicker={ru ? "Ключ" : "Key"} title={ru ? "Личный ключ" : "Your personal key"}>
         <p className="max-w-[62ch] text-callout text-[var(--color-text-secondary)]">
           {ru
-            ? "Всё, кроме полного текста идей, работает без ключа. Ключ привязан к аккаунту и открывает в редакторе ровно те ниши и идеи, которые куплены на сайте."
-            : "Everything except the full idea payload works with no key. A key is tied to your account and unlocks in your editor exactly the niches and ideas bought on the site."}
+            ? "Сервер работает по личному ключу. Ключ привязан к аккаунту: одна оплата открывает одни и те же данные на сайте и в редакторе."
+            : "The server runs on a personal key. It is tied to your account: one payment opens the same data on the site and in your editor."}
         </p>
         {key ? (
           <div className="mt-5 flex flex-col gap-3">
             <CopyLine value={key} label={ru ? "Твой личный ключ" : "Your personal key"} mask ru={ru} />
-            <CopyLine
-              value={`claude mcp add inapp --scope user --transport http ${ENDPOINT} --header "Authorization: Bearer ${key}"`}
-              label={ru ? "Подключение с ключом" : "Connect with the key"}
-              mask
-              ru={ru}
-            />
+            {!paid && (
+              <p className="text-caption text-[var(--color-text-tertiary)]">
+                {ru ? "Инструменты ответят после оплаты пожизненного доступа." : "The tools start answering after the lifetime purchase."}
+              </p>
+            )}
             <p className="text-caption text-[var(--color-text-tertiary)]">
               {ru ? "Ключ равен доступу к аккаунту, не публикуй его." : "The key equals account access, do not publish it."}
             </p>

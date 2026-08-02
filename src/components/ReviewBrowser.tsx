@@ -136,9 +136,57 @@ export default function ReviewBrowser({
     .map((g) => ({ ...g, items: themes.filter((t) => t.polarity === g.key).sort((a, b) => b.count - a.count) }))
     .filter((g) => g.items.length > 0);
 
+  // The canonical rating block (big average + tappable star histogram) — the
+  // shape every store teaches people to read. The average is honest: it is the
+  // average of the reviews we read, not the store rating.
+  const histTotal = ratingCounts.reduce((a, b) => a + b, 0);
+  const avg = histTotal ? ratingCounts.reduce((a, c, i) => a + c * (i + 1), 0) / histTotal : 0;
+  const maxStars = Math.max(...ratingCounts, 1);
+
   return (
     <div className="mt-10">
-      <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "О чём пишут" : "What people write about"}</h2>
+      <div className="flex flex-col gap-5 border-y border-[var(--color-border-subtle)] py-5 sm:flex-row sm:items-center sm:gap-10">
+        <div className="shrink-0">
+          <div className="text-stat tabular-nums text-[var(--color-text-primary)]">{avg.toFixed(1)}</div>
+          <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
+            {ru ? `из 5, по ${histTotal.toLocaleString(lc)} прочитанным` : `of 5, across ${histTotal.toLocaleString(lc)} read`}
+          </div>
+        </div>
+        <div className="min-w-0 flex-1">
+          {[5, 4, 3, 2, 1].map((n) => {
+            const c = ratingCounts[n - 1] ?? 0;
+            const on = stars === n;
+            return (
+              <button
+                key={n}
+                type="button"
+                disabled={!c}
+                aria-pressed={on}
+                onClick={() => {
+                  setStars(on ? null : n);
+                  setLimit(PAGE);
+                }}
+                className="flex w-full items-center gap-3 py-[5px] disabled:opacity-40"
+              >
+                <span className={`w-6 shrink-0 text-left text-caption tabular-nums ${on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>
+                  {n}★
+                </span>
+                <span className="h-[3px] min-w-0 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+                  <span
+                    className="block h-full rounded-full bg-[var(--color-text-primary)]"
+                    style={{ width: `${(c / maxStars) * 100}%`, opacity: stars === null || on ? 0.75 : 0.25 }}
+                  />
+                </span>
+                <span className={`w-12 shrink-0 text-right text-caption tabular-nums ${on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
+                  {c.toLocaleString(lc)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <h2 className="mt-9 text-title3 text-[var(--color-text-primary)]">{ru ? "О чём пишут" : "What people write about"}</h2>
       <p className="mt-1.5 max-w-[58ch] text-footnote text-[var(--color-text-secondary)]">
         {ru
           ? "Темы этого приложения, а не общие ярлыки. Нажми тему, чтобы читать только её отзывы."
@@ -185,6 +233,7 @@ export default function ReviewBrowser({
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-footnote text-[var(--color-text-primary)]">
             {activeTheme ? (ru ? activeTheme.name : activeTheme.nameEn) : ru ? "Все отзывы" : "All reviews"}
+            {stars && <span className="tabular-nums"> · {stars}★</span>}
             <span className="ml-1.5 tabular-nums text-[var(--color-text-tertiary)]">{matched.toLocaleString(lc)}</span>
           </span>
           <div className="ml-auto flex items-center gap-1.5">
@@ -197,25 +246,6 @@ export default function ReviewBrowser({
               </Chip>
             )}
           </div>
-        </div>
-        <div className="mt-2 flex items-center gap-1.5 overflow-x-auto">
-          {[5, 4, 3, 2, 1].map((n) => {
-            const c = ratingCounts[n - 1] ?? 0;
-            const on = stars === n;
-            return (
-              <Chip
-                key={n}
-                on={on}
-                disabled={!c}
-                onClick={() => {
-                  setStars(on ? null : n);
-                  setLimit(PAGE);
-                }}
-              >
-                {n}★ <span className="tabular-nums opacity-60">{c}</span>
-              </Chip>
-            );
-          })}
         </div>
         <input
           type="search"

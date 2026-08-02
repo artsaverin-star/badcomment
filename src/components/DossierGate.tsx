@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AuthModal from "./AuthModal";
-import { CATEGORY_PRICE_RUB, FRIEND_PRICE_RUB, LIFETIME, LAUNCH_PROMO } from "@/lib/tokenConfig";
+import { FRIEND_PRICE_RUB, LIFETIME, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 // Minimal sign-in wall for the niche dossier. The market, audience and honest
@@ -13,8 +13,8 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
   const ru = locale !== "en";
   const life = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
   const items = ru
-    ? ["Первый структурный вывод с наблюдениями и цитатами", `Дальше ещё два вывода, деньги ниши и ${ideasCount} идей под спрос`, `Эта ниша за ${CATEGORY_PRICE_RUB} ₽ или весь сайт навсегда за ${life} ₽`]
-    : ["The first structural finding with observations and quotes", `Then two more findings, the niche's money and ${ideasCount} demand-backed ideas`, `This niche for ${CATEGORY_PRICE_RUB} ₽ or the whole site forever for ${life} ₽`];
+    ? ["Первый структурный вывод с наблюдениями и цитатами", `Дальше ещё два вывода, деньги ниши и ${ideasCount} идей под спрос`, `Весь сайт навсегда за ${life} ₽, включая MCP-сервер`]
+    : ["The first structural finding with observations and quotes", `Then two more findings, the niche's money and ${ideasCount} demand-backed ideas`, `The whole site forever for ${life} ₽, MCP server included`];
 
   return (
     <section className="mt-24">

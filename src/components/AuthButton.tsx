@@ -172,7 +172,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
                 <span className="text-caption text-[var(--color-text-tertiary)]">
                   {me.unlimited
                     ? ru ? "Полный доступ" : "Full access"
-                    : ru ? "Колода и Lifetime" : "Deck & Lifetime"}
+                    : ru ? "Весь сайт навсегда" : "Everything forever"}
                 </span>
               </span>
             </Link>

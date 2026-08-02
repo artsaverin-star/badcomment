@@ -1,11 +1,11 @@
 "use client";
 
 import BuyButton from "./BuyButton";
-import { LIFETIME } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-// Premium category → one ₽ purchase opens everything (a payment-options popup).
-// Non-premium niches aren't sellable yet — they show a "in preparation" status.
+// Premium category → the single lifetime purchase opens everything (a
+// payment-options popup). Non-premium niches aren't sellable yet — they show a
+// "in preparation" status. The price/stars props are legacy and ignored.
 export default function CategoryGate({
   slug,
   categoryName,
@@ -19,10 +19,10 @@ export default function CategoryGate({
   lifetimeStarsHref,
   inline = false,
 }: {
-  slug: string;
+  slug?: string;
   categoryName?: string;
   sellable: boolean;
-  price: number;
+  price?: number;
   loggedIn: boolean;
   pregenDate: string;
   locale?: Locale;
@@ -32,6 +32,7 @@ export default function CategoryGate({
   inline?: boolean;
 }) {
   const ru = locale !== "en";
+  void slug; void categoryName; void price; void starsHref; void starsLabel; void lifetimeStarsHref;
 
   if (!sellable) {
     return (
@@ -44,21 +45,7 @@ export default function CategoryGate({
 
   return (
     <div className="flex flex-col items-start gap-2.5">
-      <BuyButton
-        kind="category"
-        slug={slug}
-        price={price}
-        label={ru ? `Открыть за ${price} ₽` : `Unlock for ${price} ₽`}
-        loggedIn={loggedIn}
-        locale={locale}
-        title={(ru ? "Разбор категории" : "Category breakdown") + (categoryName ? ` ${categoryName}` : "")}
-        subtitle={ru ? "Выводы, все идеи и разбор конкурентов ниши — открывается навсегда." : "Findings, all ideas and the competitor teardown — unlocked forever."}
-        starsHref={starsHref}
-        starsLabel={starsLabel}
-        lifetimePrice={LIFETIME.rub}
-        lifetimeStarsHref={lifetimeStarsHref}
-        inline={inline}
-      />
+      <BuyButton loggedIn={loggedIn} locale={locale} inline={inline} />
     </div>
   );
 }

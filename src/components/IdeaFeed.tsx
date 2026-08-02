@@ -221,9 +221,9 @@ export default function IdeaFeed({
                       ) : it.kind === "paywall" ? (
                         <div className="flex h-full flex-col">
                           <div className="flex flex-1 flex-col justify-center">
-                            <div className="text-footnote font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
-                            <h2 className="mt-2 text-headline text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
-                            <p className="mt-3 text-callout text-[var(--color-text-secondary)] line-clamp-4">{ru ? nb("Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда.") : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
+                            <div className="text-footnote font-medium text-[var(--color-text-brand)]">{ru ? "Весь сайт навсегда" : "Everything forever"}</div>
+                            <h2 className="mt-2 text-headline text-[var(--color-text-primary)] text-balance">{ru ? "Открой все разборы" : "Unlock every breakdown"}</h2>
+                            <p className="mt-3 text-callout text-[var(--color-text-secondary)] line-clamp-4">{ru ? nb("Один платёж открывает всё: по каждой идее — почему это шанс, что строить и как заработать. Навсегда.") : "One payment opens everything: every idea's gap, what to build and how it earns. Forever."}</p>
                           </div>
                           <div className="pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
@@ -327,7 +327,7 @@ export default function IdeaFeed({
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4" onClick={() => setPaywall(false)}>
           <div className="flex w-full max-w-[440px] flex-col items-center gap-4 rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-7 text-center sm:rounded-[24px]" onClick={(e) => e.stopPropagation()}>
             <div className="text-subhead font-black text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
-            <p className="text-callout text-[var(--color-text-secondary)]">{ru ? nb("Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда.") : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
+            <p className="text-callout text-[var(--color-text-secondary)]">{ru ? nb("Один платёж открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда.") : "One payment opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
             <button type="button" onClick={() => setPaywall(false)} className="text-footnote text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{ru ? "Позже" : "Later"}</button>
           </div>

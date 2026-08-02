@@ -49,7 +49,7 @@ async function Library({ userId }: { userId: string }) {
         href="/tokens"
         className="flex items-center justify-between gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-4 py-3 transition-colors hover:border-[var(--color-text-brand)]"
       >
-        <span className="text-callout text-[var(--color-text-primary)]">Открыть больше — колода и Lifetime</span>
+        <span className="text-callout text-[var(--color-text-primary)]">Весь сайт навсегда, один платёж</span>
         <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">В магазин →</span>
       </Link>
 

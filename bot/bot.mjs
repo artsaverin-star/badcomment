@@ -9,16 +9,16 @@ if (!TOKEN) {
   console.error("TELEGRAM_BOT_TOKEN missing");
   process.exit(1);
 }
-// Token packs — must mirror src/lib/tokenConfig.ts (TOKEN_PACKS + LIFETIME).
+// Token packs — historical only (fulfillment of in-flight invoices); nothing
+// offers them anymore. Mirror of src/lib/tokenConfig.ts TOKEN_PACKS.
 const PACKS = {
   s: { tokens: 100, stars: 500 },
   m: { tokens: 300, stars: 1250 },
   l: { tokens: 700, stars: 2500 },
 };
-// Stars prices — mirror src/lib/tokenConfig.ts (LIFETIME.stars / DECK_STARS / CATEGORY_STARS).
-const LIFETIME = { stars: 1500 };
-const DECK_STARS = 150;
-const CATEGORY_STARS = 150;
+// The single SKU: lifetime for 990 ₽ ≈ 500 ⭐ (Stars ≈ ₽/2, mirror of
+// FRIEND_PRICE_RUB in src/lib/tokenConfig.ts).
+const LIFETIME = { stars: 500 };
 const API = `https://api.telegram.org/bot${TOKEN}`;
 // Internal grant: the bot calls the site (same box) to reuse grantUnlock for
 // deck/category Stars purchases. Auth by the shared SESSION_SECRET.
@@ -39,65 +39,23 @@ async function tg(method, body) {
 // to credit the exact site account (even if it logged in via Google).
 const pendingUid = new Map();
 
-function packsKb() {
+function lifetimeKb() {
   return {
     inline_keyboard: [
-      ...Object.entries(PACKS).map(([id, p]) => [
-        { text: `⚡ ${p.tokens} энергии — ${p.stars} ⭐`, callback_data: `buy_${id}` },
-      ]),
-      [{ text: `♾️ Lifetime (всё навсегда) — ${LIFETIME.stars} ⭐`, callback_data: "buy_life" }],
+      [{ text: `♾️ Весь сайт навсегда · ${LIFETIME.stars} ⭐`, callback_data: "buy_life" }],
     ],
   };
-}
-
-async function sendInvoice(chatId, packId = "m", uid = "") {
-  const p = PACKS[packId] || PACKS.m;
-  return tg("sendInvoice", {
-    chat_id: chatId,
-    title: `inApp — ${p.tokens} энергии`,
-    description: `${p.tokens} энергии на открытие разборов, идей и категорий в inApp.`,
-    // payload: tokens_<packId>_<siteUserId|>_<ts>
-    payload: `tokens_${packId}_${uid}_${Date.now()}`,
-    // Telegram Stars: currency XTR, empty provider_token (required for Stars).
-    provider_token: "",
-    currency: "XTR",
-    prices: [{ label: `${p.tokens} энергии`, amount: p.stars }],
-  });
 }
 
 async function sendLifetimeInvoice(chatId, uid = "") {
   return tg("sendInvoice", {
     chat_id: chatId,
     title: "inApp — Lifetime",
-    description: "Полный доступ ко всем разборам, идеям и категориям inApp — навсегда.",
+    description: "Полный доступ ко всем разборам, идеям, рейтингу и MCP-серверу inApp навсегда.",
     payload: `life_${uid}_${Date.now()}`,
     provider_token: "",
     currency: "XTR",
-    prices: [{ label: "Lifetime — всё навсегда", amount: LIFETIME.stars }],
-  });
-}
-
-async function sendDeckInvoice(chatId, uid = "") {
-  return tg("sendInvoice", {
-    chat_id: chatId,
-    title: "inApp — Колода идей",
-    description: "Лучшая идея из каждой премиум-ниши, разобранная по реальным отзывам — навсегда.",
-    payload: `deck_${uid}_${Date.now()}`,
-    provider_token: "",
-    currency: "XTR",
-    prices: [{ label: "Колода идей", amount: DECK_STARS }],
-  });
-}
-
-async function sendCategoryInvoice(chatId, uid = "", slug = "") {
-  return tg("sendInvoice", {
-    chat_id: chatId,
-    title: "inApp — Разбор категории",
-    description: "Вся ниша: выводы, все идеи и разбор конкурентов — навсегда.",
-    payload: `cat_${uid}_${slug}_${Date.now()}`,
-    provider_token: "",
-    currency: "XTR",
-    prices: [{ label: "Разбор категории", amount: CATEGORY_STARS }],
+    prices: [{ label: "Весь сайт навсегда", amount: LIFETIME.stars }],
   });
 }
 
@@ -254,51 +212,25 @@ async function handleMessage(m) {
       await sendLifetimeInvoice(chatId, uid);
       return;
     }
-    if (arg.startsWith("deck_")) {
-      const uid = arg.slice("deck_".length);
+    if (arg.startsWith("deck_") || arg.startsWith("cat_") || arg.startsWith("buy_")) {
+      // Legacy deep links (deck / category / packs) — all funnel into the one
+      // lifetime SKU now. The uid is the first payload segment when present.
+      const rest = arg.replace(/^(deck_|cat_|buy_)/, "");
+      const uid = (rest.split("_")[0] || "").trim();
       if (uid) pendingUid.set(chatId, uid);
-      await sendDeckInvoice(chatId, uid);
-      return;
-    }
-    if (arg.startsWith("cat_")) {
-      const rest = arg.slice("cat_".length); // <uid>_<slug>
-      const us = rest.split("_");
-      const uid = us[0] || "";
-      const slug = us[1] || "";
-      if (uid) pendingUid.set(chatId, uid);
-      await sendCategoryInvoice(chatId, uid, slug);
-      return;
-    }
-    if (arg.startsWith("buy_")) {
-      // buy_<userId>_<packId>  (web, logged in) | buy_<packId> | buy_
-      const rest = arg.slice("buy_".length);
-      const segs = rest ? rest.split("_") : [];
-      let uid = "";
-      let packId = "";
-      if (segs.length >= 2) {
-        uid = segs[0];
-        packId = segs[1];
-      } else if (segs.length === 1) {
-        packId = segs[0];
-      }
-      if (uid) pendingUid.set(chatId, uid);
-      if (packId && PACKS[packId]) {
-        await sendInvoice(chatId, packId, uid);
-      } else {
-        await tg("sendMessage", { chat_id: chatId, text: "Выберите пакет энергии:", reply_markup: packsKb() });
-      }
+      await sendLifetimeInvoice(chatId, uid);
       return;
     }
     await tg("sendMessage", {
       chat_id: chatId,
-      text: "inApp — разборы отзывов приложений с выводами.\nПополните энергию, чтобы открывать разборы, идеи и категории:",
-      reply_markup: packsKb(),
+      text: "inApp: разборы приложений по реальным отзывам.\nОдин платёж открывает весь сайт навсегда, включая MCP-сервер:",
+      reply_markup: lifetimeKb(),
     });
     return;
   }
 
   if (text === "/tokens" || text === "/buy" || text === "/premium") {
-    await tg("sendMessage", { chat_id: chatId, text: "Выберите пакет энергии:", reply_markup: packsKb() });
+    await tg("sendMessage", { chat_id: chatId, text: "Один платёж, весь сайт навсегда:", reply_markup: lifetimeKb() });
   }
 }
 
@@ -306,9 +238,7 @@ async function handleCallback(cq) {
   if (typeof cq.data === "string" && cq.data.startsWith("buy_")) {
     await tg("answerCallbackQuery", { callback_query_id: cq.id });
     const chatId = cq.message.chat.id;
-    const key = cq.data.slice("buy_".length);
-    if (key === "life") await sendLifetimeInvoice(chatId, pendingUid.get(chatId) || "");
-    else if (PACKS[key]) await sendInvoice(chatId, key, pendingUid.get(chatId) || "");
+    await sendLifetimeInvoice(chatId, pendingUid.get(chatId) || "");
   }
 }
 

@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
-import { getPack, tokensWord, LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
-import { isActiveCategory } from "@/lib/categoryVisibility";
+import { LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
 import { ownsDeck } from "@/lib/unlocks";
 
 export const dynamic = "force-dynamic";
@@ -18,25 +17,13 @@ export async function POST(req: Request) {
   const body = (await req.json().catch(() => ({}))) as { kind?: string; slug?: string; pack?: string; method?: string };
   const method = body.method === "sbp" ? "sbp" : body.method === "bank_card" ? "bank_card" : undefined;
 
-  // Build the SKU: new direct-₽ model (deck / category / lifetime), with the deck
-  // price credited toward a later category or lifetime. Legacy token packs still
-  // work for any in-flight checkout but are no longer offered in the UI.
+  // The single SKU: lifetime access to everything. New deck/category/pack
+  // checkouts are gone (the webhook still fulfills any in-flight ones).
   let amountRub: number;
   let description: string;
   let metadata: Record<string, string>;
 
-  if (body.kind === "deck") {
-    amountRub = DECK_PRICE_RUB;
-    description = "inApp — Колода идей (топ-разборы)";
-    metadata = { userId: u.id, kind: "deck" };
-  } else if (body.kind === "category") {
-    const slug = body.slug ?? "";
-    if (!isActiveCategory(slug)) return NextResponse.json({ error: "Категория недоступна" }, { status: 400 });
-    const credit = (await ownsDeck(u.id)) ? DECK_CREDIT_RUB : 0;
-    amountRub = Math.max(1, CATEGORY_PRICE_RUB - credit);
-    description = "inApp — Разбор категории";
-    metadata = { userId: u.id, kind: "category", slug };
-  } else if (body.kind === "lifetime") {
+  if (body.kind === "lifetime") {
     if (LAUNCH_PROMO) {
       // Launch promo: Lifetime sells at the flat «Друг проекта» price.
       amountRub = FRIEND_PRICE_RUB;
@@ -55,12 +42,7 @@ export async function POST(req: Request) {
     description = "inApp — Весь сайт навсегда";
     metadata = { userId: u.id, kind: "lifetime", promo: "friend" };
   } else {
-    // Legacy token pack (kept for backward compatibility; not shown in UI).
-    const p = getPack(body.pack ?? "");
-    if (!p) return NextResponse.json({ error: "Неизвестный пак" }, { status: 400 });
-    amountRub = p.rub;
-    description = `inApp — ${p.tokens} ${tokensWord(p.tokens)}`;
-    metadata = { userId: u.id, pack: p.id, tokens: String(p.tokens) };
+    return NextResponse.json({ error: "Неизвестный товар" }, { status: 400 });
   }
 
   // За nginx req.url видит localhost:3000 — строим публичный адрес из
@@ -69,7 +51,7 @@ export async function POST(req: Request) {
   const fwdProto = req.headers.get("x-forwarded-proto") || "https";
   const origin = process.env.SITE_URL || (fwdHost ? `${fwdProto}://${fwdHost}` : new URL(req.url).origin);
   const idem = crypto.randomUUID();
-  const skuLabel = ["deck", "category", "lifetime", "friend"].includes(body.kind ?? "") ? (body.kind as string) : "pack";
+  const skuLabel = body.kind === "friend" ? "friend" : "lifetime";
   try {
     const payment = await createPayment({
       amountRub,
