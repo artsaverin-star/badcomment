@@ -2,7 +2,7 @@ import { listIdeas } from "@/lib/ideas";
 import { ogImage } from "@/lib/og";
 import { getLocale } from "@/lib/i18n.server";
 import { ideaCard, ideaContentEn } from "@/lib/regenCards";
-import { scoreFor, hotScore } from "@/lib/ideaScores";
+import { scoreFor, hotScore, publicScore } from "@/lib/ideaScores";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
@@ -146,8 +146,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   // filter three of eight cards on fire would read as noise, so no crowns there.
   const shown = all.slice(0, limit).map((i, idx) => {
     // Locked cards drop the one-liner: it IS the pitch, so it must not reach
-    // the client. Title + score stay as the teaser.
-    const card = owner ? cardOf(i, idx) : { ...cardOf(i, idx), oneLiner: "", locked: true };
+    // the client. Title + score stay as the teaser — the score stripped to its
+    // numbers (whyPay/pricePoint/founderWhy are paid conclusions).
+    const card = owner
+      ? cardOf(i, idx)
+      : { ...cardOf(i, idx), oneLiner: "", locked: true, score: publicScore(scoreFor(i.slug, locale)) ?? undefined };
     return !cat && idx < 3 ? { ...card, rank: idx + 1 } : card;
   });
 
@@ -184,7 +187,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         title: cleanTitle(ideaCard(i.slug, locale)?.title ?? en?.title ?? i.title),
         oneLiner: "",
         icon: ICONS[idx % ICONS.length],
-        score: scoreFor(i.slug, locale) ?? undefined,
+        score: publicScore(scoreFor(i.slug, locale)) ?? undefined,
         category: nameOf(i.category),
       };
       })

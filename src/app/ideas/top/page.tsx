@@ -61,12 +61,15 @@ export default async function IdeasTopPage() {
   const rows: Row[] = ranked.slice(0, limit).map(({ i, s }) => {
     const ov = ideaCard(i.slug, locale);
     const en = locale === "en" ? ideaContentEn(i.slug, locale) : null;
+    // The free rows are a teaser: title + the numeric axes. The one-liner is
+    // the pitch and whyPay/pricePoint are the paid conclusions — same cut as
+    // the locked cards on /ideas.
     return {
       title: cleanTitle(ov?.title ?? en?.title ?? i.title),
-      oneLiner: ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner,
+      oneLiner: owner ? (ov?.oneLiner ?? en?.oneLiner ?? i.oneLiner) : "",
       category: i.category, categoryName: nameOf(i.category),
       money: s!.money, simplicity: s!.simplicity, demand: s!.demand, composite: s!.composite, founder: s!.founder,
-      whyPay: s!.whyPay, pricePoint: s!.pricePoint,
+      whyPay: owner ? s!.whyPay : "", pricePoint: owner ? s!.pricePoint : "",
     };
   });
 

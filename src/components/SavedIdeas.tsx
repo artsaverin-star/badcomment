@@ -10,7 +10,7 @@ export type SavedPreview = {
   category: string; categoryName: string; title: string; oneLiner: string;
   gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string;
   reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[];
-  icon: string; hue?: number; cover?: string; score?: Score;
+  icon: string; hue?: number; cover?: string; score?: Score; locked?: boolean;
 };
 
 // «Избранное» — the ideas bookmarked on the cards (localStorage favIdeas). Uses
@@ -18,7 +18,7 @@ export type SavedPreview = {
 // opens exactly like everywhere else. Removing = unbookmark on the card itself,
 // and the list reacts live via the shared favIdeas store. Legacy hearts from the
 // old feed (feed:saved) are merged in once, so nothing saved before is lost.
-export default function SavedIdeas({ items, locale = "ru" }: { items: Record<string, SavedPreview>; locale?: Locale }) {
+export default function SavedIdeas({ items, locale = "ru", loggedIn = false }: { items: Record<string, SavedPreview>; locale?: Locale; loggedIn?: boolean }) {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
 
@@ -63,10 +63,10 @@ export default function SavedIdeas({ items, locale = "ru" }: { items: Record<str
       slug,
       title: s.title, oneLiner: s.oneLiner, gap: s.gap, pitch: s.pitch, features: s.features,
       antiFeatures: s.antiFeatures, monetization: s.monetization, reviewGrid: s.reviewGrid,
-      icon: s.icon, hue: s.hue, cover: s.cover, score: s.score,
+      icon: s.icon, hue: s.hue, cover: s.cover, score: s.score, locked: s.locked,
       category: s.categoryName, categorySlug: s.category,
     };
   });
 
-  return <IdeaCards ideas={cards} locale={locale} />;
+  return <IdeaCards ideas={cards} loggedIn={loggedIn} locale={locale} />;
 }

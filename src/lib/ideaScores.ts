@@ -78,6 +78,14 @@ export function scoreFor(slug: string, locale: Locale = "ru"): IdeaScore | null 
   return { ...s, ...founder };
 }
 
+// The score a locked card is allowed to carry: the numeric axes stay (the
+// teaser), while the sell text — whyPay, pricePoint, targetSegment, founderWhy —
+// is the paid conclusion and must never reach a non-owner's payload.
+export function publicScore(s: IdeaScore | null | undefined): IdeaScore | null {
+  if (!s) return null;
+  return { ...s, whyPay: "", pricePoint: "", targetSegment: "", founderWhy: undefined };
+}
+
 export function marketFor(slug: string): NicheMarket | null {
   return MKT[slug] ?? null;
 }

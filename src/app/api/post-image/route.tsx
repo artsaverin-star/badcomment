@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getSegmentSummary } from "@/lib/segmentSummary";
+import { getAccess } from "@/lib/access";
 import { listIdeas } from "@/lib/ideas";
 import { hueFromSlug } from "@/lib/categoryGradient";
 
@@ -109,6 +110,11 @@ function frame(hue: number, accent: string, eyebrow: string, kids: React.ReactNo
 }
 
 export async function GET(req: Request) {
+  // Owner tool for authoring social posts. Slides 1..5 print each idea's title
+  // + one-liner — the pitch that every public surface cuts for non-owners — so
+  // the endpoint itself is gated, not just unlinked.
+  const access = await getAccess();
+  if (!access.unlimited) return new Response("forbidden", { status: 403 });
   const url = new URL(req.url);
   const slug = url.searchParams.get("slug") || "";
   const i = Math.max(0, Math.min(SLIDE_COUNT - 1, Number(url.searchParams.get("i") || 0)));

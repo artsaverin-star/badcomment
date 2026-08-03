@@ -4,6 +4,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getNicheName } from "@/lib/ratingAppSlug";
 import { listIdeas } from "@/lib/ideas";
+import { ideaContentEn } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import buildCopy from "@/data/buildCopy.json";
@@ -23,12 +24,6 @@ export const dynamic = "force-dynamic";
 // Pain lines are authored from the corpus (buildCopy), not the analyst gap.
 
 type Copy = { pain?: string; painEn?: string; painTitle?: string; painTitleEn?: string };
-
-const firstSentence = (t?: string) => {
-  if (!t) return "";
-  const m = t.match(/^.*?[.!?…](\s|$)/);
-  return (m ? m[0] : t).trim();
-};
 
 export default async function BuildPainPicker({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -50,10 +45,13 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       const c = copy[i.slug];
       const authored = ru ? c?.pain : c?.painEn;
       const sc = scoreFor(i.slug, locale);
+      // No authored copy → the row falls back to the idea TITLE, never to the
+      // gap or the one-liner: those are the paid body and this list is public.
+      const en = ru ? null : ideaContentEn(i.slug, locale);
       return {
         idea: i.slug,
-        painTitle: (ru ? c?.painTitle : c?.painTitleEn) || "",
-        pain: authored || firstSentence(i.gap as string) || i.oneLiner,
+        painTitle: (ru ? c?.painTitle : c?.painTitleEn) || en?.title || i.title,
+        pain: authored || "",
         observations: i.stats?.observations ?? 0,
         founder: sc?.founder != null ? Math.round((sc.founder / 45) * 100) : 0,
       };
@@ -103,7 +101,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
                         {p.open && anyLocked && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#30d158]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#30d158]">{ru ? "бесплатно" : "free"}</span>}
                         {p.rega && <span className="ml-2 inline-block translate-y-[-1px] rounded-full bg-[#ff9f0a]/15 px-2 py-0.5 align-middle text-caption font-semibold text-[#ff9f0a]">{ru ? "за регистрацию" : "with sign-in"}</span>}
                       </p>
-                      <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>
+                      {p.pain && <p className="mt-1 text-footnote text-pretty text-[var(--color-text-secondary)]">{p.pain}</p>}
                     </>
                   : <p className="text-body text-pretty text-[var(--color-text-primary)]">{p.pain}</p>}
                 {p.observations > 0 && <div className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{p.observations} {ru ? "наблюдений в отзывах" : "observations in reviews"}</div>}

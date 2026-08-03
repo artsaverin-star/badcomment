@@ -49,7 +49,11 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
 
   // Use the effective access (honours ?preview=) so depth never leaks to a
   // non-owner — and an owner previewing the gate sees the true locked state.
-  const { items } = buildFeed(locale, hasAccess);
+  // The deck client truncates browsing at 10 (guest) / 14 (signed-in), so a
+  // non-owner's payload is cut to exactly that: shipping the other ~580
+  // previews only leaked every title+pitch+quote into the flight data.
+  const { items: feedItems } = buildFeed(locale, hasAccess);
+  const items = hasAccess ? feedItems : feedItems.slice(0, loggedIn ? 14 : 10);
   // Single honest review-count figure — same source as the homepage headline.
   const { totalReviews } = getCatalogData(locale, await isPremium());
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");

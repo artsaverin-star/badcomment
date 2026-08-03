@@ -74,8 +74,10 @@ export function buildLlmsFull(locale: Locale = "en"): string {
 
     if (thesis?.pillars?.length) {
       out.push("### Key findings");
+      // The same ladder as the site: pillar 01's dek is the free rung, the
+      // deks of pillars 02+ are the paid conclusions — titles only here.
       thesis.pillars.forEach((p, i) => {
-        out.push(`${i + 1}. **${oneLine(p.title)}** — ${oneLine(p.dek)}`);
+        out.push(i === 0 ? `${i + 1}. **${oneLine(p.title)}** — ${oneLine(p.dek)}` : `${i + 1}. **${oneLine(p.title)}**`);
       });
       out.push("");
     }
@@ -88,7 +90,8 @@ export function buildLlmsFull(locale: Locale = "en"): string {
       out.push("");
     }
 
-    // Opportunities (regenerated thesis where available, else the idea).
+    // Opportunities: titles only. The one-liner is the pitch and the gap is
+    // the paid body — the same cut as the locked cards on the site.
     const regen = getNicheOpportunities(slug, locale);
     if (ideas.length) {
       out.push("### Opportunities to build");
@@ -96,9 +99,7 @@ export function buildLlmsFull(locale: Locale = "en"): string {
         const r = regen.find((o) => o.slug === idea.slug);
         const en = ideaContentEn(idea.slug, locale);
         const title = r?.title || en?.title || idea.title;
-        const sub = r?.tagline || en?.oneLiner || idea.oneLiner;
-        const detail = r?.wedge || en?.gap || idea.gap;
-        out.push(`- **${oneLine(title)}** — ${oneLine(sub)}${detail ? ` ${oneLine(detail)}` : ""}`);
+        out.push(`- **${oneLine(title)}**`);
       });
       out.push("");
     }

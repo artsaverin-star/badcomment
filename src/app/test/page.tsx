@@ -1,5 +1,7 @@
+import { notFound } from "next/navigation";
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
+import { getAccess } from "@/lib/access";
 import { ideaCard } from "@/lib/regenCards";
 import { scoreFor } from "@/lib/ideaScores";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
@@ -15,7 +17,11 @@ type FullIdea = { slug: string; category: string; title: string; oneLiner: strin
 const cleanTitle = (s: string) => { const m = (s || "").replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, ""); return m.charAt(0).toUpperCase() + m.slice(1); };
 
 // Prototype homepage: a motion-forward swipe deck of the top ideas.
+// Owner-only — the cards carry oneLiner + whyPay for the whole top 30, which
+// is exactly the paid payload the public surfaces cut for non-owners.
 export default async function TestPage() {
+  const access = await getAccess();
+  if (!access.unlimited) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
 

@@ -17,7 +17,7 @@ import AppLinkedText from "@/components/AppLinkedText";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { categoryCards } from "@/lib/regenCards";
-import { marketFor, scoreFor, localizePrice } from "@/lib/ideaScores";
+import { marketFor, scoreFor, publicScore, localizePrice } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import ideaCovers from "@/data/ideaCovers.json";
 import personaCovers from "@/data/personaCovers.json";
@@ -155,7 +155,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const ideasByScore = [...ideaCards].sort((a, b) => (b.score?.composite ?? 0) - (a.score?.composite ?? 0));
   const ideaCardsLocked = ideasByScore
     .slice(0, 3)
-    .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score, category, categoryName: name, categorySlug: slug, locked: true }));
+    .map(({ slug: s, title, icon, hue, cover, score, category }) => ({ slug: s, title, oneLiner: "", icon, hue, cover, score: publicScore(score) ?? undefined, category, categoryName: name, categorySlug: slug, locked: true }));
   // The sample: one mid-ranked idea fully open, so the paid depth is visible
   // in-context (the crown of the niche stays locked).
   const sampleIdea = ideasByScore.length > 3 ? ideasByScore[3] : ideasByScore[ideasByScore.length - 1];
@@ -215,7 +215,9 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
     : null;
 
   // Personas who habitually don't pay — the honest "don't build for them" list.
-  const weakSegs = audSegments.filter((s) => s.payLevel.includes("слабо"));
+  // Drawn from the CLIENT copy: for locked users its payNote is already cut, so
+  // the "why they don't pay" sentence (a paid conclusion) can't ride along.
+  const weakSegs = audSegmentsClient.filter((s) => s.payLevel.includes("слабо"));
 
   // Hand-grouped neighbouring niches (same shopping intent), for the footer.
   const GROUPS: string[][] = [

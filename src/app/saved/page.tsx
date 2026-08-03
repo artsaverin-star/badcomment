@@ -3,7 +3,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { listIdeas } from "@/lib/ideas";
 import { ideaContentEn } from "@/lib/regenCards";
 import { getCategoryBySlug } from "@/lib/researchCategories";
-import { scoreFor } from "@/lib/ideaScores";
+import { scoreFor, publicScore } from "@/lib/ideaScores";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
@@ -40,7 +40,9 @@ export default async function SavedPage() {
 
   // Preview catalog for every published idea — the client picks the saved ones
   // out of it by slug (bookmarks live in localStorage, invisible to the server).
-  // Depth (gap/pitch/features…) is included only for owners, so it can't leak.
+  // This map ships for ALL ideas, so for non-owners it must carry no more than
+  // a locked card anywhere else: title + numeric score, no one-liner (it's the
+  // pitch), no whyPay/pricePoint. Depth (gap/pitch/features…) is owner-only.
   const items: Record<string, SavedPreview> = {};
   for (const i of listIdeas() as unknown as FullIdea[]) {
     const en = ru ? null : ideaContentEn(i.slug, locale);
@@ -48,11 +50,12 @@ export default async function SavedPage() {
       category: i.category,
       categoryName: getCategoryBySlug(i.category, locale)?.name ?? "",
       title: en?.title ?? i.title,
-      oneLiner: en?.oneLiner ?? i.oneLiner,
+      oneLiner: owner ? (en?.oneLiner ?? i.oneLiner) : "",
       icon: iconFor(i.slug),
       hue: hueFromSlug(i.category),
       cover: covers[i.slug],
-      score: scoreFor(i.slug, locale) ?? undefined,
+      score: (owner ? scoreFor(i.slug, locale) : publicScore(scoreFor(i.slug, locale))) ?? undefined,
+      locked: owner ? undefined : true,
     };
     if (owner) {
       base.gap = en?.gap ?? i.gap;
@@ -70,7 +73,7 @@ export default async function SavedPage() {
       <h1 className="text-center text-display text-[var(--color-text-primary)]">{ru ? "Избранное" : "Saved"}</h1>
       <p className="mx-auto mt-3 max-w-[40ch] text-center text-callout text-[var(--color-text-secondary)]">{ru ? "Идеи, которые ты отметил закладкой." : "The ideas you bookmarked."}</p>
       <div className="mt-10">
-        <SavedIdeas items={items} locale={locale} />
+        <SavedIdeas items={items} locale={locale} loggedIn={access.loggedIn} />
       </div>
     </main>
   );
