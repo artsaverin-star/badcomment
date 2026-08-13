@@ -64,6 +64,7 @@ export default async function ReviewsHome() {
   const nichesWithPatterns = niches.filter((niche) => niche.patterns > 0).length;
   const visiblePatternCount = niches.reduce((sum, niche) => sum + niche.patterns, 0);
   const detailedNiches = niches.filter((niche) => niche.appThemesReady).length;
+  const detailedCorpusPct = t.sourceReviews ? (t.reviews / t.sourceReviews) * 100 : 0;
   const updated = new Intl.DateTimeFormat(lc, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${progress.updatedAt}T00:00:00Z`));
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,8 +74,8 @@ export default async function ReviewsHome() {
         "@id": "https://inapp.pro/reviews#dataset",
         name: ru ? "Корпус отзывов о мобильных приложениях inApp" : "inApp mobile app review corpus",
         description: ru
-          ? `Тексты и оценки ${t.sourceReviews} отзывов о ${t.sourceApps} приложениях, сгруппированные в паттерны ниш и темы отдельных продуктов.`
-          : `Texts and ratings from ${t.sourceReviews} reviews across ${t.sourceApps} apps, grouped into niche-wide patterns and product-specific themes.`,
+          ? `Полные тексты и оценки ${t.sourceReviews} отзывов о ${t.sourceApps} приложениях, организованные по нишам и продуктам; обработанная часть дополнена тематической разметкой.`
+          : `Complete texts and ratings from ${t.sourceReviews} reviews across ${t.sourceApps} apps, organised by niche and product; the processed subset also includes topic labels.`,
         url: `https://inapp.pro${lp}/reviews`,
         dateModified: progress.updatedAt,
         creator: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
@@ -102,8 +103,8 @@ export default async function ReviewsHome() {
         <h1 className="mt-2 text-display font-bold text-[var(--color-text-primary)]">{ru ? "Отзывы" : "Reviews"}</h1>
         <p className="mt-4 text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Исследовательский корпус, в котором любой вывод можно проверить. Сначала мы находим повторяющиеся сюжеты между конкурентами, затем разбираем каждое приложение по его собственным темам — вплоть до исходных текстов."
-            : "A research corpus where every conclusion can be checked. We first find stories that repeat across competitors, then break down each app into its own themes — all the way to the source texts."}
+            ? `Все ${t.sourceReviews.toLocaleString(lc)} отзывов на месте: 71 категория, ${t.sourceApps.toLocaleString(lc)} приложения, полные тексты и оценки. Поверх исходного корпуса мы добавляем проверяемые паттерны ниш и темы отдельных продуктов.`
+            : `All ${t.sourceReviews.toLocaleString(lc)} reviews are here: 71 categories, ${t.sourceApps.toLocaleString(lc)} apps, complete texts and ratings. Verifiable niche patterns and product-specific topics are layered onto the source corpus.`}
         </p>
       </header>
 
@@ -118,12 +119,19 @@ export default async function ReviewsHome() {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="text-caption uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{ru ? "Паспорт данных" : "Data passport"}</p>
-            <h2 id="reviews-coverage-heading" className="mt-1 text-title3 text-[var(--color-text-primary)]">{ru ? "Что уже размечено" : "What is already labelled"}</h2>
+            <h2 id="reviews-coverage-heading" className="mt-1 text-title3 text-[var(--color-text-primary)]">{ru ? "Что доступно и что размечено" : "What is available and labelled"}</h2>
           </div>
           <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</p>
         </div>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-6 grid gap-6 sm:grid-cols-3 sm:gap-8">
+          <CoverageRow
+            label={ru ? "Исходные тексты" : "Source texts"}
+            note={ru ? `Все ${t.sourceApps.toLocaleString(lc)} приложения открываются по категориям` : `All ${t.sourceApps.toLocaleString(lc)} apps can be opened by category`}
+            done={t.sourceReviews}
+            total={t.sourceReviews}
+            locale={lc}
+          />
           <CoverageRow
             label={ru ? "Паттерны рынка" : "English pattern coverage"}
             note={ru ? "Во всех нишах · от 8 сигналов и 3 приложений" : `${visiblePatternCount.toLocaleString(lc)} translated patterns · source analysis covers all 71 niches`}
@@ -133,7 +141,7 @@ export default async function ReviewsHome() {
           />
           <CoverageRow
             label={ru ? "Темы конкретных приложений" : "Themes of individual apps"}
-            note={ru ? `${detailedNiches} ниш · ${t.specificCoveragePct.toFixed(1)}% обработанных отзывов получили конкретную тему` : `${detailedNiches} niches · ${t.specificCoveragePct.toFixed(1)}% of processed reviews have a specific theme`}
+            note={ru ? `${detailedNiches} ниш · обработано ${detailedCorpusPct.toFixed(1)}% полного корпуса` : `${detailedNiches} niches · ${detailedCorpusPct.toFixed(1)}% of the complete corpus processed`}
             done={progress.appsDone}
             total={progress.appsPlanned}
             locale={lc}

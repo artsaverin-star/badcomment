@@ -22,7 +22,8 @@
     "reviews:remaining": "node scripts/reviews-remaining.mjs",
     "reviews:bootstrap-patterns": "node scripts/reviews-bootstrap-patterns.mjs",
     "reviews:niche-patterns": "node scripts/reviews-bootstrap-patterns.mjs && node scripts/reviews-niche-patterns.mjs",
-    "reviews:assemble": "node scripts/reviews-assemble.mjs"
+    "reviews:assemble": "node scripts/reviews-assemble.mjs",
+    "reviews:pack-source": "node scripts/reviews-pack-source.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

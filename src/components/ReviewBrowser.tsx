@@ -13,7 +13,7 @@ import { plural } from "@/lib/format";
 // filter after that is instant and nothing ever shows a spinner mid-read.
 
 export type Theme = { name: string; nameEn: string; count: number; polarity: "love" | "pain" | "mixed"; fallback?: boolean };
-export type Review = { rating: number; text: string; theme: string };
+export type Review = { rating: number; text: string; theme?: string };
 
 const PAGE = 30;
 
@@ -85,7 +85,7 @@ export default function ReviewBrowser({
     if (all || loading.current) return;
     loading.current = true;
     try {
-      const r = await fetch(`/reviews/${slug}/${encodeURIComponent(id)}.json`).then((x) => (x.ok ? x.json() : null));
+      const r = await fetch(`/api/reviews/${encodeURIComponent(slug)}/${encodeURIComponent(id)}`).then((x) => (x.ok ? x.json() : null));
       setAll(Array.isArray(r?.reviews) ? (r.reviews as Review[]) : []);
     } catch {
       setAll([]);
@@ -209,54 +209,56 @@ export default function ReviewBrowser({
         </div>
       </div>
 
-      <h2 className="mt-9 text-title3 text-[var(--color-text-primary)]">{ru ? "О чём пишут" : "What people write about"}</h2>
-      <p className="mt-1.5 max-w-[58ch] text-footnote text-[var(--color-text-secondary)]">
-        {ru
-          ? "Направление показывает, как тема выглядит в совокупности. Отдельный отзыв может с ним не совпадать — выбери тему и проверь её звёздный профиль и все тексты."
-          : "Direction describes a theme in aggregate. An individual review may differ — select a theme to inspect its star profile and every text."}
-      </p>
+      {groups.length > 0 && <>
+        <h2 className="mt-9 text-title3 text-[var(--color-text-primary)]">{ru ? "О чём пишут" : "What people write about"}</h2>
+        <p className="mt-1.5 max-w-[58ch] text-footnote text-[var(--color-text-secondary)]">
+          {ru
+            ? "Направление показывает, как тема выглядит в совокупности. Отдельный отзыв может с ним не совпадать — выбери тему и проверь её звёздный профиль и все тексты."
+            : "Direction describes a theme in aggregate. An individual review may differ — select a theme to inspect its star profile and every text."}
+        </p>
 
-      <div className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-        {groups.map((g) => (
-          <div key={g.key} className="min-w-0 flex-1">
-            <h3 className="border-b border-[var(--color-border-subtle)] pb-2 text-caption text-[var(--color-text-tertiary)]">{g.label}</h3>
-            <ul className="flex flex-col">
-              {g.items.map((t) => {
-                const on = theme === t.name;
-                return (
-                  <li key={t.name} className="border-b border-[var(--color-border-subtle)]">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setTheme(on ? null : t.name);
-                        setLimit(PAGE);
-                      }}
-                      aria-pressed={on}
-                      className="flex w-full items-baseline gap-3 py-2.5 text-left transition-colors"
-                    >
-                      <span
-                        className={`min-w-0 flex-1 text-footnote ${
-                          on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-                        }`}
+        <div className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          {groups.map((g) => (
+            <div key={g.key} className="min-w-0 flex-1">
+              <h3 className="border-b border-[var(--color-border-subtle)] pb-2 text-caption text-[var(--color-text-tertiary)]">{g.label}</h3>
+              <ul className="flex flex-col">
+                {g.items.map((t) => {
+                  const on = theme === t.name;
+                  return (
+                    <li key={t.name} className="border-b border-[var(--color-border-subtle)]">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setTheme(on ? null : t.name);
+                          setLimit(PAGE);
+                        }}
+                        aria-pressed={on}
+                        className="flex w-full items-baseline gap-3 py-2.5 text-left transition-colors"
                       >
-                        {ru ? t.name : t.nameEn}
-                        {t.fallback && (
-                          <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
-                            {ru ? "остаток" : "remainder"}
-                          </span></>
-                        )}
-                      </span>
-                      <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                        {t.count.toLocaleString(lc)} · {total ? ((t.count / total) * 100).toFixed(t.count / total < 0.01 ? 1 : 0) : 0}%
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
-      </div>
+                        <span
+                          className={`min-w-0 flex-1 text-footnote ${
+                            on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                          }`}
+                        >
+                          {ru ? t.name : t.nameEn}
+                          {t.fallback && (
+                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
+                              {ru ? "остаток" : "remainder"}
+                            </span></>
+                          )}
+                        </span>
+                        <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+                          {t.count.toLocaleString(lc)} · {total ? ((t.count / total) * 100).toFixed(t.count / total < 0.01 ? 1 : 0) : 0}%
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </>}
 
       {activeTheme && exact && (
         <section className="card-min mt-6 rounded-[20px] p-4 sm:p-5" aria-live="polite" aria-label={ru ? "Профиль выбранной темы" : "Selected theme profile"}>
@@ -344,7 +346,7 @@ export default function ReviewBrowser({
           <li key={`${i}-${r.rating}`} className="border-b border-[var(--color-border-subtle)] py-3.5">
             <div className="flex items-baseline gap-2.5">
               <Stars n={r.rating} />
-              {!theme && (
+              {!theme && r.theme && (
                 <span className="min-w-0 truncate text-caption text-[var(--color-text-tertiary)]">
                   {ru ? r.theme : themes.find((t) => t.name === r.theme)?.nameEn ?? r.theme}
                   {themes.find((t) => t.name === r.theme)?.fallback && <span className="ml-1">· {ru ? "без конкретики" : "unspecific"}</span>}

@@ -1,5 +1,5 @@
 import type { SessionUser } from "@/lib/session";
-import { getApp, getNiche, getNichePatterns, listNiches, listReviewCatalogue, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
+import { getApp, getNiche, getNichePatterns, listNiches, listReviewCatalogue, listSourceApps, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
 import reviewsIndex from "@/data/reviewsIndex.json";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
@@ -480,10 +480,11 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       if (!q) throw new Error("query is required");
       const limit = clamp(args.limit, 20, 100);
       const hits: unknown[] = [];
-      for (const [slug, n] of Object.entries(IDX)) {
-        for (const a of n.apps) {
+      for (const niche of listReviewCatalogue("ru")) {
+        const slug = niche.slug;
+        for (const a of listSourceApps(slug)) {
           if (!a.title.toLowerCase().includes(q)) continue;
-          hits.push({ niche: slug, nicheName: n.name, appId: a.id, title: a.title, reviewsRead: a.total });
+          hits.push({ niche: slug, nicheName: niche.name, appId: a.id, title: a.title, reviewsRead: a.total });
           if (hits.length >= limit) break;
         }
         if (hits.length >= limit) break;
@@ -496,24 +497,29 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       const n = getNiche(slug);
       if (!n) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
       const limit = clamp(args.limit, 40, 200);
-      const apps = n.apps.slice(0, limit).map((a) => {
-        const sp = split(a.themes);
+      const detailedById = new Map(n.apps.map((app) => [app.id, app]));
+      const sourceApps = listSourceApps(slug);
+      const apps = sourceApps.slice(0, limit).map((sourceApp) => {
+        const a = detailedById.get(sourceApp.id);
+        const sp = a ? split(a.themes) : null;
         return {
-          appId: a.id,
-          title: a.title,
-          reviewsRead: a.total,
-          praisePct: Math.round(sp.lovePct),
-          complaintPct: Math.round(sp.painPct),
-          topThemes: a.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count })),
+          appId: sourceApp.id,
+          title: sourceApp.title,
+          reviewsRead: sourceApp.total,
+          textsAvailable: true,
+          topicLabelling: a ? "ready" : "queued",
+          praisePct: sp ? Math.round(sp.lovePct) : null,
+          complaintPct: sp ? Math.round(sp.painPct) : null,
+          topThemes: a?.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count })) || [],
         };
       });
       return json({
         niche: slug,
         name: n.name,
         appsShown: apps.length,
-        appsTotal: n.apps.length,
+        appsTotal: sourceApps.length,
         apps,
-        note: n.apps.length > apps.length ? `showing the ${apps.length} apps with the most reviews out of ${n.apps.length}` : undefined,
+        note: sourceApps.length > apps.length ? `showing the ${apps.length} apps with the most reviews out of ${sourceApps.length}` : undefined,
       });
     }
 
@@ -568,7 +574,9 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         appId: a.id,
         title: a.title,
         reviewsRead: a.total,
+        topicLabelling: a.themes.length ? "ready" : "queued",
         themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific" })),
+        note: a.themes.length ? undefined : "All review texts are available; verified product-topic labelling is still queued.",
       });
     }
 
@@ -599,7 +607,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         title: a.title,
         filter: { theme: theme || null, minRating: min, maxRating: max, contains: contains || null },
         matched,
-        reviews: shown.map((r) => ({ rating: r.rating, theme: r.theme, text: r.text })),
+        reviews: shown.map((r) => ({ rating: r.rating, theme: r.theme || null, text: r.text })),
         note: matched > shown.length ? `showing ${shown.length} of ${matched} matching reviews, worst-rated first` : undefined,
       });
     }

@@ -7,7 +7,7 @@ import NichePatternList from "@/components/NichePatternList";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { plural } from "@/lib/format";
 import { getLocale } from "@/lib/i18n.server";
-import { getNiche, getNichePatterns, nicheName } from "@/lib/reviews";
+import { getNiche, getNichePatterns, listSourceApps, nicheName } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -60,20 +60,24 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   const allThemes = niche.apps.flatMap((app) => app.themes);
   const specificThemes = allThemes.filter((theme) => !theme.fallback);
   const processedReviews = niche.apps.reduce((sum, app) => sum + app.total, 0);
-  const fallbackReviews = allThemes.filter((theme) => theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-  const specificCoverage = processedReviews ? ((processedReviews - fallbackReviews) / processedReviews) * 100 : 0;
+  const specificReviews = specificThemes.reduce((sum, theme) => sum + theme.count, 0);
+  const specificCoverage = processedReviews ? (specificReviews / processedReviews) * 100 : 0;
   const appCoverage = niche.appsPlanned ? (niche.apps.length / niche.appsPlanned) * 100 : 0;
   const sourceReviews = niche.sourceReviews || processedReviews;
   const patterns = getNichePatterns(slug, locale);
   const sourcePatternCount = getNichePatterns(slug, "ru").length;
   const linked = isActiveCategory(slug);
-  const apps = niche.apps.map((app) => ({
-    id: app.id,
-    title: app.title,
-    total: app.total,
-    icon: app.icon,
-    themes: app.themes,
-  }));
+  const sourceApps = listSourceApps(slug);
+  const detailedById = new Map(niche.apps.map((app) => [app.id, app]));
+  const apps = sourceApps.map((sourceApp) => {
+    const detailed = detailedById.get(sourceApp.id);
+    return {
+      ...sourceApp,
+      icon: detailed?.icon,
+      themes: detailed?.themes || [],
+      detailed: Boolean(detailed),
+    };
+  });
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -94,8 +98,8 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         <h1 className="mt-2 text-title1 text-balance text-[var(--color-text-primary)]">{name}</h1>
         <p className="mt-3 text-body text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Сначала — сюжеты, которые повторяются у разных конкурентов. Ниже — подробная разметка каждого готового приложения с возможностью открыть исходные отзывы."
-            : "First, stories repeated across different competitors. Then, detailed labelling for every completed app with access to source reviews."}
+            ? `Все ${sourceReviews.toLocaleString(lc)} исходных отзывов доступны ниже: выбери приложение, оценку или найди фразу в тексте. Для уже обработанных приложений добавлены отдельные продуктовые темы.`
+            : `All ${sourceReviews.toLocaleString(lc)} source reviews are available below: choose an app, rating, or search the text. Completed apps also include product-specific themes.`}
         </p>
       </header>
 
@@ -132,6 +136,22 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      <section id="apps" className="mt-10 max-w-3xl scroll-mt-24" aria-labelledby="niche-apps-heading">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-caption uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{ru ? "Полный корпус ниши" : "Complete niche corpus"}</p>
+            <h2 id="niche-apps-heading" className="mt-1 text-title2 text-[var(--color-text-primary)]">{ru ? "Все приложения и отзывы" : "All apps and reviews"}</h2>
+          </div>
+          <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{apps.length} / {niche.appsPlanned}</span>
+        </div>
+        <p className="mt-2 max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
+          {ru
+            ? `Тексты доступны у всех ${apps.length} приложений. Значок «темы размечены» означает, что к оценкам и поиску добавлена проверенная тематическая навигация.`
+            : `Review texts are available for all ${apps.length} apps. “Themes labelled” means verified topic navigation is available in addition to rating and text search.`}
+        </p>
+        <div className="mt-4"><NicheAppList slug={slug} apps={apps} ru={ru} /></div>
+      </section>
+
       {patterns.length > 0 && <NichePatternList patterns={patterns} ru={ru} />}
 
       {!ru && patterns.length < sourcePatternCount && (
@@ -157,28 +177,6 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         </nav>
       )}
 
-      {apps.length > 0 ? (
-        <section className="mt-12 max-w-3xl" aria-labelledby="niche-apps-heading">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="text-caption uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{ru ? "Уровень продукта" : "Product layer"}</p>
-              <h2 id="niche-apps-heading" className="mt-1 text-title2 text-[var(--color-text-primary)]">{ru ? "Темы по приложениям" : "Themes by app"}</h2>
-            </div>
-            <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{apps.length} / {niche.appsPlanned}</span>
-          </div>
-          <p className="mt-2 max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-            {ru ? "Найди продукт или сюжет. Внутри — звёздный профиль, темы и все соответствующие тексты отзывов." : "Find a product or story. Each page contains a star profile, themes, and every matching review text."}
-          </p>
-          <div className="mt-4"><NicheAppList slug={slug} apps={apps} ru={ru} /></div>
-        </section>
-      ) : (
-        <div className="card-min mt-10 max-w-3xl rounded-[22px] p-5 sm:p-6">
-          <p className="text-headline text-[var(--color-text-primary)]">{ru ? "Разметка отдельных приложений в очереди" : "Per-app labelling is queued"}</p>
-          <p className="mt-1.5 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
-            {ru ? "Сквозные паттерны уже доступны выше и проверены по нескольким конкурентам. Карточки приложений появятся после отдельной проверки назначений." : "Cross-app patterns are available above and validated across multiple competitors. App cards will appear after a separate assignment review."}
-          </p>
-        </div>
-      )}
     </main>
   );
 }

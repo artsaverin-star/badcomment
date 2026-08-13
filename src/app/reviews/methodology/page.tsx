@@ -42,6 +42,8 @@ export default async function ReviewMethodology() {
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
   const t = totals();
+  const detailedCorpusPct = t.sourceReviews ? (t.reviews / t.sourceReviews) * 100 : 0;
+  const specificCorpusPct = t.sourceReviews ? (t.specificReviews / t.sourceReviews) * 100 : 0;
   const updated = new Intl.DateTimeFormat(lc, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${progress.updatedAt}T00:00:00Z`));
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,8 +75,8 @@ export default async function ReviewMethodology() {
         <h2 id="method-corpus" className="text-title2 text-[var(--color-text-primary)]">{ru ? "1. Корпус" : "1. Corpus"}</h2>
         <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
           {ru
-            ? `В текущем снимке ${t.sourceReviews.toLocaleString(lc)} публичных отзывов о ${t.sourceApps.toLocaleString(lc)} мобильных приложениях в ${t.sourceNiches} тематической нише. Для анализа сохраняются текст отзыва, звёздная оценка и принадлежность к приложению.`
-            : `The current snapshot contains ${t.sourceReviews.toLocaleString(lc)} public reviews across ${t.sourceApps.toLocaleString(lc)} mobile apps in ${t.sourceNiches} niches. Review text, star rating, and app attribution are retained for analysis.`}
+            ? `В текущем снимке ${t.sourceReviews.toLocaleString(lc)} публичных отзывов о ${t.sourceApps.toLocaleString(lc)} мобильных приложениях в ${t.sourceNiches} тематической нише. Полный текст, звёздная оценка и принадлежность к приложению доступны для каждого отзыва прямо в каталоге.`
+            : `The current snapshot contains ${t.sourceReviews.toLocaleString(lc)} public reviews across ${t.sourceApps.toLocaleString(lc)} mobile apps in ${t.sourceNiches} niches. Complete text, star rating, and app attribution are available for every review directly in the catalogue.`}
         </p>
       </section>
 
@@ -122,8 +124,8 @@ export default async function ReviewMethodology() {
           </Definition>
           <Definition term={ru ? "Охват" : "Coverage"}>
             {ru
-              ? `Паттерны рынка готовы в каждой из ${t.sourceNiches} тематической ниши. Детальная продуктовая разметка готова для ${progress.appsDone.toLocaleString(lc)} из ${progress.appsPlanned.toLocaleString(lc)} приложений. Эти показатели намеренно публикуются раздельно.`
-              : `Market patterns are ready for all ${t.sourceNiches} niches. Detailed product labelling is ready for ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps. These figures are deliberately reported separately.`}
+              ? `Исходные тексты доступны для всех ${t.sourceReviews.toLocaleString(lc)} отзывов. Паттерны рынка готовы в каждой из ${t.sourceNiches} тематической ниши. Детальная продуктовая разметка готова для ${progress.appsDone.toLocaleString(lc)} из ${progress.appsPlanned.toLocaleString(lc)} приложений — это ${detailedCorpusPct.toFixed(1)}% полного корпуса; конкретную тему получили ${specificCorpusPct.toFixed(1)}% всех исходных отзывов. Эти показатели намеренно публикуются раздельно.`
+              : `Source texts are available for all ${t.sourceReviews.toLocaleString(lc)} reviews. Market patterns are ready for all ${t.sourceNiches} niches. Detailed product labelling is ready for ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps, or ${detailedCorpusPct.toFixed(1)}% of the complete corpus; ${specificCorpusPct.toFixed(1)}% of all source reviews have a specific topic. These figures are deliberately reported separately.`}
           </Definition>
         </dl>
       </section>
@@ -141,7 +143,7 @@ export default async function ReviewMethodology() {
       <aside className="card-min mt-10 rounded-[22px] p-5 sm:p-6">
         <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Лучший способ проверить вывод" : "The best way to verify a finding"}</h2>
         <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
-          {ru ? "Открой паттерн ниши, прочитай цитаты, затем перейди в конкретное приложение и отфильтруй все тексты по соответствующей теме и звёздам." : "Open a niche pattern, read its quotes, then open a specific app and filter all texts by the corresponding theme and star rating."}
+          {ru ? "Открой категорию и конкретное приложение: все тексты можно проверить по звёздам и поиску. Если тематическая разметка готова, дополнительно выбери тему и сравни её профиль с исходными отзывами." : "Open a category and a specific app: every text can be checked by rating and search. When topic labelling is ready, also select a topic and compare its profile with the source reviews."}
         </p>
         <Link href={`${lp}/reviews`} className="mt-4 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
           {ru ? "Перейти к корпусу →" : "Explore the corpus →"}

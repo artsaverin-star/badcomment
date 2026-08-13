@@ -15,20 +15,31 @@ type App = {
   total: number;
   icon?: string;
   themes: Theme[];
+  detailed: boolean;
 };
+
+type Status = "all" | "detailed" | "source";
 
 export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: App[]; ru: boolean }) {
   const [q, setQ] = useState("");
+  const [status, setStatus] = useState<Status>("all");
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
 
   const shown = useMemo(() => {
     const s = q.trim().toLowerCase();
-    if (!s) return apps;
     return apps.filter(
-      (a) => a.title.toLowerCase().includes(s) || a.themes.some((t) => (ru ? t.name : t.nameEn).toLowerCase().includes(s)),
+      (a) =>
+        (status === "all" || (status === "detailed" ? a.detailed : !a.detailed)) &&
+        (!s || a.title.toLowerCase().includes(s) || a.themes.some((t) => (ru ? t.name : t.nameEn).toLowerCase().includes(s))),
     );
-  }, [q, apps, ru]);
+  }, [q, apps, ru, status]);
+  const detailed = apps.filter((app) => app.detailed).length;
+  const filters: { id: Status; label: string; count: number }[] = [
+    { id: "all", label: ru ? "Все тексты" : "All texts", count: apps.length },
+    { id: "detailed", label: ru ? "Темы размечены" : "Themes labelled", count: detailed },
+    { id: "source", label: ru ? "Без тем" : "Without themes", count: apps.length - detailed },
+  ];
 
   return (
     <>
@@ -43,6 +54,23 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
             className="w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 py-2.5 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
           />
         </label>
+        <div className="mt-2 flex flex-wrap gap-1.5" aria-label={ru ? "Статус тематической разметки" : "Topic labelling status"}>
+          {filters.map((filter) => (
+            <button
+              key={filter.id}
+              type="button"
+              aria-pressed={status === filter.id}
+              onClick={() => setStatus(filter.id)}
+              className={`rounded-full border px-2.5 py-1 text-caption transition-colors ${
+                status === filter.id
+                  ? "border-[var(--color-border-strong)] bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+                  : "border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+              }`}
+            >
+              {filter.label} <span className="ml-1 tabular-nums opacity-65">{filter.count}</span>
+            </button>
+          ))}
+        </div>
         <p aria-live="polite" className="mt-1.5 px-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">
           {ru ? `Показано ${shown.length} из ${apps.length}` : `Showing ${shown.length} of ${apps.length}`}
         </p>
@@ -72,14 +100,21 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
                     {a.total.toLocaleString(lc)} {ru ? plural(a.total, "отзыв", "отзыва", "отзывов") : a.total === 1 ? "review" : "reviews"}
                   </span>
                 </div>
-                <p className="mt-1 truncate text-caption text-[var(--color-text-tertiary)]">
-                  {a.themes.filter((t) => !t.fallback).slice(0, 3).map((t, i) => (
-                    <span key={t.name}>
-                      {i > 0 && " · "}
-                      {ru ? t.name : t.nameEn}
-                    </span>
-                  ))}
-                </p>
+                <div className="mt-1 flex min-w-0 items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
+                  <span className={`shrink-0 rounded-full px-2 py-0.5 ${a.detailed ? "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-secondary)]" : "border border-[var(--color-border-subtle)]"}`}>
+                    {a.detailed ? (ru ? "темы размечены" : "themes labelled") : ru ? "тексты доступны" : "texts available"}
+                  </span>
+                  <span className="min-w-0 truncate">
+                    {a.detailed
+                      ? a.themes.filter((t) => !t.fallback).slice(0, 3).map((t, i) => (
+                          <span key={t.name}>
+                            {i > 0 && " · "}
+                            {ru ? t.name : t.nameEn}
+                          </span>
+                        ))
+                      : ru ? "оценки и поиск по полному тексту" : "ratings and full-text search"}
+                  </span>
+                </div>
               </div>
             </Link>
           </li>
