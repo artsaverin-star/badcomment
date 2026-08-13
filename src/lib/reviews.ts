@@ -15,9 +15,11 @@ import type { Locale } from "./i18n";
 // rest) so a 500-review app never bloats the index.
 
 export type Polarity = "love" | "pain" | "mixed";
-export type ReviewTheme = { name: string; nameEn: string; polarity: Polarity; count: number; fallback?: boolean };
-export type ReviewApp = { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string };
-export type ReviewSourceApp = { id: string; title: string; total: number };
+export type ThemeScope = "app" | "niche" | "universal" | "fallback";
+export type LabellingScope = "app" | "corpus" | "app+corpus";
+export type ReviewTheme = { name: string; nameEn: string; polarity: Polarity; count: number; fallback?: boolean; scope?: ThemeScope };
+export type ReviewApp = { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string; labelling?: LabellingScope };
+export type ReviewSourceApp = { id: string; title: string; total: number; themes: ReviewTheme[]; labelling: LabellingScope };
 export type ReviewNiche = { name: string; nameEn: string; appsPlanned: number; apps: ReviewApp[]; sourceReviews?: number };
 export type Review = { rating: number; text: string; theme?: string };
 export type NichePattern = {
@@ -48,6 +50,11 @@ type ReviewSourceIndex = {
   archivedReviews: number;
   repairedApps: number;
   repairedReviews: number;
+  labelledReviews: number;
+  specificLabelledReviews: number;
+  nicheLabelledReviews: number;
+  universalLabelledReviews: number;
+  fallbackLabelledReviews: number;
   archiveOverrides: Record<string, string[]>;
   niches: Record<string, ReviewSourceApp[]>;
 };
@@ -180,8 +187,8 @@ export function getSourceApp(slug: string, id: string): ReviewSourceApp | null {
 export function getApp(slug: string, id: string): ReviewApp | null {
   const detailed = IDX[slug]?.apps.find((app) => app.id === id);
   const source = getSourceApp(slug, id);
-  if (detailed) return { ...detailed, total: source?.total || detailed.total };
-  return source ? { ...source, themes: [] } : null;
+  if (source) return { ...source, icon: detailed?.icon };
+  return detailed ?? null;
 }
 
 /** Catalog-wide totals for the section hero. */
@@ -203,6 +210,12 @@ export function totals() {
     sourceNiches: Object.keys(CATALOG).length,
     sourceApps: SOURCE.totalApps,
     sourceReviews: SOURCE.totalReviews,
+    labelledReviews: SOURCE.labelledReviews,
+    sourceSpecificReviews: SOURCE.specificLabelledReviews,
+    sourceSpecificCoveragePct: SOURCE.totalReviews ? (SOURCE.specificLabelledReviews / SOURCE.totalReviews) * 100 : 0,
+    nicheLabelledReviews: SOURCE.nicheLabelledReviews,
+    universalLabelledReviews: SOURCE.universalLabelledReviews,
+    sourceFallbackReviews: SOURCE.fallbackLabelledReviews,
     nichePatterns: Object.values(NICHE_PATTERNS).reduce((sum, patterns) => sum + patterns.length, 0),
   };
 }
@@ -233,8 +246,7 @@ function readArchivedNiche(slug: string): Map<string, Review[]> {
   return result;
 }
 
-/** Read one app's complete text corpus. Detailed files carry a product theme;
- * the compact source archive carries rating + text until that pass is ready. */
+/** Read one app's complete, per-review-labelled text corpus. */
 export function readReviews(slug: string, id: string): Review[] {
   if (!/^[a-z0-9-]+$/.test(slug) || !/^[0-9]+$/.test(id)) return [];
   if (SOURCE.archiveOverrides[slug]?.includes(id)) return readArchivedNiche(slug).get(id) || [];

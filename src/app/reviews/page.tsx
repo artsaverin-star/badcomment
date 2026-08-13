@@ -61,7 +61,6 @@ export default async function ReviewsHome() {
   const lp = ru ? "/ru" : "/en";
   const niches = listReviewCatalogue(locale);
   const t = totals();
-  const nichesWithPatterns = niches.filter((niche) => niche.patterns > 0).length;
   const visiblePatternCount = niches.reduce((sum, niche) => sum + niche.patterns, 0);
   const detailedNiches = niches.filter((niche) => niche.appThemesReady).length;
   const detailedCorpusPct = t.sourceReviews ? (t.reviews / t.sourceReviews) * 100 : 0;
@@ -74,8 +73,8 @@ export default async function ReviewsHome() {
         "@id": "https://inapp.pro/reviews#dataset",
         name: ru ? "Корпус отзывов о мобильных приложениях inApp" : "inApp mobile app review corpus",
         description: ru
-          ? `Полные тексты и оценки ${t.sourceReviews} отзывов о ${t.sourceApps} приложениях, организованные по нишам и продуктам; обработанная часть дополнена тематической разметкой.`
-          : `Complete texts and ratings from ${t.sourceReviews} reviews across ${t.sourceApps} apps, organised by niche and product; the processed subset also includes topic labels.`,
+          ? `Полные тексты и оценки ${t.sourceReviews} отзывов о ${t.sourceApps} приложениях, организованные по нишам и продуктам; каждый отзыв имеет тематическую или тональную метку.`
+          : `Complete texts and ratings from ${t.sourceReviews} reviews across ${t.sourceApps} apps, organised by niche and product; every review has a topic or sentiment label.`,
         url: `https://inapp.pro${lp}/reviews`,
         dateModified: progress.updatedAt,
         creator: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
@@ -103,8 +102,8 @@ export default async function ReviewsHome() {
         <h1 className="mt-2 text-display font-bold text-[var(--color-text-primary)]">{ru ? "Отзывы" : "Reviews"}</h1>
         <p className="mt-4 text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? `Все ${t.sourceReviews.toLocaleString(lc)} отзывов на месте: 71 категория, ${t.sourceApps.toLocaleString(lc)} приложения, полные тексты и оценки. Поверх исходного корпуса мы добавляем проверяемые паттерны ниш и темы отдельных продуктов.`
-            : `All ${t.sourceReviews.toLocaleString(lc)} reviews are here: 71 categories, ${t.sourceApps.toLocaleString(lc)} apps, complete texts and ratings. Verifiable niche patterns and product-specific topics are layered onto the source corpus.`}
+            ? `Все ${t.sourceReviews.toLocaleString(lc)} отзывов на месте — и каждый размечен. Конкретная тема назначается только при явном сигнале в тексте; короткие и неоднозначные отзывы остаются в честной тональной категории.`
+            : `All ${t.sourceReviews.toLocaleString(lc)} reviews are here — and every one is labelled. A specific topic is assigned only when the text contains an explicit signal; short or ambiguous reviews stay in an honest sentiment category.`}
         </p>
       </header>
 
@@ -112,7 +111,7 @@ export default async function ReviewsHome() {
         <Stat n={t.sourceNiches} label={ru ? plural(t.sourceNiches, "ниша", "ниши", "ниш") : "niches"} locale={lc} />
         <Stat n={t.sourceApps} label={ru ? plural(t.sourceApps, "приложение", "приложения", "приложений") : "apps"} locale={lc} />
         <Stat n={ru ? t.nichePatterns : visiblePatternCount} label={ru ? plural(t.nichePatterns, "паттерн ниши", "паттерна ниши", "паттернов ниш") : "translated niche patterns"} locale={lc} />
-        <Stat n={t.sourceReviews} label={ru ? plural(t.sourceReviews, "исходный отзыв", "исходных отзыва", "исходных отзывов") : "source reviews"} locale={lc} />
+        <Stat n={t.labelledReviews} label={ru ? plural(t.labelledReviews, "размеченный отзыв", "размеченных отзыва", "размеченных отзывов") : "labelled reviews"} locale={lc} />
       </div>
 
       <section className="card-min mt-9 rounded-[22px] p-5 sm:p-6" aria-labelledby="reviews-coverage-heading">
@@ -124,7 +123,7 @@ export default async function ReviewsHome() {
           <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</p>
         </div>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-3 sm:gap-8">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <CoverageRow
             label={ru ? "Исходные тексты" : "Source texts"}
             note={ru ? `Все ${t.sourceApps.toLocaleString(lc)} приложения открываются по категориям` : `All ${t.sourceApps.toLocaleString(lc)} apps can be opened by category`}
@@ -133,10 +132,17 @@ export default async function ReviewsHome() {
             locale={lc}
           />
           <CoverageRow
-            label={ru ? "Паттерны рынка" : "English pattern coverage"}
-            note={ru ? "Во всех нишах · от 8 сигналов и 3 приложений" : `${visiblePatternCount.toLocaleString(lc)} translated patterns · source analysis covers all 71 niches`}
-            done={nichesWithPatterns}
-            total={t.sourceNiches}
+            label={ru ? "Метка у каждого отзыва" : "A label on every review"}
+            note={ru ? "Ровно одна тема или честная тональная категория на текст" : "Exactly one topic or honest sentiment category per text"}
+            done={t.labelledReviews}
+            total={t.sourceReviews}
+            locale={lc}
+          />
+          <CoverageRow
+            label={ru ? "Конкретный смысловой сюжет" : "Specific semantic topic"}
+            note={ru ? `${t.sourceSpecificCoveragePct.toFixed(1)}% корпуса · только явные сигналы, без домыслов` : `${t.sourceSpecificCoveragePct.toFixed(1)}% of the corpus · explicit signals only`}
+            done={t.sourceSpecificReviews}
+            total={t.sourceReviews}
             locale={lc}
           />
           <CoverageRow
@@ -154,8 +160,8 @@ export default async function ReviewsHome() {
             <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "У каждого паттерна есть цитаты, приложение и оценка." : "Every pattern includes quotes, app name, and rating."}</p>
           </div>
           <div>
-            <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Два уровня анализа" : "Two analysis layers"}</p>
-            <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "Паттерны ниши не смешиваются с темами одного продукта." : "Niche patterns are kept separate from single-product themes."}</p>
+            <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Три уровня анализа" : "Three analysis layers"}</p>
+            <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "Метка отзыва, паттерн ниши и глубокая тема продукта не смешиваются." : "Review labels, niche patterns, and deep product topics stay separate."}</p>
           </div>
           <div>
             <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Честный остаток" : "Honest remainder"}</p>

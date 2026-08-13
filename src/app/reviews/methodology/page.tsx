@@ -43,7 +43,6 @@ export default async function ReviewMethodology() {
   const lp = ru ? "/ru" : "/en";
   const t = totals();
   const detailedCorpusPct = t.sourceReviews ? (t.reviews / t.sourceReviews) * 100 : 0;
-  const specificCorpusPct = t.sourceReviews ? (t.specificReviews / t.sourceReviews) * 100 : 0;
   const updated = new Intl.DateTimeFormat(lc, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${progress.updatedAt}T00:00:00Z`));
   const jsonLd = {
     "@context": "https://schema.org",
@@ -78,11 +77,25 @@ export default async function ReviewMethodology() {
             ? `В текущем снимке ${t.sourceReviews.toLocaleString(lc)} публичных отзывов о ${t.sourceApps.toLocaleString(lc)} мобильных приложениях в ${t.sourceNiches} тематической нише. Полный текст, звёздная оценка и принадлежность к приложению доступны для каждого отзыва прямо в каталоге.`
             : `The current snapshot contains ${t.sourceReviews.toLocaleString(lc)} public reviews across ${t.sourceApps.toLocaleString(lc)} mobile apps in ${t.sourceNiches} niches. Complete text, star rating, and app attribution are available for every review directly in the catalogue.`}
         </p>
+        <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
+          {ru
+            ? `Поштучная разметка полная: ${t.labelledReviews.toLocaleString(lc)} из ${t.sourceReviews.toLocaleString(lc)} текстов имеют ровно одну метку.`
+            : `Per-review labelling is complete: ${t.labelledReviews.toLocaleString(lc)} of ${t.sourceReviews.toLocaleString(lc)} texts carry exactly one label.`}
+        </p>
       </section>
 
       <section className="mt-10" aria-labelledby="method-layers">
-        <h2 id="method-layers" className="text-title2 text-[var(--color-text-primary)]">{ru ? "2. Два уровня разметки" : "2. Two labelling layers"}</h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        <h2 id="method-layers" className="text-title2 text-[var(--color-text-primary)]">{ru ? "2. Три уровня разметки" : "2. Three labelling layers"}</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <article className="card-min rounded-[20px] p-5">
+            <p className="text-caption font-semibold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Уровень текста" : "Text layer"}</p>
+            <h3 className="mt-2 text-title3 text-[var(--color-text-primary)]">{ru ? "Одна метка на отзыв" : "One label per review"}</h3>
+            <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
+              {ru
+                ? "Сначала ищем явный продуктовый сюжет или сквозную механику: списание, рекламу, вылет, вход, синхронизацию и другие узкие сигналы. Если текста недостаточно, сохраняем только тональность — без выдуманной причины."
+                : "We first look for an explicit product story or cross-product mechanism: charges, ads, crashes, login, sync, and other narrow signals. If the text is insufficient, only sentiment is retained, without inventing a reason."}
+            </p>
+          </article>
           <article className="card-min rounded-[20px] p-5">
             <p className="text-caption font-semibold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Уровень рынка" : "Market layer"}</p>
             <h3 className="mt-2 text-title3 text-[var(--color-text-primary)]">{ru ? "Паттерны ниши" : "Niche patterns"}</h3>
@@ -119,13 +132,13 @@ export default async function ReviewMethodology() {
           </Definition>
           <Definition term={ru ? "Конкретная тема" : "Specific theme"}>
             {ru
-              ? `Содержательный сюжет, который можно назвать без домыслов. Такими темами покрыто ${t.specificCoveragePct.toFixed(1)}% уже обработанных отзывов; остальное остаётся в нейтральных корзинах «без конкретики».`
-              : `A substantive story that can be named without speculation. Specific themes cover ${t.specificCoveragePct.toFixed(1)}% of processed reviews; the remainder stays in neutral “unspecific” buckets.`}
+              ? `Содержательный сюжет, который можно назвать без домыслов. Такие темы получили ${t.sourceSpecificReviews.toLocaleString(lc)} отзывов — ${t.sourceSpecificCoveragePct.toFixed(1)}% полного корпуса; остальное остаётся в явных тональных корзинах «без конкретной причины».`
+              : `A substantive story that can be named without speculation. ${t.sourceSpecificReviews.toLocaleString(lc)} reviews, or ${t.sourceSpecificCoveragePct.toFixed(1)}% of the complete corpus, have one; the remainder stays in explicit “without a specific reason” sentiment buckets.`}
           </Definition>
           <Definition term={ru ? "Охват" : "Coverage"}>
             {ru
-              ? `Исходные тексты доступны для всех ${t.sourceReviews.toLocaleString(lc)} отзывов. Паттерны рынка готовы в каждой из ${t.sourceNiches} тематической ниши. Детальная продуктовая разметка готова для ${progress.appsDone.toLocaleString(lc)} из ${progress.appsPlanned.toLocaleString(lc)} приложений — это ${detailedCorpusPct.toFixed(1)}% полного корпуса; конкретную тему получили ${specificCorpusPct.toFixed(1)}% всех исходных отзывов. Эти показатели намеренно публикуются раздельно.`
-              : `Source texts are available for all ${t.sourceReviews.toLocaleString(lc)} reviews. Market patterns are ready for all ${t.sourceNiches} niches. Detailed product labelling is ready for ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps, or ${detailedCorpusPct.toFixed(1)}% of the complete corpus; ${specificCorpusPct.toFixed(1)}% of all source reviews have a specific topic. These figures are deliberately reported separately.`}
+              ? `Тексты и поштучные метки доступны для всех ${t.sourceReviews.toLocaleString(lc)} отзывов. Паттерны рынка готовы в каждой из ${t.sourceNiches} ниш. Дополнительная глубокая продуктовая разметка готова для ${progress.appsDone.toLocaleString(lc)} из ${progress.appsPlanned.toLocaleString(lc)} приложений — это ${detailedCorpusPct.toFixed(1)}% полного корпуса. Эти показатели намеренно публикуются раздельно.`
+              : `Texts and per-review labels are available for all ${t.sourceReviews.toLocaleString(lc)} reviews. Market patterns are ready for all ${t.sourceNiches} niches. The additional deep product layer is ready for ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps, or ${detailedCorpusPct.toFixed(1)}% of the complete corpus. These figures are deliberately reported separately.`}
           </Definition>
         </dl>
       </section>
@@ -143,7 +156,7 @@ export default async function ReviewMethodology() {
       <aside className="card-min mt-10 rounded-[22px] p-5 sm:p-6">
         <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Лучший способ проверить вывод" : "The best way to verify a finding"}</h2>
         <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
-          {ru ? "Открой категорию и конкретное приложение: все тексты можно проверить по звёздам и поиску. Если тематическая разметка готова, дополнительно выбери тему и сравни её профиль с исходными отзывами." : "Open a category and a specific app: every text can be checked by rating and search. When topic labelling is ready, also select a topic and compare its profile with the source reviews."}
+          {ru ? "Открой категорию и конкретное приложение, выбери тему и прочитай все исходные тексты под ней. Любую метку можно проверить по звёздам и точным словам — разметка не прячет корпус за пересказом." : "Open a category and app, choose a topic, and read every source text assigned to it. Any label can be checked against ratings and exact wording; the labelling never hides the corpus behind a summary."}
         </p>
         <Link href={`${lp}/reviews`} className="mt-4 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
           {ru ? "Перейти к корпусу →" : "Explore the corpus →"}

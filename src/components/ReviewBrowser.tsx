@@ -12,7 +12,7 @@ import { plural } from "@/lib/format";
 // full review file is prefetched in the background right after mount, so every
 // filter after that is instant and nothing ever shows a spinner mid-read.
 
-export type Theme = { name: string; nameEn: string; count: number; polarity: "love" | "pain" | "mixed"; fallback?: boolean };
+export type Theme = { name: string; nameEn: string; count: number; polarity: "love" | "pain" | "mixed"; fallback?: boolean; scope?: "app" | "niche" | "universal" | "fallback" };
 export type Review = { rating: number; text: string; theme?: string };
 
 const PAGE = 30;
@@ -246,6 +246,16 @@ export default function ReviewBrowser({
                               {ru ? "остаток" : "remainder"}
                             </span></>
                           )}
+                          {!t.fallback && t.scope === "niche" && (
+                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-accent-brand-subtle)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
+                              {ru ? "ниша" : "niche"}
+                            </span></>
+                          )}
+                          {!t.fallback && t.scope === "universal" && (
+                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
+                              {ru ? "механика" : "mechanism"}
+                            </span></>
+                          )}
                         </span>
                         <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
                           {t.count.toLocaleString(lc)} · {total ? ((t.count / total) * 100).toFixed(t.count / total < 0.01 ? 1 : 0) : 0}%
@@ -264,7 +274,15 @@ export default function ReviewBrowser({
         <section className="card-min mt-6 rounded-[20px] p-4 sm:p-5" aria-live="polite" aria-label={ru ? "Профиль выбранной темы" : "Selected theme profile"}>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-caption uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{activeTheme.fallback ? (ru ? "Нейтральный остаток" : "Neutral remainder") : ru ? "Профиль темы" : "Theme profile"}</p>
+              <p className="text-caption uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+                {activeTheme.fallback
+                  ? (ru ? "Честный остаток" : "Honest remainder")
+                  : activeTheme.scope === "niche"
+                    ? (ru ? "Тема ниши" : "Niche topic")
+                    : activeTheme.scope === "universal"
+                      ? (ru ? "Сквозная механика" : "Cross-product mechanism")
+                      : (ru ? "Тема приложения" : "App topic")}
+              </p>
               <h3 className="mt-1 text-headline text-[var(--color-text-primary)]">{ru ? activeTheme.name : activeTheme.nameEn}</h3>
               <p className="mt-1 max-w-[58ch] text-caption leading-relaxed text-[var(--color-text-tertiary)]">
                 {activeTheme.fallback

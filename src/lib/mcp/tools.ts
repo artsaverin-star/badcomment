@@ -1,6 +1,5 @@
 import type { SessionUser } from "@/lib/session";
-import { getApp, getNiche, getNichePatterns, listNiches, listReviewCatalogue, listSourceApps, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
-import reviewsIndex from "@/data/reviewsIndex.json";
+import { getApp, getNiche, getNichePatterns, listReviewCatalogue, listSourceApps, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
 import channelsData from "@/data/channels.json";
@@ -33,9 +32,6 @@ Typical flow: list_niches to find the category, get_niche_brief for the market a
 Every count traces to reviews we actually read, and quotes are verbatim. Nothing here is generated from a model's guess about the market.
 
 The server is part of the paid tier: one lifetime payment on the site opens everything, MCP included. Connect via your client's OAuth flow (sign in in the browser when prompted), or pass the personal key from https://inapp.pro/ru/mcp as an Authorization: Bearer header.`;
-
-type Idx = Record<string, { name: string; nameEn?: string; apps: { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string }[] }>;
-const IDX = reviewsIndex as unknown as Idx;
 
 type RatingApp = {
   id: string;
@@ -295,13 +291,14 @@ export async function callTool(name: string, args: Record<string, unknown>, call
 
   switch (name) {
     case "list_niches": {
-      const themed = new Map(listNiches("ru").map((n) => [n.slug, n]));
       const reviewCatalogue = new Map(listReviewCatalogue("ru").map((n) => [n.slug, n]));
       const onlyThemed = args.withReviewThemes === true;
       const niches = Object.entries(RATING)
         .map(([slug, set]) => {
-          const t = themed.get(slug);
           const research = reviewCatalogue.get(slug);
+          const sourceApps = listSourceApps(slug);
+          const sourceThemes = sourceApps.flatMap((app) => app.themes);
+          const sourceSplit = sourceThemes.length ? split(sourceThemes) : null;
           const mkt = marketFor(slug);
           return {
             niche: slug,
@@ -313,7 +310,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
             annualRevenueEstimate: mkt?.revenue ? `${mkt.revenue.low} .. ${mkt.revenue.high}` : null,
             ideas: listIdeas().filter((i) => i.category === slug).length,
             nichePatterns: research ? { patterns: research.patterns, apps: research.appsPlanned, reviews: research.sourceReviews } : null,
-            reviewThemes: t ? { apps: t.apps, reviews: t.reviews, themes: t.themes, praisePct: Math.round(t.split.lovePct), complaintPct: Math.round(t.split.painPct) } : null,
+            reviewThemes: sourceApps.length ? { apps: sourceApps.length, reviews: sourceApps.reduce((sum, app) => sum + app.total, 0), themes: sourceThemes.filter((theme) => !theme.fallback).length, perReviewCoveragePct: 100, praisePct: Math.round(sourceSplit!.lovePct), complaintPct: Math.round(sourceSplit!.painPct) } : null,
           };
         })
         .filter((n) => !onlyThemed || n.reviewThemes)
@@ -497,20 +494,19 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       const n = getNiche(slug);
       if (!n) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
       const limit = clamp(args.limit, 40, 200);
-      const detailedById = new Map(n.apps.map((app) => [app.id, app]));
       const sourceApps = listSourceApps(slug);
       const apps = sourceApps.slice(0, limit).map((sourceApp) => {
-        const a = detailedById.get(sourceApp.id);
-        const sp = a ? split(a.themes) : null;
+        const sp = split(sourceApp.themes);
         return {
           appId: sourceApp.id,
           title: sourceApp.title,
           reviewsRead: sourceApp.total,
           textsAvailable: true,
-          topicLabelling: a ? "ready" : "queued",
-          praisePct: sp ? Math.round(sp.lovePct) : null,
-          complaintPct: sp ? Math.round(sp.painPct) : null,
-          topThemes: a?.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count })) || [],
+          perReviewLabelling: "complete",
+          labellingLayer: sourceApp.labelling,
+          praisePct: Math.round(sp.lovePct),
+          complaintPct: Math.round(sp.painPct),
+          topThemes: sourceApp.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, scope: t.scope })),
         };
       });
       return json({
@@ -530,10 +526,11 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       const pol = s(args.polarity);
       const minCount = clamp(args.minCount, 10, 10000);
       const limit = clamp(args.limit, 30, 200);
-      const hits: { niche: string; nicheName: string; appId: string; app: string; theme: string; en: string; polarity: string; reviews: number; sharePct: number }[] = [];
-      for (const [slug, n] of Object.entries(IDX)) {
+      const hits: { niche: string; nicheName: string; appId: string; app: string; theme: string; en: string; polarity: string; scope?: string; reviews: number; sharePct: number }[] = [];
+      for (const n of listReviewCatalogue("ru")) {
+        const slug = n.slug;
         if (only && slug !== only) continue;
-        for (const a of n.apps) {
+        for (const a of listSourceApps(slug)) {
           for (const t of a.themes) {
             if (t.fallback) continue;
             if (t.count < minCount) continue;
@@ -547,6 +544,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
               theme: t.name,
               en: t.nameEn,
               polarity: t.polarity,
+              scope: t.scope,
               reviews: t.count,
               sharePct: themeShare(t, a.total),
             });
@@ -574,9 +572,10 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         appId: a.id,
         title: a.title,
         reviewsRead: a.total,
-        topicLabelling: a.themes.length ? "ready" : "queued",
-        themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific" })),
-        note: a.themes.length ? undefined : "All review texts are available; verified product-topic labelling is still queued.",
+        perReviewLabelling: "complete",
+        labellingLayer: a.labelling,
+        themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific", scope: t.scope })),
+        note: a.labelling === "corpus" ? "Every review is labelled with a high-precision corpus topic or honest sentiment remainder; the additional app-specific editorial layer is separate." : undefined,
       });
     }
 

@@ -57,25 +57,23 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   const lp = ru ? "/ru" : "/en";
   const name = nicheName(niche, locale);
 
-  const allThemes = niche.apps.flatMap((app) => app.themes);
-  const specificThemes = allThemes.filter((theme) => !theme.fallback);
   const processedReviews = niche.apps.reduce((sum, app) => sum + app.total, 0);
-  const specificReviews = specificThemes.reduce((sum, theme) => sum + theme.count, 0);
-  const specificCoverage = processedReviews ? (specificReviews / processedReviews) * 100 : 0;
   const appCoverage = niche.appsPlanned ? (niche.apps.length / niche.appsPlanned) * 100 : 0;
   const sourceReviews = niche.sourceReviews || processedReviews;
   const patterns = getNichePatterns(slug, locale);
   const sourcePatternCount = getNichePatterns(slug, "ru").length;
   const linked = isActiveCategory(slug);
   const sourceApps = listSourceApps(slug);
+  const sourceThemes = sourceApps.flatMap((app) => app.themes);
+  const specificReviews = sourceThemes.filter((theme) => !theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
+  const specificCoverage = sourceReviews ? (specificReviews / sourceReviews) * 100 : 0;
   const detailedById = new Map(niche.apps.map((app) => [app.id, app]));
   const apps = sourceApps.map((sourceApp) => {
     const detailed = detailedById.get(sourceApp.id);
     return {
       ...sourceApp,
       icon: detailed?.icon,
-      themes: detailed?.themes || [],
-      detailed: Boolean(detailed),
+      detailed: sourceApp.labelling !== "corpus",
     };
   });
   const jsonLd = {
@@ -98,8 +96,8 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         <h1 className="mt-2 text-title1 text-balance text-[var(--color-text-primary)]">{name}</h1>
         <p className="mt-3 text-body text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? `Все ${sourceReviews.toLocaleString(lc)} исходных отзывов доступны ниже: выбери приложение, оценку или найди фразу в тексте. Для уже обработанных приложений добавлены отдельные продуктовые темы.`
-            : `All ${sourceReviews.toLocaleString(lc)} source reviews are available below: choose an app, rating, or search the text. Completed apps also include product-specific themes.`}
+            ? `Каждый из ${sourceReviews.toLocaleString(lc)} отзывов получил собственную метку и доступен ниже с полным текстом. Можно выбрать приложение, тему, оценку или найти точную фразу.`
+            : `Every one of the ${sourceReviews.toLocaleString(lc)} reviews has its own label and complete text below. Choose an app, topic, rating, or search for an exact phrase.`}
         </p>
       </header>
 
@@ -108,29 +106,45 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
           <Metric value={sourceReviews.toLocaleString(lc)} label={ru ? "исходных отзывов в нише" : "source reviews in niche"} />
           <Metric value={niche.appsPlanned.toLocaleString(lc)} label={ru ? plural(niche.appsPlanned, "приложение в корпусе", "приложения в корпусе", "приложений в корпусе") : "apps in corpus"} />
           <Metric value={ru ? patterns.length : `${patterns.length}/${sourcePatternCount}`} label={ru ? plural(patterns.length, "сквозной паттерн", "сквозных паттерна", "сквозных паттернов") : "patterns translated"} />
-          <Metric value={specificThemes.length} label={ru ? plural(specificThemes.length, "тема приложения", "темы приложений", "тем приложений") : "app-specific themes"} />
+          <Metric value="100%" label={ru ? "отзывов получили метку" : "reviews carry a label"} />
         </div>
 
-        <div className="mt-6 border-t border-[var(--color-border-subtle)] pt-5">
+        <div className="mt-6 grid gap-6 border-t border-[var(--color-border-subtle)] pt-5 sm:grid-cols-2 sm:gap-8">
+          <div>
+            <div className="flex items-baseline justify-between gap-4">
+              <div>
+                <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Поштучная разметка отзывов" : "Per-review labelling"}</p>
+                <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
+                  {ru ? `${specificCoverage.toFixed(1)}% имеют конкретный сюжет; неоднозначные тексты не додумываем` : `${specificCoverage.toFixed(1)}% have a specific topic; ambiguous texts are not over-interpreted`}
+                </p>
+              </div>
+              <p className="shrink-0 text-footnote tabular-nums text-[var(--color-text-secondary)]">{sourceReviews.toLocaleString(lc)} / {sourceReviews.toLocaleString(lc)}</p>
+            </div>
+            <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-muted)]" aria-hidden="true">
+              <div className="h-full w-full rounded-full bg-[var(--color-text-brand)]" />
+            </div>
+          </div>
           <div className="flex items-baseline justify-between gap-4">
             <div>
               <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Детальная разметка приложений" : "Detailed app labelling"}</p>
               <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
                 {niche.apps.length > 0
                   ? ru
-                    ? `${specificCoverage.toFixed(1)}% обработанных отзывов получили конкретную тему`
-                    : `${specificCoverage.toFixed(1)}% of processed reviews have a specific theme`
+                    ? "Дополнительные темы, сформированные отдельно внутри каждого продукта"
+                    : "Additional themes formed independently inside each individual product"
                   : ru
-                    ? "Паттерны ниши готовы; карточки приложений проходят отдельную проверку"
-                    : "Niche patterns are ready; app cards undergo a separate validation pass"}
+                    ? "Все отзывы размечены; глубокий продуктовый слой проходит отдельную проверку"
+                    : "Every review is labelled; the deep product layer undergoes a separate validation pass"}
               </p>
             </div>
             <p className="shrink-0 text-footnote tabular-nums text-[var(--color-text-secondary)]">{niche.apps.length.toLocaleString(lc)} / {niche.appsPlanned.toLocaleString(lc)}</p>
           </div>
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-muted)]" aria-hidden="true">
-            <div className="h-full rounded-full bg-[var(--color-text-brand)]" style={{ width: `${Math.min(100, appCoverage)}%` }} />
+          <div className="-mt-3 sm:col-start-2">
+            <div className="h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-muted)]" aria-hidden="true">
+              <div className="h-full rounded-full bg-[var(--color-text-brand)]" style={{ width: `${Math.min(100, appCoverage)}%` }} />
+            </div>
           </div>
-          <Link href={`${lp}/reviews/methodology`} className="mt-4 inline-flex text-caption font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
+          <Link href={`${lp}/reviews/methodology`} className="inline-flex text-caption font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60 sm:col-span-2">
             {ru ? "Порог доказательств и ограничения →" : "Evidence threshold and limitations →"}
           </Link>
         </div>
@@ -146,8 +160,8 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         </div>
         <p className="mt-2 max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
           {ru
-            ? `Тексты доступны у всех ${apps.length} приложений. Значок «темы размечены» означает, что к оценкам и поиску добавлена проверенная тематическая навигация.`
-            : `Review texts are available for all ${apps.length} apps. “Themes labelled” means verified topic navigation is available in addition to rating and text search.`}
+            ? `Все отзывы размечены. «Глубокие темы» собраны отдельно внутри приложения; «темы категории» используют строгие сквозные правила и честную тональную метку для неоднозначного остатка.`
+            : `Every review is labelled. “Deep topics” are formed inside one app; “category topics” use strict cross-category rules and an honest sentiment label for ambiguous remainder.`}
         </p>
         <div className="mt-4"><NicheAppList slug={slug} apps={apps} ru={ru} /></div>
       </section>

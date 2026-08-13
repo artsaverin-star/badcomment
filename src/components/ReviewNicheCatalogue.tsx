@@ -40,8 +40,8 @@ export default function ReviewNicheCatalogue({ niches, ru, lp }: { niches: Niche
 
   const filters: { id: Filter; label: string; count: number }[] = [
     { id: "all", label: ru ? "Все" : "All", count: niches.length },
-    { id: "ready", label: ru ? "Есть темы приложений" : "Has app themes", count: ready },
-    { id: "queued", label: ru ? "Только полные тексты" : "Complete texts only", count: queued },
+    { id: "ready", label: ru ? "Есть глубокие темы" : "Has deep topics", count: ready },
+    { id: "queued", label: ru ? "Темы категории" : "Category topics", count: queued },
   ];
 
   return (
@@ -116,11 +116,11 @@ export default function ReviewNicheCatalogue({ niches, ru, lp }: { niches: Niche
                   <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{niche.sourceReviews.toLocaleString(lc)}</span>
                 </span>
                 <span className="mt-2 flex flex-wrap gap-1.5 text-caption text-[var(--color-text-tertiary)]">
-                  <span className="rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[var(--color-text-secondary)]">{ru ? "все тексты доступны" : "all texts available"}</span>
+                  <span className="rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[var(--color-text-secondary)]">{ru ? "100% отзывов размечено" : "100% reviews labelled"}</span>
                   <span className="rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5"><span className="tabular-nums">{niche.appsPlanned}</span> {ru ? "прил." : niche.appsPlanned === 1 ? "app" : "apps"}</span>
                   <span className="rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[var(--color-text-secondary)]"><span className="tabular-nums">{niche.patterns}</span> {ru ? plural(niche.patterns, "паттерн", "паттерна", "паттернов") : niche.patterns === 1 ? "pattern" : "patterns"}</span>
-                  {niche.themes > 0 && <span className="rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5"><span className="tabular-nums">{niche.themes}</span> {ru ? plural(niche.themes, "тема", "темы", "тем") : niche.themes === 1 ? "theme" : "themes"}</span>}
-                  {!niche.appThemesReady && <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-0.5">{ru ? "темы в очереди" : "topics queued"}</span>}
+                  {niche.themes > 0 && <span className="rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5"><span className="tabular-nums">{niche.themes}</span> {ru ? plural(niche.themes, "глубокая тема", "глубокие темы", "глубоких тем") : niche.themes === 1 ? "deep theme" : "deep themes"}</span>}
+                  {!niche.appThemesReady && <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-0.5">{ru ? "поштучные метки готовы" : "per-review labels ready"}</span>}
                 </span>
               </Link>
             </li>

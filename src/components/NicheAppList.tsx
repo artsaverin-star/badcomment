@@ -18,7 +18,7 @@ type App = {
   detailed: boolean;
 };
 
-type Status = "all" | "detailed" | "source";
+type Status = "all" | "deep" | "corpus";
 
 export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: App[]; ru: boolean }) {
   const [q, setQ] = useState("");
@@ -30,15 +30,15 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
     const s = q.trim().toLowerCase();
     return apps.filter(
       (a) =>
-        (status === "all" || (status === "detailed" ? a.detailed : !a.detailed)) &&
+        (status === "all" || (status === "deep" ? a.detailed : !a.detailed)) &&
         (!s || a.title.toLowerCase().includes(s) || a.themes.some((t) => (ru ? t.name : t.nameEn).toLowerCase().includes(s))),
     );
   }, [q, apps, ru, status]);
   const detailed = apps.filter((app) => app.detailed).length;
   const filters: { id: Status; label: string; count: number }[] = [
-    { id: "all", label: ru ? "Все тексты" : "All texts", count: apps.length },
-    { id: "detailed", label: ru ? "Темы размечены" : "Themes labelled", count: detailed },
-    { id: "source", label: ru ? "Без тем" : "Without themes", count: apps.length - detailed },
+    { id: "all", label: ru ? "Все размечены" : "All labelled", count: apps.length },
+    { id: "deep", label: ru ? "Глубокие темы" : "Deep topics", count: detailed },
+    { id: "corpus", label: ru ? "Темы категории" : "Category topics", count: apps.length - detailed },
   ];
 
   return (
@@ -102,17 +102,17 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
                 </div>
                 <div className="mt-1 flex min-w-0 items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
                   <span className={`shrink-0 rounded-full px-2 py-0.5 ${a.detailed ? "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-secondary)]" : "border border-[var(--color-border-subtle)]"}`}>
-                    {a.detailed ? (ru ? "темы размечены" : "themes labelled") : ru ? "тексты доступны" : "texts available"}
+                    {a.detailed ? (ru ? "глубокие темы" : "deep topics") : ru ? "каждый отзыв размечен" : "every review labelled"}
                   </span>
                   <span className="min-w-0 truncate">
-                    {a.detailed
+                    {a.themes.some((t) => !t.fallback)
                       ? a.themes.filter((t) => !t.fallback).slice(0, 3).map((t, i) => (
                           <span key={t.name}>
                             {i > 0 && " · "}
                             {ru ? t.name : t.nameEn}
                           </span>
                         ))
-                      : ru ? "оценки и поиск по полному тексту" : "ratings and full-text search"}
+                      : ru ? "тональная разметка без домыслов" : "sentiment labels without speculation"}
                   </span>
                 </div>
               </div>

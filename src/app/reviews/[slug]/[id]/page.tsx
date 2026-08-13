@@ -23,17 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const locale = await getLocale();
   const ru = locale !== "en";
   const themes = app.themes.slice(0, 4).map((t) => (ru ? t.name : t.nameEn)).join(", ");
-  const labelled = app.themes.length > 0;
-  const title = labelled
-    ? ru ? `${app.title}: отзывы по темам — inApp` : `${app.title}: reviews by theme — inApp`
-    : ru ? `${app.title}: все отзывы — inApp` : `${app.title}: all reviews — inApp`;
-  const description = labelled
-    ? ru
-      ? `${app.total} отзывов о «${app.title}», разобранных по темам: ${themes}. Реальные тексты пользователей, а не пересказ.`
-      : `${app.total} reviews of "${app.title}" broken down by theme: ${themes}. Real user texts, not a summary.`
-    : ru
-      ? `${app.total} исходных отзывов о «${app.title}»: оценки, поиск и полные тексты пользователей. Тематическая разметка приложения ещё проверяется.`
-      : `${app.total} source reviews of "${app.title}": ratings, search, and complete user texts. Product-topic labelling is still being validated.`;
+  const title = ru ? `${app.title}: отзывы по темам — inApp` : `${app.title}: reviews by theme — inApp`;
+  const description = ru
+    ? `${app.total} отзывов о «${app.title}», каждый с тематической меткой: ${themes}. Реальные тексты пользователей, а не пересказ.`
+    : `${app.total} reviews of "${app.title}", each carrying a topic label: ${themes}. Real user texts, not a summary.`;
   return {
     title,
     description,
@@ -60,7 +53,7 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
   const lp = ru ? "/ru" : "/en";
 
   const specificThemes = app.themes.filter((theme) => !theme.fallback);
-  const hasTopicLabelling = app.themes.length > 0;
+  const deepLabelling = app.labelling !== "corpus";
   const specificReviews = specificThemes.reduce((sum, theme) => sum + theme.count, 0);
   const specificPct = app.total ? (specificReviews / app.total) * 100 : 0;
   const reviews = readReviews(slug, id);
@@ -88,10 +81,8 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
           <h1 className="text-title2 text-balance text-[var(--color-text-primary)]">{app.title}</h1>
           <p className="mt-1.5 text-footnote text-[var(--color-text-tertiary)]">
             <span className="tabular-nums">{app.total.toLocaleString(lc)}</span> {ru ? plural(app.total, "исходный отзыв", "исходных отзыва", "исходных отзывов") : app.total === 1 ? "source review" : "source reviews"}
-            {hasTopicLabelling && <>
-              {" · "}<span className="tabular-nums">{specificThemes.length}</span> {ru ? plural(specificThemes.length, "конкретная тема", "конкретные темы", "конкретных тем") : specificThemes.length === 1 ? "specific theme" : "specific themes"} · {" "}
-              <span className="tabular-nums">{specificPct.toFixed(1)}%</span> {ru ? "отзывов с темой" : "with a specific theme"}
-            </>}
+            {" · "}<span className="tabular-nums">100%</span> {ru ? "с меткой" : "labelled"} · {" "}
+            <span className="tabular-nums">{specificPct.toFixed(1)}%</span> {ru ? "с конкретным сюжетом" : "with a specific topic"}
           </p>
           <Link href={`${lp}/reviews/methodology`} className="mt-2 inline-flex text-caption font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
             {ru ? "Как читать темы и оценки →" : "How to read themes and ratings →"}
@@ -99,13 +90,13 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
         </div>
       </div>
 
-      {!hasTopicLabelling && (
+      {!deepLabelling && (
         <aside className="card-min mt-6 rounded-[20px] p-4 sm:p-5">
-          <p className="text-caption font-semibold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Полные тексты доступны" : "Complete texts available"}</p>
+          <p className="text-caption font-semibold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Каждый отзыв размечен" : "Every review is labelled"}</p>
           <p className="mt-1.5 max-w-[62ch] text-footnote leading-relaxed text-[var(--color-text-secondary)]">
             {ru
-              ? "Это приложение уже входит в полный корпус: можно читать все отзывы, фильтровать их по звёздам и искать по словам. Проверенная тематическая навигация появится после отдельного прохода разметки."
-              : "This app is already included in the complete corpus: every review can be read, filtered by rating, and searched by text. Verified topic navigation will appear after a separate labelling pass."}
+              ? "Здесь действует строгая разметка корпуса: конкретные механики продукта отмечаются только при явном сигнале в тексте, остальные отзывы остаются в честных тональных категориях. Дополнительный глубокий слой тем внутри этого приложения проходит отдельную редакционную проверку."
+              : "This page uses the conservative corpus layer: a product mechanism is assigned only when the text contains an explicit signal; the rest stays in honest sentiment categories. An additional deep layer formed inside this app is reviewed separately."}
           </p>
         </aside>
       )}
