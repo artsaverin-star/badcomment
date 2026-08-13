@@ -2,12 +2,13 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { plural } from "@/lib/format";
 
 // The niche index: one row per app, sorted by how many reviews we read. Quiet
 // typographic rows — icon, title, count and the three loudest themes — so
 // people pick an app knowing what's inside it.
 
-type Theme = { name: string; nameEn: string; polarity: "love" | "pain" | "mixed"; count: number };
+type Theme = { name: string; nameEn: string; polarity: "love" | "pain" | "mixed"; count: number; fallback?: boolean };
 type App = {
   id: string;
   title: string;
@@ -32,13 +33,19 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
   return (
     <>
       <div className="sticky top-[4.5rem] z-10 -mx-4 bg-[var(--color-bg-page)] px-4 py-2">
-        <input
-          type="search"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder={ru ? "приложение или тема" : "app or theme"}
-          className="w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 py-2.5 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
-        />
+        <label className="block">
+          <span className="sr-only">{ru ? "Поиск по приложению или теме" : "Search by app or theme"}</span>
+          <input
+            type="search"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder={ru ? "приложение или тема" : "app or theme"}
+            className="w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 py-2.5 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+          />
+        </label>
+        <p aria-live="polite" className="mt-1.5 px-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+          {ru ? `Показано ${shown.length} из ${apps.length}` : `Showing ${shown.length} of ${apps.length}`}
+        </p>
       </div>
 
       {shown.length === 0 && (
@@ -62,11 +69,11 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
                     {a.title}
                   </span>
                   <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                    {a.total.toLocaleString(lc)} {ru ? "отзывов" : "reviews"}
+                    {a.total.toLocaleString(lc)} {ru ? plural(a.total, "отзыв", "отзыва", "отзывов") : a.total === 1 ? "review" : "reviews"}
                   </span>
                 </div>
                 <p className="mt-1 truncate text-caption text-[var(--color-text-tertiary)]">
-                  {a.themes.slice(0, 3).map((t, i) => (
+                  {a.themes.filter((t) => !t.fallback).slice(0, 3).map((t, i) => (
                     <span key={t.name}>
                       {i > 0 && " · "}
                       {ru ? t.name : t.nameEn}

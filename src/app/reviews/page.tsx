@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLocale } from "@/lib/i18n.server";
-import { listNiches, totals, progress } from "@/lib/reviews";
+import ReviewNicheCatalogue from "@/components/ReviewNicheCatalogue";
 import { plural } from "@/lib/format";
+import { getLocale } from "@/lib/i18n.server";
+import { listReviewCatalogue, progress, totals } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -11,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = totals();
   const title = ru ? "Отзывы по темам — inApp" : "Reviews by theme — inApp";
   const description = ru
-    ? `${t.reviews.toLocaleString("ru-RU")} реальных отзывов о ${t.apps} приложениях, разобранных по собственным темам каждого приложения.`
-    : `${t.reviews.toLocaleString("en-US")} real reviews across ${t.apps} apps, broken down into each app's own themes.`;
+    ? `${t.sourceReviews.toLocaleString("ru-RU")} отзывов о ${t.sourceApps.toLocaleString("ru-RU")} приложениях: проверяемые паттерны ниш, темы продуктов и исходные цитаты.`
+    : `${t.sourceReviews.toLocaleString("en-US")} reviews across ${t.sourceApps.toLocaleString("en-US")} apps: verifiable niche patterns, product themes, and source quotes.`;
   return {
     title,
     description,
@@ -33,66 +34,135 @@ function Stat({ n, label, locale }: { n: number; label: string; locale: string }
   );
 }
 
+function CoverageRow({ label, note, done, total, locale }: { label: string; note: string; done: number; total: number; locale: string }) {
+  const pct = total ? (done / total) * 100 : 0;
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-4">
+        <div>
+          <p className="text-subhead text-[var(--color-text-primary)]">{label}</p>
+          <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">{note}</p>
+        </div>
+        <p className="shrink-0 text-footnote tabular-nums text-[var(--color-text-secondary)]">
+          {done.toLocaleString(locale)} / {total.toLocaleString(locale)}
+        </p>
+      </div>
+      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-muted)]" aria-hidden="true">
+        <div className="h-full rounded-full bg-[var(--color-text-brand)]" style={{ width: `${Math.min(100, pct)}%` }} />
+      </div>
+    </div>
+  );
+}
+
 export default async function ReviewsHome() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
-  const niches = listNiches(locale);
+  const niches = listReviewCatalogue(locale);
   const t = totals();
+  const nichesWithPatterns = niches.filter((niche) => niche.patterns > 0).length;
+  const visiblePatternCount = niches.reduce((sum, niche) => sum + niche.patterns, 0);
+  const detailedNiches = niches.filter((niche) => niche.appThemesReady).length;
+  const updated = new Intl.DateTimeFormat(lc, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${progress.updatedAt}T00:00:00Z`));
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Dataset",
+        "@id": "https://inapp.pro/reviews#dataset",
+        name: ru ? "Корпус отзывов о мобильных приложениях inApp" : "inApp mobile app review corpus",
+        description: ru
+          ? `Тексты и оценки ${t.sourceReviews} отзывов о ${t.sourceApps} приложениях, сгруппированные в паттерны ниш и темы отдельных продуктов.`
+          : `Texts and ratings from ${t.sourceReviews} reviews across ${t.sourceApps} apps, grouped into niche-wide patterns and product-specific themes.`,
+        url: `https://inapp.pro${lp}/reviews`,
+        dateModified: progress.updatedAt,
+        creator: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
+        variableMeasured: ["review text", "star rating", "theme", "aggregate theme polarity"],
+        measurementTechnique: ru ? "Тематическая кластеризация с проверяемыми цитатами" : "Thematic clustering with verifiable quotes",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "inApp", item: "https://inapp.pro" },
+          { "@type": "ListItem", position: 2, name: ru ? "Отзывы" : "Reviews", item: `https://inapp.pro${lp}/reviews` },
+        ],
+      },
+    ],
+  };
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8 sm:py-14">
-      <header className="max-w-[62ch]">
-        <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Первоисточник" : "Primary source"}</p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+
+      <header className="max-w-[68ch]">
+        <p className="text-footnote font-semibold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">
+          {ru ? "Голос пользователей, без пересказа" : "The user voice, not a summary"}
+        </p>
         <h1 className="mt-2 text-display font-bold text-[var(--color-text-primary)]">{ru ? "Отзывы" : "Reviews"}</h1>
         <p className="mt-4 text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Все выводы на сайте вырастают отсюда. Каждое приложение разобрано по его собственным темам, а не по общим ярлыкам: сколько людей пишут про одно и то же и хвалят они или ругают. Открой тему и прочитай те самые отзывы."
-            : "Everything else on this site grows out of this page. Every app is broken into its own themes rather than generic labels: how many people write about the same thing, and whether they praise or complain. Open a theme and read those exact reviews."}
+            ? "Исследовательский корпус, в котором любой вывод можно проверить. Сначала мы находим повторяющиеся сюжеты между конкурентами, затем разбираем каждое приложение по его собственным темам — вплоть до исходных текстов."
+            : "A research corpus where every conclusion can be checked. We first find stories that repeat across competitors, then break down each app into its own themes — all the way to the source texts."}
         </p>
       </header>
 
-      <div className="mt-8 grid grid-cols-2 gap-6 border-t border-[var(--color-border-subtle)] pt-5 sm:grid-cols-4">
-        <Stat n={t.niches} label={ru ? plural(t.niches, "ниша", "ниши", "ниш") : "niches"} locale={lc} />
-        <Stat n={t.apps} label={ru ? plural(t.apps, "приложение", "приложения", "приложений") : "apps"} locale={lc} />
-        <Stat n={t.themes} label={ru ? plural(t.themes, "тема", "темы", "тем") : "themes"} locale={lc} />
-        <Stat n={t.reviews} label={ru ? plural(t.reviews, "отзыв", "отзыва", "отзывов") : "reviews"} locale={lc} />
+      <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-[var(--color-border-subtle)] pt-6 sm:grid-cols-4">
+        <Stat n={t.sourceNiches} label={ru ? plural(t.sourceNiches, "ниша", "ниши", "ниш") : "niches"} locale={lc} />
+        <Stat n={t.sourceApps} label={ru ? plural(t.sourceApps, "приложение", "приложения", "приложений") : "apps"} locale={lc} />
+        <Stat n={ru ? t.nichePatterns : visiblePatternCount} label={ru ? plural(t.nichePatterns, "паттерн ниши", "паттерна ниши", "паттернов ниш") : "translated niche patterns"} locale={lc} />
+        <Stat n={t.sourceReviews} label={ru ? plural(t.sourceReviews, "исходный отзыв", "исходных отзыва", "исходных отзывов") : "source reviews"} locale={lc} />
       </div>
 
-      {/* Honest coverage. The section ships as the pass goes, so say where it is. */}
-      <p className="mt-4 border-b border-[var(--color-border-subtle)] pb-5 text-caption text-[var(--color-text-tertiary)]">
-        {ru
-          ? `Раздел собирается прямо сейчас: разобрано ${progress.appsDone.toLocaleString(lc)} приложений из ${progress.appsPlanned.toLocaleString(lc)}, ${progress.nichesDone} ниш из ${progress.nichesPlanned}. Обновлено ${progress.updatedAt}.`
-          : `This section is still being built: ${progress.appsDone.toLocaleString(lc)} of ${progress.appsPlanned.toLocaleString(lc)} apps done, ${progress.nichesDone} of ${progress.nichesPlanned} niches. Updated ${progress.updatedAt}.`}
-      </p>
+      <section className="card-min mt-9 rounded-[22px] p-5 sm:p-6" aria-labelledby="reviews-coverage-heading">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-caption uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{ru ? "Паспорт данных" : "Data passport"}</p>
+            <h2 id="reviews-coverage-heading" className="mt-1 text-title3 text-[var(--color-text-primary)]">{ru ? "Что уже размечено" : "What is already labelled"}</h2>
+          </div>
+          <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</p>
+        </div>
 
-      {niches.length === 0 ? (
-        <p className="mt-10 text-body text-[var(--color-text-tertiary)]">{ru ? "Скоро." : "Coming soon."}</p>
-      ) : (
-        <ul className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-          {niches.map((n) => (
-            <li key={n.slug} className="border-b border-[var(--color-border-subtle)]">
-              <Link href={`${lp}/reviews/${n.slug}`} className="group block py-3.5">
-                <span className="flex items-baseline gap-4">
-                  <span className="min-w-0 flex-1 truncate text-headline text-[var(--color-text-primary)] transition-opacity group-hover:opacity-60">
-                    {n.name}
-                  </span>
-                  <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
-                    {n.reviews.toLocaleString(lc)}
-                  </span>
-                </span>
-                <span className="mt-0.5 block text-caption text-[var(--color-text-tertiary)]">
-                  <span className="tabular-nums">{n.apps}</span> {ru ? plural(n.apps, "приложение", "приложения", "приложений") : "apps"} ·{" "}
-                  <span className="tabular-nums">{n.themes}</span> {ru ? plural(n.themes, "тема", "темы", "тем") : "themes"}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-8">
+          <CoverageRow
+            label={ru ? "Паттерны рынка" : "English pattern coverage"}
+            note={ru ? "Во всех нишах · от 8 сигналов и 3 приложений" : `${visiblePatternCount.toLocaleString(lc)} translated patterns · source analysis covers all 71 niches`}
+            done={nichesWithPatterns}
+            total={t.sourceNiches}
+            locale={lc}
+          />
+          <CoverageRow
+            label={ru ? "Темы конкретных приложений" : "Themes of individual apps"}
+            note={ru ? `${detailedNiches} ниш · ${t.specificCoveragePct.toFixed(1)}% обработанных отзывов получили конкретную тему` : `${detailedNiches} niches · ${t.specificCoveragePct.toFixed(1)}% of processed reviews have a specific theme`}
+            done={progress.appsDone}
+            total={progress.appsPlanned}
+            locale={lc}
+          />
+        </div>
 
-      <p className="mt-10 text-footnote text-[var(--color-text-tertiary)]">
+        <div className="mt-6 grid gap-3 border-t border-[var(--color-border-subtle)] pt-5 sm:grid-cols-3">
+          <div>
+            <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Живые доказательства" : "Live evidence"}</p>
+            <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "У каждого паттерна есть цитаты, приложение и оценка." : "Every pattern includes quotes, app name, and rating."}</p>
+          </div>
+          <div>
+            <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Два уровня анализа" : "Two analysis layers"}</p>
+            <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "Паттерны ниши не смешиваются с темами одного продукта." : "Niche patterns are kept separate from single-product themes."}</p>
+          </div>
+          <div>
+            <p className="text-subhead text-[var(--color-text-primary)]">{ru ? "Честный остаток" : "Honest remainder"}</p>
+            <p className="mt-1 text-caption leading-relaxed text-[var(--color-text-tertiary)]">{ru ? "Короткие и неоднозначные тексты не превращаются в выдуманные инсайты." : "Short or ambiguous texts are not turned into invented insights."}</p>
+          </div>
+        </div>
+
+        <Link href={`${lp}/reviews/methodology`} className="mt-5 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
+          {ru ? "Как устроена разметка →" : "How the labelling works →"}
+        </Link>
+      </section>
+
+      {niches.length === 0 ? <p className="mt-10 text-body text-[var(--color-text-tertiary)]">{ru ? "Скоро." : "Coming soon."}</p> : <ReviewNicheCatalogue niches={niches} ru={ru} lp={lp} />}
+
+      <p className="mt-10 border-t border-[var(--color-border-subtle)] pt-5 text-footnote text-[var(--color-text-tertiary)]">
         {ru ? "Эти же данные доступны твоему ИИ-агенту: " : "The same data is available to your AI agent: "}
         <Link href={`${lp}/mcp`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
           {ru ? "MCP-сервер inApp" : "the inApp MCP server"}

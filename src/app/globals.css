@@ -62,14 +62,13 @@
 
 /* The DS sets --brand-font-family to "SF Compact Rounded" (Apple-only, not
    web-loadable) with no fallback, so atoms render in a system serif everywhere
-   off-Apple. Redefine it as a real stack: genuine SF Rounded on Apple
-   (ui-rounded), the loaded Nunito webfont everywhere else. Scoped to :root so the
-   yandex brand override still wins for that brand. */
+   off-Apple. Redefine it as a real stack: genuine SF Rounded on Apple, then the
+   self-hosted Latin/Cyrillic Inter subsets. Scoped to :root so the yandex brand
+   override still wins for that brand. */
 :root {
-  /* Rounded UI face, SF Compact/Pro Rounded style: genuine SF Rounded on Apple
-     via the ui-rounded generic, the loaded Nunito webfont everywhere else. */
   --brand-font-family: ui-rounded, "SF Pro Rounded", "SF Compact Rounded",
-    var(--font-nunito), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    var(--font-inter-latin), var(--font-inter-cyrillic), -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 /* Page chrome is fully token-driven; theme/brand swap via data-theme/data-brand

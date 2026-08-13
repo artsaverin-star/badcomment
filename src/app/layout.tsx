@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Script from "next/script";
-import { Inter, Nunito } from "next/font/google";
+import localFont from "next/font/local";
 import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -11,17 +11,23 @@ import FavSync from "@/components/FavSync";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 
-// Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
-// drives --brand-font-family (see globals.css). Nunito stays loaded as the
-// rounded fallback variable for any brand override. Cyrillic subset for the RU UI.
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
+// Self-host the already-vendored Inter subsets so production builds never
+// depend on Google Fonts being reachable. Separate families form a glyph
+// fallback chain in globals.css: Latin first, then Cyrillic.
+const interLatin = localFont({
+  variable: "--font-inter-latin",
+  src: [
+    { path: "../../public/og-fonts/inter-latin-500-normal.woff", weight: "500", style: "normal" },
+    { path: "../../public/og-fonts/inter-latin-800-normal.woff", weight: "800", style: "normal" },
+  ],
   display: "swap",
 });
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin", "cyrillic"],
+const interCyrillic = localFont({
+  variable: "--font-inter-cyrillic",
+  src: [
+    { path: "../../public/og-fonts/inter-cyrillic-500-normal.woff", weight: "500", style: "normal" },
+    { path: "../../public/og-fonts/inter-cyrillic-800-normal.woff", weight: "800", style: "normal" },
+  ],
   display: "swap",
 });
 
@@ -52,7 +58,7 @@ export default async function RootLayout({
       lang={locale}
       data-theme={theme}
       data-brand="saverin"
-      className={`${inter.variable} ${nunito.variable} h-full antialiased`}
+      className={`${interLatin.variable} ${interCyrillic.variable} h-full antialiased`}
     >
       <body className="flex min-h-[100dvh] flex-col">
         <div className="atmosphere" aria-hidden />

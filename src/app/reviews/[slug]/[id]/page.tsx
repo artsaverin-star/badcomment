@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
-import { getApp, getNiche, nicheName, readReviews, split } from "@/lib/reviews";
+import { getApp, getNiche, nicheName, readReviews } from "@/lib/reviews";
 import { isActiveCategory } from "@/lib/categoryVisibility";
+import { plural } from "@/lib/format";
 import ReviewBrowser from "@/components/ReviewBrowser";
 
 export const dynamic = "force-dynamic";
@@ -51,7 +52,9 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
   const lc = ru ? "ru-RU" : "en-US";
   const lp = ru ? "/ru" : "/en";
 
-  const s = split(app.themes);
+  const specificThemes = app.themes.filter((theme) => !theme.fallback);
+  const fallbackReviews = app.themes.filter((theme) => theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
+  const specificPct = app.total ? ((app.total - fallbackReviews) / app.total) * 100 : 0;
   const reviews = readReviews(slug, id);
   // The star histogram needs the whole file, which we already read here — so it
   // ships with the page instead of waiting on the client fetch.
@@ -65,7 +68,7 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
   const initial = [...reviews].sort((a, b) => a.rating - b.rating).slice(0, FIRST);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
       <BackLink fallback={`${lp}/reviews/${slug}`}>{nicheName(niche, locale)}</BackLink>
 
       <div className="mt-4 flex items-start gap-4">
@@ -76,14 +79,13 @@ export default async function AppReviews({ params }: { params: Promise<{ slug: s
         <div className="min-w-0 flex-1">
           <h1 className="text-title2 text-balance text-[var(--color-text-primary)]">{app.title}</h1>
           <p className="mt-1.5 text-footnote text-[var(--color-text-tertiary)]">
-            <span className="tabular-nums">{app.total.toLocaleString(lc)}</span> {ru ? "прочитанных отзывов" : "reviews read"} ·{" "}
-            <span className="tabular-nums">{app.themes.length}</span> {ru ? "тем" : "themes"}
+            <span className="tabular-nums">{app.total.toLocaleString(lc)}</span> {ru ? plural(app.total, "прочитанный отзыв", "прочитанных отзыва", "прочитанных отзывов") : app.total === 1 ? "review read" : "reviews read"} ·{" "}
+            <span className="tabular-nums">{specificThemes.length}</span> {ru ? plural(specificThemes.length, "конкретная тема", "конкретные темы", "конкретных тем") : specificThemes.length === 1 ? "specific theme" : "specific themes"} · {" "}
+            <span className="tabular-nums">{specificPct.toFixed(1)}%</span> {ru ? "отзывов с темой" : "with a specific theme"}
           </p>
-          <p className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
-            {ru ? "хвалят" : "praise"} <span className="tabular-nums">{Math.round(s.lovePct)}%</span> · {ru ? "смешанно" : "mixed"}{" "}
-            <span className="tabular-nums">{Math.round(s.mixedPct)}%</span> · {ru ? "ругают" : "complain"}{" "}
-            <span className="tabular-nums">{Math.round(s.painPct)}%</span>
-          </p>
+          <Link href={`${lp}/reviews/methodology`} className="mt-2 inline-flex text-caption font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
+            {ru ? "Как читать темы и оценки →" : "How to read themes and ratings →"}
+          </Link>
         </div>
       </div>
 

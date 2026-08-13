@@ -14,7 +14,15 @@
     "classify:dump": "tsx scripts/dump-classify.ts",
     "classify:apply": "tsx scripts/apply-classify.ts",
     "translate:dump": "tsx scripts/dump-translate.ts",
-    "translate:apply": "tsx scripts/apply-translate.ts"
+    "translate:apply": "tsx scripts/apply-translate.ts",
+    "reviews:audit": "node scripts/reviews-audit.mjs",
+    "reviews:audit-niches": "node scripts/reviews-niche-audit.mjs",
+    "reviews:repair": "node scripts/reviews-repair.mjs",
+    "reviews:enrich": "node scripts/reviews-enrich.mjs",
+    "reviews:remaining": "node scripts/reviews-remaining.mjs",
+    "reviews:bootstrap-patterns": "node scripts/reviews-bootstrap-patterns.mjs",
+    "reviews:niche-patterns": "node scripts/reviews-bootstrap-patterns.mjs && node scripts/reviews-niche-patterns.mjs",
+    "reviews:assemble": "node scripts/reviews-assemble.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

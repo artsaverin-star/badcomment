@@ -1,5 +1,5 @@
 import type { SessionUser } from "@/lib/session";
-import { getApp, getNiche, listNiches, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
+import { getApp, getNiche, getNichePatterns, listNiches, listReviewCatalogue, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
 import reviewsIndex from "@/data/reviewsIndex.json";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
@@ -296,10 +296,12 @@ export async function callTool(name: string, args: Record<string, unknown>, call
   switch (name) {
     case "list_niches": {
       const themed = new Map(listNiches("ru").map((n) => [n.slug, n]));
+      const reviewCatalogue = new Map(listReviewCatalogue("ru").map((n) => [n.slug, n]));
       const onlyThemed = args.withReviewThemes === true;
       const niches = Object.entries(RATING)
         .map(([slug, set]) => {
           const t = themed.get(slug);
+          const research = reviewCatalogue.get(slug);
           const mkt = marketFor(slug);
           return {
             niche: slug,
@@ -310,6 +312,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
             inflatedApps: set.inflated ?? 0,
             annualRevenueEstimate: mkt?.revenue ? `${mkt.revenue.low} .. ${mkt.revenue.high}` : null,
             ideas: listIdeas().filter((i) => i.category === slug).length,
+            nichePatterns: research ? { patterns: research.patterns, apps: research.appsPlanned, reviews: research.sourceReviews } : null,
             reviewThemes: t ? { apps: t.apps, reviews: t.reviews, themes: t.themes, praisePct: Math.round(t.split.lovePct), complaintPct: Math.round(t.split.painPct) } : null,
           };
         })
@@ -371,11 +374,12 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       const slug = s(args.niche);
       if (!RATING[slug]) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
       const cards = categoryCards(slug);
-      if (!cards) throw new Error(`No breakdown for niche "${slug}".`);
+      const patterns = getNichePatterns(slug, "ru");
+      if (!patterns.length && !cards) throw new Error(`No breakdown for niche "${slug}".`);
       const limit = clamp(args.limit, 20, 100);
       const acc = await accessForUser(user);
       const paid = acc.unlimited || acc.has("category", slug) || acc.has("chapter", slug);
-      const list = cards.product.slice(0, limit);
+      const list = patterns.length ? patterns.slice(0, limit) : (cards?.product ?? []).slice(0, limit);
       return json({
         niche: slug,
         findings: list.map((c) => ({
@@ -386,7 +390,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
           apps: c.apps,
           ...(paid ? { quotes: (c.evidence ?? []).slice(0, 5).map((e) => ({ app: e.app, rating: e.rating, quote: e.quote })) } : {}),
         })),
-        findingsTotal: cards.product.length,
+        findingsTotal: patterns.length || cards?.product.length || 0,
         ...(paid ? {} : { quotes: LOCK_NOTE }),
       });
     }
@@ -500,7 +504,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
           reviewsRead: a.total,
           praisePct: Math.round(sp.lovePct),
           complaintPct: Math.round(sp.painPct),
-          topThemes: a.themes.slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count })),
+          topThemes: a.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count })),
         };
       });
       return json({
@@ -525,6 +529,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         if (only && slug !== only) continue;
         for (const a of n.apps) {
           for (const t of a.themes) {
+            if (t.fallback) continue;
             if (t.count < minCount) continue;
             if (pol && t.polarity !== pol) continue;
             if (!`${t.name} ${t.nameEn}`.toLowerCase().includes(q)) continue;
@@ -563,7 +568,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         appId: a.id,
         title: a.title,
         reviewsRead: a.total,
-        themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total) })),
+        themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific" })),
       });
     }
 
