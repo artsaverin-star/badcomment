@@ -24,7 +24,7 @@ const fail = (message) => {
 };
 
 for (const [slug, apps] of Object.entries(index.niches)) {
-  const archivePath = path.join(root, "public", "reviews-source", `${slug}.json.gz`);
+  const archivePath = path.join(root, "review-data", "reviews-source", `${slug}.json.gz`);
   const archive = JSON.parse(gunzipSync(fs.readFileSync(archivePath)).toString("utf8"));
   const reviewsByApp = new Map((archive.apps || []).map((app) => [String(app.id), app.reviews || []]));
 

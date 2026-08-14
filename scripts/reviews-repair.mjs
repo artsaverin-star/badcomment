@@ -49,7 +49,7 @@ const touchedFiles = [];
 for (const [slug, niche] of Object.entries(index)) {
   for (const app of niche.apps) {
     const key = `${slug}/${app.id}`;
-    const file = path.join(ROOT, "public/reviews", slug, `${app.id}.json`);
+    const file = path.join(ROOT, "review-data/reviews", slug, `${app.id}.json`);
     const data = JSON.parse(fs.readFileSync(file, "utf8"));
     const definitions = new Map(app.themes.map((theme) => [theme.name, { ...theme }]));
     const knownFixCandidate = KNOWN_ORDER_FIXES[key] || null;

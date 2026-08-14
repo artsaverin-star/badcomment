@@ -3,6 +3,8 @@ import { ogImage } from "@/lib/og";
 import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { reviewCorpusSlugs } from "@/lib/reviews";
+import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 type RApp = { icon: string | null; ratings: number };
 type RFile = { count?: number; apps?: RApp[] };
@@ -34,8 +36,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const ru = locale !== "en";
   const title = ru ? "Народный рейтинг приложений по реальным отзывам" : "People's app rating by real reviews";
   const description = ru
-    ? "100 приложений на нишу, оценённых по реальным отзывам, а не по витринной звезде, плюс проверка на накрутку рейтинга."
-    : "100 apps per niche scored by real reviews, not the storefront star, plus a rating-authenticity check.";
+    ? "До 100 приложений в каждой нише: редакционная оценка по отзывам и сверка витринной звезды с содержанием отзывов."
+    : "Up to 100 apps in each niche: an editorial review-based score and a comparison between the storefront star and review content.";
   const url = `https://inapp.pro/${ru ? "ru" : "en"}/rating`;
   const og = ogImage(ru);
   return {
@@ -129,7 +131,16 @@ const NICHES_RAW = [
   { slug: "hiking-trails", name: "Хайкинг и тропы", nameEn: "Hiking & trails", blurb: "25 приложений: где скачанная карта честно работает без связи и не даёт заблудиться, а где падает на тропе и жрёт батарею.", blurbEn: "25 apps: where the downloaded map honestly works offline and keeps you from getting lost, and where it crashes on the trail and drains the battery." },
   { slug: "teleprompter-captions", name: "Телесуфлёр и субтитры", nameEn: "Teleprompter & captions", blurb: "39 приложений: где прокрутка идёт за голосом и субтитры точны, а где скрипт застревает и экспорт лепит водяной знак.", blurbEn: "39 apps: where the scroll follows your voice and the captions are accurate, and where the script freezes and the export slaps on a watermark." },
 ];
-const NICHES = byNicheMoney(NICHES_RAW, (n) => n.slug);
+const REVIEW_SLUGS = new Set(reviewCorpusSlugs());
+const NICHES = byNicheMoney(NICHES_RAW.filter((n) => REVIEW_SLUGS.has(n.slug)), (n) => n.slug);
+
+function cleanBlurb(value: string, locale: "ru" | "en"): string {
+  return neutralizeTrustLanguage(value
+    .replace(/^\d+\s+(?:приложени(?:е|я|й)|apps?)\s*:\s*/i, "")
+    .replace(/\s*\(\d+\s+(?:из|of)\s+\d+[^)]*\)/gi, "")
+    .replace(/накрученн(?:ые|ая|ой|ых|ыми|ого|ому)?\s+зв[её]зды/gi, "звёзды, которые расходятся с отзывами")
+    .replace(/(?:reviews are juiced|juiced reviews|fake reviews|reviews are faked|fakery)/gi, "a storefront star mismatch"), locale);
+}
 
 export default async function RatingIndexPage() {
   const locale = await getLocale();
@@ -156,8 +167,8 @@ export default async function RatingIndexPage() {
         </h1>
         <p className="mx-auto mt-5 max-w-[54ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "100 приложений на нишу, оценённых по реальному качеству из отзывов, а не по витринной звезде. Плюс проверка, у кого рейтинг накручен."
-            : "100 apps per niche scored by real quality from reviews, not the storefront star. Plus a check on whose rating is gamed."}
+            ? "До 100 приложений в каждой нише. Это редакционная выборка из полного архива: оцениваем опыт людей по текстам отзывов и отдельно показываем, насколько витринная звезда с ними согласуется."
+            : "Up to 100 apps in each niche. This is an editorial sample from the full archive: we score people's experience from review text and separately show how closely the storefront star agrees with it."}
         </p>
       </header>
 
@@ -183,7 +194,7 @@ export default async function RatingIndexPage() {
                   ))}
                 </div>
               )}
-              <p className="mt-4 line-clamp-2 text-callout text-[var(--color-text-secondary)]">{ru ? n.blurb : n.blurbEn}</p>
+              <p className="mt-4 line-clamp-2 text-callout text-[var(--color-text-secondary)]">{cleanBlurb(ru ? n.blurb : n.blurbEn, locale)}</p>
               <div className="mt-auto flex items-center justify-between pt-5">
                 {count > 0
                   ? <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{count} {appsWord(count, ru)}</p>

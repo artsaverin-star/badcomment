@@ -83,7 +83,7 @@ export async function GET(req: Request) {
     const eyebrow = en ? "People's app rating" : "Народный рейтинг приложений";
     const statLine = `${num(set.count, en)} ${appsWord(set.count, en)}, ${num(set.totalReviews, en)} ${en ? "reviews" : "отзывов"}`;
     const inflated = set.inflated > 0
-      ? (en ? `${set.inflated} with a gamed star` : `${num(set.inflated, en)} с накрученной звездой`)
+      ? (en ? `${set.inflated} with a large star mismatch` : `${num(set.inflated, en)} с сильным расхождением звезды`)
       : null;
     const foot = top ? (en ? `Leader: ${top.title}  /  ${top.realScore}/100` : `Лидер: ${top.title}  /  ${top.realScore} из 100`) : "inapp.pro";
     const icons = topIcons(set.apps, 8);

@@ -25,6 +25,8 @@ import ideasAll from "@/data/ideas.json";
 import ideasContentEn from "@/data/ideas-content.en.json";
 import dossierEn from "@/data/dossier.en.json";
 import type { Locale } from "@/lib/i18n";
+import { hasReviewCorpus, progress as reviewProgress, reviewNicheTotals } from "@/lib/reviews";
+import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
@@ -101,7 +103,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   // text from the shared overlay loaders.
   const dossier = (!ru && (dossierEn as Record<string, Dossier>)[slug]) || DOSSIER[slug];
   const thesisLoc = getNicheThesis(slug, locale) as { governing: string; competitorRead?: string; pillars: Pillar[] } | null;
-  if (!r || !dossier || !thesisLoc) notFound();
+  if (!r || !dossier || !thesisLoc || !hasReviewCorpus(slug)) notFound();
+  const corpus = reviewNicheTotals(slug)!;
   const thesis = thesisLoc;
   const name = ru ? r.name : r.nameEn ?? r.name;
   const enIdeas = ideasContentEn as Record<string, { title?: string; oneLiner?: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }>;
@@ -181,8 +184,20 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
       authenticity: a.authenticity, verdict: cap(tg((e?.verdict ?? a.verdict) || "")), loved: cap(tg((e?.loved ?? a.loved) || "")), weak: cap(tg((e?.weak ?? a.weak) || "")), whoFor: (e?.whoFor ?? a.whoFor) ? cap(tg((e?.whoFor ?? a.whoFor) as string)) : null,
       shots: a.shots ?? [],
+      reviewHref: `${lp}/reviews/${slug}/${a.id}`,
     };
   });
+  const normalizeAppName = (value: string) => value.toLocaleLowerCase().replace(/[^a-zа-яё0-9]+/gi, " ").trim();
+  const quoteHref = (appName: string, quote: string) => {
+    const needle = normalizeAppName(appName);
+    const matched = apps.find((app) => {
+      const title = normalizeAppName(app.title);
+      return title === needle || title.startsWith(`${needle} `) || needle.startsWith(`${title} `);
+    });
+    if (!matched) return `${lp}/reviews/${slug}`;
+    const query = quote.replace(/\s+/g, " ").trim().slice(0, 120);
+    return `${lp}/reviews/${slug}/${matched.id}${query ? `?q=${encodeURIComponent(query)}` : ""}`;
+  };
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
   const leaders = byRatings.slice(0, 3);
   const top3Share = Math.round((100 * leaders.reduce((s, a) => s + (a.ratings || 0), 0)) / (totalRatings || 1));
@@ -201,8 +216,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   const topInstall = mkt?.installs?.top?.[0];
 
   const stats = [
-    { n: NF(r.count), l: ru ? "приложений" : "apps" },
-    { n: NF(r.totalReviews), l: ru ? "отзывов прочитано" : "reviews read" },
+    { n: NF(corpus.apps), l: ru ? "приложений в архиве" : "apps in the archive" },
+    { n: NF(corpus.reviews), l: ru ? "отзывов в архиве" : "reviews in the archive" },
     { n: NF(totalObs), l: ru ? "наблюдений" : "observations" },
     { n: `${ideas.length}`, l: ru ? "идей" : "ideas" },
   ];
@@ -210,9 +225,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   // Freshness: the newest asOf among the niche's ideas — research without a
   // date reads as stale.
   const asOf = ideas.map((x) => (x as { asOf?: string }).asOf).filter(Boolean).sort().pop();
-  const updated = asOf
-    ? new Date(asOf).toLocaleDateString(ru ? "ru-RU" : "en-US", { day: "numeric", month: "long", year: "numeric" })
-    : null;
+  const archiveUpdated = new Date(reviewProgress.updatedAt).toLocaleDateString(ru ? "ru-RU" : "en-US", { day: "numeric", month: "long", year: "numeric" });
+  const editorialUpdated = asOf ? new Date(asOf).toLocaleDateString(ru ? "ru-RU" : "en-US", { day: "numeric", month: "long", year: "numeric" }) : null;
 
   // Personas who habitually don't pay — the honest "don't build for them" list.
   // Drawn from the CLIENT copy: for locked users its payNote is already cut, so
@@ -253,11 +267,15 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       <header className="mt-12">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
         <div className="mt-6 max-w-[60ch] space-y-4">
-          {tg(thesis.governing).split(/\n{2,}/).map((para, i) => (
+          {neutralizeTrustLanguage(tg(thesis.governing), locale).split(/\n{2,}/).map((para, i) => (
             <AppLinkedText key={i} as="p" className={`${i === 0 ? "text-lead" : "text-body"} text-pretty text-[var(--color-text-secondary)]`} text={para.trim()} apps={ratingApps} locale={locale} />
           ))}
         </div>
-        {updated && <div className="mt-5 text-caption text-[var(--color-text-tertiary)]">{ru ? `Обновлено ${updated}` : `Updated ${updated}`}</div>}
+        <div className="mt-5 text-caption text-[var(--color-text-tertiary)]">
+          {ru
+            ? `Архив обновлён ${archiveUpdated}${editorialUpdated ? ` · редакционные выводы — ${editorialUpdated}` : ""}`
+            : `Archive updated ${archiveUpdated}${editorialUpdated ? ` · editorial findings — ${editorialUpdated}` : ""}`}
+        </div>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
@@ -267,6 +285,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             </div>
           ))}
         </div>
+        <Link href={`${lp}/reviews/${slug}`} className="mt-8 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2.5 text-footnote font-medium text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)]">
+          {ru ? `Открыть ${NF(corpus.reviews)} исходных отзывов` : `Open ${NF(corpus.reviews)} source reviews`}
+          <span aria-hidden="true">→</span>
+        </Link>
       </header>
 
       {/* A wide pencil-sketch banner for the niche — the cover of its strongest
@@ -278,7 +300,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </div>
       )}
 
-      <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
+      <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={neutralizeTrustLanguage(tg(dossier.market.marketLead), locale)} apps={ratingApps} locale={locale} />}>
         <dl className="mt-8 grid gap-3 sm:grid-cols-2">
           <Tile k={ru ? "Размер" : "Size"}>
             <BigStat value={NF(totalRatings)} sub={ru ? `оценок на ${r.count} приложений · ${NF(r.totalReviews)} отзывов прочитано` : `ratings across ${r.count} apps · ${NF(r.totalReviews)} reviews read`} />
@@ -326,13 +348,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
             </Tile>
           )}
           <Tile wide k={ru ? "Доверие" : "Trust"}>
-            <BigStat value={ru ? `${broken} из 100` : `${broken} of 100`} sub={ru ? `приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `apps have an inflated or doubtful star, only ${great} are genuinely good`} />
+            <BigStat value={ru ? `${broken} из ${r.count}` : `${broken} of ${r.count}`} sub={ru ? `приложений, где витринная звезда расходится с текстами; это сигнал для проверки, не доказательство накрутки. Балл выше 80 у ${great}` : `apps where the storefront star diverges from review text; this is a review signal, not proof of manipulation. ${great} score above 80`} />
           </Tile>
           {promo && (
             <Tile wide k={ru ? "Продвижение" : "Discoverability"}>
               <BigStat value={ru ? `${promo.score} из 100` : `${promo.score} of 100`} sub={ru
-                ? `шанс нового приложения пробиться: у трёх лидеров ${promo.top3Share}% всех оценок, накручено ${promo.inflatedShare}% выдачи, по-настоящему сильных всего ${promo.strongCount}`
-                : `a new app's chance to break in: the top three hold ${promo.top3Share}% of ratings, ${promo.inflatedShare}% of the shelf is gamed, only ${promo.strongCount} apps are genuinely strong`} />
+                ? `шанс нового приложения пробиться: у трёх лидеров ${promo.top3Share}% всех оценок, сильное расхождение звезды у ${promo.inflatedShare}% выборки, балл выше 80 у ${promo.strongCount}`
+                : `a new app's chance to break in: the top three hold ${promo.top3Share}% of ratings, ${promo.inflatedShare}% of the sample has a large star mismatch, ${promo.strongCount} score above 80`} />
               <span className="mt-2 block text-caption text-[var(--color-text-tertiary)]">{ru
                 ? "Считаем из концентрации лидеров, доли накрутки, числа сильных приложений и размера спроса. Грубо, для порядка величины."
                 : "Computed from leader concentration, gamed share, count of strong apps and demand size. Rough, order of magnitude."}</span>
@@ -340,13 +362,13 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           )}
           <Tile wide k={ru ? "Деньги" : "Money"}>
             {unlocked ? (
-              <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} /></span>
+              <span className="text-callout text-[var(--color-text-secondary)]"><AppLinkedText text={neutralizeTrustLanguage(tg(dossier.market.money), locale)} apps={ratingApps} locale={locale} /></span>
             ) : (
               <GateNote ru={ru} text={ru ? "Кто в нише платит, за что и почему большинство игроков теряет деньги. Открывается вместе с идеями." : "Who pays in this niche, for what, and why most players lose money. It opens together with the ideas."} />
             )}
           </Tile>
         </dl>
-        <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
+        <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]" text={neutralizeTrustLanguage(tg(thesis.competitorRead ?? ""), locale)} apps={ratingApps} locale={locale} />
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
@@ -399,7 +421,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
               >
                 <p className="text-callout text-[var(--color-text-secondary)]">{tg(ch.note)}</p>
                 <div className="mt-4 flex flex-col gap-2.5">
-                  {ch.quotes.slice(0, 2).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
+                  {ch.quotes.slice(0, 2).map((q, j) => {
+                    const text = ru && q.quoteRu ? q.quoteRu : q.quote;
+                    return <Bubble key={j} app={q.app} text={text} href={quoteHref(q.app, q.quote)} ru={ru} />;
+                  })}
                 </div>
               </Disclosure>
             ))}
@@ -407,7 +432,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </Block>
       )}
 
-      <Block title={ru ? "Честный рейтинг" : "Honest rating"} lead={ru ? "Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах." : "The same hundred apps in two scoring systems. Switch and watch the storefront star diverge from what people actually write in reviews."}>
+      <Block title={ru ? "Рейтинг по отзывам" : "Review-based rating"} lead={ru ? `Одна и та же выборка из ${r.count} приложений в двух системах оценки. Переключи и смотри, как витринная звезда согласуется с тем, что люди пишут в отзывах.` : `The same sample of ${r.count} apps in two scoring systems. Switch to see how the storefront star aligns with what people write in reviews.`}>
         <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
 
@@ -439,7 +464,10 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                         >
                           {(f.plus || f.minus) && <AppLinkedText as="p" className="text-callout text-[var(--color-text-secondary)]" text={tg([f.plus, f.minus].filter(Boolean).join(" "))} apps={ratingApps} locale={locale} />}
                           <div className="mt-5 flex flex-col gap-2.5">
-                            {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={ru && q.quoteRu ? q.quoteRu : q.quote} />)}
+                            {(f.evidence || []).slice(0, 3).map((q, j) => {
+                              const text = ru && q.quoteRu ? q.quoteRu : q.quote;
+                              return <Bubble key={j} app={q.app} text={text} href={quoteHref(q.app, q.quote)} ru={ru} />;
+                            })}
                           </div>
                         </Disclosure>
                       ))}
@@ -626,11 +654,13 @@ function GateNote({ ru, text, invert }: { ru: boolean; text: string; invert?: bo
   );
 }
 
-function Bubble({ app, text }: { app: string; text: string }) {
+function Bubble({ app, text, href, ru }: { app: string; text: string; href: string; ru: boolean }) {
   return (
     <figure className="max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
       <p className="text-callout italic text-[var(--color-text-secondary)]">{tg(text.length > 320 ? text.slice(0, 320) + "…" : text)}</p>
-      <figcaption className="mt-1.5 text-caption not-italic text-[var(--color-text-tertiary)]">{app}</figcaption>
+      <figcaption className="mt-1.5 text-caption not-italic text-[var(--color-text-tertiary)]">
+        <Link href={href} className="underline decoration-[var(--color-border-strong)] underline-offset-2 hover:text-[var(--color-text-primary)]">{app} · {ru ? "исходные отзывы" : "source reviews"}</Link>
+      </figcaption>
     </figure>
   );
 }

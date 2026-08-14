@@ -27,6 +27,7 @@ import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
 import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
 import NicheDossier from "@/components/NicheDossier";
+import { hasReviewCorpus } from "@/lib/reviews";
 
 // Categories migrated to the new dossier layout (market + audience + honest
 // rating + breakdown + idea cards). Rolled out one niche at a time.
@@ -95,6 +96,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   if (!isActiveCategory(slug)) return {};
+  if (DOSSIER_SLUGS.has(slug) && !hasReviewCorpus(slug)) return {};
   const locale = await getLocale();
   const ru = locale !== "en";
   const cat = getCategoryBySlug(slug, locale);
@@ -202,7 +204,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
 
-  if (DOSSIER_SLUGS.has(slug)) return <NicheDossier slug={slug} locale={locale} />;
+  if (DOSSIER_SLUGS.has(slug)) {
+    if (!hasReviewCorpus(slug)) notFound();
+    return <NicheDossier slug={slug} locale={locale} />;
+  }
 
   if (!isActiveCategory(slug)) notFound();
   const cat = getCategoryBySlug(slug, locale);

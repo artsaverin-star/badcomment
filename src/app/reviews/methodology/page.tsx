@@ -74,13 +74,22 @@ export default async function ReviewMethodology() {
         <h2 id="method-corpus" className="text-title2 text-[var(--color-text-primary)]">{ru ? "1. Корпус" : "1. Corpus"}</h2>
         <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
           {ru
-            ? `В текущем снимке ${t.sourceReviews.toLocaleString(lc)} публичных отзывов о ${t.sourceApps.toLocaleString(lc)} мобильных приложениях в ${t.sourceNiches} тематической нише. Полный текст, звёздная оценка и принадлежность к приложению доступны для каждого отзыва прямо в каталоге.`
-            : `The current snapshot contains ${t.sourceReviews.toLocaleString(lc)} public reviews across ${t.sourceApps.toLocaleString(lc)} mobile apps in ${t.sourceNiches} niches. Complete text, star rating, and app attribution are available for every review directly in the catalogue.`}
+            ? `В текущем снимке ${t.sourceReviews.toLocaleString(lc)} отзывов из публичных источников о ${t.sourceApps.toLocaleString(lc)} мобильных приложениях в ${t.sourceNiches} тематической нише. Полный текст, звёздная оценка и принадлежность к приложению сохранены для каждого отзыва прямо в каталоге.`
+            : `The current snapshot contains ${t.sourceReviews.toLocaleString(lc)} reviews from public sources across ${t.sourceApps.toLocaleString(lc)} mobile apps in ${t.sourceNiches} niches. Complete text, star rating, and app attribution are retained for every review directly in the catalogue.`}
         </p>
         <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
           {ru
             ? `Поштучная разметка полная: все ${t.labelledReviews.toLocaleString(lc)} текстов имеют одну или несколько меток; всего назначено ${t.themeAssignments.toLocaleString(lc)} тематических меток.`
             : `Per-review labelling is complete: all ${t.labelledReviews.toLocaleString(lc)} texts carry one or more labels, with ${t.themeAssignments.toLocaleString(lc)} topic assignments in total.`}
+        </p>
+      </section>
+
+      <section className="mt-10" aria-labelledby="method-access">
+        <h2 id="method-access" className="text-title2 text-[var(--color-text-primary)]">{ru ? "Доступ к источникам" : "Source access"}</h2>
+        <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
+          {ru
+            ? "Категория «Знакомства» открыта полностью как проверяемый пример: категория → приложение → отзывы по темам. Остальной архив входит в полный платный доступ. Замок действует и на страницы, и на API; названия категорий и объём корпуса остаются видны до оплаты."
+            : "Dating is fully open as a verifiable sample: category → app → reviews by topic. The rest of the archive is included with full paid access. The lock applies to both pages and the API; category names and corpus scale remain visible before purchase."}
         </p>
       </section>
 

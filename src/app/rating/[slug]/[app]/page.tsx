@@ -5,6 +5,8 @@ import { getLocale } from "@/lib/i18n.server";
 import { ogImage } from "@/lib/og";
 import { findRatingApp, getNicheName } from "@/lib/ratingAppSlug";
 import { tg } from "@/lib/typo";
+import { hasReviewCorpus } from "@/lib/reviews";
+import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 export const dynamic = "force-dynamic";
 
@@ -17,9 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ru = locale !== "en";
   const a = findRatingApp(slug, app, locale);
   const niche = getNicheName(slug, locale);
-  if (!a || !niche) return {};
+  if (!a || !niche || !hasReviewCorpus(slug)) return {};
   const lp = ru ? "ru" : "en";
-  const title = ru ? `${a.title} — честный разбор отзывов` : `${a.title} — honest review breakdown`;
+  const title = ru ? `${a.title} — разбор по отзывам` : `${a.title} — review-based breakdown`;
   const description = ru
     ? `${a.title}: что хвалят и где слабо по реальным отзывам. Народный балл ${a.realScore ?? ""}, витринная звезда ${a.storeAvg ?? ""}. ${(a.verdict || "").slice(0, 120)}`
     : `${a.title}: what users love and where it falls short, from real reviews. Real score ${a.realScore ?? ""}, store star ${a.storeAvg ?? ""}. ${(a.verdict || "").slice(0, 120)}`;
@@ -34,9 +36,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const AUTH_LABEL: Record<string, { ru: string; en: string; tone: string }> = {
-  "Подлинный": { ru: "подлинный рейтинг", en: "authentic rating", tone: "#30d158" },
-  "Сомнительный": { ru: "сомнительный рейтинг", en: "doubtful rating", tone: "#ff9f0a" },
-  "Накручен": { ru: "накрученный рейтинг", en: "gamed rating", tone: "#ff453a" },
+  "Подлинный": { ru: "оценка согласуется с отзывами", en: "rating aligns with reviews", tone: "#30d158" },
+  "Сомнительный": { ru: "есть расхождение с отзывами", en: "some mismatch with reviews", tone: "#ff9f0a" },
+  "Накручен": { ru: "сильное расхождение с отзывами", en: "large mismatch with reviews", tone: "#ff453a" },
 };
 
 export default async function RatingAppPage({ params }: { params: Promise<{ slug: string; app: string }> }) {
@@ -46,7 +48,7 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
   const lp = ru ? "/ru" : "/en";
   const a = findRatingApp(slug, app, locale);
   const niche = getNicheName(slug, locale);
-  if (!a || !niche) notFound();
+  if (!a || !niche || !hasReviewCorpus(slug)) notFound();
 
   const loved = items(a.loved);
   const weak = items(a.weak);
@@ -105,7 +107,8 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
       {a.authNote && (
         <div className="mt-8 card-min rounded-[22px] p-5 sm:p-6">
           <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Про рейтинг" : "About the rating"}</div>
-          <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{tg(a.authNote)}</p>
+          <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">{neutralizeTrustLanguage(tg(a.authNote), locale)}</p>
+          <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">{ru ? "Расхождение — аналитический сигнал, а не доказательство манипуляции рейтингом." : "A mismatch is an analytical signal, not proof that the rating was manipulated."}</p>
         </div>
       )}
 
@@ -159,10 +162,14 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
       )}
 
       {/* Navigation into the two niche views. */}
-      <div className="mt-20 grid grid-cols-1 gap-3 sm:mt-24 sm:grid-cols-2">
+      <div className="mt-20 grid grid-cols-1 gap-3 sm:mt-24 sm:grid-cols-3">
         <Link href={`${lp}/rating/${slug}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
           <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Весь рейтинг" : "Full rating"}</span>
-          <span className="text-subhead text-[var(--color-text-primary)]">{ru ? `100 приложений ниши «${niche}»` : `The niche's 100 apps: ${niche}`}</span>
+          <span className="text-subhead text-[var(--color-text-primary)]">{ru ? `Все приложения выборки «${niche}»` : `Every app in the ${niche} sample`}</span>
+        </Link>
+        <Link href={`${lp}/reviews/${slug}/${a.id}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
+          <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Источники" : "Sources"}</span>
+          <span className="text-subhead text-[var(--color-text-primary)]">{ru ? "Все отзывы и темы" : "All reviews and topics"}</span>
         </Link>
         <Link href={`${lp}/segment/${slug}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
           <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Разбор ниши" : "Niche breakdown"}</span>

@@ -11,6 +11,7 @@ import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import { byNicheMoney } from "@/lib/nicheMoney";
 import Landing from "@/components/Landing";
+import { reviewCorpusSlugs, reviewNicheTotals } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -51,8 +52,10 @@ export default async function Home() {
   type RApp = { icon?: string | null; ratings?: number };
   type RFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
   const ideasAll = ideasData as { category: string }[];
-  const catCardsRaw = Object.entries(RATING_BY_SLUG as Record<string, RFile>).map(([slug, r]) => {
+  const reviewSlugs = new Set(reviewCorpusSlugs());
+  const catCardsRaw = Object.entries(RATING_BY_SLUG as Record<string, RFile>).filter(([slug]) => reviewSlugs.has(slug)).map(([slug, r]) => {
     const cards = categoryCards(slug, locale)?.product ?? [];
+    const corpus = reviewNicheTotals(slug);
     // Only the four icons the tile actually renders — shipping all ~100 per
     // niche bloated the flight payload to megabytes.
     const icons = [...r.apps]
@@ -64,8 +67,8 @@ export default async function Home() {
       slug,
       name: ru ? r.name : r.nameEn || r.name,
       icons,
-      apps: r.count,
-      reviews: r.totalReviews,
+      apps: corpus?.apps ?? r.count,
+      reviews: corpus?.reviews ?? r.totalReviews,
       observations: cards.reduce((s, c) => s + (c.count || 0), 0),
       ideas: ideasAll.filter((i) => i.category === slug).length,
       hook: tg(getNicheThesis(slug, locale)?.governing || ""),

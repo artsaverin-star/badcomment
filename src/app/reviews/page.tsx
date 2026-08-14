@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ReviewNicheCatalogue from "@/components/ReviewNicheCatalogue";
+import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
+import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { listReviewCatalogue, totals } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
@@ -30,6 +32,14 @@ export default async function ReviewsHome() {
   const lp = ru ? "/ru" : "/en";
   const niches = listReviewCatalogue(locale);
   const summary = totals();
+  const access = await getAccess();
+  const catalogue = niches.map((niche) => ({
+    slug: niche.slug,
+    name: niche.name,
+    sourceReviews: niche.sourceReviews,
+    appsPlanned: niche.appsPlanned,
+    unlocked: canAccessReviewCategory(access, niche.slug),
+  }));
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -50,15 +60,15 @@ export default async function ReviewsHome() {
         <h1 className="text-display font-bold text-[var(--color-text-primary)]">{ru ? "Отзывы" : "Reviews"}</h1>
         <p className="mt-3 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Выберите категорию, затем приложение. Внутри — полный список отзывов: оценка, исходный текст и все темы, которые прямо в нём упомянуты."
-            : "Choose a category, then an app. Inside is the complete review list: rating, source text, and every topic directly mentioned in it."}
+            ? "Выберите категорию, затем приложение. Внутри — полный список отзывов: оценка, исходный текст и все темы, которые прямо в нём упомянуты. «Знакомства» открыты полностью, остальные категории входят в платный доступ."
+            : "Choose a category, then an app. Inside is the complete review list: rating, source text, and every topic directly mentioned in it. Dating is fully open; the remaining categories require paid access."}
         </p>
         <p className="mt-4 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
           {summary.sourceNiches.toLocaleString(lc)} {ru ? "категорий" : "categories"} · {summary.sourceApps.toLocaleString(lc)} {ru ? "приложения" : "apps"} · {summary.sourceReviews.toLocaleString(lc)} {ru ? "отзывов" : "reviews"}
         </p>
       </header>
 
-      <ReviewNicheCatalogue niches={niches} ru={ru} lp={lp} />
+      <ReviewNicheCatalogue niches={catalogue} ru={ru} lp={lp} />
     </main>
   );
 }

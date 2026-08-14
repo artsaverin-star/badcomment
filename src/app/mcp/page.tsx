@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 import { TOOLS } from "@/lib/mcp/tools";
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
 import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
@@ -14,10 +13,11 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const ru = (await getLocale()) !== "en";
+  const corpus = totals();
   const title = ru ? "MCP-сервер inApp: исследование ниш прямо в редакторе" : "inApp MCP: niche research inside your editor";
   const description = ru
-    ? "Подключи inApp к Claude Code, Cursor или другому агенту. 72 ниши, 4400 приложений, 1,4 млн прочитанных отзывов: на что жалуются пользователи, кто реально лидирует, сколько люди платят."
-    : "Connect inApp to Claude Code, Cursor or any agent. 72 niches, 4,400 apps, 1.4M reviews read: what users complain about, who genuinely leads, what people pay.";
+    ? `Подключи inApp к Claude Code, Cursor или другому агенту. ${corpus.sourceNiches} ниш, ${corpus.sourceApps.toLocaleString("ru-RU")} приложений, ${corpus.sourceReviews.toLocaleString("ru-RU")} отзывов: на что жалуются пользователи, кто лидирует, сколько люди платят.`
+    : `Connect inApp to Claude Code, Cursor or any agent. ${corpus.sourceNiches} niches, ${corpus.sourceApps.toLocaleString("en-US")} apps, ${corpus.sourceReviews.toLocaleString("en-US")} reviews: what users complain about, who leads, and what people pay.`;
   return {
     title,
     description,
@@ -28,8 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: { title, description, type: "website", siteName: "inApp" },
   };
 }
-
-type Rating = { apps?: unknown[]; totalReviews?: number };
 
 function Section({ kicker, title, children, id }: { kicker: string; title: string; children: React.ReactNode; id?: string }) {
   return (
@@ -50,11 +48,10 @@ export default async function McpPage() {
   const user = access.user;
   const paid = access.unlimited;
 
-  const sets = Object.values(RATING_BY_SLUG as Record<string, Rating>);
-  const niches = sets.length;
-  const apps = sets.reduce((n, s) => n + (s.apps?.length ?? 0), 0);
-  const reviews = sets.reduce((n, s) => n + (s.totalReviews ?? 0), 0);
   const t = totals();
+  const niches = t.sourceNiches;
+  const apps = t.sourceApps;
+  const reviews = t.sourceReviews;
 
   // A live example instead of an invented one: the biggest labelled niche and
   // its loudest complaint themes, straight from the same data the server sends.
@@ -72,7 +69,7 @@ export default async function McpPage() {
   const PROMPTS = ru
     ? [
         "На что жалуются пользователи трекеров привычек? Дай реальные цитаты с рейтингами.",
-        "Кто реально лидирует среди сканеров документов и у кого рейтинг накручен?",
+        "Кто лидирует среди сканеров документов и у кого витринная звезда сильнее всего расходится с отзывами?",
         "Сколько люди платят за приложения для сна и за что именно они готовы платить?",
         "Разбери нишу заметок и предложи, чем новое приложение может отличаться.",
         "Спроектируй онбординг так, чтобы он закрывал главную боль ниши трезвости.",
@@ -80,7 +77,7 @@ export default async function McpPage() {
       ]
     : [
         "What do habit tracker users complain about? Give me real quotes with ratings.",
-        "Who genuinely leads among document scanners, and whose rating is inflated?",
+        "Who leads among document scanners, and whose storefront star diverges most from the review text?",
         "What do people pay for sleep apps, and what exactly are they paying for?",
         "Break down the notes niche and suggest how a new app could differ.",
         "Design an onboarding that closes the biggest pain in the sobriety niche.",
@@ -94,8 +91,8 @@ export default async function McpPage() {
           p: "Агент видит темы, на которые распадаются отзывы каждого приложения, и может процитировать сами тексты. С фильтром по теме и звёздам.",
         },
         {
-          h: "Честный рейтинг ниш",
-          p: "Кто лидирует по реальному качеству, а у кого рейтинг накручен. По каждому приложению есть вердикт с объяснением.",
+          h: "Рейтинг по отзывам",
+          p: "Кто лидирует по опыту пользователей и где витринная звезда расходится с текстами. По каждому приложению есть вердикт с объяснением.",
         },
         {
           h: "Разборы и идеи",
@@ -108,8 +105,8 @@ export default async function McpPage() {
           p: "The agent sees the themes each app's reviews fall into and can quote the texts themselves. Filterable by theme and stars.",
         },
         {
-          h: "An honest niche rating",
-          p: "Who leads on real quality and whose rating is inflated. Every app comes with an explained verdict.",
+          h: "A review-based niche rating",
+          p: "Who leads on user experience and where the storefront star diverges from review text. Every app comes with an explained verdict.",
         },
         {
           h: "Breakdowns and ideas",

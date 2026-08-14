@@ -10,6 +10,7 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 import RatingShots from "@/components/RatingShots";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { appSlugify } from "@/lib/ratingAppSlug";
+import { hasReviewCorpus } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -31,15 +32,15 @@ const SETS = RATING_BY_SLUG as unknown as Record<string, RatingSet>;
 
 // Authenticity as a plain statement about the store star, plus a restrained tint.
 function authVerdict(a: string | null, ru: boolean): { word: string; bg: string; fg: string } {
-  if (a === "Накручен") return { word: ru ? "Накручена" : "Gamed", bg: "rgba(255,105,97,0.12)", fg: "#ff6961" };
-  if (a === "Подлинный") return { word: ru ? "Честная" : "Genuine", bg: "rgba(48,209,88,0.12)", fg: "#30d158" };
-  return { word: ru ? "Сомнительная" : "Doubtful", bg: "rgba(255,214,10,0.12)", fg: "#e0b400" };
+  if (a === "Накручен") return { word: ru ? "Сильное расхождение" : "Large mismatch", bg: "rgba(255,105,97,0.12)", fg: "#ff6961" };
+  if (a === "Подлинный") return { word: ru ? "Оценка согласуется" : "Rating aligns", bg: "rgba(48,209,88,0.12)", fg: "#30d158" };
+  return { word: ru ? "Есть расхождение" : "Some mismatch", bg: "rgba(255,214,10,0.12)", fg: "#e0b400" };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const set = SETS[slug];
-  if (!set) return {};
+  if (!set || !hasReviewCorpus(slug)) return {};
   const locale = await getLocale();
   const ru = locale !== "en";
   const lp = ru ? "ru" : "en";
@@ -47,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const name = ru ? set.name : set.nameEn;
   const title = ru ? `Лучшие приложения для ${set.seoName ?? name.toLowerCase()}: топ-${set.count} по отзывам` : `Best ${name.toLowerCase()} apps: top ${set.count} by reviews`;
   const description = ru
-    ? `${set.count} приложений «${name}» по ${set.totalReviews.toLocaleString("ru-RU")} реальным отзывам. Оценка качества по отзывам, а не по витринной звезде, плюс проверка на накрутку рейтинга.`
-    : `${set.count} ${name} apps from ${set.totalReviews.toLocaleString("en-US")} real reviews. A quality score from the reviews, not the inflated store star, plus a rating-authenticity check.`;
+    ? `${set.count} приложений «${name}» по ${set.totalReviews.toLocaleString("ru-RU")} реальным отзывам. Редакционная оценка опыта и сверка витринной звезды с содержанием отзывов.`
+    : `${set.count} ${name} apps from ${set.totalReviews.toLocaleString("en-US")} real reviews. An editorial experience score and a comparison between the storefront star and review content.`;
   return {
     title, description,
     alternates: { canonical: url, languages: { ru: `https://inapp.pro/ru/rating/${slug}`, en: `https://inapp.pro/en/rating/${slug}`, "x-default": `https://inapp.pro/en/rating/${slug}` } },
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function RatingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const set = SETS[slug];
-  if (!set) notFound();
+  if (!set || !hasReviewCorpus(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
@@ -82,7 +83,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
   const stats = [
     { n: nf(set.count), l: ru ? "приложений" : "apps" },
     { n: nf(set.totalReviews), l: ru ? "отзывов прочитано" : "reviews read" },
-    { n: nf(set.inflated), l: ru ? "с накрученной звездой" : "with a gamed star" },
+    { n: nf(set.inflated), l: ru ? "с сильным расхождением звезды" : "with a large star mismatch" },
   ];
 
   const Field = ({ label, children }: { label: string; children: ReactNode }) => (
@@ -109,8 +110,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         </h1>
         <p className="mt-8 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? <>Топ-{set.count} по {nf(set.totalReviews)} реальным отзывам. Оценили качество самого продукта, а не витринную звезду, которую накручивают.</>
-            : <>Top {set.count} by {nf(set.totalReviews)} real reviews. We scored the product itself, not the storefront star that gets gamed.</>}
+            ? <>Топ-{set.count} по редакционной выборке из {nf(set.totalReviews)} отзывов. Балл описывает опыт людей в самих текстах; витринную звезду показываем отдельно.</>
+            : <>Top {set.count} from an editorial sample of {nf(set.totalReviews)} reviews. The score describes people&apos;s experience in the text; the storefront star is shown separately.</>}
         </p>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
@@ -126,8 +127,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
           <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Как считаем" : "How we score"}</div>
           <p className="mt-2 max-w-[64ch] text-callout text-[var(--color-text-secondary)]">
             {ru
-              ? "Читаем до 500 реальных отзывов на каждое приложение и оцениваем качество самого продукта. Смотрим на точность, глубину, авторские тексты против общей ИИ-воды. Жалобы на цену и баги игнорируем как шум. Подлинность звезды это сверка витринного рейтинга с тем, что люди пишут на деле."
-              : "We read up to 500 real reviews per app and rate the product itself. We look at accuracy, depth and original writing versus generic AI filler. Price and bug complaints we ignore as noise. Star authenticity compares the storefront rating with what people actually write."}
+              ? "Читаем до 500 реальных отзывов на приложение и собираем повторяющиеся сигналы об основном продукте, цене, доступе, надёжности и поддержке. Цена или отдельный сбой сами по себе не определяют балл, но остаются частью пользовательского опыта. Метка у звезды показывает степень расхождения между витринной оценкой и текстами; это сигнал для проверки, а не доказательство накрутки."
+              : "We read up to 500 real reviews per app and collect recurring signals about the core product, price, access, reliability, and support. Price or a single failure does not determine the score on its own, but remains part of the user experience. The star label shows the degree of mismatch between the storefront rating and review text; it is a review signal, not proof of manipulation."}
           </p>
         </div>
       </header>
@@ -172,6 +173,9 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                 <Field label={ru ? "Сильное" : "Strong"}>{tg(tx("loved"))}</Field>
                 <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
                 {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
+                <Link href={`/${ru ? "ru" : "en"}/reviews/${slug}/${a.id}`} className="text-footnote font-medium text-[var(--color-text-primary)] underline decoration-[var(--color-border-strong)] underline-offset-2 hover:decoration-[var(--color-text-primary)]">
+                  {ru ? "Открыть исходные отзывы и темы →" : "Open source reviews and topics →"}
+                </Link>
               </div>
             </li>
           );

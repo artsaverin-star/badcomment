@@ -49,11 +49,11 @@ const errors = [];
 let appCount = 0;
 let reviewCount = 0;
 
-fs.mkdirSync("public/reviews", { recursive: true });
+fs.mkdirSync("review-data/reviews", { recursive: true });
 
 for (const slug of slugs) {
   const apps = [];
-  fs.mkdirSync(`public/reviews/${slug}`, { recursive: true });
+  fs.mkdirSync(`review-data/reviews/${slug}`, { recursive: true });
   for (const file of fs.readdirSync(`${root}/${slug}`).filter((name) => name.endsWith(".json"))) {
     const sourcePath = `gen/rev-src/${slug}/${file}`;
     const outputPath = `${root}/${slug}/${file}`;
@@ -142,7 +142,7 @@ for (const slug of slugs) {
     };
     apps.push(app);
     fs.writeFileSync(
-      `public/reviews/${slug}/${id}.json`,
+      `review-data/reviews/${slug}/${id}.json`,
       JSON.stringify({ id, title: app.title, themes: keptThemes, reviews }),
     );
     appCount++;

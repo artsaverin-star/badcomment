@@ -17,6 +17,7 @@ import CategoryChips from "@/components/CategoryChips";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import FaqSection from "@/components/FaqSection";
 import type { Metadata } from "next";
+import { reviewCorpusSlugs, totals } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -50,7 +51,8 @@ const CATEGORY_ORDER = [
   "scanner-pdf", "ai-chatbot", "intermittent-fasting", "flashcards", "translator", "run-tracking", "voice-recorder", "resume-builder", "invoice-maker", "sobriety",
   "ai-writing", "journaling-mood", "focus-productivity", "habit-tracking", "notes-pkm", "sleep-tracking", "recipes-meal-planning", "plant-care", "baby-tracking", "workout-fitness", "calendars-tasks", "period-cycle", "nutrition-calories", "personal-finance", "meditation-mindfulness", "astrology", "photo-editing", "ai-avatars-headshots", "language-learning", "weather-apps", "travel-planning", "shopping-ecommerce", "food-delivery", "ride-hailing", "dating-apps", "messaging-apps", "music-streaming", "video-streaming", "crypto-investing",
 ];
-const DOSSIER = new Set(CATEGORY_ORDER);
+const REVIEW_SLUGS = new Set(reviewCorpusSlugs());
+const DOSSIER = new Set(CATEGORY_ORDER.filter((slug) => REVIEW_SLUGS.has(slug)));
 const CAT_RANK = new Map(CATEGORY_ORDER.map((s, i) => [s, i]));
 
 const SORT_METRIC: Record<Exclude<SortKey, "hot" | "founder">, "composite" | "money" | "simplicity" | "demand"> = {
@@ -87,12 +89,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     const r = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string }>)[slug];
     return (ru ? r?.name : r?.nameEn) || r?.name || slug;
   };
-  const totalReviews = Object.values(RATING_BY_SLUG as Record<string, { totalReviews?: number }>).reduce((s, r) => s + (r.totalReviews || 0), 0);
+  const totalReviews = totals().sourceReviews;
 
   const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
   // Niche tile strip: every niche that has ideas, in buildability order, with
   // its biggest app's icon as the tile art.
-  const chips = byNicheMoney(CATEGORY_ORDER.filter((s) => raw.some((i) => i.category === s)), (x) => x).map((s) => {
+  const chips = byNicheMoney(CATEGORY_ORDER.filter((s) => DOSSIER.has(s) && raw.some((i) => i.category === s)), (x) => x).map((s) => {
     const apps = ((RATING_BY_SLUG as Record<string, { apps?: { icon?: string | null; ratings?: number }[] }>)[s]?.apps ?? []);
     const top = [...apps].sort((a, b) => (b.ratings ?? 0) - (a.ratings ?? 0)).find((a) => a.icon);
     return { slug: s, name: nameOf(s), icon: top?.icon ?? null, hue: hueFromSlug(s) };

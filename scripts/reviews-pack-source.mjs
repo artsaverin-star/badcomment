@@ -6,8 +6,8 @@ import { createCorpusLabeler, summarizeThemes } from "./lib/review-corpus-labele
 const root = process.cwd();
 const manifestPath = path.join(root, "gen", "rev-manifest-all.json");
 const sourceRoot = path.join(root, "gen", "rev-src");
-const detailedRoot = path.join(root, "public", "reviews");
-const archiveRoot = path.join(root, "public", "reviews-source");
+const detailedRoot = path.join(root, "review-data", "reviews");
+const archiveRoot = path.join(root, "review-data", "reviews-source");
 const indexPath = path.join(root, "src", "data", "reviewSourceIndex.json");
 
 if (!fs.existsSync(manifestPath) || !fs.existsSync(sourceRoot)) {

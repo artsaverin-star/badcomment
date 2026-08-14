@@ -1,5 +1,4 @@
 import { listDomains } from "./researchCategories";
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hasInsight } from "./readyApps";
 import { getSlugByProductId } from "./appSlugs";
 import { getProductInsights } from "./insights";
@@ -9,6 +8,7 @@ import segmentInsights from "@/data/segment-insights.json";
 import hidden from "@/data/hidden-categories.json";
 import type { Locale } from "./i18n";
 import type { BrowseDomain, BrowseAppItem } from "@/components/CatalogBrowser";
+import { totals } from "./reviews";
 
 // A category is "live" once its synthesis is published (≥10 разборов).
 const LIVE = new Set(Object.keys(segmentInsights as Record<string, unknown>));
@@ -77,13 +77,8 @@ export function getCatalogData(locale: Locale, premium: boolean): {
     }
   }
   const catalogApps = [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "ru"));
-  // The headline scale number is the people's-rating corpus — the real, traceable
-  // spine the homepage cards, breakdowns and ideas are built on (sum of each
-  // category's totalReviews, itself a sum of per-app review counts). It supersedes
-  // the smaller legacy catalog tally.
-  const totalReviews = Object.values(RATING_BY_SLUG).reduce<number>(
-    (s, r) => s + ((r as { totalReviews?: number }).totalReviews ?? 0),
-    0,
-  );
+  // The public scale number follows the complete review archive. The people's
+  // rating is an editorial sample and intentionally keeps its own, smaller count.
+  const totalReviews = totals().sourceReviews;
   return { domains, catalogApps, totalReviews };
 }

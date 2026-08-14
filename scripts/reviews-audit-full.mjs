@@ -14,7 +14,7 @@ const fail = (message) => {
 
 for (const [slug, apps] of Object.entries(index.niches)) {
   counts.niches++;
-  const archivePath = path.join(root, "public", "reviews-source", `${slug}.json.gz`);
+  const archivePath = path.join(root, "review-data", "reviews-source", `${slug}.json.gz`);
   let archived = new Map();
   if (!fs.existsSync(archivePath)) {
     fail(`${slug}: archive is missing`);

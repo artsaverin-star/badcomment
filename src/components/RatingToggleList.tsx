@@ -15,17 +15,18 @@ export type RatingApp = {
   realScore: number | null; storeAvg: number | null; ratings: number;
   authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null;
   shots?: string[];
+  reviewHref?: string;
 };
 
 const AUTH: Record<string, { w: string; c: string }> = {
-  "Подлинный": { w: "честная", c: "#30d158" },
-  "Сомнительный": { w: "сомнительная", c: "#e0b400" },
-  "Накручен": { w: "накрученная", c: "#ff6961" },
+  "Подлинный": { w: "оценка согласуется", c: "#30d158" },
+  "Сомнительный": { w: "есть расхождение", c: "#e0b400" },
+  "Накручен": { w: "сильное расхождение", c: "#ff6961" },
 };
 const AUTH_EN: Record<string, { w: string; c: string }> = {
-  "Подлинный": { w: "genuine", c: "#30d158" },
-  "Сомнительный": { w: "doubtful", c: "#e0b400" },
-  "Накручен": { w: "inflated", c: "#ff6961" },
+  "Подлинный": { w: "rating aligns", c: "#30d158" },
+  "Сомнительный": { w: "some mismatch", c: "#e0b400" },
+  "Накручен": { w: "large mismatch", c: "#ff6961" },
 };
 
 export default function RatingToggleList({ apps, limit = 8, more, moreHref, locale = "ru" }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string; locale?: Locale }) {
@@ -89,6 +90,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
                 <Field k={ru ? "Сильное" : "Strong"} v={a.loved} />
                 <Field k={ru ? "Слабое" : "Weak"} v={a.weak} />
                 <Field k={ru ? "Кому" : "For whom"} v={a.whoFor} />
+                {a.reviewHref && <a href={a.reviewHref} className="text-footnote font-medium text-[var(--color-text-primary)] underline decoration-[var(--color-border-strong)] underline-offset-2 hover:decoration-[var(--color-text-primary)]">{ru ? "Исходные отзывы и темы →" : "Source reviews and topics →"}</a>}
               </div>
             </details>
           );

@@ -42,7 +42,7 @@ for (const [slug, niche] of Object.entries(INDEX)) {
     report.totals.reviews += app.total;
     report.totals.themes += app.themes.length;
 
-    const file = path.join(ROOT, "public/reviews", slug, `${app.id}.json`);
+    const file = path.join(ROOT, "review-data/reviews", slug, `${app.id}.json`);
     if (!fs.existsSync(file)) {
       report.consistency.missingFiles++;
       continue;

@@ -64,8 +64,8 @@ export default function BuyButton({
     ? (ru ? "Доступ для первых" : "Founding access")
     : (ru ? "Весь сайт навсегда" : "The whole site, forever");
   const sub = ru
-    ? "Забираешь весь сайт навсегда: все разборы, идеи под спрос, народный рейтинг и MCP-сервер, включая всё, что выйдет дальше."
-    : "Take the whole site forever: every breakdown, demand-backed idea, the people's rating and the MCP server, including everything that comes next.";
+    ? "Забираешь весь сайт навсегда: архив размеченных отзывов, все разборы, идеи под спрос, народный рейтинг и MCP-сервер, включая всё, что выйдет дальше."
+    : "Take the whole site forever: the labelled review archive, every breakdown, demand-backed idea, the people's rating and the MCP server, including everything that comes next.";
   const triggerLabel = ru ? `Открыть весь сайт за ${eff} ₽` : `Unlock the whole site, ${eff} ₽`;
 
   function onClick() {
@@ -100,8 +100,8 @@ export default function BuyButton({
 
   // Card РФ / СБП + the «what you get» list — shared by the popup and inline panel.
   const benefits = ru
-    ? ["Все категории и идеи под подтверждённый спрос", "MCP-сервер: те же данные у твоего ИИ-агента", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
-    : ["Every category and demand-backed idea", "The MCP server: the same data for your AI agent", "New niches included, no extra cost", "One payment, access forever"];
+    ? ["1 451 072 отзыва с поштучной разметкой", "Все категории, разборы и идеи под спрос", "MCP-сервер: те же данные у твоего ИИ-агента", "Один платёж, доступ навсегда"]
+    : ["1,451,072 individually labelled reviews", "Every category, breakdown and demand-backed idea", "The MCP server: the same data for your AI agent", "One payment, access forever"];
 
   const methods = (
     <>

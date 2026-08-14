@@ -10,9 +10,10 @@ import type { Locale } from "./i18n";
 
 // The /reviews section: every app broken down into ITS OWN emergent themes.
 // The shipped index (src/data/reviewsIndex.json) is compact — themes + counts
-// only. The review texts live in public/reviews/<slug>/<id>.json and are read
-// on demand (server-side for the first screen, lazily by the browser for the
-// rest) so a 500-review app never bloats the index.
+// only. The review texts live in the server-private review-data directory and
+// are read on demand (server-side for the first screen, lazily through the
+// authorized API for the rest) so a 500-review app never bloats the index or
+// bypasses the paid archive through a public static URL.
 
 export type Polarity = "love" | "pain" | "mixed";
 export type ThemeScope = "app" | "niche" | "universal" | "fallback";
@@ -185,6 +186,20 @@ export function getSourceApp(slug: string, id: string): ReviewSourceApp | null {
   return SOURCE.niches[slug]?.find((app) => app.id === id) ?? null;
 }
 
+export function hasReviewCorpus(slug: string): boolean {
+  return (SOURCE.niches[slug]?.length ?? 0) > 0;
+}
+
+export function reviewNicheTotals(slug: string): { apps: number; reviews: number } | null {
+  const apps = SOURCE.niches[slug];
+  if (!apps?.length) return null;
+  return { apps: apps.length, reviews: apps.reduce((sum, app) => sum + app.total, 0) };
+}
+
+export function reviewCorpusSlugs(): string[] {
+  return Object.keys(SOURCE.niches);
+}
+
 export function getApp(slug: string, id: string): ReviewApp | null {
   const detailed = IDX[slug]?.apps.find((app) => app.id === id);
   const source = getSourceApp(slug, id);
@@ -208,7 +223,7 @@ export function totals() {
     fallbackReviews,
     specificReviews,
     specificCoveragePct: reviews ? (specificReviews / reviews) * 100 : 0,
-    sourceNiches: Object.keys(CATALOG).length,
+    sourceNiches: Object.keys(SOURCE.niches).length,
     sourceApps: SOURCE.totalApps,
     sourceReviews: SOURCE.totalReviews,
     labelledReviews: SOURCE.labelledReviews,
@@ -236,7 +251,7 @@ function readArchivedNiche(slug: string): Map<string, Review[]> {
 
   const result = new Map<string, Review[]>();
   try {
-    const archivePath = path.join(process.cwd(), "public", "reviews-source", `${slug}.json.gz`);
+    const archivePath = path.join(process.cwd(), "review-data", "reviews-source", `${slug}.json.gz`);
     const archive = JSON.parse(gunzipSync(fs.readFileSync(archivePath)).toString("utf8")) as ArchivedNiche;
     for (const app of archive.apps || []) if (Array.isArray(app.reviews)) result.set(app.id, app.reviews);
   } catch {
@@ -254,7 +269,7 @@ export function readReviews(slug: string, id: string): Review[] {
   const archived = readArchivedNiche(slug).get(id);
   if (archived) return archived;
   try {
-    const p = path.join(process.cwd(), "public", "reviews", slug, `${id}.json`);
+    const p = path.join(process.cwd(), "review-data", "reviews", slug, `${id}.json`);
     const d = JSON.parse(fs.readFileSync(p, "utf8")) as { reviews?: Review[] };
     return Array.isArray(d.reviews) ? d.reviews : [];
   } catch { return []; }

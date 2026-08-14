@@ -1,5 +1,5 @@
 import type { SessionUser } from "@/lib/session";
-import { getApp, getNiche, getNichePatterns, listReviewCatalogue, listSourceApps, readReviews, split, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
+import { getApp, getNiche, getNichePatterns, listReviewCatalogue, listSourceApps, readReviews, split, totals, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
 import channelsData from "@/data/channels.json";
@@ -23,9 +23,11 @@ function logCall(userId: string, tool: string, status: "ok" | "denied") {
 //
 // All numbers trace back to review texts we read — no tool invents a figure.
 
-export const SERVER_INSTRUCTIONS = `inApp turns real App Store reviews into product research: 72 app categories, 4400+ apps, 1.4M reviews read.
+const CORPUS = totals();
 
-Use it when you are designing, positioning or improving an app and want evidence instead of guesses: what users of a category praise, what they complain about, which competitor is genuinely liked versus propped up by fake ratings, where the money and the users come from, and which gaps keep coming up.
+export const SERVER_INSTRUCTIONS = `inApp turns real App Store reviews into product research: ${CORPUS.sourceNiches} app categories, ${CORPUS.sourceApps.toLocaleString("en-US")} apps, ${CORPUS.sourceReviews.toLocaleString("en-US")} reviews read.
+
+Use it when you are designing, positioning or improving an app and want evidence instead of guesses: what users of a category praise, what they complain about, which competitor is genuinely liked and where a storefront star diverges from review text, where the money and the users come from, and which gaps keep coming up.
 
 Typical flow: list_niches to find the category, get_niche_brief for the market and the audience, get_niche_rating to see who really leads, search_themes for recurring topics, then get_app_reviews to read and quote the exact reviews behind a theme.
 
@@ -74,7 +76,7 @@ export const TOOLS: Tool[] = [
     name: "list_niches",
     title: "List app niches",
     description:
-      "List all 72 app categories inApp has researched, each with how many apps and reviews back it, its estimated annual revenue, and whether per-review theme data is available. Start here to get the niche slug every other tool takes.",
+      `List all ${CORPUS.sourceNiches} app categories inApp has researched, each with how many apps and reviews back it, its estimated annual revenue, and whether per-review theme data is available. Start here to get the niche slug every other tool takes.`,
     inputSchema: {
       type: "object",
       properties: { withReviewThemes: { type: "boolean", description: "Only niches whose reviews are broken into themes (needed by search_themes and get_app_reviews)." } },

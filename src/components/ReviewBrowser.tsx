@@ -16,6 +16,7 @@ export default function ReviewBrowser({
   initial,
   ratingCounts,
   ru,
+  initialQuery = "",
 }: {
   slug: string;
   id: string;
@@ -24,11 +25,12 @@ export default function ReviewBrowser({
   initial: Review[];
   ratingCounts: number[];
   ru: boolean;
+  initialQuery?: string;
 }) {
   const [all, setAll] = useState<Review[] | null>(null);
   const [theme, setTheme] = useState("");
   const [stars, setStars] = useState("");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [worstFirst, setWorstFirst] = useState(true);
   const [limit, setLimit] = useState(PAGE);
   const loading = useRef(false);

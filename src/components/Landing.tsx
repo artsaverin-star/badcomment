@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
+import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 export type LandingFeed = {
   items: FeedIdea[];
@@ -53,8 +54,8 @@ const Arrow = ({ className = "" }: { className?: string }) => (
 
 function metaLine(c: CatCard, ru: boolean): string {
   return ru
-    ? `${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
-    : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`;
+    ? `${c.apps.toLocaleString("ru-RU")} прил. · ${c.reviews.toLocaleString("ru-RU")} отзывов`
+    : `${c.apps.toLocaleString("en-US")} apps · ${c.reviews.toLocaleString("en-US")} reviews`;
 }
 
 // The sharpest, complete first sentence of a governing thought — the homepage
@@ -101,7 +102,14 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
       )}
       {c.hook && <p className="mt-4 line-clamp-2 text-callout text-[var(--color-text-secondary)]">{firstSentence(c.hook)}</p>}
       <div className="mt-auto flex items-center justify-between pt-5">
-        <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
+        <div>
+          <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
+          <p className="mt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+            {ru
+              ? `${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
+              : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`}
+          </p>
+        </div>
         <Arrow className="shrink-0" />
       </div>
     </Link>
@@ -204,7 +212,15 @@ export default function Landing({
   const ultraSet = new Set(ULTRA);
   const ranked = catCards
     .filter((c) => ultraSet.has(c.slug))
-    .map((c) => ({ ...c, hook: HOOKS[c.slug] ?? c.hook }));
+    .map((c) => ({
+      ...c,
+      // Older editorial hooks sometimes baked a stale app count into the first
+      // words. Counts now live in the corpus-backed metadata line below.
+      hook: neutralizeTrustLanguage((c.hook || HOOKS[c.slug] || "").replace(/^\d+\s+(?:приложени(?:е|я|й)|apps?)\s*:\s*/i, ""), locale),
+    }));
+  const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query.trim().toLocaleLowerCase(ru ? "ru" : "en"));
+  const visible = ranked.filter((c) => !deferredQuery || `${c.name} ${c.hook}`.toLocaleLowerCase(ru ? "ru" : "en").includes(deferredQuery));
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
   // floated in the left/right margins behind the headline (never over the text).
@@ -256,16 +272,39 @@ export default function Landing({
                 <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "over a million"}</span> App&nbsp;Store and Google&nbsp;Play reviews and found what people are missing and already pay for. Pick a niche, open the breakdown and take a ready, demand-backed idea, scored for a solo founder.</>
               )}
             </p>
+
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <Link href={`/${ru ? "ru" : "en"}/reviews`} className="rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-footnote font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-85">
+                {ru ? "Открыть размеченные отзывы" : "Open labelled reviews"}
+              </Link>
+              <Link href={`/${ru ? "ru" : "en"}/reviews/methodology`} className="rounded-full border border-[var(--color-border-subtle)] px-5 py-2.5 text-footnote font-medium text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]">
+                {ru ? "Как устроена разметка" : "How the labelling works"}
+              </Link>
+            </div>
           </div>
         </section>
 
       {/* Every niche with a full dossier. */}
       <div className="mx-auto mt-9 w-full px-0 sm:mt-12">
+        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Категории" : "Categories"}</h2>
+          <label className="block w-full sm:max-w-[360px]">
+            <span className="sr-only">{ru ? "Поиск категории" : "Search categories"}</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={ru ? "Найти категорию" : "Find a category"}
+              className="h-11 w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 text-footnote text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+            />
+          </label>
+        </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ranked.map((c) => (
+          {visible.map((c) => (
             <CardCompact key={c.slug} c={c} ru={ru} />
           ))}
         </div>
+        {!visible.length && <p className="py-12 text-center text-body text-[var(--color-text-tertiary)]">{ru ? "Ничего не найдено." : "Nothing found."}</p>}
       </div>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}

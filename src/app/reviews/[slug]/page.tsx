@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BackLink from "@/components/BackLink";
 import NicheAppList from "@/components/NicheAppList";
+import ReviewAccessGate from "@/components/ReviewAccessGate";
+import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
+import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { getNiche, listSourceApps, nicheName } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
@@ -44,6 +47,8 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   const lp = ru ? "/ru" : "/en";
   const name = nicheName(niche, locale);
   const sourceReviews = niche.sourceReviews || niche.apps.reduce((sum, app) => sum + app.total, 0);
+  const access = await getAccess();
+  const unlocked = canAccessReviewCategory(access, slug);
   const detailedById = new Map(niche.apps.map((app) => [app.id, app]));
   const apps = listSourceApps(slug).map((app) => ({ ...app, icon: detailedById.get(app.id)?.icon }));
   const jsonLd = {
@@ -67,10 +72,14 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         </p>
       </header>
 
-      <section className="mt-8" aria-labelledby="niche-apps-heading">
-        <h2 id="niche-apps-heading" className="mb-4 text-title2 text-[var(--color-text-primary)]">{ru ? "Приложения" : "Apps"}</h2>
-        <NicheAppList slug={slug} apps={apps} ru={ru} />
-      </section>
+      {unlocked ? (
+        <section className="mt-8" aria-labelledby="niche-apps-heading">
+          <h2 id="niche-apps-heading" className="mb-4 text-title2 text-[var(--color-text-primary)]">{ru ? "Приложения" : "Apps"}</h2>
+          <NicheAppList slug={slug} apps={apps} ru={ru} />
+        </section>
+      ) : (
+        <ReviewAccessGate locale={locale} loggedIn={access.loggedIn} apps={apps.length} reviews={sourceReviews} />
+      )}
     </main>
   );
 }

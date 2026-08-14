@@ -579,7 +579,7 @@ let changedReviews = 0;
 for (const [key, rules] of Object.entries(RULES)) {
   const [slug, id] = key.split("/");
   const app = index[slug]?.apps.find((candidate) => String(candidate.id) === id);
-  const path = `public/reviews/${slug}/${id}.json`;
+  const path = `review-data/reviews/${slug}/${id}.json`;
   if (!app || !fs.existsSync(path)) throw new Error(`Missing app ${key}`);
 
   const detail = JSON.parse(fs.readFileSync(path, "utf8"));
