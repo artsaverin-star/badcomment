@@ -2,10 +2,15 @@ import { cookies } from "next/headers";
 import crypto from "node:crypto";
 import { prisma } from "./prisma";
 
-// Dependency-free session: an HMAC-signed cookie carrying the user id. No JWT lib
-// needed. secure:false for now because prod is still http (no TLS until the
-// inapp.pro cert lands) — flip to true once HTTPS is live.
-const SECRET = process.env.SESSION_SECRET || "dev-insecure-secret";
+// Dependency-free session: an HMAC-signed cookie carrying the user id. A known
+// fallback is acceptable only for local development; production must fail
+// closed instead of minting forgeable sessions.
+function sessionSecret() {
+  if (process.env.SESSION_SECRET) return process.env.SESSION_SECRET;
+  if (process.env.NODE_ENV !== "production") return "dev-insecure-secret";
+  throw new Error("SESSION_SECRET is required in production");
+}
+const SECRET = sessionSecret();
 const COOKIE = "ia_session";
 const TTL = 60 * 60 * 24 * 30; // 30 days
 
@@ -37,7 +42,7 @@ export async function setSession(uid: string) {
     sameSite: "lax",
     path: "/",
     maxAge: TTL,
-    secure: false,
+    secure: process.env.NODE_ENV === "production",
   });
 }
 

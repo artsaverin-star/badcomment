@@ -1,5 +1,18 @@
+import crypto from "node:crypto";
 import type { SessionUser } from "@/lib/session";
-import { getApp, getNiche, getNichePatterns, listReviewCatalogue, listSourceApps, readReviews, split, totals, progress as reviewProgress, type ReviewTheme } from "@/lib/reviews";
+import {
+  getApp,
+  getNichePatterns,
+  listNiches,
+  listReviewCatalogue,
+  listSourceApps,
+  readReviews,
+  split,
+  totals,
+  progress as reviewProgress,
+  type Polarity,
+  type ReviewTheme,
+} from "@/lib/reviews";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
 import channelsData from "@/data/channels.json";
@@ -8,32 +21,13 @@ import { marketFor, scoreFor } from "@/lib/ideaScores";
 import { listIdeas, getIdea } from "@/lib/ideas";
 import { categoryCards } from "@/lib/regenCards";
 import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
-import { accessForUser, ownsIdea } from "./access";
-import { prisma } from "@/lib/prisma";
+import { accessForUser } from "./access";
 
-// Usage log for the admin page: one row per authenticated call, fire-and-forget
-// so a logging hiccup can never fail the tool itself.
-function logCall(userId: string, tool: string, status: "ok" | "denied") {
-  prisma.mcpCall.create({ data: { userId, tool, status } }).catch(() => {});
-}
-
-// Tool surface of the inApp MCP server. Everything here answers one question an
-// agent has while building an app: what do real users of this kind of app
-// actually say, and where does the category leave them hanging.
-//
-// All numbers trace back to review texts we read — no tool invents a figure.
+// The MCP surface is deliberately workflow-shaped: start with one compact
+// niche report, then drill into competitors, themes and the exact reviews.
 
 const CORPUS = totals();
-
-export const SERVER_INSTRUCTIONS = `inApp turns real App Store reviews into product research: ${CORPUS.sourceNiches} app categories, ${CORPUS.sourceApps.toLocaleString("en-US")} apps, ${CORPUS.sourceReviews.toLocaleString("en-US")} reviews read.
-
-Use it when you are designing, positioning or improving an app and want evidence instead of guesses: what users of a category praise, what they complain about, which competitor is genuinely liked and where a storefront star diverges from review text, where the money and the users come from, and which gaps keep coming up.
-
-Typical flow: list_niches to find the category, get_niche_brief for the market and the audience, get_niche_rating to see who really leads, search_themes for recurring topics, then get_app_reviews to read and quote the exact reviews behind a theme.
-
-Every count traces to reviews we actually read, and quotes are verbatim. Nothing here is generated from a model's guess about the market.
-
-The server is part of the paid tier: one lifetime payment on the site opens everything, MCP included. Connect via your client's OAuth flow (sign in in the browser when prompted), or pass the personal key from https://inapp.pro/ru/mcp as an Authorization: Bearer header.`;
+export const SAMPLE_NICHE = "dating-apps";
 
 type RatingApp = {
   id: string;
@@ -59,609 +53,595 @@ const DOSSIER = DOSSIER_BY_SLUG as Record<string, Dossier>;
 type Channel = { name: string; note: string; count: number; quotes: { app: string; quote: string }[] };
 const CHANNELS = channelsData as unknown as Record<string, { channels: Channel[] }>;
 
+const SUPPORTED_SLUGS = new Set(listReviewCatalogue("ru").map((niche) => niche.slug).filter((slug) => listSourceApps(slug).length > 0 && RATING[slug]));
+const DEEP_SLUGS = new Set(listNiches("ru").map((niche) => niche.slug));
+
+type JsonSchema = Record<string, unknown>;
+type ToolInputSchema = { type: "object"; properties: Record<string, JsonSchema>; required?: string[]; additionalProperties: false };
+
 export type Tool = {
   name: string;
   title: string;
   description: string;
-  inputSchema: { type: "object"; properties?: Record<string, unknown>; required?: string[]; additionalProperties: false };
-  annotations: { readOnlyHint: true; openWorldHint: false };
+  inputSchema: ToolInputSchema;
+  outputSchema: JsonSchema;
+  annotations: { readOnlyHint: true; destructiveHint: false; idempotentHint: true; openWorldHint: false };
 };
 
-const RO = { readOnlyHint: true, openWorldHint: false } as const;
-const str = (d: string) => ({ type: "string", description: d });
-const num = (d: string) => ({ type: "integer", description: d });
+const RO = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } as const;
+const str = (description: string, extra: JsonSchema = {}) => ({ type: "string", description, ...extra });
+const num = (description: string, minimum = 1, maximum = 200) => ({ type: "integer", description, minimum, maximum });
+const cursor = str("Opaque nextCursor returned by the previous call.");
+const input = (properties: Record<string, JsonSchema> = {}, required?: string[]): ToolInputSchema => ({ type: "object", properties, ...(required?.length ? { required } : {}), additionalProperties: false });
+const output = (properties: Record<string, JsonSchema>, required: string[]): JsonSchema => ({ type: "object", properties, required, additionalProperties: true });
+const arr = (description: string) => ({ type: "array", description, items: { type: "object", additionalProperties: true } });
 
 export const TOOLS: Tool[] = [
   {
+    name: "account_status",
+    title: "Check inApp access",
+    description: "Confirm that the MCP connection works and see whether this account has full access. Free after sign-in.",
+    inputSchema: input(),
+    outputSchema: output({ connected: { type: "boolean" }, fullAccess: { type: "boolean" }, freeTools: { type: "array", items: { type: "string" } }, sampleNiche: { type: "string" } }, ["connected", "fullAccess", "freeTools", "sampleNiche"]),
+    annotations: RO,
+  },
+  {
     name: "list_niches",
-    title: "List app niches",
-    description:
-      `List all ${CORPUS.sourceNiches} app categories inApp has researched, each with how many apps and reviews back it, its estimated annual revenue, and whether per-review theme data is available. Start here to get the niche slug every other tool takes.`,
-    inputSchema: {
-      type: "object",
-      properties: { withReviewThemes: { type: "boolean", description: "Only niches whose reviews are broken into themes (needed by search_themes and get_app_reviews)." } },
-      additionalProperties: false,
-    },
+    title: "Find researched app niches",
+    description: `Search and page through the ${CORPUS.sourceNiches} app categories backed by inApp's review corpus. Free after sign-in; use the returned niche slug in every other research tool.`,
+    inputSchema: input({ query: str("Optional words from the Russian name, English name or slug."), deepEditorialOnly: { type: "boolean", description: "Only niches with the additional app-specific editorial theme layer." }, limit: num("Page size, default 30.", 1, 100), cursor }),
+    outputSchema: output({ niches: arr("Niche summaries."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] }, coverage: { type: "object", additionalProperties: true } }, ["niches", "total", "nextCursor", "coverage"]),
+    annotations: RO,
+  },
+  {
+    name: "research_niche",
+    title: "Research a niche in one call",
+    description: `A compact first-pass report: market thesis, audience, top pains and praise, genuinely liked competitors and the strongest product ideas. The ${SAMPLE_NICHE} sample is free; other niches require full access.`,
+    inputSchema: input({ niche: str("Niche slug from list_niches.") }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, thesis: { type: ["string", "null"] }, audience: arr("Audience segments."), topPains: arr("Largest complaint themes."), topPraise: arr("Largest praise themes."), leaders: arr("Top review-based competitors."), ideas: arr("Top product ideas.") }, ["niche", "audience", "topPains", "topPraise", "leaders", "ideas"]),
     annotations: RO,
   },
   {
     name: "get_niche_brief",
     title: "Get a niche brief",
-    description:
-      "The market read on one category: the governing thesis drawn from its reviews, money (annual revenue estimate, the prices users actually mention, install scale), and the audience broken into segments with the job each one hires an app for and the gap left open for it.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug from list_niches.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
+    description: "The complete market thesis, revenue and install estimates, prices users mention, and audience segments with their jobs, gaps and willingness to pay. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug from list_niches.") }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, name: { type: "string" }, thesis: { type: ["string", "null"] }, market: { type: ["object", "null"], additionalProperties: true }, audience: arr("Audience segments.") }, ["niche", "name", "audience"]),
     annotations: RO,
   },
   {
     name: "list_niche_findings",
-    title: "List a niche's findings",
-    description:
-      "The findings of the niche breakdown: each recurring product pattern, what works and what breaks, and how many review observations sit behind it. Verbatim user quotes come with a personal key on an account that owns the niche.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), limit: num("Max findings, default 20.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
+    title: "Page through a niche's findings",
+    description: "Recurring product patterns, what works and breaks, observation counts, apps and verbatim evidence. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), limit: num("Page size, default 20.", 1, 100), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, findings: arr("Research findings."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "findings", "total", "nextCursor"]),
     annotations: RO,
   },
   {
     name: "get_distribution_channels",
-    title: "Where a niche's users come from",
-    description:
-      "The acquisition channels users of this category name in their own reviews, with how often each is mentioned and example quotes. Useful for planning launch and ASO.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), limit: num("Max channels, default 8.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
-    annotations: RO,
-  },
-  {
-    name: "list_ideas",
-    title: "List app ideas for a niche",
-    description:
-      "The buildable product ideas inApp derived from this category's reviews, each with the recurring mechanisms behind it and scores for demand, money and simplicity. Titles and scoring are open; the pitch, feature set and monetization come from get_idea.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), limit: num("Max ideas, default 10.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
-    annotations: RO,
-  },
-  {
-    name: "get_idea",
-    title: "Get a full idea",
-    description:
-      "The full payload of one idea: the gap it exploits, the pitch, what to build, what to deliberately leave out, how to charge, and the verbatim review quotes it was derived from. Paid layer — needs an Authorization: Bearer key from an account that owns this idea or its niche.",
-    inputSchema: {
-      type: "object",
-      properties: { idea: str("Idea slug, e.g. 'sobriety-1', from list_ideas.") },
-      required: ["idea"],
-      additionalProperties: false,
-    },
+    title: "Find a niche's acquisition channels",
+    description: "Channels users explicitly mention in reviews, with mention counts and verbatim examples. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), limit: num("Page size, default 8.", 1, 40), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, channels: arr("Acquisition channels."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "channels", "total", "nextCursor"]),
     annotations: RO,
   },
   {
     name: "find_apps",
-    title: "Find apps",
-    description:
-      "Find apps by name across every niche. Returns the niche slug and app id you need for the other tools, plus how many of that app's reviews we read.",
-    inputSchema: {
-      type: "object",
-      properties: { query: str("Part of an app name, case-insensitive."), limit: num("Max results, default 20.") },
-      required: ["query"],
-      additionalProperties: false,
-    },
+    title: "Find apps by name",
+    description: "Search all apps by name and return the niche slug, App Store id and review count needed by the app tools. Requires full access.",
+    inputSchema: input({ query: str("Part of an app name, case-insensitive."), limit: num("Page size, default 20.", 1, 100), cursor }, ["query"]),
+    outputSchema: output({ query: { type: "string" }, apps: arr("Matching apps."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["query", "apps", "total", "nextCursor"]),
     annotations: RO,
   },
   {
     name: "list_niche_apps",
-    title: "List apps in a niche",
-    description:
-      "Every app in one niche with its review count and its three loudest themes. Use it to see the competitive field before reading individual reviews.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug from list_niches."), limit: num("Max apps, default 40.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
-    annotations: RO,
-  },
-  {
-    name: "search_themes",
-    title: "Search recurring themes",
-    description:
-      "Search the topics people actually write about, across every app we read. Each hit is one app's own theme with its real review count and whether it is praise, pain or mixed. This is the fastest way to answer 'what do users of X complain about'.",
-    inputSchema: {
-      type: "object",
-      properties: {
-        query: str("Words to match in the theme, e.g. 'подписка', 'paywall', 'offline', 'sync'. Matches Russian and English theme names."),
-        niche: str("Optional niche slug to restrict the search."),
-        polarity: { type: "string", enum: ["love", "pain", "mixed"], description: "Optional: only praise, only pain, or only mixed themes." },
-        minCount: num("Only themes with at least this many reviews. Default 10."),
-        limit: num("Max results, default 30."),
-      },
-      required: ["query"],
-      additionalProperties: false,
-    },
-    annotations: RO,
-  },
-  {
-    name: "get_app_themes",
-    title: "Get one app's themes",
-    description: "The full theme breakdown of a single app: every theme, its review count, its polarity, and its share of the app's reviews.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), appId: str("App Store id, from find_apps or list_niche_apps.") },
-      required: ["niche", "appId"],
-      additionalProperties: false,
-    },
-    annotations: RO,
-  },
-  {
-    name: "get_app_reviews",
-    title: "Read an app's reviews",
-    description:
-      "The actual review texts for one app, optionally narrowed to one theme and a star range. Use it to quote real users rather than paraphrasing.",
-    inputSchema: {
-      type: "object",
-      properties: {
-        niche: str("Niche slug."),
-        appId: str("App Store id."),
-        theme: str("Optional theme name, exactly as returned by get_app_themes."),
-        minRating: num("Lowest star rating to include, 1-5."),
-        maxRating: num("Highest star rating to include, 1-5."),
-        contains: str("Optional substring the review text must contain."),
-        limit: num("Max reviews, default 25, hard cap 200."),
-      },
-      required: ["niche", "appId"],
-      additionalProperties: false,
-    },
+    title: "Page through apps in a niche",
+    description: "The competitive field with review counts, labelling depth, praise/pain assignment shares and loudest themes. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), limit: num("Page size, default 30.", 1, 100), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, apps: arr("Apps in the niche."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "apps", "total", "nextCursor"]),
     annotations: RO,
   },
   {
     name: "get_app_verdict",
-    title: "Get an app's honest rating",
-    description:
-      "inApp's people's-rating entry for one app: a score computed from what reviewers actually wrote, a review-inflation check against the store average, what users love, what they call weak, and who the app is for.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), appId: str("App Store id.") },
-      required: ["niche", "appId"],
-      additionalProperties: false,
-    },
+    title: "Get an app's review-based verdict",
+    description: "The people's-rating score, storefront comparison, inflation check, verdict, strengths, weaknesses and best-fit audience. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), appId: str("Numeric App Store id from find_apps or list_niche_apps.") }, ["niche", "appId"]),
+    outputSchema: output({ niche: { type: "string" }, appId: { type: "string" }, title: { type: "string" }, realScore: { type: ["number", "null"] }, verdict: { type: ["string", "null"] } }, ["niche", "appId", "title"]),
     annotations: RO,
   },
   {
     name: "get_niche_rating",
-    title: "Rank a niche by real quality",
-    description:
-      "The whole niche ranked by the people's rating, which is built from review texts rather than store stars, with the inflation check on every app. Shows which leaders are genuinely liked and which are propped up.",
-    inputSchema: {
-      type: "object",
-      properties: { niche: str("Niche slug."), limit: num("Max apps, default 25.") },
-      required: ["niche"],
-      additionalProperties: false,
-    },
+    title: "Page through a niche's real-quality ranking",
+    description: "Apps ranked by what review texts say rather than storefront stars, including the inflation check. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), limit: num("Page size, default 25.", 1, 100), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, apps: arr("Ranked apps."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "apps", "total", "nextCursor"]),
+    annotations: RO,
+  },
+  {
+    name: "list_niche_themes",
+    title: "List the loudest themes in a niche",
+    description: "Answer broad questions such as 'what do users complain about?' without knowing a keyword first. Aggregates matching theme assignments across apps. Requires full access except inside the free sample report.",
+    inputSchema: input({ niche: str("Niche slug."), polarity: { type: "string", enum: ["love", "pain", "mixed"], description: "Optional praise, complaint or mixed filter." }, includeFallback: { type: "boolean", description: "Include honest nonspecific remainder themes; default false." }, limit: num("Page size, default 30.", 1, 100), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, themes: arr("Aggregated niche themes."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] }, countingNote: { type: "string" } }, ["niche", "themes", "total", "nextCursor", "countingNote"]),
+    annotations: RO,
+  },
+  {
+    name: "search_themes",
+    title: "Search recurring review themes",
+    description: "Search Russian and English theme names across the corpus, optionally inside one niche and by polarity. A niche alone is enough for a broad search. Requires full access.",
+    inputSchema: input({ query: str("Optional words to match, e.g. subscription, offline, sync."), niche: str("Optional niche slug. Required when query is empty."), polarity: { type: "string", enum: ["love", "pain", "mixed"] }, minCount: num("Minimum theme assignments, default 10.", 1, 1000000), limit: num("Page size, default 30.", 1, 100), cursor }),
+    outputSchema: output({ query: { type: ["string", "null"] }, themes: arr("Matching themes aggregated inside each niche."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] }, countingNote: { type: "string" } }, ["themes", "total", "nextCursor", "countingNote"]),
+    annotations: RO,
+  },
+  {
+    name: "get_app_themes",
+    title: "Page through one app's themes",
+    description: "Every topic assigned to an app's reviews, with polarity, assignment count, review share, specificity and labelling scope. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), appId: str("Numeric App Store id."), includeFallback: { type: "boolean" }, limit: num("Page size, default 50.", 1, 100), cursor }, ["niche", "appId"]),
+    outputSchema: output({ niche: { type: "string" }, appId: { type: "string" }, title: { type: "string" }, themes: arr("App themes."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "appId", "title", "themes", "total", "nextCursor"]),
+    annotations: RO,
+  },
+  {
+    name: "get_app_reviews",
+    title: "Page through an app's labelled reviews",
+    description: "Exact review texts with stable ids, App Store link, rating and every assigned theme. Filter by theme, stars and text; paginate through every match. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), appId: str("Numeric App Store id."), theme: str("Exact theme name from get_app_themes."), minRating: num("Lowest rating, default 1.", 1, 5), maxRating: num("Highest rating, default 5.", 1, 5), contains: str("Optional case-insensitive substring."), sort: { type: "string", enum: ["source", "rating_asc", "rating_desc"], description: "Default rating_asc." }, limit: num("Page size, default 25.", 1, 100), cursor }, ["niche", "appId"]),
+    outputSchema: output({ niche: { type: "string" }, appId: { type: "string" }, title: { type: "string" }, reviews: arr("Exact reviews."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] }, sourceNote: { type: "string" } }, ["niche", "appId", "title", "reviews", "total", "nextCursor", "sourceNote"]),
+    annotations: RO,
+  },
+  {
+    name: "list_ideas",
+    title: "Page through product ideas for a niche",
+    description: "Buildable ideas derived from recurring review evidence, with mechanisms and demand, money and simplicity scores. Requires full access.",
+    inputSchema: input({ niche: str("Niche slug."), limit: num("Page size, default 10.", 1, 40), cursor }, ["niche"]),
+    outputSchema: output({ niche: { type: "string" }, ideas: arr("Product ideas."), total: { type: "integer" }, nextCursor: { type: ["string", "null"] } }, ["niche", "ideas", "total", "nextCursor"]),
+    annotations: RO,
+  },
+  {
+    name: "get_idea",
+    title: "Get a complete product idea",
+    description: "The gap, pitch, feature set, deliberate exclusions, monetization and verbatim evidence behind one idea. Requires full access.",
+    inputSchema: input({ idea: str("Idea slug from list_ideas.") }, ["idea"]),
+    outputSchema: output({ idea: { type: "string" }, niche: { type: "string" }, title: { type: "string" }, gap: { type: ["string", "null"] }, features: { type: "array" }, monetization: { type: ["string", "object", "array", "null"] }, reviewQuotes: arr("Verbatim evidence.") }, ["idea", "niche", "title", "reviewQuotes"]),
     annotations: RO,
   },
 ];
 
-const LOCK_NOTE = "locked — MCP is part of the paid tier, see https://inapp.pro/ru/mcp";
+export const SERVER_INSTRUCTIONS = `inApp turns real App Store reviews into product research: ${CORPUS.sourceNiches} supported app categories, ${CORPUS.sourceApps.toLocaleString("en-US")} apps and ${CORPUS.sourceReviews.toLocaleString("en-US")} individually labelled reviews.
 
-const json = (v: unknown) => JSON.stringify(v, null, 1);
-const clamp = (n: unknown, def: number, max: number) => {
-  const v = typeof n === "number" && Number.isFinite(n) ? Math.floor(n) : def;
-  return Math.max(1, Math.min(max, v));
+Start with account_status, then list_niches and research_niche. For a broad question such as "what do people complain about in this niche?", call list_niche_themes with polarity "pain". Use find_apps, get_app_themes and get_app_reviews to drill down to exact verbatim evidence. Use nextCursor until it is null when the user asks for exhaustive coverage.
+
+Every review has a corpus-topic or an honest nonspecific remainder. ${CORPUS.reviews.toLocaleString("en-US")} reviews across ${CORPUS.niches} niches also have the deeper app-specific editorial layer. Theme totals count assignments; one review can carry more than one theme.
+
+account_status and list_niches are free after sign-in. research_niche is also free for the ${SAMPLE_NICHE} sample. All other research requires lifetime access. OAuth connections are short-lived, resource-bound and individually revocable at https://inapp.pro/ru/mcp.`;
+
+export class McpToolError extends Error {
+  constructor(
+    public readonly code: string,
+    message: string,
+  ) {
+    super(message);
+    this.name = "McpToolError";
+  }
+}
+
+const s = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+const clamp = (value: unknown, fallback: number, maximum: number) => {
+  const parsed = typeof value === "number" && Number.isInteger(value) ? value : fallback;
+  return Math.max(1, Math.min(maximum, parsed));
 };
-const s = (v: unknown) => (typeof v === "string" ? v : "");
 
-const themeShare = (t: ReviewTheme, total: number) => Math.round((t.count / Math.max(1, total)) * 100);
+function encodeCursor(offset: number): string {
+  return `c_${Buffer.from(String(offset)).toString("base64url")}`;
+}
 
-export type McpCaller = { user: SessionUser | null; keyPresent: boolean };
+function decodeCursor(value: unknown): number {
+  if (value == null || value === "") return 0;
+  if (typeof value !== "string" || !value.startsWith("c_")) throw new McpToolError("invalid_cursor", "cursor is invalid; use nextCursor exactly as returned by the previous call.");
+  const decoded = Number(Buffer.from(value.slice(2), "base64url").toString());
+  if (!Number.isSafeInteger(decoded) || decoded < 0) throw new McpToolError("invalid_cursor", "cursor is invalid; use nextCursor exactly as returned by the previous call.");
+  return decoded;
+}
 
-export async function callTool(name: string, args: Record<string, unknown>, caller: McpCaller): Promise<string> {
-  const { user } = caller;
+function page<T>(items: T[], args: Record<string, unknown>, fallback: number, maximum: number) {
+  const offset = decodeCursor(args.cursor);
+  const limit = clamp(args.limit, fallback, maximum);
+  const values = items.slice(offset, offset + limit);
+  return {
+    values,
+    total: items.length,
+    shown: values.length,
+    nextCursor: offset + values.length < items.length ? encodeCursor(offset + values.length) : null,
+    offset,
+  };
+}
 
-  // The whole server is part of the paid tier: one lifetime payment on the
-  // site opens every tool. Old per-niche unlocks keep working on the site but
-  // do not include MCP.
-  const gate = await accessForUser(user);
-  if (!gate.unlimited) {
-    if (!user && caller.keyPresent) {
-      throw new Error("The key sent is not valid. Copy the current one from https://inapp.pro/ru/mcp.");
+function assertNiche(slug: string): RatingSet {
+  const rating = RATING[slug];
+  if (!slug || !rating || !SUPPORTED_SLUGS.has(slug)) throw new McpToolError("unknown_niche", `Unknown niche "${slug}". Call list_niches for supported slugs.`);
+  return rating;
+}
+
+function themeShare(theme: ReviewTheme, total: number) {
+  return Math.round((theme.count / Math.max(1, total)) * 1000) / 10;
+}
+
+type AggregatedTheme = {
+  theme: string;
+  en: string;
+  polarity: Polarity;
+  assignments: number;
+  apps: number;
+  shareOfNicheReviewsPct: number;
+  scopes: string[];
+  topApps: { appId: string; app: string; assignments: number }[];
+  fallback: boolean;
+};
+
+function aggregateNicheThemes(slug: string, options: { polarity?: string; includeFallback?: boolean } = {}): AggregatedTheme[] {
+  const apps = listSourceApps(slug);
+  const totalReviews = apps.reduce((sum, app) => sum + app.total, 0);
+  const grouped = new Map<string, { theme: string; en: string; polarity: Polarity; assignments: number; scopes: Set<string>; appRows: { appId: string; app: string; assignments: number }[]; fallback: boolean }>();
+  for (const app of apps) {
+    for (const theme of app.themes) {
+      if (!options.includeFallback && theme.fallback) continue;
+      if (options.polarity && theme.polarity !== options.polarity) continue;
+      const key = `${theme.name}\u0000${theme.polarity}`;
+      const current = grouped.get(key) ?? { theme: theme.name, en: theme.nameEn, polarity: theme.polarity, assignments: 0, scopes: new Set<string>(), appRows: [], fallback: !!theme.fallback };
+      current.assignments += theme.count;
+      if (theme.scope) current.scopes.add(theme.scope);
+      current.appRows.push({ appId: app.id, app: app.title, assignments: theme.count });
+      grouped.set(key, current);
     }
-    if (!user) {
-      throw new Error(
-        `The inApp MCP server is part of the paid tier: one payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever. Sign in and buy at https://inapp.pro/ru/mcp, then pass the personal key as an Authorization: Bearer header.`,
-      );
-    }
-    logCall(user.id, name, "denied");
-    throw new Error(
-      `This account has no lifetime access yet. One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever: https://inapp.pro/ru/mcp`,
+  }
+  return [...grouped.values()]
+    .map((theme) => ({
+      theme: theme.theme,
+      en: theme.en,
+      polarity: theme.polarity,
+      assignments: theme.assignments,
+      apps: theme.appRows.length,
+      shareOfNicheReviewsPct: Math.round((theme.assignments / Math.max(1, totalReviews)) * 1000) / 10,
+      scopes: [...theme.scopes],
+      topApps: theme.appRows.sort((a, b) => b.assignments - a.assignments).slice(0, 5),
+      fallback: theme.fallback,
+    }))
+    .sort((a, b) => b.assignments - a.assignments || a.theme.localeCompare(b.theme));
+}
+
+function ideaSummary(niche: string) {
+  return listIdeas()
+    .filter((idea) => idea.category === niche)
+    .map((idea) => {
+      const scores = scoreFor(idea.slug);
+      return {
+        idea: idea.slug,
+        title: idea.title,
+        oneLiner: idea.oneLiner,
+        derivedFrom: idea.stats,
+        mechanisms: idea.mechanisms?.map((mechanism) => ({ mechanism: mechanism.title, observations: mechanism.obsCount, polarity: mechanism.polarity })) ?? [],
+        scores: scores ? { demand: scores.demand, money: scores.money, simplicity: scores.simplicity, composite: scores.composite } : null,
+        whoPays: scores?.targetSegment ?? null,
+        pricePoint: scores?.pricePoint ?? null,
+      };
+    });
+}
+
+function briefFor(slug: string) {
+  const set = assertNiche(slug);
+  const thesis = getNicheThesis(slug);
+  const market = marketFor(slug);
+  const dossier = DOSSIER[slug];
+  return {
+    niche: slug,
+    name: set.name,
+    nameEn: set.nameEn ?? null,
+    appsRated: set.count ?? set.apps?.length ?? 0,
+    reviewsRead: set.totalReviews ?? 0,
+    inflatedApps: set.inflated ?? 0,
+    thesis: thesis?.governing ?? null,
+    competitorRead: thesis?.competitorRead ?? null,
+    pillars: thesis?.pillars?.map((pillar) => ({ title: pillar.title, dek: pillar.dek })) ?? [],
+    market: market
+      ? {
+          annualRevenueEstimate: market.revenue ? { low: market.revenue.low, high: market.revenue.high, annualPricePerUser: market.revenue.annualPrice, note: market.revenue.note } : null,
+          storeRatingsTotal: market.ratingsTotal,
+          pricesUsersMention: market.pricesTop?.slice(0, 6) ?? [],
+          paymentSignals: market.signals,
+          installs: market.installs ? { totalMin: market.installs.totalMin, totalMax: market.installs.totalMax, paidApps: market.installs.paidApps, iapApps: market.installs.iapApps } : null,
+        }
+      : null,
+    audience:
+      dossier?.audience?.segments?.map((segment) => ({ segment: segment.name, job: segment.job, paysHow: segment.payLevel, whyItPays: segment.payNote ?? null, gap: segment.gap, servedBy: segment.servedBy })) ?? [],
+    audienceTakeaway: dossier?.audience?.takeaway ?? null,
+    whereTheMoneyIs: dossier?.market?.money ?? null,
+    marketLead: dossier?.market?.marketLead ?? null,
+  };
+}
+
+function ratingRows(slug: string) {
+  return [...(assertNiche(slug).apps || [])].sort((a, b) => (b.realScore ?? 0) - (a.realScore ?? 0));
+}
+
+export function toolIsFree(name: string, args: Record<string, unknown>) {
+  return name === "account_status" || name === "list_niches" || (name === "research_niche" && s(args.niche) === SAMPLE_NICHE);
+}
+
+export function validateToolArgs(name: string, args: unknown): Record<string, unknown> {
+  const tool = TOOLS.find((candidate) => candidate.name === name);
+  if (!tool) throw new McpToolError("unknown_tool", `Unknown tool: ${name}`);
+  if (!args || typeof args !== "object" || Array.isArray(args)) throw new McpToolError("invalid_arguments", "Tool arguments must be an object.");
+  const values = args as Record<string, unknown>;
+  const allowed = new Set(Object.keys(tool.inputSchema.properties));
+  const extra = Object.keys(values).filter((key) => !allowed.has(key));
+  if (extra.length) throw new McpToolError("invalid_arguments", `Unknown argument${extra.length > 1 ? "s" : ""}: ${extra.join(", ")}.`);
+  for (const required of tool.inputSchema.required ?? []) {
+    if (!(required in values) || values[required] === "") throw new McpToolError("invalid_arguments", `${required} is required.`);
+  }
+  for (const [key, value] of Object.entries(values)) {
+    if (value == null) continue;
+    const schema = tool.inputSchema.properties[key];
+    if (schema.type === "string" && typeof value !== "string") throw new McpToolError("invalid_arguments", `${key} must be a string.`);
+    if (schema.type === "boolean" && typeof value !== "boolean") throw new McpToolError("invalid_arguments", `${key} must be a boolean.`);
+    if (schema.type === "integer" && (!Number.isInteger(value) || typeof value !== "number")) throw new McpToolError("invalid_arguments", `${key} must be an integer.`);
+    if (typeof value === "number" && typeof schema.minimum === "number" && value < schema.minimum) throw new McpToolError("invalid_arguments", `${key} must be at least ${schema.minimum}.`);
+    if (typeof value === "number" && typeof schema.maximum === "number" && value > schema.maximum) throw new McpToolError("invalid_arguments", `${key} must be at most ${schema.maximum}.`);
+    if (Array.isArray(schema.enum) && !schema.enum.includes(value)) throw new McpToolError("invalid_arguments", `${key} must be one of: ${schema.enum.join(", ")}.`);
+  }
+  if (name === "search_themes" && !s(values.query) && !s(values.niche)) throw new McpToolError("invalid_arguments", "Provide query, niche, or both. Use list_niche_themes for a broad niche question.");
+  if (name === "get_app_reviews" && typeof values.minRating === "number" && typeof values.maxRating === "number" && values.minRating > values.maxRating) throw new McpToolError("invalid_arguments", "minRating cannot be greater than maxRating.");
+  return values;
+}
+
+export type McpCaller = {
+  user: SessionUser | null;
+  connection?: { id: string; clientName: string; locale: string };
+};
+
+export async function callTool(name: string, rawArgs: Record<string, unknown>, caller: McpCaller): Promise<Record<string, unknown>> {
+  const args = validateToolArgs(name, rawArgs);
+  const access = await accessForUser(caller.user);
+  if (!access.unlimited && !toolIsFree(name, args)) {
+    throw new McpToolError(
+      "payment_required",
+      `Full inApp MCP research requires lifetime access. One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and every MCP research tool: https://inapp.pro/ru/mcp`,
     );
   }
-  if (user) logCall(user.id, name, "ok");
 
   switch (name) {
+    case "account_status":
+      return {
+        connected: true,
+        client: caller.connection?.clientName ?? null,
+        fullAccess: access.unlimited,
+        freeTools: ["account_status", "list_niches", `research_niche(${SAMPLE_NICHE})`],
+        sampleNiche: SAMPLE_NICHE,
+        priceRub: FRIEND_PRICE_RUB,
+        manageConnections: "https://inapp.pro/ru/mcp#connections",
+      };
+
     case "list_niches": {
-      const reviewCatalogue = new Map(listReviewCatalogue("ru").map((n) => [n.slug, n]));
-      const onlyThemed = args.withReviewThemes === true;
-      const niches = Object.entries(RATING)
+      const query = s(args.query).toLowerCase();
+      const deepOnly = args.deepEditorialOnly === true;
+      const rows = Object.entries(RATING)
+        .filter(([slug]) => SUPPORTED_SLUGS.has(slug))
         .map(([slug, set]) => {
-          const research = reviewCatalogue.get(slug);
           const sourceApps = listSourceApps(slug);
           const sourceThemes = sourceApps.flatMap((app) => app.themes);
-          const sourceSplit = sourceThemes.length ? split(sourceThemes) : null;
-          const mkt = marketFor(slug);
+          const assignments = sourceApps.reduce((sum, app) => sum + app.themeAssignments, 0);
+          const sourceSplit = split(sourceThemes);
+          const market = marketFor(slug);
+          const sourceReviews = sourceApps.reduce((sum, app) => sum + app.total, 0);
+          const specificReviews = sourceApps.reduce((sum, app) => sum + app.specificReviews, 0);
           return {
             niche: slug,
             name: set.name,
             nameEn: set.nameEn,
-            appsRated: set.count ?? set.apps?.length ?? 0,
-            reviewsRead: set.totalReviews ?? 0,
-            inflatedApps: set.inflated ?? 0,
-            annualRevenueEstimate: mkt?.revenue ? `${mkt.revenue.low} .. ${mkt.revenue.high}` : null,
-            ideas: listIdeas().filter((i) => i.category === slug).length,
-            nichePatterns: research ? { patterns: research.patterns, apps: research.appsPlanned, reviews: research.sourceReviews } : null,
-            reviewThemes: sourceApps.length ? { apps: sourceApps.length, reviews: sourceApps.reduce((sum, app) => sum + app.total, 0), themes: sourceThemes.filter((theme) => !theme.fallback).length, perReviewCoveragePct: 100, praisePct: Math.round(sourceSplit!.lovePct), complaintPct: Math.round(sourceSplit!.painPct) } : null,
+            apps: sourceApps.length,
+            reviews: sourceReviews,
+            annualRevenueEstimate: market?.revenue ? { low: market.revenue.low, high: market.revenue.high } : null,
+            ideas: listIdeas().filter((idea) => idea.category === slug).length,
+            labelling: {
+              corpusPerReview: true,
+              deepEditorial: DEEP_SLUGS.has(slug),
+              specificReviews,
+              specificCoveragePct: Math.round((specificReviews / Math.max(1, sourceReviews)) * 1000) / 10,
+              themeAssignments: assignments,
+              praiseAssignmentPct: Math.round(sourceSplit.lovePct),
+              complaintAssignmentPct: Math.round(sourceSplit.painPct),
+            },
           };
         })
-        .filter((n) => !onlyThemed || n.reviewThemes)
-        .sort((a, b) => b.reviewsRead - a.reviewsRead);
-      return json({
-        niches,
-        total: niches.length,
-        themeCoverage: {
-          niches: `${reviewProgress.nichesDone} of ${reviewProgress.nichesPlanned}`,
-          apps: `${reviewProgress.appsDone} of ${reviewProgress.appsPlanned}`,
-          note: "Theme-level review tools (search_themes, get_app_themes, get_app_reviews) only cover niches where reviewThemes is not null. Every other tool covers all niches.",
+        .filter((row) => !deepOnly || row.labelling.deepEditorial)
+        .filter((row) => !query || `${row.niche} ${row.name} ${row.nameEn ?? ""}`.toLowerCase().includes(query))
+        .sort((a, b) => b.reviews - a.reviews);
+      const paged = page(rows, args, 30, 100);
+      return {
+        niches: paged.values,
+        total: paged.total,
+        shown: paged.shown,
+        nextCursor: paged.nextCursor,
+        coverage: {
+          corpus: { niches: SUPPORTED_SLUGS.size, apps: CORPUS.sourceApps, reviews: CORPUS.sourceReviews, individuallyLabelled: CORPUS.labelledReviews },
+          deepEditorial: { niches: reviewProgress.nichesDone, apps: reviewProgress.appsDone, reviews: CORPUS.reviews },
+          note: "Every review has corpus topics or an honest nonspecific remainder. The deep editorial layer adds app-specific themes to the stated subset.",
         },
-      });
+      };
     }
 
-    case "get_niche_brief": {
+    case "research_niche": {
       const slug = s(args.niche);
-      const set = RATING[slug];
-      if (!set) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
-      const thesis = getNicheThesis(slug);
-      const mkt = marketFor(slug);
-      const d = DOSSIER[slug];
-      const acc = await accessForUser(user);
-      const paid = acc.unlimited || acc.has("category", slug) || acc.has("chapter", slug);
-      return json({
-        niche: slug,
-        name: set.name,
-        appsRated: set.count ?? set.apps?.length ?? 0,
-        reviewsRead: set.totalReviews ?? 0,
-        inflatedApps: set.inflated ?? 0,
-        thesis: thesis?.governing ?? null,
-        competitorRead: thesis?.competitorRead ?? null,
-        pillars: thesis?.pillars?.map((p) => ({ title: p.title, dek: p.dek })) ?? [],
-        market: mkt
-          ? {
-              annualRevenueEstimate: mkt.revenue ? { low: mkt.revenue.low, high: mkt.revenue.high, annualPricePerUser: mkt.revenue.annualPrice, note: mkt.revenue.note } : null,
-              storeRatingsTotal: mkt.ratingsTotal,
-              pricesUsersMention: mkt.pricesTop?.slice(0, 6) ?? [],
-              paymentSignals: mkt.signals,
-              installs: mkt.installs ? { totalMin: mkt.installs.totalMin, totalMax: mkt.installs.totalMax, paidApps: mkt.installs.paidApps, iapApps: mkt.installs.iapApps } : null,
-            }
-          : null,
-        audience:
-          d?.audience?.segments?.map((sg) => ({
-            segment: sg.name,
-            job: sg.job,
-            paysHow: sg.payLevel,
-            gap: sg.gap,
-            servedBy: sg.servedBy,
-            ...(paid && sg.payNote ? { whyItPays: sg.payNote } : {}),
-          })) ?? [],
-        ...(paid ? { audienceTakeaway: d?.audience?.takeaway ?? null, whereTheMoneyIs: d?.market?.money ?? null } : { paidLayer: LOCK_NOTE }),
-        marketLead: d?.market?.marketLead ?? null,
-      });
+      const brief = briefFor(slug);
+      const pains = aggregateNicheThemes(slug, { polarity: "pain" }).slice(0, 8);
+      const praise = aggregateNicheThemes(slug, { polarity: "love" }).slice(0, 5);
+      const leaders = ratingRows(slug).slice(0, 5).map((app, index) => ({ rank: index + 1, appId: String(app.id), title: app.title, realScore: app.realScore, storeAverage: app.storeAvg, loved: app.loved, weak: app.weak }));
+      return { ...brief, sample: slug === SAMPLE_NICHE, topPains: pains, topPraise: praise, leaders, ideas: ideaSummary(slug).slice(0, 5), nextSteps: { exactThemeEvidence: "get_app_themes → get_app_reviews", exhaustiveThemes: "list_niche_themes with nextCursor", competitors: "get_niche_rating" } };
     }
+
+    case "get_niche_brief":
+      return briefFor(s(args.niche));
 
     case "list_niche_findings": {
       const slug = s(args.niche);
-      if (!RATING[slug]) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
+      assertNiche(slug);
       const cards = categoryCards(slug);
       const patterns = getNichePatterns(slug, "ru");
-      if (!patterns.length && !cards) throw new Error(`No breakdown for niche "${slug}".`);
-      const limit = clamp(args.limit, 20, 100);
-      const acc = await accessForUser(user);
-      const paid = acc.unlimited || acc.has("category", slug) || acc.has("chapter", slug);
-      const list = patterns.length ? patterns.slice(0, limit) : (cards?.product ?? []).slice(0, limit);
-      return json({
+      if (!patterns.length && !cards) throw new McpToolError("not_available", `No breakdown for niche "${slug}".`);
+      const rows = patterns.length
+        ? patterns.map((finding) => ({
+            finding: finding.title,
+            works: finding.plus || null,
+            breaks: finding.minus || null,
+            observations: finding.count ?? null,
+            apps: finding.apps,
+            quotes: finding.evidence.slice(0, 5).map((evidence) => ({ app: evidence.app ?? "", rating: evidence.rating, quote: evidence.quote })),
+          }))
+        : (cards?.product ?? []).map((finding) => ({
+            finding: finding.title,
+            works: finding.plus || null,
+            breaks: finding.minus || null,
+            observations: finding.count,
+            apps: finding.apps ?? [],
+            quotes: finding.evidence.slice(0, 5).map((evidence) => ({ app: evidence.app ?? "", rating: evidence.rating, quote: evidence.quote })),
+          }));
+      const paged = page(rows, args, 20, 100);
+      return {
         niche: slug,
-        findings: list.map((c) => ({
-          finding: c.title,
-          works: c.plus || null,
-          breaks: c.minus || null,
-          observations: c.count,
-          apps: c.apps,
-          ...(paid ? { quotes: (c.evidence ?? []).slice(0, 5).map((e) => ({ app: e.app, rating: e.rating, quote: e.quote })) } : {}),
-        })),
-        findingsTotal: patterns.length || cards?.product.length || 0,
-        ...(paid ? {} : { quotes: LOCK_NOTE }),
-      });
+        findings: paged.values,
+        total: paged.total,
+        shown: paged.shown,
+        nextCursor: paged.nextCursor,
+      };
     }
 
     case "get_distribution_channels": {
       const slug = s(args.niche);
-      if (!RATING[slug]) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
-      const ch = CHANNELS[slug]?.channels;
-      if (!ch?.length) throw new Error(`No channel data for niche "${slug}" yet.`);
-      const limit = clamp(args.limit, 8, 40);
-      return json({
-        niche: slug,
-        channels: ch.slice(0, limit).map((c) => ({
-          channel: c.name,
-          note: c.note,
-          mentions: c.count,
-          quotes: (c.quotes ?? []).slice(0, 2).map((q) => ({ app: q.app, quote: q.quote })),
-        })),
-        channelsTotal: ch.length,
-      });
-    }
-
-    case "list_ideas": {
-      const slug = s(args.niche);
-      if (!RATING[slug]) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
-      const limit = clamp(args.limit, 10, 40);
-      const ideas = listIdeas().filter((i) => i.category === slug).slice(0, limit);
-      if (!ideas.length) throw new Error(`No ideas published for niche "${slug}".`);
-      const acc = await accessForUser(user);
-      return json({
-        niche: slug,
-        ideas: ideas.map((i) => {
-          const sc = scoreFor(i.slug);
-          return {
-            idea: i.slug,
-            title: i.title,
-            oneLiner: i.oneLiner,
-            derivedFrom: i.stats,
-            mechanisms: i.mechanisms?.map((m) => ({ mechanism: m.title, observations: m.obsCount, polarity: m.polarity })) ?? [],
-            scores: sc ? { demand: sc.demand, money: sc.money, simplicity: sc.simplicity, composite: sc.composite } : null,
-            whoPays: sc?.targetSegment ?? null,
-            pricePoint: sc?.pricePoint ?? null,
-            unlocked: ownsIdea(acc, i.slug, i.category),
-          };
-        }),
-        fullPayload: "Call get_idea with an idea slug. Locked ideas need a personal key.",
-      });
-    }
-
-    case "get_idea": {
-      const slug = s(args.idea);
-      const i = getIdea(slug);
-      if (!i) throw new Error(`Unknown idea "${slug}". Call list_ideas for valid slugs.`);
-      const acc = await accessForUser(user);
-      const sc = scoreFor(i.slug);
-      const base = {
-        idea: i.slug,
-        niche: i.category,
-        nicheName: i.categoryName,
-        title: i.title,
-        oneLiner: i.oneLiner,
-        derivedFrom: i.stats,
-        mechanisms: i.mechanisms?.map((m) => ({ mechanism: m.title, observations: m.obsCount, apps: m.apps, polarity: m.polarity })) ?? [],
-        scores: sc ? { demand: sc.demand, money: sc.money, simplicity: sc.simplicity, composite: sc.composite } : null,
-      };
-      if (!ownsIdea(acc, i.slug, i.category)) {
-        return json({
-          ...base,
-          locked: true,
-          missing: ["gap", "pitch", "features", "antiFeatures", "monetization", "reviewQuotes"],
-          howToUnlock: `One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and MCP forever: https://inapp.pro/ru/mcp`,
-        });
-      }
-      return json({
-        ...base,
-        gap: i.gap,
-        pitch: i.idea?.pitch,
-        features: i.idea?.features,
-        antiFeatures: i.idea?.antiFeatures,
-        monetization: i.idea?.monetization,
-        reviewQuotes: (i.reviewGrid ?? []).map((q) => ({ app: q.app, rating: q.rating, quote: q.quote })),
-      });
+      assertNiche(slug);
+      const rows = CHANNELS[slug]?.channels;
+      if (!rows?.length) throw new McpToolError("not_available", `No channel data for niche "${slug}" yet.`);
+      const paged = page(rows, args, 8, 40);
+      return { niche: slug, channels: paged.values.map((channel) => ({ channel: channel.name, note: channel.note, mentions: channel.count, quotes: channel.quotes?.slice(0, 3) ?? [] })), total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor };
     }
 
     case "find_apps": {
-      const q = s(args.query).toLowerCase().trim();
-      if (!q) throw new Error("query is required");
-      const limit = clamp(args.limit, 20, 100);
-      const hits: unknown[] = [];
-      for (const niche of listReviewCatalogue("ru")) {
-        const slug = niche.slug;
-        for (const a of listSourceApps(slug)) {
-          if (!a.title.toLowerCase().includes(q)) continue;
-          hits.push({ niche: slug, nicheName: niche.name, appId: a.id, title: a.title, reviewsRead: a.total });
-          if (hits.length >= limit) break;
-        }
-        if (hits.length >= limit) break;
-      }
-      return json({ query: q, hits, note: hits.length >= limit ? `truncated at ${limit}` : undefined });
+      const query = s(args.query).toLowerCase();
+      if (!query) throw new McpToolError("invalid_arguments", "query is required.");
+      const rows = listReviewCatalogue("ru").flatMap((niche) => listSourceApps(niche.slug).filter((app) => app.title.toLowerCase().includes(query)).map((app) => ({ niche: niche.slug, nicheName: niche.name, appId: app.id, title: app.title, reviewsRead: app.total, appStoreUrl: `https://apps.apple.com/app/id${app.id}` }))).sort((a, b) => b.reviewsRead - a.reviewsRead || a.title.localeCompare(b.title));
+      const paged = page(rows, args, 20, 100);
+      return { query, apps: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor };
     }
 
     case "list_niche_apps": {
       const slug = s(args.niche);
-      const n = getNiche(slug);
-      if (!n) throw new Error(`Unknown niche "${slug}". Call list_niches for valid slugs.`);
-      const limit = clamp(args.limit, 40, 200);
-      const sourceApps = listSourceApps(slug);
-      const apps = sourceApps.slice(0, limit).map((sourceApp) => {
-        const sp = split(sourceApp.themes);
-        return {
-          appId: sourceApp.id,
-          title: sourceApp.title,
-          reviewsRead: sourceApp.total,
-          textsAvailable: true,
-          perReviewLabelling: "complete",
-          labellingLayer: sourceApp.labelling,
-          praisePct: Math.round(sp.lovePct),
-          complaintPct: Math.round(sp.painPct),
-          topThemes: sourceApp.themes.filter((t) => !t.fallback).slice(0, 3).map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, scope: t.scope })),
-        };
+      const set = assertNiche(slug);
+      const rows = listSourceApps(slug).map((app) => {
+        const assignmentSplit = split(app.themes);
+        return { appId: app.id, title: app.title, reviewsRead: app.total, appStoreUrl: `https://apps.apple.com/app/id${app.id}`, perReviewLabelling: "complete", labellingLayer: app.labelling, specificReviews: app.specificReviews, themeAssignments: app.themeAssignments, praiseAssignmentPct: Math.round(assignmentSplit.lovePct), complaintAssignmentPct: Math.round(assignmentSplit.painPct), topThemes: app.themes.filter((theme) => !theme.fallback).slice(0, 5).map((theme) => ({ theme: theme.name, en: theme.nameEn, polarity: theme.polarity, assignments: theme.count, shareOfReviewsPct: themeShare(theme, app.total), scope: theme.scope })) };
       });
-      return json({
-        niche: slug,
-        name: n.name,
-        appsShown: apps.length,
-        appsTotal: sourceApps.length,
-        apps,
-        note: sourceApps.length > apps.length ? `showing the ${apps.length} apps with the most reviews out of ${sourceApps.length}` : undefined,
-      });
-    }
-
-    case "search_themes": {
-      const q = s(args.query).toLowerCase().trim();
-      if (!q) throw new Error("query is required");
-      const only = s(args.niche);
-      const pol = s(args.polarity);
-      const minCount = clamp(args.minCount, 10, 10000);
-      const limit = clamp(args.limit, 30, 200);
-      const hits: { niche: string; nicheName: string; appId: string; app: string; theme: string; en: string; polarity: string; scope?: string; reviews: number; sharePct: number }[] = [];
-      for (const n of listReviewCatalogue("ru")) {
-        const slug = n.slug;
-        if (only && slug !== only) continue;
-        for (const a of listSourceApps(slug)) {
-          for (const t of a.themes) {
-            if (t.fallback) continue;
-            if (t.count < minCount) continue;
-            if (pol && t.polarity !== pol) continue;
-            if (!`${t.name} ${t.nameEn}`.toLowerCase().includes(q)) continue;
-            hits.push({
-              niche: slug,
-              nicheName: n.name,
-              appId: a.id,
-              app: a.title,
-              theme: t.name,
-              en: t.nameEn,
-              polarity: t.polarity,
-              scope: t.scope,
-              reviews: t.count,
-              sharePct: themeShare(t, a.total),
-            });
-          }
-        }
-      }
-      hits.sort((x, y) => y.reviews - x.reviews);
-      const shown = hits.slice(0, limit);
-      return json({
-        query: q,
-        matches: hits.length,
-        reviewsBehindMatches: hits.reduce((n2, h) => n2 + h.reviews, 0),
-        hits: shown,
-        note: hits.length > shown.length ? `showing the ${shown.length} largest of ${hits.length} matching themes` : undefined,
-      });
-    }
-
-    case "get_app_themes": {
-      const slug = s(args.niche);
-      const id = s(args.appId);
-      const a = getApp(slug, id);
-      if (!a) throw new Error(`No app ${id} in niche "${slug}". Use find_apps first.`);
-      return json({
-        niche: slug,
-        appId: a.id,
-        title: a.title,
-        reviewsRead: a.total,
-        perReviewLabelling: "complete",
-        labellingLayer: a.labelling,
-        themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific", scope: t.scope })),
-        note: a.labelling === "corpus" ? "Every review carries one or more high-precision corpus topics, or an honest overall remainder when no specific topic is explicit; the additional app-specific editorial layer is separate." : undefined,
-      });
-    }
-
-    case "get_app_reviews": {
-      const slug = s(args.niche);
-      const id = s(args.appId);
-      const a = getApp(slug, id);
-      if (!a) throw new Error(`No app ${id} in niche "${slug}". Use find_apps first.`);
-      const limit = clamp(args.limit, 25, 200);
-      const theme = s(args.theme);
-      const contains = s(args.contains).toLowerCase();
-      const min = clamp(args.minRating, 1, 5);
-      const max = clamp(args.maxRating, 5, 5);
-      let list = readReviews(slug, id);
-      if (!list.length) throw new Error(`Review texts for ${id} are not on this server.`);
-      if (theme) {
-        const known = a.themes.some((t) => t.name === theme);
-        if (!known) throw new Error(`Unknown theme "${theme}". Call get_app_themes for the exact names.`);
-        list = list.filter((r) => r.themes?.length ? r.themes.includes(theme) : r.theme === theme);
-      }
-      list = list.filter((r) => r.rating >= min && r.rating <= max);
-      if (contains) list = list.filter((r) => r.text.toLowerCase().includes(contains));
-      const matched = list.length;
-      const shown = list.sort((x, y) => x.rating - y.rating).slice(0, limit);
-      return json({
-        niche: slug,
-        appId: a.id,
-        title: a.title,
-        filter: { theme: theme || null, minRating: min, maxRating: max, contains: contains || null },
-        matched,
-        reviews: shown.map((r) => ({ rating: r.rating, themes: r.themes?.length ? r.themes : r.theme ? [r.theme] : [], text: r.text })),
-        note: matched > shown.length ? `showing ${shown.length} of ${matched} matching reviews, worst-rated first` : undefined,
-      });
+      const paged = page(rows, args, 30, 100);
+      return { niche: slug, name: set.name, apps: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor, countingNote: "Praise and complaint percentages use theme assignments; a multi-labelled review contributes to more than one assignment." };
     }
 
     case "get_app_verdict": {
       const slug = s(args.niche);
-      const id = s(args.appId);
-      const set = RATING[slug];
-      const app = set?.apps?.find((x) => String(x.id) === id);
-      if (!app) throw new Error(`No people's-rating entry for app ${id} in niche "${slug}".`);
-      return json({
-        niche: slug,
-        appId: String(app.id),
-        title: app.title,
-        realScore: app.realScore,
-        storeAverage: app.storeAvg,
-        storeRatings: app.ratings,
-        reviewsRead: app.nrev,
-        inflationCheck: app.authenticity,
-        inflationNote: app.authNote,
-        verdict: app.verdict,
-        loved: app.loved,
-        weak: app.weak,
-        whoFor: app.whoFor,
-      });
+      const appId = s(args.appId);
+      const set = assertNiche(slug);
+      const app = set.apps?.find((candidate) => String(candidate.id) === appId);
+      if (!app) throw new McpToolError("unknown_app", `No people's-rating entry for app ${appId} in niche "${slug}".`);
+      return { niche: slug, appId: String(app.id), title: app.title, appStoreUrl: `https://apps.apple.com/app/id${app.id}`, realScore: app.realScore ?? null, storeAverage: app.storeAvg ?? null, storeRatings: app.ratings ?? null, reviewsRead: app.nrev ?? null, inflationCheck: app.authenticity ?? null, inflationNote: app.authNote ?? null, verdict: app.verdict ?? null, loved: app.loved ?? null, weak: app.weak ?? null, whoFor: app.whoFor ?? null };
     }
 
     case "get_niche_rating": {
       const slug = s(args.niche);
-      const set = RATING[slug];
-      if (!set) throw new Error(`No people's rating for niche "${slug}". Call list_niches for valid slugs.`);
-      const limit = clamp(args.limit, 25, 100);
-      const apps = [...(set.apps || [])].sort((x, y) => (y.realScore ?? 0) - (x.realScore ?? 0)).slice(0, limit);
-      return json({
+      const set = assertNiche(slug);
+      const rows = ratingRows(slug);
+      const paged = page(rows, args, 25, 100);
+      return { niche: slug, name: set.name, apps: paged.values.map((app, index) => ({ rank: paged.offset + index + 1, appId: String(app.id), title: app.title, appStoreUrl: `https://apps.apple.com/app/id${app.id}`, realScore: app.realScore ?? null, storeAverage: app.storeAvg ?? null, inflationCheck: app.authenticity ?? null, loved: app.loved ?? null, weak: app.weak ?? null })), total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor };
+    }
+
+    case "list_niche_themes": {
+      const slug = s(args.niche);
+      assertNiche(slug);
+      const rows = aggregateNicheThemes(slug, { polarity: s(args.polarity), includeFallback: args.includeFallback === true });
+      const paged = page(rows, args, 30, 100);
+      return { niche: slug, themes: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor, countingNote: "Counts are theme assignments, not unique reviews. One review can carry more than one explicit theme." };
+    }
+
+    case "search_themes": {
+      const query = s(args.query).toLowerCase();
+      const niche = s(args.niche);
+      const polarity = s(args.polarity);
+      if (niche) assertNiche(niche);
+      const minimum = clamp(args.minCount, 10, 1000000);
+      const niches = listReviewCatalogue("ru").filter((row) => SUPPORTED_SLUGS.has(row.slug) && (!niche || row.slug === niche));
+      const rows = niches.flatMap((row) => aggregateNicheThemes(row.slug, { polarity }).filter((theme) => theme.assignments >= minimum && (!query || `${theme.theme} ${theme.en}`.toLowerCase().includes(query))).map((theme) => ({ niche: row.slug, nicheName: row.name, ...theme }))).sort((a, b) => b.assignments - a.assignments || a.theme.localeCompare(b.theme));
+      const paged = page(rows, args, 30, 100);
+      return { query: query || null, niche: niche || null, themes: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor, countingNote: "Counts are theme assignments aggregated inside each niche; a review may contribute to multiple explicit themes." };
+    }
+
+    case "get_app_themes": {
+      const slug = s(args.niche);
+      const appId = s(args.appId);
+      assertNiche(slug);
+      const app = getApp(slug, appId);
+      if (!app) throw new McpToolError("unknown_app", `No app ${appId} in niche "${slug}". Use find_apps first.`);
+      const rows = app.themes.filter((theme) => args.includeFallback === true || !theme.fallback).map((theme) => ({ theme: theme.name, en: theme.nameEn, polarity: theme.polarity, assignments: theme.count, shareOfReviewsPct: themeShare(theme, app.total), specificity: theme.fallback ? "nonspecific_remainder" : "specific", scope: theme.scope }));
+      const paged = page(rows, args, 50, 100);
+      return { niche: slug, appId: app.id, title: app.title, appStoreUrl: `https://apps.apple.com/app/id${app.id}`, reviewsRead: app.total, perReviewLabelling: "complete", labellingLayer: app.labelling, themes: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor };
+    }
+
+    case "get_app_reviews": {
+      const slug = s(args.niche);
+      const appId = s(args.appId);
+      assertNiche(slug);
+      const app = getApp(slug, appId);
+      if (!app) throw new McpToolError("unknown_app", `No app ${appId} in niche "${slug}". Use find_apps first.`);
+      const theme = s(args.theme);
+      if (theme && !app.themes.some((candidate) => candidate.name === theme)) throw new McpToolError("unknown_theme", `Unknown theme "${theme}". Call get_app_themes for exact names.`);
+      const contains = s(args.contains).toLowerCase();
+      const minRating = clamp(args.minRating, 1, 5);
+      const maxRating = clamp(args.maxRating, 5, 5);
+      const sort = s(args.sort) || "rating_asc";
+      let rows = readReviews(slug, appId).map((review, sourceIndex) => ({ review, sourceIndex }));
+      if (!rows.length) throw new McpToolError("not_available", `Review texts for ${appId} are not on this server.`);
+      if (theme) rows = rows.filter(({ review }) => (review.themes?.length ? review.themes.includes(theme) : review.theme === theme));
+      rows = rows.filter(({ review }) => review.rating >= minRating && review.rating <= maxRating && (!contains || review.text.toLowerCase().includes(contains)));
+      if (sort === "rating_asc") rows.sort((a, b) => a.review.rating - b.review.rating || a.sourceIndex - b.sourceIndex);
+      if (sort === "rating_desc") rows.sort((a, b) => b.review.rating - a.review.rating || a.sourceIndex - b.sourceIndex);
+      const paged = page(rows, args, 25, 100);
+      const appStoreUrl = `https://apps.apple.com/app/id${app.id}`;
+      return {
         niche: slug,
-        name: set.name,
-        appsRanked: set.apps?.length ?? 0,
-        reviewsRead: set.totalReviews,
-        apps: apps.map((a, i) => ({
-          rank: i + 1,
-          appId: String(a.id),
-          title: a.title,
-          realScore: a.realScore,
-          storeAverage: a.storeAvg,
-          inflationCheck: a.authenticity,
-          loved: a.loved,
-          weak: a.weak,
-        })),
-        note: (set.apps?.length ?? 0) > apps.length ? `top ${apps.length} of ${set.apps.length}` : undefined,
-      });
+        appId: app.id,
+        title: app.title,
+        appStoreUrl,
+        filter: { theme: theme || null, minRating, maxRating, contains: contains || null, sort },
+        reviews: paged.values.map(({ review, sourceIndex }, index) => ({ reviewId: `rv_${crypto.createHash("sha256").update(`${slug}|${appId}|${sourceIndex}|${review.rating}|${review.text}`).digest("base64url").slice(0, 20)}`, position: paged.offset + index + 1, rating: review.rating, themes: review.themes?.length ? review.themes : review.theme ? [review.theme] : [], text: review.text, appStoreUrl })),
+        total: paged.total,
+        shown: paged.shown,
+        nextCursor: paged.nextCursor,
+        sourceNote: "The source archive preserves rating, text and topic assignments. App Store review date, country and author were not present in this shipped corpus, so they are not invented here.",
+      };
+    }
+
+    case "list_ideas": {
+      const slug = s(args.niche);
+      assertNiche(slug);
+      const rows = ideaSummary(slug);
+      if (!rows.length) throw new McpToolError("not_available", `No ideas published for niche "${slug}".`);
+      const paged = page(rows, args, 10, 40);
+      return { niche: slug, ideas: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor };
+    }
+
+    case "get_idea": {
+      const slug = s(args.idea);
+      const idea = getIdea(slug);
+      if (!idea) throw new McpToolError("unknown_idea", `Unknown idea "${slug}". Call list_ideas for valid slugs.`);
+      const scores = scoreFor(idea.slug);
+      return { idea: idea.slug, niche: idea.category, nicheName: idea.categoryName, title: idea.title, oneLiner: idea.oneLiner, derivedFrom: idea.stats, mechanisms: idea.mechanisms?.map((mechanism) => ({ mechanism: mechanism.title, observations: mechanism.obsCount, apps: mechanism.apps, polarity: mechanism.polarity })) ?? [], scores: scores ? { demand: scores.demand, money: scores.money, simplicity: scores.simplicity, composite: scores.composite } : null, gap: idea.gap ?? null, pitch: idea.idea?.pitch ?? null, features: idea.idea?.features ?? [], antiFeatures: idea.idea?.antiFeatures ?? [], monetization: idea.idea?.monetization ?? null, reviewQuotes: (idea.reviewGrid ?? []).map((quote) => ({ app: quote.app, rating: quote.rating, quote: quote.quote })) };
     }
 
     default:
-      throw new Error(`Unknown tool: ${name}`);
+      throw new McpToolError("unknown_tool", `Unknown tool: ${name}`);
   }
 }

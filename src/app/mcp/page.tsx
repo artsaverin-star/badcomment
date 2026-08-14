@@ -7,7 +7,9 @@ import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
 import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
 import InstallPicker from "./InstallPicker";
+import McpConnections, { type McpConnectionView } from "./McpConnections";
 import { plural } from "@/lib/format";
+import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
@@ -47,6 +49,18 @@ export default async function McpPage() {
   const access = await getAccess();
   const user = access.user;
   const paid = access.unlimited;
+  const connections: McpConnectionView[] = user
+    ? (await prisma.mcpConnection.findMany({
+        where: { userId: user.id },
+        orderBy: [{ revokedAt: "asc" }, { lastUsedAt: "desc" }, { createdAt: "desc" }],
+        select: { id: true, clientName: true, redirectUri: true, createdAt: true, lastUsedAt: true, revokedAt: true },
+      })).map((connection) => ({
+        ...connection,
+        createdAt: connection.createdAt.toISOString(),
+        lastUsedAt: connection.lastUsedAt?.toISOString() ?? null,
+        revokedAt: connection.revokedAt?.toISOString() ?? null,
+      }))
+    : [];
 
   const t = totals();
   const niches = t.sourceNiches;
@@ -115,7 +129,9 @@ export default async function McpPage() {
       ];
 
   const RU_LABEL: Record<string, string> = {
+    account_status: "проверить подключение и доступ аккаунта",
     list_niches: "все ниши каталога с деньгами и объёмом",
+    research_niche: "быстрый полный разбор ниши в одном вызове",
     get_niche_brief: "тезис ниши, рынок и сегменты аудитории",
     list_niche_findings: "выводы разбора с числом наблюдений",
     get_distribution_channels: "откуда приходят пользователи",
@@ -123,6 +139,7 @@ export default async function McpPage() {
     list_niche_apps: "конкурентное поле ниши",
     get_app_verdict: "честная оценка приложения и проверка на накрутку",
     get_niche_rating: "народный рейтинг ниши целиком",
+    list_niche_themes: "главные жалобы и похвала без заранее известного слова",
     search_themes: "поиск повторяющихся тем по всем отзывам",
     get_app_themes: "темы одного приложения с долями",
     get_app_reviews: "сами тексты отзывов, с фильтром по теме и звёздам",
@@ -131,9 +148,10 @@ export default async function McpPage() {
   };
 
   const GROUPS = [
-    { name: ru ? "Ниша" : "Niche", names: ["list_niches", "get_niche_brief", "list_niche_findings", "get_distribution_channels"] },
+    { name: ru ? "Старт" : "Start", names: ["account_status", "list_niches", "research_niche"] },
+    { name: ru ? "Ниша" : "Niche", names: ["get_niche_brief", "list_niche_findings", "get_distribution_channels"] },
     { name: ru ? "Приложения" : "Apps", names: ["find_apps", "list_niche_apps", "get_app_verdict", "get_niche_rating"] },
-    { name: ru ? "Отзывы" : "Reviews", names: ["search_themes", "get_app_themes", "get_app_reviews"] },
+    { name: ru ? "Отзывы" : "Reviews", names: ["list_niche_themes", "search_themes", "get_app_themes", "get_app_reviews"] },
     { name: ru ? "Идеи" : "Ideas", names: ["list_ideas", "get_idea"] },
   ];
 
@@ -145,7 +163,7 @@ export default async function McpPage() {
         },
         {
           q: "Нужен ли аккаунт?",
-          a: "Да. При подключении клиент откроет браузер: войдёшь на сайте и нажмёшь «Разрешить», больше ничего настраивать не нужно. Инструменты отвечают после оплаты пожизненного доступа.",
+          a: "Да. При подключении клиент откроет браузер: войдёшь на сайте и нажмёшь «Разрешить». Проверка подключения, каталог ниш и полный разбор демо-ниши работают бесплатно; остальные исследования — после оплаты пожизненного доступа.",
         },
         {
           q: "Откуда данные?",
@@ -171,7 +189,7 @@ export default async function McpPage() {
         },
         {
           q: "Do I need an account?",
-          a: "Yes. On connect the client opens the browser: you sign in on the site and tap allow, nothing else to configure. The tools answer after the lifetime purchase.",
+          a: "Yes. On connect the client opens the browser: sign in and tap allow. Connection checks, the niche catalog and one complete sample are free; the remaining research unlocks with lifetime access.",
         },
         {
           q: "Where does the data come from?",
@@ -210,7 +228,7 @@ export default async function McpPage() {
         </p>
       </header>
 
-      <div className="mt-8 grid grid-cols-2 gap-6 border-y border-[var(--color-border-subtle)] py-5 sm:grid-cols-4">
+      <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-5 border-y border-[var(--color-border-subtle)] py-5">
         {[
           { n: niches, l: ru ? plural(niches, "ниша", "ниши", "ниш") : "niches" },
           { n: apps, l: ru ? plural(apps, "приложение", "приложения", "приложений") : "apps" },
@@ -256,7 +274,7 @@ export default async function McpPage() {
             )}
           </p>
           <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
-            {ru ? "Он вызовет search_themes и вернёт самые громкие темы жалоб:" : "It calls search_themes and returns the loudest complaint themes:"}
+            {ru ? "Он вызовет list_niche_themes и вернёт самые громкие темы жалоб:" : "It calls list_niche_themes and returns the loudest complaint themes:"}
           </p>
           <ul className="mt-2 border-t border-[var(--color-border-subtle)]">
             {examplePains.map((p) => (
@@ -291,8 +309,14 @@ export default async function McpPage() {
       )}
 
       <Section id="install" kicker={ru ? "Подключение" : "Setup"} title={ru ? "Пара минут в любом клиенте" : "A couple of minutes in any client"}>
-        <InstallPicker ru={ru} paid={paid} loggedIn={!!user} locale={locale} />
+        <InstallPicker ru={ru} paid={paid} />
       </Section>
+
+      {user && (
+        <Section id="connections" kicker={ru ? "Безопасность" : "Security"} title={ru ? "Подключённые клиенты" : "Connected clients"}>
+          <McpConnections initial={connections} ru={ru} />
+        </Section>
+      )}
 
       <Section kicker={ru ? "Как спрашивать" : "How to ask"} title={ru ? "Вопросы, с которых стоит начать" : "Questions to start with"}>
         <ul className="border-t border-[var(--color-border-subtle)]">
@@ -329,8 +353,8 @@ export default async function McpPage() {
         </div>
         <p className="mt-6 text-footnote text-[var(--color-text-secondary)]">
           {ru
-            ? `Разметка отзывов по темам сейчас покрывает ${t.niches} ниш и ${t.reviews.toLocaleString(lc)} отзывов, и растёт на весь каталог. Всё остальное доступно по всем ${niches} нишам.`
-            : `Theme-level review data currently covers ${t.niches} niches and ${t.reviews.toLocaleString(lc)} reviews, and is expanding across the catalog. Everything else covers all ${niches} niches.`}
+            ? `Базовая разметка есть у всех ${reviews.toLocaleString(lc)} отзывов в ${niches} нишах. Для ${t.niches} ниш и ${t.reviews.toLocaleString(lc)} отзывов есть дополнительный слой узких тем конкретных приложений.`
+            : `All ${reviews.toLocaleString(lc)} reviews across ${niches} niches have corpus-level labels. ${t.niches} niches and ${t.reviews.toLocaleString(lc)} reviews also have a deeper app-specific theme layer.`}
         </p>
       </Section>
 

@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import BuyButton from "@/components/BuyButton";
 import CopyLine from "@/components/CopyLine";
-import type { Locale } from "@/lib/i18n";
 
 // The Mobbin-style install block: pick your tool, get the exact steps for it.
 // Every path ends the same way — the client opens the browser, you sign in and
@@ -20,20 +18,14 @@ type ClientDef = { id: string; label: string; steps: StepDef[] };
 export default function InstallPicker({
   ru,
   paid,
-  loggedIn,
-  locale,
 }: {
   ru: boolean;
   paid: boolean;
-  loggedIn: boolean;
-  locale: Locale;
 }) {
   const askExample = ru
     ? "Готово. Спроси обычным языком, например: «На что жалуются пользователи трекеров привычек?»"
     : "Done. Ask in plain language, e.g. “What do habit tracker users complain about?”";
-  const authorize = ru
-    ? "Откроется браузер: войди на сайте и нажми «Разрешить»."
-    : "The browser opens: sign in on the site and tap allow.";
+  const authorize = ru ? "Откроется браузер: войди и нажми «Разрешить»." : "The browser opens: sign in and tap allow.";
 
   const CLIENTS: ClientDef[] = [
     {
@@ -46,9 +38,8 @@ export default function InstallPicker({
         },
         {
           t: ru ? "Авторизуйся" : "Authenticate",
-          body: ru
-            ? `В новой сессии набери /mcp, выбери inapp и нажми Authenticate. ${authorize}`
-            : `In a new session type /mcp, pick inapp and hit Authenticate. ${authorize}`,
+          body: authorize,
+          copy: { v: "claude mcp login inapp" },
         },
         { t: ru ? "Спрашивай" : "Ask away", body: askExample },
       ],
@@ -114,11 +105,12 @@ export default function InstallPicker({
       steps: [
         {
           t: ru ? "Вставь команду в терминал" : "Paste the command into your terminal",
-          copy: { v: `codex mcp add inapp --url ${ENDPOINT}` },
+          copy: { v: `codex mcp add inapp --url ${ENDPOINT} --oauth-resource ${ENDPOINT}` },
         },
         {
           t: ru ? "Авторизуйся" : "Authenticate",
-          body: ru ? `При первом обращении Codex предложит войти. ${authorize}` : `On first use Codex offers to sign in. ${authorize}`,
+          body: authorize,
+          copy: { v: "codex mcp login inapp" },
         },
         { t: ru ? "Спрашивай" : "Ask away", body: askExample },
       ],
@@ -147,28 +139,10 @@ export default function InstallPicker({
 
   const [active, setActive] = useState(CLIENTS[0].id);
   const client = CLIENTS.find((c) => c.id === active) ?? CLIENTS[0];
-  // The paid step is the real step 1, exactly like Mobbin's "upgrade" step.
-  const offset = paid ? 0 : 1;
+  const offset = 0;
 
   return (
     <div>
-      {!paid && (
-        <div className="mb-8 flex gap-4">
-          <span className="w-5 shrink-0 pt-0.5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">1</span>
-          <div className="min-w-0 flex-1">
-            <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Открой доступ" : "Get access"}</h3>
-            <p className="mt-1.5 max-w-[62ch] text-footnote text-[var(--color-text-secondary)]">
-              {ru
-                ? "MCP входит в пожизненный доступ: один платёж открывает весь сайт и сервер навсегда."
-                : "MCP is part of the lifetime tier: one payment opens the whole site and the server forever."}
-            </p>
-            <div className="mt-3">
-              <BuyButton loggedIn={loggedIn} locale={locale} />
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="flex gap-4">
         <span className="w-5 shrink-0 pt-0.5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{offset + 1}</span>
         <div className="min-w-0 flex-1">
@@ -213,6 +187,13 @@ export default function InstallPicker({
           </li>
         ))}
       </ol>
+      {!paid && (
+        <p className="mt-7 max-w-[62ch] border-l-2 border-[var(--color-border-strong)] pl-4 text-footnote text-[var(--color-text-secondary)]">
+          {ru
+            ? "Проверка подключения, список ниш и полный разбор одной демо-ниши доступны бесплатно. Остальные исследования откроются после покупки."
+            : "Connection checks, the niche list, and one complete sample niche are free. The remaining research unlocks after purchase."}
+        </p>
+      )}
     </div>
   );
 }

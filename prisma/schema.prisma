@@ -137,11 +137,14 @@ model User {
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
 
-  unlocks   Unlock[]
-  ledger    TokenLedger[]
-  pageViews PageView[]
-  favorites Favorite[]
-  mcpCalls  McpCall[]
+  unlocks        Unlock[]
+  ledger         TokenLedger[]
+  pageViews      PageView[]
+  favorites      Favorite[]
+  mcpCalls       McpCall[]
+  mcpConnections McpConnection[]
+  mcpAuthCodes   McpAuthCode[]
+  mcpEvents      McpEvent[]
 }
 
 // An idea a user bookmarked. Server-side so it survives across devices and cache
@@ -193,15 +196,107 @@ model TokenLedger {
 // and whether the paid gate answered ("ok") or bounced ("denied" — a signal
 // the person tried MCP before buying).
 model McpCall {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String
-  tool      String
-  status    String   @default("ok")
-  createdAt DateTime @default(now())
+  id            String         @id @default(cuid())
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
+  connection    McpConnection? @relation(fields: [connectionId], references: [id], onDelete: SetNull)
+  connectionId  String?
+  clientName    String?
+  tool          String
+  status        String         @default("ok")
+  errorCode     String?
+  durationMs    Int?
+  responseBytes Int?
+  createdAt     DateTime       @default(now())
 
   @@index([userId])
+  @@index([connectionId])
   @@index([createdAt])
+}
+
+// One editor/agent the user explicitly allowed in the MCP OAuth consent flow.
+// Tokens are attached to a connection so the user can revoke one client without
+// logging every other client — or the website session — out.
+model McpConnection {
+  id           String    @id @default(cuid())
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  clientIdHash String
+  clientName   String
+  redirectUri  String
+  resource     String
+  locale       String    @default("en")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  lastUsedAt   DateTime?
+  revokedAt    DateTime?
+
+  tokens    McpToken[]
+  authCodes McpAuthCode[]
+  calls     McpCall[]
+  events    McpEvent[]
+
+  @@unique([userId, clientIdHash, redirectUri])
+  @@index([userId, revokedAt])
+  @@index([lastUsedAt])
+}
+
+// Opaque access and refresh credentials. Only SHA-256 hashes are stored, so a
+// database leak cannot be turned directly into access to the review corpus.
+model McpToken {
+  id           String        @id @default(cuid())
+  connection   McpConnection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+  connectionId String
+  tokenHash    String        @unique
+  kind         String // "access" | "refresh"
+  expiresAt    DateTime
+  lastUsedAt   DateTime?
+  revokedAt    DateTime?
+  createdAt    DateTime      @default(now())
+
+  @@index([connectionId, kind])
+  @@index([expiresAt])
+}
+
+// Authorization codes are random, short-lived and one-use. The previous
+// stateless signed code could be replayed until its ten-minute expiry.
+model McpAuthCode {
+  id           String        @id @default(cuid())
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  connection   McpConnection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+  connectionId String
+  codeHash     String        @unique
+  clientIdHash String
+  redirectUri  String
+  challenge    String
+  resource     String
+  expiresAt    DateTime
+  usedAt       DateTime?
+  createdAt    DateTime      @default(now())
+
+  @@index([connectionId])
+  @@index([expiresAt])
+}
+
+// Funnel and reliability telemetry: registration/consent/token/revocation
+// outcomes live separately from per-tool calls.
+model McpEvent {
+  id           String         @id @default(cuid())
+  user         User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId       String?
+  connection   McpConnection? @relation(fields: [connectionId], references: [id], onDelete: SetNull)
+  connectionId String?
+  event        String
+  status       String         @default("ok")
+  clientName   String?
+  detail       String?
+  durationMs   Int?
+  createdAt    DateTime       @default(now())
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([event, createdAt])
 }
 
 model PageView {

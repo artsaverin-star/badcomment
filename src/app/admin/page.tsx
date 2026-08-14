@@ -89,22 +89,48 @@ export default async function AdminPage() {
 
   // ── MCP: кто реально дёргает сервер из редактора ──
   // Одна строка на вызов инструмента; "denied" = стучался без оплаты (тёплый лид).
-  const mcpRows = await prisma.mcpCall.findMany({
-    orderBy: { createdAt: "desc" },
-    take: 5000,
-    select: { userId: true, tool: true, status: true, createdAt: true },
-  });
-  type McpAgg = { calls: number; denied: number; lastAt: Date; tools: Map<string, number> };
+  const [mcpRows, mcpConnections, mcpEvents] = await Promise.all([
+    prisma.mcpCall.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 5000,
+      select: { userId: true, tool: true, status: true, durationMs: true, responseBytes: true, clientName: true, createdAt: true },
+    }),
+    prisma.mcpConnection.findMany({
+      orderBy: { createdAt: "desc" },
+      select: { userId: true, clientName: true, revokedAt: true, lastUsedAt: true, createdAt: true },
+    }),
+    prisma.mcpEvent.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 5000,
+      select: { event: true, status: true, detail: true, createdAt: true },
+    }),
+  ]);
+  type McpAgg = { calls: number; denied: number; errors: number; durationTotal: number; durationCount: number; lastAt: Date; tools: Map<string, number>; clients: Set<string> };
   const mcpBy = new Map<string, McpAgg>();
   for (const r of mcpRows) {
-    const a = mcpBy.get(r.userId) ?? { calls: 0, denied: 0, lastAt: r.createdAt, tools: new Map<string, number>() };
+    const a = mcpBy.get(r.userId) ?? { calls: 0, denied: 0, errors: 0, durationTotal: 0, durationCount: 0, lastAt: r.createdAt, tools: new Map<string, number>(), clients: new Set<string>() };
     a.calls++;
     if (r.status === "denied") a.denied++;
+    if (r.status === "error") a.errors++;
+    if (r.durationMs != null) {
+      a.durationTotal += r.durationMs;
+      a.durationCount++;
+    }
+    if (r.clientName) a.clients.add(r.clientName);
     if (r.createdAt > a.lastAt) a.lastAt = r.createdAt;
     a.tools.set(r.tool, (a.tools.get(r.tool) ?? 0) + 1);
     mcpBy.set(r.userId, a);
   }
   const mcpUsers = [...mcpBy.entries()].sort((a, b) => b[1].lastAt.getTime() - a[1].lastAt.getTime());
+  const activeMcpConnections = mcpConnections.filter((connection) => !connection.revokedAt);
+  const mcpDurations = mcpRows.map((row) => row.durationMs).filter((duration): duration is number => duration != null).sort((a, b) => a - b);
+  const mcpAverageMs = mcpDurations.length ? Math.round(mcpDurations.reduce((sum, duration) => sum + duration, 0) / mcpDurations.length) : 0;
+  const mcpP95Ms = mcpDurations.length ? mcpDurations[Math.min(mcpDurations.length - 1, Math.floor(mcpDurations.length * 0.95))] : 0;
+  const mcpResponseMb = mcpRows.reduce((sum, row) => sum + (row.responseBytes ?? 0), 0) / 1024 / 1024;
+  const mcpErrorCount = mcpRows.filter((row) => row.status === "error").length;
+  const mcpDeniedUsers = new Set(mcpRows.filter((row) => row.status === "denied").map((row) => row.userId)).size;
+  const eventCount = (event: string, status = "ok") => mcpEvents.filter((row) => row.event === event && row.status === status).length;
+  const oauthErrors = mcpEvents.filter((row) => row.status === "error").length;
   const userById = new Map(users.map((u) => [u.id, u]));
   const displayName = (id: string) => {
     const u = userById.get(id);
@@ -248,9 +274,26 @@ export default async function AdminPage() {
 
       <h2 className="mt-10 text-[20px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">MCP</h2>
       <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">
-        Вызовов инструментов: <b className="tabular-nums">{mcpRows.length.toLocaleString("ru-RU")}</b> · пользователей:{" "}
-        <b className="tabular-nums">{mcpUsers.length}</b>
-        {mcpRows.length >= 5000 ? " · показаны последние 5000" : ""}
+        Воронка: регистраций клиента <b className="tabular-nums">{eventCount("oauth_registration")}</b> → согласий{" "}
+        <b className="tabular-nums">{eventCount("oauth_consent")}</b> → подключений <b className="tabular-nums">{eventCount("oauth_connected")}</b> → пользователей инструментов{" "}
+        <b className="tabular-nums">{mcpUsers.length}</b>.
+      </p>
+      <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-border-subtle)] sm:grid-cols-4">
+        {[
+          [activeMcpConnections.length, "активных клиентов"],
+          [mcpRows.length, "вызовов инструментов"],
+          [mcpDeniedUsers, "лидов у платной стены"],
+          [mcpErrorCount + oauthErrors, "ошибок"],
+        ].map(([value, label]) => (
+          <div key={label} className="bg-[var(--color-bg-page)] p-4">
+            <div className="text-[22px] font-semibold tabular-nums text-[var(--color-text-primary)]">{Number(value).toLocaleString("ru-RU")}</div>
+            <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{label}</div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-footnote text-[var(--color-text-tertiary)]">
+        Скорость: средняя {mcpAverageMs} мс · p95 {mcpP95Ms} мс · отдано {mcpResponseMb.toLocaleString("ru-RU", { maximumFractionDigits: 1 })} МБ
+        {mcpRows.length >= 5000 || mcpEvents.length >= 5000 ? " · расчёт по последним 5000 событиям" : ""}
       </p>
       {mcpUsers.length === 0 ? (
         <p className="mt-3 text-footnote text-[var(--color-text-tertiary)]">Сервером ещё никто не пользовался.</p>
@@ -262,6 +305,7 @@ export default async function AdminPage() {
                 <th className="px-4 py-2.5 font-semibold">Пользователь</th>
                 <th className="px-4 py-2.5 font-semibold">Вызовов</th>
                 <th className="px-4 py-2.5 font-semibold">Без оплаты</th>
+                <th className="px-4 py-2.5 font-semibold">Клиент / скорость</th>
                 <th className="px-4 py-2.5 font-semibold">Частые инструменты</th>
                 <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Последний вызов (МСК)</th>
               </tr>
@@ -279,6 +323,11 @@ export default async function AdminPage() {
                     ) : (
                       <span className="text-[var(--color-text-tertiary)]">—</span>
                     )}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2.5 text-[var(--color-text-secondary)]">
+                    {a.clients.size ? [...a.clients].join(", ") : "—"}
+                    {a.durationCount ? ` · ${Math.round(a.durationTotal / a.durationCount)} мс` : ""}
+                    {a.errors ? <span className="text-[var(--color-text-brand)]"> · ошибок {a.errors}</span> : null}
                   </td>
                   <td className="px-4 py-2.5 text-[var(--color-text-secondary)]">
                     {[...a.tools.entries()]

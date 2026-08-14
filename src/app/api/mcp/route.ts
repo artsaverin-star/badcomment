@@ -1,104 +1,152 @@
 import { NextResponse } from "next/server";
-import { userFromAuthHeader } from "@/lib/mcp/apiKey";
-import { requestOrigin } from "@/lib/mcp/oauth";
-import { TOOLS, callTool, SERVER_INSTRUCTIONS } from "@/lib/mcp/tools";
+import { authenticateMcpRequest, MCP_SCOPE } from "@/lib/mcp/authTokens";
+import { mcpResource, requestOrigin } from "@/lib/mcp/oauth";
+import { TOOLS, callTool, McpToolError, SERVER_INSTRUCTIONS } from "@/lib/mcp/tools";
+import { recordMcpCall } from "@/lib/mcp/telemetry";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-// The inApp MCP server: the same review research the site sells, handed to an
-// agent while it is writing the app. Hand-rolled JSON-RPC over Streamable HTTP
-// (POST only, plain application/json responses) — no SDK, because the wire
-// format for a tools-only server is a dozen lines and the prod box is small.
-//
-// Spec: modelcontextprotocol.io, revisions 2025-03-26 .. 2025-11-25. GET and
-// DELETE answer 405, which the transport spec explicitly allows for servers that
-// offer no SSE stream and no sessions.
-
 const SUPPORTED = ["2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05"];
 const FALLBACK = "2025-06-18";
-const VERSION = "1.0.0";
+const VERSION = "2.0.0";
 
 type Rpc = { jsonrpc?: string; id?: string | number | null; method?: string; params?: Record<string, unknown> };
 
-const ok = (id: Rpc["id"], result: unknown) => NextResponse.json({ jsonrpc: "2.0", id, result });
-const err = (id: Rpc["id"], code: number, message: string) =>
-  NextResponse.json({ jsonrpc: "2.0", id, error: { code, message } });
+function allowedOrigins() {
+  return new Set([
+    "https://inapp.pro",
+    "http://localhost:3000",
+    "https://chatgpt.com",
+    "https://claude.ai",
+    "https://vscode.dev",
+    "https://cursor.com",
+    ...(process.env.MCP_ALLOWED_ORIGINS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  ]);
+}
 
-// DNS-rebinding guard. Native MCP clients send no Origin at all; a browser one
-// must come from our own site.
-const ALLOWED_ORIGINS = ["https://inapp.pro", "http://localhost:3000"];
+function cors(req: Request): HeadersInit | null {
+  const origin = req.headers.get("origin");
+  if (origin && !allowedOrigins().has(origin)) return null;
+  return {
+    ...(origin ? { "access-control-allow-origin": origin } : {}),
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-headers": "content-type, authorization, mcp-protocol-version, mcp-session-id",
+    "access-control-expose-headers": "www-authenticate, mcp-session-id",
+    vary: "Origin",
+  };
+}
+
+const ok = (id: Rpc["id"], result: unknown, headers?: HeadersInit) => NextResponse.json({ jsonrpc: "2.0", id, result }, { headers });
+const error = (id: Rpc["id"], code: number, message: string, headers?: HeadersInit, status = 200) =>
+  NextResponse.json({ jsonrpc: "2.0", id, error: { code, message } }, { status, headers });
+
+function textSummary(name: string, data: Record<string, unknown>, locale: string) {
+  const ru = locale === "ru";
+  const shown = typeof data.shown === "number" ? data.shown : null;
+  const total = typeof data.total === "number" ? data.total : null;
+  if (name === "account_status") return data.fullAccess ? (ru ? "MCP подключён, полный доступ активен." : "MCP is connected and full access is active.") : (ru ? "MCP подключён. Доступны каталог и демо-ниша; полный архив закрыт." : "MCP is connected. The catalog and sample niche are available; full research is locked.");
+  if (shown != null && total != null) return ru ? `${name}: показано ${shown} из ${total}. Полные данные приложены в structuredContent.` : `${name}: showing ${shown} of ${total}. Full data is attached in structuredContent.`;
+  return ru ? `${name}: готово. Полные данные приложены в structuredContent.` : `${name}: complete. Full data is attached in structuredContent.`;
+}
+
+function contentFor(protocol: string, name: string, data: Record<string, unknown>, locale: string) {
+  // Older clients do not reliably surface structuredContent to the model.
+  if (protocol === "2024-11-05" || protocol === "2025-03-26") return JSON.stringify(data, null, 1);
+  return textSummary(name, data, locale);
+}
 
 export async function POST(req: Request) {
-  const origin = req.headers.get("origin");
-  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
-    return NextResponse.json({ error: "forbidden origin" }, { status: 403 });
-  }
+  const corsHeaders = cors(req);
+  if (!corsHeaders) return NextResponse.json({ error: "forbidden_origin" }, { status: 403 });
 
-  // No valid token → 401 with the OAuth discovery pointer (спека MCP auth).
-  // The client opens the browser, the user signs in on the site and taps
-  // «Разрешить», and the client comes back with the personal key as a Bearer
-  // token. Manually pasted keys travel the exact same header.
+  const origin = requestOrigin(req);
+  const resource = mcpResource(origin);
   const auth = req.headers.get("authorization");
-  const user = await userFromAuthHeader(auth);
-  if (!user) {
-    const site = requestOrigin(req);
+  const identity = await authenticateMcpRequest(auth, resource);
+  if (!identity) {
     return NextResponse.json(
       { error: auth?.trim() ? "invalid_token" : "authorization_required" },
       {
         status: 401,
-        headers: { "www-authenticate": `Bearer resource_metadata="${site}/.well-known/oauth-protected-resource"` },
+        headers: {
+          ...corsHeaders,
+          "www-authenticate": `Bearer error="${auth?.trim() ? "invalid_token" : "invalid_request"}", scope="${MCP_SCOPE}", resource_metadata="${origin}/.well-known/oauth-protected-resource"`,
+        },
       },
     );
   }
 
-  let msg: Rpc;
+  let message: Rpc;
   try {
-    msg = (await req.json()) as Rpc;
+    message = (await req.json()) as Rpc;
   } catch {
-    return NextResponse.json({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } }, { status: 400 });
+    return error(null, -32700, "Parse error", corsHeaders, 400);
   }
+  if (!message || message.jsonrpc !== "2.0" || typeof message.method !== "string") return error(message?.id ?? null, -32600, "Invalid Request", corsHeaders, 400);
 
-  // Notifications and client-side responses carry no id and expect no body.
-  if (msg.id === undefined || msg.id === null) return new Response(null, { status: 202 });
-
-  const { id, method, params } = msg;
+  if (message.id === undefined || message.id === null) return new Response(null, { status: 202, headers: corsHeaders });
+  const { id, method, params } = message;
 
   if (method === "initialize") {
-    const asked = typeof params?.protocolVersion === "string" ? (params.protocolVersion as string) : "";
-    return ok(id, {
-      protocolVersion: SUPPORTED.includes(asked) ? asked : FALLBACK,
-      capabilities: { tools: { listChanged: false } },
-      serverInfo: { name: "inapp", title: "inApp — market research from real reviews", version: VERSION },
-      instructions: SERVER_INSTRUCTIONS,
-    });
+    const requested = typeof params?.protocolVersion === "string" ? params.protocolVersion : "";
+    return ok(
+      id,
+      {
+        protocolVersion: SUPPORTED.includes(requested) ? requested : FALLBACK,
+        capabilities: { tools: { listChanged: false } },
+        serverInfo: { name: "inapp", title: "inApp — product research from real reviews", version: VERSION },
+        instructions: SERVER_INSTRUCTIONS,
+      },
+      corsHeaders,
+    );
   }
 
-  if (method === "ping") return ok(id, {});
-
-  if (method === "tools/list") return ok(id, { tools: TOOLS });
+  const protocol = req.headers.get("mcp-protocol-version") || "2025-03-26";
+  if (!SUPPORTED.includes(protocol)) return error(id, -32600, `Unsupported MCP-Protocol-Version: ${protocol}`, corsHeaders, 400);
+  if (method === "ping") return ok(id, {}, corsHeaders);
+  if (method === "tools/list") return ok(id, { tools: TOOLS }, corsHeaders);
 
   if (method === "tools/call") {
+    const started = performance.now();
     const name = typeof params?.name === "string" ? params.name : "";
-    const args = (params?.arguments as Record<string, unknown>) || {};
-    if (!TOOLS.some((t) => t.name === name)) return err(id, -32602, `Unknown tool: ${name}`);
+    const args = params?.arguments;
+    if (!TOOLS.some((tool) => tool.name === name)) return error(id, -32602, `Unknown tool: ${name}`, corsHeaders);
     try {
-      const text = await callTool(name, args, { user, keyPresent: true });
-      return ok(id, { content: [{ type: "text", text }] });
-    } catch (e) {
-      // Tool failures belong in the result so the model can see and correct them.
-      const message = e instanceof Error ? e.message : "tool failed";
-      return ok(id, { content: [{ type: "text", text: message }], isError: true });
+      const data = await callTool(name, (args && typeof args === "object" && !Array.isArray(args) ? args : {}) as Record<string, unknown>, {
+        user: identity.user,
+        connection: identity.connection,
+      });
+      const responseBytes = Buffer.byteLength(JSON.stringify(data));
+      await recordMcpCall({ userId: identity.user.id, connectionId: identity.connection.id, clientName: identity.connection.clientName, tool: name, status: "ok", durationMs: performance.now() - started, responseBytes });
+      return ok(id, { content: [{ type: "text", text: contentFor(protocol, name, data, identity.connection.locale) }], structuredContent: data }, corsHeaders);
+    } catch (cause) {
+      const toolError = cause instanceof McpToolError ? cause : new McpToolError("tool_failed", cause instanceof Error ? cause.message : "Tool failed.");
+      const status = toolError.code === "payment_required" ? "denied" : "error";
+      await recordMcpCall({ userId: identity.user.id, connectionId: identity.connection.id, clientName: identity.connection.clientName, tool: name, status, errorCode: toolError.code, durationMs: performance.now() - started });
+      // Error payloads intentionally omit structuredContent: it would not
+      // satisfy the successful tool outputSchema and strict clients reject it.
+      return ok(id, { content: [{ type: "text", text: toolError.message }], isError: true }, corsHeaders);
     }
   }
 
-  return err(id, -32601, "Method not found");
+  return error(id, -32601, "Method not found", corsHeaders);
 }
 
-export async function GET() {
-  return NextResponse.json({ error: "method not allowed" }, { status: 405 });
+export async function GET(req: Request) {
+  const corsHeaders = cors(req);
+  if (!corsHeaders) return NextResponse.json({ error: "forbidden_origin" }, { status: 403 });
+  return NextResponse.json({ error: "method_not_allowed" }, { status: 405, headers: corsHeaders });
 }
 
-export async function DELETE() {
-  return NextResponse.json({ error: "method not allowed" }, { status: 405 });
+export async function DELETE(req: Request) {
+  const corsHeaders = cors(req);
+  if (!corsHeaders) return NextResponse.json({ error: "forbidden_origin" }, { status: 403 });
+  return NextResponse.json({ error: "method_not_allowed" }, { status: 405, headers: corsHeaders });
+}
+
+export async function OPTIONS(req: Request) {
+  const corsHeaders = cors(req);
+  if (!corsHeaders) return NextResponse.json({ error: "forbidden_origin" }, { status: 403 });
+  return new Response(null, { status: 204, headers: corsHeaders });
 }
