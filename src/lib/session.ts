@@ -10,13 +10,12 @@ function sessionSecret() {
   if (process.env.NODE_ENV !== "production") return "dev-insecure-secret";
   throw new Error("SESSION_SECRET is required in production");
 }
-const SECRET = sessionSecret();
 const COOKIE = "ia_session";
 const TTL = 60 * 60 * 24 * 30; // 30 days
 
 function sign(payload: object): string {
   const b = Buffer.from(JSON.stringify(payload)).toString("base64url");
-  const h = crypto.createHmac("sha256", SECRET).update(b).digest("base64url");
+  const h = crypto.createHmac("sha256", sessionSecret()).update(b).digest("base64url");
   return `${b}.${h}`;
 }
 
@@ -24,7 +23,7 @@ function verify(tok?: string): { uid: string; exp: number } | null {
   if (!tok) return null;
   const [b, h] = tok.split(".");
   if (!b || !h) return null;
-  const h2 = crypto.createHmac("sha256", SECRET).update(b).digest("base64url");
+  const h2 = crypto.createHmac("sha256", sessionSecret()).update(b).digest("base64url");
   if (h.length !== h2.length) return null;
   if (!crypto.timingSafeEqual(Buffer.from(h), Buffer.from(h2))) return null;
   try {
