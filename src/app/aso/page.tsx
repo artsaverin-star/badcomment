@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import AsoAuditTracker from "@/components/AsoAuditTracker";
 import AsoForm from "@/components/AsoForm";
-import BuyButton from "@/components/BuyButton";
 import CopyText from "@/components/CopyText";
+import { canUseAso } from "@/lib/asoAccess";
 import { buildAsoAudit, fetchAppStoreApp, ROOMDO_APP_ID, type AsoAudit } from "@/lib/asoAudit";
-import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
+import { getSessionUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
+    robots: { index: false, follow: false },
     alternates: {
       canonical: "/aso",
       languages: { ru: "https://inapp.pro/ru/aso", en: "https://inapp.pro/en/aso", "x-default": "https://inapp.pro/en/aso" },
@@ -89,7 +91,9 @@ function EvidenceNote({ evidence, ru }: { evidence: NonNullable<AsoAudit["action
 }
 
 export default async function AsoPage({ searchParams }: { searchParams: Promise<{ app?: string | string[] }> }) {
-  const [locale, access, params] = await Promise.all([getLocale(), getAccess(), searchParams]);
+  const [locale, user, params] = await Promise.all([getLocale(), getSessionUser(), searchParams]);
+  if (!canUseAso(user)) notFound();
+
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
   const requested = Array.isArray(params.app) ? params.app[0] : params.app;
@@ -109,7 +113,6 @@ export default async function AsoPage({ searchParams }: { searchParams: Promise<
         : (ru ? "App Store временно не ответил. Попробуйте ещё раз." : "The App Store did not respond. Please try again.");
   }
 
-  const full = !!audit && (audit.sample || access.unlimited);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -150,7 +153,7 @@ export default async function AsoPage({ searchParams }: { searchParams: Promise<
 
       {audit && (
         <div className="mt-12">
-          <AsoAuditTracker appId={audit.app.id} niche={audit.niche.slug} full={full} sample={audit.sample} />
+          <AsoAuditTracker appId={audit.app.id} niche={audit.niche.slug} full sample={audit.sample} />
 
           <section className="card-min rounded-[28px] p-6 sm:p-8">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
@@ -253,8 +256,7 @@ export default async function AsoPage({ searchParams }: { searchParams: Promise<
             </div>
           </section>
 
-          {full ? (
-            <>
+          <>
               <section className="mt-16 border-t border-[var(--color-border-subtle)] pt-10">
                 <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Готово для App Store Connect" : "Ready for App Store Connect"}</p>
                 <h2 className="mt-1 text-title1 text-[var(--color-text-primary)]">{ru ? "Пакет метаданных" : "Metadata pack"}</h2>
@@ -305,24 +307,7 @@ export default async function AsoPage({ searchParams }: { searchParams: Promise<
                   {ru ? "Как запустить тест в App Store Connect ↗" : "How to run the test in App Store Connect ↗"}
                 </a>
               </section>
-            </>
-          ) : (
-            <section className="mt-16 border-t border-[var(--color-border-subtle)] pt-10">
-              <div className="mx-auto max-w-[620px] text-center">
-                <p className="text-caption font-semibold uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Полный аудит" : "Full audit"}</p>
-                <h2 className="mt-2 text-title1 text-balance text-[var(--color-text-primary)]">{ru ? "Готовые метаданные, скриншоты и первый эксперимент" : "Ready metadata, screenshot story and first experiment"}</h2>
-                <p className="mx-auto mt-4 max-w-[52ch] text-body text-[var(--color-text-secondary)]">
-                  {ru ? "Полный пакет открыт владельцам inApp. Один платёж также открывает все разборы, отзывы и MCP." : "The full pack is included with inApp access, together with every breakdown, review and the MCP server."}
-                </p>
-                <div className="mt-6">
-                  <BuyButton loggedIn={access.loggedIn} locale={locale} source={`aso:${audit.app.id}`} />
-                </div>
-                <Link href={`${lp}/aso`} className="mt-5 inline-flex text-footnote text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
-                  {ru ? "Посмотреть полный пример Roomdo →" : "View the complete Roomdo example →"}
-                </Link>
-              </div>
-            </section>
-          )}
+          </>
         </div>
       )}
     </main>

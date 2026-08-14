@@ -6,7 +6,7 @@ import { type Locale } from "@/lib/i18n";
 
 // Site footer — keeps the legally-required pages (оферта, контакты, тарифы)
 // reachable from every page, which payment providers (ЮKassa) check for.
-export default function Footer({ locale = "ru" }: { locale?: Locale }) {
+export default function Footer({ locale = "ru", showAso = false }: { locale?: Locale; showAso?: boolean }) {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
   // The idea feed is a full-screen swipe surface — no footer there.
@@ -25,7 +25,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
     { href: "/tokens", label: ru ? "Доступ" : "Access" },
     { href: "/offer", label: ru ? "Оферта" : "Terms" },
     { href: "/contacts", label: ru ? "Контакты" : "Contacts" },
-  ];
+  ].filter((link) => link.href !== "/aso" || showAso);
   return (
     <footer className="mt-auto border-t border-[var(--color-border-subtle)] px-4 py-4">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 sm:flex-row">

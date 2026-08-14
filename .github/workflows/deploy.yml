@@ -130,9 +130,9 @@ jobs:
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/access-page.html https://inapp.pro/ru/tokens
           grep -q '990' /tmp/access-page.html
-          curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
-            -o /tmp/aso-page.html https://inapp.pro/ru/aso
-          grep -q 'Roomdo: Visual To-Do List' /tmp/aso-page.html
+          aso_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/aso-page.html -w '%{http_code}' https://inapp.pro/ru/aso)"
+          test "$aso_status" = "404"
           pay_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/pay-status.json -w '%{http_code}' \
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"

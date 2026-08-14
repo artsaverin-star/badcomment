@@ -123,11 +123,13 @@ export default function Landing({
   catCards = [],
   locale = "ru",
   totalReviews = 0,
+  showAso = false,
 }: {
   catCards?: CatCard[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
+  showAso?: boolean;
   feed?: LandingFeed;
 }) {
   const ru = locale !== "en";
@@ -271,7 +273,7 @@ export default function Landing({
           </div>
         </section>
 
-      <Link
+      {showAso && <Link
         href={`/${ru ? "ru" : "en"}/aso`}
         className="group mx-auto mt-7 flex w-full max-w-3xl items-center justify-between gap-5 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-5 transition-colors hover:border-[var(--color-border-strong)]"
       >
@@ -281,7 +283,7 @@ export default function Landing({
           <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{ru ? "Название, скриншоты и конкретные изменения по отзывам конкурентов" : "Name, screenshots and concrete changes backed by competitor reviews"}</p>
         </div>
         <Arrow className="shrink-0" />
-      </Link>
+      </Link>}
 
       {/* Every niche with a full dossier. */}
       <div className="mx-auto mt-9 w-full px-0 sm:mt-12">

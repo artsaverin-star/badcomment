@@ -50,11 +50,13 @@ export default function Header({
   locale,
   loggedIn = false,
   showOffer = false,
+  showAso = false,
   theme = "dark",
 }: {
   locale: Locale;
   loggedIn?: boolean;
   showOffer?: boolean;
+  showAso?: boolean;
   theme?: "light" | "dark";
 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -64,6 +66,7 @@ export default function Header({
   // Prefix nav links with the active locale so navigation never falls back to
   // the cookie's language (which caused sections to flip to Russian on click).
   const lp = ru ? "/ru" : "/en";
+  const nav = showAso ? NAV : NAV.filter((item) => item.key !== "aso");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -114,7 +117,7 @@ export default function Header({
             side widths. Six sections need real room, so it only renders on wide
             screens (≥1200px); everything narrower gets the burger sheet. */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 min-[1200px]:flex">
-          {NAV.map((n) => {
+          {nav.map((n) => {
             const active = n.key === activeKey;
             return (
               <Link
@@ -168,7 +171,7 @@ export default function Header({
           />
           <div className="absolute inset-x-3 top-full z-40 mt-2 origin-top rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)] [animation:sheet-down_.22s_cubic-bezier(0.32,0.72,0,1)] sm:left-auto sm:right-4 sm:w-80 min-[1200px]:hidden">
             <nav className="flex flex-col">
-              {NAV.map((n) => {
+              {nav.map((n) => {
                 const active = n.key === activeKey;
                 return (
                   <Link

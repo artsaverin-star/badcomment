@@ -1,5 +1,12 @@
 import assert from "node:assert/strict";
+import { canUseAso } from "../src/lib/asoAccess";
 import { buildAsoAudit, normalizeLookupResult, parseAppStoreInput, ROOMDO_APP_ID } from "../src/lib/asoAudit";
+
+assert.equal(canUseAso({ isAdmin: true, username: "artSaverin" }), true);
+assert.equal(canUseAso({ isAdmin: true, username: "@artSaverin" }), true);
+assert.equal(canUseAso({ isAdmin: false, username: "artSaverin" }), false, "Friend access must not open the owner tool");
+assert.equal(canUseAso({ isAdmin: true, username: "another-admin" }), false, "Only the named owner may use ASO");
+assert.equal(canUseAso(null), false);
 
 assert.deepEqual(parseAppStoreInput(`https://apps.apple.com/app/id${ROOMDO_APP_ID}`), { id: ROOMDO_APP_ID, country: "us" });
 assert.deepEqual(parseAppStoreInput(`https://apps.apple.com/gb/app/roomdo/id${ROOMDO_APP_ID}?l=en`), { id: ROOMDO_APP_ID, country: "gb" });
