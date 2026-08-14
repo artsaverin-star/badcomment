@@ -21,7 +21,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
     { href: "/mcp", label: "MCP" },
     { href: "/saved", label: ru ? "Избранное" : "Saved" },
     { href: "/apps", label: ru ? "Все приложения" : "All apps" },
-    { href: "/tokens", label: ru ? "Энергия" : "Energy" },
+    { href: "/tokens", label: ru ? "Доступ" : "Access" },
     { href: "/offer", label: ru ? "Оферта" : "Terms" },
     { href: "/contacts", label: ru ? "Контакты" : "Contacts" },
   ];

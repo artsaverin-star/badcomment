@@ -8,8 +8,8 @@ export const dynamic = "force-dynamic";
 
 // ЮKassa payment notification. We never trust the body — we re-fetch the payment
 // from the API and credit only if it's actually succeeded+paid. The payment id is
-// the ledger ref, so a re-delivered webhook can't double-credit. Always answer 200
-// so ЮKassa doesn't retry forever.
+// the ledger ref, so a re-delivered webhook can't double-credit. We acknowledge
+// only after a successful durable write; transient failures must be retried.
 export async function POST(req: Request) {
   if (!yookassaEnabled()) return NextResponse.json({ ok: true });
 
@@ -21,15 +21,25 @@ export async function POST(req: Request) {
   try {
     payment = await getPayment(id);
   } catch {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: false }, { status: 502 });
   }
-  if (payment?.status !== "succeeded" || payment?.paid !== true) return NextResponse.json({ ok: true });
 
   const meta = payment?.metadata ?? {};
   const userId = meta.userId;
+  const checkoutId = meta.checkoutId;
   const ref = `yk:${id}`;
   const amountRub = Math.round(Number(payment?.amount?.value || 0)); // real ₽ charged
   if (!userId) return NextResponse.json({ ok: true });
+
+  if (checkoutId) {
+    await prisma.paymentAttempt.updateMany({
+      where: { id: checkoutId, userId },
+      // "succeeded" is reserved for the state after grantUnlock finishes.
+      // Until then the browser must keep polling instead of reporting revenue.
+      data: { providerPaymentId: id, status: payment?.status === "succeeded" ? "confirming" : payment?.status || "unknown" },
+    }).catch(() => {});
+  }
+  if (payment?.status !== "succeeded" || payment?.paid !== true) return NextResponse.json({ ok: true });
 
   try {
     const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -38,6 +48,12 @@ export async function POST(req: Request) {
     // New direct-₽ model: metadata.kind = deck | category | lifetime.
     if (meta.kind === "deck" || meta.kind === "category" || meta.kind === "lifetime") {
       await grantUnlock(userId, meta.kind as BuyKind, meta.slug ?? null, ref, amountRub);
+      if (checkoutId) {
+        await prisma.paymentAttempt.updateMany({
+          where: { id: checkoutId, userId },
+          data: { status: "succeeded", confirmedAt: new Date(), error: null },
+        });
+      }
       return NextResponse.json({ ok: true });
     }
 
@@ -54,7 +70,7 @@ export async function POST(req: Request) {
       await grantTokens(userId, tokens, "purchase", ref);
     }
   } catch {
-    /* swallow — ack anyway, ЮKassa retries on non-200 */
+    return NextResponse.json({ ok: false }, { status: 500 });
   }
   return NextResponse.json({ ok: true });
 }

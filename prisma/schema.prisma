@@ -68,23 +68,23 @@ model App {
 }
 
 model Review {
-  id         String    @id @default(cuid())
-  app        App       @relation(fields: [appId], references: [id], onDelete: Cascade)
-  appId      String
-  externalId String
-  author     String?
-  rating     Int
-  title      String?
-  text       String
-  version    String?
-  themes     String    @default("[]") // JSON array of theme keys
+  id                 String    @id @default(cuid())
+  app                App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+  appId              String
+  externalId         String
+  author             String?
+  rating             Int
+  title              String?
+  text               String
+  version            String?
+  themes             String    @default("[]") // JSON array of theme keys
   // Semantic needs-classification (offline, Claude-authored). JSON array of
   // labels: [{ key, stance, confidence, trigger }] against src/lib/taxonomy.ts.
   // An empty array means "classified, nothing fit" (honest abstention); null
   // means "not yet classified". needsVersion stamps the taxonomy+prompt version
   // so a re-run only touches rows from an older version (idempotent, gated).
-  needs        String?
-  needsVersion String?
+  needs              String?
+  needsVersion       String?
   // Russian translation of a non-Russian review's title/text, produced by the
   // same keyless dump -> Claude -> apply loop as the classification (see
   // dump-translate.ts). Shown on the RU UI in the evidence popup with a
@@ -94,8 +94,8 @@ model Review {
   titleRu            String?
   textRu             String?
   translationVersion String?
-  postedAt   DateTime?
-  createdAt  DateTime  @default(now())
+  postedAt           DateTime?
+  createdAt          DateTime  @default(now())
 
   @@unique([appId, externalId])
   @@index([appId, rating])
@@ -137,14 +137,15 @@ model User {
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
 
-  unlocks        Unlock[]
-  ledger         TokenLedger[]
-  pageViews      PageView[]
-  favorites      Favorite[]
-  mcpCalls       McpCall[]
-  mcpConnections McpConnection[]
-  mcpAuthCodes   McpAuthCode[]
-  mcpEvents      McpEvent[]
+  unlocks         Unlock[]
+  ledger          TokenLedger[]
+  pageViews       PageView[]
+  favorites       Favorite[]
+  mcpCalls        McpCall[]
+  mcpConnections  McpConnection[]
+  mcpAuthCodes    McpAuthCode[]
+  mcpEvents       McpEvent[]
+  paymentAttempts PaymentAttempt[]
 }
 
 // An idea a user bookmarked. Server-side so it survives across devices and cache
@@ -308,6 +309,29 @@ model PageView {
   createdAt DateTime @default(now())
 
   @@index([userId])
+}
+
+// Server-side checkout funnel. Unlike browser analytics, these rows are tied
+// to an authenticated buyer and to YooKassa's verified webhook, so an admin can
+// distinguish a payment-button click from money that was actually captured.
+model PaymentAttempt {
+  id                String    @id // random checkout id; also sent in YooKassa metadata
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String
+  providerPaymentId String?   @unique
+  sku               String    @default("lifetime")
+  method            String
+  source            String?
+  amountRub         Int
+  status            String    @default("created")
+  error             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  confirmedAt       DateTime?
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@index([source, createdAt])
 }
 
 // Short-lived web login handshake: web creates a token, user opens the bot via

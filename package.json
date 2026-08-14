@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:mcp": "node --import tsx scripts/test-mcp.ts",
+    "test:monetization": "node --import tsx scripts/test-monetization.ts",
     "vendor:ds": "bash scripts/vendor-ds.sh",
     "ds:link": "npm install --no-save ../portfolio/packages/tokens ../portfolio/packages/ui-web",
     "ingest": "tsx scripts/ingest-categories.ts",

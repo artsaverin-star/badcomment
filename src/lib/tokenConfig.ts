@@ -16,6 +16,9 @@ export const LIFETIME = { rub: 2990, stars: 1500 };
 export const FRIEND_PRICE_RUB = 990;
 export const FRIEND_DISCOUNT_PCT = 70; // advertised launch discount
 export const LAUNCH_PROMO = true;
+// The actual price shown and charged today. Keep a single public value so the
+// header, paywalls, legal offer, analytics and payment route cannot drift.
+export const ACCESS_PRICE_RUB = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
 
 // ── Historical SKUs — NOT sold anymore (lifetime is the only offer). Kept so
 // the admin revenue report can price old ledger rows and in-flight checkouts

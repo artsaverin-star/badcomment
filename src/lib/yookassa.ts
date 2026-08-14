@@ -22,7 +22,7 @@ export async function createPayment(opts: {
   returnUrl: string;
   idempotenceKey: string;
   method?: "bank_card" | "sbp"; // force a specific method (e.g. СБП); omit = show all
-}): Promise<{ confirmation?: { confirmation_url?: string } }> {
+}): Promise<{ id?: string; status?: string; confirmation?: { confirmation_url?: string } }> {
   const res = await fetch(`${API}/payments`, {
     method: "POST",
     headers: {
@@ -46,6 +46,7 @@ export async function createPayment(opts: {
 }
 
 export async function getPayment(id: string): Promise<{
+  id?: string;
   status?: string;
   paid?: boolean;
   metadata?: Record<string, string>;

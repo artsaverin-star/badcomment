@@ -60,6 +60,27 @@ export default async function RootLayout({
       data-brand="saverin"
       className={`${interLatin.variable} ${interCyrillic.variable} h-full antialiased`}
     >
+      <head>
+        {/* Tiny queue shims must exist before hydration: PageTracker and a fast
+            checkout click can otherwise happen before the remote libraries
+            load. Native head scripts are intentional: in this Next.js release,
+            inline next/script from an async root layout was serialized into RSC
+            but did not execute in the production browser. */}
+        <script
+          id="ym-metrika"
+          dangerouslySetInnerHTML={{
+            __html: `window.ym=window.ym||function(){(window.ym.a=window.ym.a||[]).push(arguments)};window.ym.l=1*new Date();
+ym(110047715,'init',{ssr:true,defer:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});`,
+          }}
+        />
+        <script
+          id="ga-gtag"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+gtag('js',new Date());gtag('config','G-G3J6K8VBD6',{send_page_view:false});`,
+          }}
+        />
+      </head>
       <body className="flex min-h-[100dvh] flex-col">
         <div className="atmosphere" aria-hidden />
         {/* Brand entity for search + LLM grounding (Organization + WebSite). */}
@@ -113,19 +134,9 @@ export default async function RootLayout({
           src="https://datafa.st/js/script.js"
           strategy="afterInteractive"
         />
-        {/* Google Analytics (gtag.js) */}
+        {/* Remote analytics libraries load independently after hydration. */}
+        <Script src="https://mc.yandex.ru/metrika/tag.js?id=110047715" strategy="afterInteractive" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="afterInteractive" />
-        <Script id="ga-gtag" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-G3J6K8VBD6');`}
-        </Script>
-        {/* Yandex.Metrika (id 110047715) */}
-        <Script id="ym-metrika" strategy="afterInteractive">
-          {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=110047715","ym");
-ym(110047715,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});`}
-        </Script>
         <noscript>
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}

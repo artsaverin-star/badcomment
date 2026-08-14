@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { trackPageView } from "@/lib/track";
 
 // Logs each page the user opens (logged-in only, enforced server-side) for the
 // admin activity history. Fires on every route change; uses keepalive so the
@@ -12,6 +13,7 @@ export default function PageTracker() {
     if (!pathname) return;
     const t = setTimeout(() => {
       try {
+        trackPageView(pathname, typeof document !== "undefined" ? document.title : null);
         fetch("/api/track", {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -21,7 +23,7 @@ export default function PageTracker() {
       } catch {
         /* ignore */
       }
-    }, 0);
+    }, 250);
     return () => clearTimeout(t);
   }, [pathname]);
   return null;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
-import { LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO } from "@/lib/tokenConfig";
+import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
@@ -35,8 +35,7 @@ export default async function OfferPage() {
       <>
         Доступ предоставляется за разовый платёж. Актуальная стоимость указана на странице{" "}
         <Link href={`${lp}/tokens`} className="text-[var(--color-text-brand)] hover:underline">«Доступ»</Link> и на момент
-        оплаты: {LIFETIME.rub} ₽ за бессрочный доступ ко всем материалам сервиса{LAUNCH_PROMO ? <>, в период запуска действует
-        промо-цена {FRIEND_PRICE_RUB} ₽</> : null}. Оплата производится онлайн банковской картой или через СБП через платёжный
+        оплаты: {ACCESS_PRICE_RUB} ₽ за бессрочный доступ ко всем материалам сервиса. Оплата производится онлайн банковской картой или через СБП через платёжный
         сервис ЮKassa (ООО НКО «ЮМани») либо через Telegram Stars. Цены указаны в рублях РФ.
       </>,
     ],

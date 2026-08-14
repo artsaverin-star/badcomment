@@ -87,6 +87,27 @@ export default async function AdminPage() {
   const revenueRub = paidEntries.reduce((s, [, m]) => s + m.rub, 0);
   const revenueStars = paidEntries.reduce((s, [, m]) => s + m.stars, 0);
 
+  // Verified checkout funnel. Browser analytics explains acquisition; these
+  // server-side rows are the source of truth from payment-method selection to
+  // a YooKassa-confirmed purchase.
+  const paymentAttempts = await prisma.paymentAttempt.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 5000,
+    select: { userId: true, method: true, source: true, status: true, amountRub: true, createdAt: true },
+  });
+  const realPaymentAttempts = paymentAttempts.filter((attempt) => realIds.has(attempt.userId));
+  const checkoutUsers = new Set(realPaymentAttempts.map((attempt) => attempt.userId)).size;
+  const successfulAttempts = realPaymentAttempts.filter((attempt) => attempt.status === "succeeded");
+  const failedAttempts = realPaymentAttempts.filter((attempt) => attempt.status === "failed" || attempt.status === "canceled");
+  const checkoutConversion = realPaymentAttempts.length ? Math.round((successfulAttempts.length / realPaymentAttempts.length) * 100) : 0;
+  const methodCounts = new Map<string, number>();
+  const sourceCounts = new Map<string, number>();
+  for (const attempt of realPaymentAttempts) {
+    methodCounts.set(attempt.method, (methodCounts.get(attempt.method) ?? 0) + 1);
+    const source = attempt.source || "unknown";
+    sourceCounts.set(source, (sourceCounts.get(source) ?? 0) + 1);
+  }
+
   // ── MCP: кто реально дёргает сервер из редактора ──
   // Одна строка на вызов инструмента; "denied" = стучался без оплаты (тёплый лид).
   const [mcpRows, mcpConnections, mcpEvents] = await Promise.all([
@@ -271,6 +292,33 @@ export default async function AdminPage() {
           </tbody>
         </table>
       </div>
+
+      <h2 className="mt-10 text-[20px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Оплата</h2>
+      <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">
+        Серверная воронка после выбора способа оплаты. Покупка считается только после подтверждённого вебхука ЮKassa.
+      </p>
+      <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-border-subtle)] sm:grid-cols-4">
+        {[
+          [checkoutUsers, "пользователей начали оплату"],
+          [realPaymentAttempts.length, "попыток оплаты"],
+          [successfulAttempts.length, "подтверждённых покупок"],
+          [failedAttempts.length, "отмен и ошибок"],
+        ].map(([value, label]) => (
+          <div key={label} className="bg-[var(--color-bg-page)] p-4">
+            <div className="text-[22px] font-semibold tabular-nums text-[var(--color-text-primary)]">{Number(value).toLocaleString("ru-RU")}</div>
+            <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{label}</div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-footnote text-[var(--color-text-tertiary)]">
+        Конверсия попытка → оплата: <b className="text-[var(--color-text-primary)]">{checkoutConversion}%</b>
+        {methodCounts.size ? ` · способы: ${[...methodCounts.entries()].map(([method, count]) => `${method === "bank_card" ? "карта" : method.toUpperCase()} ${count}`).join(" · ")}` : ""}
+      </p>
+      {sourceCounts.size ? (
+        <p className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
+          Источники оплаты: {[...sourceCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([source, count]) => `${source} ×${count}`).join(" · ")}
+        </p>
+      ) : null}
 
       <h2 className="mt-10 text-[20px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">MCP</h2>
       <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">

@@ -4,7 +4,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 import { TOOLS } from "@/lib/mcp/tools";
 import { listNiches, getNiche, totals, type ReviewTheme } from "@/lib/reviews";
-import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
+import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
 import InstallPicker from "./InstallPicker";
 import McpConnections, { type McpConnectionView } from "./McpConnections";
@@ -175,7 +175,7 @@ export default async function McpPage() {
         },
         {
           q: "Сколько стоит?",
-          a: `Один платёж ${FRIEND_PRICE_RUB} рублей открывает весь сайт навсегда: разборы, идеи, рейтинг, отзывы и MCP-сервер. Без подписок и отдельных тарифов.`,
+          a: `Один платёж ${ACCESS_PRICE_RUB} рублей открывает весь сайт навсегда: разборы, идеи, рейтинг, отзывы и MCP-сервер. Без подписок и отдельных тарифов.`,
         },
         {
           q: "Данные обновляются?",
@@ -201,7 +201,7 @@ export default async function McpPage() {
         },
         {
           q: "What does it cost?",
-          a: `One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site forever: breakdowns, ideas, the rating, the reviews and the MCP server. No subscriptions and no separate tiers.`,
+          a: `One payment of ${ACCESS_PRICE_RUB} RUB opens the whole site forever: breakdowns, ideas, the rating, the reviews and the MCP server. No subscriptions and no separate tiers.`,
         },
         {
           q: "Is the data refreshed?",
@@ -244,11 +244,11 @@ export default async function McpPage() {
 
       {!paid && (
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <BuyButton loggedIn={!!user} locale={locale} />
+          <BuyButton loggedIn={!!user} locale={locale} source="mcp_page" />
           <p className="max-w-[38ch] text-footnote text-[var(--color-text-secondary)]">
             {ru
-              ? `MCP входит в пожизненный доступ: один платёж ${FRIEND_PRICE_RUB} ₽ открывает весь сайт и сервер навсегда.`
-              : `MCP is part of the lifetime tier: one payment of ${FRIEND_PRICE_RUB} ₽ opens the whole site and the server forever.`}
+              ? `MCP входит в пожизненный доступ: один платёж ${ACCESS_PRICE_RUB} ₽ открывает весь сайт и сервер навсегда.`
+              : `MCP is part of the lifetime tier: one payment of ${ACCESS_PRICE_RUB} ₽ opens the whole site and the server forever.`}
           </p>
         </div>
       )}

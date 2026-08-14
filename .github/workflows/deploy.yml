@@ -44,6 +44,8 @@ jobs:
       - run: npx prisma generate
       - run: npx tsc --noEmit
       - run: npm run lint
+      - run: npm run test:mcp
+      - run: npm run test:monetization
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
         env:
@@ -124,3 +126,10 @@ jobs:
             https://inapp.pro/api/mcp)"
           test "${status}" = "401"
           grep -q 'authorization_required' /tmp/mcp-smoke.json
+          curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/access-page.html https://inapp.pro/ru/tokens
+          grep -q '990' /tmp/access-page.html
+          pay_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/pay-status.json -w '%{http_code}' \
+            'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"
+          test "${pay_status}" = "401"

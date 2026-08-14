@@ -20,7 +20,7 @@ import { getNicheThesis } from "@/lib/nicheThesis";
 import { marketFor, scoreFor } from "@/lib/ideaScores";
 import { listIdeas, getIdea } from "@/lib/ideas";
 import { categoryCards } from "@/lib/regenCards";
-import { FRIEND_PRICE_RUB } from "@/lib/tokenConfig";
+import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import { accessForUser } from "./access";
 
 // The MCP surface is deliberately workflow-shaped: start with one compact
@@ -404,7 +404,7 @@ export async function callTool(name: string, rawArgs: Record<string, unknown>, c
   if (!access.unlimited && !toolIsFree(name, args)) {
     throw new McpToolError(
       "payment_required",
-      `Full inApp MCP research requires lifetime access. One payment of ${FRIEND_PRICE_RUB} RUB opens the whole site and every MCP research tool: https://inapp.pro/ru/mcp`,
+      `Full inApp MCP research requires lifetime access. One payment of ${ACCESS_PRICE_RUB} RUB opens the whole site and every MCP research tool: https://inapp.pro/ru/mcp`,
     );
   }
 
@@ -416,7 +416,7 @@ export async function callTool(name: string, rawArgs: Record<string, unknown>, c
         fullAccess: access.unlimited,
         freeTools: ["account_status", "list_niches", `research_niche(${SAMPLE_NICHE})`],
         sampleNiche: SAMPLE_NICHE,
-        priceRub: FRIEND_PRICE_RUB,
+        priceRub: ACCESS_PRICE_RUB,
         manageConnections: "https://inapp.pro/ru/mcp#connections",
       };
 
