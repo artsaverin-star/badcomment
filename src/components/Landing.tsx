@@ -1,8 +1,7 @@
 "use client";
 
-import { useDeferredValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
@@ -132,7 +131,6 @@ export default function Landing({
   feed?: LandingFeed;
 }) {
   const ru = locale !== "en";
-  const [modal, setModal] = useState(false);
 
   // Order comes from the server (page.tsx pins the hand-curated premium niches to
   // the front); keep it so the gallery leads with the best breakdowns, not just
@@ -218,9 +216,6 @@ export default function Landing({
       // words. Counts now live in the corpus-backed metadata line below.
       hook: neutralizeTrustLanguage((c.hook || HOOKS[c.slug] || "").replace(/^\d+\s+(?:приложени(?:е|я|й)|apps?)\s*:\s*/i, ""), locale),
     }));
-  const [query, setQuery] = useState("");
-  const deferredQuery = useDeferredValue(query.trim().toLocaleLowerCase(ru ? "ru" : "en"));
-  const visible = ranked.filter((c) => !deferredQuery || `${c.name} ${c.hook}`.toLocaleLowerCase(ru ? "ru" : "en").includes(deferredQuery));
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
   // floated in the left/right margins behind the headline (never over the text).
@@ -273,41 +268,20 @@ export default function Landing({
               )}
             </p>
 
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <Link href={`/${ru ? "ru" : "en"}/reviews`} className="rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-footnote font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-85">
-                {ru ? "Открыть размеченные отзывы" : "Open labelled reviews"}
-              </Link>
-              <Link href={`/${ru ? "ru" : "en"}/reviews/methodology`} className="rounded-full border border-[var(--color-border-subtle)] px-5 py-2.5 text-footnote font-medium text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]">
-                {ru ? "Как устроена разметка" : "How the labelling works"}
-              </Link>
-            </div>
           </div>
         </section>
 
       {/* Every niche with a full dossier. */}
       <div className="mx-auto mt-9 w-full px-0 sm:mt-12">
-        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-5">
           <h2 className="text-title2 text-[var(--color-text-primary)]">{ru ? "Категории" : "Categories"}</h2>
-          <label className="block w-full sm:max-w-[360px]">
-            <span className="sr-only">{ru ? "Поиск категории" : "Search categories"}</span>
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={ru ? "Найти категорию" : "Find a category"}
-              className="h-11 w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 text-footnote text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
-            />
-          </label>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((c) => (
+          {ranked.map((c) => (
             <CardCompact key={c.slug} c={c} ru={ru} />
           ))}
         </div>
-        {!visible.length && <p className="py-12 text-center text-body text-[var(--color-text-tertiary)]">{ru ? "Ничего не найдено." : "Nothing found."}</p>}
       </div>
-
-      {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>
   );
 }
