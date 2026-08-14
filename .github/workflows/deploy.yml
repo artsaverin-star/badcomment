@@ -107,3 +107,20 @@ jobs:
         run: |
           sleep 60
           curl -s -m 30 "https://inapp.pro/api/indexnow" || true
+
+      - name: Smoke-test production
+        run: |
+          set -euo pipefail
+          curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/mcp-page.html https://inapp.pro/ru/mcp
+          grep -q 'list_niche_themes' /tmp/mcp-page.html
+          curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/mcp-oauth.json https://inapp.pro/.well-known/oauth-authorization-server
+          grep -q '"refresh_token"' /tmp/mcp-oauth.json
+          status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -o /tmp/mcp-smoke.json -w '%{http_code}' \
+            -H 'Content-Type: application/json' \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"deploy-smoke","version":"1"}}}' \
+            https://inapp.pro/api/mcp)"
+          test "${status}" = "401"
+          grep -q 'authorization_required' /tmp/mcp-smoke.json
