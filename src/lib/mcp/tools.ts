@@ -575,7 +575,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         perReviewLabelling: "complete",
         labellingLayer: a.labelling,
         themes: a.themes.map((t) => ({ theme: t.name, en: t.nameEn, polarity: t.polarity, reviews: t.count, sharePct: themeShare(t, a.total), kind: t.fallback ? "fallback" : "specific", scope: t.scope })),
-        note: a.labelling === "corpus" ? "Every review is labelled with a high-precision corpus topic or honest sentiment remainder; the additional app-specific editorial layer is separate." : undefined,
+        note: a.labelling === "corpus" ? "Every review carries one or more high-precision corpus topics, or an honest overall remainder when no specific topic is explicit; the additional app-specific editorial layer is separate." : undefined,
       });
     }
 
@@ -594,7 +594,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
       if (theme) {
         const known = a.themes.some((t) => t.name === theme);
         if (!known) throw new Error(`Unknown theme "${theme}". Call get_app_themes for the exact names.`);
-        list = list.filter((r) => r.theme === theme);
+        list = list.filter((r) => r.themes?.length ? r.themes.includes(theme) : r.theme === theme);
       }
       list = list.filter((r) => r.rating >= min && r.rating <= max);
       if (contains) list = list.filter((r) => r.text.toLowerCase().includes(contains));
@@ -606,7 +606,7 @@ export async function callTool(name: string, args: Record<string, unknown>, call
         title: a.title,
         filter: { theme: theme || null, minRating: min, maxRating: max, contains: contains || null },
         matched,
-        reviews: shown.map((r) => ({ rating: r.rating, theme: r.theme || null, text: r.text })),
+        reviews: shown.map((r) => ({ rating: r.rating, themes: r.themes?.length ? r.themes : r.theme ? [r.theme] : [], text: r.text })),
         note: matched > shown.length ? `showing ${shown.length} of ${matched} matching reviews, worst-rated first` : undefined,
       });
     }

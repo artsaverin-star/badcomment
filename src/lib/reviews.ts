@@ -18,10 +18,10 @@ export type Polarity = "love" | "pain" | "mixed";
 export type ThemeScope = "app" | "niche" | "universal" | "fallback";
 export type LabellingScope = "app" | "corpus" | "app+corpus";
 export type ReviewTheme = { name: string; nameEn: string; polarity: Polarity; count: number; fallback?: boolean; scope?: ThemeScope };
-export type ReviewApp = { id: string; title: string; total: number; themes: ReviewTheme[]; icon?: string; labelling?: LabellingScope };
-export type ReviewSourceApp = { id: string; title: string; total: number; themes: ReviewTheme[]; labelling: LabellingScope };
+export type ReviewApp = { id: string; title: string; total: number; themes: ReviewTheme[]; specificReviews?: number; themeAssignments?: number; icon?: string; labelling?: LabellingScope };
+export type ReviewSourceApp = { id: string; title: string; total: number; themes: ReviewTheme[]; specificReviews: number; themeAssignments: number; labelling: LabellingScope };
 export type ReviewNiche = { name: string; nameEn: string; appsPlanned: number; apps: ReviewApp[]; sourceReviews?: number };
-export type Review = { rating: number; text: string; theme?: string };
+export type Review = { rating: number; text: string; theme?: string; themes?: string[] };
 export type NichePattern = {
   title: string;
   titleEn?: string;
@@ -55,6 +55,7 @@ type ReviewSourceIndex = {
   nicheLabelledReviews: number;
   universalLabelledReviews: number;
   fallbackLabelledReviews: number;
+  themeAssignments: number;
   archiveOverrides: Record<string, string[]>;
   niches: Record<string, ReviewSourceApp[]>;
 };
@@ -216,6 +217,7 @@ export function totals() {
     nicheLabelledReviews: SOURCE.nicheLabelledReviews,
     universalLabelledReviews: SOURCE.universalLabelledReviews,
     sourceFallbackReviews: SOURCE.fallbackLabelledReviews,
+    themeAssignments: SOURCE.themeAssignments,
     nichePatterns: Object.values(NICHE_PATTERNS).reduce((sum, patterns) => sum + patterns.length, 0),
   };
 }
@@ -249,12 +251,11 @@ function readArchivedNiche(slug: string): Map<string, Review[]> {
 /** Read one app's complete, per-review-labelled text corpus. */
 export function readReviews(slug: string, id: string): Review[] {
   if (!/^[a-z0-9-]+$/.test(slug) || !/^[0-9]+$/.test(id)) return [];
-  if (SOURCE.archiveOverrides[slug]?.includes(id)) return readArchivedNiche(slug).get(id) || [];
+  const archived = readArchivedNiche(slug).get(id);
+  if (archived) return archived;
   try {
     const p = path.join(process.cwd(), "public", "reviews", slug, `${id}.json`);
     const d = JSON.parse(fs.readFileSync(p, "utf8")) as { reviews?: Review[] };
     return Array.isArray(d.reviews) ? d.reviews : [];
-  } catch {
-    return readArchivedNiche(slug).get(id) || [];
-  }
+  } catch { return []; }
 }

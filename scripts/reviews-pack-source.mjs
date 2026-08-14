@@ -9,14 +9,13 @@ const sourceRoot = path.join(root, "gen", "rev-src");
 const detailedRoot = path.join(root, "public", "reviews");
 const archiveRoot = path.join(root, "public", "reviews-source");
 const indexPath = path.join(root, "src", "data", "reviewSourceIndex.json");
-const patternsPath = path.join(root, "src", "data", "reviewNichePatterns.json");
 
 if (!fs.existsSync(manifestPath) || !fs.existsSync(sourceRoot)) {
   throw new Error("Missing gen/rev-manifest-all.json or gen/rev-src. Restore the review source dump before packing.");
 }
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-const labelReview = createCorpusLabeler(JSON.parse(fs.readFileSync(patternsPath, "utf8")));
+const labelReview = createCorpusLabeler();
 const byNiche = new Map();
 for (const item of manifest) {
   const apps = byNiche.get(item.slug) || [];
@@ -42,6 +41,7 @@ let specificLabelledReviews = 0;
 let nicheLabelledReviews = 0;
 let universalLabelledReviews = 0;
 let fallbackLabelledReviews = 0;
+let themeAssignments = 0;
 const archiveOverrides = {};
 
 const reviewKey = (review) => `${review.rating}|${review.text.normalize("NFKD").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim()}`;
@@ -53,83 +53,73 @@ for (const [slug, apps] of [...byNiche.entries()].sort(([a], [b]) => a.localeCom
   indexedApps += apps.length;
   indexedReviews += apps.reduce((sum, app) => sum + app.total, 0);
 
-  const rawApps = [];
+  const archivedNicheApps = [];
   for (const app of apps) {
     const detailedPath = path.join(detailedRoot, slug, `${app.id}.json`);
-    if (fs.existsSync(detailedPath)) {
+    const sourcePath = path.join(sourceRoot, slug, `${app.id}.json`);
+    const hasDetailed = fs.existsSync(detailedPath);
+    const detailed = hasDetailed ? JSON.parse(fs.readFileSync(detailedPath, "utf8")) : null;
+    if (hasDetailed) {
       detailedApps++;
-      const detailed = JSON.parse(fs.readFileSync(detailedPath, "utf8"));
-      if (detailed.reviews?.length === app.total) {
-        const themes = (detailed.themes || []).map((theme) => ({ ...theme, scope: theme.fallback ? "fallback" : "app" }));
-        indexedNicheApps.push({ ...app, themes, labelling: "app" });
-        labelledReviews += app.total;
-        specificLabelledReviews += themes.filter((theme) => !theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-        fallbackLabelledReviews += themes.filter((theme) => theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-        continue;
-      }
-
-      const sourcePath = path.join(sourceRoot, slug, `${app.id}.json`);
-      const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
-      const themesByReview = new Map();
-      for (const review of detailed.reviews || []) {
-        const key = reviewKey(review);
-        const themes = themesByReview.get(key) || [];
-        themes.push(review.theme);
-        themesByReview.set(key, themes);
-      }
-      let matched = 0;
-      const metadata = new Map((detailed.themes || []).map((theme) => [theme.name, { ...theme, scope: theme.fallback ? "fallback" : "app" }]));
-      const repaired = source.reviews.map((review) => {
-        const themes = themesByReview.get(reviewKey(review));
-        const theme = themes?.shift();
-        if (theme) matched++;
-        if (theme) return { ...review, theme };
-        const assigned = labelReview(slug, review);
-        metadata.set(assigned.name, assigned);
-        if (assigned.scope === "niche") nicheLabelledReviews++;
-        else if (!assigned.fallback) universalLabelledReviews++;
-        return { ...review, theme: assigned.name };
-      });
-      if (matched !== detailed.reviews.length || repaired.length !== app.total) {
-        throw new Error(`${slug}/${app.id}: could not merge ${detailed.reviews.length} labelled reviews into ${app.total} source reviews (matched ${matched})`);
-      }
-      const themes = summarizeThemes(repaired, metadata);
-      indexedNicheApps.push({ ...app, themes, labelling: "app+corpus" });
-      labelledReviews += repaired.length;
-      specificLabelledReviews += themes.filter((theme) => !theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-      fallbackLabelledReviews += themes.filter((theme) => theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-      rawApps.push({ id: app.id, reviews: repaired });
-      (archiveOverrides[slug] ||= []).push(app.id);
-      repairedApps++;
-      repairedReviews += repaired.length;
-      continue;
     }
 
-    const sourcePath = path.join(sourceRoot, slug, `${app.id}.json`);
-    const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+    const source = detailed?.reviews?.length === app.total ? { reviews: detailed.reviews } : JSON.parse(fs.readFileSync(sourcePath, "utf8"));
     if (!Array.isArray(source.reviews) || source.reviews.length !== app.total) {
       throw new Error(`${slug}/${app.id}: manifest=${app.total}, source=${source.reviews?.length ?? "missing"}`);
     }
-    const metadata = new Map();
+
+    const deepThemeByReview = new Map();
+    if (detailed) {
+      for (const review of detailed.reviews || []) {
+        const key = reviewKey(review);
+        const assigned = deepThemeByReview.get(key) || [];
+        assigned.push(review.theme);
+        deepThemeByReview.set(key, assigned);
+      }
+      if (detailed.reviews?.length !== app.total) {
+        repairedApps++;
+        repairedReviews += app.total;
+      }
+    }
+
+    let matchedDeepReviews = 0;
+    const deepMetadata = new Map((detailed?.themes || []).map((theme) => [theme.name, { ...theme, scope: theme.fallback ? "fallback" : "app" }]));
+    const metadata = new Map(deepMetadata);
     const labelled = source.reviews.map((review) => {
-      const assigned = labelReview(slug, review);
-      metadata.set(assigned.name, assigned);
-      if (assigned.scope === "niche") nicheLabelledReviews++;
-      else if (!assigned.fallback) universalLabelledReviews++;
-      return { ...review, theme: assigned.name };
+      const deepNames = deepThemeByReview.get(reviewKey(review));
+      const deepName = deepNames?.shift();
+      if (deepName) matchedDeepReviews++;
+      const deepAssignment = deepName ? deepMetadata.get(deepName) : null;
+      const corpusAssignments = labelReview(slug, review);
+      const specific = [];
+      if (deepAssignment && !deepAssignment.fallback) specific.push(deepAssignment);
+      for (const assignment of corpusAssignments) if (!assignment.fallback && !specific.some((item) => item.name === assignment.name)) specific.push(assignment);
+      const assignments = specific.length ? specific : [deepAssignment?.fallback ? deepAssignment : corpusAssignments[0]];
+      for (const assignment of assignments) {
+        metadata.set(assignment.name, assignment);
+      }
+      labelledReviews++;
+      themeAssignments += assignments.length;
+      if (specific.length) specificLabelledReviews++;
+      else fallbackLabelledReviews++;
+      const names = assignments.map((assignment) => assignment.name);
+      return { rating: review.rating, text: review.text, theme: names[0], themes: names };
     });
+    if (detailed && matchedDeepReviews !== detailed.reviews.length) {
+      throw new Error(`${slug}/${app.id}: could not merge ${detailed.reviews.length} deep labels into source reviews (matched ${matchedDeepReviews})`);
+    }
     const themes = summarizeThemes(labelled, metadata);
-    indexedNicheApps.push({ ...app, themes, labelling: "corpus" });
-    labelledReviews += labelled.length;
-    specificLabelledReviews += themes.filter((theme) => !theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-    fallbackLabelledReviews += themes.filter((theme) => theme.fallback).reduce((sum, theme) => sum + theme.count, 0);
-    rawApps.push({ id: app.id, reviews: labelled });
+    nicheLabelledReviews += themes.filter((theme) => theme.scope === "niche").reduce((sum, theme) => sum + theme.count, 0);
+    universalLabelledReviews += themes.filter((theme) => theme.scope === "universal").reduce((sum, theme) => sum + theme.count, 0);
+    const specificReviews = labelled.filter((review) => review.themes.some((name) => !metadata.get(name)?.fallback)).length;
+    indexedNicheApps.push({ ...app, themes, specificReviews, themeAssignments: themes.reduce((sum, theme) => sum + theme.count, 0), labelling: detailed ? "app+corpus" : "corpus" });
+    archivedNicheApps.push({ id: app.id, reviews: labelled });
     archivedApps++;
     archivedReviews += source.reviews.length;
   }
 
-  if (rawApps.length > 0) {
-    const payload = Buffer.from(JSON.stringify({ apps: rawApps }));
+  if (archivedNicheApps.length > 0) {
+    const payload = Buffer.from(JSON.stringify({ apps: archivedNicheApps }));
     fs.writeFileSync(path.join(archiveRoot, `${slug}.json.gz`), gzipSync(payload, { level: 9 }));
   }
 }
@@ -147,6 +137,7 @@ const index = {
   nicheLabelledReviews,
   universalLabelledReviews,
   fallbackLabelledReviews,
+  themeAssignments,
   archiveOverrides,
   niches,
 };
@@ -166,5 +157,6 @@ console.log(JSON.stringify({
   nicheLabelledReviews,
   universalLabelledReviews,
   fallbackLabelledReviews,
+  themeAssignments,
   archiveFiles: fs.readdirSync(archiveRoot).filter((name) => name.endsWith(".json.gz")).length,
 }, null, 2));

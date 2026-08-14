@@ -3,57 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { plural } from "@/lib/format";
 
-// Per-app review reader. The app's OWN themes are the navigation, grouped the
-// way people actually ask about them: what gets praised, what gets complained
-// about, what splits opinion. Picking a theme filters the stream below, and
-// stars and free text narrow it further.
-//
-// The first screen is server-rendered (readable and indexable without JS); the
-// full review file is prefetched in the background right after mount, so every
-// filter after that is instant and nothing ever shows a spinner mid-read.
-
 export type Theme = { name: string; nameEn: string; count: number; polarity: "love" | "pain" | "mixed"; fallback?: boolean; scope?: "app" | "niche" | "universal" | "fallback" };
-export type Review = { rating: number; text: string; theme?: string };
+export type Review = { rating: number; text: string; theme?: string; themes?: string[] };
 
-const PAGE = 30;
-
-function Stars({ n }: { n: number }) {
-  const v = Math.max(1, Math.min(5, n));
-  return (
-    <span className="shrink-0 text-caption tabular-nums" aria-label={`${v}/5`}>
-      <span className="text-[var(--color-text-secondary)]">{"★".repeat(v)}</span>
-      <span className="text-[var(--color-border-strong)]">{"★".repeat(5 - v)}</span>
-    </span>
-  );
-}
-
-function Chip({
-  on,
-  onClick,
-  disabled = false,
-  children,
-}: {
-  on: boolean;
-  onClick: () => void;
-  disabled?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={on}
-      disabled={disabled}
-      className={`shrink-0 rounded-full border px-3 py-1.5 text-caption transition-colors disabled:opacity-40 ${
-        on
-          ? "border-transparent bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
-          : "border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}
+const PAGE = 40;
 
 export default function ReviewBrowser({
   slug,
@@ -73,318 +26,167 @@ export default function ReviewBrowser({
   ru: boolean;
 }) {
   const [all, setAll] = useState<Review[] | null>(null);
-  const [theme, setTheme] = useState<string | null>(null);
-  const [stars, setStars] = useState<number | null>(null);
-  const [q, setQ] = useState("");
+  const [theme, setTheme] = useState("");
+  const [stars, setStars] = useState("");
+  const [query, setQuery] = useState("");
   const [worstFirst, setWorstFirst] = useState(true);
   const [limit, setLimit] = useState(PAGE);
   const loading = useRef(false);
-  const lc = ru ? "ru-RU" : "en-US";
+  const locale = ru ? "ru-RU" : "en-US";
+  const themeByName = useMemo(() => new Map(themes.map((item) => [item.name, item])), [themes]);
+  const orderedThemes = useMemo(
+    () => [...themes].sort((a, b) => Number(Boolean(a.fallback)) - Number(Boolean(b.fallback)) || b.count - a.count),
+    [themes],
+  );
 
   const load = useCallback(async () => {
     if (all || loading.current) return;
     loading.current = true;
     try {
-      const r = await fetch(`/api/reviews/${encodeURIComponent(slug)}/${encodeURIComponent(id)}`).then((x) => (x.ok ? x.json() : null));
-      setAll(Array.isArray(r?.reviews) ? (r.reviews as Review[]) : []);
+      const response = await fetch(`/api/reviews/${encodeURIComponent(slug)}/${encodeURIComponent(id)}`).then((item) => item.ok ? item.json() : null);
+      setAll(Array.isArray(response?.reviews) ? response.reviews as Review[] : []);
     } catch {
       setAll([]);
     }
     loading.current = false;
   }, [all, slug, id]);
 
-  // Warm the full file as soon as the browser is idle, so the first filter tap
-  // is instant instead of waiting on a fetch.
   useEffect(() => {
-    const w = window as Window & { requestIdleCallback?: (cb: () => void) => number };
-    if (w.requestIdleCallback) w.requestIdleCallback(() => void load());
-    else setTimeout(() => void load(), 400);
+    const browser = window as Window & { requestIdleCallback?: (callback: () => void) => number };
+    if (browser.requestIdleCallback) browser.requestIdleCallback(() => void load());
+    else setTimeout(() => void load(), 300);
   }, [load]);
 
-  const reset = () => {
-    setTheme(null);
-    setStars(null);
-    setQ("");
-    setLimit(PAGE);
-  };
-
-  const pool = all ?? initial;
   const shown = useMemo(() => {
-    const needle = q.trim().toLowerCase();
-    const list = pool.filter(
-      (r) =>
-        (!theme || r.theme === theme) &&
-        (!stars || r.rating === stars) &&
-        (!needle || r.text.toLowerCase().includes(needle)),
-    );
-    return list.sort((a, b) => (worstFirst ? a.rating - b.rating : b.rating - a.rating));
-  }, [pool, theme, stars, q, worstFirst]);
+    const needle = query.trim().toLocaleLowerCase();
+    return (all ?? initial)
+      .filter((review) => {
+        const labels = review.themes?.length ? review.themes : review.theme ? [review.theme] : [];
+        return (!theme || labels.includes(theme)) && (!stars || review.rating === Number(stars)) && (!needle || review.text.toLocaleLowerCase().includes(needle));
+      })
+      .sort((a, b) => worstFirst ? a.rating - b.rating : b.rating - a.rating);
+  }, [all, initial, query, stars, theme, worstFirst]);
 
-  const filtered = !!theme || !!stars || !!q.trim();
-  // Before the full file lands only the server slice is filterable, so counts
-  // come from the index instead of from what happens to be in memory.
   const exact = all !== null;
-  const matched = exact ? shown.length : theme ? (themes.find((t) => t.name === theme)?.count ?? shown.length) : total;
-  const activeTheme = themes.find((t) => t.name === theme);
+  const matched = exact
+    ? shown.length
+    : theme && !stars && !query.trim()
+      ? themeByName.get(theme)?.count ?? shown.length
+      : !theme && !stars && !query.trim()
+        ? total
+        : shown.length;
 
-  const groups = (
-    [
-      { key: "love", label: ru ? "В основном хвалят" : "Mostly praised" },
-      { key: "pain", label: ru ? "В основном критикуют" : "Mostly criticised" },
-      { key: "mixed", label: ru ? "Мнения расходятся" : "Opinions differ" },
-      { key: "fallback", label: ru ? "Без конкретики" : "Unspecific" },
-    ] as const
-  )
-    .map((g) => ({
-      ...g,
-      items: themes
-        .filter((t) => (g.key === "fallback" ? t.fallback : !t.fallback && t.polarity === g.key))
-        .sort((a, b) => b.count - a.count),
-    }))
-    .filter((g) => g.items.length > 0);
-
-  const activeThemeReviews = all && activeTheme ? all.filter((review) => review.theme === activeTheme.name) : [];
-  const activeRatings = [0, 0, 0, 0, 0];
-  for (const review of activeThemeReviews) activeRatings[Math.max(1, Math.min(5, review.rating)) - 1]++;
-  const activeTotal = activeRatings.reduce((sum, count) => sum + count, 0);
-  const activePositive = activeTotal ? ((activeRatings[3] + activeRatings[4]) / activeTotal) * 100 : 0;
-  const activeNeutral = activeTotal ? (activeRatings[2] / activeTotal) * 100 : 0;
-  const activeNegative = activeTotal ? ((activeRatings[0] + activeRatings[1]) / activeTotal) * 100 : 0;
-
-  // The canonical rating block (big average + tappable star histogram) — the
-  // shape every store teaches people to read. The average is honest: it is the
-  // average of the reviews we read, not the store rating.
-  const histTotal = ratingCounts.reduce((a, b) => a + b, 0);
-  const avg = histTotal ? ratingCounts.reduce((a, c, i) => a + c * (i + 1), 0) / histTotal : 0;
-  const maxStars = Math.max(...ratingCounts, 1);
+  const resetLimit = () => setLimit(PAGE);
 
   return (
-    <div className="mt-10">
-      <div className="flex flex-col gap-5 border-y border-[var(--color-border-subtle)] py-5 sm:flex-row sm:items-center sm:gap-10">
-        <div className="shrink-0">
-          <div className="text-stat tabular-nums text-[var(--color-text-primary)]">{avg.toFixed(1)}</div>
-          <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
-            {ru
-              ? `из 5, по ${histTotal.toLocaleString(lc)} ${plural(histTotal, "прочитанному отзыву", "прочитанным отзывам", "прочитанным отзывам")}`
-              : `of 5, across ${histTotal.toLocaleString(lc)} ${histTotal === 1 ? "review" : "reviews"}`}
-          </div>
-          <p className="mt-1 max-w-[20ch] text-caption leading-snug text-[var(--color-text-tertiary)]">
-            {ru ? "Это профиль корпуса, не текущий рейтинг магазина" : "Corpus profile, not the current store rating"}
-          </p>
-        </div>
-        <div className="min-w-0 flex-1">
-          {[5, 4, 3, 2, 1].map((n) => {
-            const c = ratingCounts[n - 1] ?? 0;
-            const on = stars === n;
-            return (
-              <button
-                key={n}
-                type="button"
-                disabled={!c}
-                aria-pressed={on}
-                aria-label={ru
-                  ? `${n} ${plural(n, "звезда", "звезды", "звёзд")}: ${c.toLocaleString(lc)} ${plural(c, "отзыв", "отзыва", "отзывов")}`
-                  : `${n} ${n === 1 ? "star" : "stars"}: ${c.toLocaleString(lc)} ${c === 1 ? "review" : "reviews"}`}
-                onClick={() => {
-                  setStars(on ? null : n);
-                  setLimit(PAGE);
-                }}
-                className="flex w-full items-center gap-3 py-[5px] disabled:opacity-40"
-              >
-                <span className={`w-6 shrink-0 text-left text-caption tabular-nums ${on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>
-                  {n}★
-                </span>
-                <span className="h-[3px] min-w-0 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-                  <span
-                    className="block h-full rounded-full bg-[var(--color-text-primary)]"
-                    style={{ width: `${(c / maxStars) * 100}%`, opacity: stars === null || on ? 0.75 : 0.25 }}
-                  />
-                </span>
-                <span className={`w-12 shrink-0 text-right text-caption tabular-nums ${on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
-                  {c.toLocaleString(lc)}
-                </span>
-              </button>
-            );
-          })}
+    <section className="mt-8" aria-labelledby="review-list-heading">
+      <div className="border-y border-[var(--color-border-subtle)] py-4">
+        <div className="grid gap-2 sm:grid-cols-[minmax(0,1.25fr)_minmax(0,0.7fr)_minmax(0,1fr)_auto]">
+          <label>
+            <span className="sr-only">{ru ? "Тема отзыва" : "Review topic"}</span>
+            <select
+              value={theme}
+              onChange={(event) => { setTheme(event.target.value); resetLimit(); }}
+              className="h-10 w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] px-3 text-footnote text-[var(--color-text-primary)] outline-none focus:border-[var(--color-border-strong)]"
+            >
+              <option value="">{ru ? `Все темы (${themes.length})` : `All topics (${themes.length})`}</option>
+              {orderedThemes.map((item) => (
+                <option key={item.name} value={item.name}>
+                  {ru ? item.name : item.nameEn} — {item.count.toLocaleString(locale)}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            <span className="sr-only">{ru ? "Оценка" : "Rating"}</span>
+            <select
+              value={stars}
+              onChange={(event) => { setStars(event.target.value); resetLimit(); }}
+              className="h-10 w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] px-3 text-footnote text-[var(--color-text-primary)] outline-none focus:border-[var(--color-border-strong)]"
+            >
+              <option value="">{ru ? "Все оценки" : "All ratings"}</option>
+              {[1, 2, 3, 4, 5].map((rating) => (
+                <option key={rating} value={rating}>{rating}★ — {(ratingCounts[rating - 1] || 0).toLocaleString(locale)}</option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            <span className="sr-only">{ru ? "Поиск по тексту" : "Search review text"}</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => { setQuery(event.target.value); resetLimit(); }}
+              placeholder={ru ? "Поиск по тексту" : "Search review text"}
+              className="h-10 w-full rounded-lg border border-[var(--color-border-subtle)] bg-transparent px-3 text-footnote text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+            />
+          </label>
+
+          <button
+            type="button"
+            onClick={() => setWorstFirst((value) => !value)}
+            className="h-10 whitespace-nowrap rounded-lg border border-[var(--color-border-subtle)] px-3 text-footnote text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
+          >
+            {worstFirst ? (ru ? "Сначала 1★" : "1★ first") : ru ? "Сначала 5★" : "5★ first"}
+          </button>
         </div>
       </div>
 
-      {groups.length > 0 && <>
-        <h2 className="mt-9 text-title3 text-[var(--color-text-primary)]">{ru ? "О чём пишут" : "What people write about"}</h2>
-        <p className="mt-1.5 max-w-[58ch] text-footnote text-[var(--color-text-secondary)]">
-          {ru
-            ? "Направление показывает, как тема выглядит в совокупности. Отдельный отзыв может с ним не совпадать — выбери тему и проверь её звёздный профиль и все тексты."
-            : "Direction describes a theme in aggregate. An individual review may differ — select a theme to inspect its star profile and every text."}
+      <div className="mt-5 flex items-baseline justify-between gap-4">
+        <h2 id="review-list-heading" className="text-title3 text-[var(--color-text-primary)]">{ru ? "Отзывы" : "Reviews"}</h2>
+        <p className="text-footnote tabular-nums text-[var(--color-text-tertiary)]">
+          {matched.toLocaleString(locale)} {ru ? plural(matched, "отзыв", "отзыва", "отзывов") : matched === 1 ? "review" : "reviews"}
         </p>
+      </div>
 
-        <div className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-          {groups.map((g) => (
-            <div key={g.key} className="min-w-0 flex-1">
-              <h3 className="border-b border-[var(--color-border-subtle)] pb-2 text-caption text-[var(--color-text-tertiary)]">{g.label}</h3>
-              <ul className="flex flex-col">
-                {g.items.map((t) => {
-                  const on = theme === t.name;
+      {!exact && <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">{ru ? "Загружаю полный список…" : "Loading the complete list…"}</p>}
+      {exact && shown.length === 0 && <p className="mt-6 text-body text-[var(--color-text-tertiary)]">{ru ? "Ничего не найдено." : "Nothing found."}</p>}
+
+      <ol className="mt-2 flex flex-col">
+        {shown.slice(0, limit).map((review, index) => {
+          const labels = review.themes?.length ? review.themes : review.theme ? [review.theme] : [];
+          return (
+            <li key={`${index}-${review.rating}-${review.text.slice(0, 24)}`} className="border-b border-[var(--color-border-subtle)] py-4">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="mr-1 rounded-md bg-[var(--color-bg-muted)] px-2 py-0.5 text-caption font-semibold tabular-nums text-[var(--color-text-primary)]" aria-label={`${review.rating}/5`}>
+                  {review.rating}★
+                </span>
+                {labels.map((name) => {
+                  const item = themeByName.get(name);
                   return (
-                    <li key={t.name} className="border-b border-[var(--color-border-subtle)]">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setTheme(on ? null : t.name);
-                          setLimit(PAGE);
-                        }}
-                        aria-pressed={on}
-                        className="flex w-full items-baseline gap-3 py-2.5 text-left transition-colors"
-                      >
-                        <span
-                          className={`min-w-0 flex-1 text-footnote ${
-                            on ? "font-semibold text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-                          }`}
-                        >
-                          {ru ? t.name : t.nameEn}
-                          {t.fallback && (
-                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
-                              {ru ? "остаток" : "remainder"}
-                            </span></>
-                          )}
-                          {!t.fallback && t.scope === "niche" && (
-                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-accent-brand-subtle)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
-                              {ru ? "ниша" : "niche"}
-                            </span></>
-                          )}
-                          {!t.fallback && t.scope === "universal" && (
-                            <> {" "}<span className="ml-1.5 rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-text-tertiary)]">
-                              {ru ? "механика" : "mechanism"}
-                            </span></>
-                          )}
-                        </span>
-                        <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                          {t.count.toLocaleString(lc)} · {total ? ((t.count / total) * 100).toFixed(t.count / total < 0.01 ? 1 : 0) : 0}%
-                        </span>
-                      </button>
-                    </li>
+                    <button
+                      key={name}
+                      type="button"
+                      onClick={() => { setTheme(theme === name ? "" : name); resetLimit(); }}
+                      className={`rounded-full border px-2 py-0.5 text-[11px] leading-5 ${
+                        theme === name
+                          ? "border-[var(--color-text-primary)] bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+                          : item?.fallback
+                            ? "border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]"
+                            : "border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
+                      }`}
+                    >
+                      {ru ? name : item?.nameEn ?? name}
+                    </button>
                   );
                 })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </>}
-
-      {activeTheme && exact && (
-        <section className="card-min mt-6 rounded-[20px] p-4 sm:p-5" aria-live="polite" aria-label={ru ? "Профиль выбранной темы" : "Selected theme profile"}>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <p className="text-caption uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
-                {activeTheme.fallback
-                  ? (ru ? "Честный остаток" : "Honest remainder")
-                  : activeTheme.scope === "niche"
-                    ? (ru ? "Тема ниши" : "Niche topic")
-                    : activeTheme.scope === "universal"
-                      ? (ru ? "Сквозная механика" : "Cross-product mechanism")
-                      : (ru ? "Тема приложения" : "App topic")}
-              </p>
-              <h3 className="mt-1 text-headline text-[var(--color-text-primary)]">{ru ? activeTheme.name : activeTheme.nameEn}</h3>
-              <p className="mt-1 max-w-[58ch] text-caption leading-relaxed text-[var(--color-text-tertiary)]">
-                {activeTheme.fallback
-                  ? ru
-                    ? "В этих текстах недостаточно конкретики для надёжной продуктовой темы."
-                    : "These texts are not specific enough for a reliable product theme."
-                  : ru
-                    ? `Общее направление: ${activeTheme.polarity === "love" ? "в основном хвалят" : activeTheme.polarity === "pain" ? "в основном критикуют" : "мнения расходятся"}. Ниже — фактические оценки отдельных отзывов.`
-                    : `Overall direction: ${activeTheme.polarity === "love" ? "mostly praised" : activeTheme.polarity === "pain" ? "mostly criticised" : "opinions differ"}. Below are the actual ratings of individual reviews.`}
-              </p>
-            </div>
-            <p className="shrink-0 text-footnote tabular-nums text-[var(--color-text-secondary)]">{activeTotal.toLocaleString(lc)} {ru ? plural(activeTotal, "отзыв", "отзыва", "отзывов") : activeTotal === 1 ? "review" : "reviews"}</p>
-          </div>
-          <div className="mt-4 grid grid-cols-3 overflow-hidden rounded-xl border border-[var(--color-border-subtle)]">
-            <div className="p-3">
-              <p className="text-headline tabular-nums text-[var(--color-text-primary)]">{activePositive.toFixed(0)}%</p>
-              <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">4–5★</p>
-            </div>
-            <div className="border-x border-[var(--color-border-subtle)] p-3">
-              <p className="text-headline tabular-nums text-[var(--color-text-primary)]">{activeNeutral.toFixed(0)}%</p>
-              <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">3★</p>
-            </div>
-            <div className="p-3">
-              <p className="text-headline tabular-nums text-[var(--color-text-primary)]">{activeNegative.toFixed(0)}%</p>
-              <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">1–2★</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Sticky control bar: what you are reading, how many, and the way out. */}
-      <div className="sticky top-[4.5rem] z-10 -mx-4 mt-8 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] px-4 pb-2.5 pt-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-footnote text-[var(--color-text-primary)]">
-            {activeTheme ? (ru ? activeTheme.name : activeTheme.nameEn) : ru ? "Все отзывы" : "All reviews"}
-            {stars && <span className="tabular-nums"> · {stars}★</span>}
-            {" "}<span className="ml-1.5 tabular-nums text-[var(--color-text-tertiary)]">{matched.toLocaleString(lc)}</span>
-          </span>
-          <div className="ml-auto flex items-center gap-1.5">
-            <Chip on={false} onClick={() => setWorstFirst((v) => !v)}>
-              {worstFirst ? (ru ? "сначала плохие" : "worst first") : ru ? "сначала хорошие" : "best first"}
-            </Chip>
-            {filtered && (
-              <Chip on={false} onClick={reset}>
-                {ru ? "сбросить" : "clear"}
-              </Chip>
-            )}
-          </div>
-        </div>
-        <label className="mt-2 block">
-          <span className="sr-only">{ru ? "Поиск по тексту отзывов" : "Search review text"}</span>
-          <input
-            type="search"
-            value={q}
-            onChange={(e) => {
-              setQ(e.target.value);
-              setLimit(PAGE);
-            }}
-            placeholder={ru ? "поиск по тексту отзывов" : "search review text"}
-            className="w-full rounded-full border border-[var(--color-border-subtle)] bg-transparent px-4 py-2 text-footnote text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
-          />
-        </label>
-      </div>
-
-      {!exact && (
-        <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
-          {ru ? "подгружаю остальные отзывы" : "loading the rest of the reviews"}
-        </p>
-      )}
-
-      {exact && shown.length === 0 && (
-        <p className="mt-6 text-body text-[var(--color-text-tertiary)]">
-          {ru ? "Под эти условия ничего не подошло." : "Nothing matches these filters."}
-        </p>
-      )}
-
-      <ol className="flex flex-col">
-        {shown.slice(0, limit).map((r, i) => (
-          <li key={`${i}-${r.rating}`} className="border-b border-[var(--color-border-subtle)] py-3.5">
-            <div className="flex items-baseline gap-2.5">
-              <Stars n={r.rating} />
-              {!theme && r.theme && (
-                <span className="min-w-0 truncate text-caption text-[var(--color-text-tertiary)]">
-                  {ru ? r.theme : themes.find((t) => t.name === r.theme)?.nameEn ?? r.theme}
-                  {themes.find((t) => t.name === r.theme)?.fallback && <span className="ml-1">· {ru ? "без конкретики" : "unspecific"}</span>}
-                </span>
-              )}
-            </div>
-            <p className="mt-1.5 text-footnote text-pretty text-[var(--color-text-secondary)]">{r.text}</p>
-          </li>
-        ))}
+              </div>
+              <p className="mt-2 text-footnote text-pretty leading-relaxed text-[var(--color-text-secondary)]">{review.text}</p>
+            </li>
+          );
+        })}
       </ol>
 
       {shown.length > limit && (
         <button
           type="button"
-          onClick={() => setLimit((l) => l + PAGE * 3)}
-          className="mt-5 w-full rounded-full border border-[var(--color-border-subtle)] py-2.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+          onClick={() => setLimit((value) => value + PAGE * 2)}
+          className="mt-5 w-full rounded-lg border border-[var(--color-border-subtle)] py-2.5 text-footnote text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
         >
-          {ru ? `Показать ещё, осталось ${(shown.length - limit).toLocaleString(lc)}` : `Show more, ${(shown.length - limit).toLocaleString(lc)} left`}
+          {ru ? `Показать ещё · осталось ${(shown.length - limit).toLocaleString(locale)}` : `Show more · ${(shown.length - limit).toLocaleString(locale)} left`}
         </button>
       )}
-    </div>
+    </section>
   );
 }

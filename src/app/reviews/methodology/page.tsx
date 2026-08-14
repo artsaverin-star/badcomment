@@ -79,8 +79,8 @@ export default async function ReviewMethodology() {
         </p>
         <p className="mt-3 text-body leading-relaxed text-[var(--color-text-secondary)]">
           {ru
-            ? `Поштучная разметка полная: ${t.labelledReviews.toLocaleString(lc)} из ${t.sourceReviews.toLocaleString(lc)} текстов имеют ровно одну метку.`
-            : `Per-review labelling is complete: ${t.labelledReviews.toLocaleString(lc)} of ${t.sourceReviews.toLocaleString(lc)} texts carry exactly one label.`}
+            ? `Поштучная разметка полная: все ${t.labelledReviews.toLocaleString(lc)} текстов имеют одну или несколько меток; всего назначено ${t.themeAssignments.toLocaleString(lc)} тематических меток.`
+            : `Per-review labelling is complete: all ${t.labelledReviews.toLocaleString(lc)} texts carry one or more labels, with ${t.themeAssignments.toLocaleString(lc)} topic assignments in total.`}
         </p>
       </section>
 
@@ -89,11 +89,11 @@ export default async function ReviewMethodology() {
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           <article className="card-min rounded-[20px] p-5">
             <p className="text-caption font-semibold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Уровень текста" : "Text layer"}</p>
-            <h3 className="mt-2 text-title3 text-[var(--color-text-primary)]">{ru ? "Одна метка на отзыв" : "One label per review"}</h3>
+            <h3 className="mt-2 text-title3 text-[var(--color-text-primary)]">{ru ? "Все темы каждого отзыва" : "Every topic in each review"}</h3>
             <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
               {ru
-                ? "Сначала ищем явный продуктовый сюжет или сквозную механику: списание, рекламу, вылет, вход, синхронизацию и другие узкие сигналы. Если текста недостаточно, сохраняем только тональность — без выдуманной причины."
-                : "We first look for an explicit product story or cross-product mechanism: charges, ads, crashes, login, sync, and other narrow signals. If the text is insufficient, only sentiment is retained, without inventing a reason."}
+                ? "Ищем все явно выраженные сюжеты: списание, рекламу, вылет, вход, доставку, качество и другие узкие сигналы. Один текст может получить несколько меток. Если конкретики нет, сохраняем только общую оценку — без выдуманной причины."
+                : "We identify every explicit story: charges, ads, crashes, login, delivery, quality, and other narrow signals. One text may receive several labels. If it lacks specifics, only an overall assessment is retained, without inventing a reason."}
             </p>
           </article>
           <article className="card-min rounded-[20px] p-5">
@@ -132,8 +132,8 @@ export default async function ReviewMethodology() {
           </Definition>
           <Definition term={ru ? "Конкретная тема" : "Specific theme"}>
             {ru
-              ? `Содержательный сюжет, который можно назвать без домыслов. Такие темы получили ${t.sourceSpecificReviews.toLocaleString(lc)} отзывов — ${t.sourceSpecificCoveragePct.toFixed(1)}% полного корпуса; остальное остаётся в явных тональных корзинах «без конкретной причины».`
-              : `A substantive story that can be named without speculation. ${t.sourceSpecificReviews.toLocaleString(lc)} reviews, or ${t.sourceSpecificCoveragePct.toFixed(1)}% of the complete corpus, have one; the remainder stays in explicit “without a specific reason” sentiment buckets.`}
+              ? `Содержательный сюжет, который можно назвать без домыслов. Одну или несколько таких тем получили ${t.sourceSpecificReviews.toLocaleString(lc)} уникальных отзывов — ${t.sourceSpecificCoveragePct.toFixed(1)}% полного корпуса; остальное остаётся в явных общих корзинах «без конкретной причины».`
+              : `A substantive story that can be named without speculation. ${t.sourceSpecificReviews.toLocaleString(lc)} unique reviews, or ${t.sourceSpecificCoveragePct.toFixed(1)}% of the complete corpus, have one or more; the remainder stays in explicit “without a specific reason” overall buckets.`}
           </Definition>
           <Definition term={ru ? "Охват" : "Coverage"}>
             {ru
