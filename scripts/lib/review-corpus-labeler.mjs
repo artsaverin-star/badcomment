@@ -13,7 +13,9 @@ const TOPICS = [
   topic("вылеты, зависания и ошибки", "crashes, freezes and errors", "pain", /\b(?:crash(?:es|ed|ing)?|freez(?:e|es|ing)?|frozen|buggy|glitch(?:y|es|ed|ing)?|bugs?|error messages?|black screen|white screen|won'?t open|doesn'?t open|stopped working|not working|broken|unresponsive|none of the (?:buttons?|features?) work|buttons? (?:do not|don'?t|won'?t) work)\b|(?:не работает|не открывается|вылетает|зависает|ошибка|белый экран)|(?:no funciona|mensaje de error|se cierra|se queda pensando)/i),
   topic("обновление сломало привычный сценарий", "an update broke a familiar workflow", "pain", /\b(?:after|since|latest|new|recent).{0,50}(?:updates?|upgrades?|versions?).{0,110}(?:worse|broke|broken|crash|freez|missing|removed|change|unusable|ruined|awful)|(?:updates?|upgrades?|versions?).{0,90}(?:ruined|worse|broke|removed|destroyed|awful)\b|(?:после|с).{0,40}(?:обновлен|новой верси).{0,100}(?:хуже|слом|пропал|не работа)/i),
   topic("не получается войти или зарегистрироваться", "login or signup does not work", "pain", /\b(?:can'?t|cannot|unable|won'?t|doesn'?t).{0,75}(?:log ?in|sign ?in|register|create (?:an )?account|access (?:my )?account|reset (?:my )?password)|(?:login|sign ?in|password|verification code|account access).{0,75}(?:fail|error|problem|issue|loop|locked|not work)\b/i),
+  topic("аккаунт заблокировали сразу после регистрации", "account blocked immediately after signup", "pain", /\b(?:(?:immediately|instantly|right away|within (?:a few )?(?:seconds?|minutes?|hours?)).{0,100}(?:ban(?:ned)?|suspend(?:ed)?|blocked|disabled|locked out|booted out)|(?:ban(?:ned)?|suspend(?:ed)?|blocked|disabled|locked out|booted out).{0,100}(?:immediately|instantly|right away|within (?:a few )?(?:seconds?|minutes?|hours?)|before (?:i|we) (?:could|even got to) use)|(?:new|brand new).{0,45}(?:account|profile).{0,100}(?:ban(?:ned)?|suspend(?:ed)?|blocked|disabled|locked out|booted out))\b/i),
   topic("аккаунт заблокирован или удалён", "account blocked or deleted", "pain", /\b(?:ban(?:ned)?|suspend(?:ed|ing)?|blocked|locked out|disabled|terminated|deleted my account).{0,110}(?:account|reason|appeal|support|explanation|profile)|(?:account|profile).{0,90}(?:ban(?:ned)?|suspend(?:ed|ing)?|blocked|disabled|terminated|deleted)\b/i),
+  topic("поддержка не отвечает", "support does not respond", "pain", /\b(?:(?:customer (?:service|support)|support team|help desk|developer|support).{0,120}(?:(?:no|zero) (?:response|reply)|never (?:respond(?:ed|s|ing)?|repl(?:y|ied|ies|ying))|(?:didn'?t|doesn'?t|won'?t|will not) (?:respond|reply)|got nothing back|didn'?t hear back|ignor(?:e|es|ed|ing))|(?:(?:no|zero) (?:response|reply)|never (?:respond(?:ed|s|ing)?|repl(?:y|ied|ies|ying))|got nothing back|didn'?t hear back|ignor(?:e|es|ed|ing)).{0,100}(?:support|customer service|email|ticket|message))\b/i),
   topic("поддержка не помогает", "support does not help", "pain", /\b(?:customer (?:service|support)|support team|help desk|developer|support).{0,110}(?:no response|never (?:respond|reply)|unhelpful|useless|terrible|poor|bad|ignore|robot|bot|can'?t help|won'?t help|doesn'?t help|didn'?t understand|hung up|refus)|(?:no response|never (?:respond|reply)|ignored).{0,90}(?:support|email|ticket|message)\b/i),
   topic("поддержка решила проблему", "support resolved the issue", "love", /\b(?:customer (?:service|support)|support team|developer|support).{0,100}(?:helpful|amazing|excellent|great|quick|fast|resolved|fixed|responded)|(?:resolved|fixed|helped).{0,80}(?:support|service|team)\b/i),
   topic("пропали данные или прогресс", "data or progress disappeared", "pain", /\b(?:lost|lose|delet|disappear|gone|wiped|eras|restart).{0,95}(?:data|history|progress|entries|record|project|photo|video|notes?|account|playlist|recipe)|(?:data|history|progress|entries|record|project|playlist|recipe).{0,95}(?:lost|lose|delet|disappear|gone|wiped|eras|reset|restart)|(?:lost|deleted) my work\b|(?:пропал|потерял|удалил|сбросил).{0,70}(?:данн|прогресс|истори|запис)/i),
@@ -118,6 +120,16 @@ export function createCorpusLabeler() {
     if (lateDelivery) {
       const onTimeIndex = matches.findIndex((match) => match.name === "доставка вовремя");
       if (onTimeIndex !== -1) matches.splice(onTimeIndex, 1);
+    }
+    const immediateBlock = matches.some((match) => match.name === "аккаунт заблокировали сразу после регистрации");
+    if (immediateBlock) {
+      const genericBlockIndex = matches.findIndex((match) => match.name === "аккаунт заблокирован или удалён");
+      if (genericBlockIndex !== -1) matches.splice(genericBlockIndex, 1);
+    }
+    const unansweredSupport = matches.some((match) => match.name === "поддержка не отвечает");
+    if (unansweredSupport) {
+      const genericSupportIndex = matches.findIndex((match) => match.name === "поддержка не помогает");
+      if (genericSupportIndex !== -1) matches.splice(genericSupportIndex, 1);
     }
     if (matches.length) return matches.slice(0, 8);
     const rating = Number(review.rating) || 0;
