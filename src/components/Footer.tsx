@@ -15,6 +15,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const links = [
     { href: "/", label: ru ? "Разборы" : "Breakdowns" },
     { href: "/build", label: ru ? "Создание" : "Create" },
+    { href: "/aso", label: "ASO" },
     { href: "/ideas", label: ru ? "Идеи" : "Ideas" },
     { href: "/rating", label: ru ? "Рейтинг" : "Rating" },
     { href: "/reviews", label: ru ? "Отзывы" : "Reviews" },

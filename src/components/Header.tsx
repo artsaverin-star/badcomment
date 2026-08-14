@@ -22,6 +22,10 @@ const NAV: { key: string; href: string; ru: string; en: string; icon: React.Reac
     icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
+    key: "aso", href: "/aso", ru: "ASO", en: "ASO",
+    icon: <><path d="M4 18V9M10 18V5M16 18v-7M21 18H3" /><path d="m4 7 6-4 6 5 5-4" /></>,
+  },
+  {
     key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
     icon: <><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3Z" /></>,
   },
@@ -85,6 +89,7 @@ export default function Header({
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const activeKey =
     path.startsWith("/build") ? "build"
+      : path.startsWith("/aso") ? "aso"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
       : path.startsWith("/reviews") ? "reviews"

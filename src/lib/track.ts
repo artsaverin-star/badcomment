@@ -113,3 +113,15 @@ export function trackPurchase(txnId: string, item: TrackItem, source?: string) {
 export function trackReviewCategoryOpen(slug: string, locked: boolean) {
   event(locked ? "locked_category_open" : "review_category_open", { category: slug });
 }
+
+export function trackAsoAuditStart(source: string) {
+  event("aso_audit_start", { source });
+}
+
+export function trackAsoAuditView(appId: string, niche: string | null, full: boolean, sample: boolean) {
+  event("aso_audit_view", { app_id: appId, niche: niche || "unmatched", full_access: full, sample });
+}
+
+export function trackAsoCopy(field: string, appId: string) {
+  event("aso_copy", { field, app_id: appId });
+}

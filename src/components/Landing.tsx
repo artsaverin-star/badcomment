@@ -271,6 +271,18 @@ export default function Landing({
           </div>
         </section>
 
+      <Link
+        href={`/${ru ? "ru" : "en"}/aso`}
+        className="group mx-auto mt-7 flex w-full max-w-3xl items-center justify-between gap-5 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-5 transition-colors hover:border-[var(--color-border-strong)]"
+      >
+        <div>
+          <p className="text-caption font-semibold uppercase tracking-[0.06em] text-[var(--color-text-brand)]">ASO</p>
+          <p className="mt-1 text-headline text-[var(--color-text-primary)]">{ru ? "Уже есть приложение? Разберём его страницу в App Store" : "Already have an app? Audit its App Store page"}</p>
+          <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">{ru ? "Название, скриншоты и конкретные изменения по отзывам конкурентов" : "Name, screenshots and concrete changes backed by competitor reviews"}</p>
+        </div>
+        <Arrow className="shrink-0" />
+      </Link>
+
       {/* Every niche with a full dossier. */}
       <div className="mx-auto mt-9 w-full px-0 sm:mt-12">
         <div className="mb-5">
