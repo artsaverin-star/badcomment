@@ -102,7 +102,7 @@ export default async function McpPage() {
     ? [
         {
           h: "Реальные отзывы вместо догадок",
-          p: "Агент видит темы, на которые распадаются отзывы каждого приложения, и может процитировать сами тексты. С фильтром по теме и звёздам.",
+          p: "Агент получает размеченные темы каждого приложения и может показать исходные отзывы. Есть фильтры по теме и оценке.",
         },
         {
           h: "Рейтинг по отзывам",
@@ -218,8 +218,8 @@ export default async function McpPage() {
         </h1>
         <p className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
-            ? "Агент, который пишет твоё приложение, обычно угадывает рынок. Подключи inApp, и он сможет спросить: на что жалуются пользователи в этой нише, кто там лидирует по-настоящему, за что люди платят. Ответ придёт из реальных отзывов с цитатами."
-            : "The agent writing your app usually guesses about the market. Connect inApp and it can ask instead: what users of this niche complain about, who genuinely leads, what people pay for. The answer comes back from real reviews, with quotes."}
+            ? "Подключи inApp к агенту, чтобы он работал с данными рынка: находил повторяющиеся жалобы, сравнивал приложения и показывал, за что пользователи готовы платить. Каждый вывод можно проверить по исходным отзывам."
+            : "Connect inApp so your agent can work with market data: find recurring complaints, compare apps and show what users pay for. Every conclusion can be checked against the source reviews."}
         </p>
         <p className="mt-3 max-w-[62ch] text-footnote text-[var(--color-text-tertiary)]">
           {ru
@@ -253,7 +253,7 @@ export default async function McpPage() {
         </div>
       )}
 
-      <Section kicker={ru ? "Что даёт" : "What it gives"} title={ru ? "Три вещи, которых нет у агента из коробки" : "Three things your agent lacks out of the box"}>
+      <Section kicker={ru ? "Возможности" : "Capabilities"} title={ru ? "Что получает агент после подключения" : "What your agent gets after connecting"}>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
           {GIVES.map((g) => (
             <div key={g.h}>
@@ -265,18 +265,16 @@ export default async function McpPage() {
       </Section>
 
       {example && examplePains.length > 0 && (
-        <Section kicker={ru ? "Как это выглядит" : "What it looks like"} title={ru ? "Живой пример на наших данных" : "A live example on our data"}>
+        <Section
+          kicker={ru ? "Пример ответа" : "Example result"}
+          title={ru ? `Главные проблемы в категории «${example.name}»` : `Top problems in ${example.name}`}
+        >
           <p className="text-callout text-[var(--color-text-secondary)]">
-            {ru ? (
-              <>Спроси агента: «На что жалуются в нише „{example.name}“?»</>
-            ) : (
-              <>Ask the agent: &ldquo;What do people complain about in the {example.name} niche?&rdquo;</>
-            )}
+            {ru
+              ? `Три самые частые темы среди ${example.reviews.toLocaleString(lc)} ${plural(example.reviews, "отзыва", "отзывов", "отзывов")}:`
+              : `The three most common themes across ${example.reviews.toLocaleString(lc)} reviews:`}
           </p>
-          <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
-            {ru ? "Он вызовет list_niche_themes и вернёт самые громкие темы жалоб:" : "It calls list_niche_themes and returns the loudest complaint themes:"}
-          </p>
-          <ul className="mt-2 border-t border-[var(--color-border-subtle)]">
+          <ul className="mt-5 border-t border-[var(--color-border-subtle)]">
             {examplePains.map((p) => (
               <li key={p.name} className="flex items-baseline gap-3 border-b border-[var(--color-border-subtle)] py-2.5">
                 <span className="min-w-0 flex-1 text-footnote text-[var(--color-text-primary)]">{ru ? p.name : p.nameEn}</span>
@@ -286,25 +284,9 @@ export default async function McpPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 max-w-[62ch] text-footnote text-[var(--color-text-tertiary)]">
-            {ru ? (
-              <>
-                Это реальные цифры из разметки, а не сочинённый пример. По каждой теме агент может процитировать сами отзывы. Проверить можно руками:{" "}
-                <Link href={`${lp}/reviews/${example.slug}`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
-                  {ru ? "отзывы ниши" : "niche reviews"}
-                </Link>
-                .
-              </>
-            ) : (
-              <>
-                These are real numbers from the labelling, not a made-up example. For every theme the agent can quote the reviews themselves. Check it by hand:{" "}
-                <Link href={`${lp}/reviews/${example.slug}`} className="text-[var(--color-text-secondary)] underline underline-offset-2 transition-colors hover:text-[var(--color-text-primary)]">
-                  niche reviews
-                </Link>
-                .
-              </>
-            )}
-          </p>
+          <Link href={`${lp}/reviews/${example.slug}`} className="mt-5 inline-flex text-footnote font-semibold text-[var(--color-text-secondary)] underline underline-offset-3 transition-colors hover:text-[var(--color-text-primary)]">
+            {ru ? "Открыть все темы и исходные отзывы →" : "Browse every theme and source review →"}
+          </Link>
         </Section>
       )}
 
@@ -330,7 +312,7 @@ export default async function McpPage() {
 
       <Section
         kicker={ru ? "Что внутри" : "What's inside"}
-        title={ru ? `${TOOLS.length} ${plural(TOOLS.length, "инструмент", "инструмента", "инструментов")} на один спуск по нише` : `${TOOLS.length} tools, one descent through a niche`}
+        title={ru ? `${TOOLS.length} ${plural(TOOLS.length, "инструмент", "инструмента", "инструментов")} для исследования ниши` : `${TOOLS.length} tools for niche research`}
       >
         <div className="flex flex-col gap-6">
           {GROUPS.map((g) => (
