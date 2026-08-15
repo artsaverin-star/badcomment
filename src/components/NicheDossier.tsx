@@ -93,7 +93,17 @@ function groupFindings(pillars: Pillar[], cards: Finding[]) {
   return groups;
 }
 
-export default async function NicheDossier({ slug, locale = "ru" }: { slug: string; locale?: Locale }) {
+export default async function NicheDossier({
+  slug,
+  locale = "ru",
+  backHref = "/",
+  workspace = false,
+}: {
+  slug: string;
+  locale?: Locale;
+  backHref?: string;
+  workspace?: boolean;
+}) {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
   const NF = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
@@ -150,6 +160,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       // The kicker ties the idea back to its paying persona from the audience
       // section (on the homepage this slot shows the niche name instead).
       category: scoreFor(x.slug, locale)?.targetSegment,
+      buildHref: workspace ? `${lp}/build/${slug}/${x.slug}` : undefined,
     };
   });
   // Locked teasers: only the three strongest ideas, title + score + segment.
@@ -259,7 +270,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
-      <BackLink fallback="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback={backHref} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Назад" : "Back"}
       </BackLink>

@@ -19,8 +19,9 @@ const indexPage = read("src/app/workspace/page.tsx");
 const categoryPage = read("src/app/workspace/[slug]/page.tsx");
 const header = read("src/components/Header.tsx");
 const layout = read("src/app/layout.tsx");
-const workspaceHeader = read("src/components/CategoryWorkspaceHeader.tsx");
-const betaSource = [indexPage, categoryPage, workspaceHeader].join("\n").toLowerCase();
+const dossier = read("src/components/NicheDossier.tsx");
+const ideaCards = read("src/components/TestCards.tsx");
+const betaSource = [indexPage, categoryPage].join("\n").toLowerCase();
 
 for (const source of [indexPage, categoryPage]) {
   assert.match(source, /canUseWorkspaceBeta\(user\)/, "every beta page must verify the owner");
@@ -31,13 +32,15 @@ for (const source of [indexPage, categoryPage]) {
 assert.match(header, /item\.key !== "workspace" \|\| showWorkspace/, "the beta nav item must be hidden by default");
 assert.match(layout, /showWorkspace=\{canUseWorkspaceBeta\(access\.user\)\}/, "layout must reveal beta only to the owner");
 
-assert.doesNotMatch(categoryPage, /searchParams|\?view=/, "the category workspace must be one page without tabs");
-assert.match(categoryPage, /function TopicRow/, "topics must use progressive disclosure");
-assert.match(categoryPage, /function AppRow/, "apps must expand in place");
-assert.match(categoryPage, /Показать ещё \$\{remainingApps\.length\}/, "long app lists must be collapsed");
-assert.match(categoryPage, /Размеченные отзывы/, "expanded apps must lead to labelled review text");
-assert.match(categoryPage, /\/build\/\$\{slug\}\/\$\{idea\.slug\}/, "each idea must lead to its product plan");
-assert.ok(categoryPage.indexOf('id="workspace-apps"') < categoryPage.indexOf('id="workspace-topics"'), "the hierarchy must start with app → topics → reviews");
+assert.match(categoryPage, /<NicheDossier/, "the category workspace must reuse the editorial dossier instead of a parallel table UI");
+assert.match(categoryPage, /backHref=\{`\$\{lp\}\/workspace`\}/, "the dossier must return to the private category index");
+assert.match(categoryPage, /workspace \/>/, "the dossier must enable private workspace actions");
+for (const section of ["Обзор рынка", "Аудитория", "Откуда приходят пользователи", "Рейтинг по отзывам", "Что показывают отзывы", "Что строить"]) {
+  assert.ok(dossier.includes(section), `the unified dossier must include ${section}`);
+}
+assert.match(dossier, /Открыть \$\{NF\(corpus\.reviews\)\} исходных отзывов/, "the dossier must lead to source reviews");
+assert.match(dossier, /buildHref: workspace \?/, "workspace ideas must receive a product-plan link");
+assert.match(ideaCards, /Открыть план продукта/, "the idea sheet must expose the product plan action");
 
 const corpusSlugs = new Set(reviewCorpusSlugs());
 const published = Object.keys(RATING_BY_SLUG).filter((slug) => corpusSlugs.has(slug)).sort();

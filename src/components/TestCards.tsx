@@ -18,7 +18,7 @@ type Score = { money: number; simplicity: number; demand: number; composite: num
 const founder100 = (w: number) => Math.round((w / 45) * 100);
 // `category` is the card kicker (on niche pages it shows the paying segment);
 // `categoryName` is the real niche name — the only thing the paywall may show.
-type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categoryName?: string; categorySlug?: string; locked?: boolean; rank?: number };
+type Idea = { slug?: string; title: string; oneLiner: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string; reviewGrid?: { quote: string; rating: number; app: string; quoteRu?: string }[]; icon: string; hue?: number; cover?: string; score?: Score; category?: string; categoryName?: string; categorySlug?: string; buildHref?: string; locked?: boolean; rank?: number };
 
 // Bookmark toggle on an idea card: pops on tap and persists to localStorage
 // (favIdeas, keyed by idea slug). State lives in localStorage and reaches
@@ -477,7 +477,11 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
           onClose={() => setOpen(null)}
           locale={locale}
           favId={open.slug}
-          action={open.categorySlug ? (
+          action={open.buildHref ? (
+            <a href={open.buildHref} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
+              {ru ? "Открыть план продукта" : "Open product plan"}
+            </a>
+          ) : open.categorySlug ? (
             <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
               {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
             </a>
