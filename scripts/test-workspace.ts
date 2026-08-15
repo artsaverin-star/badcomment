@@ -2,6 +2,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { canUseWorkspaceBeta } from "../src/lib/workspaceAccess";
+import { WORKSPACE_DOMAINS } from "../src/lib/workspaceTaxonomy";
+import { RATING_BY_SLUG } from "../src/data/peoplesRating";
+import { reviewCorpusSlugs } from "../src/lib/reviews";
 
 const root = process.cwd();
 const read = (file: string) => fs.readFileSync(path.join(root, file), "utf8");
@@ -28,9 +31,20 @@ for (const source of [indexPage, categoryPage]) {
 assert.match(header, /item\.key !== "workspace" \|\| showWorkspace/, "the beta nav item must be hidden by default");
 assert.match(layout, /showWorkspace=\{canUseWorkspaceBeta\(access\.user\)\}/, "layout must reveal beta only to the owner");
 
-for (const view of ["overview", "apps", "ideas", "reviews", "build"]) {
+for (const view of ["overview", "apps", "reviews", "ideas"]) {
   assert.ok(nav.includes(`key: "${view}"`), `workspace navigation must include ${view}`);
 }
+assert.doesNotMatch(nav, /key: "build"/, "creation must be an action inside ideas, not a peer research section");
+assert.match(nav, /Исследование/, "workspace navigation must separate research");
+assert.match(nav, /Действие/, "workspace navigation must separate actions");
+assert.match(categoryPage, /\/build\/\$\{slug\}\/\$\{idea\.slug\}/, "each idea must lead to its product plan");
+
+const corpusSlugs = new Set(reviewCorpusSlugs());
+const published = Object.keys(RATING_BY_SLUG).filter((slug) => corpusSlugs.has(slug)).sort();
+const assigned = WORKSPACE_DOMAINS.flatMap((domain) => domain.categories);
+assert.equal(new Set(assigned).size, assigned.length, "a category must not appear in two workspace domains");
+assert.deepEqual([...assigned].sort(), published, "workspace domains must cover every published review category exactly once");
+assert.match(indexPage, /WORKSPACE_DOMAINS/, "category index must use the domain taxonomy");
 
 for (const publicPage of [
   "src/app/segment/[slug]/page.tsx",
