@@ -26,6 +26,10 @@ const NAV: { key: string; href: string; ru: string; en: string; icon: React.Reac
     icon: <><path d="M4 18V9M10 18V5M16 18v-7M21 18H3" /><path d="m4 7 6-4 6 5 5-4" /></>,
   },
   {
+    key: "workspace", href: "/workspace", ru: "Beta", en: "Beta",
+    icon: <><rect x="3" y="3" width="18" height="18" rx="5" /><path d="M8 8h4a2.5 2.5 0 0 1 0 5H8V8Zm0 5h4.5a2.5 2.5 0 0 1 0 5H8v-5Z" /></>,
+  },
+  {
     key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
     icon: <><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3Z" /></>,
   },
@@ -51,12 +55,14 @@ export default function Header({
   loggedIn = false,
   showOffer = false,
   showAso = false,
+  showWorkspace = false,
   theme = "dark",
 }: {
   locale: Locale;
   loggedIn?: boolean;
   showOffer?: boolean;
   showAso?: boolean;
+  showWorkspace?: boolean;
   theme?: "light" | "dark";
 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +72,9 @@ export default function Header({
   // Prefix nav links with the active locale so navigation never falls back to
   // the cookie's language (which caused sections to flip to Russian on click).
   const lp = ru ? "/ru" : "/en";
-  const nav = showAso ? NAV : NAV.filter((item) => item.key !== "aso");
+  const nav = NAV.filter((item) =>
+    (item.key !== "aso" || showAso) && (item.key !== "workspace" || showWorkspace),
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -91,7 +99,8 @@ export default function Header({
   // Strip a leading /ru or /en so matching works on either locale prefix.
   const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const activeKey =
-    path.startsWith("/build") ? "build"
+    path.startsWith("/workspace") ? "workspace"
+      : path.startsWith("/build") ? "build"
       : path.startsWith("/aso") ? "aso"
       : path.startsWith("/ideas") ? "ideas"
       : path.startsWith("/rating") ? "rating"
@@ -114,8 +123,8 @@ export default function Header({
         </Link>
 
         {/* Center nav — absolutely centered so it stays put regardless of the
-            side widths. Six sections need real room, so it only renders on wide
-            screens (≥1200px); everything narrower gets the burger sheet. */}
+            side widths. It only renders on wide screens (≥1200px); everything
+            narrower gets the burger sheet. */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 min-[1200px]:flex">
           {nav.map((n) => {
             const active = n.key === activeKey;
