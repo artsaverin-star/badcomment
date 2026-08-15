@@ -19,8 +19,8 @@ const indexPage = read("src/app/workspace/page.tsx");
 const categoryPage = read("src/app/workspace/[slug]/page.tsx");
 const header = read("src/components/Header.tsx");
 const layout = read("src/app/layout.tsx");
-const nav = read("src/components/CategoryWorkspaceNav.tsx");
-const betaSource = [indexPage, categoryPage, nav].join("\n").toLowerCase();
+const workspaceHeader = read("src/components/CategoryWorkspaceHeader.tsx");
+const betaSource = [indexPage, categoryPage, workspaceHeader].join("\n").toLowerCase();
 
 for (const source of [indexPage, categoryPage]) {
   assert.match(source, /canUseWorkspaceBeta\(user\)/, "every beta page must verify the owner");
@@ -31,13 +31,13 @@ for (const source of [indexPage, categoryPage]) {
 assert.match(header, /item\.key !== "workspace" \|\| showWorkspace/, "the beta nav item must be hidden by default");
 assert.match(layout, /showWorkspace=\{canUseWorkspaceBeta\(access\.user\)\}/, "layout must reveal beta only to the owner");
 
-for (const view of ["overview", "apps", "reviews", "ideas"]) {
-  assert.ok(nav.includes(`key: "${view}"`), `workspace navigation must include ${view}`);
-}
-assert.doesNotMatch(nav, /key: "build"/, "creation must be an action inside ideas, not a peer research section");
-assert.match(nav, /Исследование/, "workspace navigation must separate research");
-assert.match(nav, /Действие/, "workspace navigation must separate actions");
+assert.doesNotMatch(categoryPage, /searchParams|\?view=/, "the category workspace must be one page without tabs");
+assert.match(categoryPage, /function TopicRow/, "topics must use progressive disclosure");
+assert.match(categoryPage, /function AppRow/, "apps must expand in place");
+assert.match(categoryPage, /Показать ещё \$\{remainingApps\.length\}/, "long app lists must be collapsed");
+assert.match(categoryPage, /Размеченные отзывы/, "expanded apps must lead to labelled review text");
 assert.match(categoryPage, /\/build\/\$\{slug\}\/\$\{idea\.slug\}/, "each idea must lead to its product plan");
+assert.ok(categoryPage.indexOf('id="workspace-apps"') < categoryPage.indexOf('id="workspace-topics"'), "the hierarchy must start with app → topics → reviews");
 
 const corpusSlugs = new Set(reviewCorpusSlugs());
 const published = Object.keys(RATING_BY_SLUG).filter((slug) => corpusSlugs.has(slug)).sort();

@@ -84,19 +84,20 @@ export default async function WorkspacePage() {
         </div>
       </header>
 
-      <div className="mt-4">
+      <div className="mt-4 border-y border-[var(--color-border-subtle)]">
         {domains.map((domain) => (
-          <section key={domain.slug} className="border-b border-[var(--color-border-subtle)] py-9 last:border-b-0" aria-labelledby={`domain-${domain.slug}`}>
-            <div className="flex items-baseline justify-between gap-4">
-              <h2 id={`domain-${domain.slug}`} className="text-title2 text-[var(--color-text-primary)]">{domain.name}</h2>
-              <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{domain.categories.length}</span>
-            </div>
-            <div className="mt-5 grid gap-x-8 sm:grid-cols-2">
+          <details key={domain.slug} className="group border-b border-[var(--color-border-subtle)] last:border-b-0">
+            <summary className="flex cursor-pointer list-none items-center gap-4 py-5 [&::-webkit-details-marker]:hidden">
+              <h2 className="min-w-0 flex-1 text-title3 text-[var(--color-text-primary)]">{domain.name}</h2>
+              <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{domain.categories.length} {ru ? "кат." : "cat."}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6" /></svg>
+            </summary>
+            <div className="grid gap-x-8 pb-6 sm:grid-cols-2">
               {domain.categories.map((category) => (
                 <Link
                   key={category.slug}
                   href={`${lp}/workspace/${category.slug}`}
-                  className="group flex min-h-20 items-center gap-3 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
+                  className="group/category flex min-h-20 items-center gap-3 border-t border-[var(--color-border-subtle)] py-4"
                 >
                   <span className="flex w-[54px] shrink-0 items-center">
                     {category.icons.map((icon, index) => (
@@ -113,16 +114,16 @@ export default async function WorkspacePage() {
                     ))}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-subhead text-[var(--color-text-primary)] group-hover:text-[var(--color-text-brand)]">{category.name}</span>
+                    <span className="block text-subhead text-[var(--color-text-primary)] group-hover/category:text-[var(--color-text-brand)]">{category.name}</span>
                     <span className="mt-1 block text-caption tabular-nums text-[var(--color-text-tertiary)]">
                       {category.apps.toLocaleString(lc)} {ru ? "прил." : "apps"} · {category.reviews.toLocaleString(lc)} {ru ? "отзывов" : "reviews"}
                     </span>
                   </span>
-                  <span className="shrink-0 text-callout text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span>
+                  <span className="shrink-0 text-callout text-[var(--color-text-tertiary)] transition-transform group-hover/category:translate-x-1">→</span>
                 </Link>
               ))}
             </div>
-          </section>
+          </details>
         ))}
       </div>
     </main>
