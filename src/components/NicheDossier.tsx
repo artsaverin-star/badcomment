@@ -8,6 +8,7 @@ import { promoScore } from "@/lib/promoScore";
 import channelsData from "@/data/channels.json";
 import channelsEn from "@/data/channels.en.json";
 import LeaderRows from "@/components/LeaderRows";
+import NicheMarketPlayers from "@/components/NicheMarketPlayers";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
@@ -378,6 +379,8 @@ export default async function NicheDossier({
         </dl>
         <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-body text-pretty text-[var(--color-text-secondary)]" text={neutralizeTrustLanguage(tg(thesis.competitorRead ?? ""), locale)} apps={ratingApps} locale={locale} />
       </Block>
+
+      <NicheMarketPlayers slug={slug} locale={locale} />
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegmentsClient} covers={audSegments.map((_, i) => (personaCovers as Record<string, string>)[`${slug}-${i}`])} hue={hueFromSlug(slug)} locale={locale} payLocked={!unlocked} loggedIn={loggedIn} categorySlug={slug} categoryName={name} /></div>

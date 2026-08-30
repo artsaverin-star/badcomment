@@ -46,6 +46,7 @@ jobs:
       - run: npm run lint
       - run: npm run test:mcp
       - run: npm run test:monetization
+      - run: npm run test:market-players
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
         env:
@@ -141,3 +142,12 @@ jobs:
             -o /tmp/pay-status.json -w '%{http_code}' \
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"
           test "${pay_status}" = "401"
+          # The shared market-player block must render beyond the original pilot.
+          for locale in ru en; do
+            for niche in language-learning workout-fitness habit-tracking ai-avatars-headshots cosmetics-ingredient-checker; do
+              curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
+                -o /tmp/market-players.html "https://inapp.pro/$locale/segment/$niche"
+              grep -q 'id="main-players"' /tmp/market-players.html
+              grep -q '/badges/app-store.svg' /tmp/market-players.html
+            done
+          done
