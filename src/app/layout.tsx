@@ -10,8 +10,6 @@ import PageTracker from "@/components/PageTracker";
 import FavSync from "@/components/FavSync";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
-import { canUseAso } from "@/lib/asoAccess";
-import { canUseWorkspaceBeta } from "@/lib/workspaceAccess";
 
 // Self-host the already-vendored Inter subsets so production builds never
 // depend on Google Fonts being reachable. Separate families form a glyph
@@ -127,14 +125,12 @@ gtag('js',new Date());gtag('config','G-G3J6K8VBD6',{send_page_view:false});`,
           locale={locale}
           loggedIn={access.loggedIn}
           showOffer={!access.unlimited}
-          showAso={canUseAso(access.user)}
-          showWorkspace={canUseWorkspaceBeta(access.user)}
           theme={theme}
         />
         <PageTracker />
         <FavSync enabled={access.loggedIn} />
         {children}
-        <Footer locale={locale} showAso={canUseAso(access.user)} />
+        <Footer locale={locale} />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer

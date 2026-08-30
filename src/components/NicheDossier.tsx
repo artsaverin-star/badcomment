@@ -97,12 +97,10 @@ export default async function NicheDossier({
   slug,
   locale = "ru",
   backHref = "/",
-  workspace = false,
 }: {
   slug: string;
   locale?: Locale;
   backHref?: string;
-  workspace?: boolean;
 }) {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
@@ -160,7 +158,6 @@ export default async function NicheDossier({
       // The kicker ties the idea back to its paying persona from the audience
       // section (on the homepage this slot shows the niche name instead).
       category: scoreFor(x.slug, locale)?.targetSegment,
-      buildHref: workspace ? `${lp}/build/${slug}/${x.slug}` : undefined,
     };
   });
   // Locked teasers: only the three strongest ideas, title + score + segment.

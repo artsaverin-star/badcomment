@@ -70,14 +70,12 @@ export default function BuyButton({
         "1 451 072 отзыва с поштучной разметкой",
         "Все категории, приложения, темы и полные тексты",
         "Все разборы, идеи под спрос и народный рейтинг",
-        "Полный ASO-аудит и готовые тексты для App Store",
         "MCP-сервер для Codex, Claude и других клиентов",
       ]
     : [
         "1,451,072 individually labelled reviews",
         "Every category, app, topic and complete review text",
         "Every breakdown, demand-backed idea and people's rating",
-        "A complete ASO audit and ready-to-use App Store copy",
         "The MCP server for Codex, Claude and other clients",
       ];
 

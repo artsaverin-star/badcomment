@@ -46,8 +46,6 @@ jobs:
       - run: npm run lint
       - run: npm run test:mcp
       - run: npm run test:monetization
-      - run: npm run test:aso
-      - run: npm run test:workspace
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
         env:
@@ -131,12 +129,14 @@ jobs:
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/access-page.html https://inapp.pro/ru/tokens
           grep -q '990' /tmp/access-page.html
-          aso_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
-            -o /tmp/aso-page.html -w '%{http_code}' https://inapp.pro/ru/aso)"
-          test "$aso_status" = "404"
-          workspace_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
-            -o /tmp/workspace-page.html -w '%{http_code}' https://inapp.pro/ru/workspace)"
-          test "$workspace_status" = "404"
+          # Retired experiments must stay unavailable in both locales.
+          for locale in ru en; do
+            for path in aso workspace workspace/habit-tracking; do
+              retired_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+                -o /dev/null -w '%{http_code}' "https://inapp.pro/$locale/$path")"
+              test "$retired_status" = "404"
+            done
+          done
           pay_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/pay-status.json -w '%{http_code}' \
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"

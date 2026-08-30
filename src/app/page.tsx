@@ -12,7 +12,6 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 import { byNicheMoney } from "@/lib/nicheMoney";
 import Landing from "@/components/Landing";
 import { reviewCorpusSlugs, reviewNicheTotals } from "@/lib/reviews";
-import { canUseAso } from "@/lib/asoAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -102,7 +101,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-[1080px] overflow-x-clip px-4 pb-24 pt-16 sm:pt-20">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} showAso={canUseAso(user)} />
+      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
     </main>
   );
 }
