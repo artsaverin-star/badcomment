@@ -26,7 +26,7 @@ assert.doesNotMatch(purchaseTracker, /params\.get\("bought"\)/, "A return URL al
 const tracking = read("src/lib/track.ts");
 assert.doesNotMatch(tracking, /dataLayer\(\)\.push/, "Do not duplicate GA4 ecommerce with a second legacy Yandex payload");
 
-const layout = read("src/app/layout.tsx");
+const layout = read("src/app/(old)/layout.tsx");
 assert.match(layout, /send_page_view\s*:\s*false/, "SPA page views must be owned by PageTracker");
 assert.match(layout, /defer:true/, "Yandex initial hit must not duplicate PageTracker");
 const googleLoader = layout.indexOf('<Script src="https://www.googletagmanager.com');
