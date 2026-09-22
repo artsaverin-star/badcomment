@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { APP_STORE_URL } from "../config";
-import { useWebStrings } from "../i18n/client";
+import { useWeb } from "../i18n/client";
 import { openAppStoreDialog } from "../ui/AppStore";
 import { AppMark, CloseIcon } from "../ui/icons";
-import { uiStrings } from "../ui/strings";
+import type { UiStrings } from "../ui/strings";
 import { APP_BANNER_COOKIE, APP_BANNER_DISMISS_DAYS } from "./constants";
-import { shellStrings } from "./strings";
+import type { ShellStrings } from "./strings";
 
 // Mobile "open in app" banner (DECISIONS §12). Hidden ≥ 1024 by CSS. Dismissal is kept in
 // the `ia_app_banner` cookie so the server never renders it again (no flash, no layout shift).
@@ -15,13 +15,15 @@ import { shellStrings } from "./strings";
 
 export function OpenInAppBanner({ initiallyDismissed }: { initiallyDismissed: boolean }) {
   const [dismissed, setDismissed] = useState(initiallyDismissed);
-  const s = useWebStrings(shellStrings);
-  const ui = useWebStrings(uiStrings);
+  const s = useWeb<ShellStrings>("shell");
+  const ui = useWeb<UiStrings>("ui");
   if (dismissed) return null;
 
   const dismiss = () => {
     document.cookie = `${APP_BANNER_COOKIE}=hidden; path=/; max-age=${APP_BANNER_DISMISS_DAYS * 86400}; samesite=lax`;
     setDismissed(true);
+    // The focused button disappears with the banner: continue from the page content.
+    document.getElementById("main")?.focus({ preventScroll: true });
   };
 
   return (

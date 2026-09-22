@@ -14,8 +14,11 @@ import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { ChromeFrame } from "@/site/shell/ChromeFrame";
 import { APP_BANNER_COOKIE } from "@/site/shell/constants";
+import { DeferredScript } from "@/site/shell/DeferredScript";
 import { Footer } from "@/site/shell/Footer";
+import { shellStrings } from "@/site/shell/strings";
 import { THEME_COLOR, THEME_COOKIE, toTheme } from "@/site/theme";
+import { uiStrings } from "@/site/ui/strings";
 
 // ROOT LAYOUT of the new site (internal /site/<L>/…, public /<L>/…; see src/proxy.ts).
 // <html lang data-theme> from the ia_theme cookie (light by default; "system" is resolved
@@ -31,7 +34,8 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
   const t = await getT(lang);
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: "inApp", template: "%s — inApp" },
+    // Japanese titles use the full-width bar, not a Western dash (i18n review, minor 5).
+    title: { default: "inApp", template: lang === "ja" ? "%s｜inApp" : "%s — inApp" },
     description: t("Что людям важно в приложениях и чего им не хватает."),
     applicationName: "inApp",
     formatDetection: { telephone: false, email: false, address: false },
@@ -70,10 +74,12 @@ export default async function SiteRootLayout({ children, params }: Props) {
     <html lang={lang} data-theme={theme} className={onest.variable} suppressHydrationWarning>
       <head>
         {/* Same counters and ordering contract as the old layout (scripts/test-monetization.ts):
-            tiny queue shims first, then the remote loaders after hydration. The initial hit is
-            NOT automatic (YM defer:true, GA send_page_view:false): RouteObserver sends every
-            page view. `site: "v2"` tags every event of the new site (spec 09 §2.4). Native
-            <script> on purpose: inline next/script from an async root layout did not execute. */}
+            tiny queue shims first (ym before the Google loader, the gtag queue before it too),
+            then the remote libraries. The initial hit is NOT automatic (YM defer:true, GA
+            send_page_view:false): RouteObserver sends every page view, and every ym()/gtag()
+            call made before a library arrives waits in these queues. `site: "v2"` tags every
+            event of the new site (spec 09 §2.4). Native <script> on purpose: inline next/script
+            from an async root layout did not execute. */}
         <script
           id="ym-metrika"
           dangerouslySetInnerHTML={{
@@ -121,7 +127,12 @@ gtag('js',new Date());gtag('set',{site:"v2"});gtag('config','G-G3J6K8VBD6',{send
             }),
           }}
         />
-        <I18nProvider locale={lang} strings={t.pick(SHELL_UI_KEYS)}>
+        {/* Only the page locale's shell/UI web strings reach the client (useWeb("shell" | "ui")). */}
+        <I18nProvider
+          locale={lang}
+          strings={t.pick(SHELL_UI_KEYS)}
+          web={{ shell: shellStrings[lang], ui: uiStrings[lang] }}
+        >
           <ChromeFrame
             viewer={summarizeViewer(viewer)}
             appBannerDismissed={appBannerDismissed}
@@ -132,17 +143,20 @@ gtag('js',new Date());gtag('set',{site:"v2"});gtag('config','G-G3J6K8VBD6',{send
             <AccountHosts locale={lang} />
           </ChromeFrame>
         </I18nProvider>
+        {/* Remote analytics libraries (performance review P1): none of them is preloaded any
+            more. Metrika (the first-hit counter) still loads right after hydration, without
+            next/script's head preload; gtag.js (~170 KB gz) and DataFast wait for the window
+            load event + idle time. Nothing is lost meanwhile: the queues above hold the calls. */}
+        <DeferredScript id="ym-tag" src="https://mc.yandex.ru/metrika/tag.js?id=110047715" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="lazyOnload" />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer
           data-website-id="dfid_PVKv8dyF6ckAxf79RiAsf"
           data-domain="inapp.pro"
           src="https://datafa.st/js/script.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        {/* Remote analytics libraries load independently after hydration. */}
-        <Script src="https://mc.yandex.ru/metrika/tag.js?id=110047715" strategy="afterInteractive" />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="afterInteractive" />
         <noscript>
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}

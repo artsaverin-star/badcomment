@@ -6,7 +6,15 @@
    ========================================================================== */
 
 .ld {
+  /* App Store poster palette (Tools/render_storefront.swift:12,27): cobalt for S12 (second stop
+     darkened for white text, spec 05 §1.5), the four pastel posters for the S6 panels. Fixed
+     colours in both themes, like artwork. */
   --ld-poster-cobalt: linear-gradient(180deg, #204af0 0%, #2f5af3 100%);
+  --ld-poster-ink: #171c2b;
+  --ld-poster-yellow: linear-gradient(180deg, #f7c955, #fff1cc);
+  --ld-poster-green: linear-gradient(180deg, #81d1ac, #e7f6e8);
+  --ld-poster-lilac: linear-gradient(180deg, #c1abef, #f0eafb);
+  --ld-poster-sky: linear-gradient(180deg, #8fb6ef, #ebf3fe);
   --ld-gutter: 20px;
   overflow-x: clip;
 }
@@ -46,8 +54,8 @@
 
 .ld-h1 {
   margin: 0;
-  font: 900 clamp(2.125rem, 1.35rem + 2.9vw, 3.625rem) / 1.06 var(--ia-font-display);
-  letter-spacing: -0.025em;
+  font: 900 clamp(2.125rem, 1.35rem + 2.9vw, 3.625rem) / 1.12 var(--ia-font-display);
+  letter-spacing: -0.02em;
   color: var(--ia-ink);
   text-wrap: balance;
 }
@@ -60,7 +68,7 @@
 }
 .ld-h3 {
   margin: 0;
-  font: 800 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem) / 1.22 var(--ia-font-display);
+  font: 900 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem) / 1.22 var(--ia-font-display);
   letter-spacing: -0.01em;
   color: var(--ia-ink);
   text-wrap: balance;
@@ -83,24 +91,26 @@
 .ld-kicker--plus {
   letter-spacing: 0.8px;
 }
+/* Section labels as the app's (SF 15/600 secondary, ClaritySettings.swift:289): no caps. */
 .ld-label {
   margin: 0;
   color: var(--ia-secondary);
-  font: 600 0.75rem / 1.3 var(--ia-font-sans);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
 }
-.ld-lead {
-  margin: 0;
-  max-width: 56ch;
-  color: var(--ia-secondary);
-  font: 400 clamp(1.0625rem, 1rem + 0.3vw, 1.25rem) / 1.55 var(--ia-font-sans);
-}
+/* Descriptions under Onest headings speak like the app's welcome description: Onest 450,
+   line height 1.44 (ClarityWelcomeTypography.swift:49-58). Georgia stays for reading content. */
+.ld-lead,
 .ld-sub {
   margin: 0;
-  max-width: 60ch;
   color: var(--ia-secondary);
-  font: 400 var(--ia-fs-subtitle) / 1.45 var(--ia-font-serif);
+  font: 450 clamp(1.125rem, 1rem + 0.4vw, 1.375rem) / 1.44 var(--ia-font-display);
+  text-wrap: pretty;
+}
+.ld-lead {
+  max-width: 56ch;
+}
+.ld-sub {
+  max-width: 60ch;
 }
 .ld-body {
   margin: 0;
@@ -248,14 +258,17 @@
   }
 }
 
-/* ---- Papers (onboarding article + quote, spec 03 §1.5) ------------------- */
+/* ---- Papers: the replay's article + quote papers (spec 03 §1.5; metrics of
+   ClarityWelcomeContentPreview.swift:45-114 — Onest 10/550 labels, 18/900 title, 14/400 text
+   at 1.49, radius 6 / 5, padding 17 (+9) / 15, thumbnail 103 × 80 r5). The desktop hero scales
+   the whole pair instead of changing single sizes. ------------------------------------------ */
 
 .ld-papers {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 460px;
+  max-width: 420px;
   margin-inline: auto;
   padding: 8px 10px 20px;
   box-sizing: border-box;
@@ -265,53 +278,64 @@
   box-shadow: var(--ia-shadow-paper);
 }
 .ld-paper--article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-right: 18px;
-  padding: 18px 18px 24px;
-  border-radius: 8px;
+  padding: 17px 17px 26px;
+  border-radius: var(--ia-radius-paper-sm);
   background: var(--ia-surface);
   box-shadow:
     var(--ia-shadow-paper),
-    0 0 0 1px rgb(0 0 0 / 0.05);
+    inset 0 0 0 0.5px rgb(0 0 0 / 0.05);
   rotate: -3deg;
 }
 .ld-paper__top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: center;
+  gap: 12px;
 }
 .ld-paper__head {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
   min-width: 0;
 }
 .ld-paper__label {
   color: var(--ia-accent);
-  font: 600 0.6875rem / 1.3 var(--ia-font-display);
+  font: 550 0.625rem / 1.2 var(--ia-font-display);
 }
 .ld-paper__title {
   color: var(--ia-ink);
-  font: 900 1.25rem / 1.2 var(--ia-font-display);
+  font: 900 1.125rem / 1.275 var(--ia-font-display);
   overflow-wrap: break-word;
   hyphens: auto;
 }
 .ld-paper__thumb {
   flex: none;
-  width: 110px;
-  height: 85px;
-  border-radius: 6px;
+  width: 103px;
+  height: 80px;
+  border-radius: 5px;
   object-fit: cover;
 }
+@media (max-width: 359.98px) {
+  .ld-paper__thumb {
+    display: none;
+  }
+}
 .ld-paper__excerpt {
-  margin: 12px 0 0;
+  margin: 0;
   color: var(--ia-ink);
-  font: 400 0.9375rem / 1.5 var(--ia-font-serif);
+  font: 400 0.875rem / 1.49 var(--ia-font-display);
 }
 .ld-paper--quote {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
   margin: -6px 0 0 44px;
-  padding: 18px 16px 16px;
-  border-radius: 6px;
+  padding: 15px;
+  border-radius: 5px;
   background: var(--ia-accent-soft);
   rotate: 3deg;
 }
@@ -328,59 +352,94 @@
 .ld-paper__quote-head {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 6px;
+  align-items: baseline;
+  gap: 6px;
   color: var(--ia-accent);
-  font: 600 0.6875rem / 1.3 var(--ia-font-sans);
+  font: 550 0.625rem / 1.2 var(--ia-font-display);
+}
+.ld-paper__quote-head > :last-child {
+  font-weight: 600;
 }
 .ld-paper__quote {
   margin: 0;
   color: var(--ia-ink);
-  font: 400 0.9375rem / 1.5 var(--ia-font-serif);
-}
-@media (max-width: 419.98px) {
-  .ld-paper--article {
-    margin-right: 10px;
-    padding: 16px 14px 20px;
-  }
-  .ld-paper__thumb {
-    width: 84px;
-    height: 65px;
-  }
-  .ld-paper__title {
-    font-size: 1.125rem;
-  }
-  .ld-paper--quote {
-    margin-left: 28px;
-  }
+  font: 400 0.875rem / 1.49 var(--ia-font-display);
 }
 @media (min-width: 1024px) {
-  .ld-papers--hero .ld-paper__title {
-    font-size: 1.375rem;
-  }
-  .ld-papers--hero .ld-paper__excerpt,
-  .ld-papers--hero .ld-paper__quote {
-    font-size: 1rem;
+  .ld-papers--hero {
+    scale: 1.15;
+    transform-origin: 50% 100%;
   }
 }
+/* "Paper landing" (ClarityWelcomePaperMotion): the hero papers enter like the replay's (spring
+   0.88 / 0.59 at 120 / 290 ms), then drift ±2 px / ±0.45° over 12 s — twice, then rest (WCAG
+   2.2.2: no endless motion next to the text; a11y review m14). */
 @media (prefers-reduced-motion: no-preference) {
   .ld-papers--hero .ld-paper--article {
-    animation: ld-drift 6s ease-in-out infinite alternate;
+    animation:
+      ld-paper-in-a var(--ia-dur-paper) var(--ia-ease-reveal) 120ms both,
+      ld-drift-a var(--ia-dur-ambient) ease-in-out calc(120ms + var(--ia-dur-paper)) 2;
   }
   .ld-papers--hero .ld-paper--quote {
-    animation: ld-drift 7s ease-in-out -3s infinite alternate-reverse;
+    animation:
+      ld-paper-in-q var(--ia-dur-paper) var(--ia-ease-reveal) 290ms both,
+      ld-drift-q var(--ia-dur-ambient) ease-in-out calc(290ms + var(--ia-dur-paper)) 2;
   }
 }
-@keyframes ld-drift {
+@keyframes ld-paper-in-a {
   from {
-    translate: 0 0;
+    opacity: 0;
+    transform: translate(-24px, -48px) perspective(600px) rotateX(-24deg) rotate(-11deg) scale(0.84);
   }
   to {
-    translate: 0 -5px;
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateX(0deg) rotate(0deg) scale(1);
+  }
+}
+@keyframes ld-paper-in-q {
+  from {
+    opacity: 0;
+    transform: translate(28px, 76px) perspective(600px) rotateX(24deg) rotate(14deg) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateX(0deg) rotate(0deg) scale(1);
+  }
+}
+@keyframes ld-drift-a {
+  0%,
+  50%,
+  100% {
+    translate: 0 0;
+    rotate: -3deg;
+  }
+  25% {
+    translate: 0 -2px;
+    rotate: -3.45deg;
+  }
+  75% {
+    translate: 0 2px;
+    rotate: -2.55deg;
+  }
+}
+@keyframes ld-drift-q {
+  0%,
+  50%,
+  100% {
+    translate: 0 0;
+    rotate: 3deg;
+  }
+  25% {
+    translate: 0 2px;
+    rotate: 3.45deg;
+  }
+  75% {
+    translate: 0 -2px;
+    rotate: 2.55deg;
   }
 }
 
-/* ---- Illustrations (welcome art on the accent-soft blob, spec 03 §1.4) ----- */
+/* ---- Illustrations: the replay's geometry (ClarityWelcomeIllustration.swift:45-63,158-172) -- */
 
 .ld-illo {
   position: relative;
@@ -389,20 +448,70 @@
 }
 .ld-illo__blob {
   position: absolute;
-  left: 50%;
-  top: 50%;
   width: 66%;
   height: 65%;
   border-radius: 50%;
   background: var(--ia-accent-soft);
+  translate: -50% -50%;
+}
+.ld-illo--reviews .ld-illo__blob {
+  left: 47%;
+  top: 47%;
+  rotate: -24deg;
+}
+.ld-illo--library .ld-illo__blob {
+  left: 57%;
+  top: 47%;
+  rotate: 26deg;
 }
 .ld-illo__art {
   position: absolute;
-  left: 4%;
-  top: -2%;
-  width: 92%;
+  aspect-ratio: 1;
   height: auto;
+  translate: -50% -50%;
   filter: drop-shadow(0 9px 24px rgb(0 0 0 / 0.045));
+}
+.ld-illo--reviews .ld-illo__art {
+  left: 50%;
+  top: 46%;
+  width: 96%;
+}
+.ld-illo--library .ld-illo__art {
+  left: 51%;
+  top: 49%;
+  width: 86%;
+}
+/* Mini review cards: 21 % × 16 %, padding 10, four 6 pt stars, radius 5 (accent-tinted). */
+.ld-mini {
+  position: absolute;
+  width: 21%;
+  aspect-ratio: 21 / 16;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--ia-surface);
+  box-shadow:
+    0 7px 14px color-mix(in srgb, var(--ia-accent) 13%, transparent),
+    inset 0 0 0 0.5px color-mix(in srgb, var(--ia-accent) 8%, transparent);
+  translate: -50% -50%;
+}
+.ld-mini__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--ia-accent);
+}
+.ld-mini__line {
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--ia-accent) 24%, transparent);
+}
+.ld-mini__line--short {
+  width: 26px;
+  max-width: 45%;
 }
 
 /* ---- S2 Numbers ------------------------------------------------------------ */
@@ -563,11 +672,17 @@
   border-radius: var(--ia-radius-idea-card);
   background: var(--ia-surface);
   box-shadow: var(--ia-shadow-idea-card);
-  transition: translate 200ms var(--ia-ease-press);
 }
-@media (hover: hover) {
+/* Hover (spec 05 §6.2): lift 1 px, shadow +0.03. Motion only when allowed (a11y review m14). */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ld-idea {
+    transition:
+      translate 200ms var(--ia-ease-press),
+      box-shadow 200ms var(--ia-ease-press);
+  }
   .ld-idea:hover {
-    translate: 0 -2px;
+    translate: 0 -1px;
+    box-shadow: 0 6px 28px rgb(0 0 0 / 0.08);
   }
 }
 .ld-idea:active {
@@ -590,11 +705,19 @@
   right: 16px;
   bottom: 16px;
 }
+/* The locked card is its artwork only; in a grid row it fills the row's height. */
+.ld-idea--locked .ld-idea__media {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.ld-idea--locked .ld-idea__art {
+  height: 100%;
+}
 .ld-idea__body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   padding: 20px;
 }
 .ld-idea__title {
@@ -602,17 +725,14 @@
   color: var(--ia-ink);
   font: 400 var(--ia-fs-card-title) / var(--ia-lh-card-title) var(--ia-font-serif);
 }
-.ld-idea__title--locked {
-  color: var(--ia-secondary);
-}
 .ld-idea__desc {
   margin: 0;
   color: var(--ia-secondary);
-  font: 400 1.0625rem / 1.45 var(--ia-font-serif);
+  font: 400 var(--ia-fs-subtitle) / var(--ia-lh-subtitle) var(--ia-font-serif);
 }
 .ld-idea__cat {
   margin: auto 0 0;
-  padding-top: 4px;
+  padding-top: 7px;
   color: var(--ia-secondary);
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
 }
@@ -653,6 +773,10 @@
 }
 .ld-carousel__track::-webkit-scrollbar {
   display: none;
+}
+/* Focus rings inside the horizontal scroller would be clipped: draw them inside. */
+.ld-carousel__track :focus-visible {
+  outline-offset: -2px;
 }
 .ld-carousel__slide {
   display: flex;
@@ -709,14 +833,15 @@
   background: none;
   cursor: pointer;
 }
+/* Progress capsules as ClarityWelcomeProgress: 5 × 5, the current one 18 × 5, ink @16 % / ink. */
 .ld-carousel__dot::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
   background: var(--ia-ink-16);
   translate: -50% -50%;
   transition:
@@ -761,9 +886,59 @@
   gap: 12px;
   max-width: 480px;
 }
+/* Each step's phone stands on its App Store poster (render_storefront.swift:27,40-53: posters
+   02 / 04 / 05 are steps 1–3; the export step takes the green one): the pastel gradient, two
+   white discs at 22 %, the phone continuing past the bottom edge. Text stays outside. */
 .ld-step__visual {
+  position: relative;
+  isolation: isolate;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 440px;
+  height: 400px;
+  justify-self: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 36px 24px 0;
+  border-radius: var(--ia-radius-research-card);
+  background: var(--ld-poster-yellow);
+}
+.ld-step:nth-child(2) .ld-step__visual {
+  background: var(--ld-poster-lilac);
+}
+.ld-step:nth-child(3) .ld-step__visual {
+  background: var(--ld-poster-sky);
+}
+.ld-step:nth-child(4) .ld-step__visual {
+  background: var(--ld-poster-green);
+}
+.ld-step__visual::before,
+.ld-step__visual::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.22);
+  pointer-events: none;
+}
+.ld-step__visual::before {
+  left: -9%;
+  top: 22%;
+  width: 36%;
+  aspect-ratio: 1;
+}
+.ld-step__visual::after {
+  right: -12%;
+  top: 44%;
+  width: 30%;
+  aspect-ratio: 1;
+}
+@media (min-width: 900px) {
+  .ld-step__visual {
+    height: 440px;
+  }
 }
 @media (min-width: 900px) {
   .ld-steps {
@@ -784,21 +959,23 @@
 
 /* ---- Device mock-ups ------------------------------------------------------- */
 
+/* The posters' device frame: a white 4 px border around the capture, radius 16 / 20, the
+   device shadow (render_storefront.swift:40-53). Same frame wherever a phone appears. */
 .ld-phone {
   flex: none;
   width: 250px;
-  padding: 9px;
-  border-radius: 44px;
-  background: #1b1c20;
+  padding: 4px;
+  border-radius: 20px;
+  background: #fff;
   box-shadow:
     var(--ia-shadow-device),
-    inset 0 0 0 1px rgb(255 255 255 / 0.08);
+    0 0 0 0.5px rgb(0 0 0 / 0.06);
 }
 .ld-phone__screen {
   position: relative;
   height: 460px;
   overflow: hidden;
-  border-radius: 35px;
+  border-radius: 16px;
   background: var(--ia-paper);
 }
 .ld-phone--short .ld-phone__screen {
@@ -884,14 +1061,12 @@
 }
 .ld-m-quote {
   padding-left: 9px;
-  border-left: 2px solid var(--ia-accent);
+  border-left: 2px solid var(--ia-line);
   font: 400 0.6875rem / 1.45 var(--ia-font-serif);
 }
 .ld-m-caption {
   color: var(--ia-accent);
   font: 700 0.5625rem / 1.2 var(--ia-font-sans);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 .ld-m .ld-m-large {
   margin-top: 6px;
@@ -1263,12 +1438,14 @@
   position: absolute;
   inset: 0;
 }
+/* Topic chips (ClarityWelcomeIllustration.swift:95-131): Onest 12/600 ink on mint, radius 4,
+   tag shadow, a tape strip 4 px over the left edge. */
 .ld-chip {
   position: absolute;
   padding: 10px 12px;
-  border-radius: 4px;
+  border-radius: var(--ia-radius-tag);
   background: var(--ia-accent-soft);
-  box-shadow: var(--ia-shadow-paper);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.075);
   color: var(--ia-ink);
   font: 600 0.75rem / 1 var(--ia-font-display);
   white-space: nowrap;
@@ -1277,26 +1454,27 @@
 .ld-chip::before {
   content: "";
   position: absolute;
-  left: -5px;
+  left: -4px;
   top: 50%;
   width: 10px;
   height: 19px;
+  border-radius: 1px;
   background: rgb(255 255 255 / 0.8);
   translate: 0 -50%;
   rotate: -8deg;
 }
 .ld-chip--1 {
-  left: 22%;
+  left: 19%;
   top: 15%;
   rotate: -8deg;
 }
 .ld-chip--2 {
-  left: 80%;
+  left: 82%;
   top: 43%;
   rotate: 5deg;
 }
 .ld-chip--3 {
-  left: 30%;
+  left: 29%;
   top: 85%;
   rotate: -4deg;
 }
@@ -1425,9 +1603,10 @@
   height: auto;
   filter: drop-shadow(0 9px 24px rgb(0 0 0 / 0.06));
 }
+/* Side objects centred at 37 % / 40 % of the box (ClarityPaywall.swift:165,174). */
 .ld-trio__a {
   left: 0;
-  top: 28px;
+  top: -3px;
   width: 124px;
   rotate: -12deg;
 }
@@ -1439,7 +1618,7 @@
 }
 .ld-trio__c {
   right: 0;
-  top: 32px;
+  top: 2px;
   width: 124px;
   rotate: 9deg;
 }
@@ -1458,10 +1637,11 @@
   border-radius: var(--ia-radius-research-card);
   background: var(--ia-surface);
 }
+/* The app's Plus card has no accent ring: a hairline and the card shadow (ClaritySettings.swift:199-251). */
 .ld-plan--plus {
   box-shadow:
-    0 0 0 1.5px var(--ia-accent),
-    var(--ia-shadow-research-card);
+    var(--ia-shadow-research-card),
+    inset 0 0 0 0.5px var(--ia-line-card);
 }
 .ld-plan__title {
   display: flex;
@@ -1470,9 +1650,6 @@
   margin: 0;
   color: var(--ia-ink);
   font: 900 1.5rem / 1.2 var(--ia-font-display);
-}
-.ld-plan__title svg {
-  color: var(--ia-accent);
 }
 .ld-checks {
   display: grid;
@@ -1508,23 +1685,24 @@
   padding: 0;
   list-style: none;
 }
+/* The paywall's plan rows (ClarityPaywall.swift:107-125): r18, padding 14, ink @15 % 1 px
+   border, Onest 16/650 title and 12 secondary detail — without prices (App Store marketing URL). */
 .ld-plan__options li {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px 12px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: var(--ia-surface);
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px;
+  border-radius: var(--ia-radius-group-sm);
+  background: none;
+  box-shadow: inset 0 0 0 1px var(--ia-ink-15);
 }
 .ld-plan__options b {
   color: var(--ia-ink);
-  font: 650 0.9375rem / 1.3 var(--ia-font-display);
+  font: 650 1rem / 1.3 var(--ia-font-display);
 }
 .ld-plan__options span {
   color: var(--ia-secondary);
-  font: 400 0.8125rem / 1.3 var(--ia-font-sans);
+  font: 400 0.75rem / 1.333 var(--ia-font-display);
 }
 .ld-plan__cta {
   margin-top: auto;
@@ -1579,8 +1757,7 @@
   padding: 16px 20px;
   border-radius: 18px;
 }
-.ld-faq__item h3 {
-  margin: 0;
+.ld-faq__q {
   color: var(--ia-ink);
   font: 600 var(--ia-fs-headline) / 1.35 var(--ia-font-sans);
 }
@@ -1617,7 +1794,7 @@
   color: var(--ia-accent);
 }
 @media (hover: hover) {
-  .ld-faq__item > summary:hover h3 {
+  .ld-faq__item > summary:hover .ld-faq__q {
     color: var(--ia-accent);
   }
   .ld-faq__more > summary:hover {
@@ -1710,7 +1887,11 @@
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   backdrop-filter: blur(18px) saturate(1.4);
   translate: 0 110%;
-  transition: translate 320ms var(--ia-ease-sheet);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ld-sticky {
+    transition: translate 320ms var(--ia-ease-sheet);
+  }
 }
 .ld-sticky[data-shown] {
   translate: 0 0;

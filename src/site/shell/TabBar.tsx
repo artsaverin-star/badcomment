@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
-import { useLocale, useT, useWebStrings } from "../i18n/client";
+import { useLocale, useT, useWeb } from "../i18n/client";
 import type { Locale } from "../i18n/locales";
 import { parsePublicPath, tabOf, tabRoot, TABS, type Tab } from "../routing";
 import { cx } from "../ui/cx";
 import { BookmarkFilledIcon, IdeasFilledIcon, ResearchFilledIcon } from "../ui/icons";
 import { rememberedTabLocation, subscribeTabMemory } from "./navigation";
-import { shellStrings } from "./strings";
+import type { ShellStrings } from "./strings";
 
 // The three tabs of the app (spec 01 §1.2, spec 05 §3.6 I): «Разборы», «Идеи», «Сохранённое».
 //   variant="floating"  mobile capsule at the bottom, tab roots only; idle items = glyph only
@@ -43,7 +43,8 @@ function TabItem({ tab, current, atRoot }: { tab: Tab; current: Tab | null; atRo
     <Link
       href={href}
       className="ia-tab"
-      aria-current={active && atRoot ? "page" : undefined}
+      // The current section on inner pages too (the app's .isSelected trait), "page" at its root.
+      aria-current={active ? (atRoot ? "page" : "true") : undefined}
       data-active={active || undefined}
       data-tab={tab}
     >
@@ -59,7 +60,7 @@ function TabItem({ tab, current, atRoot }: { tab: Tab; current: Tab | null; atRo
 
 export function TabCapsule({ variant }: { variant: "floating" | "top" }) {
   const pathname = usePathname();
-  const s = useWebStrings(shellStrings);
+  const s = useWeb<ShellStrings>("shell");
   const current = tabOf(pathname);
   const atRoot = parsePublicPath(pathname).segments.length === 1;
   return (

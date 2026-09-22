@@ -1,10 +1,11 @@
 // The web Plus offer — client-safe facts and helpers shared by the paywall and the payment
 // return page. Prices are FROZEN (DECISIONS §10): the web sells only the existing YooKassa
-// "lifetime" SKU at ACCESS_PRICE_RUB (990 ₽), presented as «Plus навсегда». The price has one
-// source of truth (src/lib/tokenConfig.ts) — never hard-code it here.
+// "lifetime" SKU at ACCESS_PRICE_RUB (990 ₽), presented as the app's «Навсегда» plan. The
+// price has one source of truth (src/lib/tokenConfig.ts) — never hard-code it here.
 
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import { INTL_LOCALE, type Locale } from "../../i18n/locales";
+import type { PlusStrings } from "./strings";
 
 /** POST /api/pay/yookassa `kind` — the only SKU the web sells. */
 export const PLUS_KIND = "lifetime" as const;
@@ -36,13 +37,23 @@ export function checkoutSource(surface: string | null | undefined): string {
   return clean.startsWith("v2_") ? clean : `v2_${clean}`;
 }
 
-/** What the server hands to the paywall (price label and benefit lines are localized). */
+/** What the server hands to the paywall (the price label is localized). */
 export type PlusOfferData = {
   priceRub: number;
   priceLabel: string;
-  benefits: string[];
   /** /<L>/segment/<free topic> — «Остаться с бесплатным разбором» on the page. */
   freeTopicHref: string;
+};
+
+/**
+ * GET /api/site/plus/offer?lang= → everything the global paywall sheet needs, fetched on its
+ * first open: the offer, the web-only paywall strings and the app UI strings it renders. None
+ * of it (price, payment methods, buy labels) sits in the payload of pages without buy UI.
+ */
+export type PlusSheetPayload = {
+  offer: PlusOfferData;
+  strings: PlusStrings;
+  ui: Record<string, string>;
 };
 
 // ---------------------------------------------------------------------------

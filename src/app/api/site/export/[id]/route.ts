@@ -6,10 +6,13 @@ import { isLocale } from "@/site/i18n/locales";
 // «Скачать документ» (spec 02 §7, spec 09 G10):
 //   POST /api/site/export/<idea id>  {lang: "ru"|"en"|"de"|"fr"|"ja", note?: string}
 //   → 200 text/plain; charset=utf-8, Content-Disposition: attachment (filename rule 02 §7.4),
-//     body = the app's document (full category breakdown + the idea + the note, 02 §7.3).
+//     body = the app's document (full category breakdown + the idea [+ the note], 02 §7.3),
+//     X-Export-Research: full | summary | none (what part 1 holds; "summary" = a legacy
+//     single-idea unlock without the category — the sheet says so).
 //   401 guest / 403 signed in, when the viewer cannot read the idea (gate before any read);
-//   404 unknown id; 400 malformed body; 413 note longer than 20 000 characters.
-// The note is the browser's copy (local-first library), so the client sends it.
+//   403 cross-origin request; 404 unknown id; 400 malformed body; 413 note longer than 20 000.
+// The site's own client sends only {lang} and appends the browser's note itself (the note stays
+// on the device, spec 09 G10); `note` is still accepted for other callers.
 
 export const dynamic = "force-dynamic";
 
@@ -21,8 +24,23 @@ function error(status: number, message: string): Response {
   return Response.json({ error: message }, { status, headers: PRIVATE });
 }
 
+/** Same-origin POSTs only (defence in depth; the session cookie is SameSite=Lax anyway). */
+function sameOrigin(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return true; // same-origin fetches may omit it
+  let host: string;
+  try {
+    host = new URL(origin).host;
+  } catch {
+    return false;
+  }
+  const forwarded = req.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  return host === req.headers.get("host") || (!!forwarded && host === forwarded);
+}
+
 export async function POST(req: Request, ctx: { params: Promise<{ id: string }> }) {
   const { id } = await ctx.params;
+  if (!sameOrigin(req)) return error(403, "cross-origin request");
 
   const declared = Number(req.headers.get("content-length") ?? "0");
   if (declared > MAX_BODY_BYTES) return error(413, "body too large");
@@ -50,6 +68,7 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
       "Content-Type": "text/plain; charset=utf-8",
       "Content-Disposition": contentDisposition(result.filename, `inApp-${id}.txt`),
       "Content-Language": lang,
+      "X-Export-Research": result.research,
     },
   });
 }

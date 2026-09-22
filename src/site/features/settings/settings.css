@@ -5,16 +5,30 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding-top: 8px;
+  padding-top: 0;
   padding-bottom: 40px;
 }
 
-/* Header: «Настройки» 22/700 + «Готово» surface pill */
+/* Header (ClaritySettings.swift:183-196): «Настройки» 22/700 + «Готово» surface pill, pinned
+   on paper above the scrolling content (safeAreaInset top), padding 16 / 14, then the content's
+   own 8 (the negative margin turns the column gap of 28 into 8). */
 .ia-set-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--ia-z-toolbar);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+  margin-bottom: -20px;
+  padding: calc(16px + env(safe-area-inset-top)) 0 14px;
+  background: var(--ia-paper);
+}
+@media (min-width: 1024px) {
+  .ia-set-header {
+    top: 86px; /* below the sticky top navigation */
+    padding-top: 16px;
+  }
 }
 .ia-set-header__title {
   margin: 0;
@@ -22,13 +36,7 @@
   letter-spacing: -0.012em;
   color: var(--ia-ink);
 }
-@media (min-width: 1024px) {
-  .ia-set-header__title {
-    font-size: var(--ia-fs-large-title);
-    line-height: var(--ia-lh-large-title);
-    letter-spacing: -1px;
-  }
-}
+/* A plain surface capsule on paper: no stroke, no glass (ClaritySettings.swift:187-190). */
 .ia-set-done {
   display: inline-flex;
   align-items: center;
@@ -36,11 +44,20 @@
   padding: 0 16px;
   border-radius: var(--ia-radius-pill);
   background: var(--ia-surface);
-  box-shadow: inset 0 0 0 0.5px var(--ia-line-65);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   color: var(--ia-accent);
   font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
   letter-spacing: -0.02em;
   white-space: nowrap;
+}
+
+/* Plus card + account box: 12 apart (ClaritySettings.swift:200). */
+.ia-set-access {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* Group: heading outside the box (15/600 secondary, 4 px inset), surface radius 20 */
@@ -88,7 +105,7 @@
   gap: 14px;
   width: 100%;
   min-height: 56px;
-  padding: 16px 17px 16px 16px;
+  padding: 17px 16px;
   box-sizing: border-box;
   border: 0;
   margin: 0;
@@ -121,9 +138,11 @@ button.ia-set-row:not(:disabled):active {
 .ia-set-row:focus-visible {
   outline-offset: -2px;
 }
+/* Language rows: 17/500, min height 52 (ClaritySettings.swift:110-117). */
 .ia-set-row--lang {
   min-height: 52px;
   padding-block: 14px;
+  font-weight: 500;
 }
 .ia-set-row__icon {
   display: inline-flex;
@@ -179,7 +198,7 @@ button.ia-set-row:not(:disabled):active {
 }
 .ia-set-result {
   margin: 0;
-  padding: 0 16px 16px 56px;
+  padding: 0 16px 16px;
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
   color: var(--ia-secondary);
 }
@@ -195,15 +214,19 @@ button.ia-set-row:not(:disabled):active {
   border-radius: var(--ia-radius-idea-card);
   background: var(--ia-surface);
   box-shadow: inset 0 0 0 0.5px var(--ia-line-card);
-  transition: transform var(--ia-dur-press) var(--ia-ease-press);
+  transition:
+    transform var(--ia-dur-press) var(--ia-ease-press),
+    opacity var(--ia-dur-press) var(--ia-ease-press);
 }
+/* StudioPressStyle: scale 0.97 + opacity 0.88 while pressed. */
 .ia-set-plus:has(.ia-set-plus__cta:active) {
-  transform: scale(0.985);
+  transform: scale(0.97);
+  opacity: 0.88;
 }
 .ia-set-plus__band {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   padding: 18px 20px 14px;
   background: var(--ia-accent-soft);
 }
@@ -221,7 +244,7 @@ button.ia-set-row:not(:disabled):active {
   align-items: center;
   gap: 5px;
   letter-spacing: 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 .ia-set-plus__art {
   display: block;
@@ -242,7 +265,7 @@ button.ia-set-row:not(:disabled):active {
 }
 .ia-set-plus__text {
   margin: 8px 0 0;
-  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  font: 400 var(--ia-fs-subheadline) / 23px var(--ia-font-sans); /* 15 + lineSpacing 3 */
   color: var(--ia-secondary);
 }
 .ia-set-plus__cta {
@@ -285,7 +308,7 @@ button.ia-set-row:not(:disabled):active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -390,7 +413,7 @@ button.ia-set-row:not(:disabled):active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   text-align: center;
   color: var(--ia-secondary);
 }
@@ -403,18 +426,24 @@ button.ia-set-row:not(:disabled):active {
   font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
 }
 
-/* ---- «О материалах» (spec 02 §8.7) ---- */
+/* ---- «О материалах» (spec 02 §8.7; ClaritySettings.swift:295-313): the title lives in the
+   bar (inline navigation title), blocks 28 apart, padding 24, headline → body 10 ---- */
+.ia-set-about-title {
+  margin: 0;
+  font: inherit;
+  letter-spacing: -0.02em;
+  color: var(--ia-ink);
+}
 .ia-set-about {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding-top: 8px;
-  padding-bottom: 40px;
+  padding: 24px;
 }
 .ia-set-about__block {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 .ia-set-about__block h2 {
   margin: 0;
@@ -424,7 +453,7 @@ button.ia-set-row:not(:disabled):active {
 }
 .ia-set-about__block p {
   margin: 0;
-  font: 400 var(--ia-fs-body) / 1.5 var(--ia-font-sans);
+  font: 400 var(--ia-fs-body) / 26px var(--ia-font-sans); /* 17 + lineSpacing 4 */
   color: var(--ia-secondary);
   text-wrap: pretty;
 }

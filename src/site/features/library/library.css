@@ -17,11 +17,27 @@
   visibility: hidden;
 }
 
-/* Section: heading outside the group box (17/600 + count 15 tabular secondary, 2 px inset). */
+/* Empty library card: 16 below the header (ClarityMy.swift:126); the CTA hugs its label
+   (padding 0 20, min height 50 — ClarityMy.swift:121-124). */
+.ia-lib .ia-empty {
+  margin-top: 16px;
+}
+.ia-lib-empty-cta {
+  padding: 0 20px;
+}
+
+/* Filter chips scroll sideways: leave room for the 2 + 2 px focus ring (a11y m5). */
+.ia-lib .ia-chips {
+  padding: 4px;
+  margin: -4px;
+}
+
+/* Section: heading outside the group box (17/600 + count 15 tabular secondary, 2 px inset),
+   12 above the box (ClarityMy.swift:220). */
 .ia-lib-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .ia-lib-section__title {
   display: flex;
@@ -92,9 +108,6 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.ia-lib-row--menu .ia-lib-row__main {
-  padding-right: 4px;
-}
 .ia-lib-row__main:focus-visible {
   outline-offset: -3px;
 }
@@ -128,7 +141,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
   min-width: 0;
 }
 .ia-lib-row__title {
@@ -155,14 +168,15 @@
 }
 .ia-lib-row__chevron {
   flex: none;
-  align-self: center;
+  align-self: flex-start;
+  margin-top: 6px;
   color: var(--ia-secondary);
-  opacity: 0.7;
 }
-/* Trailing «⋯»: 44×48, secondary. */
+/* Trailing «⋯»: 44×48, secondary, centred on the row, 4 from the edge (ClarityMy.swift:159-163). */
 .ia-lib-row__more {
   flex: none;
-  padding: 9px 6px 0 0;
+  align-self: center;
+  padding: 0 4px 0 0;
 }
 .ia-lib-row__more-btn {
   display: inline-grid;
@@ -186,13 +200,13 @@
   color: var(--ia-ink);
 }
 
-/* No-results block. */
+/* No-results block (ClarityMy.swift:129-135): spacing 10, vertical padding 16. */
 .ia-lib-noresults {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  padding: 8px 2px 0;
+  gap: 10px;
+  padding: 16px 0;
 }
 .ia-lib-noresults__title {
   margin: 0;
@@ -201,11 +215,12 @@
 }
 .ia-lib-noresults__body {
   margin: 0;
-  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  font: 400 var(--ia-fs-subheadline) / 23px var(--ia-font-sans); /* 15 + lineSpacing 3 */
   color: var(--ia-secondary);
 }
 .ia-lib-noresults .ia-btn--text {
   min-height: var(--ia-hit);
+  padding: 0;
   font-weight: 600;
 }
 
@@ -229,7 +244,7 @@
 .ia-lib-error {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 6px;
   margin: 0;
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
@@ -248,7 +263,8 @@
   padding: 16px;
 }
 
-/* ---- Note editor (ClarityMaterialNote, spec 02 §5.2) ---- */
+/* ---- Note editor (ClarityMaterialNote, spec 02 §5.2; ClarityReader.swift:910-921: spacing 22,
+   field .font(.body) with 20 padding, top padding 20 under the sheet bar) ---- */
 .ia-lib-note {
   display: flex;
   flex-direction: column;
@@ -256,7 +272,7 @@
   width: 100%;
   max-width: var(--ia-w-reading);
   margin-inline: auto;
-  padding-top: 8px;
+  padding-top: 20px;
 }
 .ia-lib-note__title {
   margin: 0;
@@ -279,7 +295,7 @@
   border-radius: var(--ia-radius-note);
   background: var(--ia-surface);
   color: var(--ia-ink);
-  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
   resize: none;
   overflow-y: auto;
   field-sizing: content;
@@ -295,7 +311,7 @@
 .ia-lib-note__error {
   margin: 0;
   font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
-  color: var(--ia-danger);
+  color: var(--ia-secondary);
 }
 .ia-lib-note__footnote {
   margin: 0;

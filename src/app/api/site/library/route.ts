@@ -1,10 +1,12 @@
 import { guard, json, readJsonBody } from "@/site/features/library/http";
 import type { LibraryPayload, OpsResponse } from "@/site/features/library/protocol";
-import { applyLibraryOps, readLibrary } from "@/site/features/library/server";
+import { applyLibraryOps, importOldFavoritesOnce, readLibrary } from "@/site/features/library/server";
 import { parseOps } from "@/site/features/library/validate";
 
 // Account copy of the new site's «Сохранённое» + notes (DECISIONS §11, ARCHITECTURE §4).
 //   GET  → {user, research: string[], idea: string[], notes: {"<kind>:<slug>": text}}  (401 guest)
+//        The first GET of an account also imports, once, the ideas it bookmarked on the old
+//        site (Favorite ∩ the 293 launch ideas; AUDIT-PHASE-A A8). Favorite is never changed.
 //   POST {ops: [{type:"saved",kind,slug,saved} | {type:"note",kind,slug,text}]} (≤ 200)
 //        → {applied, rejected: [{index, reason}]}; a malformed body → 400.
 // Guests never call this: their library stays in localStorage (ia2:*).
@@ -14,6 +16,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req: Request) {
   const g = await guard(req, false);
   if (!g.ok) return g.response;
+  await importOldFavoritesOnce(g.userId);
   const state = await readLibrary(g.userId);
   return json({ user: g.userId, ...state } satisfies LibraryPayload);
 }

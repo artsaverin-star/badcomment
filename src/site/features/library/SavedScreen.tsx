@@ -32,7 +32,7 @@ import {
 import { NoteSheet } from "./components";
 import type { MaterialKind } from "./protocol";
 import { buildSavedView, parseSavedFilter, type SavedFilter, type SavedIndex, type SavedRow } from "./saved-model";
-import { setSaved, useLibrary, useLibraryHydrated } from "./store";
+import { setSaved, useLibrary, useLibraryHydrated, useLibraryUnreadable } from "./store";
 import { libraryStrings } from "./strings";
 import { useLibrarySync, useLibrarySyncState } from "./sync";
 import "./library.css";
@@ -102,11 +102,18 @@ export function SavedScreen({ locale, index, initialFilter, initialQuery }: Prop
   const viewer = useViewer();
   const library = useLibrary();
   const hydrated = useLibraryHydrated();
+  const unreadable = useLibraryUnreadable();
   const sync = useLibrarySyncState();
   const { filter, query, setFilter, setQuery } = useSavedUrlState(locale, initialFilter, initialQuery);
 
   const [noteTarget, setNoteTarget] = useState<NoteTarget | null>(null);
   const [noteOpen, setNoteOpen] = useState(false);
+  // Polite screen-reader message for changes that have no visual feedback (a removed row).
+  const [announcement, setAnnouncement] = useState("");
+  const announce = (text: string) => {
+    setAnnouncement("");
+    window.requestAnimationFrame(() => setAnnouncement(text));
+  };
 
   const labels = useMemo(
     () => ({
@@ -175,7 +182,13 @@ export function SavedScreen({ locale, index, initialFilter, initialQuery }: Prop
             title={t("Пока нет сохранённого")}
             body={t("Нажми закладку в разборе или идее — материал появится здесь. Заметки к нему тоже.")}
             action={
-              <Button href={routes.research(locale)} variant="rect" block leadingIcon={<ArrowRightIcon size={18} aria-hidden="true" />}>
+              // Hugs its label like the app's CTA (ClarityMy.swift:121-124: padding 0 20, min height 50).
+              <Button
+                href={routes.research(locale)}
+                variant="rect"
+                className="ia-lib-empty-cta"
+                leadingIcon={<ArrowRightIcon size={18} aria-hidden="true" />}
+              >
                 {t("Открыть разборы")}
               </Button>
             }
@@ -226,7 +239,13 @@ export function SavedScreen({ locale, index, initialFilter, initialQuery }: Prop
                       section.id === "notes" ? (
                         <NoteRow key={row.key} row={row} onOpen={openNote} />
                       ) : (
-                        <MaterialRow key={row.key} row={row} locale={locale} onEditNote={openNote} />
+                        <MaterialRow
+                          key={row.key}
+                          row={row}
+                          locale={locale}
+                          onEditNote={openNote}
+                          onRemoved={() => announce(s.bookmarkRemoved)}
+                        />
                       ),
                     )}
                   </ul>
@@ -256,6 +275,15 @@ export function SavedScreen({ locale, index, initialFilter, initialQuery }: Prop
             ) : null}
           </>
         )}
+        {!loading && unreadable ? (
+          <p className="ia-lib-error" role="status">
+            <AlertIcon size={15} aria-hidden="true" />
+            <span>{s.storageUnreadable}</span>
+          </p>
+        ) : null}
+        <p className="sr-only" role="status">
+          {announcement}
+        </p>
       </div>
 
       {noteTarget ? (
@@ -305,10 +333,12 @@ function MaterialRow({
   row,
   locale,
   onEditNote,
+  onRemoved,
 }: {
   row: SavedRow;
   locale: Locale;
   onEditNote: (row: SavedRow, returnTo: HTMLElement | null) => void;
+  onRemoved: () => void;
 }) {
   const t = useT();
   const li = useRef<HTMLLIElement>(null);
@@ -333,7 +363,21 @@ function MaterialRow({
               label: t("Убрать из сохранённого"),
               icon: <BookmarkX size={17} />,
               danger: true,
-              onSelect: () => setSaved(row.kind, row.slug, false),
+              onSelect: () => {
+                // The row (and the focused menu) disappears: move focus to the neighbouring row,
+                // like VoiceOver moves to the next element (ClarityMy.swift:156-163), and say
+                // what happened — the app removes without undo or visual feedback.
+                const cur = li.current;
+                const next = (cur?.nextElementSibling ?? cur?.previousElementSibling)?.querySelector<HTMLElement>(
+                  ".ia-lib-row__main",
+                );
+                setSaved(row.kind, row.slug, false);
+                onRemoved();
+                window.requestAnimationFrame(() => {
+                  const target = next?.isConnected ? next : document.getElementById("main");
+                  target?.focus({ preventScroll: false });
+                });
+              },
             },
           ]}
         />
@@ -350,7 +394,7 @@ function NoteRow({ row, onOpen }: { row: SavedRow; onOpen: (row: SavedRow, retur
       <button type="button" className="ia-lib-row__main" aria-label={rowLabel(t, row)} onClick={(e) => onOpen(row, e.currentTarget)}>
         <RowVisual row={row} glyph="note" />
         <RowText row={row} />
-        <ChevronRightIcon className="ia-lib-row__chevron" size={18} strokeWidth={2} aria-hidden="true" />
+        <ChevronRightIcon className="ia-lib-row__chevron" size={13} strokeWidth={2.5} aria-hidden="true" />
       </button>
     </li>
   );

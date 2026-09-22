@@ -8,13 +8,13 @@ import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
 import { INTL_LOCALE } from "@/site/i18n/locales";
 import { applyTheme, THEMES, type Theme } from "@/site/theme";
 import { buttonClass } from "@/site/ui/Button";
-import { ArrowRightIcon, RadioOffIcon, RadioOnIcon, RetryIcon, SignInIcon, SignOutIcon } from "@/site/ui/icons";
+import { ArrowRightIcon, RadioOffIcon, RetryIcon, SignInIcon, SignOutIcon } from "@/site/ui/icons";
 import { toast } from "@/site/ui/Toast";
+import { CheckCircleFill } from "./CheckCircleFill";
 import { settingsStrings } from "./strings";
 import "./settings.css";
 
 // Client parts of Settings: the Plus card, the account + restore rows and the appearance picker.
-
 
 type MeResponse = { unlimited?: boolean; lifetime?: boolean; user?: { premiumUntil?: string | null } | null };
 
@@ -24,11 +24,11 @@ async function fetchMe(): Promise<MeResponse> {
   return (await res.json()) as MeResponse;
 }
 
+/** «Доступ до %1$@»: day, wide month, year in the page locale — ru keeps «г.» like the app (spec 02 §8.3). */
 function formatDay(iso: string, locale: keyof typeof INTL_LOCALE): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  const s = new Intl.DateTimeFormat(INTL_LOCALE[locale], { day: "numeric", month: "long", year: "numeric" }).format(d);
-  return locale === "ru" ? s.replace(/\s?г\.$/, "") : s;
+  return new Intl.DateTimeFormat(INTL_LOCALE[locale], { day: "numeric", month: "long", year: "numeric" }).format(d);
 }
 
 /**
@@ -69,7 +69,7 @@ export function PlusCard({ art }: { art: { src: string; srcSet: string } | null 
           <span>inApp PLUS</span>
           {viewer.plus ? (
             <span className="ia-set-plus__active">
-              <RadioOnIcon size={15} strokeWidth={2.4} aria-hidden="true" />
+              <CheckCircleFill size={12} knockout="var(--ia-accent-soft)" strokeWidth={2.4} />
               {t("Активен")}
             </span>
           ) : null}
@@ -81,7 +81,8 @@ export function PlusCard({ art }: { art: { src: string; srcSet: string } | null 
       </div>
       <div className="ia-set-plus__body">
         <h2 className="ia-set-plus__title" id="settings-plus-title">
-          {t("Все разборы\nи идеи").replace(/\n/g, " ")}
+          {/* The app joins the two lines with a space; Japanese takes none («すべての分析とアイデア»). */}
+          {t("Все разборы\nи идеи").replace(/\n/g, locale === "ja" ? "" : " ")}
         </h2>
         <p className="ia-set-plus__text">{t("Подробные исследования, идеи приложений и экспорт материалов.")}</p>
         <button
@@ -133,8 +134,9 @@ export function AccountRows() {
   if (!viewer.loggedIn || !viewer.user) {
     return (
       <div className="ia-set-box ia-set-box--sm">
+        {/* The app's «Восстановить покупки» row; on the web access lives in the account (spec 09 G11). */}
         <button type="button" className="ia-set-row" onClick={() => openSignIn({ reason: "settings" })}>
-          <RowInner icon={<SignInIcon size={20} strokeWidth={2} />} title={s.signIn} sub={s.signInHint} />
+          <RowInner icon={<SignInIcon size={19} strokeWidth={2} />} title={s.signInRestore} />
         </button>
       </div>
     );
@@ -168,10 +170,12 @@ export function AccountRows() {
         />
       </div>
       <div>
+        {/* The glyph stays; the spinner sits at the trailing edge (ClaritySettings.swift:259-263). */}
         <button type="button" className="ia-set-row" onClick={restore} disabled={busy} aria-busy={busy || undefined}>
           <RowInner
-            icon={busy ? <span className="ia-spinner" /> : <RetryIcon size={20} strokeWidth={2} />}
+            icon={<RetryIcon size={19} strokeWidth={2} />}
             title={busy ? t("Восстанавливаем…") : t("Восстановить покупки")}
+            trail={busy ? <span className="ia-spinner" aria-hidden="true" /> : undefined}
           />
         </button>
         {result ? (
@@ -194,7 +198,7 @@ export function AccountRows() {
           });
         }}
       >
-        <RowInner icon={<SignOutIcon size={20} strokeWidth={2} />} title={s.signOut} />
+        <RowInner icon={<SignOutIcon size={19} strokeWidth={2} />} title={s.signOut} />
       </button>
     </div>
   );
@@ -236,7 +240,7 @@ export function ThemePicker({ initial }: { initial: Theme }) {
           </span>
           <span className="ia-set-theme__label">{t(THEME_KEYS[value])}</span>
           <span className="ia-set-theme__radio" aria-hidden="true">
-            {theme === value ? <RadioOnIcon size={18} strokeWidth={2.2} /> : <RadioOffIcon size={18} strokeWidth={2} />}
+            {theme === value ? <CheckCircleFill /> : <RadioOffIcon size={18} strokeWidth={2} />}
           </span>
         </label>
       ))}

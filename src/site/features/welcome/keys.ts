@@ -1,4 +1,5 @@
 // Server-safe key list of the welcome feature (see settings/keys.ts for why it is separate).
+// Page 5 is the paywall: the page also hands down PLUS_UI_KEYS (plus/server.ts).
 
 /** App UI keys used here (the page hands them down with t.pick). */
 export const WELCOME_UI_KEYS = [
@@ -20,10 +21,5 @@ export const WELCOME_UI_KEYS = [
   "Привычки",
   "Личные финансы",
   "Разборы и идеи: интерьер, привычки, личные финансы",
-  "Полный доступ",
-  "Доступ открыт",
-  "Все разборы и идеи, новые выпуски и экспорт материалов.",
-  "Открыть Plus",
-  "Открыть библиотеку",
   "Остаться с бесплатным разбором",
 ] as const;

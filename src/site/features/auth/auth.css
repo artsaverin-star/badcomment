@@ -1,14 +1,17 @@
-/* Sign-in panel (dialog + /login). Tokens only; Telegram blue is the brand's own colour. */
+/* Sign-in panel (sheet + /login). The app has no sign-in screen, so it speaks the welcome /
+   paywall language: Onest 900 title, Onest 450 description, Onest capsules. Tokens only.
+   Telegram is the primary method on the one product action colour (spec 05 §6.2: cobalt is
+   the only brand colour; white on #2AABEE was 2.57:1 — a11y review M5), with the white glyph. */
 
 .ia-auth {
-  --ia-auth-tg: #2aabee;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  padding: 8px 4px 4px;
+  padding: 8px 0 4px;
   text-align: center;
   color: var(--ia-ink);
+  font-family: var(--ia-font-display);
 }
 
 .ia-auth__mark {
@@ -30,7 +33,8 @@
   color: #fff;
 }
 .ia-auth__badge--tg {
-  background: var(--ia-auth-tg);
+  background: var(--ia-action);
+  color: var(--ia-on-action);
 }
 .ia-auth__badge--mail {
   background: var(--ia-action);
@@ -51,8 +55,7 @@ h1.ia-auth__title {
   margin: 0;
   max-width: var(--ia-w-welcome-copy);
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-subheadline);
-  line-height: 1.45;
+  font: 450 1rem / 1.44 var(--ia-font-display);
   text-wrap: pretty;
 }
 
@@ -60,8 +63,7 @@ h1.ia-auth__title {
   margin: 0;
   max-width: var(--ia-w-welcome-copy);
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-footnote);
-  line-height: var(--ia-lh-footnote);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-display);
 }
 
 .ia-auth__notice {
@@ -120,17 +122,18 @@ h1.ia-auth__title {
   padding: 12px 20px;
   border: 0;
   border-radius: var(--ia-radius-pill);
-  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
-  letter-spacing: -0.02em;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-display);
+  letter-spacing: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition:
-    transform var(--ia-dur-press) var(--ia-ease-press),
-    opacity var(--ia-dur-press) var(--ia-ease-press),
+    transform var(--ia-dur-press-welcome) ease-out,
+    opacity var(--ia-dur-press-welcome) ease-out,
     background-color 150ms ease;
 }
+/* ClarityWelcomePressStyle: scale .98, opacity .9, 140 ms ease-out. */
 .ia-auth__method:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
   opacity: 0.9;
 }
 .ia-auth__method:disabled {
@@ -139,8 +142,8 @@ h1.ia-auth__title {
   transform: none;
 }
 .ia-auth__method--tg {
-  background: var(--ia-auth-tg);
-  color: #fff;
+  background: var(--ia-action);
+  color: var(--ia-on-action);
 }
 .ia-auth__method--google,
 .ia-auth__method--plain {
@@ -150,7 +153,7 @@ h1.ia-auth__title {
 }
 @media (hover: hover) {
   .ia-auth__method--tg:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--ia-auth-tg) 88%, black);
+    background: color-mix(in srgb, var(--ia-action) 90%, black);
   }
   .ia-auth__method--google:hover:not(:disabled),
   .ia-auth__method--plain:hover:not(:disabled) {
@@ -213,9 +216,8 @@ h1.ia-auth__title {
   align-items: center;
   gap: 10px;
   margin: 0;
-  color: var(--ia-auth-tg);
-  font-weight: 600;
-  font-size: var(--ia-fs-subheadline);
+  color: var(--ia-accent);
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-display);
 }
 
 .ia-auth__link {
@@ -225,19 +227,26 @@ h1.ia-auth__title {
   text-underline-offset: 3px;
 }
 
+/* Legal links as the paywall's legal row: plain ink, Onest 12/550 (ClarityPaywall.swift:299). */
 .ia-auth__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 18px;
   margin: 0;
-  color: var(--ia-secondary);
-  font-size: var(--ia-fs-caption);
 }
 .ia-auth__legal a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ia-hit);
+  color: var(--ia-ink);
+  font: 550 0.75rem / 1.333 var(--ia-font-display);
+  text-decoration: none;
 }
 @media (hover: hover) {
   .ia-auth__legal a:hover {
-    color: var(--ia-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 }
 
@@ -257,6 +266,8 @@ h1.ia-auth__title {
     padding: 28px 28px 24px;
     border-radius: var(--ia-radius-modal);
     background: var(--ia-surface);
-    box-shadow: var(--ia-shadow-research-card);
+    box-shadow:
+      var(--ia-shadow-research-card),
+      inset 0 0 0 0.5px var(--ia-line-card);
   }
 }

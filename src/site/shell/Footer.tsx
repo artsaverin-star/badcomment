@@ -7,12 +7,12 @@ import { routes } from "../routing";
 import { AppStoreBadge } from "../ui/AppStore";
 import { AppMark } from "../ui/icons";
 import { FooterLanguages } from "./FooterLanguages";
-import { FooterPlusLink } from "./FooterPlusLink";
+import { FooterPaymentOfferLink, FooterPlusLink } from "./FooterPlusLink";
 import { shellStrings } from "./strings";
 
 // Footer on every page (DECISIONS §8, spec 08 S13): sections, contacts, terms, privacy,
 // «Старая версия сайта» (the only navigation link into the archive), language picker,
-// App Store badge, © line.
+// App Store badge (with a localized caption: the badge artwork is English), © line.
 
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getT(locale);
@@ -28,7 +28,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             <span aria-hidden="true">inApp</span>
           </Link>
           <p className="m-0 max-w-[34ch] text-ia-secondary">{t("Что людям важно в приложениях и чего им не хватает.")}</p>
-          <AppStoreBadge />
+          <AppStoreBadge caption />
         </div>
 
         <nav aria-label={s.footerNav}>
@@ -50,6 +50,7 @@ export async function Footer({ locale }: { locale: Locale }) {
           <li>
             <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>
           </li>
+          <FooterPaymentOfferLink locale={locale} label={s.paymentOffer} />
           <li>
             <Link href={routes.privacy(locale)}>{t("Конфиденциальность")}</Link>
           </li>

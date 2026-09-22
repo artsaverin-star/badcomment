@@ -1,23 +1,18 @@
 import { defineStrings } from "../../i18n/strings";
 
-// Web-only strings of the Plus paywall (/<L>/plus + the sheet) and the payment return page
-// (/<L>/library?checkout=). App strings (title, plan detail, CTA, disclosure) come from
-// content/v2/<L>/ui.json. The app's StoreKit wording is replaced by the web's YooKassa facts
-// (spec 03 §2.7, spec 09 G11). Voice: «ты» / du / tu; Japanese です・ます like ui.ja.json.
+// Web-only strings of the Plus paywall (/<L>/plus, the sheet, the welcome replay's last page)
+// and the payment return page (/<L>/library?checkout=). App strings (title, description, plan
+// row, disclosure, CTA, «Остаться с бесплатным разбором») come from content/v2/<L>/ui.json. The
+// app's StoreKit wording is replaced by the web's YooKassa facts (spec 03 §2.7, spec 09 G11).
+// Voice: «ты» / du / tu; Japanese です・ます like ui.ja.json (no いただく / ご〜ください).
 // The return-page banners keep the old site's meaning (spec 06 §4.2).
+//
+// These strings mention web payment methods, so they never ride along with every page: the
+// sheet receives them with its offer (GET /api/site/plus/offer), and only the pages that sell
+// or confirm (/plus, /welcome, /library) render them on the server.
 
 export const plusStrings = defineStrings({
   ru: {
-    planTitle: "Plus навсегда",
-    topicsOne: "{n} разбор",
-    topicsFew: "{n} разбора",
-    topicsMany: "{n} разборов",
-    topicsOther: "{n} разбора",
-    benefitTopics: "{topics} целиком — с находками и цитатами из отзывов",
-    benefitIdeas: "{ideas} с подробностями",
-    benefitExport: "Экспорт материалов в документ",
-    benefitUpdates: "Новые выпуски — без доплат",
-    benefitsLabel: "Что открывает Plus",
     payNote:
       "Оплата в рублях — банковской картой или через СБП, через ЮKassa. Доступ включится сам, как только оплата подтвердится.",
     signInFirst: "Перед оплатой попросим войти — доступ привяжется к твоему аккаунту.",
@@ -52,16 +47,6 @@ export const plusStrings = defineStrings({
     signIn: "Войти",
   },
   en: {
-    planTitle: "Plus for life",
-    topicsOne: "{n} breakdown",
-    topicsFew: "{n} breakdowns",
-    topicsMany: "{n} breakdowns",
-    topicsOther: "{n} breakdowns",
-    benefitTopics: "{topics} in full — with findings and review quotes",
-    benefitIdeas: "{ideas} with all the details",
-    benefitExport: "Export any material to a document",
-    benefitUpdates: "New releases at no extra cost",
-    benefitsLabel: "What Plus unlocks",
     payNote:
       "You pay in Russian roubles by bank card or SBP via YooKassa. Access turns on by itself as soon as the payment is confirmed.",
     signInFirst: "We’ll ask you to sign in before paying, so access is linked to your account.",
@@ -73,7 +58,7 @@ export const plusStrings = defineStrings({
     errFailed: "Couldn’t create the payment. Try again.",
     errNetwork: "No connection. Check your internet and try again.",
     restore: "Sign in to restore access",
-    offerLink: "Payment offer",
+    offerLink: "Public offer",
     supportLink: "Support",
     legalLabel: "Documents and support",
     iphoneTitle: "The iPhone app",
@@ -83,12 +68,12 @@ export const plusStrings = defineStrings({
     returnTitle: "Plus payment",
     returnDescription: "inApp Plus payment confirmation.",
     checking: "Confirming payment…",
-    confirmed: "Payment confirmed. Full access is open.",
+    confirmed: "Payment confirmed. You now have full access.",
     failed: "Payment wasn’t completed. You weren’t charged.",
     delayed: "Confirmation is taking longer than usual. Access will activate automatically; refresh in a minute.",
     signinNeeded: "Sign in with the account you paid from, and we’ll check the payment.",
     missing: "We couldn’t find this payment on your account. If you were charged, contact support.",
-    doneTitle: "Plus is open",
+    doneTitle: "Plus is unlocked",
     doneLead: "Every breakdown and idea is now available. Enjoy the reading!",
     openResearch: "Open breakdowns",
     tryAgain: "Try again",
@@ -96,19 +81,9 @@ export const plusStrings = defineStrings({
     signIn: "Sign in",
   },
   de: {
-    planTitle: "Plus für immer",
-    topicsOne: "{n} Analyse",
-    topicsFew: "{n} Analysen",
-    topicsMany: "{n} Analysen",
-    topicsOther: "{n} Analysen",
-    benefitTopics: "{topics} komplett – mit Erkenntnissen und Zitaten aus Bewertungen",
-    benefitIdeas: "{ideas} mit allen Details",
-    benefitExport: "Export von Materialien als Dokument",
-    benefitUpdates: "Neue Ausgaben ohne Aufpreis",
-    benefitsLabel: "Was Plus freischaltet",
     payNote:
       "Du zahlst in Rubel per Bankkarte oder SBP über YooKassa. Der Zugang wird automatisch freigeschaltet, sobald die Zahlung bestätigt ist.",
-    signInFirst: "Vor dem Bezahlen bitten wir dich, dich anzumelden – so wird der Zugang mit deinem Konto verknüpft.",
+    signInFirst: "Vor dem Bezahlen bitten wir dich, dich anzumelden — so wird der Zugang mit deinem Konto verknüpft.",
     methodTitle: "Wie möchtest du bezahlen?",
     methodCard: "Bankkarte",
     methodSbp: "SBP",
@@ -117,7 +92,7 @@ export const plusStrings = defineStrings({
     errFailed: "Die Zahlung konnte nicht erstellt werden. Versuch es noch einmal.",
     errNetwork: "Keine Verbindung. Prüf dein Internet und versuch es noch einmal.",
     restore: "Anmelden, um den Zugang wiederherzustellen",
-    offerLink: "Zahlungsangebot",
+    offerLink: "Öffentliches Angebot",
     supportLink: "Support",
     legalLabel: "Dokumente und Support",
     iphoneTitle: "Die iPhone-App",
@@ -131,7 +106,7 @@ export const plusStrings = defineStrings({
     failed: "Die Zahlung wurde nicht abgeschlossen. Es wurde nichts abgebucht.",
     delayed:
       "Die Bestätigung dauert länger als üblich. Der Zugang wird automatisch freigeschaltet; lade die Seite in einer Minute neu.",
-    signinNeeded: "Melde dich mit dem Konto an, mit dem du bezahlt hast – dann prüfen wir die Zahlung.",
+    signinNeeded: "Melde dich mit dem Konto an, mit dem du bezahlt hast — dann prüfen wir die Zahlung.",
     missing: "Diese Zahlung haben wir in deinem Konto nicht gefunden. Falls Geld abgebucht wurde, schreib dem Support.",
     doneTitle: "Plus ist freigeschaltet",
     doneLead: "Alle Analysen und Ideen stehen dir jetzt offen. Viel Spaß beim Lesen!",
@@ -141,20 +116,10 @@ export const plusStrings = defineStrings({
     signIn: "Anmelden",
   },
   fr: {
-    planTitle: "Plus à vie",
-    topicsOne: "{n} décryptage",
-    topicsFew: "{n} décryptages",
-    topicsMany: "{n} décryptages",
-    topicsOther: "{n} décryptages",
-    benefitTopics: "{topics} en entier – constats et citations d’avis compris",
-    benefitIdeas: "{ideas} avec tous les détails",
-    benefitExport: "Export des contenus en document",
-    benefitUpdates: "Les nouveaux numéros sans supplément",
-    benefitsLabel: "Ce que Plus débloque",
     payNote:
       "Tu paies en roubles par carte bancaire ou par SBP via YooKassa. L’accès s’active tout seul dès que le paiement est confirmé.",
-    signInFirst: "On te demandera de te connecter avant de payer : l’accès sera lié à ton compte.",
-    methodTitle: "Comment veux-tu payer ?",
+    signInFirst: "On te demandera de te connecter avant de payer : l’accès sera lié à ton compte.",
+    methodTitle: "Comment veux-tu payer ?",
     methodCard: "Carte bancaire",
     methodSbp: "SBP",
     errAlreadyActive: "Plus est déjà actif sur ce compte.",
@@ -162,7 +127,7 @@ export const plusStrings = defineStrings({
     errFailed: "Impossible de créer le paiement. Réessaie.",
     errNetwork: "Pas de connexion. Vérifie ton accès à Internet et réessaie.",
     restore: "Se connecter pour restaurer l’accès",
-    offerLink: "Offre de paiement",
+    offerLink: "Offre publique",
     supportLink: "Assistance",
     legalLabel: "Documents et assistance",
     iphoneTitle: "L’app iPhone",
@@ -172,47 +137,37 @@ export const plusStrings = defineStrings({
     returnTitle: "Paiement Plus",
     returnDescription: "Confirmation du paiement inApp Plus.",
     checking: "Vérification du paiement…",
-    confirmed: "Paiement confirmé. L’accès complet est ouvert.",
+    confirmed: "Paiement confirmé. L’accès complet est activé.",
     failed: "Le paiement n’a pas abouti. Tu n’as pas été débité.",
     delayed:
-      "La confirmation prend plus de temps que d’habitude. L’accès s’activera automatiquement ; actualise la page dans une minute.",
+      "La confirmation prend plus de temps que d’habitude. L’accès s’activera automatiquement ; actualise la page dans une minute.",
     signinNeeded: "Connecte-toi avec le compte utilisé pour payer, et on vérifie le paiement.",
     missing: "On n’a pas trouvé ce paiement sur ton compte. Si tu as été débité, écris à l’assistance.",
-    doneTitle: "Plus est ouvert",
-    doneLead: "Tous les décryptages et toutes les idées sont maintenant disponibles. Bonne lecture !",
+    doneTitle: "Plus est débloqué",
+    doneLead: "Tous les décryptages et toutes les idées sont maintenant disponibles. Bonne lecture !",
     openResearch: "Ouvrir les décryptages",
     tryAgain: "Réessayer",
     refresh: "Actualiser la page",
     signIn: "Se connecter",
   },
   ja: {
-    planTitle: "Plus 買い切り",
-    topicsOne: "{n}件の分析",
-    topicsFew: "{n}件の分析",
-    topicsMany: "{n}件の分析",
-    topicsOther: "{n}件の分析",
-    benefitTopics: "{topics}をすべて — 発見とレビューの引用つき",
-    benefitIdeas: "{ideas}の詳細",
-    benefitExport: "資料をドキュメントに書き出し",
-    benefitUpdates: "新しい号も追加料金なし",
-    benefitsLabel: "Plusで開くもの",
     payNote:
       "お支払いはロシア・ルーブルで、YooKassaを通じて銀行カードまたはSBPで行います。支払いが確認されると、アクセスは自動で有効になります。",
-    signInFirst: "お支払いの前にログインしていただきます。アクセスはあなたのアカウントに紐づきます。",
+    signInFirst: "お支払いの前にログインしてください。アクセスはあなたのアカウントに紐づきます。",
     methodTitle: "お支払い方法",
     methodCard: "銀行カード",
     methodSbp: "SBP",
     errAlreadyActive: "このアカウントではPlusがすでに有効です。",
-    errUnavailable: "現在お支払いをご利用いただけません。しばらくしてからお試しください。",
+    errUnavailable: "現在お支払いは利用できません。しばらくしてからお試しください。",
     errFailed: "支払いを作成できませんでした。もう一度お試しください。",
     errNetwork: "接続できません。インターネット接続を確認して、もう一度お試しください。",
     restore: "ログインしてアクセスを復元",
-    offerLink: "支払いに関する規約",
+    offerLink: "ウェブ決済の規約",
     supportLink: "サポート",
     legalLabel: "規約とサポート",
     iphoneTitle: "iPhoneアプリ",
     iphoneNote:
-      "iPhoneアプリのPlusは、App Storeで別途ご購入いただけます。サイトでの購入とApp Storeのサブスクリプションは連携しておらず、相互に復元することはできません。",
+      "iPhoneアプリのPlusは、App Storeで別に購入できます。サイトでの購入とApp Storeのサブスクリプションは連携しておらず、相互に復元することはできません。",
     pageDescription: "inAppのすべての分析とアイデア、新しい号、資料のエクスポート。",
     returnTitle: "Plusのお支払い",
     returnDescription: "inApp Plusのお支払い確認。",
@@ -221,7 +176,7 @@ export const plusStrings = defineStrings({
     failed: "お支払いは完了しませんでした。料金は請求されていません。",
     delayed: "確認に時間がかかっています。アクセスは自動で有効になります。1分ほどしてからページを再読み込みしてください。",
     signinNeeded: "お支払いに使ったアカウントでログインしてください。支払いを確認します。",
-    missing: "このお支払いはあなたのアカウントで見つかりませんでした。料金が請求された場合はサポートにご連絡ください。",
+    missing: "このお支払いはあなたのアカウントで見つかりませんでした。料金が請求された場合はサポートに連絡してください。",
     doneTitle: "Plusが有効になりました",
     doneLead: "すべての分析とアイデアを読めるようになりました。どうぞお楽しみください。",
     openResearch: "分析を開く",

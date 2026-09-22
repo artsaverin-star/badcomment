@@ -7,8 +7,7 @@ export const settingsStrings = defineStrings({
   ru: {
     description: "Plus, аккаунт, язык и оформление inApp.",
     account: "Аккаунт",
-    signIn: "Войти",
-    signInHint: "Чтобы восстановить доступ Plus и хранить закладки в аккаунте.",
+    signInRestore: "Войти, чтобы восстановить доступ",
     signOut: "Выйти",
     signOutFailed: "Не получилось выйти. Попробуй ещё раз.",
     restoreActive: "Plus активен в этом аккаунте.",
@@ -27,8 +26,7 @@ export const settingsStrings = defineStrings({
   en: {
     description: "Plus, account, language and appearance of inApp.",
     account: "Account",
-    signIn: "Sign in",
-    signInHint: "To restore Plus access and keep your bookmarks in your account.",
+    signInRestore: "Sign in to restore access",
     signOut: "Sign out",
     signOutFailed: "Couldn’t sign out. Try again.",
     restoreActive: "Plus is active in this account.",
@@ -47,8 +45,7 @@ export const settingsStrings = defineStrings({
   de: {
     description: "Plus, Konto, Sprache und Darstellung von inApp.",
     account: "Konto",
-    signIn: "Anmelden",
-    signInHint: "Um deinen Plus-Zugang wiederherzustellen und Lesezeichen im Konto zu behalten.",
+    signInRestore: "Anmelden, um den Zugang wiederherzustellen",
     signOut: "Abmelden",
     signOutFailed: "Abmelden hat nicht geklappt. Versuch es noch einmal.",
     restoreActive: "Plus ist in diesem Konto aktiv.",
@@ -67,8 +64,7 @@ export const settingsStrings = defineStrings({
   fr: {
     description: "Plus, compte, langue et apparence d’inApp.",
     account: "Compte",
-    signIn: "Se connecter",
-    signInHint: "Pour restaurer ton accès Plus et garder tes signets dans ton compte.",
+    signInRestore: "Se connecter pour restaurer l’accès",
     signOut: "Se déconnecter",
     signOutFailed: "Impossible de se déconnecter. Réessaie.",
     restoreActive: "Plus est actif sur ce compte.",
@@ -87,15 +83,14 @@ export const settingsStrings = defineStrings({
   ja: {
     description: "inAppのPlus、アカウント、言語、外観。",
     account: "アカウント",
-    signIn: "ログイン",
-    signInHint: "Plusのアクセスを復元し、ブックマークをアカウントに保存するために。",
+    signInRestore: "ログインしてアクセスを復元",
     signOut: "ログアウト",
     signOutFailed: "ログアウトできませんでした。もう一度お試しください。",
     restoreActive: "このアカウントでPlusが有効です。",
     restoreNone: "このアカウントでは購入が見つかりませんでした。",
     restoreFailed: "アクセスを確認できませんでした。もう一度お試しください。",
     iphoneApp: "iPhoneアプリ",
-    paymentOffer: "公開オファー",
+    paymentOffer: "ウェブ決済の規約",
     storedBrowser: "ブックマークとメモはこのブラウザに保存されます。",
     storedAccount: "ブックマークとメモはあなたのアカウントに保存されます。",
     recordsBrowser:

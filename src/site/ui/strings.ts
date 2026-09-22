@@ -38,10 +38,13 @@ export const uiStrings = defineStrings({
   },
   ja: {
     appStoreBadge: "App Storeからダウンロード",
-    appStoreDialogTitle: "iPhone版 inApp",
+    appStoreDialogTitle: "iPhone版inApp",
     appStoreDialogBody:
-      "アプリは現在Appleの審査中で、まもなくApp Storeで公開されます。それまではWeb版をご利用ください。",
+      "アプリは現在Appleの審査中で、まもなくApp Storeで公開されます。それまではWeb版を使えます。",
     appStoreDialogContinue: "Webで続ける",
     appStoreSoon: "App Storeで近日公開",
   },
 });
+
+/** One locale's row of uiStrings (client: useWeb<UiStrings>("ui")). */
+export type UiStrings = (typeof uiStrings)["ru"];

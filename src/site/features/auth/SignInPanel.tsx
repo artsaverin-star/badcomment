@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
-import { useLocale, useT, useWebStrings } from "../../i18n/client";
+import { useLocale, useT, useWeb } from "../../i18n/client";
 import { format } from "../../i18n/strings";
 import { INTL_LOCALE } from "../../i18n/locales";
 import { routes } from "../../routing";
 import { Button } from "../../ui/Button";
 import { AlertIcon, AppMark, CopyIcon, MailIcon } from "../../ui/icons";
-import { authStrings, leadFor } from "./strings";
+import { leadFor } from "./copy";
+import type { AuthStrings } from "./strings";
+import { loadPendingTelegram, storeTelegram, TG_TTL_MS, type TgState } from "./telegram";
 import "./auth.css";
 
 // The one sign-in UI of the new site (spec 06 §3.2–3.6), shared by the dialog (SignInHost)
@@ -19,42 +21,14 @@ import "./auth.css";
 //     NEXT_PUBLIC_GOOGLE_CLIENT_ID is set at build and not inside an in-app webview).
 //   • E-mail magic link: POST /api/auth/email/start {email, return_to, locale} (only when
 //     NEXT_PUBLIC_EMAIL_LOGIN=1).
-// A pending Telegram login survives reloads in localStorage (`inapp_tg_login`, the key the
-// old site uses too), so the dialog can resume polling after the user comes back.
+// A pending Telegram login survives reloads (./telegram.ts), so the dialog can resume polling
+// after the user comes back. Strings: the page locale's row of authStrings, handed down by the
+// server (useWeb("auth")); the dialog host loads this panel on demand.
 
 const GOOGLE_ON = !!process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 const EMAIL_ON = process.env.NEXT_PUBLIC_EMAIL_LOGIN === "1";
 
-const TG_KEY = "inapp_tg_login";
-const TG_TTL_MS = 10 * 60 * 1000;
 const TG_POLL_MS = 2000;
-
-type TgState = { token: string; url: string; expiresAt: number; waiting: boolean };
-
-/** A stored, unexpired Telegram login (waiting or not). */
-export function loadPendingTelegram(): TgState | null {
-  try {
-    const raw = window.localStorage.getItem(TG_KEY);
-    if (!raw) return null;
-    const s = JSON.parse(raw) as TgState;
-    if (!s || typeof s.token !== "string" || typeof s.expiresAt !== "number" || s.expiresAt < Date.now()) {
-      window.localStorage.removeItem(TG_KEY);
-      return null;
-    }
-    return s;
-  } catch {
-    return null;
-  }
-}
-
-function storeTelegram(s: TgState | null) {
-  try {
-    if (s) window.localStorage.setItem(TG_KEY, JSON.stringify(s));
-    else window.localStorage.removeItem(TG_KEY);
-  } catch {
-    /* storage denied: polling still works for this tab */
-  }
-}
 
 // Google refuses embedded webviews (`disallowed_useragent`): same detection as the old modal.
 function isInAppWebView(): boolean {
@@ -101,7 +75,7 @@ export type SignInPanelProps = {
 };
 
 export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel = "h2" }: SignInPanelProps) {
-  const s = useWebStrings(authStrings);
+  const s = useWeb<AuthStrings>("auth");
   const t = useT();
   const locale = useLocale();
   const Heading = headingLevel;
@@ -396,8 +370,7 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
 
       <p className="ia-auth__fine">{s.readWithoutAccount}</p>
       <p className="ia-auth__legal">
-        <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>
-        <span aria-hidden="true"> · </span>
+        <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>{" "}
         <Link href={routes.privacy(locale)}>{t("Конфиденциальность")}</Link>
       </p>
     </div>

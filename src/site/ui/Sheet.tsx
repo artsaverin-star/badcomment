@@ -172,7 +172,8 @@ export function Sheet({
         full && "ia-sheet--full",
         className,
       )}
-      aria-labelledby={title !== undefined ? titleId : undefined}
+      // The title element exists only while open: no dangling id reference when closed.
+      aria-labelledby={open && title !== undefined ? titleId : undefined}
       aria-label={title === undefined ? label : undefined}
       onCancel={onCancel}
       onKeyDown={onKeyDown}

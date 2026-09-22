@@ -164,27 +164,27 @@ export function supportDoc(locale: Locale): SupportDoc {
         title: "Assistance inApp",
         lead: "De l’aide pour l’app iOS inApp et le site inapp.pro.",
         contactTitle: "Nous contacter",
-        includeIntro: "Pour qu’on puisse t’aider plus vite, indique :",
+        includeIntro: "Pour qu’on puisse t’aider plus vite, indique :",
         include: [
-          "le modèle de ton appareil et ta version d’iOS ;",
-          "la version de l’app (ouvre l’onglet « Enregistrés » et touche la roue dentée — la version figure en bas des Réglages) ;",
+          "le modèle de ton appareil et ta version d’iOS ;",
+          "la version de l’app (ouvre l’onglet « Enregistrés » et touche la roue dentée — la version figure en bas des Réglages) ;",
           "une brève description du problème et, si possible, une capture d’écran.",
         ],
         faqTitle: "Questions fréquentes",
         faq: [
           {
             id: "restore",
-            q: "Comment restaurer un achat dans l’app iOS ?",
-            a: "Ouvre l’onglet « Enregistrés » dans l’app, touche la roue dentée (Réglages) puis « Restaurer les achats » — ou touche « Restaurer » sur l’écran d’achat. Vérifie que tu es connecté avec le même compte Apple que celui utilisé pour acheter inApp Plus. L’app n’a ni compte ni connexion propres : l’accès est lié à ton compte Apple.",
+            q: "Comment restaurer un achat dans l’app iOS ?",
+            a: "Ouvre l’onglet « Enregistrés » dans l’app, touche la roue dentée (Réglages) puis « Restaurer les achats » — ou touche « Restaurer » sur l’écran d’achat. Vérifie que tu es connecté avec le même compte Apple que celui utilisé pour acheter inApp Plus. L’app n’a ni compte ni connexion propres : l’accès est lié à ton compte Apple.",
           },
           {
             id: "subscription",
-            q: "Comment gérer ou résilier mon abonnement ?",
-            a: "Les abonnements sont gérés par Apple. Sur iPhone, ouvre Réglages → ton nom → Abonnements, choisis inApp et touche « Annuler l’abonnement ». Pour éviter le prochain prélèvement, résilie au moins 24 heures avant la fin de la période en cours ; l’accès reste actif jusqu’à la fin de la période payée. Tant qu’un abonnement est actif, les Réglages de l’app affichent aussi « Gérer l’abonnement ».",
+            q: "Comment gérer ou résilier mon abonnement ?",
+            a: "Les abonnements sont gérés par Apple. Sur iPhone, ouvre Réglages → ton nom → Abonnements, choisis inApp et touche « Annuler l’abonnement ». Pour éviter le prochain prélèvement, résilie au moins 24 heures avant la fin de la période en cours ; l’accès reste actif jusqu’à la fin de la période payée. Tant qu’un abonnement est actif, les Réglages de l’app affichent aussi « Gérer l’abonnement ».",
           },
           {
             id: "refund",
-            q: "Comment obtenir le remboursement d’un achat sur l’App Store ?",
+            q: "Comment obtenir le remboursement d’un achat sur l’App Store ?",
             a: (
               <>
                 Les remboursements des achats sur l’App Store sont traités par Apple. Va sur {refund}, connecte-toi avec
@@ -196,12 +196,12 @@ export function supportDoc(locale: Locale): SupportDoc {
           },
           {
             id: "notes",
-            q: "Où sont stockés mes notes et mes signets ?",
-            a: "Uniquement sur ton appareil (et dans les sauvegardes de ton iPhone, si elles sont activées). L’app ne les envoie pas à nos serveurs et ne les synchronise pas entre appareils. Si tu supprimes l’app, ils sont supprimés de l’appareil ; restaurer un achat ne les fait pas revenir.",
+            q: "Où sont stockés mes notes et mes signets ?",
+            a: "Uniquement sur ton appareil (et dans les sauvegardes de ton iPhone, si elles sont activées). L’app ne les envoie pas à nos serveurs et ne les synchronise pas entre appareils. Si tu supprimes l’app, ils sont supprimés de l’appareil ; restaurer un achat ne les fait pas revenir.",
           },
           {
             id: "quote",
-            q: "Comment signaler une citation ?",
+            q: "Comment signaler une citation ?",
             a: (
               <>
                 Si tu as écrit un avis cité dans inApp, ou si tu estimes qu’une citation ou un autre contenu porte

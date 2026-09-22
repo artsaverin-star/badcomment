@@ -1,15 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocale, useT } from "../../i18n/client";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { I18nProvider, useLocale, useT } from "../../i18n/client";
 import { parsePublicPath } from "../../routing";
 import { registerPaywallHandler } from "../../shell/actions";
 import { useViewer } from "../../shell/ViewerContext";
-import { Sheet, SheetAction } from "../../ui/Sheet";
+import { Sheet } from "../../ui/Sheet";
 import { SkeletonText } from "../../ui/Skeleton";
-import { clearResume, peekResume, type PlusOfferData } from "./offer";
-import { PlusOffer } from "./PlusOffer";
+import { clearResume, peekResume, type PlusSheetPayload } from "./offer";
+import "./hosts.css";
 
 // The global Plus paywall sheet (spec 03 §2.1: a modal sheet over the current page — bottom
 // sheet on mobile, centered 440+48 modal on desktop), mounted once in the new root layout.
@@ -19,8 +20,25 @@ import { PlusOffer } from "./PlusOffer";
 //   • closes itself once Plus becomes active after the user asked for it (spec 03 §2.4: no
 //     success screen), and re-checks /api/me when the tab comes back (paid in another tab).
 // On /<L>/plus the page itself is the paywall, so the sheet stays closed there.
-// The offer (price label, benefits) is fetched from /api/site/plus/offer the first time the
-// sheet opens, so pages without buy UI (landing, /offer, /contacts) carry no web price.
+// Payload discipline (DECISIONS «Legal pages», performance review P2): the offer, the paywall
+// strings and its app labels are fetched from /api/site/plus/offer the first time the sheet
+// opens, and PlusOffer's code + CSS load with it — pages without buy UI (landing, /offer,
+// /contacts) carry no web price, payment method or buy label.
+
+const loadOffer = () => import("./PlusOffer");
+
+const PlusOffer = dynamic(() => loadOffer().then((m) => m.PlusOffer), {
+  ssr: false,
+  loading: () => <PaywallSkeleton />,
+});
+
+function PaywallSkeleton() {
+  return (
+    <div className="ia-host-skeleton" aria-busy="true">
+      <SkeletonText lines={6} />
+    </div>
+  );
+}
 
 type Open = { source: string; requested: boolean };
 
@@ -29,13 +47,14 @@ function onPlusPage(pathname: string | null): boolean {
 }
 
 // Never pop the paywall by itself on the Apple-facing legal pages (DECISIONS "Legal pages":
-// no prices or buy UI on /offer and /contacts), on sign-in or on the payment return.
+// no prices or buy UI on /offer and /contacts), on sign-in, on the payment return or in the
+// replay (its last page is the paywall).
 const NO_AUTO_OPEN = new Set(["offer", "contacts", "privacy", "login", "library", "welcome"]);
 
 export function PaywallHost() {
   const t = useT();
   const locale = useLocale();
-  const [offer, setOffer] = useState<{ locale: string; data: PlusOfferData } | null>(null);
+  const [payload, setPayload] = useState<{ locale: string; data: PlusSheetPayload } | null>(null);
   const router = useRouter();
   const pathname = usePathname();
   const viewer = useViewer();
@@ -44,6 +63,7 @@ export function PaywallHost() {
 
   const show = useCallback((source: string) => {
     if (onPlusPage(window.location.pathname)) return;
+    void loadOffer(); // fetch the code in parallel with the offer
     openedAt.current = window.location.pathname;
     setOpen((cur) => cur ?? { source, requested: false });
   }, []);
@@ -84,19 +104,19 @@ export function PaywallHost() {
     }
   }, [pathname, open]);
 
-  // Paid in another tab / on another device: re-check when this tab becomes visible again.
   const signedIn = viewer.loggedIn;
   const isOpen = open !== null;
+  const web = useMemo(() => (payload ? { plus: payload.data.strings } : undefined), [payload]);
 
   // Load the localized offer on first open (kept for the rest of the visit).
-  const haveOffer = offer?.locale === locale;
+  const havePayload = payload?.locale === locale;
   useEffect(() => {
-    if (!isOpen || haveOffer) return;
+    if (!isOpen || havePayload) return;
     let cancelled = false;
     fetch(`/api/site/plus/offer?lang=${locale}`)
-      .then((res) => (res.ok ? (res.json() as Promise<PlusOfferData>) : null))
+      .then((res) => (res.ok ? (res.json() as Promise<PlusSheetPayload>) : null))
       .then((data) => {
-        if (!cancelled && data) setOffer({ locale, data });
+        if (!cancelled && data?.offer && data.strings && data.ui) setPayload({ locale, data });
       })
       .catch(() => {
         /* offline: the sheet keeps its placeholder; reopening retries */
@@ -104,7 +124,9 @@ export function PaywallHost() {
     return () => {
       cancelled = true;
     };
-  }, [isOpen, haveOffer, locale]);
+  }, [isOpen, havePayload, locale]);
+
+  // Paid in another tab / on another device: re-check when this tab becomes visible again.
   useEffect(() => {
     if (!isOpen || !signedIn || viewer.plus) return;
     let cancelled = false;
@@ -136,18 +158,25 @@ export function PaywallHost() {
       onClose={close}
       size="paywall"
       label={t("Полный доступ")}
+      className="ia-host-sheet ia-plus-sheet"
       trailing={
-        <SheetAction id="paywall-close" onClick={close}>
+        <button type="button" className="ia-host-close" id="paywall-close" onClick={close}>
           {t("Закрыть")}
-        </SheetAction>
+        </button>
       }
     >
-      {open && offer && haveOffer ? (
-        <PlusOffer offer={offer.data} source={open.source} variant="sheet" onClose={close} onRequested={markRequested} />
+      {open && payload && havePayload ? (
+        <I18nProvider locale={locale} strings={payload.data.ui} web={web}>
+          <PlusOffer
+            offer={payload.data.offer}
+            source={open.source}
+            variant="sheet"
+            onClose={close}
+            onRequested={markRequested}
+          />
+        </I18nProvider>
       ) : open ? (
-        <div className="p-6" aria-busy="true">
-          <SkeletonText lines={6} />
-        </div>
+        <PaywallSkeleton />
       ) : null}
     </Sheet>
   );

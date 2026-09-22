@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
 import { CONTENT_ROOT } from "../content/root";
+import { BUILTIN_UI } from "./builtin";
 import type { Locale } from "./locales";
 import { makeT, type T, type UIPack } from "./translate";
 
@@ -66,5 +67,5 @@ export const getT = cache(async (locale: Locale): Promise<T> => {
     loadUIPack(locale),
     locale === "en" || locale === "ru" ? Promise.resolve(null) : loadUIPack("en"),
   ]);
-  return makeT(locale, own, locale === "en" ? own : english);
+  return makeT(locale, own, locale === "en" ? own : english, undefined, BUILTIN_UI);
 });

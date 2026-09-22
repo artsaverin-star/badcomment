@@ -90,12 +90,15 @@ export function LegalToc({ label, sections }: { label: string; sections: LegalSe
   );
 }
 
-/** Numbered sections («1. Кто предоставляет inApp» …). */
+/**
+ * Numbered sections («1. Кто предоставляет inApp» …). Plain <section>s without an accessible
+ * name: the h2s give the structure, and 13 named regions would flood the landmark list (a11y m15).
+ */
 export function LegalSections({ sections, numbered = true }: { sections: LegalSection[]; numbered?: boolean }) {
   return (
     <div className="ia-legal-sections">
       {sections.map((s, i) => (
-        <section key={s.id} id={s.id} className="ia-legal-section" aria-labelledby={`${s.id}-title`}>
+        <section key={s.id} id={s.id} className="ia-legal-section">
           <h2 className="ia-legal-section__title ia-legal-section__title--sm" id={`${s.id}-title`}>
             {numbered ? `${i + 1}. ` : ""}
             {s.title}

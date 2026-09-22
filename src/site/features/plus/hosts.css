@@ -1,0 +1,42 @@
+/* The global account hosts (sign-in sheet, paywall sheet): everything that renders before
+   their panels load on demand. Tiny on purpose; it ships on every page. Unlayered, so it wins
+   over the shared sheet rules in site.css (@layer components).
+   Header as in ClarityPaywall.swift:132-149: padding 24 / top 4, a 44 pt row, «Закрыть» as a
+   plain Onest 15/500 secondary text button (no glass pill). */
+
+.ia-host-sheet .ia-sheet__header {
+  min-height: 48px;
+  padding: 4px 18px 0;
+}
+.ia-host-sheet .ia-sheet__body {
+  padding: 0 24px 16px;
+}
+.ia-host-close {
+  min-height: var(--ia-hit);
+  padding: 0 6px;
+  border: 0;
+  background: none;
+  color: var(--ia-secondary);
+  font: 500 0.9375rem / 1.2 var(--ia-font-display);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .ia-host-close:hover {
+    color: var(--ia-ink);
+  }
+}
+.ia-host-close:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.ia-host-skeleton {
+  padding: 12px 0 24px;
+}
+
+/* The paywall sheet: its footer (disclosure → CTA → secondary) sticks to the bottom of the
+   scrolling body (ClarityWelcomeFooter sits outside the ScrollView), so the body ends flush. */
+.ia-plus-sheet .ia-sheet__body {
+  padding-bottom: 0;
+}

@@ -42,6 +42,8 @@ const EMPTY: Snapshot = { research: [], idea: [], notes: {} };
 let snapshot: Snapshot = EMPTY;
 let loaded = false;
 let watching = false;
+/** Some stored value could not be read (it was copied to "<key>:corrupt"): the Saved screen says so. */
+let unreadable = false;
 const listeners = new Set<() => void>();
 /** Library feature hook: called after every local mutation (for server sync). */
 const mutationListeners = new Set<(change: LibraryChange) => void>();
@@ -50,6 +52,7 @@ const mutationListeners = new Set<(change: LibraryChange) => void>();
 export type LibraryChange = SyncOp;
 
 function backup(key: string, raw: string) {
+  unreadable = true;
   try {
     if (window.localStorage.getItem(`${key}:corrupt`) === null) window.localStorage.setItem(`${key}:corrupt`, raw);
   } catch {
@@ -119,9 +122,25 @@ function emit() {
   for (const l of listeners) l();
 }
 
-/** Write the state; false when the browser refused (private mode, quota). The UI state updates either way. */
-function persist(next: Snapshot): boolean {
-  snapshot = next;
+/**
+ * Write the state; false when the browser refused (private mode, quota). By default the UI
+ * state updates either way (a bookmark still works for this page). `atomic`: on failure keep
+ * the previous state and storage untouched — the note editor's save, which the app leaves
+ * unchanged when it cannot be written (StudioNotebook persistenceError).
+ */
+function persist(next: Snapshot, atomic = false): boolean {
+  let raw: { research: string | null; idea: string | null; notes: string | null } | null = null;
+  if (atomic) {
+    try {
+      raw = {
+        research: window.localStorage.getItem(KEYS.research),
+        idea: window.localStorage.getItem(KEYS.idea),
+        notes: window.localStorage.getItem(KEYS.notes),
+      };
+    } catch {
+      return false; // storage is not readable at all: nothing can be saved
+    }
+  }
   let ok = true;
   try {
     window.localStorage.setItem(KEYS.research, JSON.stringify(next.research));
@@ -130,6 +149,20 @@ function persist(next: Snapshot): boolean {
   } catch {
     ok = false;
   }
+  if (!ok && raw) {
+    // Put back whatever was written before the failure, so storage and screen agree.
+    for (const [k, key] of [["research", KEYS.research], ["idea", KEYS.idea], ["notes", KEYS.notes]] as const) {
+      try {
+        const v = raw[k];
+        if (v === null) window.localStorage.removeItem(key);
+        else window.localStorage.setItem(key, v);
+      } catch {
+        // ignore: the in-memory state is still the previous one either way
+      }
+    }
+    return false;
+  }
+  snapshot = next;
   emit();
   return ok;
 }
@@ -163,6 +196,22 @@ export function useLibraryHydrated(): boolean {
   return useSyncExternalStore(
     noopSubscribe,
     () => true,
+    () => false,
+  );
+}
+
+/**
+ * True when part of the stored library could not be read (spec 02 §9.2): the raw value was
+ * kept aside as "<key>:corrupt" and the Saved screen shows an error line, like the app's
+ * persistenceError. False on the server and during hydration.
+ */
+export function useLibraryUnreadable(): boolean {
+  return useSyncExternalStore(
+    subscribe,
+    () => {
+      load();
+      return unreadable;
+    },
     () => false,
   );
 }
@@ -220,10 +269,12 @@ export function saveNote(kind: MaterialKind, slug: string, text: string): boolea
   else delete notes[key];
   const bookmark = !snapshot[kind].includes(slug);
   if (!noteChanged && !bookmark) return true;
-  const ok = persist({ ...snapshot, notes, ...(bookmark ? { [kind]: [slug, ...snapshot[kind]] } : {}) });
+  // All or nothing, like the app: a note that cannot be stored changes nothing on screen.
+  const ok = persist({ ...snapshot, notes, ...(bookmark ? { [kind]: [slug, ...snapshot[kind]] } : {}) }, true);
+  if (!ok) return false;
   if (noteChanged) notify({ type: "note", kind, slug, text: value });
   if (bookmark) notify({ type: "saved", kind, slug, saved: true });
-  return ok;
+  return true;
 }
 
 /** For the library feature's sync layer: replace the whole local state (e.g. after a server merge). No events. */

@@ -8,13 +8,14 @@ export const libraryStrings = defineStrings({
   ru: {
     savedInBrowser: "Сохранено в этом браузере. Войди, чтобы не потерять.",
     signIn: "Войти",
-    savedInAccount: "Сохранено в аккаунте",
+    savedInAccount: "Сохранено в твоём аккаунте",
     syncError: "Не удалось синхронизировать с аккаунтом. Изменения сохранены в этом браузере — попробуем ещё раз.",
     noteFootnoteBrowser: "Заметка хранится в этом браузере. Удаление материала из сохранённого не удаляет заметку.",
     noteFootnoteAccount: "Заметка хранится в твоём аккаунте. Удаление материала из сохранённого не удаляет заметку.",
     bookmarkRemoved: "Закладка убрана",
     filterLabel: "Фильтр",
     loading: "Загружаем сохранённое…",
+    storageUnreadable: "Не удалось прочитать часть сохранённого в этом браузере. Исходные данные сохранены.",
   },
   en: {
     savedInBrowser: "Saved in this browser. Sign in so you don’t lose it.",
@@ -26,6 +27,7 @@ export const libraryStrings = defineStrings({
     bookmarkRemoved: "Bookmark removed",
     filterLabel: "Filter",
     loading: "Loading your saved items…",
+    storageUnreadable: "Couldn’t read part of what you saved in this browser. The original data has been kept.",
   },
   de: {
     savedInBrowser: "In diesem Browser gespeichert. Melde dich an, damit nichts verloren geht.",
@@ -40,6 +42,7 @@ export const libraryStrings = defineStrings({
     bookmarkRemoved: "Lesezeichen entfernt",
     filterLabel: "Filter",
     loading: "Gespeichertes wird geladen…",
+    storageUnreadable: "Ein Teil deiner gespeicherten Inhalte in diesem Browser ließ sich nicht lesen. Die ursprünglichen Daten bleiben erhalten.",
   },
   fr: {
     savedInBrowser: "Enregistré dans ce navigateur. Connecte-toi pour ne rien perdre.",
@@ -53,6 +56,7 @@ export const libraryStrings = defineStrings({
     bookmarkRemoved: "Signet retiré",
     filterLabel: "Filtre",
     loading: "Chargement de tes enregistrements…",
+    storageUnreadable: "Impossible de lire une partie de tes enregistrements dans ce navigateur. Les données d’origine sont conservées.",
   },
   ja: {
     savedInBrowser: "このブラウザに保存されています。なくさないようにログインしましょう。",
@@ -64,5 +68,6 @@ export const libraryStrings = defineStrings({
     bookmarkRemoved: "ブックマークを外しました",
     filterLabel: "フィルター",
     loading: "保存済みを読み込んでいます…",
+    storageUnreadable: "このブラウザに保存した内容の一部を読み込めませんでした。元のデータは保持されています。",
   },
 });

@@ -2,22 +2,23 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useLocale, useT, useWebStrings } from "../i18n/client";
+import { useLocale, useT, useWeb } from "../i18n/client";
 import { LOCALE_NAMES, LOCALES } from "../i18n/locales";
+import { labelValue } from "../i18n/translate";
 import { routes, switchLocaleHref } from "../routing";
 import { AppMark, CheckIcon, GlobeIcon, SettingsIcon, SignOutIcon } from "../ui/icons";
 import { Menu } from "../ui/Menu";
 import { toast } from "../ui/Toast";
 import { cx } from "../ui/cx";
 import { openSignIn, signOut } from "./actions";
-import { shellStrings } from "./strings";
+import type { ShellStrings } from "./strings";
 import { useViewer } from "./ViewerContext";
 
 // Pieces shared by the desktop top bar and the mobile compact header.
 
 export function Logo({ className }: { className?: string }) {
   const locale = useLocale();
-  const s = useWebStrings(shellStrings);
+  const s = useWeb<ShellStrings>("shell");
   return (
     <Link href={routes.home(locale)} className={cx("ia-logo", className)} aria-label={s.home}>
       <span className="ia-logo__mark" aria-hidden="true">
@@ -54,7 +55,8 @@ export function LanguageMenu({ direction = "down", align = "end" }: { direction?
         icon: l === locale ? <CheckIcon size={17} strokeWidth={2.4} /> : <span />,
       }))}
       triggerClassName="ia-account-btn"
-      triggerLabel={`${label}: ${LOCALE_NAMES[locale]}`}
+      // The name starts with the visible "RU" (WCAG 2.5.3), then says what it is.
+      triggerLabel={`${locale.toUpperCase()} — ${labelValue(locale, label, LOCALE_NAMES[locale])}`}
       trigger={
         <>
           <GlobeIcon size={17} strokeWidth={2} aria-hidden="true" />
@@ -73,7 +75,7 @@ export function AccountButton() {
   const viewer = useViewer();
   const locale = useLocale();
   const t = useT();
-  const s = useWebStrings(shellStrings);
+  const s = useWeb<ShellStrings>("shell");
 
   if (!viewer.loggedIn || !viewer.user) {
     return (
@@ -83,13 +85,20 @@ export function AccountButton() {
     );
   }
 
-  const heading = [viewer.user.name, viewer.plus ? s.plusActive : null].filter(Boolean).join(" · ");
+  // The app's own wording for the status (ui.<L>.json «Plus активен»).
+  const heading = [viewer.user.name, viewer.plus ? t("Plus активен") : null].filter(Boolean).join(" · ");
   return (
     <Menu
-      label={s.account}
+      // The label row inside a role="menu" is skipped by screen readers: name the trigger and
+      // the menu with the account holder and the Plus status instead.
+      label={heading ? labelValue(locale, s.account, heading) : s.account}
       items={[
         ...(heading ? [{ type: "label" as const, label: heading }] : []),
         { label: t("Настройки"), href: routes.settings(locale), icon: <SettingsIcon size={17} strokeWidth={2} /> },
+        // The admin panel is an old-site page served in place (ru/en only).
+        ...(viewer.user.isAdmin
+          ? [{ label: locale === "ru" ? "Админка" : "Admin", href: `/${locale === "ru" ? "ru" : "en"}/admin`, external: true, icon: <SettingsIcon size={17} strokeWidth={2} /> }]
+          : []),
         { type: "separator" as const },
         {
           label: s.signOut,

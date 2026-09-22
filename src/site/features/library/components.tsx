@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
-import { useT, useWebStrings } from "@/site/i18n/client";
+import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
+import type { Locale } from "@/site/i18n/locales";
 import { useViewer } from "@/site/shell/ViewerContext";
-import { BookmarkFilledIcon, BookmarkIcon, Button, IconButton, Sheet, SheetAction, toast } from "@/site/ui";
+import { BookmarkFilledIcon, BookmarkIcon, Button, IconButton, Sheet, SheetAction } from "@/site/ui";
 import { NOTE_MAX } from "./protocol";
 import { saveNote, toggleSaved, useIsSaved, useNote, type MaterialKind } from "./store";
 import { libraryStrings } from "./strings";
@@ -24,28 +25,37 @@ import "./library.css";
 export { LIBRARY_UI_KEYS } from "./keys";
 
 /**
- * Bookmark toggle (spec 01 §5.6, 02 §5.4): outline ↔ filled, label «Сохранить» /
- * «Убрать из сохранённого», aria-pressed. Ideas can be bookmarked even when locked.
- * The app confirms with a haptic; the web says it in a polite toast instead.
+ * Bookmark toggle (spec 01 §5.6, 02 §5.4): outline ↔ filled (`bookmark.fill`, ink — the
+ * reader chrome's tint, ClarityReader.swift:805), aria-pressed. Ideas can be bookmarked even
+ * when locked. No toast (spec 02 §5.4: the app gives no visual feedback): the accessible name
+ * stays «Сохранить» and aria-pressed carries the state, so a screen reader announces the
+ * change once; the tooltip says what a click will do.
  */
 export function BookmarkButton({ kind, slug }: { kind: MaterialKind; slug: string }) {
   useLibrarySync();
   const t = useT();
-  const s = useWebStrings(libraryStrings);
   const saved = useIsSaved(kind, slug);
   return (
     <IconButton
-      label={saved ? t("Убрать из сохранённого") : t("Сохранить")}
+      label={t("Сохранить")}
+      title={saved ? t("Убрать из сохранённого") : t("Сохранить")}
       pressed={saved}
-      onClick={() => {
-        const next = toggleSaved(kind, slug);
-        toast(next ? t("Закладка сохранена") : s.bookmarkRemoved);
-      }}
+      onClick={() => void toggleSaved(kind, slug)}
     >
       {saved ? <BookmarkFilledIcon size={17} /> : <BookmarkIcon size={17} />}
     </IconButton>
   );
 }
+
+/** "Label: value" with the locale's punctuation (fr: NBSP before the colon; ja: full-width colon). */
+function labelValue(locale: Locale, label: string, value: string): string {
+  if (locale === "fr") return `${label} : ${value}`;
+  if (locale === "ja") return `${label}：${value}`;
+  return `${label}: ${value}`;
+}
+
+/** Touch-first device: don't raise the on-screen keyboard over the editor on open (the app doesn't). */
+const coarsePointer = () => typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse)").matches === true;
 
 const fieldSizingSupported = () =>
   typeof CSS !== "undefined" && typeof CSS.supports === "function" && CSS.supports("field-sizing", "content");
@@ -72,6 +82,7 @@ export function NoteSheet({
 }) {
   useLibrarySync();
   const t = useT();
+  const locale = useLocale();
   const s = useWebStrings(libraryStrings);
   const { loggedIn } = useViewer();
   const stored = useNote(kind, slug);
@@ -148,9 +159,10 @@ export function NoteSheet({
     if (open && confirming) confirmBox.current?.querySelector<HTMLElement>("[data-keep-editing]")?.focus({ preventScroll: true });
   }, [open, confirming]);
 
-  // Focus the text (caret at the end) once the dialog is shown.
+  // Focus the text (caret at the end) once the dialog is shown — not on touch screens, where
+  // it would cover the editor with the keyboard (the app opens the note without it).
   useEffect(() => {
-    if (!open) return;
+    if (!open || coarsePointer()) return;
     const el = field.current;
     if (!el) return;
     el.focus({ preventScroll: true });
@@ -189,7 +201,11 @@ export function NoteSheet({
         title={t("Моя заметка")}
         paper="reading"
         full
-        leading={<SheetAction onClick={() => void requestClose()}>{t("Отмена")}</SheetAction>}
+        leading={
+          <SheetAction emphasis="regular" onClick={() => void requestClose()}>
+            {t("Отмена")}
+          </SheetAction>
+        }
         trailing={
           <SheetAction className="ia-lib-save" onClick={save}>
             {t("Сохранить")}
@@ -207,7 +223,7 @@ export function NoteSheet({
               if (failed) setFailed(false);
             }}
             placeholder={t("Что хочется запомнить или проверить?")}
-            aria-label={`${t("Моя заметка")}: ${title}`}
+            aria-label={labelValue(locale, t("Моя заметка"), title)}
             aria-describedby={footnoteId}
             maxLength={NOTE_MAX}
             rows={9}

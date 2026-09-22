@@ -28,7 +28,7 @@ export function TopNav() {
         </div>
         <TabCapsule variant="top" />
         <div className="ia-topnav__end">
-          <AppStoreBadge size="sm" />
+          <AppStoreBadge size="sm" eager />
           <LanguageMenu />
           <AccountButton />
         </div>

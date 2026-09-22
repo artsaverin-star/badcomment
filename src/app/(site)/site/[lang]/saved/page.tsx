@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getViewer } from "@/site/access";
-import { SITE_URL } from "@/site/config";
 import { getCards, getCatalog } from "@/site/content";
 import { mediaSrc } from "@/site/content/media";
 import { I18nProvider } from "@/site/i18n/client";
-import { isLocale, LOCALES, type Locale } from "@/site/i18n/locales";
+import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
+import { pageMetadata } from "@/site/features/legal/meta";
 import { SAVED_UI_KEYS } from "@/site/features/library/keys";
 import { parseSavedFilter, type SavedIndex } from "@/site/features/library/saved-model";
 import { SavedScreen } from "@/site/features/library/SavedScreen";
@@ -27,16 +27,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const t = await getT(lang);
-  const url = (l: Locale) => `${SITE_URL}${routes.saved(l)}`;
-  return {
+  // Same shape as Settings (canonical, hreflang, og:locale, the new site's share image instead of
+  // the old «No paywall» card — review/seo.md S5/S7).
+  return pageMetadata({
+    locale: lang,
+    path: (l) => routes.saved(l),
     title: t("Сохранённое"),
     description: t("Материалы и личные заметки"),
-    alternates: {
-      canonical: url(lang),
-      languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
-    },
-    robots: { index: false, follow: true },
-  };
+    index: false,
+  });
 }
 
 export default async function SavedPage({

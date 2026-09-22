@@ -3,24 +3,27 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useEffect, type ReactNode } from "react";
 import type { ViewerSummary } from "../access";
-import { useWebStrings } from "../i18n/client";
+import { useWeb } from "../i18n/client";
 import { isTabRoot, parsePublicPath } from "../routing";
 import { AppStoreDialogHost } from "../ui/AppStore";
 import { ToastHost } from "../ui/Toast";
 import { registerNavigator } from "./actions";
 import { OpenInAppBanner } from "./OpenInAppBanner";
 import { RouteObserver } from "./RouteObserver";
-import { shellStrings } from "./strings";
+import type { ShellStrings } from "./strings";
 import { FloatingTabBar } from "./TabBar";
 import { MobileHeader, TopNav } from "./TopNav";
 import { ViewerContext } from "./ViewerContext";
 
 // The app frame around every new-site page. Which parts show is a pure function of the
 // public path, so SSR and the client agree (no flash):
-//   • all pages: desktop top bar (≥ 1024), mobile compact header + "open in app" banner
-//     (< 1024), footer;
+//   • all pages: desktop top bar (≥ 1024), "open in app" banner (< 1024), footer;
+//   • the mobile compact header (< 1024) everywhere except pushed reading screens — a topic,
+//     an idea, «О материалах»: like the app they have a single bar, the «Назад» toolbar
+//     (spec 01 §1.3; ClarityReader.swift:193-195);
 //   • the three tab roots: the mobile floating tab bar (spec 01 §1.2);
 //   • /<L>/welcome: nothing (full-screen onboarding replay).
+// `reading` marks the long-read pages (reading paper canvas) for the chrome's CSS.
 
 export type ChromeParts = {
   banner: boolean;
@@ -28,12 +31,19 @@ export type ChromeParts = {
   compactHeader: boolean;
   footer: boolean;
   tabBar: boolean;
+  reading: boolean;
 };
 
 export function chromeFor(pathname: string | null | undefined): ChromeParts {
-  const [first] = parsePublicPath(pathname).segments;
-  if (first === "welcome") return { banner: false, topNav: false, compactHeader: false, footer: false, tabBar: false };
-  return { banner: true, topNav: true, compactHeader: true, footer: true, tabBar: isTabRoot(pathname) };
+  const { segments } = parsePublicPath(pathname);
+  const [first] = segments;
+  if (first === "welcome") {
+    return { banner: false, topNav: false, compactHeader: false, footer: false, tabBar: false, reading: false };
+  }
+  // /<L>/segment/<slug> and /<L>/ideas/<id> (the new site only renders launch topics/ideas).
+  const reading = segments.length === 2 && (first === "segment" || first === "ideas");
+  const pushed = reading || (segments.length === 2 && first === "settings" && segments[1] === "about");
+  return { banner: true, topNav: true, compactHeader: !pushed, footer: true, tabBar: isTabRoot(pathname), reading };
 }
 
 export function ChromeFrame({
@@ -49,7 +59,7 @@ export function ChromeFrame({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const s = useWebStrings(shellStrings);
+  const s = useWeb<ShellStrings>("shell");
   const parts = chromeFor(pathname);
 
   useEffect(() => registerNavigator((href) => router.push(href)), [router]);
@@ -59,7 +69,7 @@ export function ChromeFrame({
       <a href="#main" className="ia-skip-link">
         {s.skipToContent}
       </a>
-      <div className="ia-frame" data-tabbar={parts.tabBar || undefined}>
+      <div className="ia-frame" data-tabbar={parts.tabBar || undefined} data-reading={parts.reading || undefined}>
         {parts.banner ? <OpenInAppBanner initiallyDismissed={appBannerDismissed} /> : null}
         {parts.topNav ? <TopNav /> : null}
         {parts.compactHeader ? <MobileHeader /> : null}

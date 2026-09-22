@@ -33,7 +33,7 @@ const COPY: Record<Locale, { title: string; body: string; research: string; idea
   },
   en: {
     title: "Page not found",
-    body: "This page doesn't exist or has moved. Have a look at the breakdowns or the ideas.",
+    body: "This page doesn’t exist or has moved. Have a look at the breakdowns or the ideas.",
     research: "Breakdowns",
     ideas: "Ideas",
     home: "Home",
@@ -47,7 +47,7 @@ const COPY: Record<Locale, { title: string; body: string; research: string; idea
   },
   fr: {
     title: "Page introuvable",
-    body: "Cette page n'existe pas ou a été déplacée. Jette un œil aux décryptages ou aux idées.",
+    body: "Cette page n’existe pas ou a été déplacée. Jette un œil aux décryptages ou aux idées.",
     research: "Décryptages",
     ideas: "Idées",
     home: "Accueil",
@@ -75,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { locale } = await notFoundContext();
   // No `robots` here: Next already emits <meta name="robots" content="noindex"> for every 404
   // (a second tag would only duplicate it).
-  return { metadataBase: new URL(SITE_URL), title: `${COPY[locale].title} — inApp` };
+  return { metadataBase: new URL(SITE_URL), title: `${COPY[locale].title}${locale === "ja" ? "｜" : " — "}inApp` };
 }
 
 export default async function GlobalNotFound() {

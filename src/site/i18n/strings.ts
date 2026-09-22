@@ -11,7 +11,10 @@
 //     ja: { title: "inAppにログイン" },
 //   });
 //
-//   server: strings[L].title            client: useWebStrings(strings).title
+//   server: strings[L].title
+//   client: pass the row down — <I18nProvider locale={L} web={{ f: strings[L] }}> — and read it
+//           with useWeb<(typeof strings)["ru"]>("f").title (only the page locale ships);
+//           useWebStrings(strings).title also works but bundles all five locales.
 //
 // All five locales are required by the type, keyed by the same ids as `ru` (the source).
 // Voice: informal «ты» / du / tu; Japanese follows the app's ui.ja.json (です・ます).

@@ -2,7 +2,8 @@ import { defineStrings } from "../../i18n/strings";
 
 // Web-only strings of sign-in (the dialog and /<L>/login). The old site's modal used the
 // formal «вы» (spec 06 §3.3); the new site speaks in the app's informal «ты» voice
-// (spec 09 G11): du / tu in de/fr, です・ます in Japanese like ui.ja.json.
+// (spec 09 G11): du / tu in de/fr, です・ます in Japanese like ui.ja.json. The pickers
+// (leadFor, noticeFor) live in ./copy.ts so client code never bundles this table.
 
 export const authStrings = defineStrings({
   ru: {
@@ -21,9 +22,9 @@ export const authStrings = defineStrings({
     emailSubmit: "Получить ссылку для входа",
     emailBusy: "Отправляем…",
     webviewWithEmail:
-      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди по почте или через Telegram либо открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
+      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди по почте или через Telegram либо открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
     webviewNoEmail:
-      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди через Telegram или открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
+      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди через Telegram или открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
     copyLink: "Скопировать ссылку",
     linkCopied: "Ссылка скопирована",
     tgTitle: "Вход через Telegram",
@@ -103,9 +104,9 @@ export const authStrings = defineStrings({
     title: "Bei inApp anmelden",
     leadDefault: "Melde dich an, um Plus im Web zu holen und Lesezeichen und Notizen in deinem Konto zu behalten.",
     leadPlus: "Melde dich an, um Plus zu holen: Der Zugang wird mit deinem Konto verknüpft.",
-    leadSaved: "Melde dich an, damit deine Lesezeichen und Notizen in deinem Konto liegen – auf jedem Gerät.",
-    leadCheckout: "Melde dich mit dem Konto an, mit dem du bezahlt hast – dann prüfen wir die Zahlung.",
-    leadRestore: "Melde dich mit dem Konto an, in dem Plus schon aktiv ist – dann ist dein Zugang wieder da.",
+    leadSaved: "Melde dich an, damit deine Lesezeichen und Notizen in deinem Konto liegen — auf jedem Gerät.",
+    leadCheckout: "Melde dich mit dem Konto an, mit dem du bezahlt hast — dann prüfen wir die Zahlung.",
+    leadRestore: "Melde dich mit dem Konto an, in dem Plus schon aktiv ist — dann ist dein Zugang wieder da.",
     readWithoutAccount: "Die kostenlosen Materialien kannst du auch ohne Konto lesen.",
     telegram: "Mit Telegram anmelden",
     google: "Weiter mit Google",
@@ -128,20 +129,20 @@ export const authStrings = defineStrings({
     tgValidUntil: "Link gültig bis {time}",
     tgReopen: "Telegram hat sich nicht geöffnet? Bot öffnen",
     emailSentTitle: "Schau in dein Postfach",
-    emailSentBody: "Wir haben einen Anmeldelink an {email} geschickt. Öffne ihn auf diesem Gerät – der Link ist 15 Minuten gültig.",
+    emailSentBody: "Wir haben einen Anmeldelink an {email} geschickt. Öffne ihn auf diesem Gerät — der Link ist 15 Minuten gültig.",
     emailSpam: "Nichts angekommen? Schau im Spam-Ordner nach.",
     emailOther: "Andere E-Mail verwenden",
     errTgStart: "Die Anmeldung mit Telegram konnte nicht starten. Versuch es noch einmal.",
     errTgExpired: "Die Zeit ist abgelaufen. Versuch es noch einmal.",
     errBadEmail: "Prüf die E-Mail-Adresse.",
-    errDisposable: "Wegwerfadressen gehen nicht – nimm bitte eine dauerhafte Adresse.",
+    errDisposable: "Wegwerfadressen gehen nicht — nimm bitte eine dauerhafte Adresse.",
     errRate: "Zu viele Versuche. Versuch es später noch einmal.",
     errSendFailed: "Die E-Mail konnte nicht gesendet werden. Versuch es noch einmal.",
     errDisabled: "Die Anmeldung per E-Mail ist gerade nicht verfügbar.",
     errGeneric: "Da ist etwas schiefgelaufen. Versuch es noch einmal.",
     noticeGoogleError: "Die Anmeldung mit Google hat nicht geklappt. Versuch es noch einmal oder wähl einen anderen Weg.",
     noticeGoogleUnconfigured: "Die Anmeldung mit Google ist gerade nicht verfügbar. Wähl einen anderen Weg.",
-    noticeLoginExpired: "Dieser Anmeldelink ist abgelaufen. Fordere einen neuen an – er ist 15 Minuten gültig.",
+    noticeLoginExpired: "Dieser Anmeldelink ist abgelaufen. Fordere einen neuen an — er ist 15 Minuten gültig.",
     signedIn: "Du bist angemeldet",
     pageTitle: "Anmelden",
     pageDescription: "Melde dich bei inApp mit Telegram, Google oder per E-Mail an.",
@@ -149,7 +150,7 @@ export const authStrings = defineStrings({
   fr: {
     title: "Se connecter à inApp",
     leadDefault: "Connecte-toi pour obtenir Plus sur le site et garder tes signets et tes notes dans ton compte.",
-    leadPlus: "Connecte-toi pour obtenir Plus : l’accès sera lié à ton compte.",
+    leadPlus: "Connecte-toi pour obtenir Plus : l’accès sera lié à ton compte.",
     leadSaved: "Connecte-toi pour garder tes signets et tes notes dans ton compte, sur tous tes appareils.",
     leadCheckout: "Connecte-toi avec le compte utilisé pour payer, et on vérifie le paiement.",
     leadRestore: "Connecte-toi au compte où Plus est déjà actif, et ton accès revient.",
@@ -162,9 +163,9 @@ export const authStrings = defineStrings({
     emailSubmit: "Recevoir un lien de connexion",
     emailBusy: "Envoi…",
     webviewWithEmail:
-      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi par e-mail ou avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
+      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi par e-mail ou avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
     webviewNoEmail:
-      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
+      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
     copyLink: "Copier le lien",
     linkCopied: "Lien copié",
     tgTitle: "Connexion avec Telegram",
@@ -173,10 +174,10 @@ export const authStrings = defineStrings({
     tgWaiting: "Appuie sur Start dans Telegram, puis reviens sur cet onglet.",
     tgWaitingStatus: "En attente de confirmation…",
     tgValidUntil: "Lien valable jusqu’à {time}",
-    tgReopen: "Telegram ne s’est pas ouvert ? Ouvrir le bot",
+    tgReopen: "Telegram ne s’est pas ouvert ? Ouvrir le bot",
     emailSentTitle: "Regarde tes e-mails",
     emailSentBody: "On a envoyé un lien de connexion à {email}. Ouvre-le sur cet appareil — il est valable 15 minutes.",
-    emailSpam: "Rien reçu ? Regarde dans les spams.",
+    emailSpam: "Rien reçu ? Regarde dans les spams.",
     emailOther: "Utiliser une autre adresse",
     errTgStart: "Impossible de lancer la connexion avec Telegram. Réessaie.",
     errTgExpired: "Le temps est écoulé. Réessaie.",
@@ -197,7 +198,7 @@ export const authStrings = defineStrings({
     title: "inAppにログイン",
     leadDefault: "ログインすると、サイトでPlusを利用でき、ブックマークとメモをアカウントに保存できます。",
     leadPlus: "Plusを利用するにはログインしてください。アクセスはあなたのアカウントに紐づきます。",
-    leadSaved: "ログインすると、ブックマークとメモがアカウントに保存され、どのデバイスからでも使えます。",
+    leadSaved: "ログインすると、ブックマークとメモがアカウントに保存され、どの端末からでも使えます。",
     leadCheckout: "お支払いに使ったアカウントでログインしてください。支払いを確認します。",
     leadRestore: "Plusが有効なアカウントでログインすると、アクセスが戻ります。",
     readWithoutAccount: "無料の資料はアカウントなしでも読めます。",
@@ -222,7 +223,7 @@ export const authStrings = defineStrings({
     tgValidUntil: "リンクの有効期限：{time}",
     tgReopen: "Telegramが開かない場合はボットを開く",
     emailSentTitle: "メールを確認してください",
-    emailSentBody: "{email} にログイン用リンクを送りました。このデバイスで開いてください。リンクの有効期限は15分です。",
+    emailSentBody: "{email}にログイン用リンクを送りました。この端末で開いてください。リンクの有効期限は15分です。",
     emailSpam: "届かない場合は迷惑メールフォルダを確認してください。",
     emailOther: "別のメールアドレスを使う",
     errTgStart: "Telegramでのログインを開始できませんでした。もう一度お試しください。",
@@ -231,10 +232,10 @@ export const authStrings = defineStrings({
     errDisposable: "使い捨てのメールアドレスは使えません。普段のアドレスを入力してください。",
     errRate: "試行回数が多すぎます。しばらくしてからお試しください。",
     errSendFailed: "メールを送信できませんでした。もう一度お試しください。",
-    errDisabled: "現在、メールでのログインはご利用いただけません。",
+    errDisabled: "現在、メールでのログインは利用できません。",
     errGeneric: "問題が発生しました。もう一度お試しください。",
     noticeGoogleError: "Googleでログインできませんでした。もう一度試すか、別の方法を選んでください。",
-    noticeGoogleUnconfigured: "現在、Googleでのログインはご利用いただけません。別の方法を選んでください。",
+    noticeGoogleUnconfigured: "現在、Googleでのログインは利用できません。別の方法を選んでください。",
     noticeLoginExpired: "ログイン用リンクの有効期限が切れています。新しいリンクをリクエストしてください（有効期限は15分です）。",
     signedIn: "ログインしました",
     pageTitle: "ログイン",
@@ -243,32 +244,3 @@ export const authStrings = defineStrings({
 });
 
 export type AuthStrings = (typeof authStrings)["ru"];
-
-/** Why the dialog was opened → its lead line. */
-export function leadFor(s: AuthStrings, reason: string | null | undefined): string {
-  switch (reason) {
-    case "plus":
-    case "buy":
-      return s.leadPlus;
-    case "saved":
-    case "sync":
-    case "save":
-    case "note":
-      return s.leadSaved;
-    case "checkout":
-      return s.leadCheckout;
-    case "restore":
-      return s.leadRestore;
-    default:
-      return s.leadDefault;
-  }
-}
-
-/** ?auth=… / ?login=… values that the auth endpoints redirect with (spec 06 §3.2). */
-export function noticeFor(s: AuthStrings, auth: string | null | undefined, login: string | null | undefined): string | null {
-  if (auth === "google_error") return s.noticeGoogleError;
-  if (auth === "google_unconfigured") return s.noticeGoogleUnconfigured;
-  if (auth === "vk_failed" || auth === "vk_unconfigured") return s.errGeneric;
-  if (login === "expired") return s.noticeLoginExpired;
-  return null;
-}

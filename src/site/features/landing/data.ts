@@ -53,7 +53,22 @@ export type LandingData = {
   art: Record<string, Art>;
 };
 
-export async function getLandingData(locale: Locale): Promise<LandingData> {
+// A pure function of content files that only change with a deploy: build it once per locale
+// in production (performance review P14). Dev rebuilds on every request so edits show up.
+const memo = new Map<Locale, Promise<LandingData>>();
+
+export function getLandingData(locale: Locale): Promise<LandingData> {
+  if (process.env.NODE_ENV !== "production") return buildLandingData(locale);
+  let data = memo.get(locale);
+  if (!data) {
+    data = buildLandingData(locale);
+    memo.set(locale, data);
+    data.catch(() => memo.delete(locale)); // a failed read must not stick
+  }
+  return data;
+}
+
+async function buildLandingData(locale: Locale): Promise<LandingData> {
   const [manifest, catalog, onboarding, cards, research, ui] = await Promise.all([
     getManifest(),
     getCatalog(locale),

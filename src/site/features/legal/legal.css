@@ -81,7 +81,21 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  scroll-margin-top: 88px;
+}
+/* Anchor targets (contents links, /contacts#faq …) land below the sticky chrome: the detail
+   toolbar (60) + 12 on mobile, the top navigation (86) + toolbar + 12 on desktop (a11y M3;
+   same as .ia-rs-anchor). If site.css gets a global scroll-padding-top, set these to 0. */
+.ia-legal-section,
+.ia-legal-card,
+.ia-privacy-card {
+  scroll-margin-top: calc(var(--ia-toolbar-h) + 12px);
+}
+@media (min-width: 1024px) {
+  .ia-legal-section,
+  .ia-legal-card,
+  .ia-privacy-card {
+    scroll-margin-top: calc(86px + var(--ia-toolbar-h) + 12px);
+  }
 }
 .ia-legal-section__title {
   margin: 0;
@@ -147,7 +161,6 @@
   padding: 20px;
   border-radius: var(--ia-radius-idea-card);
   background: var(--ia-surface);
-  scroll-margin-top: 88px;
 }
 .ia-legal-card .ia-legal-body {
   color: var(--ia-secondary);

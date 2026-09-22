@@ -7,6 +7,9 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@/site/ui/icons";
 // «Разборы отзывов» carousel (spec 08 S5, 03 §1.5/§1.8): native swipe paging (scroll-snap),
 // autoplay every 7 s like the app, paused on hover, focus, pointer-down and hidden tabs, off
 // under prefers-reduced-motion; arrows + dots + a pause control (web a11y additions).
+// Like ClarityWelcomeCarousel.swift, the first slide is repeated at the end: the cycle wraps
+// forward onto the copy and snaps back to the real first slide without rewinding across every
+// slide, and the timer is re-armed on every page change (a swipe gets a full interval).
 // Slides are server-rendered and passed in as children — this island only moves the track.
 
 export type CarouselLabels = {
@@ -38,14 +41,17 @@ export function Carousel({
 }) {
   const slides = Children.toArray(children);
   const count = slides.length;
+  const loop = count > 1;
   const trackRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
   const frame = useRef(0);
+  const settle = useRef(0);
   const [index, setIndex] = useState(0);
   const [userPaused, setUserPaused] = useState(false);
   const [hover, setHover] = useState(false);
   const [focused, setFocused] = useState(false);
   const [touching, setTouching] = useState(false);
+  const [wake, setWake] = useState(0);
   // Server snapshot = reduced: the page ships paused and starts moving after hydration.
   const reduced = useSyncExternalStore(
     subscribeReduced,
@@ -55,36 +61,56 @@ export function Carousel({
   const autoplay = !reduced && !userPaused;
   const running = autoplay && !hover && !focused && !touching;
 
+  /** Scroll to a slot (0…count, where `count` is the copy of slide 1). */
+  const scrollToSlot = useCallback((slot: number, smooth: boolean) => {
+    const track = trackRef.current;
+    const el = track?.children[slot] as HTMLElement | undefined;
+    if (!track) return;
+    track.scrollTo({
+      left: el ? el.offsetLeft : slot * track.clientWidth,
+      behavior: smooth && !window.matchMedia(REDUCED).matches ? "smooth" : "auto",
+    });
+  }, []);
+
   const goTo = useCallback(
     (i: number) => {
-      const track = trackRef.current;
-      if (!track || count === 0) return;
-      const k = ((i % count) + count) % count;
-      const slide = track.children[k] as HTMLElement | undefined;
-      track.scrollTo({
-        left: slide ? slide.offsetLeft : k * track.clientWidth,
-        behavior: window.matchMedia(REDUCED).matches ? "auto" : "smooth",
-      });
+      if (count === 0) return;
+      if (loop && i >= count) {
+        scrollToSlot(count, true); // onto the copy of slide 1; settles back to the real one
+      } else if (loop && i < 0) {
+        scrollToSlot(count, false); // from the copy, step back to the last slide
+        requestAnimationFrame(() => scrollToSlot(count - 1, true));
+      } else {
+        scrollToSlot(Math.max(0, Math.min(count - 1, i)), true);
+      }
     },
-    [count],
+    [count, loop, scrollToSlot],
   );
 
+  // One timeout per page: re-armed whenever the page changes or the pause state does.
   useEffect(() => {
-    if (!running || count < 2) return;
-    const id = window.setInterval(() => {
-      if (!document.hidden) goTo(indexRef.current + 1);
+    if (!running || !loop) return;
+    const id = window.setTimeout(() => {
+      if (document.hidden) setWake((n) => n + 1);
+      else goTo(indexRef.current + 1);
     }, interval);
-    return () => window.clearInterval(id);
-  }, [running, interval, count, goTo]);
+    return () => window.clearTimeout(id);
+  }, [running, loop, interval, goTo, index, wake]);
 
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+  useEffect(
+    () => () => {
+      cancelAnimationFrame(frame.current);
+      window.clearTimeout(settle.current);
+    },
+    [],
+  );
 
   const onScroll = () => {
     cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => {
       const track = trackRef.current;
       if (!track || !track.clientWidth) return;
-      // The slide whose left edge is closest to the scroll position.
+      // The slot whose left edge is closest to the scroll position; the copy counts as slide 1.
       let k = 0;
       let best = Infinity;
       Array.from(track.children).forEach((el, i) => {
@@ -94,11 +120,19 @@ export function Carousel({
           k = i;
         }
       });
-      if (k !== indexRef.current) {
-        indexRef.current = k;
-        setIndex(k);
+      const real = loop && k >= count ? 0 : k;
+      if (real !== indexRef.current) {
+        indexRef.current = real;
+        setIndex(real);
       }
     });
+    // Once the scroll has settled on the copy, jump to the real first slide (same picture).
+    window.clearTimeout(settle.current);
+    settle.current = window.setTimeout(() => {
+      const track = trackRef.current;
+      const copy = track?.children[count] as HTMLElement | undefined;
+      if (loop && track && copy && Math.abs(track.scrollLeft - copy.offsetLeft) < 2) scrollToSlot(0, false);
+    }, 140);
   };
 
   return (
@@ -131,6 +165,11 @@ export function Carousel({
             {slide}
           </div>
         ))}
+        {loop ? (
+          <div className="ld-carousel__slide" aria-hidden="true" inert>
+            {slides[0]}
+          </div>
+        ) : null}
       </div>
       {count > 1 ? (
         <div className="ld-carousel__controls">

@@ -6,15 +6,7 @@ import { getT } from "@/site/i18n/server";
 import { routes } from "@/site/routing";
 import { Badge, LockBadge } from "@/site/ui/Badge";
 import { Button } from "@/site/ui/Button";
-import {
-  AlertIcon,
-  ArrowRightIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  QuoteIcon,
-  SearchIcon,
-  SparklesIcon,
-} from "@/site/ui/icons";
+import { AlertIcon, ArrowRightIcon, CheckIcon, ChevronDownIcon, QuoteIcon, SearchIcon } from "@/site/ui/icons";
 import { Carousel } from "./Carousel";
 import type { LandingData } from "./data";
 import { ExpandableGrid, LandingAnalytics, StickyCta } from "./islands";
@@ -28,7 +20,7 @@ import {
   SavedScreen,
   WebCatalog,
 } from "./mocks";
-import { fill, Illustration, MediaImg, PaperPair, quoted, Section, StoreBadge } from "./parts";
+import { fill, Illustration, labelValue, MediaImg, PaperPair, quoted, Section, StoreBadge } from "./parts";
 import { faqEntries, landingJsonLd } from "./seo";
 import { FAQ_VISIBLE, landingStrings } from "./strings";
 import "./landing.css";
@@ -109,7 +101,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
           </div>
           {hero ? (
             <figure className="ld-hero__visual" aria-label={s.heroFigure}>
-              <Illustration art={art.WelcomeReviews_v7} className="ld-hero__illo" />
+              <Illustration art={art.WelcomeReviews_v7} variant="reviews" cards priority className="ld-hero__illo" />
               <PaperPair
                 article={hero}
                 locale={locale}
@@ -153,9 +145,9 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </section>
 
       {/* S3 Free breakdown */}
-      <Section id="research" labelledBy="ld-free-title">
+      <Section id="research">
         <div className="ld-head">
-          <Badge tone="accent">{t("Бесплатный разбор")}</Badge>
+          <Badge>{t("Бесплатный разбор")}</Badge>
           <h2 id="ld-free-title" className="ld-h2">
             {s.freeTitle}
           </h2>
@@ -207,7 +199,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S4 Five free ideas */}
-      <Section id="ideas" labelledBy="ld-ideas-title">
+      <Section id="ideas">
         <div className="ld-head">
           <h2 id="ld-ideas-title" className="ld-h2">
             {s.ideasTitle}
@@ -234,10 +226,14 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
           ))}
           {data.lockedIdea ? (
             <li>
+              {/* ClarityIdeaCard.swift:24-35, 70-71: a locked card is its artwork and the lock disc;
+                  «Идея в Plus» and «Подробности идеи доступны в Plus.» are its accessible name and
+                  hint, never visible text. */}
               <Link
                 href={routes.idea(locale, data.lockedIdea.slug)}
                 className="ld-idea ld-idea--locked"
                 aria-label={t("Идея в Plus")}
+                aria-describedby="ld-locked-hint"
                 data-ld-event="landing_idea_open"
                 data-ld-slug={data.lockedIdea.slug}
               >
@@ -245,11 +241,10 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
                   <MediaImg art={data.lockedIdea.cover} width={800} sizes="(min-width: 1024px) 380px, (min-width: 760px) 50vw, 100vw" className="ld-idea__art" />
                   <LockBadge variant="disc" className="ld-idea__disc" />
                 </span>
-                <div className="ld-idea__body" aria-hidden="true">
-                  <p className="ld-idea__title ld-idea__title--locked">{t("Идея в Plus")}</p>
-                  <p className="ld-idea__desc">{t("Подробности идеи доступны в Plus.")}</p>
-                </div>
               </Link>
+              <span id="ld-locked-hint" hidden>
+                {t("Подробности идеи доступны в Plus.")}
+              </span>
             </li>
           ) : null}
         </ul>
@@ -263,7 +258,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
 
       {/* S5 Inside the breakdowns */}
       {data.articles.length ? (
-        <Section labelledBy="ld-inside-title">
+        <Section>
           <div className="ld-head ld-head--center">
             <h2 id="ld-inside-title" className="ld-h2">
               {t("Разборы отзывов")}
@@ -286,7 +281,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
                 <Link
                   href={routes.topic(locale, a.category)}
                   className="ld-link ld-slide__link"
-                  aria-label={`${s.openBreakdown}: ${a.label}`}
+                  aria-label={labelValue(locale, s.openBreakdown, a.label)}
                   data-ld-event="landing_topic_open"
                   data-ld-slug={a.category}
                 >
@@ -299,7 +294,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       ) : null}
 
       {/* S6 How it works */}
-      <Section labelledBy="ld-how-title" className="ld-section--tint">
+      <Section className="ld-section--tint">
         <div className="ld-head ld-head--center">
           <h2 id="ld-how-title" className="ld-h2">
             {s.howTitle}
@@ -314,7 +309,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
                 <p className="ld-body">{step.body}</p>
               </div>
               <div className="ld-step__visual">
-                <PhoneFrame tilt={i % 2 ? 2 : -2}>{step.screen}</PhoneFrame>
+                <PhoneFrame tilt={i % 2 ? 3 : -3}>{step.screen}</PhoneFrame>
               </div>
             </li>
           ))}
@@ -322,7 +317,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S7 The 35 breakdowns + what's next */}
-      <Section labelledBy="ld-topics-title">
+      <Section>
         <div className="ld-head">
           <p className="ld-kicker">{fill(s.topicsKicker, { n: n.topics })}</p>
           <h2 id="ld-topics-title" className="ld-h2">
@@ -345,7 +340,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
                       <span>{topic.name}</span>
                       {topic.free ? null : <LockBadge label={t("Полный разбор в Plus")} />}
                     </span>
-                    {topic.free ? <Badge tone="accent">{t("Бесплатный разбор")}</Badge> : null}
+                    {topic.free ? <Badge>{t("Бесплатный разбор")}</Badge> : null}
                   </span>
                 </Link>
               </li>
@@ -353,7 +348,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
           </ul>
         </ExpandableGrid>
         <div className="ld-next">
-          <Illustration art={art.WelcomeLibrary_v7} tilt={26} className="ld-next__illo">
+          <Illustration art={art.WelcomeLibrary_v7} variant="library" className="ld-next__illo">
             <span className="ld-chips">
               <span className="ld-chip ld-chip--1">{t("Интерьер")}</span>
               <span className="ld-chip ld-chip--2">{t("Привычки")}</span>
@@ -372,9 +367,9 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S8 How we treat the reviews */}
-      <Section labelledBy="ld-trust-title" className="ld-section--tint">
+      <Section className="ld-section--tint">
         <div className="ld-trust">
-          <Illustration art={art.WelcomeResearch_v7} tilt={-18} className="ld-trust__illo" />
+          <Illustration art={art.WelcomeResearch_v7} variant="reviews" className="ld-trust__illo" />
           <div>
             <h2 id="ld-trust-title" className="ld-h2">
               {s.trustTitle}
@@ -408,7 +403,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S9 Web and iPhone */}
-      <Section labelledBy="ld-web-title">
+      <Section>
         <div className="ld-head ld-head--center">
           <h2 id="ld-web-title" className="ld-h2">
             {s.webTitle}
@@ -450,7 +445,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S10 inApp Plus — what it opens; no prices, no buy buttons (App Store marketing URL) */}
-      <Section id="plus" labelledBy="ld-plus-title" className="ld-plus-section">
+      <Section id="plus" className="ld-plus-section">
         <div className="ld-plus__head">
           <div className="ld-trio" aria-hidden="true">
             {art.WelcomeResearch_v7 ? <MediaImg art={art.WelcomeResearch_v7} width={400} sizes="160px" className="ld-trio__a" /> : null}
@@ -492,9 +487,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
             </div>
           </div>
           <div className="ld-plan ld-plan--plus">
-            <h3 className="ld-plan__title">
-              <SparklesIcon size={20} aria-hidden="true" /> Plus
-            </h3>
+            <h3 className="ld-plan__title">Plus</h3>
             <ul className="ld-checks">
               {[fill(s.plusAll1, { topics: n.topics, ideas: n.ideas }), s.plusAll2, t("Новые выпуски")].map((line) => (
                 <li key={line}>
@@ -516,7 +509,9 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
                 </li>
               </ul>
               <p className="ld-muted ld-small">
-                {s.plusTerms} {t("Отменить подписку можно в настройках App Store.")}
+                {s.plusTerms}
+                {locale === "ja" ? "" : " "}
+                {t("Отменить подписку можно в настройках App Store.")}
               </p>
             </div>
             <p className="ld-body ld-small">{s.plusGet}</p>
@@ -531,7 +526,7 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
       </Section>
 
       {/* S11 FAQ */}
-      <Section id="faq" labelledBy="ld-faq-title">
+      <Section id="faq">
         <div className="ld-head ld-head--center">
           <h2 id="ld-faq-title" className="ld-h2">
             {s.faqTitle}
@@ -590,9 +585,11 @@ export async function LandingPage({ locale, data }: { locale: Locale; data: Land
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   return (
+    // summary is exposed as a button that flattens its children, so a heading inside it would be
+    // lost to heading navigation anyway (a11y review m16).
     <details className="ld-faq__item">
       <summary>
-        <h3>{q}</h3>
+        <span className="ld-faq__q">{q}</span>
         <ChevronDownIcon size={18} aria-hidden="true" />
       </summary>
       <p>{a}</p>

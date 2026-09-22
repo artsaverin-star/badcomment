@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_URL } from "@/site/config";
 import { LegalFrame, LegalHead } from "@/site/features/legal/components";
+import { OG_LOCALE } from "@/site/features/legal/meta";
 import { paymentDoc } from "@/site/features/legal/payment";
 import { legalStrings } from "@/site/features/legal/strings";
 import { isLocale } from "@/site/i18n/locales";
@@ -10,9 +11,10 @@ import { routes } from "@/site/routing";
 
 // The website's public payment offer (YooKassa, DECISIONS "Legal pages"): the Russian legal
 // text is identical in every locale; en/de/fr/ja get a one-line note that it is in Russian.
-// SEO: the ru page is indexed with a self-canonical, like the old /ru/offer today. The other
-// locales serve the same Russian document, so they are noindex and canonical to /ru (no
-// hreflang cluster: there is only one language version of this document).
+// SEO: every locale serves the same Russian document, so every locale points its canonical at
+// /ru/offer/payment and stays indexable — one signal, the canonical consolidates the copies
+// (review/seo.md S16: no `noindex` + cross-canonical mix). No hreflang cluster: there is only
+// one language version of this document.
 
 type Params = { lang: string };
 
@@ -25,8 +27,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: s.paymentTitle,
     description: s.paymentDescription,
     alternates: { canonical: ruUrl },
-    openGraph: { title: `${s.paymentTitle} — inApp`, description: s.paymentDescription, url: ruUrl, siteName: "inApp", type: "website" },
-    robots: lang === "ru" ? { index: true, follow: true } : { index: false, follow: true },
+    openGraph: {
+      title: `${s.paymentTitle} — inApp`,
+      description: s.paymentDescription,
+      url: ruUrl,
+      siteName: "inApp",
+      locale: OG_LOCALE.ru,
+      type: "website",
+    },
+    robots: { index: true, follow: true },
   };
 }
 

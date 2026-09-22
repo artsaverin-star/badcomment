@@ -4,7 +4,13 @@
 import { LIBRARY_UI_KEYS } from "@/site/features/library/keys";
 
 /** <IdeaCard> (also used inside research articles). */
-export const IDEA_CARD_UI_KEYS = ["Идея в Plus", "Подробности идеи доступны в Plus.", "Открыть полную идею в отдельном окне."] as const;
+export const IDEA_CARD_UI_KEYS = [
+  "Идея в Plus",
+  "Подробности идеи доступны в Plus.",
+  "Открыть полную идею в отдельном окне.",
+  // Accessible name of an unlocked card: title + description (ClarityIdeaCard.swift:70).
+  "%1$@. %2$@",
+] as const;
 
 /** Tab «Идеи» (spec 02 §2). */
 export const IDEAS_CATALOG_UI_KEYS = [
@@ -33,6 +39,8 @@ export const EXPORT_UI_KEYS = [
   "Весь материал об идее, включая основания и проверку решения.",
   "Твоя заметка",
   "Сохранённая мысль к этой идее.",
+  // Part 3 of the file: the client appends the browser's note (spec 09 G10).
+  "3. МОЯ ЗАМЕТКА",
   "Один текстовый файл (.txt). Можно читать, редактировать или передать в ИИ вместе со своим вопросом.",
   "Предпросмотр документа",
   "Скачать документ",

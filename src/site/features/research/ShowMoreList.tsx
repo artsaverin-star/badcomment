@@ -3,8 +3,12 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { format } from "@/site/i18n/translate";
 
-// An ordered list that shows the first `initial` server-rendered rows and reveals `step`
-// more per click («Показать ещё N»). Focus moves to the first newly shown row.
+// An ordered list that shows the first `initial` rows and reveals `step` more per click
+// («Показать ещё N»). Every row is in the server HTML: rows past the limit carry `hidden`, so
+// crawlers and find-in-page see the whole list while the page looks the same (review seo S1).
+// Focus moves to the first newly shown row.
+
+export type ShowMoreItem = { key: string; content: ReactNode };
 
 export function ShowMoreList({
   items,
@@ -13,15 +17,18 @@ export function ShowMoreList({
   moreTemplate,
   label,
   className,
+  itemClassName,
   buttonClassName,
 }: {
-  items: ReactNode[];
+  items: ReadonlyArray<ShowMoreItem>;
   initial: number;
   step: number;
   /** e.g. "Показать ещё {n}". */
   moreTemplate: string;
   label: string;
   className?: string;
+  /** Class of every <li> (the row layout; give `[hidden]` a display: none if it sets display). */
+  itemClassName?: string;
   buttonClassName?: string;
 }) {
   const [limit, setLimit] = useState(initial);
@@ -38,7 +45,11 @@ export function ShowMoreList({
   return (
     <>
       <ol ref={list} className={className} aria-label={label}>
-        {items.slice(0, limit)}
+        {items.map((item, i) => (
+          <li key={item.key} className={itemClassName} hidden={i >= limit || undefined}>
+            {item.content}
+          </li>
+        ))}
       </ol>
       {rest > 0 ? (
         <button

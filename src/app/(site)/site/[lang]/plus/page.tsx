@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_URL } from "@/site/config";
+import { accountShareMeta } from "@/site/features/plus/meta";
 import { PlusOffer } from "@/site/features/plus/PlusOffer";
 import { PLUS_UI_KEYS, plusOfferData } from "@/site/features/plus/server";
 import { plusStrings } from "@/site/features/plus/strings";
@@ -12,7 +13,8 @@ import { routes } from "@/site/routing";
 // /<L>/plus (?source=): the Plus paywall as a page (spec 03 §2, web adaptation §2.7;
 // spec 09 §2.1: page on direct load, noindex). The same UI opens as a sheet anywhere via
 // openPaywall(). The web sells only the YooKassa lifetime SKU at ACCESS_PRICE_RUB, presented
-// as «Plus навсегда» (DECISIONS §10); the viewer state comes from the shell's ViewerContext.
+// as the app's «Навсегда» plan (DECISIONS §10); the viewer state comes from the shell's
+// ViewerContext.
 
 type Params = { lang: string };
 type Search = { source?: string | string[] };
@@ -21,14 +23,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const url = (l: Locale) => `${SITE_URL}${routes.plus(l)}`;
+  const description = plusStrings[lang].pageDescription;
   return {
     title: { absolute: "inApp Plus" },
-    description: plusStrings[lang].pageDescription,
+    description,
     alternates: {
       canonical: url(lang),
       languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
     },
     robots: { index: false, follow: true },
+    ...accountShareMeta(lang, url(lang), "inApp Plus", description),
   };
 }
 
@@ -47,8 +51,8 @@ export default async function PlusPage({
 
   return (
     <div className="ia-page ia-page--welcome">
-      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)}>
-        <PlusOffer offer={plusOfferData(lang, t)} source={source} variant="page" />
+      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)} web={{ plus: plusStrings[lang] }}>
+        <PlusOffer offer={plusOfferData(lang)} source={source} variant="page" />
       </I18nProvider>
     </div>
   );

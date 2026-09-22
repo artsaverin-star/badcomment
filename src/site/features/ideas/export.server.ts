@@ -14,14 +14,16 @@ import { exportDocument, exportFilename, type ExportResearch } from "./document"
 export { NOTE_MAX as EXPORT_NOTE_MAX } from "@/site/features/library/protocol";
 
 export type ExportResult =
-  | { ok: true; text: string; filename: string }
+  /** `research`: what part 1 holds — the full breakdown, only the public summary, or nothing. */
+  | { ok: true; text: string; filename: string; research: "full" | "summary" | "none" }
   | { ok: false; status: 401 | 403 | 404; error: string };
 
+/** `note` is optional: the site's client appends it itself (withNote), so it never leaves the browser. */
 export async function buildIdeaExport(
   locale: Locale,
   id: string,
   viewer: Viewer,
-  note: string,
+  note = "",
 ): Promise<ExportResult> {
   if (!isLaunchIdea(id)) return { ok: false, status: 404, error: "unknown idea" };
   if (!viewer.canReadIdea(id)) {
@@ -49,5 +51,6 @@ export async function buildIdeaExport(
     ok: true,
     text: exportDocument({ idea, research, note, t: (s) => t(s) }),
     filename: exportFilename(idea.title),
+    research: research?.kind ?? "none",
   };
 }

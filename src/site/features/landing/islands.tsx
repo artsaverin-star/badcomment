@@ -57,6 +57,18 @@ export function StickyCta({ href, label, after, until }: { href: string; label: 
     return () => io.disconnect();
   }, [after, until]);
 
+  // While the bar covers the bottom of the viewport, keyboard focus must not scroll under it
+  // (WCAG 2.4.11; a11y review M3). The bar exists below 1024 px only.
+  useEffect(() => {
+    if (!shown || !window.matchMedia("(max-width: 1023.98px)").matches) return;
+    const root = document.documentElement;
+    const before = root.style.scrollPaddingBottom;
+    root.style.scrollPaddingBottom = "calc(80px + env(safe-area-inset-bottom))";
+    return () => {
+      root.style.scrollPaddingBottom = before;
+    };
+  }, [shown]);
+
   return (
     <div className="ld-sticky" data-shown={shown || undefined} inert={!shown}>
       <Link href={href} className="ia-btn ia-btn--welcome ld-sticky__btn" data-ld-event="landing_cta_web_sticky">

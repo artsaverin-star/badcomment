@@ -3,14 +3,15 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { trackPurchase } from "@/lib/track";
-import { useLocale, useT, useWebStrings } from "../../i18n/client";
+import { useLocale, useT, useWeb } from "../../i18n/client";
 import { routes } from "../../routing";
 import { openPaywall, openSignIn } from "../../shell/actions";
 import { useViewer } from "../../shell/ViewerContext";
 import { Button } from "../../ui/Button";
+import { cx } from "../../ui/cx";
 import { AlertIcon, CheckIcon, ClearIcon } from "../../ui/icons";
 import { PLUS_ITEM } from "./offer";
-import { plusStrings } from "./strings";
+import type { PlusStrings } from "./strings";
 import "./plus.css";
 
 // Payment return (YooKassa return_url = /library?checkout=<uuid> → /<L>/library?checkout=…).
@@ -18,7 +19,8 @@ import "./plus.css";
 // (GET /api/pay/status, 1 s × 30), which becomes "succeeded" only after the verified webhook
 // granted access — and only then emit the analytics purchase, once per transaction (the same
 // localStorage de-dupe key as the old PurchaseTracker). Then refresh the server tree so the
-// whole page knows about Plus. Banner copy: spec 06 §4.2.
+// whole page knows about Plus. Banner copy: spec 06 §4.2. One live region for every state
+// (a region created together with its text is not reliably announced — a11y review m9).
 
 type PaymentStatus = {
   status?: string;
@@ -34,7 +36,7 @@ const POLL_MS = 1000;
 
 function Tracker({ checkout, onConfirmed }: { checkout: string; onConfirmed: () => void }) {
   const t = useT();
-  const s = useWebStrings(plusStrings);
+  const s = useWeb<PlusStrings>("plus");
   const locale = useLocale();
   const [view, setView] = useState<View>("checking");
 
@@ -93,30 +95,11 @@ function Tracker({ checkout, onConfirmed }: { checkout: string; onConfirmed: () 
     };
   }, [checkout, onConfirmed]);
 
-  if (view === "confirmed") {
-    return (
-      <div className="ia-checkout" role="status">
-        <span className="ia-checkout__icon ia-checkout__icon--ok" aria-hidden="true">
-          <CheckIcon size={30} strokeWidth={2.4} />
-        </span>
-        <h1 className="ia-checkout__title">{s.doneTitle}</h1>
-        <p className="ia-checkout__text">{s.confirmed}</p>
-        <p className="ia-checkout__text">{s.doneLead}</p>
-        <div className="ia-checkout__actions">
-          <Button variant="welcome" href={routes.research(locale)}>
-            {s.openResearch}
-          </Button>
-          <Button variant="text" href={routes.saved(locale)}>
-            {t("Сохранённое")}
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
+  const confirmed = view === "confirmed";
   const failed = view === "failed" || view === "missing";
   const message = {
     checking: s.checking,
+    confirmed: s.confirmed,
     failed: s.failed,
     delayed: s.delayed,
     signin: s.signinNeeded,
@@ -125,20 +108,40 @@ function Tracker({ checkout, onConfirmed }: { checkout: string; onConfirmed: () 
 
   return (
     <div className="ia-checkout">
-      <span className={failed ? "ia-checkout__icon ia-checkout__icon--fail" : "ia-checkout__icon"} aria-hidden="true">
+      <span
+        className={cx(
+          "ia-checkout__icon",
+          confirmed && "ia-checkout__icon--ok",
+          failed && "ia-checkout__icon--fail",
+        )}
+        aria-hidden="true"
+      >
         {view === "checking" ? (
           <span className="ia-spinner ia-checkout__spinner" />
+        ) : confirmed ? (
+          <CheckIcon size={30} strokeWidth={2.4} />
         ) : failed ? (
           <ClearIcon size={30} strokeWidth={2} />
         ) : (
           <AlertIcon size={30} strokeWidth={2} />
         )}
       </span>
-      <h1 className="ia-checkout__title">{s.returnTitle}</h1>
+      <h1 className="ia-checkout__title">{confirmed ? s.doneTitle : s.returnTitle}</h1>
       <p className="ia-checkout__text" role="status" aria-live="polite">
         {message}
       </p>
+      {confirmed ? <p className="ia-checkout__text">{s.doneLead}</p> : null}
       <div className="ia-checkout__actions">
+        {confirmed ? (
+          <>
+            <Button variant="welcome" href={routes.research(locale)}>
+              {s.openResearch}
+            </Button>
+            <Button variant="text" href={routes.saved(locale)}>
+              {t("Сохранённое")}
+            </Button>
+          </>
+        ) : null}
         {view === "signin" ? (
           <Button variant="welcome" onClick={() => openSignIn({ reason: "checkout" })}>
             {s.signIn}

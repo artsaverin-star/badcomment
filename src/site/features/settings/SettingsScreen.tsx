@@ -20,9 +20,9 @@ import {
   PhoneIcon,
   PrivacyIcon,
   RadioOffIcon,
-  RadioOnIcon,
   WelcomeIcon,
 } from "@/site/ui/icons";
+import { CheckCircleFill } from "./CheckCircleFill";
 import { AccountRows, PlusCard, ThemePicker } from "./client";
 import { SETTINGS_CLIENT_KEYS } from "./keys";
 import { formatCollectionDate } from "./format";
@@ -33,7 +33,8 @@ import "./settings.css";
 // «Приложение» → «Правовая информация» → footer. Server-rendered; only the Plus card, the
 // account rows and the theme picker are client components.
 
-const ICON = { size: 20, strokeWidth: 2 } as const;
+// Row glyphs: SF 19 pt in a 24-wide column (ClaritySettings.swift:323).
+const ICON = { size: 19, strokeWidth: 2 } as const;
 
 function Trail({ kind }: { kind: "chevron" | "external" }) {
   return kind === "chevron" ? (
@@ -126,11 +127,11 @@ export function SettingsScreen({
           <BackButton label={t("Готово")} fallbackHref={routes.saved(locale)} className="ia-set-done" />
         </header>
 
-        <PlusCard art={plusArt} />
-
-        <Group id="settings-account">
+        {/* Plus card + account box: VStack(spacing: 12) (ClaritySettings.swift:200). */}
+        <div className="ia-set-access">
+          <PlusCard art={plusArt} />
           <AccountRows />
-        </Group>
+        </div>
 
         <Group id="settings-language" title={t("Язык")}>
           <div className="ia-set-box">
@@ -148,7 +149,7 @@ export function SettingsScreen({
                   <span className="ia-set-row__title">{LOCALE_NAMES[l]}</span>
                 </span>
                 <span className={`ia-set-row__trail${l === locale ? " ia-set-row__radio-on" : ""}`} aria-hidden="true">
-                  {l === locale ? <RadioOnIcon size={18} strokeWidth={2.2} /> : <RadioOffIcon size={18} strokeWidth={2} />}
+                  {l === locale ? <CheckCircleFill /> : <RadioOffIcon size={18} strokeWidth={2} />}
                 </span>
               </a>
             ))}

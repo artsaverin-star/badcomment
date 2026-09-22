@@ -44,7 +44,7 @@ export default async function PrivacyPage({ params }: { params: Promise<Params> 
     <LegalFrame backLabel={t("Назад")} backHref={routes.settings(lang)}>
       <div className="ia-privacy">
         <Heading title={legalStrings[lang].privacyTitle} />
-        <section className="ia-privacy-hero" aria-labelledby="privacy-hero-title">
+        <section className="ia-privacy-hero">
           {art ? (
             // eslint-disable-next-line @next/next/no-img-element -- pre-encoded WebP widths
             <img
@@ -65,7 +65,7 @@ export default async function PrivacyPage({ params }: { params: Promise<Params> 
         </section>
 
         {doc.cards.map((card) => (
-          <section key={card.id} id={card.id} className="ia-privacy-card" aria-labelledby={`${card.id}-title`}>
+          <section key={card.id} id={card.id} className="ia-privacy-card">
             <h2 className="ia-legal-section__title ia-legal-section__title--sm" id={`${card.id}-title`}>
               {card.title}
             </h2>

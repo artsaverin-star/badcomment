@@ -296,7 +296,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
               <>
                 <P>
                   Ce document décrit les données que traite le site inapp.pro. Le site est exploité par {dev}, le
-                  développeur d’inApp. Questions sur les données : {mail}.
+                  développeur d’inApp. Questions sur les données : {mail}.
                 </P>
                 <P>L’app iOS inApp a sa propre {ios("politique de confidentialité")}.</P>
               </>
@@ -318,12 +318,12 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
             title: "Compte et connexion",
             body: (
               <>
-                <P>Tu peux te connecter via Telegram, Google ou un lien envoyé par e-mail. Dans le compte, nous conservons :</P>
+                <P>Tu peux te connecter via Telegram, Google ou un lien envoyé par e-mail. Dans le compte, nous conservons :</P>
                 <UL
                   items={[
-                    "Telegram — l’identifiant utilisateur, le nom d’utilisateur et le prénom ;",
-                    "Google — l’identifiant du compte Google, l’adresse e-mail et le nom ;",
-                    "e-mail — l’adresse à laquelle le lien de connexion a été envoyé (l’e-mail passe par Yandex Cloud Postbox) ;",
+                    "Telegram — l’identifiant utilisateur, le nom d’utilisateur et le prénom ;",
+                    "Google — l’identifiant du compte Google, l’adresse e-mail et le nom ;",
+                    "e-mail — l’adresse à laquelle le lien de connexion a été envoyé (l’e-mail passe par Yandex Cloud Postbox) ;",
                     "la date de création du compte et le statut d’accès Plus.",
                   ]}
                 />
@@ -337,7 +337,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
             body: (
               <P>
                 Une fois connecté, tes signets et tes notes sont conservés dans ton compte sur notre serveur, pour être
-                disponibles sur tous tes appareils ; les entrées du navigateur sont fusionnées une fois avec le compte.
+                disponibles sur tous tes appareils ; les entrées du navigateur sont fusionnées une fois avec le compte.
                 Toi seul les vois. Retirer un signet ne supprime pas la note.
               </P>
             ),
@@ -347,7 +347,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
             title: "Achats",
             body: (
               <P>
-                Les paiements sur le site sont traités par YooKassa (NKO YooMoney) : les données de carte ou de SBP sont
+                Les paiements sur le site sont traités par YooKassa (NKO YooMoney) : les données de carte ou de SBP sont
                 saisies sur la page de YooKassa et ne nous sont pas accessibles. Nous conservons le compte qui a payé, le
                 montant, le moyen de paiement, le statut et le numéro du paiement chez YooKassa — pour ouvrir l’accès et
                 répondre aux questions sur le paiement. Les achats dans l’app iOS sont traités par Apple.
@@ -378,16 +378,16 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
             body: (
               <UL
                 items={[
-                  <>{code("ia_session")} — connexion au compte, 30 jours ;</>,
-                  <>{code("locale")} et {code("ia_theme")} — langue et apparence, 1 an ;</>,
-                  <>{code("ia_app_banner")} — bandeau « Ouvrir dans l’app » masqué, 180 jours ;</>,
+                  <>{code("ia_session")} — connexion au compte, 30 jours ;</>,
+                  <>{code("locale")} et {code("ia_theme")} — langue et apparence, 1 an ;</>,
+                  <>{code("ia_app_banner")} — bandeau « Ouvrir dans l’app » masqué, 180 jours ;</>,
                   <>
-                    {code("g_oauth_state")}, {code("g_oauth_return")} — connexion avec Google, 10 minutes ; {code("el_rl")}{" "}
-                    — limite des e-mails de connexion, 1 jour ;
+                    {code("g_oauth_state")}, {code("g_oauth_return")} — connexion avec Google, 10 minutes ; {code("el_rl")}{" "}
+                    — limite des e-mails de connexion, 1 jour ;
                   </>,
                   <>
                     localStorage {code("ia2:saved.ideas")}, {code("ia2:saved.research")}, {code("ia2:notes")} — signets
-                    et notes ; sessionStorage {code("ia2:tabs")} — la dernière page de chaque onglet ;
+                    et notes ; sessionStorage {code("ia2:tabs")} — la dernière page de chaque onglet ;
                   </>,
                   "les cookies de Yandex Metrica et de Google Analytics.",
                 ]}

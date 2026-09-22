@@ -4,7 +4,8 @@
 //
 // Pure and client-safe (no server imports). The GATED inputs (IdeaFile, ResearchFile) are
 // loaded by the export route only after the viewer passed canReadIdea — see
-// src/app/api/site/export/[id]/route.ts.
+// src/app/api/site/export/[id]/route.ts. The site's client asks for parts 1–2 only and adds
+// the browser's note with withNote() (spec 09 G10: the note stays on the device).
 //
 // Format:
 //   parts joined by one blank line ("\n\n"), then a final "\n";
@@ -89,8 +90,16 @@ export function exportDocument({
 
   parts.push(t("2. ИДЕЯ"));
   parts.push(ideaDocument(idea));
-  if (note.trim() !== "") parts.push(`${t("3. МОЯ ЗАМЕТКА")}\n${note}`);
-  return parts.join("\n\n") + "\n";
+  return withNote(parts.join("\n\n") + "\n", note, t);
+}
+
+/**
+ * Part 3 «3. МОЯ ЗАМЕТКА» appended to a finished document (parts 1–2, ending in "\n"):
+ * the same bytes as ClarityExportDocument.text with the note (ClarityExportDocument.swift:61-62).
+ */
+export function withNote(doc: string, note: string, t: Translate): string {
+  if (note.trim() === "") return doc;
+  return `${doc.endsWith("\n") ? doc.slice(0, -1) : doc}\n\n${t("3. МОЯ ЗАМЕТКА")}\n${note}\n`;
 }
 
 const graphemes = (text: string): string[] => {

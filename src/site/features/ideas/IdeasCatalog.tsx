@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { Art } from "@/site/content/types";
+import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { filterIdeas, pickerCategories } from "@/site/content/search";
 import { ideaCategorySlug } from "@/site/content/text";
 import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
@@ -14,14 +13,15 @@ import "./ideas.css";
 
 // Tab «Идеи» below the heading (spec 02 §2.4–§2.8): search, the category pill + picker, the
 // cards, the empty state. The server hands over an already GATED list in the app's order:
-// readable cards carry their copy, locked cards ONLY {slug, cover}; `haystacks` holds search
-// text for readable ideas only, so a locked idea can never match a query (spec 09 G10).
-// Filtering is instant on the client; the URL keeps ?q=&category= (the server renders the same
+// readable cards carry their copy, locked cards ONLY {slug}; the cover is derived from the slug
+// (IdeaCard → ideaCover); `haystacks` holds search text for readable ideas only, so a locked
+// idea can never match a query (spec 09 G10). Filtering runs on a deferred query (the input
+// stays responsive with 293 cards); the URL keeps ?q=&category= (the server renders the same
 // filtered list on a direct load).
 
 export type CatalogCard =
-  | { locked: false; slug: string; cover: Art; title: string; description: string; categoryName: string }
-  | { locked: true; slug: string; cover: Art };
+  | { locked: false; slug: string; title: string; description: string; categoryName: string }
+  | { locked: true; slug: string };
 
 export type CatalogCategoryOption = { slug: string; name: string };
 
@@ -48,15 +48,22 @@ export function IdeasCatalog({
   const [category, setCategory] = useState<string | null>(initialCategory);
   const [pickerOpen, setPickerOpen] = useState(false);
   const top = useRef<HTMLDivElement>(null);
+  const lockedHintId = useId();
+  const deferredQuery = useDeferredValue(query);
 
+  const withCategory = useMemo(() => cards.map((c) => ({ ...c, category: ideaCategorySlug(c.slug) })), [cards]);
   const results = useMemo(
     () =>
-      filterIdeas(
-        cards.map((c) => ({ ...c, category: ideaCategorySlug(c.slug) })),
-        { query, category, locale, canRead: (slug) => slug in haystacks, haystacks },
-      ),
-    [cards, haystacks, query, category, locale],
+      filterIdeas(withCategory, {
+        query: deferredQuery,
+        category,
+        locale,
+        canRead: (slug) => slug in haystacks,
+        haystacks,
+      }),
+    [withCategory, haystacks, deferredQuery, category, locale],
   );
+  const hasLocked = results.some((c) => c.locked);
 
   // Keep the URL shareable without a server round trip (Next integrates history.replaceState).
   useEffect(() => {
@@ -69,7 +76,7 @@ export function IdeasCatalog({
 
   const categoryName = category ? categories.find((c) => c.slug === category)?.name : undefined;
   const pillLabel = categoryName ?? t("Все категории");
-  const filtering = query.trim() !== "" || category !== null;
+  const filtering = deferredQuery.trim() !== "" || category !== null;
 
   const scrollToTop = () => {
     const el = top.current;
@@ -114,17 +121,16 @@ export function IdeasCatalog({
           <p className="ia-ideas__empty-body">{t("Попробуй название категории или более короткий запрос.")}</p>
         </div>
       ) : (
-        <ul className="ia-grid ia-ideas-grid ia-ideas__grid" aria-label={s.catalogLabel}>
+        <ul className="ia-grid ia-grid--ideas ia-ideas-grid ia-ideas__grid" aria-label={s.catalogLabel}>
           {results.map((card, i) => (
             <li key={card.slug}>
               {card.locked ? (
                 <IdeaCard
                   locked
                   slug={card.slug}
-                  cover={card.cover}
                   paywallSource="ideas_catalog"
                   lockedLabel={t("Идея в Plus")}
-                  hint={t("Подробности идеи доступны в Plus.")}
+                  describedBy={lockedHintId}
                   eager={i < EAGER_CARDS}
                 />
               ) : (
@@ -132,10 +138,11 @@ export function IdeasCatalog({
                   locked={false}
                   slug={card.slug}
                   href={routes.idea(locale, card.slug)}
-                  cover={card.cover}
                   title={card.title}
                   description={card.description}
                   categoryName={card.categoryName}
+                  label={t("%1$@. %2$@", [card.title, card.description])}
+                  titleAs="h2"
                   eager={i < EAGER_CARDS}
                 />
               )}
@@ -143,6 +150,12 @@ export function IdeasCatalog({
           ))}
         </ul>
       )}
+      {/* One shared hint for every locked card (not 288 copies in the HTML). */}
+      {hasLocked ? (
+        <span id={lockedHintId} hidden>
+          {t("Подробности идеи доступны в Plus.")}
+        </span>
+      ) : null}
 
       <CategoryPicker
         open={pickerOpen}
@@ -194,7 +207,7 @@ function CategoryPicker({
         <button
           type="button"
           className="ia-picker__row"
-          aria-current={isSelected ? "true" : undefined}
+          aria-pressed={isSelected}
           onClick={() => onSelect(slug)}
         >
           <span>{name}</span>

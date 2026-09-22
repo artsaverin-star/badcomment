@@ -146,8 +146,12 @@ export function Menu({
                 <span className="flex-1">{item.label}</span>
               </>
             );
+            // Focus goes back to the trigger BEFORE the action runs: the focused item unmounts
+            // with the menu, and a sheet opened by the action records document.activeElement
+            // as the element to restore focus to (otherwise <body>).
             const select = () => {
               setOpen(false);
+              triggerRef.current?.focus();
               item.onSelect?.();
             };
             if (item.href) {

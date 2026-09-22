@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { mailEnabled, sendMagicLink, type MailLocale } from "@/lib/mail";
 import { signEmailToken, isValidEmail, isDisposable } from "@/lib/emailAuth";
 import { appOrigin } from "@/lib/googleAuth";
+import { safeLocalPath } from "@/lib/safeReturn";
 
 export const dynamic = "force-dynamic";
 
@@ -17,8 +18,8 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}));
   const email = typeof body?.email === "string" ? body.email.trim() : "";
-  const rawReturn = typeof body?.return_to === "string" ? body.return_to : "";
-  const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/cards";
+  // Same validator as the verify step and the Google flow (src/lib/safeReturn.ts).
+  const returnTo = safeLocalPath(body?.return_to, "/cards");
   const locale: MailLocale = OTHER_LOCALES.includes(body?.locale) ? body.locale : "ru";
 
   if (!isValidEmail(email)) return NextResponse.json({ error: "bad_email" }, { status: 400 });

@@ -15,29 +15,59 @@ import { researchStrings, type ResearchStrings } from "./strings";
 
 const INITIAL_APPS = 8;
 
-function ratingCountText(s: ResearchStrings, locale: Locale, n: number): string {
+/** Intl formatters, built once per locale (they are costly to construct; review performance P14). */
+type Formats = {
+  number: Intl.NumberFormat;
+  compact: Intl.NumberFormat;
+  rating: Intl.NumberFormat;
+  plural: Intl.PluralRules;
+  date: Intl.DateTimeFormat;
+  region: Intl.DisplayNames | null;
+};
+const formatsCache = new Map<Locale, Formats>();
+
+function formats(locale: Locale): Formats {
+  const hit = formatsCache.get(locale);
+  if (hit) return hit;
   const intl = INTL_LOCALE[locale];
+  let region: Intl.DisplayNames | null = null;
+  try {
+    region = new Intl.DisplayNames([intl], { type: "region" });
+  } catch {
+    region = null;
+  }
+  const made: Formats = {
+    number: new Intl.NumberFormat(intl),
+    compact: new Intl.NumberFormat(intl, { notation: "compact", maximumFractionDigits: 1 }),
+    rating: new Intl.NumberFormat(intl, { minimumFractionDigits: 1, maximumFractionDigits: 1 }),
+    plural: new Intl.PluralRules(intl),
+    date: new Intl.DateTimeFormat(intl, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
+    region,
+  };
+  formatsCache.set(locale, made);
+  return made;
+}
+
+function ratingCountText(s: ResearchStrings, locale: Locale, n: number): string {
+  const f = formats(locale);
   if (n >= 10_000) {
     // "1,2 млн оценок", "1.2M ratings", "120万件の評価"
-    const compact = new Intl.NumberFormat(intl, { notation: "compact", maximumFractionDigits: 1 }).format(n);
+    const compact = f.compact.format(n);
     return locale === "ja" ? `${compact}${s.ratingsOther}` : `${compact} ${locale === "ru" ? s.ratingsMany : s.ratingsOther}`;
   }
-  const category = new Intl.PluralRules(intl).select(n);
+  const category = f.plural.select(n);
   const word =
     category === "one" ? s.ratingsOne : category === "few" ? s.ratingsFew : category === "many" ? s.ratingsMany : s.ratingsOther;
-  const num = new Intl.NumberFormat(intl).format(n);
+  const num = f.number.format(n);
   return locale === "ja" ? `${num}${word}` : `${num} ${word}`;
 }
 
+/** The inside of one row; ShowMoreList renders the <li className="ia-rs-app">. */
 function AppRow({ app, s, locale, oldLang }: { app: TopicApp; s: ResearchStrings; locale: Locale; oldLang: string }) {
-  const intl = INTL_LOCALE[locale];
-  const rating =
-    app.averageRating === null
-      ? null
-      : app.averageRating.toLocaleString(intl, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const rating = app.averageRating === null ? null : formats(locale).rating.format(app.averageRating);
   const hrefLang = oldLang === locale ? undefined : oldLang;
   return (
-    <li className="ia-rs-app" data-app-id={app.appStoreId}>
+    <>
       {/* Remote App Store icon (public store data), decorative. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -68,6 +98,7 @@ function AppRow({ app, s, locale, oldLang }: { app: TopicApp; s: ResearchStrings
       <div className="ia-rs-app__actions">
         <a
           className="ia-rs-app__store"
+          data-app-id={app.appStoreId}
           href={app.storeUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -97,7 +128,7 @@ function AppRow({ app, s, locale, oldLang }: { app: TopicApp; s: ResearchStrings
           </a>
         ) : null}
       </div>
-    </li>
+    </>
   );
 }
 
@@ -112,19 +143,22 @@ function AppsSection({
   s: ResearchStrings;
   hubHref: string | null;
 }) {
-  const intl = INTL_LOCALE[locale];
+  const f = formats(locale);
   const oldLang = toOldLocale(locale);
+  const store = data.store.toUpperCase();
   const region = (() => {
     try {
-      return new Intl.DisplayNames([intl], { type: "region" }).of(data.store.toUpperCase()) ?? data.store.toUpperCase();
+      return f.region?.of(store) ?? store;
     } catch {
-      return data.store.toUpperCase();
+      return store;
     }
   })();
-  const date = new Intl.DateTimeFormat(intl, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
-    new Date(data.collectedAt),
-  );
-  const rows = data.apps.map((app) => <AppRow key={app.appStoreId} app={app} s={s} locale={locale} oldLang={oldLang} />);
+  const date = f.date.format(new Date(data.collectedAt));
+  // Every row goes into the HTML; ShowMoreList hides the ones past the first page.
+  const rows = data.apps.map((app) => ({
+    key: app.appStoreId,
+    content: <AppRow app={app} s={s} locale={locale} oldLang={oldLang} />,
+  }));
   const english = oldLinksInEnglish(locale) && s.englishNote;
 
   return (
@@ -140,6 +174,7 @@ function AppsSection({
         moreTemplate={s.appsShowMore}
         label={s.appsListLabel}
         className="ia-rs-apps__list"
+        itemClassName="ia-rs-app"
         buttonClassName="ia-rs-apps__more-btn"
       />
       <p className="ia-rs-apps__source">{format(s.appsSource, { region, date })}</p>

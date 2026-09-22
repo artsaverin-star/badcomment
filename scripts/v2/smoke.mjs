@@ -24,8 +24,11 @@ const UA = "inapp-smoke/1 (scripts/v2/smoke.mjs)";
 const ZERO_UUID = "00000000-0000-0000-0000-000000000000";
 
 // Leak matcher tuning (see README "Leak check").
-const GRAM = 10; // index gram length = minimum needle length, in canonical chars
-const PROBE = 32; // long needles are cut into aligned probes of this length
+const GRAM = 10; // hash-index window, in canonical chars (shorter probes use indexOf)
+const MIN_LEN = 10; // shorter paid texts are not checked (too likely to occur by chance)
+const MIN_LEN_CJK = 5; // Japanese is denser: 5 characters already carry meaning
+const PROBE = 24; // long needles → aligned probes; any excerpt >= 2*PROBE-1 chars is always found
+const PROBE_CJK = 12;
 const MAX_POSITIONS = 64; // positions kept per gram hash before falling back to indexOf
 
 const HELP = `Usage: node scripts/v2/smoke.mjs [baseUrl] [options]
@@ -41,8 +44,10 @@ const HELP = `Usage: node scripts/v2/smoke.mjs [baseUrl] [options]
   --concurrency N         parallel requests (default 4)
   --timeout MS            per-request timeout (default 60000)
   --retries N             retries on network errors and 500/502/503/504 (default 2)
+  --wait S                wait up to S seconds for the server to answer first (default 30)
   --all                   print every check, not only failures
   --json FILE             also write all results as JSON
+  --self-test             offline tests of the parsers and the leak matcher, then exit
   -h, --help              this help`;
 
 function parseArgs(argv) {
@@ -58,6 +63,8 @@ function parseArgs(argv) {
     retries: 2,
     all: false,
     json: null,
+    wait: 30,
+    selfTest: false,
   };
   const list = (v) => String(v ?? "").split(",").map((s) => s.trim()).filter(Boolean);
   for (let i = 0; i < argv.length; i++) {
@@ -106,6 +113,12 @@ function parseArgs(argv) {
       case "--all":
         o.all = true;
         break;
+      case "--wait":
+        o.wait = Math.max(0, Number.parseInt(val(), 10) || 0);
+        break;
+      case "--self-test":
+        o.selfTest = true;
+        break;
       case "--json":
         o.json = path.resolve(val());
         break;
@@ -134,7 +147,7 @@ function usage(msg) {
 const opts = parseArgs(process.argv.slice(2));
 const BASE = opts.base;
 const BASE_ORIGIN = new URL(BASE).origin;
-const enabled = (g) => (!opts.only || opts.only.has(g)) && !opts.skip.has(g);
+const enabled = (g) => !opts.selfTest && (!opts.only || opts.only.has(g)) && !opts.skip.has(g);
 const TTY = process.stdout.isTTY && !process.env.NO_COLOR;
 const color = (code) => (s) => (TTY ? `\x1b[${code}m${s}\x1b[0m` : String(s));
 const red = color("31");
@@ -149,6 +162,12 @@ const RETRY_STATUS = new Set([500, 502, 503, 504]);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const cache = new Map();
 let requestCount = 0;
+
+/** "fetch failed" alone says nothing: dig out ECONNREFUSED / ETIMEDOUT / TimeoutError. */
+function errorCause(err) {
+  const c = err?.cause;
+  return c?.code || c?.errors?.[0]?.code || c?.message || (err?.name && err.name !== "TypeError" ? err.name : "") || "";
+}
 
 /** Path (+query) of a Location header when it points at the base origin; the full URL otherwise. */
 function locationPath(location) {
@@ -199,7 +218,7 @@ function http(p, { method = "GET", headers = {}, body } = {}) {
         };
         if (!RETRY_STATUS.has(res.status)) return last;
       } catch (err) {
-        const cause = err?.cause?.code || err?.cause?.message || err?.name || "";
+        const cause = errorCause(err);
         last = {
           url,
           path: p,
@@ -604,8 +623,9 @@ class GramIndex {
       h = (h * HB + s.charCodeAt(j)) % MOD;
     }
   }
-  /** Exact start positions of `needle` (length >= GRAM, hash of its first gram = h), up to limit. */
+  /** Exact start positions of `needle` (h = hash of its first GRAM chars), up to limit. */
   find(needle, h, limit = 1) {
+    if (needle.length < GRAM) return this.scan(needle, limit);
     const cur = this.map.get(h);
     if (cur === undefined) return [];
     const out = [];
@@ -616,25 +636,34 @@ class GramIndex {
         if (out.length >= limit) return out;
       }
     }
-    if (typeof cur !== "number" && cur.overflow && out.length === 0) {
-      let p = this.s.indexOf(needle);
-      while (p !== -1 && out.length < limit) {
-        out.push(p);
-        p = this.s.indexOf(needle, p + 1);
-      }
+    if (typeof cur !== "number" && cur.overflow && out.length === 0) return this.scan(needle, limit);
+    return out;
+  }
+  scan(needle, limit) {
+    const out = [];
+    let p = this.s.indexOf(needle);
+    while (p !== -1 && out.length < limit) {
+      out.push(p);
+      p = this.s.indexOf(needle, p + 1);
     }
     return out;
   }
 }
 
+const CJK = /[\u3040-\u30FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\uFF66-\uFF9F]/g;
+const isCjk = (c) => (c.match(CJK)?.length ?? 0) * 3 >= c.length;
+const minLen = (c) => (isCjk(c) ? MIN_LEN_CJK : MIN_LEN);
+
 /** Aligned probes: short needles are one probe; long ones every PROBE chars plus the tail. */
 function probesOf(c) {
-  if (c.length < GRAM) return [];
-  if (c.length <= PROBE) return [{ s: c, h: gramHash(c) }];
+  if (!c || c.length < minLen(c)) return [];
+  const size = isCjk(c) ? PROBE_CJK : PROBE;
+  const mk = (s) => ({ s, h: s.length >= GRAM ? gramHash(s) : -1 });
+  if (c.length <= size) return [mk(c)];
   const out = [];
-  for (let i = 0; i + PROBE <= c.length; i += PROBE) out.push(c.slice(i, i + PROBE));
-  if (c.length % PROBE) out.push(c.slice(c.length - PROBE));
-  return out.map((s) => ({ s, h: gramHash(s) }));
+  for (let i = 0; i + size <= c.length; i += size) out.push(c.slice(i, i + size));
+  if (c.length % size) out.push(c.slice(c.length - size));
+  return out.map(mk);
 }
 
 /** String leaves of a JSON value (RSC references "$…" dropped, "$$" unescaped). */
@@ -815,10 +844,10 @@ function segAt(hay, pos) {
   return null;
 }
 /** Where (which views) a needle occurs; null when none of its probes is present. */
-function locate(hay, probes) {
+function locate(hay, probes, limit = 32) {
   let hit = null;
   for (const p of probes) {
-    const positions = hay.index.find(p.s, p.h, 6);
+    const positions = hay.index.find(p.s, p.h, limit);
     if (!positions.length) continue;
     hit ??= { views: new Set(), rows: new Set(), debugOnly: true };
     for (const x of positions) {
@@ -862,7 +891,7 @@ function loadLeakContent(dir) {
   const needle = (kind, L, ref, text) => {
     for (const para of splitParas(text)) {
       const c = canon(para);
-      if (c.length < GRAM) {
+      if (c.length < minLen(c)) {
         skippedShort++;
         continue;
       }
@@ -1041,7 +1070,7 @@ function describeHit(n, hit) {
 }
 
 async function fetchPageParts(p, { rsc = true } = {}) {
-  const html = await http(p, { headers: { accept: "text/html,application/xhtml+xml" } });
+  const html = await http(p); // same cache key as the routes group: fetched once
   const r = rsc ? await http(p, { headers: { rsc: "1" } }) : null;
   const parts = [];
   if (html.status === 200) {
@@ -1110,31 +1139,32 @@ if (enabled("leak")) {
         { what: `free article (locked cards ${freeCategory}-6…8)`, p: `/${L}/segment/${freeCategory}`, control: "research" },
         { what: "free idea page", p: `/${L}/ideas/${freeIdea}`, control: "idea" },
         { what: "landing (guest home)", p: `/${L}` },
-        ...(q1 ? [{ what: `idea search "${q1}"`, p: `/${L}/ideas?q=${encodeURIComponent(q1)}` }] : []),
-        ...(q2 ? [{ what: `research search "${q2}"`, p: `/${L}/segment?q=${encodeURIComponent(q2)}` }] : []),
+        ...(q1 ? [{ what: "idea search, locked title", p: `/${L}/ideas?q=${encodeURIComponent(q1)}`, show: `/${L}/ideas?q=${q1}` }] : []),
+        ...(q2 ? [{ what: "research search, locked body", p: `/${L}/segment?q=${encodeURIComponent(q2)}`, show: `/${L}/segment?q=${q2}` }] : []),
         ...lockedIdeas.map((id) => ({ what: `locked idea ${id}`, p: `/${L}/ideas/${id}` })),
       ];
       for (const t of targets) {
-        add("leak", `${t.p} (${t.what})`, async () => {
+        add("leak", `${t.show ?? t.p} (${t.what})`, async () => {
           const { html, rsc, parts } = await fetchPageParts(t.p);
           const expected = "200 HTML+RSC, no paid text";
           const fails = [];
           if (html.status !== 200) fails.push(`HTML ${statusLine(html)} — cannot verify`);
           if (rsc && rsc.status !== 200) fails.push(`RSC ${statusLine(rsc)} — cannot verify`);
           else if (rsc && !/text\/x-component/.test(header(rsc, "content-type"))) fails.push(`RSC content-type ${header(rsc, "content-type") || "(none)"}`);
-          const { hay, hits } = scanLeaks(parts);
+          const { hits } = scanLeaks(parts);
           const v = leakVerdict(hits);
           fails.push(...v.fails);
           const details = [...v.details];
-          // Positive control: the detector must SEE the free text on the free pages.
+          // Positive control: the detector must SEE the free text on the free pages, both in the
+          // HTML text and in the RSC payload (separate haystacks, so one view cannot mask the other).
           if (t.control && html.status === 200) {
             const ctl = perLocale[L].controls[t.control];
-            const seen = (pred) => ctl.filter((c) => {
-              const hit = locate(hay, c.probes);
-              return hit && [...hit.views].some(pred);
-            }).length;
-            const inHtml = seen((v2) => v2.startsWith("html:text"));
-            const inRsc = seen((v2) => v2.startsWith("rsc"));
+            const seen = (view) => {
+              const hay = buildHaystack(parts.filter((x) => x.view === view && !x.debug));
+              return ctl.filter((c) => locate(hay, c.probes, 1)).length;
+            };
+            const inHtml = seen("html:text");
+            const inRsc = seen("rsc");
             const need = Math.ceil(ctl.length * 0.9);
             details.push(`self-test: ${inHtml}/${ctl.length} free texts found in HTML text, ${inRsc}/${ctl.length} in RSC`);
             if (!ctl.length) fails.push("self-test: no free control texts loaded");
@@ -1193,7 +1223,6 @@ async function pool(items, n, fn) {
 }
 
 const WIDE = /[\u1100-\u115F\u2E80-\uA4CF\uAC00-\uD7A3\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFF60\uFFE0-\uFFE6]/;
-// eslint-disable-next-line no-control-regex
 const stripAnsi = (s) => String(s).replace(/\x1b\[[0-9;]*m/g, "");
 const width = (s) => {
   let w = 0;
@@ -1232,7 +1261,7 @@ async function main() {
       const s = leakContent.stats;
       console.log(
         dim(
-          `leak check: ${contentDir} · ${s.needles} paid texts (${Object.entries(s.kinds).map(([k, v]) => `${k} ${v}`).join(", ")}) · ${s.probes} probes · ${s.publicExcluded} also public · ${s.skippedShort} too short (<${GRAM} chars)`,
+          `leak check: ${contentDir} · ${s.needles} paid texts (${Object.entries(s.kinds).map(([k, v]) => `${k} ${v}`).join(", ")}) · ${s.probes} probes · ${s.publicExcluded} also public · ${s.skippedShort} too short (<${MIN_LEN} chars, <${MIN_LEN_CJK} CJK)`,
         ),
       );
       console.log(dim(`locked idea pages: ${leakContent.lockedIdeas.join(", ")}`));
@@ -1295,8 +1324,13 @@ async function main() {
   }
 
   const failCount = results.filter((r) => r.status === "FAIL").length;
+  const skipCount = results.filter((r) => r.status === "SKIP").length;
+  const passCount = results.length - failCount - skipCount;
   const secs = ((Date.now() - started.getTime()) / 1000).toFixed(1);
-  const verdict = failCount ? red(`FAIL — ${failCount} of ${results.length} checks failed`) : green(`OK — ${results.length} checks passed`);
+  const skipped = skipCount ? `, ${skipCount} skipped` : "";
+  const verdict = failCount
+    ? red(`FAIL — ${failCount} of ${results.length} checks failed (${passCount} passed${skipped})`)
+    : green(`OK — ${passCount} checks passed${skipped}`);
   console.log(`${bold(verdict)} ${dim(`(${requestCount} requests, ${secs}s)`)}`);
 
   if (opts.json) {
@@ -1307,4 +1341,151 @@ async function main() {
   process.exitCode = failCount ? 1 : 0;
 }
 
-await main();
+/** Waits until the server answers anything over HTTP (after a deploy it may still be starting). */
+async function waitForServer() {
+  const deadline = Date.now() + opts.wait * 1000;
+  let last = "";
+  for (;;) {
+    try {
+      const res = await fetch(`${BASE}/robots.txt`, { redirect: "manual", signal: AbortSignal.timeout(10_000), headers: { "user-agent": UA } });
+      await res.arrayBuffer();
+      if (!RETRY_STATUS.has(res.status)) return null;
+      last = `HTTP ${res.status}`;
+    } catch (err) {
+      const cause = errorCause(err);
+      last = `${err?.message ?? err}${cause ? ` (${cause})` : ""}`;
+    }
+    if (Date.now() >= deadline) return last;
+    await sleep(2000);
+  }
+}
+
+/** Offline tests of the parsers and the leak matcher (no server needed): --self-test. */
+function selfTest() {
+  let passed = 0;
+  const failed = [];
+  const t = (name, cond, info = "") => {
+    if (cond) passed++;
+    else failed.push(`${name}${info ? ` — ${info}` : ""}`);
+  };
+
+  // canonical form + entities
+  t("canon: NBSP, quotes, dashes, ellipsis, newlines", canon("Привет,\u00A0мир — «тест»…\n\nДа") === canon('привет, мир - "тест"...да'));
+  t("canon: soft hyphen / zero-width removed", canon("при\u00ADло\u200Bжение") === "приложение");
+  t("decodeEntities", decodeEntities("&amp;&#x27;&#39;&quot;&nbsp;&laquo;x&raquo;&unknown;") === "&''\"\u00A0«x»&unknown;");
+
+  // GramIndex must agree with indexOf, including overflowing position lists
+  let seed = 42;
+  const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const alphabet = "абвгдеab cd";
+  let text = "";
+  for (let i = 0; i < 20000; i++) text += alphabet[Math.floor(rnd() * alphabet.length)];
+  text += "x".repeat(2000) + "needle-after-overflow";
+  const c = canon(text);
+  const idx = new GramIndex(c);
+  let mismatches = 0;
+  for (let k = 0; k < 2000; k++) {
+    const start = Math.floor(rnd() * (c.length - 45));
+    const sub = c.slice(start, start + GRAM + Math.floor(rnd() * 30));
+    if (idx.find(sub, gramHash(sub)).length === 0) mismatches++;
+  }
+  for (let k = 0; k < 500; k++) {
+    const fake = Array.from({ length: 16 }, () => "абвгдеabcd"[Math.floor(rnd() * 10)]).join("");
+    if (c.includes(fake) !== idx.find(fake, gramHash(fake)).length > 0) mismatches++;
+  }
+  t("GramIndex agrees with indexOf", mismatches === 0, `${mismatches} mismatches`);
+  const ov = `${"x".repeat(GRAM)}needle`;
+  t("GramIndex falls back to indexOf on an overflowing gram", idx.find(ov, gramHash(ov))[0] === c.indexOf(ov));
+
+  // React Flight rows
+  const tText = "Платный абзац №1 — ünïcödé 日本語テキスト";
+  const stream =
+    `0:{"P":null,"c":["","ru"]}\n1:I["x.js",[],"default"]\n2:T${Buffer.byteLength(tText).toString(16)},${tText}` +
+    `3:["$","p",null,{"children":"$2"},"$4",null,1]\n4:{"name":"Comp","env":"Server","key":null,"props":{"x":"debug"}}\n` +
+    `3:D"$4"\n5:"$$5 literal"\n6:HL["/a.css","style"]\n`;
+  const rows = parseFlight(Buffer.from(stream));
+  t("parseFlight: rows", rows.map((r) => r.id + r.tag).join(",") === "0,1I,2T,3,4,3D,5,6H", rows.map((r) => r.id + r.tag).join(","));
+  t("parseFlight: T row by UTF-8 byte length", rows.find((r) => r.tag === "T")?.raw === tText);
+  t("parseFlight: $$ unescaped, references dropped", rows.find((r) => r.id === "5")?.leaves === "$5 literal");
+  const fparts = flightParts(rows, "rsc");
+  t("flightParts: component info is debug", fparts.find((p) => p.row === "4")?.debug === true);
+  t("flightParts: D row is debug", fparts.find((p) => p.row === "3:D")?.debug === true);
+  t("flightParts: data row is not debug", fparts.find((p) => p.row === "3")?.debug === false);
+  t("flightParts: import and hint rows skipped", !fparts.some((p) => p.row === "1:I" || p.row === "6:H"));
+
+  // HTML: visible text, attributes, JSON-LD, inline flight reassembly
+  const push = (s) => `<script>self.__next_f.push(${JSON.stringify([1, s]).replace(/</g, "\\u003c")})</script>`;
+  const html =
+    `<!DOCTYPE html><html lang="ru"><head><title>Заголовок</title><meta name="description" content="Мета &quot;описание&quot;"/>` +
+    `<script type="application/ld+json">{"@type":"Article","headline":"JSON-LD \\u003cзаголовок"}</script></head>` +
+    `<body><p>Первая&nbsp;часть<!-- -->, вторая &#x27;часть&#x27;</p><img alt="Альт текст"/>` +
+    `<script>(self.__next_f=self.__next_f||[]).push([0])</script>${push(stream.slice(0, 30))}${push(stream.slice(30))}</body></html>`;
+  const page = parseHtml(html);
+  t("parseHtml: visible text", canon(page.text).includes(canon("Первая часть, вторая 'часть'")) && canon(page.text).includes("заголовок"));
+  t("parseHtml: attribute values decoded", page.attrs.includes('Мета "описание"') && page.attrs.includes("Альт текст"));
+  t("parseHtml: JSON-LD leaves", page.scripts.some((s) => s.includes("JSON-LD <заголовок")));
+  t("parseHtml: inline flight reassembled byte-exact", page.flight.equals(Buffer.from(stream)));
+  t("parseHtml: flight not in visible text", !page.text.includes("__next_f") && !page.text.includes("Платный"));
+
+  // end-to-end detection
+  const secret =
+    "Человек выполнил часть привычек, но итог дня выглядит почти так же, как полный пропуск. Такая обратная связь скрывает сделанное. В другом отзыве просят паузу на время болезни или отпуска.";
+  const probes = probesOf(canon(secret));
+  const reflowed = `<p>${secret.slice(0, 90).replace(/ /g, "&nbsp;")}</p><p>${secret.slice(90).replace(/'/g, "&#x27;")}</p>`;
+  t("detect: reflowed paragraph with NBSP", !!locate(buildHaystack([{ view: "html:text", text: parseHtml(reflowed).text }]), probes));
+  const teaser = `<meta name="description" content="${secret.slice(0, 80)}…">`;
+  t("detect: 80-char teaser in an attribute", !!locate(buildHaystack([{ view: "html:attr", text: parseHtml(teaser).attrs.join("\u0001") }]), probes));
+  const middle = `<p>…${secret.slice(60, 140)}…</p>`;
+  t("detect: 80-char excerpt from the middle", !!locate(buildHaystack([{ view: "html:text", text: parseHtml(middle).text }]), probes));
+  t("detect: no hit on a locked preview", !locate(buildHaystack([{ view: "html:text", text: "Идея доступна в Plus. Полный материал в Plus." }]), probes));
+  const dbg = parseFlight(Buffer.from(`0:["$","div",null,{}]\n4:{"name":"C","env":"Server","props":{"t":${JSON.stringify(secret)}}}\n0:D"$4"\n`));
+  const dhit = locate(buildHaystack(flightParts(dbg, "rsc")), probes);
+  t("detect: dev-debug-only hit is flagged", !!dhit && dhit.debugOnly === true);
+  const trows = parseFlight(Buffer.from(`1:T${Buffer.byteLength(secret).toString(16)},${secret}2:["$","p",null,{"children":"$1"}]\n`));
+  const thit = locate(buildHaystack(flightParts(trows, "rsc")), probes);
+  t("detect: long text in a T row", !!thit && !thit.debugOnly);
+  const esc = parseFlight(Buffer.from(`1:["$","p",null,{"children":${JSON.stringify(secret.slice(0, 120)).replace(/о/g, "\\u043e")}}]\n`));
+  t("detect: JSON \\u-escaped text in a data row", !!locate(buildHaystack(flightParts(esc, "rsc")), probes));
+  const minExcerpt = secret.slice(70, 70 + 2 * PROBE + 6); // ≥ 2*PROBE-1 canonical chars
+  t("detect: shortest guaranteed excerpt (Latin/Cyrillic)", !!locate(buildHaystack([{ view: "t", text: `<p>…${minExcerpt}…</p>` }]), probes));
+  const jaSecret = "朝、人は時間どおりに出かけようと支度し、夜にはその日に何ができたかを思い出そうとする。一週間後には、どの日が抜けたのかを見返す。";
+  const jaProbes = probesOf(canon(jaSecret));
+  t("detect: 24-char Japanese excerpt", !!locate(buildHaystack([{ view: "t", text: `<p>…${jaSecret.slice(9, 33)}…</p>` }]), jaProbes));
+  t("detect: no hit on unrelated Japanese text", !locate(buildHaystack([{ view: "t", text: "このアイデアはPlusで読めます。まずは無料の分析を読んでみよう。" }]), jaProbes));
+  const jaTitle = probesOf(canon("投薬の記録"));
+  t("detect: 5-char Japanese title as a whole", jaTitle.length === 1 && !!locate(buildHaystack([{ view: "t", text: "<h2>投薬の記録</h2>" }]), jaTitle));
+  t("detect: 4-char Japanese prefix is not a hit", !locate(buildHaystack([{ view: "t", text: "<h2>投薬の記</h2>" }]), jaTitle));
+  const short = probesOf(canon("Продолжить после пропуска"));
+  t("detect: short title as a whole", !!locate(buildHaystack([{ view: "t", text: "<x>Продолжить после\u00A0пропуска</x>" }]), short));
+  t("detect: prefix of a short title is not a hit", !locate(buildHaystack([{ view: "t", text: "Продолжить после" }]), short));
+
+  // forbidden "990" must ignore RSC references / row ids
+  const re990 = FORBIDDEN[0][1];
+  const n990 = (s) => [...s.matchAll(re990)].length;
+  t("990: references, ids, longer numbers ignored", n990('"$990" "$L990" "$@990" 1990 0.990 9900 a990') === 0 && n990("990:[1]") === 0, String(n990('"$990" "$L990" "$@990" 1990 0.990 9900 a990')));
+  t("990: prices matched", n990("990 ₽") === 1 && n990("₽990") === 1 && n990('{"priceRub":990,') === 1 && n990("за 990.") === 1);
+
+  // search echo: the query is a strict prefix, so it can never contain a whole paid needle
+  for (const [L, s] of [
+    ["ru", "Продолжить после пропуска"],
+    ["de", "Gewohnheitsverfolgungsanwendungen für Menschen mit wenig Zeit"],
+    ["en", "Pick up where you left off after a missed day"],
+    ["ja", "スキップ後も続けられる習慣トラッカー"],
+  ]) {
+    const q = canon(shortQuery(s, L, 20));
+    t(`shortQuery ${L}: strict prefix`, q.length >= 2 && canon(s).startsWith(q) && q.length < canon(s).length, q);
+  }
+
+  console.log(`self-test: ${passed} passed, ${failed.length} failed`);
+  for (const f of failed) console.log(red(`  ✗ ${f}`));
+  process.exitCode = failed.length ? 1 : 0;
+}
+
+if (opts.selfTest) selfTest();
+else {
+  const down = opts.wait > 0 ? await waitForServer() : null;
+  if (down) {
+    console.log(red(bold(`FAIL — ${BASE} is not answering after ${opts.wait}s: ${down}`)));
+    process.exitCode = 1;
+  } else await main();
+}

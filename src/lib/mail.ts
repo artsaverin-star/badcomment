@@ -63,9 +63,9 @@ const COPY = {
     heading: "Connexion à inApp",
     lead: "Appuie sur le bouton pour te connecter. Le lien est valable 15 minutes.",
     button: "Se connecter à inApp",
-    fallback: "Si le bouton ne fonctionne pas, copie ce lien :",
+    fallback: "Si le bouton ne fonctionne pas, copie ce lien :",
     ignore: "Si tu n’as pas demandé cette connexion, ignore simplement cet e-mail.",
-    text: (url: string) => `Ouvre ce lien pour te connecter à inApp (valable 15 minutes) :\n${url}\n\nSi tu n’as pas demandé cette connexion, ignore cet e-mail.`,
+    text: (url: string) => `Ouvre ce lien pour te connecter à inApp (valable 15 minutes) :\n${url}\n\nSi tu n’as pas demandé cette connexion, ignore cet e-mail.`,
   },
   ja: {
     subject: "inAppへのログイン",

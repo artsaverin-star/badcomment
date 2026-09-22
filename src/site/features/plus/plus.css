@@ -1,4 +1,5 @@
-/* Plus paywall (spec 03 §2.2, spec 05 §3.6 P) + payment return page. Tokens only. */
+/* Plus paywall (spec 03 §2.2, spec 05 §3.6 P) + payment return page. Tokens only.
+   Voice: every paywall string is Onest (clarityWelcomeText, ClarityWelcomeTypography.swift). */
 
 .ia-plus {
   display: flex;
@@ -9,12 +10,22 @@
   max-width: var(--ia-w-welcome);
   margin-inline: auto;
   color: var(--ia-ink);
+  font-family: var(--ia-font-display);
+  text-align: center;
 }
-.ia-plus--page {
-  padding-top: 8px;
+.ia-plus--page,
+.ia-plus--sheet {
+  padding-top: 10px;
+}
+/* The replay's stage has no gutters of its own (ClarityPaywall.swift:58: padding 24). */
+.ia-plus--welcome {
+  box-sizing: border-box;
+  max-width: calc(var(--ia-w-welcome) + 2 * var(--ia-gutter-welcome));
+  padding: 10px var(--ia-gutter-welcome) 12px;
 }
 
-/* ---- Artwork: three library objects pop in, then float (ClarityPaywall.swift:151-189) ---- */
+/* ---- Artwork: three library objects fly into place, then float (ClarityPaywall.swift:151-189).
+   Resting geometry on the elements; the choreography only runs with motion allowed. ---- */
 .ia-plus__art {
   position: relative;
   width: 100%;
@@ -25,19 +36,6 @@
   position: absolute;
   object-fit: contain;
   translate: -50% -50%;
-  opacity: 0;
-  animation:
-    ia-plus-pop 1.2s cubic-bezier(0.34, 1.35, 0.5, 1) forwards,
-    ia-plus-float var(--ia-dur-ambient) ease-in-out 1.6s infinite;
-}
-.ia-plus__art-layer--center {
-  left: 50%;
-  top: 52%;
-  width: 81%;
-  height: 100%;
-  z-index: 2;
-  --ia-plus-rot: 0deg;
-  animation-delay: 80ms, 1.4s;
 }
 .ia-plus__art-layer--left {
   left: 20%;
@@ -45,8 +43,7 @@
   width: 45%;
   height: 74%;
   z-index: 1;
-  --ia-plus-rot: -12deg;
-  animation-delay: 270ms, 1.8s;
+  rotate: -12deg;
 }
 .ia-plus__art-layer--right {
   left: 81%;
@@ -54,81 +51,180 @@
   width: 43%;
   height: 70%;
   z-index: 1;
-  --ia-plus-rot: 9deg;
-  animation-delay: 410ms, 2.2s;
+  rotate: 9deg;
 }
-@keyframes ia-plus-pop {
+.ia-plus__art-layer--center {
+  left: 50%;
+  top: 52%;
+  width: 81%;
+  height: 100%;
+  z-index: 2;
+  transform-origin: 50% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Stages at 80 / 270 / 410 ms (the app's 80 + 190 + 140 ms sleeps), spring entrances, then
+     the ambient loop: sides sin(2t) (±3°, ±6/7 px, 6 s) with a 12 s sway, centre 12 s. */
+  .ia-plus__art-layer--center {
+    animation:
+      ia-plus-pop-center var(--ia-dur-reveal) var(--ia-ease-reveal) 80ms both,
+      ia-plus-float-center var(--ia-dur-ambient) ease-in-out calc(80ms + var(--ia-dur-reveal)) infinite;
+  }
+  .ia-plus__art-layer--left {
+    animation:
+      ia-plus-pop-left var(--ia-dur-reveal) var(--ia-ease-reveal) 270ms both,
+      ia-plus-float-left var(--ia-dur-ambient) ease-in-out calc(270ms + var(--ia-dur-reveal)) infinite;
+  }
+  .ia-plus__art-layer--right {
+    animation:
+      ia-plus-pop-right var(--ia-dur-reveal) var(--ia-ease-reveal) 410ms both,
+      ia-plus-float-right var(--ia-dur-ambient) ease-in-out calc(410ms + var(--ia-dur-reveal)) infinite;
+  }
+}
+@keyframes ia-plus-pop-center {
   from {
     opacity: 0;
-    transform: perspective(600px) rotate(var(--ia-plus-rot)) rotateX(18deg) scale(0.6);
+    top: 70%;
+    scale: 0.62;
+    transform: perspective(600px) rotateX(10deg);
   }
   to {
     opacity: 1;
-    transform: rotate(var(--ia-plus-rot)) scale(1);
+    top: 52%;
+    scale: 1;
+    transform: perspective(600px) rotateX(0deg);
   }
 }
-@keyframes ia-plus-float {
+@keyframes ia-plus-pop-left {
+  from {
+    opacity: 0;
+    left: 42%;
+    top: 55%;
+    rotate: 6deg;
+    scale: 0.6;
+    transform: perspective(600px) rotateY(-18deg);
+  }
+  to {
+    opacity: 1;
+    left: 20%;
+    top: 37%;
+    rotate: -12deg;
+    scale: 1;
+    transform: perspective(600px) rotateY(0deg);
+  }
+}
+@keyframes ia-plus-pop-right {
+  from {
+    opacity: 0;
+    left: 58%;
+    top: 56%;
+    rotate: -6deg;
+    scale: 0.6;
+    transform: perspective(600px) rotateY(18deg);
+  }
+  to {
+    opacity: 1;
+    left: 81%;
+    top: 40%;
+    rotate: 9deg;
+    scale: 1;
+    transform: perspective(600px) rotateY(0deg);
+  }
+}
+@keyframes ia-plus-float-center {
   0%,
+  50%,
   100% {
-    opacity: 1;
-    transform: rotate(var(--ia-plus-rot)) translateY(0);
+    transform: none;
   }
-  50% {
-    opacity: 1;
-    transform: rotate(calc(var(--ia-plus-rot) + 3deg)) translateY(-6px);
+  25% {
+    transform: translateY(-5px) rotate(1.5deg) scale(1.018);
+  }
+  75% {
+    transform: translateY(5px) rotate(-1.5deg) scale(0.982);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .ia-plus__art-layer {
-    opacity: 1;
-    transform: rotate(var(--ia-plus-rot));
-    animation: none;
+@keyframes ia-plus-float-left {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  }
+  12.5% {
+    transform: translate(-2px, -6px) rotate(-3deg);
+  }
+  25% {
+    transform: translate(-3px, 0) rotate(0deg);
+  }
+  37.5% {
+    transform: translate(-2px, 6px) rotate(3deg);
+  }
+  62.5% {
+    transform: translate(2px, -6px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(3px, 0) rotate(0deg);
+  }
+  87.5% {
+    transform: translate(2px, 6px) rotate(3deg);
+  }
+}
+@keyframes ia-plus-float-right {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  }
+  12.5% {
+    transform: translate(2px, 7px) rotate(3deg);
+  }
+  25% {
+    transform: translate(3px, 0) rotate(0deg);
+  }
+  37.5% {
+    transform: translate(2px, -7px) rotate(-3deg);
+  }
+  62.5% {
+    transform: translate(-2px, 7px) rotate(3deg);
+  }
+  75% {
+    transform: translate(-3px, 0) rotate(0deg);
+  }
+  87.5% {
+    transform: translate(-2px, -7px) rotate(-3deg);
   }
 }
 
-/* ---- Copy ---- */
+/* ---- Copy: 38 / 18 (the 48 / 26 caps belong to Dynamic Type; rem already follows the
+   browser text size). ClarityWelcomeTypography.swift:8-13, 36-58. ---- */
 .ia-plus__head {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: center;
 }
 .ia-plus__title {
   margin: 0;
-  font: 900 var(--ia-fs-display) / var(--ia-lh-display) var(--ia-font-display);
+  font: 900 2.375rem / var(--ia-lh-display) var(--ia-font-display);
   letter-spacing: var(--ia-ls-display);
   text-wrap: balance;
+  outline: none;
 }
 .ia-plus__lead {
   margin: 0 auto;
   max-width: var(--ia-w-welcome-copy);
   color: var(--ia-secondary);
-  font: 400 var(--ia-fs-display-copy) / var(--ia-lh-display-copy) var(--ia-font-display);
+  font: 450 1.125rem / var(--ia-lh-display-copy) var(--ia-font-display);
   text-wrap: pretty;
 }
 
-.ia-plus__benefits {
+/* ---- Plans, status lines and the legal row, 12 apart (ClarityPaywall.swift:51) ---- */
+.ia-plus__group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin: 4px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.ia-plus__benefits li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: var(--ia-fs-subheadline);
-  line-height: var(--ia-lh-subheadline);
-}
-.ia-plus__benefits svg {
-  flex: none;
-  margin-top: 1px;
-  color: var(--ia-accent);
+  align-items: stretch;
+  gap: 12px;
 }
 
-/* ---- Plan row (padding 14, radius 18, radio 21; selected ink@5.5 % + 1.5 px ink@65 %) ---- */
+/* Plan row: padding 14, radius 18, radio 21; selected ink@5.5 % + 1.5 px ink@65 %. */
 .ia-plus__plan {
   display: flex;
   align-items: center;
@@ -137,6 +233,7 @@
   border-radius: var(--ia-radius-group-sm);
   background: var(--ia-ink-055);
   box-shadow: inset 0 0 0 1.5px var(--ia-ink-65);
+  text-align: start;
 }
 .ia-plus__plan-radio {
   flex: none;
@@ -146,110 +243,42 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 .ia-plus__plan-title {
-  font-weight: 650;
-  font-size: 1rem;
-  line-height: 1.3;
+  font: 650 1rem / 1.3 var(--ia-font-display);
 }
 .ia-plus__plan-detail {
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-caption);
-  line-height: var(--ia-lh-caption);
+  font: 400 0.75rem / 1.333 var(--ia-font-display);
 }
 .ia-plus__plan-price {
   flex: none;
-  font-weight: 600;
-  font-size: var(--ia-fs-subheadline);
+  margin-inline-start: 8px;
+  font: 600 0.9375rem / 1.3 var(--ia-font-display);
   text-align: end;
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- Status lines ---- */
+/* Status lines: 15/600 unlocked, 13 red error, 13 secondary notes (ClarityPaywall.swift:191-212). */
 .ia-plus__unlocked {
   margin: 0;
-  text-align: center;
-  font-weight: 600;
-  font-size: var(--ia-fs-subheadline);
+  font: 600 0.9375rem / 1.333 var(--ia-font-display);
 }
 .ia-plus__error {
   margin: 0;
-  text-align: center;
   color: var(--ia-error-system);
-  font-size: var(--ia-fs-footnote);
-  line-height: var(--ia-lh-footnote);
+  font: 400 0.8125rem / 1.385 var(--ia-font-display);
 }
-
-/* ---- Footer: disclosure → CTA → secondary ---- */
-.ia-plus__footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 4px;
-  text-align: center;
-}
-.ia-plus__disclosure {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 0;
-}
-.ia-plus__disclosure strong {
-  font-weight: 600;
-  font-size: var(--ia-fs-subheadline);
-}
-.ia-plus__disclosure span {
-  color: var(--ia-secondary);
-  font-size: var(--ia-fs-caption);
-}
-.ia-plus__methods {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-  width: 100%;
-  max-width: 340px;
-}
-.ia-plus__methods-title {
-  margin: 0 0 2px;
-  font-weight: 600;
-  font-size: var(--ia-fs-subheadline);
-}
-.ia-plus__method-alt {
-  min-height: 58px;
-  font-family: var(--ia-font-display);
-  letter-spacing: 0;
-}
-.ia-plus__secondary {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--ia-hit);
-  padding: 0 8px;
-  border: 0;
-  background: none;
-  color: var(--ia-secondary);
-  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
-  text-decoration: none;
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .ia-plus__secondary:hover {
-    color: var(--ia-ink);
-  }
-}
-
-.ia-plus__fine {
+.ia-plus__note {
   margin: 0;
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-caption);
-  line-height: 1.45;
-  text-align: center;
+  font: 400 0.8125rem / 1.385 var(--ia-font-display);
   text-wrap: pretty;
 }
 
+/* Legal row: plain ink buttons, Onest 12/550, 44 pt rows, 18 apart (ClarityPaywall.swift:278-300). */
 .ia-plus__legal {
   display: flex;
   flex-wrap: wrap;
@@ -265,7 +294,7 @@
   border: 0;
   background: none;
   color: var(--ia-ink);
-  font: 550 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  font: 550 0.75rem / 1.333 var(--ia-font-display);
   text-decoration: none;
   cursor: pointer;
 }
@@ -276,10 +305,8 @@
     text-underline-offset: 3px;
   }
 }
-.ia-plus__legal button {
-  color: var(--ia-accent);
-}
 
+/* Web-only: the iPhone app is bought separately in the App Store (DECISIONS §12). */
 .ia-plus__iphone {
   display: flex;
   align-items: center;
@@ -288,13 +315,13 @@
   border-radius: var(--ia-radius-group-sm);
   background: var(--ia-surface);
   box-shadow: inset 0 0 0 1px var(--ia-line-card);
+  text-align: start;
 }
 .ia-plus__iphone p {
   flex: 1;
   margin: 0;
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-caption);
-  line-height: 1.45;
+  font: 400 0.75rem / 1.45 var(--ia-font-display);
 }
 .ia-plus__iphone .ia-appstore-badge {
   flex: none;
@@ -306,6 +333,96 @@
   }
 }
 
+/* ---- Footer: disclosure → capsule → secondary, 10 apart; padding 10 / 8
+   (ClarityWelcomeFooter, ClarityWelcomeComponents.swift:44-83). Pinned: it sticks to the
+   bottom of the viewport (page) or of the sheet's scrolling body (sheet); in the replay it is
+   portalled into the replay's own pinned footer. No rule above it, like the app. ---- */
+.ia-plus__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.ia-plus--page .ia-plus__footer,
+.ia-plus--sheet .ia-plus__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  background: var(--ia-paper);
+}
+.ia-plus--page .ia-plus__footer {
+  margin: -6px calc(-1 * var(--ia-gutter-welcome)) 0;
+  padding: 10px var(--ia-gutter-welcome) calc(8px + env(safe-area-inset-bottom));
+}
+.ia-plus--sheet .ia-plus__footer {
+  margin: -6px -24px 0;
+  padding: 10px 24px 8px;
+}
+.ia-plus__footer--slot {
+  width: 100%;
+  text-align: center;
+  font-family: var(--ia-font-display);
+}
+.ia-plus__disclosure {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+}
+.ia-plus__disclosure strong {
+  font: 600 0.9375rem / 1.333 var(--ia-font-display);
+}
+.ia-plus__disclosure span {
+  color: var(--ia-secondary);
+  font: 400 0.75rem / 1.333 var(--ia-font-display);
+}
+.ia-plus__methods {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  max-width: 340px;
+}
+.ia-plus__methods-title {
+  margin: 0 0 2px;
+  font: 600 0.9375rem / 1.333 var(--ia-font-display);
+}
+.ia-plus__methods-title:focus:not(:focus-visible) {
+  outline: none;
+}
+.ia-plus__method-alt {
+  min-height: 58px;
+  font-family: var(--ia-font-display);
+  letter-spacing: 0;
+}
+/* The footer's secondary row: a plain ink button, Onest 13/500, 44 pt tall. */
+.ia-plus__secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  min-height: var(--ia-hit);
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  color: var(--ia-ink);
+  font: 500 0.8125rem / 1.385 var(--ia-font-display);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ia-plus__secondary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+@media (hover: hover) {
+  .ia-plus__secondary:hover:not(:disabled) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
 .ia-plus__secondary:focus-visible,
 .ia-plus__legal a:focus-visible,
 .ia-plus__legal button:focus-visible {
@@ -314,7 +431,7 @@
   border-radius: 6px;
 }
 
-/* ---- Payment return (/<L>/library?checkout=) ---- */
+/* ---- Payment return (/<L>/library?checkout=), in the same voice ---- */
 .ia-checkout {
   display: flex;
   flex-direction: column;
@@ -323,6 +440,7 @@
   max-width: var(--ia-w-welcome);
   margin-inline: auto;
   padding-top: clamp(16px, 6vh, 64px);
+  font-family: var(--ia-font-display);
   text-align: center;
 }
 .ia-checkout__icon {
@@ -345,7 +463,7 @@
 }
 .ia-checkout__title {
   margin: 0;
-  font: 900 var(--ia-fs-display) / var(--ia-lh-display) var(--ia-font-display);
+  font: 900 2.375rem / var(--ia-lh-display) var(--ia-font-display);
   letter-spacing: var(--ia-ls-display);
   text-wrap: balance;
 }
@@ -353,9 +471,11 @@
   margin: 0;
   max-width: var(--ia-w-welcome-copy);
   color: var(--ia-secondary);
-  font-size: var(--ia-fs-body);
-  line-height: var(--ia-lh-body-relaxed);
+  font: 450 1.125rem / var(--ia-lh-display-copy) var(--ia-font-display);
   text-wrap: pretty;
+}
+.ia-checkout__text:empty {
+  display: none;
 }
 .ia-checkout__actions {
   display: flex;

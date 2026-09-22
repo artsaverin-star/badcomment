@@ -124,6 +124,32 @@
   html:has(dialog.ia-sheet[open]) {
     overflow: hidden;
   }
+  /* Keep the focused element and anchor targets clear of the sticky chrome (WCAG 2.4.11):
+     the desktop top bar, the detail toolbar, the mobile floating tab bar, the landing's
+     sticky CTA. Anchors must not add their own scroll-margin for the same bars (margins and
+     padding add up). */
+  html {
+    scroll-padding-top: calc(12px + env(safe-area-inset-top));
+  }
+  html:has(.ia-toolbar) {
+    scroll-padding-top: calc(var(--ia-toolbar-h) + env(safe-area-inset-top) + 12px);
+  }
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: calc(var(--ia-topnav-h) + 12px);
+    }
+    html:has(.ia-toolbar) {
+      scroll-padding-top: calc(var(--ia-topnav-h) + var(--ia-toolbar-h) + 12px);
+    }
+  }
+  @media (max-width: 1023.98px) {
+    html:has(.ia-tabbar-dock) {
+      scroll-padding-bottom: var(--ia-tabbar-reserve);
+    }
+    html:has(.ld-sticky[data-shown]) {
+      scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+  }
 }
 
 @layer components {
@@ -547,9 +573,13 @@
   .ia-badge--neutral {
     background: var(--ia-soft);
   }
+  /* The 4 px padding (cancelled by the margin) keeps the chips' 2 + 2 px focus ring inside
+     the scroller, which clips on both axes once overflow-x is set. */
   .ia-chips {
     display: flex;
     gap: 6px;
+    margin: -4px;
+    padding: 4px;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -614,37 +644,89 @@
     color: var(--ia-accent);
   }
 
-  /* ---- Glass toolbar pills + icon buttons (spec 05 §3.6 J) ---- */
+  /* ---- Detail toolbar + glass pills + icon buttons (spec 05 §3.6 J) ----
+     The app's inline navigation bar (ClarityReader.swift:193-195): leading «Назад», centered
+     title, trailing group. Three columns — the sides never shrink below their controls, the
+     title takes what is left and truncates, and stays centered while there is room.
+     Transparent at rest; once content scrolls under the stuck bar (data-scrolled, set by
+     DetailToolbar) a frosted paper backdrop fades in, like the system bar's scroll-edge
+     appearance. The backdrop is a ::before layer, not the bar itself: an element with
+     backdrop-filter would become the backdrop root of the glass pills inside it. */
   .ia-toolbar {
+    --ia-toolbar-bg: var(--ia-paper-80);
     position: sticky;
     top: 0;
     z-index: var(--ia-z-toolbar);
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
+    width: 100%;
     min-height: var(--ia-toolbar-h);
     box-sizing: border-box;
     padding: calc(8px + env(safe-area-inset-top)) var(--ia-gutter-catalog) 8px;
     pointer-events: none;
   }
+  .ia-reading-page .ia-toolbar {
+    --ia-toolbar-bg: color-mix(in srgb, var(--ia-paper-reading) 80%, transparent);
+  }
+  .ia-toolbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ia-toolbar-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    backdrop-filter: blur(20px) saturate(1.6);
+    box-shadow: 0 var(--ia-hairline) 0 var(--ia-line-65);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .ia-toolbar[data-scrolled]::before {
+    opacity: 1;
+  }
   .ia-toolbar > * {
     pointer-events: auto;
   }
+  .ia-toolbar__leading,
+  .ia-toolbar__trailing {
+    display: flex;
+    align-items: center;
+  }
+  .ia-toolbar__leading {
+    justify-self: start;
+  }
+  .ia-toolbar__trailing {
+    justify-self: end;
+    gap: 8px;
+  }
   .ia-toolbar__title {
-    position: absolute;
-    left: 50%;
-    translate: -50% 0;
+    min-width: 0;
+    overflow: hidden;
     font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
-    pointer-events: none;
+    letter-spacing: -0.025em;
+    text-align: center;
+    text-overflow: ellipsis;
     white-space: nowrap;
+    pointer-events: none;
+  }
+  .ia-toolbar[data-reveal-title] .ia-toolbar__title {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .ia-toolbar[data-reveal-title][data-scrolled] .ia-toolbar__title {
+    opacity: 1;
   }
   @media (min-width: 1024px) {
+    /* Below the sticky top navigation. The bar spans the page (so does its backdrop); the
+       controls line up with the reading column (640 + 2 × 22), wherever the toolbar sits. */
     .ia-toolbar {
-      top: 86px; /* below the sticky top navigation */
-      max-width: calc(var(--ia-w-reading) + 2 * var(--ia-gutter-reader));
-      margin-inline: auto;
-      padding-inline: 0;
+      top: var(--ia-topnav-h);
+      padding-inline: max(
+        var(--ia-gutter-catalog),
+        calc((100% - var(--ia-w-reading)) / 2 - var(--ia-gutter-reader))
+      );
     }
   }
   .ia-glass-pill {
@@ -928,7 +1010,10 @@
     text-align: center;
   }
   .ia-sheet__body {
-    flex: 1;
+    /* auto basis, not 0: the dialog's height is fit-content / auto, and Safari (WebKit)
+       sizes a column flexbox from the items' flex-basis — with basis 0 the body collapsed
+       to nothing and every sheet showed only its header on iOS/macOS Safari. */
+    flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -978,9 +1063,10 @@
     animation: ia-pop 180ms var(--ia-ease-press);
     pointer-events: auto;
   }
+  /* Paper on danger: 4.66:1 light, 8.33:1 dark (white on the dark coral was 2.25:1). */
   .ia-toast--error {
     background: var(--ia-danger);
-    color: #fff;
+    color: var(--ia-paper);
   }
 
   /* ---- Skeleton ---- */
@@ -1050,6 +1136,19 @@
   .ia-appstore-badge--lg {
     --ia-badge-h: 48px;
   }
+  /* Badge + localized caption (the artwork is US-English; AppStoreBadge `caption`). */
+  .ia-appstore-badge-wrap {
+    display: inline-flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .ia-appstore-badge__caption {
+    color: var(--ia-secondary);
+    font: 500 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+    text-align: center;
+  }
 
   /* ------------------------------------------------------------------------ */
   /* Shell                                                                    */
@@ -1081,12 +1180,15 @@
     display: flex;
     flex-direction: column;
   }
+  /* The skip link focuses <main tabindex=-1>; no page-sized focus ring. */
+  .ia-main:focus {
+    outline: none;
+  }
   .ia-main > * {
     flex: none;
   }
   @media (max-width: 1023.98px) {
-    .ia-frame[data-tabbar],
-    .ia-frame:has(.ia-tabbar-dock) {
+    .ia-frame[data-tabbar] {
       padding-bottom: var(--ia-tabbar-reserve);
     }
   }
@@ -1231,6 +1333,8 @@
       position: sticky;
       top: 0;
       z-index: var(--ia-z-topnav);
+      min-height: var(--ia-topnav-h);
+      box-sizing: border-box;
       padding: 12px 24px;
       transition:
         background-color 200ms ease,
@@ -1242,7 +1346,8 @@
       backdrop-filter: blur(20px) saturate(1.6);
       box-shadow: 0 var(--ia-hairline) 0 var(--ia-line-65);
     }
-    body:has(.ia-reading-page) .ia-topnav[data-scrolled] {
+    /* Reading pages (ChromeFrame data-reading; no document-wide :has() re-check). */
+    .ia-frame[data-reading] .ia-topnav[data-scrolled] {
       background: color-mix(in srgb, var(--ia-paper-reading) 80%, transparent);
     }
   }
@@ -1343,18 +1448,23 @@
     flex-direction: column;
     gap: 2px;
   }
+  /* Up to two lines each: long de/fr wording and 200 % zoom must not cut the text off
+     (WCAG 1.4.4 / 1.4.10). */
+  .ia-app-banner__title,
+  .ia-app-banner__sub {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
   .ia-app-banner__title {
     font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   .ia-app-banner__sub {
     font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
     color: var(--ia-secondary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   /* Footer */
@@ -1382,6 +1492,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+  .ia-footer__brand .ia-appstore-badge-wrap {
+    align-items: flex-start;
   }
   .ia-footer__links {
     display: flex;
@@ -1536,6 +1649,69 @@
   }
   .ia-art__line:nth-child(4) {
     width: calc(var(--ia-art-s) * 0.25);
+  }
+
+  /* ---- Touch targets: 44 × 44 on touch screens (spec 05 §3.6 H; ClarityBackNavigation.swift:15) ---- */
+  @media (pointer: coarse) {
+    .ia-btn--sm,
+    .ia-footer__links a,
+    .ia-footer__langs a {
+      min-height: var(--ia-hit);
+    }
+    .ia-appstore-badge {
+      align-items: center;
+      min-height: var(--ia-hit);
+    }
+  }
+
+  /* ---- Reduced transparency: opaque chrome instead of frosted glass ---- */
+  @media (prefers-reduced-transparency: reduce) {
+    .ia-glass-pill {
+      background: var(--ia-surface);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .ia-toolbar::before,
+    .ia-topnav[data-scrolled] {
+      background: var(--ia-paper);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .ia-reading-page .ia-toolbar::before,
+    .ia-frame[data-reading] .ia-topnav[data-scrolled] {
+      background: var(--ia-paper-reading);
+    }
+  }
+
+  /* ---- Forced colors (Windows High Contrast): edges and the selected state are drawn with
+     box-shadow / background, which the UA drops — give them real borders and outlines. ---- */
+  @media (forced-colors: active) {
+    .ia-search,
+    .ia-chip,
+    .ia-tab,
+    .ia-glass-pill,
+    .ia-icon-btn--circle,
+    .ia-account-btn,
+    .ia-btn--secondary,
+    .ia-card,
+    .ia-menu,
+    .ia-tabbar,
+    .ia-toast,
+    dialog.ia-sheet {
+      border: 1px solid CanvasText;
+    }
+    .ia-tab[aria-current],
+    .ia-tab[data-active],
+    .ia-chip[aria-pressed="true"],
+    .ia-chip[aria-checked="true"],
+    .ia-chip[aria-current],
+    .ia-footer__langs a[aria-current="true"] {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+    .ia-toolbar::before {
+      background: Canvas;
+    }
   }
 }
 

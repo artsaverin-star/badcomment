@@ -1,11 +1,11 @@
 "use client";
 
-import { useLocale, useT, useWebStrings } from "../i18n/client";
+import { useLocale, useT, useWeb } from "../i18n/client";
 import { routes } from "../routing";
 import { Button } from "../ui/Button";
 import { ClarityArt } from "../ui/EmptyState";
 import { ArrowRightIcon, TextLinesIcon } from "../ui/icons";
-import { shellStrings } from "./strings";
+import type { ShellStrings } from "./strings";
 import { FloatingTabBar } from "./TabBar";
 
 // Full-page states of the new site, in the app's words (spec 09 G8, G13):
@@ -21,7 +21,7 @@ const artGlyph = <TextLinesIcon size={Math.round(ART * 0.17)} strokeWidth={2.2} 
 export function NotFoundView() {
   const locale = useLocale();
   const t = useT();
-  const s = useWebStrings(shellStrings);
+  const s = useWeb<ShellStrings>("shell");
   return (
     <div className="ia-page ia-page--catalog flex flex-col items-center gap-6 py-16 text-center">
       <ClarityArt size={ART} icon={artGlyph} />
@@ -40,9 +40,10 @@ export function NotFoundView() {
 export function ErrorView({ onRetry }: { onRetry: () => void }) {
   const t = useT();
   return (
-    <div className="ia-status" role="alert">
+    <div className="ia-status">
       <ClarityArt size={ART} icon={artGlyph} />
-      <div className="ia-heading ia-status__heading">
+      {/* Announce the failure (title + hint), not the whole page with its button. */}
+      <div className="ia-heading ia-status__heading" role="alert">
         <h1 className="ia-heading__title">{t("Не удалось открыть материалы")}</h1>
         <p className="ia-heading__subtitle">{t("Попробуй загрузить библиотеку ещё раз.")}</p>
       </div>

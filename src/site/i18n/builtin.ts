@@ -28,7 +28,8 @@ export const SHELL_UI_KEYS = [
   "Содержание",
   "Сохранить",
   "Убрать из сохранённого",
-  "Что людям важно в приложениях и чего им не хватает."
+  "Что людям важно в приложениях и чего им не хватает.",
+  "Plus активен"
 ] as const;
 
 export const BUILTIN_UI: Partial<Record<Locale, Readonly<Record<string, string>>>> = {
@@ -55,7 +56,8 @@ export const BUILTIN_UI: Partial<Record<Locale, Readonly<Record<string, string>>
     "Содержание": "Contents",
     "Сохранить": "Save",
     "Убрать из сохранённого": "Remove from Saved",
-    "Что людям важно в приложениях и чего им не хватает.": "What matters to people in apps and what they are missing."
+    "Что людям важно в приложениях и чего им не хватает.": "What matters to people in apps and what they are missing.",
+    "Plus активен": "Plus is active"
   },
   "de": {
     "Разборы": "Analysen",
@@ -80,7 +82,8 @@ export const BUILTIN_UI: Partial<Record<Locale, Readonly<Record<string, string>>
     "Содержание": "Inhalt",
     "Сохранить": "Speichern",
     "Убрать из сохранённого": "Aus Gespeichert entfernen",
-    "Что людям важно в приложениях и чего им не хватает.": "Was Menschen an Apps wichtig ist und was ihnen fehlt."
+    "Что людям важно в приложениях и чего им не хватает.": "Was Menschen an Apps wichtig ist und was ihnen fehlt.",
+    "Plus активен": "Plus ist aktiv"
   },
   "fr": {
     "Разборы": "Décryptages",
@@ -105,7 +108,8 @@ export const BUILTIN_UI: Partial<Record<Locale, Readonly<Record<string, string>>
     "Содержание": "Sommaire",
     "Сохранить": "Enregistrer",
     "Убрать из сохранённого": "Retirer des Enregistrés",
-    "Что людям важно в приложениях и чего им не хватает.": "Ce qui compte pour les gens dans les apps et ce qui leur manque."
+    "Что людям важно в приложениях и чего им не хватает.": "Ce qui compte pour les gens dans les apps et ce qui leur manque.",
+    "Plus активен": "Plus est actif"
   },
   "ja": {
     "Разборы": "分析",
@@ -130,6 +134,7 @@ export const BUILTIN_UI: Partial<Record<Locale, Readonly<Record<string, string>>
     "Содержание": "目次",
     "Сохранить": "保存",
     "Убрать из сохранённого": "保存済みから解除",
-    "Что людям важно в приложениях и чего им не хватает.": "人がアプリに何を求め、何が足りないと感じているか。"
+    "Что людям важно в приложениях и чего им не хватает.": "人がアプリに何を求め、何が足りないと感じているか。",
+    "Plus активен": "Plusが有効です"
   }
 };

@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { getViewer } from "@/site/access";
 import { SITE_URL } from "@/site/config";
+import { noticeFor } from "@/site/features/auth/copy";
+import { AUTH_UI_KEYS } from "@/site/features/auth/keys";
 import { LoginScreen } from "@/site/features/auth/LoginScreen";
-import { authStrings, noticeFor } from "@/site/features/auth/strings";
-import { PLUS_UI_KEYS } from "@/site/features/plus/server";
+import { authStrings } from "@/site/features/auth/strings";
+import { accountShareMeta } from "@/site/features/plus/meta";
 import { I18nProvider } from "@/site/i18n/client";
 import { isLocale, LOCALES, type Locale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
@@ -32,6 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
     },
     robots: { index: false, follow: true },
+    ...accountShareMeta(lang, url(lang), s.title, s.pageDescription),
   };
 }
 
@@ -58,7 +61,7 @@ export default async function LoginPage({
 
   return (
     <div className="ia-page ia-page--welcome">
-      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)}>
+      <I18nProvider locale={lang} strings={t.pick(AUTH_UI_KEYS)} web={{ auth: authStrings[lang] }}>
         <LoginScreen returnTo={returnTo} reason={reason} notice={notice} />
       </I18nProvider>
     </div>

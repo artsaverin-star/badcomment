@@ -691,15 +691,15 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
     effective: "inApp · En vigueur à partir du 22 septembre 2026",
     contents: "Sommaire",
     intro:
-      "Les présentes Conditions d’utilisation (les « Conditions ») régissent ton utilisation d’inApp — l’app iOS inApp et le site inapp.pro (ensemble, le « Service »). En téléchargeant, en installant ou en utilisant le Service, tu acceptes ces Conditions. Si tu ne les acceptes pas, merci de ne pas utiliser le Service.",
+      "Les présentes Conditions d’utilisation (les « Conditions ») régissent ton utilisation d’inApp — l’app iOS inApp et le site inapp.pro (ensemble, le « Service »). En téléchargeant, en installant ou en utilisant le Service, tu acceptes ces Conditions. Si tu ne les acceptes pas, merci de ne pas utiliser le Service.",
     sections: [
       {
         id: "provider",
         title: "Qui fournit inApp",
         body: (
           <P>
-            inApp est fourni par {dev.name} (« nous »), le développeur de l’app iOS inApp. Adresse : {dev.addressEn}.
-            E-mail : {mail}.
+            inApp est fourni par {dev.name} (« nous »), le développeur de l’app iOS inApp. Adresse : {dev.addressEn}.
+            E-mail : {mail}.
           </P>
         ),
       },
@@ -721,7 +721,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
         title: "L’app iOS et le CLUF d’Apple",
         body: (
           <P>
-            L’app iOS inApp t’est concédée sous licence, et non vendue, selon les termes {eula} (le « CLUF d’Apple »).
+            L’app iOS inApp t’est concédée sous licence, et non vendue, selon les termes {eula} (le « CLUF d’Apple »).
             Les présentes Conditions complètent le CLUF d’Apple. Pour l’app iOS, en cas de contradiction entre ces
             Conditions et le CLUF d’Apple, le CLUF d’Apple prévaut.
           </P>
@@ -729,12 +729,12 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
       },
       {
         id: "plus",
-        title: "inApp Plus : abonnement et achat à vie",
+        title: "inApp Plus : abonnement et achat à vie",
         body: (
           <>
             <P>
               inApp Plus débloque dans l’app iOS tous les décryptages et toutes les idées ainsi que l’export illimité
-              (« Télécharger le document »). Il est vendu sous forme d’achat intégré via Apple, en deux options :
+              (« Télécharger le document »). Il est vendu sous forme d’achat intégré via Apple, en deux options :
             </P>
             <UL
               items={[
@@ -756,19 +756,19 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               de la période en cours.
             </P>
             <P>
-              Tu peux gérer ou résilier l’abonnement dans les réglages de ton compte App Store : sur iPhone, ouvre
+              Tu peux gérer ou résilier l’abonnement dans les réglages de ton compte App Store : sur iPhone, ouvre
               Réglages → ton nom → Abonnements. Après la résiliation, l’accès reste actif jusqu’à la fin de la période
               payée.
             </P>
             <P>
-              Les remboursements des achats sur l’App Store sont traités par Apple selon ses règles : tu peux en
+              Les remboursements des achats sur l’App Store sont traités par Apple selon ses règles : tu peux en
               demander un sur {refund}. Nous ne pouvons pas rembourser nous-mêmes les achats effectués sur l’App Store.
             </P>
             <P>
-              L’app n’a ni compte ni connexion : l’accès est lié à ton compte Apple. Pour restaurer tes achats sur un
-              appareil neuf ou réinitialisé, connecte-toi avec le même compte Apple, ouvre l’onglet « Enregistrés » dans
-              l’app, touche la roue dentée (Réglages) puis « Restaurer les achats ». L’écran d’achat a aussi un bouton
-              « Restaurer ».
+              L’app n’a ni compte ni connexion : l’accès est lié à ton compte Apple. Pour restaurer tes achats sur un
+              appareil neuf ou réinitialisé, connecte-toi avec le même compte Apple, ouvre l’onglet « Enregistrés » dans
+              l’app, touche la roue dentée (Réglages) puis « Restaurer les achats ». L’écran d’achat a aussi un bouton
+              « Restaurer ».
             </P>
           </>
         ),
@@ -778,7 +778,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
         title: "Ce qui est gratuit",
         body: (
           <P>
-            Sans achat, l’app iOS comprend le décryptage « Design d’intérieur » et 5 de ses idées. Les autres
+            Sans achat, l’app iOS comprend le décryptage « Design d’intérieur » et 5 de ses idées. Les autres
             décryptages et idées de l’app nécessitent inApp Plus.
           </P>
         ),
@@ -791,7 +791,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>
               Les contenus d’inApp sont une analyse informative d’avis publics issus des magasins d’applications. Les
               citations d’avis peuvent être abrégées ou traduites de leur langue d’origine. Les contenus reflètent notre
-              interprétation éditoriale ; ils ne constituent pas un conseil professionnel, juridique, financier ou en
+              interprétation éditoriale ; ils ne constituent pas un conseil professionnel, juridique, financier ou en
               investissement, et nous ne garantissons aucun résultat de leur utilisation. Tu prends tes propres
               décisions sur leur base.
             </P>
@@ -810,14 +810,14 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
           <>
             <P>
               Tu peux utiliser inApp à des fins personnelles et pour le travail interne de ta propre entreprise. Tu
-              t’engages à ne pas :
+              t’engages à ne pas :
             </P>
             <UL
               items={[
-                "revendre, republier ou redistribuer les contenus d’inApp, ni les copier en masse ;",
-                "télécharger des contenus de l’app ou du site par des moyens automatisés, sauf via les interfaces que nous fournissons à cet effet ;",
-                "contourner les vérifications d’achat ou d’autres restrictions techniques ;",
-                "faire de l’ingénierie inverse de l’app, sauf dans la mesure permise par la loi ou le CLUF d’Apple ;",
+                "revendre, republier ou redistribuer les contenus d’inApp, ni les copier en masse ;",
+                "télécharger des contenus de l’app ou du site par des moyens automatisés, sauf via les interfaces que nous fournissons à cet effet ;",
+                "contourner les vérifications d’achat ou d’autres restrictions techniques ;",
+                "faire de l’ingénierie inverse de l’app, sauf dans la mesure permise par la loi ou le CLUF d’Apple ;",
                 "utiliser le Service en violation de la loi applicable.",
               ]}
             />
@@ -842,13 +842,13 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
         title: "Confidentialité",
         body: (
           <>
-            <P>La façon dont l’app iOS traite les données est décrite dans la {privacy}. En bref :</P>
+            <P>La façon dont l’app iOS traite les données est décrite dans la {privacy}. En bref :</P>
             <UL
               items={[
-                "l’app ne nécessite aucun compte et ne demande ni ton nom, ni ton e-mail, ni d’autres coordonnées ;",
-                "les notes et les signets restent sur ton appareil et ne sont pas envoyés à nos serveurs ;",
-                "les paiements sont traités par Apple ; l’app ne reçoit que les informations sur ton accès ;",
-                "les statistiques d’achats et d’abonnements sont traitées par RevenueCat avec un identifiant d’installation aléatoire, qui n’est pas lié à ton identité ;",
+                "l’app ne nécessite aucun compte et ne demande ni ton nom, ni ton e-mail, ni d’autres coordonnées ;",
+                "les notes et les signets restent sur ton appareil et ne sont pas envoyés à nos serveurs ;",
+                "les paiements sont traités par Apple ; l’app ne reçoit que les informations sur ton accès ;",
+                "les statistiques d’achats et d’abonnements sont traitées par RevenueCat avec un identifiant d’installation aléatoire, qui n’est pas lié à ton identité ;",
                 "il n’y a aucun suivi publicitaire.",
               ]}
             />
@@ -871,7 +871,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
         title: "Limitation de responsabilité",
         body: (
           <P>
-            Le Service est fourni « en l’état » et « selon disponibilité ». Dans toute la mesure permise par la loi
+            Le Service est fourni « en l’état » et « selon disponibilité ». Dans toute la mesure permise par la loi
             applicable, nous ne sommes pas responsables des pertes indirectes ou consécutives, du manque à gagner ou de
             la perte de données résultant de l’utilisation ou de l’impossibilité d’utiliser le Service ou ses contenus,
             et notre responsabilité totale est limitée au montant que tu as payé pour le Service au cours des 12 mois
@@ -896,7 +896,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
         title: "Contact",
         body: (
           <P>
-            Questions sur ces Conditions ou le Service : {mail}. Aide pour l’app : {support}.
+            Questions sur ces Conditions ou le Service : {mail}. Aide pour l’app : {support}.
           </P>
         ),
       },

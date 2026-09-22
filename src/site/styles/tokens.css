@@ -10,6 +10,19 @@
    (src/site/fonts.ts) through --ia-font-onest.
    ========================================================================== */
 
+/* Metric-matched stand-in for Onest while the web font loads (src/site/fonts.ts): a local
+   sans scaled to Onest's advance widths, with Onest's vertical metrics (hhea 970 / 305 @ 1000,
+   ÷ size-adjust), so the Onest headlines do not reflow on swap. Arial first (Apple, Windows),
+   then Roboto for Android, which has no Arial. */
+@font-face {
+  font-family: "ia Onest Fallback";
+  src: local("Arial"), local("ArialMT"), local("Roboto"), local("Roboto-Regular"), local("Helvetica Neue");
+  size-adjust: 106.1%;
+  ascent-override: 91.42%;
+  descent-override: 28.75%;
+  line-gap-override: 0%;
+}
+
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -32,7 +45,9 @@
   --ia-on-action: #ffffff;
   --ia-line: #dedfe5;
   --ia-danger: #c0443f;
-  --ia-error-system: #ff3b30;
+  /* iOS system red in its accessible (Increase Contrast) variant: #FF3B30 is 3.26:1 on paper,
+     #D70015 is 4.94:1 — error text and the destructive menu item must pass AA. */
+  --ia-error-system: #d70015;
   --ia-success: #26714e;
 }
 
@@ -222,6 +237,7 @@
   --ia-search-h: 56px;
   --ia-tab-item-h: 50px;
   --ia-toolbar-h: 60px;
+  --ia-topnav-h: 86px; /* desktop top bar: 12 + tab capsule 62 + 12 (sticky offset of toolbars) */
   --ia-btn-primary-h: 60px; /* ClarityButton: minHeight 24 + 18 × 2 */
   --ia-btn-welcome-h: 58px; /* ClarityWelcomeButton: minHeight 24 + 17 × 2 */
   --ia-tabbar-reserve: calc(50px + 12px + 18px + env(safe-area-inset-bottom));

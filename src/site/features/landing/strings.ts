@@ -227,7 +227,7 @@ export const landingStrings = defineStrings({
       "No. These are research observations and ideas to investigate, not promises of demand or revenue. inApp does not generate apps, track App Store ranks or promise revenue.",
     faq4Q: "What is free?",
     faq4A:
-      "The {topic} breakdown and {n} ideas are available without a subscription. inApp Plus unlocks the full collection and unlimited export.",
+      "The “{topic}” breakdown and {n} ideas are available without a subscription. inApp Plus unlocks the full collection and unlimited export.",
     faq5Q: "How does Plus work?",
     faq5A:
       "In the iPhone app, choose an auto-renewing annual subscription or lifetime access with a single purchase and no renewal. Both options start with a paid purchase, without a free trial. The local price is shown before purchase.",
@@ -253,12 +253,12 @@ export const landingStrings = defineStrings({
     metaTitle: "App-Ideen & Marktlücken aus echten Bewertungen – inApp",
     metaDescription:
       "35 redaktionelle Analysen und 293 App-Ideen aus öffentlichen Bewertungen. Verstehe, was Menschen brauchen, bevor du entwickelst. Ein ganzes Thema ist kostenlos.",
-    ogAlt: "inApp – Analysen von Rezensionen und App-Ideen",
+    ogAlt: "inApp — Analysen von Rezensionen und App-Ideen",
 
-    heroEyebrow: "35 Themen. Echte Bewertungen. Neue Möglichkeiten.",
+    heroEyebrow: "35 Themen. Echte Rezensionen. Neue Möglichkeiten.",
     heroTitle: "Finde deine nächste App-Idee in den Problemen, die Menschen bereits beschreiben.",
     heroLead:
-      "{topics} redaktionelle Analysen und {ideas} App-Ideen auf Grundlage öffentlicher App-Bewertungen. Erfahre, was Menschen erreichen möchten, wo bestehende Produkte sie im Stich lassen und welche Fragen du vor der Entwicklung prüfen solltest.",
+      "{topics} redaktionelle Analysen und {ideas} App-Ideen auf Grundlage öffentlicher App-Rezensionen. Erfahre, was Menschen erreichen möchten, wo bestehende Produkte sie im Stich lassen und welche Fragen du vor der Entwicklung prüfen solltest.",
     ctaWeb: "Web-Version öffnen",
     heroMicro: "Ein ganzes Thema ist kostenlos.",
     appStoreSoon: "Bald im App Store",
@@ -268,13 +268,13 @@ export const landingStrings = defineStrings({
     numbersTitle: "inApp in Zahlen",
     statTopics: "Analysen",
     statIdeas: "App-Ideen",
-    statReviews: "Bewertungen zu {apps} Apps",
-    statReviewsHint: "So viele Bewertungen stecken in den {topics} veröffentlichten Analysen.",
+    statReviews: "Rezensionen zu {apps} Apps",
+    statReviewsHint: "So viele Rezensionen stecken in den {topics} veröffentlichten Analysen.",
     statLanguages: "Sprachen",
     numbersFootnote: "Datenstand August–September 2026, kein Live-Marktfeed.",
 
     freeTitle: "Eine vollständige Analyse kostenlos",
-    freeInside: "Darin",
+    freeInside: "In der Analyse",
     freeMeta: "{parts} Teile · {observations} Beobachtungen · {ideas} Ideen",
     freeCta: "Kostenlos lesen",
 
@@ -291,7 +291,7 @@ export const landingStrings = defineStrings({
 
     howTitle: "So funktioniert es",
     stepLabel: "Schritt {n}",
-    step1Title: "Verstehe das Bedürfnis hinter der Bewertung",
+    step1Title: "Verstehe das Bedürfnis hinter der Rezension",
     step1Body:
       "Jede Analyse verbindet wiederkehrende Situationen mit ausgewählten Zitaten und möglichen Verbesserungen.",
     step2Title: "Lies, was hinter einer Idee steckt",
@@ -307,7 +307,7 @@ export const landingStrings = defineStrings({
     topicsShowAll: "Alle {n} anzeigen",
     topicsCatalog: "Katalog der Analysen öffnen",
 
-    trustTitle: "Wie wir mit Bewertungen arbeiten",
+    trustTitle: "Wie wir mit Rezensionen arbeiten",
     trust2: "Es sind Beobachtungen und Ideen zum Überprüfen, keine Versprechen über Nachfrage oder Einnahmen.",
     trust3:
       "inApp erstellt keine Apps, verfolgt keine App-Store-Rankings und verspricht keine Einnahmen. Der Datenstand ist August–September 2026.",
@@ -315,7 +315,7 @@ export const landingStrings = defineStrings({
     webTitle: "Lies im Browser oder auf dem iPhone",
     webColTitle: "Web-Version",
     webColBody:
-      "Dieselben Analysen und Ideen in jedem Browser. Lesezeichen und Notizen bleiben in deinem Browser – und nach der Anmeldung in deinem Konto.",
+      "Dieselben Analysen und Ideen in jedem Browser. Lesezeichen und Notizen bleiben in deinem Browser — und nach der Anmeldung in deinem Konto.",
     iphoneColTitle: "Lies in deiner Sprache, auch offline",
     iphoneColBody:
       "Texte und Illustrationen sind in der App enthalten. Du brauchst kein Konto. Lesezeichen und Notizen bleiben auf deinem Gerät. inApp enthält kein Werbetracking.",
@@ -337,19 +337,19 @@ export const landingStrings = defineStrings({
     faqMore: "Weitere Fragen",
     faq1Q: "Was ist inApp?",
     faq1A:
-      "Eine Bibliothek redaktioneller Analysen und App-Ideen auf Grundlage öffentlicher App-Bewertungen: {topics} Analysen und {ideas} Ideen. Erfahre, was Menschen erreichen möchten, wo bestehende Produkte sie im Stich lassen und welche Fragen du vor der Entwicklung prüfen solltest.",
+      "Eine Bibliothek redaktioneller Analysen und App-Ideen auf Grundlage öffentlicher App-Rezensionen: {topics} Analysen und {ideas} Ideen. Erfahre, was Menschen erreichen möchten, wo bestehende Produkte sie im Stich lassen und welche Fragen du vor der Entwicklung prüfen solltest.",
     faq2Q: "Woher stammen die Analysen und Ideen?",
     faq2A:
-      "Die Materialien entstehen aus Rezensionen zu Apps. Die Zitate in den Analysen zeigen, worauf die Schlüsse beruhen. Die {topics} Analysen stützen sich auf {reviews} Bewertungen zu {apps} Apps; das gesamte Recherche-Archiv umfasst {archiveReviews} Bewertungen zu {archiveApps} Apps. Der Datenstand ist August–September 2026, kein Live-Marktfeed. Die meisten Zitate stammen aus englischsprachigen Bewertungen; in anderen Sprachen wird eine Übersetzung angezeigt.",
+      "Die Materialien entstehen aus Rezensionen zu Apps. Die Zitate in den Analysen zeigen, worauf die Schlüsse beruhen. Die {topics} Analysen stützen sich auf {reviews} Rezensionen zu {apps} Apps; das gesamte Recherche-Archiv umfasst {archiveReviews} Rezensionen zu {archiveApps} Apps. Der Datenstand ist August–September 2026, kein Live-Marktfeed. Die meisten Zitate stammen aus englischsprachigen Rezensionen; in anderen Sprachen wird eine Übersetzung angezeigt.",
     faq3Q: "Ist das ein Beweis, dass sich eine Idee lohnt?",
     faq3A:
       "Nein. Es sind Beobachtungen und Ideen zum Überprüfen, keine Versprechen über Nachfrage oder Einnahmen. inApp erstellt keine Apps, verfolgt keine App-Store-Rankings und verspricht keine Einnahmen.",
     faq4Q: "Was ist kostenlos?",
     faq4A:
-      "Die Analyse „{topic}“ und {n} Ideen sind ohne Abo verfügbar. inApp Plus öffnet die gesamte Sammlung und unbegrenzten Export.",
+      "Die Analyse „{topic}“ und {n} Ideen sind ohne Abo verfügbar. inApp Plus schaltet die gesamte Sammlung und den unbegrenzten Export frei.",
     faq5Q: "Wie funktioniert Plus?",
     faq5A:
-      "In der iPhone-App ist Plus als Jahresabo mit automatischer Verlängerung oder als lebenslanger Zugang mit einmaliger Zahlung erhältlich. Beide Optionen sind ab dem Kauf kostenpflichtig, ohne kostenlose Testphase. Der örtliche Preis wird vor dem Kauf angezeigt.",
+      "In der iPhone-App ist Plus als Jahresabo mit automatischer Verlängerung oder als dauerhafter Zugang mit einmaliger Zahlung erhältlich. Beide Optionen sind ab dem Kauf kostenpflichtig, ohne kostenlose Testphase. Der örtliche Preis wird vor dem Kauf angezeigt.",
     faq6Q: "Was steckt im Export?",
     faq6A:
       "Eine Textdatei (.txt): die vollständige Kategorie-Analyse, die ganze Idee und deine Notiz. Du kannst sie lesen, bearbeiten oder zusammen mit deiner Frage an eine KI geben.",
@@ -360,10 +360,10 @@ export const landingStrings = defineStrings({
       "In der iPhone-App ja: Texte und Illustrationen gehören zur App. Für Kauf und Wiederherstellung des Zugangs ist eine Verbindung zum App Store nötig.",
     faq9Q: "Brauche ich ein Konto, und wo liegen meine Notizen?",
     faq9A:
-      "Die iPhone-App braucht kein Konto: Lesezeichen und Notizen bleiben auf dem Gerät, zwischen Geräten wird nichts synchronisiert. In der Web-Version bleiben sie in deinem Browser – und nach der Anmeldung in deinem Konto. Die iPhone-App enthält kein Werbetracking.",
+      "Die iPhone-App braucht kein Konto: Lesezeichen und Notizen bleiben auf dem Gerät, zwischen Geräten wird nichts synchronisiert. In der Web-Version bleiben sie in deinem Browser — und nach der Anmeldung in deinem Konto. Die iPhone-App enthält kein Werbetracking.",
     faq10Q: "Wie kündige ich?",
     faq10A:
-      "Bei Käufen im App Store: Wenn du nicht spätestens 24 Stunden vor Ablauf kündigst, verlängert sich das Abo zum angezeigten Jahrespreis. Du kannst es in deinen App Store-Accounteinstellungen verwalten oder kündigen.",
+      "Bei Käufen im App Store: Wenn du nicht spätestens 24 Stunden vor Ablauf kündigst, verlängert sich das Abo zum angezeigten Jahrespreis. Du kannst es in deinen App-Store-Kontoeinstellungen verwalten oder kündigen.",
 
     finalTitle: "Finde deine nächste App-Idee",
   },
@@ -382,7 +382,7 @@ export const landingStrings = defineStrings({
     heroMicro: "Un thème complet est gratuit.",
     appStoreSoon: "Bientôt sur l’App Store",
     heroFigure: "Un extrait de décryptage",
-    ratingLabel: "Note : {n} sur 5 étoiles",
+    ratingLabel: "Note : {n} sur 5 étoiles",
 
     numbersTitle: "inApp en chiffres",
     statTopics: "décryptages",
@@ -419,8 +419,8 @@ export const landingStrings = defineStrings({
     step3Body: "Recherche dans la collection, enregistre les contenus utiles et ajoute tes notes.",
     step4Title: "Exporte une idée avec son contexte",
     step4Body:
-      "Le décryptage complet de la catégorie, l’idée et ta note — dans un seul fichier. Un seul fichier texte (.txt) : tu peux le lire, le modifier ou le donner à une IA avec ta question.",
-    noteSample: "Vérifier avec ma propre pièce : ce qui doit rester en place et ce qui peut changer.",
+      "Le décryptage complet de la catégorie, l’idée et ta note — dans un seul fichier. Un seul fichier texte (.txt) : tu peux le lire, le modifier ou le donner à une IA avec ta question.",
+    noteSample: "Vérifier avec ma propre pièce : ce qui doit rester en place et ce qui peut changer.",
 
     topicsKicker: "{n} décryptages",
     topicsShowAll: "Tout afficher ({n})",
@@ -437,10 +437,10 @@ export const landingStrings = defineStrings({
       "Les mêmes décryptages et idées dans n’importe quel navigateur. Tes signets et tes notes restent dans ton navigateur, puis dans ton compte une fois connecté.",
     iphoneColTitle: "Lis dans ta langue, même hors ligne",
     iphoneColBody:
-      "Les textes et les illustrations sont inclus dans l’application. Aucun compte n’est nécessaire. Tes favoris et tes notes restent sur ton appareil. inApp ne contient aucun suivi publicitaire.",
+      "Les textes et les illustrations sont inclus dans l’application. Aucun compte n’est nécessaire. Tes signets et tes notes restent sur ton appareil. inApp ne contient aucun suivi publicitaire.",
 
     plusFreeTitle: "Gratuit",
-    plusFree1: "Le décryptage complet « {topic} »",
+    plusFree1: "Le décryptage complet « {topic} »",
     plusFree2: "{n} idées qui en sont tirées",
     plusFree3: "Catalogue des {topics} décryptages et recherche",
     plusFree4: "Signets et notes",
@@ -453,35 +453,35 @@ export const landingStrings = defineStrings({
 
     faqTitle: "Questions fréquentes",
     faqMore: "Plus de questions",
-    faq1Q: "Qu’est-ce qu’inApp ?",
+    faq1Q: "Qu’est-ce qu’inApp ?",
     faq1A:
-      "Une bibliothèque de décryptages éditoriaux et d’idées d’applications tirés d’avis publics : {topics} décryptages et {ideas} idées. Découvre ce que les gens cherchent à faire, ce qui les bloque dans les produits existants et les questions à vérifier avant de développer.",
-    faq2Q: "D’où viennent les décryptages et les idées ?",
+      "Une bibliothèque de décryptages éditoriaux et d’idées d’applications tirés d’avis publics : {topics} décryptages et {ideas} idées. Découvre ce que les gens cherchent à faire, ce qui les bloque dans les produits existants et les questions à vérifier avant de développer.",
+    faq2Q: "D’où viennent les décryptages et les idées ?",
     faq2A:
-      "Les contenus sont construits à partir des avis sur les apps. Les citations dans les décryptages montrent sur quoi reposent les conclusions. Les {topics} décryptages s’appuient sur {reviews} avis portant sur {apps} apps ; l’archive complète compte {archiveReviews} avis sur {archiveApps} apps. Les données datent d’août–septembre 2026 ; ce n’est pas un flux de marché en direct. La plupart des citations viennent d’avis en anglais ; les autres langues en affichent une traduction.",
-    faq3Q: "Est-ce une garantie qu’une idée rapportera ?",
+      "Les contenus sont construits à partir des avis sur les apps. Les citations dans les décryptages montrent sur quoi reposent les conclusions. Les {topics} décryptages s’appuient sur {reviews} avis portant sur {apps} apps ; l’archive complète compte {archiveReviews} avis sur {archiveApps} apps. Les données datent d’août–septembre 2026 ; ce n’est pas un flux de marché en direct. La plupart des citations viennent d’avis en anglais ; les autres langues en affichent une traduction.",
+    faq3Q: "Est-ce une garantie qu’une idée rapportera ?",
     faq3A:
       "Non. Ce sont des observations et des idées à tester, sans promesse de demande ou de revenus. inApp ne crée pas d’applications, ne suit pas les classements de l’App Store et ne promet aucun revenu.",
-    faq4Q: "Qu’est-ce qui est gratuit ?",
+    faq4Q: "Qu’est-ce qui est gratuit ?",
     faq4A:
-      "Le décryptage « {topic} » et {n} idées sont accessibles sans abonnement. inApp Plus donne accès à toute la collection et à l’exportation illimitée.",
-    faq5Q: "Comment fonctionne Plus ?",
+      "Le décryptage « {topic} » et {n} idées sont accessibles sans abonnement. inApp Plus donne accès à toute la collection et à l’exportation illimitée.",
+    faq5Q: "Comment fonctionne Plus ?",
     faq5A:
       "Dans l’app iPhone, Plus est disponible par abonnement annuel à renouvellement automatique ou en accès à vie avec un paiement unique, sans renouvellement. Les deux options sont payantes dès l’achat, sans essai gratuit. Le prix local est affiché avant l’achat.",
-    faq6Q: "Que contient l’export ?",
+    faq6Q: "Que contient l’export ?",
     faq6A:
-      "Un seul fichier texte (.txt) : le décryptage complet de la catégorie, l’idée en entier et ta note. Tu peux le lire, le modifier ou le donner à une IA avec ta question.",
-    faq7Q: "Dans quelles langues ?",
+      "Un seul fichier texte (.txt) : le décryptage complet de la catégorie, l’idée en entier et ta note. Tu peux le lire, le modifier ou le donner à une IA avec ta question.",
+    faq7Q: "Dans quelles langues ?",
     faq7A: "L’interface et les contenus éditoriaux sont disponibles en français, anglais, russe, allemand et japonais.",
-    faq8Q: "Puis-je lire hors ligne ?",
+    faq8Q: "Puis-je lire hors ligne ?",
     faq8A:
-      "Dans l’app iPhone, oui : les textes et les illustrations sont inclus dans l’app. L’achat et la restauration de l’accès nécessitent une connexion à l’App Store.",
-    faq9Q: "Faut-il un compte, et où sont mes notes ?",
+      "Dans l’app iPhone, oui : les textes et les illustrations sont inclus dans l’app. L’achat et la restauration de l’accès nécessitent une connexion à l’App Store.",
+    faq9Q: "Faut-il un compte, et où sont mes notes ?",
     faq9A:
-      "L’app iPhone ne demande aucun compte : les signets et les notes restent sur l’appareil, sans synchronisation entre appareils. Dans la version web, ils restent dans ton navigateur, puis dans ton compte une fois connecté. L’app iPhone ne contient aucun suivi publicitaire.",
-    faq10Q: "Comment résilier ?",
+      "L’app iPhone ne demande aucun compte : les signets et les notes restent sur l’appareil, sans synchronisation entre appareils. Dans la version web, ils restent dans ton navigateur, puis dans ton compte une fois connecté. L’app iPhone ne contient aucun suivi publicitaire.",
+    faq10Q: "Comment résilier ?",
     faq10A:
-      "Pour les achats sur l’App Store : sans annulation au moins 24 heures avant la fin de la période en cours, l’abonnement est renouvelé au prix annuel indiqué. Tu peux le gérer ou l’annuler dans les réglages de ton compte App Store.",
+      "Pour les achats sur l’App Store : sans annulation au moins 24 heures avant la fin de la période en cours, l’abonnement est renouvelé au prix annuel indiqué. Tu peux le gérer ou l’annuler dans les réglages de ton compte App Store.",
 
     finalTitle: "Trouve ta prochaine idée d’application",
   },
@@ -490,7 +490,7 @@ export const landingStrings = defineStrings({
     metaTitle: "アプリ市場調査とアイデア図鑑｜口コミから探る35分野 – inApp",
     metaDescription:
       "公開されているアプリの口コミをもとに編集した35分野の分析と293のアプリアイデア。開発を始める前に、実際の口コミからニーズを読み解けます。ひとつの分野を無料で読めます。",
-    ogAlt: "inApp – 口コミの分析とアプリのアイデア",
+    ogAlt: "inApp｜口コミの分析とアプリのアイデア",
 
     heroEyebrow: "35の分野。実際の口コミ。新たな可能性。",
     heroTitle: "次のアプリのアイデアを、すでに語られているユーザーの悩みから見つけよう。",
@@ -512,7 +512,7 @@ export const landingStrings = defineStrings({
 
     freeTitle: "まずは無料で、ひとつの分野をじっくり",
     freeInside: "内容",
-    freeMeta: "{parts}部構成・{observations}つの所見・{ideas}つのアイデア",
+    freeMeta: "{parts}部構成・所見{observations}件・アイデア{ideas}件",
     freeCta: "無料で読む",
 
     ideasTitle: "まずは5つの無料アイデアから",
@@ -534,7 +534,7 @@ export const landingStrings = defineStrings({
     step2Body: "誰のためのアイデアなのか、どんな課題を解決するのか、その根拠は何かを確認できます。",
     step3Title: "発見とメモをひとつの場所に",
     step3Body: "コレクション内を検索し、役立つ内容を保存し、自分のメモを加えられます。",
-    step4Title: "アイデアを背景情報と一緒に書き出す",
+    step4Title: "アイデアを背景情報と一緒にエクスポート",
     step4Body:
       "カテゴリーの分析全文、アイデア、自分のメモを一つのファイルに。テキストファイル一つ（.txt）。読むことも、編集することも、質問といっしょにAIに渡すこともできます。",
     noteSample: "自分の部屋で確かめる：動かせないものと、変えてもいいもの。",
@@ -558,12 +558,12 @@ export const landingStrings = defineStrings({
 
     plusFreeTitle: "無料",
     plusFree1: "「{topic}」の分析全文",
-    plusFree2: "そこからの{n}つのアイデア",
+    plusFree2: "そこから{n}件のアイデア",
     plusFree3: "{topics}分野すべての目録と検索",
     plusFree4: "ブックマークとメモ",
-    plusFree5: "無料アイデアの書き出し",
+    plusFree5: "無料アイデアのエクスポート",
     plusAll1: "{topics}分野すべての分析と{ideas}のアイデア",
-    plusAll2: "書き出し無制限",
+    plusAll2: "エクスポート無制限",
     plusPlansTitle: "iPhoneアプリでは",
     plusTerms: "どちらのプランも購入時から有料で、無料体験はありません。地域ごとの価格は購入前に表示されます。",
     plusGet: "PlusはiPhoneアプリで利用できます。無料の内容はWeb版でも読めます。",
@@ -575,17 +575,17 @@ export const landingStrings = defineStrings({
       "公開されているアプリの口コミをもとに編集した、{topics}分野の分析と{ideas}のアプリアイデアのライブラリです。人々が何をしたいのか、既存の製品のどこで困っているのか、開発を始める前に何を確かめるべきかを読み解けます。",
     faq2Q: "分析とアイデアはどこから来ていますか？",
     faq2A:
-      "資料はアプリのレビューをもとにつくられています。分析の中の引用は、結論が何にもとづくかを示します。{topics}分野の分析は{apps}アプリについての{reviews}件の口コミにもとづき、調査アーカイブ全体では{archiveApps}アプリの{archiveReviews}件になります。データは2026年8〜9月時点のもので、リアルタイムの市場情報ではありません。引用の多くは英語の口コミからのもので、他の言語では翻訳を表示しています。",
+      "資料はアプリの口コミをもとにつくられています。分析の中の引用は、結論が何にもとづくかを示します。{topics}分野の分析は{apps}アプリについての{reviews}件の口コミにもとづき、調査アーカイブ全体では{archiveApps}アプリの{archiveReviews}件になります。データは2026年8〜9月時点のもので、リアルタイムの市場情報ではありません。引用の多くは英語の口コミからのもので、他の言語では翻訳を表示しています。",
     faq3Q: "アイデアが収益になる保証はありますか？",
     faq3A:
       "いいえ。掲載内容は検証のための観察とアイデアであり、需要や収益を保証するものではありません。inAppはアプリを自動生成せず、App Storeの順位も追跡せず、収益も約束しません。",
     faq4Q: "無料で読めるのは？",
     faq4A:
-      "「{topic}」の分析と{n}つのアイデアは、サブスクリプションなしで読めます。inApp Plusでは、すべての分野とアイデアを閲覧でき、書き出しも無制限になります。",
+      "「{topic}」の分析と{n}件のアイデアは、サブスクリプションなしで読めます。inApp Plusでは、すべての分野とアイデアを閲覧でき、エクスポートも無制限になります。",
     faq5Q: "Plusのプランは？",
     faq5A:
       "iPhoneアプリでは、Plusは自動更新の年間サブスクリプション、または一括払いの買い切りプランから選べます。どちらのプランも購入時から有料で、無料体験はありません。地域ごとの価格は購入前に表示されます。",
-    faq6Q: "書き出しには何が入りますか？",
+    faq6Q: "エクスポートには何が入りますか？",
     faq6A:
       "テキストファイル一つ（.txt）に、カテゴリーの分析全文、アイデアの全文、あなたのメモが入ります。読むことも、編集することも、質問といっしょにAIに渡すこともできます。",
     faq7Q: "対応言語は？",

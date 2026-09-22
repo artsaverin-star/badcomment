@@ -1,23 +1,41 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useT, useWebStrings } from "../../i18n/client";
+import { useT, useWeb } from "../../i18n/client";
 import { isSafeReturnPath, parsePublicPath } from "../../routing";
 import { currentPublicPath, registerSignInHandler, type SignInRequest } from "../../shell/actions";
 import { useViewer } from "../../shell/ViewerContext";
-import { Sheet, SheetAction } from "../../ui/Sheet";
+import { Sheet } from "../../ui/Sheet";
+import { SkeletonText } from "../../ui/Skeleton";
 import { toast } from "../../ui/Toast";
-import { loadPendingTelegram, SignInPanel } from "./SignInPanel";
-import { authStrings, noticeFor } from "./strings";
+import { noticeFor } from "./copy";
+import type { AuthStrings } from "./strings";
+import { loadPendingTelegram } from "./telegram";
+import "../plus/hosts.css";
 
-// The global sign-in dialog, mounted once in the new root layout. It:
+// The global sign-in sheet, mounted once in the new root layout. It:
 //   • answers openSignIn({reason, returnTo}) from anywhere (registerSignInHandler);
 //   • shows the errors the auth endpoints redirect with (?auth=google_error|google_unconfigured,
 //     ?login=expired — spec 06 §3.2 says nothing renders them today), then strips the params;
 //   • reopens itself when a Telegram login is still pending (like the old AuthButton);
 //   • on Telegram success closes, toasts and refreshes the server tree (the viewer becomes
 //     signed in; the paywall resumes a purchase from there).
+// Presentation follows the paywall (the app has no sign-in screen; spec 05 §3.6 N): a bottom
+// sheet on phones, the 440 + 48 modal on desktop, a plain «Закрыть» text button. The panel's
+// code and CSS load on first open (performance review P2); its strings come from the server.
+
+const loadPanel = () => import("./SignInPanel");
+
+const SignInPanel = dynamic(() => loadPanel().then((m) => m.SignInPanel), {
+  ssr: false,
+  loading: () => (
+    <div className="ia-host-skeleton" aria-busy="true">
+      <SkeletonText lines={5} />
+    </div>
+  ),
+});
 
 type State = { returnTo: string; reason: string | null; notice: string | null };
 
@@ -26,7 +44,7 @@ function isLoginPage(pathname: string | null): boolean {
 }
 
 export function SignInHost() {
-  const s = useWebStrings(authStrings);
+  const s = useWeb<AuthStrings>("auth");
   const t = useT();
   const router = useRouter();
   const pathname = usePathname();
@@ -35,6 +53,7 @@ export function SignInHost() {
   const openedAt = useRef<string | null>(null);
 
   const open = useCallback((req: SignInRequest & { notice?: string | null }) => {
+    void loadPanel(); // start fetching the panel with the sheet's first frame
     const returnTo = isSafeReturnPath(req.returnTo) ? req.returnTo : currentPublicPath();
     openedAt.current = window.location.pathname;
     setState({ returnTo, reason: req.reason ?? null, notice: req.notice ?? null });
@@ -49,7 +68,7 @@ export function SignInHost() {
     [open],
   );
 
-  // Following a link inside the dialog (terms, privacy) or any navigation closes it.
+  // Following a link inside the sheet (terms, privacy) or any navigation closes it.
   useEffect(() => {
     if (!state || openedAt.current === null) return;
     if (window.location.pathname !== openedAt.current) {
@@ -90,18 +109,26 @@ export function SignInHost() {
 
   const onSuccess = useCallback(() => {
     setState(null);
-    toast(s.signedIn);
-    // Let the sheet hand its history entry back before the server tree is re-rendered.
-    window.setTimeout(() => router.refresh(), 60);
+    // Let the sheet close (and hand its history entry back) before the toast and the refresh:
+    // a toast raised while the modal is still open would sit under its backdrop.
+    window.setTimeout(() => {
+      toast(s.signedIn);
+      router.refresh();
+    }, 60);
   }, [router, s.signedIn]);
 
   return (
     <Sheet
       open={state !== null}
       onClose={close}
-      variant="dialog"
+      size="paywall"
       label={s.title}
-      trailing={<SheetAction onClick={close}>{t("Закрыть")}</SheetAction>}
+      className="ia-host-sheet"
+      trailing={
+        <button type="button" className="ia-host-close" onClick={close}>
+          {t("Закрыть")}
+        </button>
+      }
     >
       {state ? (
         <SignInPanel returnTo={state.returnTo} reason={state.reason} notice={state.notice} onSuccess={onSuccess} />

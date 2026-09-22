@@ -1,5 +1,6 @@
 // Site-wide constants of the new site. Client-safe (no server imports).
 import legal from "@/data/legal.json";
+import type { Locale } from "./i18n/locales";
 
 export const BRAND = "inApp";
 
@@ -28,6 +29,15 @@ export const WEB_SELLER = { fullName: legal.fullName, selfEmployed: legal.selfEm
 
 /** Official "Download on the App Store" badge art (also asserted by the CI smoke tests). */
 export const APP_STORE_BADGE_SRC = "/badges/app-store.svg";
+
+/**
+ * Apple's localized badge artwork per locale, when it is added to public/badges (Apple
+ * Marketing Resources, e.g. "/badges/app-store-ru.svg"). Empty today: every locale shows the
+ * US-English art with a localized accessible name and caption (src/site/ui/AppStore.tsx).
+ * Keep APP_STORE_BADGE_SRC on the topic pages (research TopicExtras): the CI smoke test greps
+ * /ru/segment/* for it.
+ */
+export const APP_STORE_BADGE_LOCALIZED: Readonly<Partial<Record<Locale, string>>> = {};
 
 /** First year of the © line. */
 export const COPYRIGHT_YEAR = 2026;

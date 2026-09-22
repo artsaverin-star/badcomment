@@ -1,22 +1,27 @@
 /* Onboarding replay /<L>/welcome (spec 03 §1, spec 05 §3.6 P, motion §1.8). Full screen: the
    shell hides its chrome on this route. Unlayered; every selector is prefixed ia-wel-.
-   Every animation is off under prefers-reduced-motion (the app's `animates` gate). */
+   Every animation is off under prefers-reduced-motion (the app's `animates` gate).
+   Layout = ClarityOnboarding.swift:49-104: nav bar, a scrolling stage with the page centred
+   (minHeight = the free height), the footer pinned below it. */
 
 .ia-wel {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  height: 100dvh;
+  min-height: 0;
   background: var(--ia-paper);
   color: var(--ia-ink);
   overflow-x: clip;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
   touch-action: pan-y;
 }
 
-/* ---- Nav bar: back circle · 5 dots · «Закрыть» ---- */
+/* ---- Nav bar: back circle · 5 dots · «Закрыть» (4 + 44 pt) ---- */
 .ia-wel-nav {
   position: relative;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +30,7 @@
   margin-inline: auto;
   padding: 4px var(--ia-gutter-welcome) 0;
   box-sizing: border-box;
-  min-height: 52px;
+  min-height: 48px;
 }
 .ia-wel-back {
   display: inline-flex;
@@ -64,13 +69,14 @@
   width: 18px;
   background: var(--ia-ink);
 }
+/* «Закрыть»: Onest 15/500, secondary (ClarityOnboarding.swift:123-129). */
 .ia-wel-close {
   min-height: var(--ia-hit);
   padding: 0 4px;
   border: 0;
   background: none;
   color: var(--ia-secondary);
-  font: 500 0.9375rem / 1.2 var(--ia-font-sans);
+  font: 500 0.9375rem / 1.2 var(--ia-font-display);
   cursor: pointer;
 }
 @media (hover: hover) {
@@ -82,23 +88,39 @@
   }
 }
 
-/* ---- Scrollable content, vertically centered ---- */
+/* ---- The stage scrolls; the page sits centred while it fits (auto margins collapse to 0
+   when it does not, so the top is never cut off). ---- */
 .ia-wel-stage {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
-  max-width: calc(var(--ia-w-welcome) + 32px);
-  margin-inline: auto;
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
   padding: 12px 0 16px;
   box-sizing: border-box;
+}
+.ia-wel-stage::-webkit-scrollbar {
+  display: none;
+}
+/* Page 5: the paywall brings its own padding (ClarityPaywall.swift:58). */
+.ia-wel-stage[data-plus] {
+  padding: 0;
 }
 .ia-wel-step {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  max-width: calc(var(--ia-w-welcome) + 32px);
+  margin: auto;
+}
+.ia-wel-stage[data-plus] .ia-wel-step {
+  max-width: none;
 }
 .ia-wel-step[data-dir="1"] {
   animation: ia-wel-in-fwd var(--ia-dur-step) var(--ia-ease-step) both;
@@ -119,7 +141,8 @@
   }
 }
 
-/* Copy block */
+/* Copy block: the whole block fades and rises (easeOut 0.45 s after 60 + 140 ms), the title
+   scales from .90 (.72 on page 1) in the same motion (ClarityOnboarding.swift:68-87). */
 .ia-wel-copy {
   display: flex;
   flex-direction: column;
@@ -127,18 +150,17 @@
   gap: 10px;
   padding-inline: var(--ia-gutter-welcome);
   text-align: center;
+  animation: ia-wel-rise var(--ia-dur-text-reveal) ease-out 200ms both;
 }
+/* 38 / 18: the 48 / 26 caps belong to Dynamic Type; rem already follows the text size. */
 .ia-wel-title {
   margin: 0;
-  font-family: var(--ia-font-display);
-  font-weight: 900;
-  font-size: var(--ia-fs-display);
-  line-height: var(--ia-lh-display);
+  font: 900 2.375rem / var(--ia-lh-display) var(--ia-font-display);
   letter-spacing: var(--ia-ls-display);
   color: var(--ia-ink);
   text-wrap: balance;
   outline: none;
-  animation: ia-wel-title 700ms var(--ia-ease-reveal) 60ms both;
+  animation: ia-wel-title var(--ia-dur-text-reveal) ease-out 200ms both;
 }
 .ia-wel-title[data-first] {
   animation-name: ia-wel-title-first;
@@ -156,13 +178,9 @@
 .ia-wel-desc {
   margin: 0;
   max-width: var(--ia-w-welcome-copy);
-  font-family: var(--ia-font-display);
-  font-weight: 450;
-  font-size: var(--ia-fs-display-copy);
-  line-height: var(--ia-lh-display-copy);
+  font: 450 1.125rem / var(--ia-lh-display-copy) var(--ia-font-display);
   color: var(--ia-secondary);
   text-wrap: pretty;
-  animation: ia-wel-rise var(--ia-dur-text-reveal) ease-out 200ms both;
 }
 @keyframes ia-wel-rise {
   from {
@@ -170,9 +188,10 @@
     transform: translateY(12px);
   }
 }
+/* The visual uses the reveal spring (0.72 / 0.58). */
 .ia-wel-visual {
   width: 100%;
-  animation: ia-wel-visual 900ms var(--ia-ease-reveal) 60ms both;
+  animation: ia-wel-visual var(--ia-dur-reveal) var(--ia-ease-reveal) 60ms both;
 }
 @keyframes ia-wel-visual {
   from {
@@ -181,7 +200,8 @@
   }
 }
 
-/* ---- Illustrations (pages 1 and 4) ---- */
+/* ---- Illustrations (pages 1 and 4), ClarityWelcomeIllustration.swift: each layer enters on
+   its own (blob 80 ms, papers from 290 ms) and then floats on its own. ---- */
 .ia-wel-ill {
   position: relative;
   width: min(354px, calc(100vw - 40px));
@@ -197,6 +217,9 @@
   border-radius: 50%;
   background: var(--ia-accent-soft);
   translate: -50% -50%;
+  animation:
+    ia-wel-blob-in var(--ia-dur-reveal) var(--ia-ease-reveal) 80ms both,
+    ia-wel-blob-breathe var(--ia-dur-ambient) ease-in-out 1.4s infinite;
 }
 .ia-wel-ill--reviews .ia-wel-ill__blob {
   left: 47%;
@@ -208,45 +231,79 @@
   top: 47%;
   rotate: 26deg;
 }
+@keyframes ia-wel-blob-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+@keyframes ia-wel-blob-breathe {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: scale(1.022) rotate(2deg);
+  }
+  75% {
+    transform: scale(0.978) rotate(-2deg);
+  }
+}
 .ia-wel-ill__art {
   position: absolute;
   aspect-ratio: 1;
   height: auto;
   object-fit: contain;
   translate: -50% -50%;
+  transform-origin: 50% 100%;
   filter: drop-shadow(0 9px 24px rgb(0 0 0 / 0.045));
-  animation: ia-wel-art 1100ms var(--ia-ease-reveal) 80ms both;
+  animation:
+    ia-wel-art-in var(--ia-dur-reveal) var(--ia-ease-reveal) 80ms both,
+    ia-wel-art-float var(--ia-dur-ambient) ease-in-out 1.4s infinite;
 }
 .ia-wel-ill--reviews .ia-wel-ill__art {
   left: 50%;
   top: 46%;
   width: 96%;
+  --ia-wel-art-from: -10deg;
+  --ia-wel-art-x: -24px;
+  --ia-wel-sway: 1.8deg;
 }
 .ia-wel-ill--library .ia-wel-ill__art {
   left: 51%;
   top: 49%;
   width: 86%;
+  --ia-wel-art-from: 11deg;
+  --ia-wel-art-x: 20px;
+  --ia-wel-sway: -2.2deg;
 }
-@keyframes ia-wel-art {
+@keyframes ia-wel-art-in {
   from {
     opacity: 0;
-    transform: scale(0.72) translate(-24px, 52px);
+    transform: translate(var(--ia-wel-art-x), 52px) perspective(600px) rotateX(-24deg) rotate(var(--ia-wel-art-from))
+      scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateX(0deg) rotate(0deg) scale(1);
   }
 }
-.ia-wel-float {
-  animation: ia-wel-float var(--ia-dur-ambient) ease-in-out infinite;
-}
-@keyframes ia-wel-float {
+@keyframes ia-wel-art-float {
   0%,
+  50%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: none;
   }
-  50% {
-    transform: translateY(-5px) rotate(0.6deg);
+  25% {
+    transform: translateY(-6px) rotate(var(--ia-wel-sway));
+  }
+  75% {
+    transform: translateY(0) rotate(calc(var(--ia-wel-sway) * -1));
   }
 }
 
-/* Mini review cards (page 1) */
+/* Mini review cards (page 1): 21 % × 16 %, padding 10, stars 6 pt, radius 5. */
 .ia-wel-mini {
   position: absolute;
   width: 21%;
@@ -255,15 +312,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8%;
-  padding: 4%;
+  gap: 5px;
+  padding: 10px;
   border-radius: 5px;
   background: var(--ia-surface);
   box-shadow:
-    0 6px 16px color-mix(in srgb, var(--ia-accent) 13%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--ia-accent) 8%, transparent);
+    0 7px 14px color-mix(in srgb, var(--ia-accent) 13%, transparent),
+    inset 0 0 0 0.5px color-mix(in srgb, var(--ia-accent) 8%, transparent);
   translate: -50% -50%;
-  animation: ia-wel-mini 900ms var(--ia-ease-reveal) both;
+  transform-origin: 0 100%;
+  animation:
+    ia-wel-mini-in var(--ia-dur-reveal) var(--ia-ease-reveal) both,
+    ia-wel-mini-flutter var(--ia-dur-ambient) ease-in-out infinite;
+}
+.ia-wel-mini:nth-child(3) {
+  animation-duration: var(--ia-dur-reveal), 11s;
+}
+.ia-wel-mini:nth-child(4) {
+  animation-duration: var(--ia-dur-reveal), 13s;
 }
 .ia-wel-mini__stars {
   display: flex;
@@ -276,16 +342,34 @@
   background: color-mix(in srgb, var(--ia-accent) 24%, transparent);
 }
 .ia-wel-mini__line--short {
-  width: 45%;
+  width: 26px;
+  max-width: 45%;
 }
-@keyframes ia-wel-mini {
+@keyframes ia-wel-mini-in {
   from {
     opacity: 0;
-    transform: scale(0.55) translate(-22px, 40px);
+    transform: translate(-22px, 40px) perspective(500px) rotateX(-68deg) rotate(-30deg) scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(500px) rotateX(0deg) rotate(0deg) scale(1);
+  }
+}
+@keyframes ia-wel-mini-flutter {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translate(5px, -9px) perspective(500px) rotateX(8deg) rotate(4deg);
+  }
+  75% {
+    transform: translate(-5px, 0) perspective(500px) rotateX(-8deg) rotate(-4deg);
   }
 }
 
-/* Topic chips (page 4) */
+/* Topic chips (page 4): Onest 12/600 ink on mint, 12 × 10, radius 4, taped left edge. */
 .ia-wel-chip {
   position: absolute;
   padding: 10px 12px;
@@ -296,7 +380,16 @@
   color: var(--ia-ink);
   white-space: nowrap;
   translate: -50% -50%;
-  animation: ia-wel-mini 900ms var(--ia-ease-reveal) both;
+  transform-origin: 0 100%;
+  animation:
+    ia-wel-chip-in var(--ia-dur-reveal) var(--ia-ease-reveal) both,
+    ia-wel-chip-orbit var(--ia-dur-ambient) ease-in-out infinite;
+}
+.ia-wel-chip:nth-child(4) {
+  animation-duration: var(--ia-dur-reveal), 11s;
+}
+.ia-wel-chip:nth-child(5) {
+  animation-duration: var(--ia-dur-reveal), 13s;
 }
 .ia-wel-chip::before {
   content: "";
@@ -305,11 +398,40 @@
   top: 50%;
   width: 10px;
   height: 19px;
+  border-radius: 1px;
   background: rgb(255 255 255 / 0.8);
   transform: translateY(-50%) rotate(-8deg);
 }
+@keyframes ia-wel-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(36px) perspective(500px) rotateX(-65deg) rotate(var(--ia-wel-from, -27deg)) scale(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) perspective(500px) rotateX(0deg) rotate(0deg) scale(1);
+  }
+}
+@keyframes ia-wel-chip-orbit {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translate(5px, -8px) rotate(3.5deg);
+  }
+  75% {
+    transform: translate(-5px, 0) rotate(-3.5deg);
+  }
+}
 
 /* ---- Carousels (pages 2 and 3) ---- */
+.ia-wel-carousel-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .ia-wel-carousel {
   display: grid;
   grid-auto-flow: column;
@@ -337,33 +459,48 @@
   box-sizing: border-box;
   padding-inline: 10px;
 }
+/* Web-only pause toggle (WCAG 2.2.2): the footer's secondary voice, never in the way. */
+.ia-wel-autoplay {
+  min-height: var(--ia-hit);
+  margin-top: -12px;
+  padding: 0 10px;
+  border: 0;
+  background: none;
+  color: var(--ia-secondary);
+  font: 500 0.8125rem / 1.2 var(--ia-font-display);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .ia-wel-autoplay:hover {
+    color: var(--ia-ink);
+  }
+}
 
-/* Article composition: paper + quote paper */
+/* Article composition: paper + quote paper (ClarityWelcomeContentPreview.swift:45-114). */
 .ia-wel-paper {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-right: 18px;
   padding: 17px 17px 26px;
   border-radius: var(--ia-radius-paper-sm);
   background: var(--ia-surface);
   box-shadow:
     var(--ia-shadow-paper),
-    inset 0 0 0 1px rgb(0 0 0 / 0.05);
+    inset 0 0 0 0.5px rgb(0 0 0 / 0.05);
   rotate: -3deg;
 }
 .ia-wel-paper__top {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 .ia-wel-paper__label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 7px;
   font: 550 0.625rem / 1.2 var(--ia-font-display);
-  letter-spacing: 0.02em;
   color: var(--ia-accent);
 }
 .ia-wel-paper__title {
@@ -393,7 +530,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   margin: -6px 0 0 44px;
   padding: 15px;
   border-radius: 5px;
@@ -414,7 +551,8 @@
 .ia-wel-quote__head {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  align-items: baseline;
+  gap: 6px;
   font: 550 0.625rem / 1.2 var(--ia-font-display);
   color: var(--ia-accent);
 }
@@ -426,37 +564,48 @@
   font: 400 0.875rem / 1.49 var(--ia-font-display);
   color: var(--ia-ink);
 }
+/* Paper entrances (ClarityWelcomePaperMotion): spring 0.88 / 0.59, 120 / 290 ms. The `rotate`
+   property holds the resting ∓3°, so the transform only adds the difference. */
 .ia-wel-slide[data-active] .ia-wel-paper {
-  animation: ia-wel-paper-a 1100ms var(--ia-ease-reveal) 120ms both;
+  animation: ia-wel-paper-a var(--ia-dur-paper) var(--ia-ease-reveal) 120ms both;
 }
 .ia-wel-slide[data-active] .ia-wel-quote {
-  animation: ia-wel-paper-q 1100ms var(--ia-ease-reveal) 290ms both;
+  animation: ia-wel-paper-q var(--ia-dur-paper) var(--ia-ease-reveal) 290ms both;
 }
 @keyframes ia-wel-paper-a {
   from {
     opacity: 0;
-    transform: translate(-24px, -48px) rotate(-11deg) scale(0.84);
+    box-shadow: 0 19px 42px rgb(0 0 0 / 0.14);
+    transform: translate(-24px, -48px) perspective(600px) rotateX(-24deg) rotate(-11deg) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateX(0deg) rotate(0deg) scale(1);
   }
 }
 @keyframes ia-wel-paper-q {
   from {
     opacity: 0;
-    transform: translate(28px, 76px) rotate(14deg) scale(0.84);
+    box-shadow: 0 19px 42px rgb(0 0 0 / 0.14);
+    transform: translate(28px, 76px) perspective(600px) rotateX(24deg) rotate(14deg) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateX(0deg) rotate(0deg) scale(1);
   }
 }
 
-/* Idea papers: two side by side, the second 25 px lower; a single one takes the full width */
+/* Idea papers: two side by side 10 apart, the second 25 lower; 20 pt gutters on every page. */
 .ia-wel-ideas {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   align-items: start;
-  padding-inline: 10px;
+  padding-inline: 20px;
   padding-bottom: 25px;
 }
-.ia-wel-ideas--single {
+.ia-wel-ideas:has(> :only-child) {
   grid-template-columns: minmax(0, 1fr);
-  padding-inline: 40px;
   padding-bottom: 0;
 }
 .ia-wel-idea {
@@ -465,24 +614,26 @@
   background: var(--ia-surface);
   box-shadow:
     var(--ia-shadow-paper),
-    inset 0 0 0 1px rgb(0 0 0 / 0.06);
+    inset 0 0 0 0.5px rgb(0 0 0 / 0.06);
   rotate: -3deg;
 }
 .ia-wel-idea + .ia-wel-idea {
   margin-top: 25px;
   rotate: 3deg;
 }
+/* The idea art is clipped by the artwork shape: radius 20 (ClarityIdeaCardArt.swift:53). */
 .ia-wel-idea img {
   display: block;
   width: 100%;
   aspect-ratio: 1.5;
+  border-radius: var(--ia-radius-art);
   object-fit: cover;
   background: var(--ia-soft);
 }
 .ia-wel-idea__body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 9px;
   padding: 12px;
 }
 .ia-wel-idea__title {
@@ -496,75 +647,54 @@
   font: 400 0.875rem / 1.43 var(--ia-font-display);
   color: var(--ia-secondary);
 }
-@media (max-width: 399.98px) {
-  .ia-wel-ideas:not(.ia-wel-ideas--single) .ia-wel-idea__text {
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
 .ia-wel-slide[data-active] .ia-wel-idea {
-  animation: ia-wel-paper-a 1100ms var(--ia-ease-reveal) 120ms both;
+  animation: ia-wel-idea-a var(--ia-dur-paper) var(--ia-ease-reveal) 120ms both;
 }
 .ia-wel-slide[data-active] .ia-wel-idea + .ia-wel-idea {
-  animation-name: ia-wel-paper-q;
+  animation-name: ia-wel-idea-b;
   animation-delay: 290ms;
 }
-
-/* ---- Page 5: Plus ---- */
-.ia-wel-plusart {
-  position: relative;
-  width: min(354px, calc(100vw - 48px));
-  height: clamp(110px, calc(100dvh - 400px), 210px);
-  margin-inline: auto;
+@keyframes ia-wel-idea-a {
+  from {
+    opacity: 0;
+    box-shadow: 0 19px 42px rgb(0 0 0 / 0.14);
+    transform: translate(-24px, 66px) perspective(600px) rotateY(-24deg) rotate(-14deg) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateY(0deg) rotate(0deg) scale(1);
+  }
 }
-.ia-wel-plusart img {
-  position: absolute;
-  object-fit: contain;
-  translate: -50% -50%;
-  animation: ia-wel-art 1100ms var(--ia-ease-reveal) both;
-}
-.ia-wel-plusart__left {
-  left: 20%;
-  top: 37%;
-  width: 45%;
-  height: 74%;
-  rotate: -12deg;
-  animation-delay: 270ms !important;
-}
-.ia-wel-plusart__right {
-  left: 81%;
-  top: 40%;
-  width: 43%;
-  height: 70%;
-  rotate: 9deg;
-  animation-delay: 410ms !important;
-}
-.ia-wel-plusart__center {
-  left: 50%;
-  top: 52%;
-  width: 81%;
-  height: 100%;
-  animation-delay: 80ms !important;
+@keyframes ia-wel-idea-b {
+  from {
+    opacity: 0;
+    box-shadow: 0 19px 42px rgb(0 0 0 / 0.14);
+    transform: translate(28px, 94px) perspective(600px) rotateY(24deg) rotate(15deg) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) perspective(600px) rotateY(0deg) rotate(0deg) scale(1);
+  }
 }
 
-/* ---- Footer: primary capsule + reserved 44 px row ---- */
+/* ---- Footer: primary capsule (hugs its label) + reserved 44 px row, 10 apart; padding
+   10 / 24 / 8 (ClarityWelcomeFooter). Page 5 renders the paywall footer into the slot. ---- */
 .ia-wel-footer {
+  flex: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
   width: 100%;
   max-width: calc(var(--ia-w-welcome-chrome) + 2 * var(--ia-gutter-welcome));
   margin-inline: auto;
   padding: 10px var(--ia-gutter-welcome) 8px;
   box-sizing: border-box;
 }
-.ia-wel-footer .ia-btn--welcome {
-  width: 100%;
-  max-width: var(--ia-w-welcome);
+.ia-wel-footer__slot {
+  display: contents;
 }
+/* The secondary row: Onest 13/500, ink when shown (ClarityWelcomeComponents.swift:64-69). */
 .ia-wel-secondary {
   display: inline-flex;
   align-items: center;
@@ -573,27 +703,18 @@
   padding: 0 8px;
   border: 0;
   background: none;
-  color: var(--ia-secondary);
-  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-ink);
+  font: 500 0.8125rem / 1.385 var(--ia-font-display);
   text-align: center;
   cursor: pointer;
 }
 .ia-wel-secondary[aria-hidden="true"] {
   visibility: hidden;
 }
-@media (hover: hover) {
-  .ia-wel-secondary:hover {
-    color: var(--ia-ink);
-  }
-}
 
-.ia-wel-sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+/* Focus rings inside the horizontal scroller would be clipped: draw them inside. */
+.ia-wel-carousel :focus-visible {
+  outline-offset: -2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

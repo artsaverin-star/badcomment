@@ -4,12 +4,10 @@ import { MEDIA_SIZES_ARTICLE, mediaSrc, mediaSrcSet } from "@/site/content/media
 import { applyNbspPolicy, paragraphs, researchDescription } from "@/site/content/text";
 import { IdeaCard } from "@/site/features/ideas/IdeaCard";
 import type { Locale } from "@/site/i18n/locales";
-import { format } from "@/site/i18n/strings";
 import type { T } from "@/site/i18n/translate";
 import { routes } from "@/site/routing";
 import { QuoteIcon } from "@/site/ui";
 import { cx } from "@/site/ui/cx";
-import type { ResearchStrings } from "./strings";
 
 // The full research article (spec 01 §5.4, §6; spec 04 §5.3), server-rendered from the
 // pre-assembled ResearchFile. RENDER ONLY AFTER THE GATE: the caller loads the file only when
@@ -17,13 +15,12 @@ import type { ResearchStrings } from "./strings";
 // paid ones as {slug, cover} only.
 
 export type ArticleIdea =
-  | { slug: string; locked: false; cover: Art; title: string; description: string }
+  | { slug: string; locked: false; cover: Art; title: string; description: string; categoryName: string }
   | { slug: string; locked: true; cover: Art };
 
 type Ctx = {
   locale: Locale;
   t: T;
-  s: ResearchStrings;
   ideas: ReadonlyMap<string, ArticleIdea>;
 };
 
@@ -39,68 +36,55 @@ function Text({ text, locale, lead, id }: { text: string; locale: Locale; lead?:
   );
 }
 
-/** Artwork 3:2 r20. `bleed` = the hero cover (full-bleed on phones, eager). */
-export function Artwork({ art, bleed, eager }: { art: Art; bleed?: boolean; eager?: boolean }) {
+/**
+ * Artwork 3:2 r20 (ClarityResearchArtworkView). `bleed` = the hero cover: eager, 22 px outside
+ * the text column at every width (ClarityReader.swift:159-162). `spaced` = the observation
+ * image, the only one with 8 px above and below (ClarityReader.swift:276-277).
+ */
+export function Artwork({ art, bleed, eager, spaced }: { art: Art; bleed?: boolean; eager?: boolean; spaced?: boolean }) {
   const priority = eager ?? bleed;
   return (
-    <figure className={cx("ia-rs-art", bleed ? "ia-rs-art--cover" : "ia-rs-art--inline")}>
+    <figure className={cx("ia-rs-art", bleed && "ia-rs-art--cover", spaced && "ia-rs-art--spaced")}>
       {/* Pre-encoded WebP with srcset (public/media); next/image optimization is not used. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={mediaSrc(art, 800)}
         srcSet={mediaSrcSet(art)}
-        sizes={bleed ? "(min-width: 720px) 640px, 100vw" : MEDIA_SIZES_ARTICLE}
+        sizes={bleed ? "(min-width: 728px) 684px, 100vw" : MEDIA_SIZES_ARTICLE}
         width={art.width}
         height={art.height}
         alt={art.alt}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
-        decoding="async"
+        decoding={priority ? undefined : "async"}
       />
     </figure>
   );
 }
 
-function Stars({ rating, label }: { rating: number; label: string }) {
-  const filled = Math.max(0, Math.min(5, Math.round(rating)));
-  return (
-    <span className="ia-rs-stars" role="img" aria-label={label}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={i < filled ? undefined : "ia-rs-stars__off"} aria-hidden="true">
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
-
 /**
- * Inline quote (spec 01 §6.8): the locale's reading text. Web-only richness (DECISIONS §3):
- * the quoted app's name and star rating in a small caption under the quote.
+ * Inline quote (ClarityInlineResearchQuote → ClarityQuoteBlock; spec 01 §6.8): the opening-quote
+ * glyph and the locale's reading text only. The app receives the quoted app and its rating
+ * but does not display them, and neither does the web (spec 09 §5 #28).
  */
-function Quote({ quote, ctx }: { quote: QuoteView; ctx: Ctx }) {
-  const rating = quote.rating > 0 ? quote.rating : null;
+function Quote({ quote }: { quote: QuoteView }) {
   return (
     <figure className="ia-rs-quote">
-      <QuoteIcon size={13} strokeWidth={2} className="ia-rs-quote__glyph" aria-hidden="true" />
+      {/* SF quote.opening, filled: lucide's Quote is the closing mark, turned 180° in CSS. */}
+      <QuoteIcon size={13} strokeWidth={0} fill="currentColor" className="ia-rs-quote__glyph" aria-hidden="true" />
       <blockquote className="ia-rs-quote__text">
         <p>{applyNbspPolicy(quote.text)}</p>
       </blockquote>
-      {quote.app || rating ? (
-        <figcaption className="ia-rs-quote__cite">
-          {quote.app ? <cite style={{ fontStyle: "normal" }}>{quote.app}</cite> : null}
-          {rating ? <Stars rating={rating} label={format(ctx.s.ratingLabel, { rating })} /> : null}
-        </figcaption>
-      ) : null}
     </figure>
   );
 }
 
-function IdeaGrid({ slugs, ctx }: { slugs: string[]; ctx: Ctx }) {
+/** Idea cards, full width in one column: 18 apart in placements, 14 in «Другие идеи категории». */
+function IdeaGrid({ slugs, ctx, remaining }: { slugs: string[]; ctx: Ctx; remaining?: boolean }) {
   const cards = slugs.map((slug) => ctx.ideas.get(slug)).filter((idea) => idea !== undefined);
   if (cards.length === 0) return null;
   return (
-    <ul className="ia-rs-ideas">
+    <ul className={cx("ia-rs-ideas", remaining && "ia-rs-ideas--remaining")}>
       {cards.map((idea) => (
         <li key={idea.slug} id={`clarity-research-idea-${idea.slug}`}>
           {idea.locked ? (
@@ -120,6 +104,7 @@ function IdeaGrid({ slugs, ctx }: { slugs: string[]; ctx: Ctx }) {
               cover={idea.cover}
               title={idea.title}
               description={idea.description}
+              categoryName={idea.categoryName}
             />
           )}
         </li>
@@ -146,9 +131,9 @@ function ObservationView({ obs, ctx }: { obs: ResearchObservation; ctx: Ctx }) {
     const passage = obs.passages[i];
     const quote = obs.quotes[i];
     if (passage) flow.push(<Text key={`p${i}`} text={passage} locale={ctx.locale} id={`clarity-research-passage-${obs.id}-${i}`} />);
-    if (quote) flow.push(<Quote key={`q${i}`} quote={quote} ctx={ctx} />);
+    if (quote) flow.push(<Quote key={`q${i}`} quote={quote} />);
     // The observation artwork follows the first passage and the first quote.
-    if (i === 0 && obs.art) flow.push(<Artwork key="art" art={obs.art} />);
+    if (i === 0 && obs.art) flow.push(<Artwork key="art" art={obs.art} spaced />);
   }
   return (
     <div className="ia-rs-observation ia-rs-anchor" id={`observation-${obs.id}`}>
@@ -163,9 +148,10 @@ function ObservationView({ obs, ctx }: { obs: ResearchObservation; ctx: Ctx }) {
   );
 }
 
+/** ArticleSection. Not a named region: 7–8 per article would flood the landmark list (a11y m15). */
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section className="ia-rs-section ia-rs-anchor" id={id} aria-labelledby={`${id}-title`}>
+    <section className="ia-rs-section ia-rs-anchor" id={id}>
       <h2 className="ia-rs-section__title" id={`${id}-title`}>
         {title}
       </h2>
@@ -179,17 +165,15 @@ export function ResearchArticle({
   ui,
   locale,
   t,
-  s,
   ideas,
 }: {
   research: ResearchFile;
   ui: UIFile;
   locale: Locale;
   t: T;
-  s: ResearchStrings;
   ideas: ReadonlyMap<string, ArticleIdea>;
 }) {
-  const ctx: Ctx = { locale, t, s, ideas };
+  const ctx: Ctx = { locale, t, ideas };
   const description = researchDescription(applyNbspPolicy(research.summary), research.corpus, ui);
   return (
     <article className="ia-rs-article" aria-labelledby="clarity-research-title">
@@ -246,7 +230,7 @@ export function ResearchArticle({
 
       {research.remainingIdeas.length > 0 ? (
         <Section id="ideas" title={t("Другие идеи категории")}>
-          <IdeaGrid slugs={research.remainingIdeas} ctx={ctx} />
+          <IdeaGrid slugs={research.remainingIdeas} ctx={ctx} remaining />
         </Section>
       ) : null}
 

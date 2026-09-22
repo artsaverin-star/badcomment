@@ -25,10 +25,31 @@
   color: var(--ia-secondary);
   font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
 }
+/* Kept mounted (a live region must exist before its text changes) but out of the flow. */
+.ia-rs-count:empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+/* The search field stays at the app's 680 column on the wide grid (spec 05 §3.2 md). */
+.ia-rs-search {
+  width: 100%;
+  max-width: var(--ia-w-catalog);
+}
+/* Research rhythm: LazyVStack spacing 24 (ClarityCatalogs.swift:42), 28 at ≥ 1280 (spec 05 §3.2);
+   `ia-grid--research` (site.css) sets it, repeated here so the page never falls back to 14/20. */
 .ia-rs-grid {
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: 24px;
+}
+@media (min-width: 1280px) {
+  .ia-rs-grid {
+    gap: 28px;
+  }
 }
 .ia-rs-grid > li {
   display: flex;
@@ -80,7 +101,7 @@
 .ia-rs-empty {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 .ia-rs-empty__title {
   margin: 0;
@@ -92,7 +113,8 @@
   font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
 }
 
-/* «Скоро в новом формате»: the old site's other topics. */
+/* «Скоро в новом формате»: the old site's other topics, styled as the app's coming-soon block
+   (ClarityCatalogs.swift:67-76): subheading 17/600, Georgia 19 ink + lineSpacing 5, spacing 12. */
 .ia-rs-soon {
   display: flex;
   flex-direction: column;
@@ -102,8 +124,9 @@
 .ia-rs-soon__body {
   margin: 0;
   max-width: 62ch;
-  color: var(--ia-secondary);
-  font: 400 var(--ia-fs-body-serif) / var(--ia-lh-body-serif) var(--ia-font-serif);
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-subtitle) / var(--ia-lh-subtitle) var(--ia-font-serif);
+  font-synthesis: none;
 }
 .ia-rs-soon__list {
   display: flex;
@@ -116,7 +139,7 @@
 .ia-rs-soon__link {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
   padding: 8px 15px;
   box-sizing: border-box;
   border-radius: var(--ia-radius-pill);
@@ -133,6 +156,11 @@
 }
 
 /* App Store promo card (catalog + topic pages). */
+.ia-rs-catalog > .ia-rs-promo {
+  width: 100%;
+  max-width: var(--ia-w-catalog);
+  box-sizing: border-box;
+}
 .ia-rs-promo {
   display: flex;
   align-items: center;
@@ -198,9 +226,9 @@
     grid-row: 1;
     justify-self: end;
     position: sticky;
-    top: calc(86px + var(--ia-toolbar-h) + 16px);
+    top: calc(var(--ia-topnav-h) + var(--ia-toolbar-h) + 16px);
     width: min(280px, 100%);
-    max-height: calc(100dvh - 86px - var(--ia-toolbar-h) - 40px);
+    max-height: calc(100dvh - var(--ia-topnav-h) - var(--ia-toolbar-h) - 40px);
     overflow-y: auto;
     padding: 24px 24px 24px 20px;
     box-sizing: border-box;
@@ -215,15 +243,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--ia-gap-article);
-  padding-bottom: 40px;
+  padding-bottom: var(--ia-gap-article);
 }
+/* Anchor targets (TOC jumps, #main-players): the offset under the sticky top bar and toolbar
+   comes from html { scroll-padding-top } in site.css; a scroll-margin here would add up (a11y M3). */
 .ia-rs-anchor {
-  scroll-margin-top: calc(var(--ia-toolbar-h) + 12px);
-}
-@media (min-width: 1024px) {
-  .ia-rs-anchor {
-    scroll-margin-top: calc(86px + var(--ia-toolbar-h) + 12px);
-  }
+  scroll-margin-top: 0;
 }
 
 /* Hero: Georgia 30 title + Georgia 20 description (gap 18). */
@@ -252,7 +277,8 @@
   text-wrap: pretty;
 }
 
-/* Artwork: 3:2, radius 20. The cover is full-bleed on phones (corners stay rounded). */
+/* Artwork: 3:2, radius 20. The cover bleeds 22 px outside the text column at every width
+   (ClarityReader.swift:159-162; spec 05 §3.6 M), corners stay rounded. */
 .ia-rs-art {
   display: block;
   margin: 0;
@@ -269,12 +295,7 @@
 .ia-rs-art--cover {
   margin-inline: calc(-1 * var(--ia-gutter-reader));
 }
-@media (min-width: 720px) {
-  .ia-rs-art--cover {
-    margin-inline: 0;
-  }
-}
-.ia-rs-art--inline {
+.ia-rs-art--spaced {
   margin-block: 8px;
 }
 
@@ -329,7 +350,7 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
-  padding-block: 18px;
+  padding-block: 20px;
 }
 .ia-rs-audience:first-child {
   padding-top: 0;
@@ -368,18 +389,21 @@
   letter-spacing: -0.012em;
 }
 
-/* Inline quote: 2 px rule, padding 10/18, + 8 outer; glyph, Georgia 20; web caption. */
+/* Inline quote (ClarityInlineResearchQuote): 2 px rule over an 18 leading padding (text at 18),
+   10 vertical, + 8 outer; filled opening-quote glyph 13 secondary, Georgia 20. */
 .ia-rs-quote {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 8px 0;
-  padding: 10px 0 10px 18px;
+  padding: 10px 0 10px 16px;
   border-left: 2px solid var(--ia-line);
 }
 .ia-rs-quote__glyph {
+  display: block;
+  flex: none;
   color: var(--ia-secondary);
-  font: 400 var(--ia-fs-footnote) / 1 var(--ia-font-serif);
+  transform: rotate(180deg);
 }
 .ia-rs-quote__text {
   margin: 0;
@@ -391,25 +415,8 @@
   color: var(--ia-ink);
   overflow-wrap: break-word;
 }
-.ia-rs-quote__cite {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 8px;
-  color: var(--ia-secondary);
-  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
-}
-.ia-rs-stars {
-  display: inline-flex;
-  gap: 1px;
-  letter-spacing: 0;
-  color: var(--ia-ink-65);
-}
-.ia-rs-stars__off {
-  color: var(--ia-ink-20);
-}
-
-/* Direction placements: 18 gap, 12 top padding; idea cards 14 apart (2 columns when wide). */
+/* Direction placements: 18 gap, 12 top padding; idea cards full width, 18 apart
+   (ClarityReader.swift:290-303); «Другие идеи категории» 14 apart (:411). */
 .ia-rs-placement {
   display: flex;
   flex-direction: column;
@@ -421,15 +428,18 @@
   font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
 }
 .ia-rs-ideas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+.ia-rs-ideas--remaining {
+  gap: 14px;
+}
 .ia-rs-ideas > li {
-  display: flex;
+  display: block;
   min-width: 0;
 }
 .ia-rs-ideas > li > * {
@@ -476,21 +486,17 @@
 }
 .ia-rs-rail .ia-rs-toc__link {
   padding: 7px 0;
-  font-size: var(--ia-fs-subheadline);
-  line-height: var(--ia-lh-subheadline);
 }
 .ia-rs-rail .ia-rs-toc__link--depth1 {
-  padding-left: 12px;
-  color: var(--ia-secondary);
+  padding-left: 14px;
 }
-.ia-rs-rail .ia-rs-toc__link--depth1[aria-current="location"] {
-  color: var(--ia-accent);
-}
+/* The sheet body already has the reader gutters (site.css .ia-sheet__body). */
 .ia-rs-sheet-toc {
-  padding: 4px 22px 24px;
+  padding: 0;
 }
 
-/* Locked preview (ClarityContentGate): padding 22, gap 24. */
+/* Locked preview (ClarityContentGate): padding 22, gap 24, on `paper` (ClarityContentAccess.swift:115):
+   the page wrapper is .ia-rs-locked-page, never .ia-reading-page. */
 .ia-rs-locked {
   display: flex;
   flex-direction: column;
@@ -516,13 +522,14 @@
 .ia-rs-text-link {
   display: inline-flex;
   align-items: center;
-  align-self: center;
-  justify-content: center;
+  align-self: stretch;
+  justify-content: flex-start;
   gap: 8px;
   min-height: 44px;
   border: 0;
   background: none;
-  padding: 0 4px;
+  padding: 0;
+  text-align: start;
   color: var(--ia-ink);
   font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
   cursor: pointer;
@@ -588,8 +595,20 @@
   gap: 10px 14px;
   padding: 14px 16px;
 }
+.ia-rs-app[hidden] {
+  display: none;
+}
 .ia-rs-app + .ia-rs-app {
-  border-top: 1px solid var(--ia-line);
+  position: relative;
+}
+.ia-rs-app + .ia-rs-app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 78px;
+  right: 0;
+  height: 1px;
+  background: var(--ia-line-65);
 }
 .ia-rs-app__icon {
   width: 48px;
@@ -646,6 +665,15 @@
   min-height: 28px;
   color: var(--ia-accent);
   font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+@media (pointer: coarse) {
+  .ia-rs-app__link {
+    min-height: 44px;
+  }
+  .ia-rs-app__store {
+    align-items: center;
+    min-height: 44px;
+  }
 }
 @media (max-width: 559.98px) {
   .ia-rs-app {

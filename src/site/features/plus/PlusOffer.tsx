@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState, type Ref } from "react";
+import { createPortal } from "react-dom";
 import {
   trackAddPaymentInfo,
   trackBeginCheckout,
@@ -13,14 +14,13 @@ import {
   trackPaywallView,
 } from "@/lib/track";
 import { MEDIA_BASE } from "../../content/media";
-import { useLocale, useT, useWebStrings } from "../../i18n/client";
+import { useLocale, useT, useWeb } from "../../i18n/client";
 import { href, routes } from "../../routing";
 import { openSignIn } from "../../shell/actions";
 import { useViewer } from "../../shell/ViewerContext";
 import { AppStoreBadge } from "../../ui/AppStore";
 import { Button } from "../../ui/Button";
 import { cx } from "../../ui/cx";
-import { CheckIcon, RadioOnIcon } from "../../ui/icons";
 import {
   checkoutSource,
   clearResume,
@@ -31,15 +31,21 @@ import {
   type PayMethod,
   type PlusOfferData,
 } from "./offer";
-import { plusStrings } from "./strings";
+import type { PlusStrings } from "./strings";
 import "./plus.css";
 
-// The web Plus paywall (spec 03 §2 adapted per §2.7 and DECISIONS §10). One component for
-// the /<L>/plus page and the sheet (PaywallHost). App layout: artwork → «Полный доступ» →
-// description → plan row → status lines → disclosure → primary CTA → «Остаться с бесплатным
-// разбором». Web deltas: ONE plan («Plus навсегда», the YooKassa lifetime SKU at
-// ACCESS_PRICE_RUB), a payment-method step (bank card / SBP), the YooKassa note, legal links
-// (payment offer, terms, support) and the separate-App-Store note with the badge.
+// The web Plus paywall (spec 03 §2 adapted per §2.7 and DECISIONS §10), laid out like
+// ClarityPaywallView: artwork → «Полный доступ» → description → [plan row · status lines ·
+// legal row] in the scrolling content, and the footer (disclosure → primary capsule →
+// «Остаться с бесплатным разбором») pinned below it (ClarityWelcomeFooter sits outside the
+// ScrollView). One component for three places:
+//   page     /<L>/plus — the footer sticks to the bottom of the viewport;
+//   sheet    the global paywall sheet (PaywallHost) — the footer sticks to the sheet bottom;
+//   welcome  the replay's last page (WelcomeFlow) — the footer is portalled into the replay's
+//            own pinned footer, under the same nav bar with back and dot 5/5 (the app's step 4).
+// Web deltas: ONE plan (the app's «Навсегда» row = the YooKassa lifetime SKU at
+// ACCESS_PRICE_RUB), a payment-method step (bank card / SBP), the sign-in and YooKassa notes,
+// web legal links (payment offer, terms, privacy, support) and the App Store note with the badge.
 //
 // Primary button state machine (web):
 //   plus                     → «Открыть библиотеку» (close / go to the research catalog)
@@ -47,18 +53,25 @@ import "./plus.css";
 //   signed in                → «Купить навсегда» → method choice → POST /api/pay/yookassa
 //                              {kind:"lifetime", method, source:"v2_<surface>"} → YooKassa
 // Analytics mirror the old BuyButton exactly (src/lib/track.ts), with source "v2_<surface>".
+// Strings: the page locale's plusStrings row (useWeb("plus")), handed down by the server or by
+// the sheet's offer fetch; app keys from PLUS_UI_KEYS.
 
 type Props = {
   offer: PlusOfferData;
   /** Analytics surface without the "v2_" prefix, e.g. "idea_card", "plus_page". */
   source: string;
-  variant: "page" | "sheet";
-  /** Sheet only: close the paywall. */
+  variant: "page" | "sheet" | "welcome";
+  /** Sheet / welcome: close the paywall (the replay). */
   onClose?: () => void;
   /** The user asked for access (CTA or a resumed purchase): the host may auto-close on success. */
   onRequested?: () => void;
+  /** Welcome: the replay's pinned footer; the paywall footer renders into it (null until mounted). */
+  footerTarget?: HTMLElement | null;
+  /** Welcome: the replay moves focus to the page heading on every step change. */
+  titleRef?: Ref<HTMLHeadingElement>;
 };
 
+/** Three library objects fly into place, then float (ClarityPaywall.swift:151-189). */
 function PlusArt() {
   const layer = (name: string, cls: string) => (
     // eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP artwork (spec 04 §6.3)
@@ -82,13 +95,24 @@ function PlusArt() {
   );
 }
 
-export function PlusOffer({ offer, source, variant, onClose, onRequested }: Props) {
+/** SF `largecircle.fill.circle`, 21 pt: a ring with a filled centre (ClarityPaywall.swift:110). */
+function RadioOn() {
+  return (
+    <svg className="ia-plus__plan-radio" width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="5.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function PlusOffer({ offer, source, variant, onClose, onRequested, footerTarget, titleRef }: Props) {
   const t = useT();
-  const s = useWebStrings(plusStrings);
+  const s = useWeb<PlusStrings>("plus");
   const locale = useLocale();
   const viewer = useViewer();
   const router = useRouter();
   const methodTitleId = useId();
+  const methodTitle = useRef<HTMLParagraphElement>(null);
 
   const src = checkoutSource(source);
   const plus = viewer.plus;
@@ -112,6 +136,11 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested }: Prop
     }, 0);
     return () => window.clearTimeout(timer);
   }, [viewer.loggedIn, plus, src, onRequested]);
+
+  // «Купить навсегда» is replaced by the method choice: keep focus with it (a11y review m18).
+  useEffect(() => {
+    if (step === "method") methodTitle.current?.focus({ preventScroll: true });
+  }, [step]);
 
   function askSignIn() {
     trackLoginRequired(src);
@@ -167,135 +196,142 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested }: Prop
     setBusy(null);
   }
 
-  const Title = variant === "page" ? "h1" : "h2";
-  const secondaryLabel = plus ? t("Закрыть") : t("Остаться с бесплатным разбором");
+  const Title = variant === "sheet" ? "h2" : "h1";
+  const toLibrary = variant !== "sheet";
+
+  const primaryControl = plus ? (
+    toLibrary ? (
+      <Button variant="welcome" id="purchase-done" href={routes.research(locale)}>
+        {t("Открыть библиотеку")}
+      </Button>
+    ) : (
+      <Button variant="welcome" id="purchase-done" onClick={onClose}>
+        {t("Открыть библиотеку")}
+      </Button>
+    )
+  ) : step === "method" && viewer.loggedIn ? (
+    <div className="ia-plus__methods" role="group" aria-labelledby={methodTitleId}>
+      <p className="ia-plus__methods-title" id={methodTitleId} ref={methodTitle} tabIndex={-1}>
+        {s.methodTitle}
+      </p>
+      <Button
+        variant="welcome"
+        block
+        id="purchase-bank-card"
+        busy={busy === "bank_card"}
+        disabled={!!busy}
+        onClick={() => void pay("bank_card")}
+      >
+        {s.methodCard}
+      </Button>
+      <Button
+        variant="secondary"
+        block
+        className="ia-plus__method-alt"
+        id="purchase-sbp"
+        busy={busy === "sbp"}
+        disabled={!!busy}
+        onClick={() => void pay("sbp")}
+      >
+        {s.methodSbp}
+      </Button>
+      <button type="button" className="ia-plus__secondary" disabled={!!busy} onClick={() => setStep("offer")}>
+        {t("Назад")}
+      </button>
+    </div>
+  ) : (
+    <Button variant="welcome" id="purchase-access" onClick={primary}>
+      {t("Купить навсегда")}
+    </Button>
+  );
+
+  // The app's secondary row: «Остаться с бесплатным разбором» / «Закрыть» once unlocked.
+  const secondaryControl =
+    variant === "sheet" || (plus && onClose) ? (
+      <button type="button" className="ia-plus__secondary" id="paywall-free" onClick={onClose}>
+        {plus ? t("Закрыть") : t("Остаться с бесплатным разбором")}
+      </button>
+    ) : !plus ? (
+      <Link className="ia-plus__secondary" id="paywall-free" href={offer.freeTopicHref}>
+        {t("Остаться с бесплатным разбором")}
+      </Link>
+    ) : null;
+
+  const footer = (
+    <div className={cx("ia-plus__footer", variant === "welcome" && "ia-plus__footer--slot")}>
+      {!plus ? (
+        <p className="ia-plus__disclosure" id="paywall-lifetime-price">
+          <strong>{t("%1$@ один раз", [offer.priceLabel])}</strong>
+          <span>{t("Пожизненный доступ. Без подписки.")}</span>
+        </p>
+      ) : null}
+      {primaryControl}
+      {secondaryControl}
+    </div>
+  );
 
   return (
-    <div className={cx("ia-plus", variant === "page" ? "ia-plus--page" : "ia-plus--sheet")}>
+    <div className={cx("ia-plus", `ia-plus--${variant}`)}>
       <PlusArt />
 
       <div className="ia-plus__head">
-        <Title id="paywall-heading" className="ia-plus__title">
+        <Title
+          id="paywall-heading"
+          ref={titleRef}
+          tabIndex={titleRef ? -1 : undefined}
+          className="ia-plus__title"
+        >
           {plus ? t("Доступ открыт") : t("Полный доступ")}
         </Title>
         <p className="ia-plus__lead">{t("Все разборы и идеи, новые выпуски и экспорт материалов.")}</p>
       </div>
 
-      {!plus ? (
-        <>
-          <ul className="ia-plus__benefits" aria-label={s.benefitsLabel}>
-            {offer.benefits.map((b) => (
-              <li key={b}>
-                <CheckIcon size={17} strokeWidth={2.4} aria-hidden="true" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
+      {/* ClarityPaywall.swift:51-55: plans, status lines and the legal row, 12 apart. */}
+      <div className="ia-plus__group">
+        {!plus ? (
           <div className="ia-plus__plan" id="paywall-plan-lifetime" data-selected="true">
-            <RadioOnIcon className="ia-plus__plan-radio" size={21} strokeWidth={2} aria-hidden="true" />
+            <RadioOn />
             <span className="ia-plus__plan-text">
-              <span className="ia-plus__plan-title">{s.planTitle}</span>
+              <span className="ia-plus__plan-title">{t("Навсегда")}</span>
               <span className="ia-plus__plan-detail">{t("Один платёж. Без продления.")}</span>
             </span>
             <span className="ia-plus__plan-price">{offer.priceLabel}</span>
           </div>
-        </>
-      ) : (
-        <p className="ia-plus__unlocked" id="purchase-unlocked">
-          {t("Полный доступ активен")}
-        </p>
-      )}
-
-      {error ? (
-        <p className="ia-plus__error" id="purchase-error" role="alert">
-          {error}
-        </p>
-      ) : null}
-
-      <div className="ia-plus__footer">
-        {!plus ? (
-          <p className="ia-plus__disclosure" id="paywall-lifetime-price">
-            <strong>{t("%1$@ один раз", [offer.priceLabel])}</strong>
-            <span>{t("Пожизненный доступ. Без подписки.")}</span>
-          </p>
-        ) : null}
-
-        {plus ? (
-          variant === "page" ? (
-            <Button variant="welcome" id="purchase-done" href={routes.research(locale)}>
-              {t("Открыть библиотеку")}
-            </Button>
-          ) : (
-            <Button variant="welcome" id="purchase-done" onClick={onClose}>
-              {t("Открыть библиотеку")}
-            </Button>
-          )
-        ) : step === "method" && viewer.loggedIn ? (
-          <div className="ia-plus__methods" role="group" aria-labelledby={methodTitleId}>
-            <p className="ia-plus__methods-title" id={methodTitleId}>
-              {s.methodTitle}
-            </p>
-            <Button
-              variant="welcome"
-              block
-              id="purchase-bank-card"
-              busy={busy === "bank_card"}
-              disabled={!!busy}
-              onClick={() => void pay("bank_card")}
-            >
-              {s.methodCard}
-            </Button>
-            <Button
-              variant="secondary"
-              block
-              className="ia-plus__method-alt"
-              id="purchase-sbp"
-              busy={busy === "sbp"}
-              disabled={!!busy}
-              onClick={() => void pay("sbp")}
-            >
-              {s.methodSbp}
-            </Button>
-            <Button variant="text" disabled={!!busy} onClick={() => setStep("offer")}>
-              {t("Назад")}
-            </Button>
-          </div>
         ) : (
-          <Button variant="welcome" id="purchase-access" onClick={primary}>
-            {t("Купить навсегда")}
-          </Button>
+          <p className="ia-plus__unlocked" id="purchase-unlocked">
+            {t("Полный доступ активен")}
+          </p>
         )}
 
-        {!plus && !viewer.loggedIn ? <p className="ia-plus__fine">{s.signInFirst}</p> : null}
-
-        {variant === "sheet" ? (
-          <button type="button" className="ia-plus__secondary" id="paywall-free" onClick={onClose}>
-            {secondaryLabel}
-          </button>
-        ) : !plus ? (
-          <Link className="ia-plus__secondary" id="paywall-free" href={offer.freeTopicHref}>
-            {secondaryLabel}
-          </Link>
+        {error ? (
+          <p className="ia-plus__error" id="purchase-error" role="alert">
+            {error}
+          </p>
         ) : null}
+        {!plus && !viewer.loggedIn ? <p className="ia-plus__note">{s.signInFirst}</p> : null}
+        {!plus ? <p className="ia-plus__note">{s.payNote}</p> : null}
+
+        <nav className="ia-plus__legal" aria-label={s.legalLabel}>
+          {!viewer.loggedIn ? (
+            <button type="button" id="restore-access" onClick={() => openSignIn({ reason: "restore" })}>
+              {s.restore}
+            </button>
+          ) : null}
+          <Link href={href(locale, "offer", "payment")}>{s.offerLink}</Link>
+          <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>
+          <Link href={routes.privacy(locale)} id="paywall-privacy">
+            {t("Конфиденциальность")}
+          </Link>
+          <Link href={routes.contacts(locale)}>{s.supportLink}</Link>
+        </nav>
       </div>
 
-      {!plus ? <p className="ia-plus__fine ia-plus__paynote">{s.payNote}</p> : null}
-
-      <nav className="ia-plus__legal" aria-label={s.legalLabel}>
-        {!viewer.loggedIn ? (
-          <button type="button" id="restore-access" onClick={() => openSignIn({ reason: "restore" })}>
-            {s.restore}
-          </button>
-        ) : null}
-        <Link href={href(locale, "offer", "payment")}>{s.offerLink}</Link>
-        <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>
-        <Link href={routes.contacts(locale)}>{s.supportLink}</Link>
-      </nav>
-
-      <section className="ia-plus__iphone" aria-label={s.iphoneTitle}>
+      <div className="ia-plus__iphone">
         <p>{s.iphoneNote}</p>
         <AppStoreBadge size="sm" />
-      </section>
+      </div>
+
+      {variant === "welcome" ? (footerTarget ? createPortal(footer, footerTarget) : null) : footer}
     </div>
   );
 }

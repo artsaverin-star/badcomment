@@ -166,8 +166,12 @@ export function TocRail({ toc }: { toc: TocEntry[] }) {
   const t = useT();
   const [current, setCurrent] = useState<string | null>(null);
 
+  // Scroll-spy only while the rail is shown (≥ 1200, research.css): no per-frame layout reads
+  // on phones and tablets (review performance P12).
   useEffect(() => {
+    const wide = window.matchMedia("(min-width: 1200px)");
     let frame = 0;
+    let attached = false;
     const update = () => {
       frame = 0;
       const line = Math.min(window.innerHeight * 0.3, 220);
@@ -183,13 +187,27 @@ export function TocRail({ toc }: { toc: TocEntry[] }) {
     const onScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
     };
-    frame = window.requestAnimationFrame(update);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
+    const attach = () => {
+      if (attached) return;
+      attached = true;
+      frame = window.requestAnimationFrame(update);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+    };
+    const detach = () => {
+      if (!attached) return;
+      attached = false;
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
+      frame = 0;
+    };
+    const sync = () => (wide.matches ? attach() : detach());
+    sync();
+    wide.addEventListener("change", sync);
+    return () => {
+      wide.removeEventListener("change", sync);
+      detach();
     };
   }, [toc]);
 

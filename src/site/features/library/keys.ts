@@ -7,10 +7,9 @@
 
 /** Keys used by <BookmarkButton> and <NoteSheet> (also re-exported by ./components). */
 export const LIBRARY_UI_KEYS = [
-  // BookmarkButton
+  // BookmarkButton (name + tooltip)
   "Сохранить",
   "Убрать из сохранённого",
-  "Закладка сохранена",
   // NoteSheet
   "Моя заметка",
   "Отмена",

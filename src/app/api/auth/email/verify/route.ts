@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { verifyEmailToken, loginWithEmail } from "@/lib/emailAuth";
 import { appOrigin } from "@/lib/googleAuth";
+import { safeLocalPath } from "@/lib/safeReturn";
 
 export const dynamic = "force-dynamic";
 
@@ -8,8 +9,9 @@ export const dynamic = "force-dynamic";
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const token = url.searchParams.get("token");
-  const rtParam = url.searchParams.get("rt") || "/cards";
-  const rt = rtParam.startsWith("/") && !rtParam.startsWith("//") ? rtParam : "/cards";
+  // Only a same-site path (src/lib/safeReturn.ts): "//x", "/\x", "/\t/x", encoded "//",
+  // dot segments and /api… fall back to the historical landing spot.
+  const rt = safeLocalPath(url.searchParams.get("rt"), "/cards");
   const origin = appOrigin(req);
 
   const email = verifyEmailToken(token);

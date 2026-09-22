@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { SITE_URL } from "@/site/config";
 import { CheckoutReturn } from "@/site/features/plus/CheckoutReturn";
+import { accountShareMeta } from "@/site/features/plus/meta";
 import { PLUS_UI_KEYS } from "@/site/features/plus/server";
 import { plusStrings } from "@/site/features/plus/strings";
 import { I18nProvider } from "@/site/i18n/client";
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
     },
     robots: { index: false, follow: false },
+    ...accountShareMeta(lang, url(lang), s.returnTitle, s.returnDescription),
   };
 }
 
@@ -49,7 +51,7 @@ export default async function LibraryPage({
 
   return (
     <div className="ia-page ia-page--welcome">
-      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)}>
+      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)} web={{ plus: plusStrings[lang] }}>
         <CheckoutReturn checkout={checkout.slice(0, 64)} />
       </I18nProvider>
     </div>

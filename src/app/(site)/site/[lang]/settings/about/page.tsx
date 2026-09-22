@@ -8,13 +8,13 @@ import { settingsStrings } from "@/site/features/settings/strings";
 import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { routes } from "@/site/routing";
-import { Heading } from "@/site/ui/Heading";
 import { BackButton, DetailToolbar } from "@/site/ui/Toolbar";
 import "@/site/features/settings/settings.css";
 
 // «О материалах» (spec 02 §8.7) with the web deltas of spec 09 G11: «Чтение без интернета» is
 // dropped (#6), «Твои записи» says browser or account (#5), the collection date is formatted in
-// the page locale. noindex (spec 09 G9).
+// the page locale. Like the app (ClaritySettings.swift:306, inline navigation title) the title
+// sits small and centred in the bar — it is the page's h1. noindex (spec 09 G9).
 
 type Params = { lang: string };
 
@@ -51,9 +51,11 @@ export default async function SettingsAboutPage({ params }: { params: Promise<Pa
 
   return (
     <div>
-      <DetailToolbar leading={<BackButton label={t("Назад")} fallbackHref={routes.settings(lang)} />} />
+      <DetailToolbar
+        leading={<BackButton label={t("Назад")} fallbackHref={routes.settings(lang)} />}
+        title={<h1 className="ia-set-about-title">{t("О материалах")}</h1>}
+      />
       <div className="ia-page ia-page--library ia-set-about">
-        <Heading title={t("О материалах")} />
         {blocks.map(([title, body]) => (
           <section key={title} className="ia-set-about__block">
             <h2>{title}</h2>

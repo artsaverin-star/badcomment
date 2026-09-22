@@ -45,12 +45,12 @@ export const legalStrings = defineStrings({
     paymentNote: "Öffentliches Angebot für Käufe auf der Website inapp.pro (Dokument auf Russisch).",
     privacyTitle: "Datenschutz",
     privacyDescription:
-      "Welche Daten die Website inapp.pro verarbeitet: Anmeldung und Konto, Lesezeichen und Notizen, Zahlungen, Analyse, Cookies – und wie du sie löschst.",
+      "Welche Daten die Website inapp.pro verarbeitet: Anmeldung und Konto, Lesezeichen und Notizen, Zahlungen, Analyse, Cookies — und wie du sie löschst.",
   },
   fr: {
     supportTitle: "Assistance",
     termsDescription:
-      "Conditions d’utilisation de l’app iOS inApp et du site inapp.pro : l’abonnement inApp Plus, les remboursements, la confidentialité et le contact.",
+      "Conditions d’utilisation de l’app iOS inApp et du site inapp.pro : l’abonnement inApp Plus, les remboursements, la confidentialité et le contact.",
     supportDescription:
       "Comment contacter le développeur d’inApp, restaurer un achat, gérer ton abonnement et demander un remboursement.",
     paymentTitle: "Offre publique",
@@ -58,16 +58,16 @@ export const legalStrings = defineStrings({
     paymentNote: "Offre publique pour les achats sur le site inapp.pro (document en russe).",
     privacyTitle: "Confidentialité",
     privacyDescription:
-      "Quelles données le site inapp.pro traite : connexion et compte, signets et notes, paiements, statistiques, cookies — et comment les supprimer.",
+      "Quelles données le site inapp.pro traite : connexion et compte, signets et notes, paiements, statistiques, cookies — et comment les supprimer.",
   },
   ja: {
     supportTitle: "サポート",
     termsDescription:
       "iOSアプリ「inApp」とinapp.proの利用規約：inApp Plusのサブスクリプション、返金、プライバシー、お問い合わせ。",
     supportDescription: "inAppの開発者への連絡方法、購入の復元、サブスクリプションの管理、返金の申請について。",
-    paymentTitle: "公開オファー",
-    paymentDescription: "ウェブサイトinapp.proの有料アクセスに関する公開オファー（ロシア語の文書）。",
-    paymentNote: "inapp.proのウェブサイトでの購入に関する公開オファーです（ロシア語の文書）。",
+    paymentTitle: "ウェブ決済の規約",
+    paymentDescription: "ウェブサイトinapp.proの有料アクセスに関するウェブ決済の規約（ロシア語の文書）。",
+    paymentNote: "inapp.proのウェブサイトでの購入に関するウェブ決済の規約です（ロシア語の文書）。",
     privacyTitle: "プライバシー",
     privacyDescription:
       "ウェブサイトinapp.proが扱うデータ：ログインとアカウント、ブックマークとメモ、支払い、アナリティクス、Cookie、そして削除の方法。",

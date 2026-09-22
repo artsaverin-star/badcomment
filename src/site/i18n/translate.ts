@@ -7,8 +7,13 @@
 // with today's five locales "base" is the locale itself).
 // Placeholders: the app's positional "%1$@" (and plain "%@"), plus named "{name}".
 
-import { BUILTIN_UI } from "./builtin";
+// BUILTIN_UI (./builtin.ts, all locales) is NOT imported here: this module ships to the
+// browser (useT, format). The server passes it to makeT (./server.ts); the client only ever
+// translates keys the server already resolved with t.pick() (performance review P2).
 import { INTL_LOCALE, type Locale } from "./locales";
+
+/** Built-in fallback tables (./builtin.ts BUILTIN_UI shape). */
+export type BuiltinUI = Partial<Record<Locale, Readonly<Record<string, string>>>>;
 
 export type UIPack = {
   version: 1;
@@ -85,20 +90,33 @@ export function format(template: string, vars?: Vars): string {
   return template.replace(/\{(\w+)\}/g, (m, k: string) => (k in named ? String(named[k]) : m));
 }
 
+/**
+ * "Label: value" with the locale's punctuation: French puts a no-break space before the colon
+ * (the app packs do: "Résultats : %1$@"), Japanese uses the full-width colon without spaces.
+ *   labelValue("fr", "Langue", "Français") → "Langue : Français"
+ */
+export function labelValue(locale: Locale, label: string, value: string): string {
+  if (locale === "fr") return `${label}\u00a0: ${value}`;
+  if (locale === "ja") return `${label}：${value}`;
+  return `${label}: ${value}`;
+}
+
 export function makeT(
   locale: Locale,
   own: UIPack | null,
   english: UIPack | null,
   extra?: Readonly<Record<string, string>>,
+  /** Server only: the built-in shell strings used when a pack lacks a key. */
+  builtin?: BuiltinUI,
 ): T {
   const lookup = (key: string): string => {
     if (extra && key in extra) return extra[key];
     if (locale === "ru") return key;
     return (
       own?.strings[key] ??
-      BUILTIN_UI[locale]?.[key] ??
+      builtin?.[locale]?.[key] ??
       english?.strings[key] ??
-      BUILTIN_UI.en?.[key] ??
+      builtin?.en?.[key] ??
       key
     );
   };

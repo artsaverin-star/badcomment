@@ -36,19 +36,22 @@ export default async function SupportPage({ params }: { params: Promise<Params> 
   const t = await getT(lang);
   const doc = supportDoc(lang);
   const email = APP_DEVELOPER.email;
+  // "E-mail:" with the locale's punctuation (fr: NBSP before the colon; ja: «メール：», like the
+  // developer rows of supportDoc).
+  const emailLabel = lang === "ja" ? "メール：" : lang === "fr" ? "E-mail\u00a0: " : "E-mail: ";
 
   return (
     <LegalFrame backLabel={t("Назад")} backHref={routes.settings(lang)}>
       <LegalHead title={doc.title} lead={doc.lead} />
 
-      <section className="ia-legal-section" id="contact" aria-labelledby="contact-title">
+      <section className="ia-legal-section" id="contact">
         <h2 className="ia-legal-section__title" id="contact-title">
           {doc.contactTitle}
         </h2>
         <div className="ia-legal-mailcard">
           <p className="ia-legal-mailcard__line">
             <MailIcon size={20} strokeWidth={2} aria-hidden="true" className="ia-legal-mailcard__icon" />
-            <span>E-mail: </span>
+            <span>{emailLabel}</span>
             <a href={`mailto:${email}`} className="ia-legal-mailcard__mail">
               {email}
             </a>
@@ -64,7 +67,7 @@ export default async function SupportPage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
-      <section className="ia-legal-section" id="faq" aria-labelledby="faq-title">
+      <section className="ia-legal-section" id="faq">
         <h2 className="ia-legal-section__title" id="faq-title">
           {doc.faqTitle}
         </h2>
@@ -80,7 +83,7 @@ export default async function SupportPage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
-      <section className="ia-legal-section" id="legal" aria-labelledby="legal-title">
+      <section className="ia-legal-section" id="legal">
         <h2 className="ia-legal-section__title" id="legal-title">
           {doc.legalTitle}
         </h2>
@@ -103,7 +106,7 @@ export default async function SupportPage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
-      <section className="ia-legal-section" id="developer" aria-labelledby="developer-title">
+      <section className="ia-legal-section" id="developer">
         <h2 className="ia-legal-section__title" id="developer-title">
           {doc.developerTitle}
         </h2>

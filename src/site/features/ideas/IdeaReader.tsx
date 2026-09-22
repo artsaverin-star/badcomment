@@ -1,10 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { BookmarkButton, NoteSheet } from "@/site/features/library/components";
 import { useLocale, useT } from "@/site/i18n/client";
-import { FREE_CATEGORY } from "@/site/manifest.generated";
 import { routes } from "@/site/routing";
 import { openPaywall } from "@/site/shell/actions";
 import {
@@ -18,13 +18,15 @@ import {
   ResearchIcon,
   ToolbarPill,
 } from "@/site/ui";
-import { ExportSheet } from "./ExportSheet";
 import "./ideas.css";
 
 // Client chrome of the idea reader (spec 02 §3.3, §3.6; 05 §3.6 J): the toolbar (Назад →
 // the ideas tab; bookmark; ⋯ «Действия с идеей»: «Записать мысль», «Скачать документ»), the
-// footer actions, the note editor and the export sheet. The article itself (`children`) is
-// rendered on the server after the gate.
+// footer actions (ClarityReader.swift:543-565), the note editor and the export sheet. The
+// article itself (`children`) is rendered on the server after the gate.
+
+// The export sheet opens on demand: its code loads with the first open.
+const ExportSheet = dynamic(() => import("./ExportSheet").then((m) => m.ExportSheet), { ssr: false });
 
 export function IdeaReader({
   slug,
@@ -45,6 +47,12 @@ export function IdeaReader({
   const locale = useLocale();
   const [noteOpen, setNoteOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
+  // Mounted from the first open on, so closing still returns focus to the opener.
+  const [exportMounted, setExportMounted] = useState(false);
+  const openExport = () => {
+    setExportMounted(true);
+    setExportOpen(true);
+  };
 
   return (
     <>
@@ -58,7 +66,7 @@ export function IdeaReader({
               label={t("Действия с идеей")}
               items={[
                 { label: t("Записать мысль"), icon: <NoteIcon size={17} />, onSelect: () => setNoteOpen(true) },
-                { label: t("Скачать документ"), icon: <DocumentIcon size={17} />, onSelect: () => setExportOpen(true) },
+                { label: t("Скачать документ"), icon: <DocumentIcon size={17} />, onSelect: openExport },
               ]}
             />
           </ToolbarPill>
@@ -66,7 +74,8 @@ export function IdeaReader({
       />
       <article className="ia-page ia-page--reading ia-idea">
         {children}
-        <nav className="ia-idea__actions" aria-label={t("Действия с идеей")}>
+        {/* Buttons that open dialogs + one link: a group, not a <nav> (a11y m11). */}
+        <div className="ia-idea__actions" role="group" aria-label={t("Действия с идеей")}>
           <Link href={routes.topic(locale, category)} className="ia-idea__action">
             <ResearchIcon size={20} aria-hidden="true" />
             <span className="ia-idea__action-text">
@@ -79,7 +88,7 @@ export function IdeaReader({
               <span className="ia-idea__action-label">{t("Записать свою мысль")}</span>
             </span>
           </button>
-          <button type="button" className="ia-idea__action" aria-haspopup="dialog" onClick={() => setExportOpen(true)}>
+          <button type="button" className="ia-idea__action" aria-haspopup="dialog" onClick={openExport}>
             <DocumentIcon size={20} aria-hidden="true" />
             <span className="ia-idea__action-text">
               <span className="ia-idea__action-label">{t("Скачать документ")}</span>
@@ -88,11 +97,13 @@ export function IdeaReader({
               </span>
             </span>
           </button>
-        </nav>
+        </div>
         {promo}
       </article>
       <NoteSheet open={noteOpen} onClose={() => setNoteOpen(false)} kind="idea" slug={slug} title={title} />
-      <ExportSheet open={exportOpen} onClose={() => setExportOpen(false)} slug={slug} title={title} />
+      {exportMounted ? (
+        <ExportSheet open={exportOpen} onClose={() => setExportOpen(false)} slug={slug} title={title} />
+      ) : null}
     </>
   );
 }
@@ -102,9 +113,21 @@ export function IdeaReader({
  * (`art`, server-rendered), the lock card «Идея доступна в Plus» with «Открыть все материалы»
  * (paywall, source "idea_locked") and «Сначала прочитать бесплатный разбор», then «Моя заметка
  * к материалу» (notes are allowed on locked items; the editor title is «Идея в Plus»).
- * No title, description, category or bookmark.
+ * No title, description, category or bookmark (DECISIONS §9: locked stays locked, like the app).
  */
-export function LockedIdea({ slug, art, promo }: { slug: string; art: ReactNode; promo?: ReactNode }) {
+export function LockedIdea({
+  slug,
+  art,
+  freeTopicHref,
+  promo,
+}: {
+  slug: string;
+  art: ReactNode;
+  /** The free breakdown (routes.topic(L, FREE_CATEGORY)), passed by the page so the client
+   *  bundle does not pull in the generated manifest. */
+  freeTopicHref: string;
+  promo?: ReactNode;
+}) {
   const t = useT();
   const locale = useLocale();
   const [noteOpen, setNoteOpen] = useState(false);
@@ -126,7 +149,7 @@ export function LockedIdea({ slug, art, promo }: { slug: string; art: ReactNode;
           <Button variant="primary" onClick={() => openPaywall({ source: "idea_locked" })}>
             {t("Открыть все материалы")}
           </Button>
-          <Link href={routes.topic(locale, FREE_CATEGORY)} className="ia-idea-gate__link">
+          <Link href={freeTopicHref} className="ia-idea-gate__link">
             {t("Сначала прочитать бесплатный разбор")}
           </Link>
         </section>

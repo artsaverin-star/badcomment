@@ -20,15 +20,23 @@
   text-align: start;
   font: inherit;
   border-radius: var(--ia-radius-idea-card);
-  box-shadow:
-    var(--ia-shadow-idea-card),
-    inset 0 0 0 1px var(--ia-line-65);
+  box-shadow: var(--ia-shadow-idea-card);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition:
     opacity var(--ia-dur-press) var(--ia-ease-press),
     transform 200ms ease,
     box-shadow 200ms ease;
+}
+/* The hairline is an .overlay in SwiftUI (ClarityIdeaCard.swift:62-64), i.e. drawn OVER the
+   full-bleed art; an inset box-shadow would paint under the <img>. */
+.ia-idea-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 var(--ia-stroke-card) var(--ia-line-65);
+  pointer-events: none;
 }
 .ia-idea-card:active {
   opacity: 0.85;
@@ -40,9 +48,7 @@
 @media (hover: hover) {
   .ia-idea-card:hover {
     transform: translateY(-1px);
-    box-shadow:
-      0 8px 32px rgb(0 0 0 / 0.08),
-      inset 0 0 0 1px var(--ia-line-65);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 0.08);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -69,6 +75,8 @@
   padding: 20px;
 }
 .ia-idea-card__title {
+  margin: 0;
+  font-weight: 400;
   font-family: var(--ia-font-serif);
   font-size: var(--ia-fs-card-title);
   line-height: var(--ia-lh-card-title);
@@ -91,7 +99,9 @@
   right: 16px;
   bottom: 16px;
 }
-/* In a grid row the cards share one height; a locked card lets its art fill it. */
+/* In a grid row the text cards share one height. A locked card is its 3:2 art only
+   (ClarityIdeaCardArt.swift:37): it keeps that height and the row simply ends unevenly
+   (the art is never flex-grown, so no Safari basis-0 collapse either). */
 .ia-ideas-grid > li {
   display: flex;
 }
@@ -99,9 +109,9 @@
   flex: 1;
   margin: 0;
 }
-.ia-ideas-grid .ia-idea-card--locked .ia-idea-card__art {
-  flex: 1;
-  min-height: 0;
+.ia-ideas-grid .ia-idea-card--locked {
+  flex: none;
+  align-self: flex-start;
 }
 
 /* ---- «Идеи» catalog (spec 02 §2.6) ---- */
@@ -116,18 +126,11 @@
   align-items: flex-start;
   gap: 14px;
 }
+/* Search, then the pill below it (ClarityCatalogs.swift:192-213); search max 680 (spec 05 §3.2). */
 .ia-ideas__controls .ia-search {
   width: 100%;
+  max-width: 680px;
   box-sizing: border-box;
-}
-@media (min-width: 760px) {
-  .ia-ideas__controls {
-    flex-direction: row;
-    align-items: center;
-  }
-  .ia-ideas__controls .ia-search {
-    flex: 0 1 560px;
-  }
 }
 .ia-ideas__pill {
   display: inline-flex;
@@ -162,15 +165,16 @@
     background: color-mix(in srgb, var(--ia-surface) 92%, var(--ia-ink));
   }
 }
+/* The pill is 14 above the first card (LazyVStack spacing 14, ClarityCatalogs.swift:189). */
 .ia-ideas__grid {
-  margin: 10px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .ia-ideas__empty {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 .ia-ideas__empty-title {
   margin: 0;
@@ -207,7 +211,8 @@
   width: 100%;
   min-height: 44px;
   box-sizing: border-box;
-  padding: 11px 18px;
+  /* A List row (44) + .padding(.vertical, 7) ≈ 58 (ClarityCatalogs.swift:272). */
+  padding: 18px 20px;
   border: 0;
   background: transparent;
   color: var(--ia-ink);
@@ -215,8 +220,12 @@
   text-align: start;
   cursor: pointer;
 }
+/* Separators inset 20 from the leading edge, like the system List. */
 .ia-picker__list > li + li .ia-picker__row {
-  box-shadow: inset 0 1px 0 var(--ia-line-65);
+  background-image: linear-gradient(var(--ia-line-65), var(--ia-line-65));
+  background-position: 20px 0;
+  background-size: calc(100% - 20px) 1px;
+  background-repeat: no-repeat;
 }
 .ia-picker__row > span {
   flex: 1;
@@ -226,7 +235,7 @@
 }
 @media (hover: hover) {
   .ia-picker__row:hover {
-    background: var(--ia-ink-045);
+    background-color: var(--ia-ink-045);
   }
 }
 
@@ -272,24 +281,6 @@
   line-height: var(--ia-lh-lead);
   color: var(--ia-secondary);
 }
-.ia-idea__category {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 32px;
-  padding: 6px 14px;
-  border-radius: var(--ia-radius-pill);
-  background: var(--ia-accent-soft);
-  color: var(--ia-accent);
-  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
-}
-@media (hover: hover) {
-  .ia-idea__category:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-}
 .ia-idea__blocks {
   display: flex;
   flex-direction: column;
@@ -321,6 +312,7 @@
   box-shadow: inset 2px 0 0 var(--ia-line);
 }
 .ia-idea__quote-mark {
+  display: block;
   color: var(--ia-secondary);
 }
 .ia-idea__quote-text {
@@ -329,23 +321,6 @@
   font-size: var(--ia-fs-quote);
   line-height: var(--ia-lh-quote);
   color: var(--ia-ink);
-}
-.ia-idea__quote-caption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 10px;
-  font-size: var(--ia-fs-footnote);
-  line-height: var(--ia-lh-footnote);
-  color: var(--ia-secondary);
-}
-.ia-idea__stars {
-  display: inline-flex;
-  gap: 1px;
-  color: var(--ia-accent);
-}
-.ia-idea__stars .is-off {
-  color: var(--ia-line);
 }
 .ia-idea__inset {
   position: relative;
@@ -369,17 +344,20 @@
 }
 .ia-idea__inset-title {
   margin: 0;
+  color: var(--ia-ink);
   font-family: var(--ia-font-serif);
   font-weight: 400;
   font-size: var(--ia-fs-card-title);
   line-height: var(--ia-lh-card-title);
 }
 
-/* Footer actions (spec 02 §3.6) */
+/* Footer actions (spec 02 §3.6; ClarityReader.swift:543-565): VStack(12), the first row
+   20 below the rule (Divider + .padding(.bottom, 8) + 12), ink icons (tint ink, .plain). */
 .ia-idea__actions {
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
+  gap: 12px;
+  padding-top: 20px;
   border-top: 1px solid var(--ia-line);
 }
 .ia-idea__action {
@@ -400,12 +378,19 @@
 .ia-idea__action svg {
   flex: none;
   margin-top: 1px;
-  color: var(--ia-accent);
+  color: currentColor;
+}
+/* «Скачать документ»: .padding(.vertical, 12), icon .padding(.top, 3), VStack(spacing: 6). */
+.ia-idea__action:last-child {
+  padding-block: 12px;
+}
+.ia-idea__action:last-child svg {
+  margin-top: 3px;
 }
 .ia-idea__action-text {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 6px;
 }
 .ia-idea__action-sub {
   font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
@@ -438,7 +423,7 @@
   font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
 }
 .ia-idea-gate__label svg {
-  color: var(--ia-accent);
+  color: currentColor;
 }
 .ia-idea-gate__body {
   margin: 0;
@@ -446,12 +431,13 @@
   line-height: var(--ia-lh-body-relaxed);
   color: var(--ia-secondary);
 }
+/* The gate is ink throughout (ClarityContentAccess.swift:84-116): plain, leading-aligned. */
 .ia-idea-gate__link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 44px;
-  color: var(--ia-accent);
+  color: var(--ia-ink);
   font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
 }
 @media (hover: hover) {
@@ -469,25 +455,28 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--ia-accent);
+  color: var(--ia-ink);
   font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
   cursor: pointer;
 }
 
 /* ---- Export sheet (spec 02 §7.2, spec 05 §3.6 N) ---- */
+/* ClarityReadingSheet (ClarityReader.swift:885-886): VStack(spacing: 28), top 24
+   (= 20 here + the sheet body's 4). The hero adds its own .padding(.vertical, 4). */
 .ia-export {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
   width: 100%;
   max-width: var(--ia-w-reading);
   margin-inline: auto;
-  padding-top: 4px;
+  padding-top: 20px;
 }
 .ia-export__hero {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
+  padding-block: 4px;
 }
 .ia-export__title {
   margin: 0;
@@ -497,17 +486,24 @@
   line-height: var(--ia-lh-title);
   white-space: pre-line;
 }
+/* ClarityArticleHero subtitle: the lead font (Georgia 20, line spacing 6). */
 .ia-export__subtitle {
   margin: 0;
   font-family: var(--ia-font-serif);
-  font-size: var(--ia-fs-subtitle);
-  line-height: var(--ia-lh-subtitle);
+  font-size: var(--ia-fs-lead);
+  line-height: var(--ia-lh-lead);
   color: var(--ia-secondary);
+}
+/* The included list, the info and the hint share one VStack(spacing: 20) (:979-989). */
+.ia-export__included {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .ia-export__list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -531,8 +527,7 @@
 .ia-export__item-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-top: 5px;
+  gap: 5px;
 }
 .ia-export__item-title {
   font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
@@ -543,6 +538,12 @@
   font-size: var(--ia-fs-subheadline);
   line-height: var(--ia-lh-subheadline);
   color: var(--ia-secondary);
+}
+/* Preview title + text: VStack(spacing: 18) (:991-997). */
+.ia-export__preview-group {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 .ia-export__preview-title {
   margin: 0;
@@ -564,10 +565,12 @@
   gap: 12px;
   color: var(--ia-secondary);
 }
+/* ClarityReader.swift:1029-1054: VStack(spacing: 8); HStack(spacing: 20) of two buttons,
+   each maxWidth ∞ × minHeight 44, .subheadline.weight(.medium), ink; the footnote is ink. */
 .ia-export__actions {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
   max-width: var(--ia-w-reading);
   margin-inline: auto;
@@ -575,14 +578,20 @@
 .ia-export__row {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 20px;
+}
+.ia-export__row > .ia-btn {
+  flex: 1;
+  min-height: 44px;
+  color: var(--ia-ink);
+  font-weight: 500;
 }
 .ia-export__done {
   margin: 0;
   text-align: center;
   font-size: var(--ia-fs-footnote);
   line-height: var(--ia-lh-footnote);
-  color: var(--ia-secondary);
+  color: var(--ia-ink);
 }
 .ia-export__alert {
   display: flex;

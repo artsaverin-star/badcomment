@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { forwardRef, useEffect, useRef, useState, type ButtonHTMLAttributes, type ReactNode, type RefObject } from "react";
 import { canGoBackInApp } from "../shell/navigation";
 import { cx } from "./cx";
 
-// Detail toolbar (spec 05 §3.6 J): a sticky, transparent bar with frosted "glass" pills —
-// leading «Назад», optional centered title, trailing group of icon buttons (bookmark,
-// contents, ⋯). Reader chrome is tinted ink, not accent.
+// Detail toolbar (spec 05 §3.6 J): a sticky bar with frosted "glass" pills — leading
+// «Назад», optional centered title, trailing group of icon buttons (bookmark, contents, ⋯).
+// Reader chrome is tinted ink, not accent. Like the app's inline navigation bar
+// (ClarityReader.swift:193-195, ClarityContentAccess.swift:117) it is transparent while
+// nothing is under it and gets a frosted paper backdrop (`data-scrolled`) as soon as the page
+// content scrolls beneath it — so a centered title always has a bar behind it.
 //
 //   <DetailToolbar
 //     leading={<BackButton fallbackHref={routes.research(L)} label={t("Назад")} />}
@@ -20,23 +23,78 @@ import { cx } from "./cx";
 //       <Menu label={t("Ещё")} items={…} />
 //     </ToolbarPill>}
 //   />
+//
+// `revealTitle`: the title repeats the page heading (e.g. the topic name) — keep it hidden
+// until the content scrolls under the bar, and out of the accessibility tree (the <h1> below
+// already names the page). Long titles truncate between the two side groups.
+
+/** True once page content has scrolled under the (stuck) sticky bar. */
+function useStuck(ref: RefObject<HTMLElement | null>): boolean {
+  const [stuck, setStuck] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let frame = 0;
+    let stickyTop = 0;
+    const measureTop = () => {
+      stickyTop = Number.parseFloat(getComputedStyle(el).top) || 0;
+    };
+    const update = () => {
+      frame = 0;
+      setStuck(window.scrollY > 0 && el.getBoundingClientRect().top <= stickyTop + 1);
+    };
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    const onResize = () => {
+      measureTop(); // the sticky offset changes at the desktop breakpoint (below the top bar)
+      schedule();
+    };
+    measureTop();
+    schedule(); // a reload or a hash link can open the page already scrolled
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", onResize);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [ref]);
+  return stuck;
+}
 
 export function DetailToolbar({
   leading,
   title,
   trailing,
+  revealTitle,
   className,
 }: {
   leading?: ReactNode;
   title?: ReactNode;
   trailing?: ReactNode;
+  /** Show the title only once content scrolls under the bar (and hide it from AT). */
+  revealTitle?: boolean;
   className?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const stuck = useStuck(ref);
   return (
-    <div className={cx("ia-toolbar", className)}>
-      <div className="flex items-center">{leading}</div>
-      {title ? <div className="ia-toolbar__title">{title}</div> : null}
-      <div className="flex items-center gap-2">{trailing}</div>
+    <div
+      ref={ref}
+      className={cx("ia-toolbar", className)}
+      data-scrolled={stuck || undefined}
+      data-reveal-title={revealTitle && title ? true : undefined}
+    >
+      <div className="ia-toolbar__leading">{leading}</div>
+      {title ? (
+        <div className="ia-toolbar__title" aria-hidden={revealTitle || undefined}>
+          {title}
+        </div>
+      ) : (
+        <span aria-hidden="true" />
+      )}
+      <div className="ia-toolbar__trailing">{trailing}</div>
     </div>
   );
 }

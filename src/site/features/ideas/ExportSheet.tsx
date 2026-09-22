@@ -1,24 +1,26 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNote } from "@/site/features/library/store";
 import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
 import { Button, CheckIcon, CopyIcon, DownloadIcon, ShareIcon, Sheet, SheetAction, Skeleton, SkeletonText } from "@/site/ui";
-import { exportFilename } from "./document";
+import { exportFilename, withNote } from "./document";
 import { ideasStrings } from "./strings";
 import "./ideas.css";
 
-// «Готовый документ» (ClarityExportSheet, spec 02 §7.2; web mapping §7.5, 09 §5 #16):
-// hero «Весь контекст. И твоя идея.», what's included (1 breakdown, 2 idea, 3 the note — only
-// when there is one), the .txt info line, and the preview = the exact text of the file.
-// The server builds the document (POST /api/site/export/<id>, gated) with the browser's note.
+// «Готовый документ» (ClarityExportSheet, ClarityReader.swift:966-1055; spec 02 §7.2; web
+// mapping §7.5, 09 §5 #16): hero «Весь контекст. И твоя идея.», what's included (1 breakdown,
+// 2 idea, 3 the note — only when there is one), the .txt info line, and the preview = the exact
+// text of the file. The server builds parts 1–2 (POST /api/site/export/<id>, gated); the note
+// never leaves the browser — part 3 is appended here, exactly as the app does on the device
+// (spec 09 G10, ClarityExportDocument.swift:61-62).
 // Pinned actions: «Скачать документ» (Blob download → «Документ сохранён»), «Копировать» →
 // «Скопировано», «Поделиться» only where the browser can share files. Errors use the app's
 // alert «Документ не сохранён» + «Понятно» (spec 02 §7.6, 09 G13).
 
 type State =
   | { status: "loading" }
-  | { status: "ready"; text: string }
+  | { status: "ready"; text: string; summaryOnly: boolean }
   | { status: "error"; forbidden: boolean };
 
 export function ExportSheet({
@@ -43,14 +45,12 @@ export function ExportSheet({
   const [copied, setCopied] = useState(false);
   const [canShare, setCanShare] = useState(false);
   const [alert, setAlert] = useState<string | null>(null);
+  /** One persistent live region for the sheet (a11y m9): written, never re-created. */
+  const [announcement, setAnnouncement] = useState("");
   const [wasOpen, setWasOpen] = useState(open);
   const filename = exportFilename(title);
-  const noteRef = useRef(note);
-  useEffect(() => {
-    noteRef.current = note;
-  });
 
-  // A fresh document every time the sheet opens (the note may have changed meanwhile).
+  // A fresh document every time the sheet opens.
   if (open !== wasOpen) {
     setWasOpen(open);
     if (open) {
@@ -58,6 +58,7 @@ export function ExportSheet({
       setSaved(false);
       setCopied(false);
       setAlert(null);
+      setAnnouncement("");
     }
   }
 
@@ -67,7 +68,7 @@ export function ExportSheet({
     fetch(`/api/site/export/${encodeURIComponent(slug)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ lang: locale, note: noteRef.current }),
+      body: JSON.stringify({ lang: locale }),
       signal: controller.signal,
     })
       .then(async (res) => {
@@ -76,7 +77,7 @@ export function ExportSheet({
           return;
         }
         const text = await res.text();
-        setState({ status: "ready", text });
+        setState({ status: "ready", text, summaryOnly: res.headers.get("X-Export-Research") === "summary" });
       })
       .catch((err: unknown) => {
         if ((err as { name?: string })?.name === "AbortError") return;
@@ -85,7 +86,8 @@ export function ExportSheet({
     return () => controller.abort();
   }, [open, slug, locale, attempt]);
 
-  const text = state.status === "ready" ? state.text : null;
+  // The file = the server's parts 1–2 + this browser's note (part 3).
+  const text = state.status === "ready" ? withNote(state.text, note, t) : null;
 
   const makeFile = useCallback(
     (body: string) => new File([body], filename, { type: "text/plain;charset=utf-8" }),
@@ -117,6 +119,7 @@ export function ExportSheet({
       a.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 30_000);
       setSaved(true);
+      setAnnouncement(t("Документ сохранён"));
     } catch {
       setAlert(t("Не удалось сохранить документ. Попробуй ещё раз или поделись файлом."));
     }
@@ -127,6 +130,7 @@ export function ExportSheet({
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      setAnnouncement(t("Скопировано"));
     } catch {
       setAlert(t("Не удалось подготовить файл. Попробуй ещё раз."));
     }
@@ -149,9 +153,16 @@ export function ExportSheet({
     ...(hasNote ? ([[t("Твоя заметка"), t("Сохранённая мысль к этой идее.")]] as Array<[string, string]>) : []),
   ];
 
+  // ClarityReader.swift:1029-1054: VStack(8) { primary; HStack(20) { Copy | Share } ink; footnote }.
   const footer = (
     <div className="ia-export__actions">
-      <Button variant="primary" block disabled={text === null} onClick={download} icon={<DownloadIcon size={18} aria-hidden="true" />}>
+      <Button
+        variant="primary"
+        block
+        disabled={text === null}
+        onClick={download}
+        icon={<DownloadIcon size={16} strokeWidth={2.4} aria-hidden="true" />}
+      >
         {t("Скачать документ")}
       </Button>
       <div className="ia-export__row">
@@ -177,7 +188,7 @@ export function ExportSheet({
         ) : null}
       </div>
       {saved ? (
-        <p className="ia-export__done" role="status">
+        <p className="ia-export__done" aria-hidden="true">
           {t("Документ сохранён")}
         </p>
       ) : null}
@@ -196,56 +207,63 @@ export function ExportSheet({
         footer={footer}
       >
         <div className="ia-export">
+          <p className="sr-only" role="status">
+            {state.status === "loading" ? s.exportLoading : announcement}
+          </p>
           <div className="ia-export__hero">
             <p className="ia-export__title">{t("Весь контекст.\nИ твоя идея.")}</p>
             <p className="ia-export__subtitle">{title}</p>
           </div>
-          <ol className="ia-export__list">
-            {items.map(([name, detail], i) => (
-              <li key={name} className="ia-export__item">
-                <span className="ia-export__num" aria-hidden="true">
-                  {i + 1}
-                </span>
-                <span className="ia-export__item-text">
-                  <span className="ia-export__item-title">{name}</span>
-                  <span className="ia-export__item-detail">{detail}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-          <p className="ia-export__info">
-            {t("Один текстовый файл (.txt). Можно читать, редактировать или передать в ИИ вместе со своим вопросом.")}
-          </p>
-          <h3 className="ia-export__preview-title">{t("Предпросмотр документа")}</h3>
-          {state.status === "ready" ? (
-            <div className="ia-export__preview" tabIndex={0} aria-label={t("Предпросмотр документа")}>
-              {state.text}
-            </div>
-          ) : state.status === "loading" ? (
-            <div className="ia-export__status" aria-busy="true">
-              <span className="sr-only" role="status">
-                {s.exportLoading}
-              </span>
-              <Skeleton width="66%" height={22} />
-              <SkeletonText lines={8} lineHeight={27} className="w-full" />
-            </div>
-          ) : (
-            <div className="ia-export__status" role="alert">
-              <p className="m-0">{state.forbidden ? s.exportForbidden : t("Не удалось подготовить файл. Попробуй ещё раз.")}</p>
-              {state.forbidden ? null : (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={() => {
-                    setState({ status: "loading" });
-                    setAttempt((n) => n + 1);
-                  }}
-                >
-                  {t("Повторить")}
-                </Button>
-              )}
-            </div>
-          )}
+          <div className="ia-export__included">
+            <ol className="ia-export__list">
+              {items.map(([name, detail], i) => (
+                <li key={name} className="ia-export__item">
+                  <span className="ia-export__num" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  <span className="ia-export__item-text">
+                    <span className="ia-export__item-title">{name}</span>
+                    <span className="ia-export__item-detail">{detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="ia-export__info">
+              {t("Один текстовый файл (.txt). Можно читать, редактировать или передать в ИИ вместе со своим вопросом.")}
+            </p>
+            {state.status === "ready" && state.summaryOnly ? <p className="ia-export__info">{s.exportSummaryOnly}</p> : null}
+          </div>
+          <div className="ia-export__preview-group">
+            <h3 className="ia-export__preview-title">{t("Предпросмотр документа")}</h3>
+            {text !== null ? (
+              <div className="ia-export__preview" role="region" tabIndex={0} aria-label={t("Предпросмотр документа")}>
+                {text}
+              </div>
+            ) : state.status === "loading" ? (
+              <div className="ia-export__status" aria-busy="true">
+                <Skeleton width="66%" height={22} />
+                <SkeletonText lines={8} lineHeight={27} className="w-full" />
+              </div>
+            ) : (
+              <div className="ia-export__status" role="alert">
+                <p className="m-0">
+                  {state.status === "error" && state.forbidden ? s.exportForbidden : t("Не удалось подготовить файл. Попробуй ещё раз.")}
+                </p>
+                {state.status === "error" && state.forbidden ? null : (
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      setState({ status: "loading" });
+                      setAttempt((n) => n + 1);
+                    }}
+                  >
+                    {t("Повторить")}
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </Sheet>
       <Sheet

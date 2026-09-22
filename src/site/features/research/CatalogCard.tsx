@@ -6,6 +6,9 @@ import { Badge, Card, LockBadge } from "@/site/ui";
 // Georgia 22 title with a trailing lock when the viewer cannot read the topic, summary,
 // «Бесплатный разбор» on the free topic (shown to Plus viewers too). Locked cards still
 // link to the topic: the page shows the locked preview. Public fields only.
+// Accessibility as ClarityCatalogs.swift:151-155: name = title (+ «Бесплатный разбор»),
+// description = summary (+ «Полный разбор в Plus»); the title is a heading so the catalog can
+// be navigated by headings (a11y m8).
 
 export const CATALOG_SIZES = "(min-width: 1280px) 380px, (min-width: 760px) 50vw, 100vw";
 
@@ -16,22 +19,29 @@ export function CatalogCard({
   lockLabel,
   freeLabel,
   eager,
+  priority,
 }: {
   category: Pick<CatalogCategory, "slug" | "name" | "summary" | "cover" | "free">;
   href: string;
   locked: boolean;
   lockLabel: string;
   freeLabel: string;
-  /** Above the fold: load the image eagerly. */
+  /** Near the fold: load the image eagerly. */
   eager?: boolean;
+  /** The likely LCP image (the first card): fetch it with high priority. */
+  priority?: boolean;
 }) {
+  const id = `clarity-research-${category.slug}`;
+  const ids = { title: `${id}-title`, summary: `${id}-summary`, lock: `${id}-lock`, free: `${id}-free` };
   return (
     <Card
       href={href}
       variant="research"
       interactive
       className="ia-rs-card"
-      id={`clarity-research-${category.slug}`}
+      id={id}
+      aria-labelledby={category.free ? `${ids.title} ${ids.free}` : ids.title}
+      aria-describedby={locked ? `${ids.summary} ${ids.lock}` : ids.summary}
     >
       {/* Pre-encoded WebP with srcset (public/media); next/image optimization is not used. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -43,22 +53,33 @@ export function CatalogCard({
         width={category.cover.width}
         height={category.cover.height}
         alt=""
-        loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : undefined}
-        decoding="async"
+        loading={eager || priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        decoding={priority ? undefined : "async"}
       />
-      <span className="ia-rs-card__body">
-        <span className="ia-rs-card__title-row">
-          <span className="ia-rs-card__title">{category.name}</span>
-          {locked ? <LockBadge label={lockLabel} /> : null}
-        </span>
-        <span className="ia-rs-card__summary">{category.summary}</span>
+      <div className="ia-rs-card__body">
+        <div className="ia-rs-card__title-row">
+          <h2 className="ia-rs-card__title" id={ids.title}>
+            {category.name}
+          </h2>
+          {locked ? (
+            <>
+              <LockBadge />
+              <span id={ids.lock} hidden>
+                {lockLabel}
+              </span>
+            </>
+          ) : null}
+        </div>
+        <p className="ia-rs-card__summary" id={ids.summary}>
+          {category.summary}
+        </p>
         {category.free ? (
           <Badge className="ia-rs-card__badge" tone="default">
-            {freeLabel}
+            <span id={ids.free}>{freeLabel}</span>
           </Badge>
         ) : null}
-      </span>
+      </div>
     </Card>
   );
 }

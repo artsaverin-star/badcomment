@@ -10,8 +10,10 @@ import { SearchField } from "@/site/ui";
 // text, so matching runs on the SERVER. Typing updates `?q=` (replace, debounced) and the
 // page re-renders with the matching cards; `children` = the server-rendered results, dimmed
 // while the next result set is on its way. Without JS the form submits `?q=` normally.
+// Each settled query is one server render of the catalog, so the debounce is 300 ms (review
+// performance P8; the app filters in memory, spec 09 allows the round trip).
 
-const DEBOUNCE_MS = 180;
+const DEBOUNCE_MS = 300;
 
 export function CatalogSearch({
   query,
@@ -50,6 +52,7 @@ export function CatalogSearch({
   return (
     <>
       <form
+        className="ia-rs-search"
         action={routes.research(locale)}
         method="get"
         onSubmit={(e) => {
