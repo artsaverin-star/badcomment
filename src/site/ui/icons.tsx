@@ -55,29 +55,29 @@ export function LockFilledIcon({ size = 17, ...props }: GlyphProps) {
   );
 }
 
-const STAR = "31.5,14.5 36.6,26.5 49.6,27.6 39.7,36.2 42.7,48.9 31.5,42.1 20.3,48.9 23.3,36.2 13.4,27.6 26.4,26.5";
 
 /**
  * The app icon (Assets.xcassets/AppIcon: a yellow paper star on cobalt) drawn as vector,
  * so the shell needs no raster asset. Square; round it with the container (22 % radius).
  */
-export function AppMark({ size = 28, title, ...props }: GlyphProps & { title?: string }) {
+/**
+ * The inApp logo = the iOS app icon (paper star on cobalt), pre-rendered with the iOS corner
+ * radius into public/brand/app-icon-{64,128,256}.{webp,png} from the app's AppIcon asset.
+ */
+export function AppMark({ size = 28, title, className }: { size?: number; title?: string; className?: string }) {
+  const base = size <= 32 ? 64 : size <= 64 ? 128 : 256;
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      role={title ? "img" : undefined}
-      aria-hidden={title ? undefined : true}
-      aria-label={title}
-      {...props}
-    >
-      <rect width="64" height="64" fill="#1C4DDB" />
-      <g strokeLinejoin="round" strokeWidth="3.2">
-        <polygon points={STAR} fill="#E8431F" stroke="#E8431F" transform="translate(2.4 2.6)" />
-        <polygon points={STAR} fill="#F7931E" stroke="#F7931E" transform="translate(1.2 1.3)" />
-        <polygon points={STAR} fill="#FCD424" stroke="#FCD424" />
-      </g>
-    </svg>
+    <picture className={className} style={{ display: "inline-flex", width: size, height: size, flex: "none" }}>
+      <source type="image/webp" srcSet={`/brand/app-icon-${base}.webp 1x, /brand/app-icon-${Math.min(base * 2, 256)}.webp 2x`} />
+      <img
+        src={`/brand/app-icon-${base}.png`}
+        width={size}
+        height={size}
+        alt={title ?? ""}
+        aria-hidden={title ? undefined : true}
+        decoding="async"
+        style={{ width: size, height: size, borderRadius: Math.round(size * 0.2237), display: "block" }}
+      />
+    </picture>
   );
 }
