@@ -111,6 +111,8 @@ describe("new site", () => {
     expectRewrite(decide("/en/login"), "new", "/site/en/login");
     expectRewrite(decide("/en/contacts"), "new", "/site/en/contacts");
     expectRewrite(decide("/ru/offer"), "new", "/site/ru/offer");
+    expectRewrite(decide("/en/offer/payment"), "new", "/site/en/offer/payment");
+    assert.equal((decide("/ru/old/offer/payment") as RewriteDecision).requestHeaders["x-ia-new-path"], "/ru/offer/payment");
     expectRewrite(decide("/de/privacy"), "new", "/site/de/privacy");
   });
   test("/library?checkout= (YooKassa return) is new and keeps the query", () => {

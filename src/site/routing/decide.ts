@@ -130,6 +130,7 @@ export function newSiteEquivalent(l: Locale, segs: readonly string[]): string | 
     return b !== "top" && isLaunchIdea(b) ? `/${l}/ideas/${b}` : null;
   }
   if (a === "settings" && b === "about") return `/${l}/settings/about`;
+  if (a === "offer" && b === "payment") return `/${l}/offer/payment`;
   if (a !== "site" && NEW_TOP_STATIC.has(a) && b === undefined) return `/${l}/${a}`;
   return null;
 }
