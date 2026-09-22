@@ -185,7 +185,7 @@ export default function BuyButton({
       )}
       <p className="text-center text-caption text-[var(--color-text-tertiary)]">
         {ru ? "Доступ включается автоматически после подтверждения ЮKassa. " : "Access starts automatically after YooKassa confirms the payment. "}
-        <Link href={`${lp}/offer`} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Условия" : "Terms"}</Link>
+        <Link href={`${lp}/offer/payment`} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Оферта" : "Payment offer"}</Link>
         {" · "}
         <Link href={`${lp}/contacts`} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Поддержка" : "Support"}</Link>
       </p>

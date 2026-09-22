@@ -10,6 +10,7 @@ import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
 import ThemeSwitch from "./ThemeSwitch";
 import { type Locale } from "@/lib/i18n";
+import { isNoCommercePath } from "@/lib/legalPages";
 
 // Center nav items: icon + label, active state driven by the current path.
 const NAV: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
@@ -92,6 +93,11 @@ export default function Header({
       : path === "/" || path.startsWith("/categories") || path.startsWith("/segment") ? "breakdowns"
       : "";
 
+  // The Terms of Use / Support pages opened from the iOS app (App Review reads
+  // them): no site nav, sign-in or price badge — every other site page shows web
+  // prices (App Store Guideline 3.1.1). Only the RU/EN switch stays.
+  const legalPage = isNoCommercePath(pathname);
+
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
       <div
@@ -101,58 +107,72 @@ export default function Header({
             : "max-w-6xl border border-transparent bg-transparent pl-1 shadow-none sm:pl-1"
         }`}
       >
-        <Link href={lp} aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
-          <Logo iconSize={26} textClassName="text-[23px]" />
-        </Link>
+        {legalPage ? (
+          <span className="flex shrink-0 items-center">
+            <Logo iconSize={26} textClassName="text-[23px]" />
+          </span>
+        ) : (
+          <Link href={lp} aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
+            <Logo iconSize={26} textClassName="text-[23px]" />
+          </Link>
+        )}
 
-        {/* Center nav — absolutely centered so it stays put regardless of the
-            side widths. It only renders on wide screens (≥1200px); everything
-            narrower gets the burger sheet. */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 min-[1200px]:flex">
-          {NAV.map((n) => {
-            const active = n.key === activeKey;
-            return (
-              <Link
-                key={n.key}
-                href={`${lp}${n.href === "/" ? "" : n.href}`}
-                aria-current={active ? "page" : undefined}
-                className={`inline-flex shrink-0 items-center rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
-                  active
-                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
-                    : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
-                }`}
-              >
-                {ru ? n.ru : n.en}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
-          {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
-          <AuthButton locale={locale} />
-          {/* LangMenu's trigger is a hamburger too — below 1200px the burger
-              sheet owns language/theme, so only one hamburger ever shows. */}
-          <div className="hidden min-[1200px]:block">
-            <LangMenu locale={locale} />
+        {legalPage ? (
+          <div className="ml-auto flex items-center">
+            <LangSwitch locale={locale} />
           </div>
-          <button
-            type="button"
-            aria-label={menuOpen ? (ru ? "Закрыть меню" : "Close menu") : ru ? "Меню" : "Menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-            className="flex size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] min-[1200px]:hidden"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-            </svg>
-          </button>
-        </div>
+        ) : (
+          <>
+            {/* Center nav — absolutely centered so it stays put regardless of the
+                side widths. It only renders on wide screens (≥1200px); everything
+                narrower gets the burger sheet. */}
+            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 min-[1200px]:flex">
+              {NAV.map((n) => {
+                const active = n.key === activeKey;
+                return (
+                  <Link
+                    key={n.key}
+                    href={`${lp}${n.href === "/" ? "" : n.href}`}
+                    aria-current={active ? "page" : undefined}
+                    className={`inline-flex shrink-0 items-center rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
+                      active
+                        ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
+                        : "font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+                    }`}
+                  >
+                    {ru ? n.ru : n.en}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
+              {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
+              <AuthButton locale={locale} />
+              {/* LangMenu's trigger is a hamburger too — below 1200px the burger
+                  sheet owns language/theme, so only one hamburger ever shows. */}
+              <div className="hidden min-[1200px]:block">
+                <LangMenu locale={locale} />
+              </div>
+              <button
+                type="button"
+                aria-label={menuOpen ? (ru ? "Закрыть меню" : "Close menu") : ru ? "Меню" : "Menu"}
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((v) => !v)}
+                className="flex size-9 shrink-0 items-center justify-center rounded-full text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] min-[1200px]:hidden"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                  {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+                </svg>
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Burger sheet: the whole section nav on phones (the header center nav
           is desktop-only, and the old bottom tab bar is gone). */}
-      {menuOpen && (
+      {menuOpen && !legalPage && (
         <>
           <button
             type="button"
