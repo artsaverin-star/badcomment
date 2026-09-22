@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "scanner-pdf",
+ "name": "Dokumentenscanner",
+ "summary": "Ein Dokument aufzunehmen ist der Anfang der Arbeit. Danach müssen der Text geprüft, die Seiten zusammengesetzt, die Datei gefunden und in der benötigten Form verschickt werden.",
+ "corpus": {
+  "reviews": 23488,
+  "apps": 52
+ },
+ "lead": "Der eine fotografiert einen Beleg, um ihn an eine Abrechnung zu hängen. Ein anderer sichert einen Familienbrief; ein Dritter stellt hundert Seiten für die Arbeit zusammen. Auf dem ersten Bildschirm ist es dieselbe Kamerataste, aber jeder von ihnen braucht ein anderes Ergebnis.\n\nIm Folgenden wird ein Dokument von der Aufnahme bis zum Empfänger verfolgt. In den Rezensionen entstehen die wichtigsten Schwierigkeiten oft nach einem gelungenen Scan: Die Farben ändern sich, die Seiten werden vertauscht, die Notizen verschwinden, und statt einer Datei bekommt man einen Link. Jeder dieser Übergänge ist eine eigene Aufgabe für das Produkt.",
+ "cover": {
+  "src": "research/ResearchLaunch_scanner-pdf_cover",
+  "alt": "Dokumentenscanner",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_scanner-pdf_audiences",
+  "alt": "Aufgaben der Menschen: Dokumentenscanner",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Ein paar Seiten für Schule oder Arbeit verschicken",
+   "body": "Mehrere Seiten müssen zu einem verständlichen Dokument werden: mit erhaltener Reihenfolge, lesbarem Text und einer Größe, die zur gewählten Versandart passt. Die Prüfung muss vor der Übergabe an den Empfänger stattfinden."
+  },
+  {
+   "title": "Ein Papierarchiv digitalisieren",
+   "body": "Bei der erneuten Nutzung zählen nicht nur die Bilder der Seiten, sondern auch die Möglichkeit, das Dokument zu finden, die Erkennung zu korrigieren und zum Original zurückzukehren. Wie brauchbar ein Archiv ist, zeigt sich, wenn sich die Dateien ansammeln."
+  },
+  {
+   "title": "Ein Formular ausfüllen und zurückschicken",
+   "body": "Ein ausgefülltes Formular muss den Text, die Markierungen und die Unterschrift behalten, wenn es außerhalb des Editors geöffnet wird. Ein Element auf dem Bildschirm platzieren zu können heißt noch nicht, dass es in der weitergegebenen Datei steht."
+  }
+ ],
+ "sections": [
+  {
+   "id": "scan",
+   "title": "Das bewahren, wofür man fotografiert hat",
+   "intro": "Eine Zeile Kleingedrucktes, ein farbiges Detail oder ein handgeschriebenes Wort können der Hauptinhalt eines Dokuments sein.",
+   "art": null,
+   "observations": [
+    {
+     "id": "capture",
+     "title": "Den Bildausschnitt von Hand korrigieren",
+     "passages": [
+      "Die automatische Aufnahme spart Zeit, solange sie die Seite richtig erkennt. Aber wenn die Kamera auffordert, näher heranzugehen, während das Blatt schon den ganzen Bildschirm füllt, bleibt man stecken: Man wiederholt dieselbe Handlung, ohne zu verstehen, wie ein anderes Ergebnis zustande kommt. Ein manueller Auslöser muss erreichbar sein.",
+      "Fehler bei der Kantenerkennung sind ein eigenes Problem. Eine umgeknickte Ecke kann aus einem geraden Blatt eine schiefe Figur machen. Hier hilft es, den ursprünglichen Bildausschnitt zurückholen und die Grenzen selbst setzen zu können, sodass das Kleingedruckte und die Ränder des Dokuments erhalten bleiben.",
+      "Die manuelle Korrektur nützt nur, wenn sie sich tatsächlich nutzen lässt. Alle vier Ecken müssen sich unabhängig bewegen; das Ergebnis sollte groß genug gezeigt werden, um eine abgeschnittene Zeile vor dem Wechsel zur nächsten Seite zu bemerken."
+     ],
+     "quotes": [
+      {
+       "text": "Ich benutze diese App jetzt seit mehreren Jahren und habe für das Upgrade auf Pro bezahlt. Allerdings bin ich immer weniger zufrieden damit, wie sie läuft. Zum Beispiel sagt die App beim Scannen ständig „näher rangehen“, sogar wenn das zu scannende Bild schon den Bildschirm ausfüllt. Die automatische Aufnahme funktioniert nur unter idealen Bedingungen",
+       "rating": 2,
+       "app": "Scanner Mini Scan PDF & Fax"
+      },
+      {
+       "text": "Der Auto-Scan dieser App deutet umgeknickte Ecken (so wie man sie bei jedem Papierdokument mit einer Klammer in der Ecke hat) so, als läge das Dokument in einem ganz schiefen Winkel, und skaliert die Fotos auf comichafte, unlesbare Proportionen.",
+       "rating": 2,
+       "app": "Photos PDF : Scanner Converter"
+      },
+      {
+       "text": "Wenn es die Seite automatisch erkennt, bekommt man Anfasser, mit denen man den Bereich nachjustieren kann, aber in 75% der Fälle lässt es mich gar nicht alle 4 Anfasser ziehen, manche bleiben an der ursprünglichen Stelle eingefroren.",
+       "rating": 2,
+       "app": "Scanner - Edit PDF & documents"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_capture",
+      "alt": "Illustration zum Thema „Den Bildausschnitt von Hand korrigieren“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-capture",
+       "title": "Den Bildausschnitt von Hand korrigieren",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "color",
+     "title": "Die gewählte Farbe behalten",
+     "passages": [
+      "Die Bearbeitung soll helfen, das benötigte Dokument zu bekommen, und nicht unerwartet seine Eigenschaften ändern. Eine farbige Seite wird womöglich gerade in Farbe gebraucht; der Wechsel zu Schwarz-Weiß beim Bearbeiten verändert das Ergebnis, nachdem die Aufnahme bereits gelungen ist. Auch ein ungewohnter Farbstich ist Grund genug, eine andere Art der Umwandlung zu wählen.",
+      "Es hilft, das bearbeitete Bild mit dem Original zu vergleichen und den gewählten Modus bei weiteren Änderungen beizubehalten. Eine universelle „Verbesserung“ ersetzt diese Kontrolle nicht. Das Kriterium ist hier einfach: Nach Bearbeitung und Export bewahrt das Dokument weiterhin die Details und Farben, die die Person behalten wollte.",
+      "Bei einer Zeichnung zählt der Vergleich der Farbtöne, bei einem Vertrag die Lesbarkeit eines Stempels, bei einem Beleg der Kontrast der Buchstaben. Deshalb wählt man die Bearbeitung besser passend zur Aufgabe. Die ursprüngliche Aufnahme macht es möglich, zu einer anderen Variante zurückzukehren, wenn sich die Anforderungen an das Dokument erst nach der Aufnahme ändern."
+     ],
+     "quotes": [
+      {
+       "text": "Das wurde als eine der besseren Scan-Apps angepriesen. Naja, der Scan selbst wird sehr gut, sobald ich irgendwas an einem Dokument bearbeiten will, wird es schwarz-weiß. Ich habe eine schöne farbige Kopie eines Dokuments gescannt, aber jedes Mal, wenn ich sie bearbeiten will, wird aus den Farben nur noch schwarz-wei",
+       "rating": 2,
+       "app": "iScanner: PDF Document Scanner"
+      },
+      {
+       "text": "Bei allen meinen PDF-Umwandlungen bekommen meine Dokumente so einen komischen Gelbton. Das gefällt mir überhaupt nicht. Ich habe auch für die unbegrenzte Nutzung bezahlt. Die kriege ich auch, aber ich benutze inzwischen einen anderen PDF-Konverter, nur weil meine Dokumente nach der Umwandlung in dieser App so aussehen.",
+       "rating": 3,
+       "app": "Photos PDF : Scanner Converter"
+      },
+      {
+       "text": "In Schwarz-Weiß scannen geht gut, aber die App scheint meinen Pass nicht gern in Farbe zu scannen. Ich kriege das Bild einfach nicht scharf, egal wie viel Licht im Hintergrund ist.",
+       "rating": 3,
+       "app": "Scanner PDF scan document"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-color",
+       "title": "Die gewählte Farbe behalten",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ocr",
+     "title": "Den Text neben dem Original korrigieren",
+     "passages": [
+      "Die Texterkennung ist für die Arbeit mit dem Inhalt da: eine Stelle in einem Buch finden oder einen handgeschriebenen Brief in bearbeitbaren Text verwandeln. Wenn die Wörter durcheinandergeraten, Zeilen fehlen und das Korrigieren länger dauert als das Abtippen, bringt die bloße Verfügbarkeit von OCR nichts.",
+      "Wichtig ist ein kurzer Weg vom Fehler zur passenden Stelle auf dem Scan. Original und Ergebnis nebeneinander helfen, zweifelhafte Wörter zu prüfen, ohne zwischen Dateien zu wechseln. Für das eigene Material lohnt es sich, die Zeit bis zum geprüften Text mit dem gewohnten Abtippen zu vergleichen: Das sagt mehr als ein allgemeines Versprechen hoher Genauigkeit.",
+      "Besonders nützlich ist es, die Stelle hervorzuheben, aus der eine Zeile stammt. Ein Nutzer kann dann einen Nachnamen oder einen Betrag prüfen, ohne die ganze Seite noch einmal zu lesen. In einem großen Dokument muss die Suche zur ursprünglichen Seite führen, auch wenn das gefundene Wort fehlerhaft erkannt und später korrigiert wurde."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hatte 2 Briefe, die unsere Mutter mit der Hand geschrieben hat. Wir brauchten sie als getippte Briefe. Beide Briefe ganz gut gescannt. Aber die Übertragung in Text war ein totaler Reinfall!! 1-3 Wörter pro Zeile (wenn man es an den Computer schickt), Wörter waren zusammengeklebt und auch in Wortbruchstücke zerlegt.",
+       "rating": 2,
+       "app": "ScanGuru: PDF Scanner App"
+      },
+      {
+       "text": "Ziemlich genau bei französischer Handschrift, aber WEIT WENIGER als die behaupteten 99%. Nachdem ich die Fehler korrigiert hatte, war mir klar, dass ich es schneller in die Diktierfunktion gesprochen hätte.",
+       "rating": 3,
+       "app": "AI Scanner : Image to Text"
+      },
+      {
+       "text": "Ich habe ein paar Kapitel aus einem Buch gescannt, damit ich das Buch leichter durchsuchen kann. Wenn ich mir den Text ansehe, nachdem es ihn in Text umgewandelt hat, sind mehrere Abschnitte nicht erkannt oder nicht lesbar.",
+       "rating": 2,
+       "app": "FineReader: PDF Scanner & OCR"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_ocr",
+      "alt": "Illustration zum Thema „Den Text neben dem Original korrigieren“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-ocr",
+       "title": "Den Text neben dem Original korrigieren",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "document",
+   "title": "Eine Datei zusammensetzen, der man trauen kann",
+   "intro": "Alle Seiten in der richtigen Reihenfolge und alle Änderungen müssen im fertigen Dokument stehen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pages",
+     "title": "Das ganze Dokument vor dem Speichern sehen",
+     "passages": [
+      "Ein Stapel Fotos enthält bereits die Arbeit eines Menschen: Die richtigen Seiten sind ausgewählt. Wenn die App sie nur einzeln annimmt, muss diese Auswahl noch einmal von vorn gemacht werden. Bei einem langen Dokument kann das mehr Zeit kosten als das Fotografieren selbst.",
+      "Die Mehrfachauswahl löst das Zusammensetzen noch nicht. Die Reihenfolge der Auswahl muss erhalten bleiben und alle Seiten müssen vor dem Export gezeigt werden. Sonst bemerkt ein Nutzer die vertauschten Seiten erst, nachdem er das Dokument an andere Menschen geschickt hat.",
+      "Bei einer Serie von vierzig Seiten zeigt sich der Preis einer zusätzlichen Handlung besonders deutlich. Eine Gesamtübersicht mit Umsortieren und dem Entfernen von Duplikaten ist eine nützliche Verbesserung eines bestehenden Scanners. Für das Digitalisieren eines ganzen Buches kommt das Sichern unfertiger Arbeit hinzu: Mit diesem engeren Szenario befasst sich die nächste Idee."
+     ],
+     "quotes": [
+      {
+       "text": "Klappt perfekt für die Arbeit und um Fotos in PDFs zu verwandeln, aber das Hauptproblem ist, wenn ich ein pdf mache, kann ich nicht mehrere Fotos aus meiner Galerie auf einmal nehmen ich muss eins nach dem anderen hinzufügen. BITTE REPARIERT DAS!",
+       "rating": 3,
+       "app": "TurboScan™: document scanner"
+      },
+      {
+       "text": "ich habe meine Fotos der Reihe nach reingepackt und dachte, die App lässt die Fotos in dieser Reihenfolge, aber stattdessen hat sie jedes einzelne komplett durcheinander hochgeladen. ich habe es an alle in meiner Klasse geschickt und es erst Stunden später gemerkt. warum macht sie das ???",
+       "rating": 2,
+       "app": "Photo to PDF Converter Scanner"
+      },
+      {
+       "text": "Die App ist der Wahnsinn, aber es nervt, weil ich nicht mehrere Fotos auf einmal zum Umwandeln auswählen kann. Man muss sie einzeln antippen. Und wenn es 40 Fotos sind, ist das eine lächerlich lange Zeit, die sich verschwendet anfühlt.",
+       "rating": 2,
+       "app": "Photo to PDF Convert Scanner +"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pages",
+       "title": "Das ganze Dokument vor dem Speichern sehen",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "editing",
+     "title": "Die Änderungen in der fertigen Datei prüfen",
+     "passages": [
+      "Text in einem Feld, eine Formularmarkierung und eine Unterschrift müssen steuerbare Elemente bleiben. Eine zu große, unbewegliche Unterschrift oder ein springender Cursor erschweren das Ausfüllen; nach dem Speichern verschwundene Notizen machen die bereits gemachten Markierungen wertlos. Das sind verschiedene Probleme auf demselben Weg zum fertigen Dokument.",
+      "Das Bearbeiten endet mit einer Prüfung der exportierten Datei. In ihr müssen das Geschriebene, die Position der Elemente und die verfügbaren Formularmarkierungen erhalten bleiben. Besonders wichtig ist es, das Ergebnis außerhalb des Editors zu öffnen, aus dem es stammt: Bequemes Zeichnen über einer Seite bestätigt noch nicht, dass diese Änderungen für jemanden auf einem anderen Gerät verfügbar sind.",
+      "In einem Formular lohnt es sich, Eingabefelder vom bloßen Zeichnen über der Seite zu unterscheiden. Der Empfänger muss das Ausfüllen vielleicht fortsetzen oder nur die endgültige Fassung lesen. Diese Wahl erklärt man besser vor dem Export und bewahrt das bearbeitbare Original getrennt auf."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe es, wie einfach man Dokumente in Acrobat mit Anmerkungen versehen kann. Aber zwei riesige Probleme: (1) Oft (50/50%) komme ich zu einem Dokument zurück, das ich kommentiert habe (meist ein 100-seitiges Drehbuch), und meine Anmerkungen sind komplett verschwunden. (2) Einfach ein PDF MIT den Anmerkungen zu exportieren ist unfassbar schwierig.",
+       "rating": 2,
+       "app": "Acrobat Reader: PDF Editor"
+      },
+      {
+       "text": "Dass man die Unterschrift nicht bearbeiten kann, ist schrecklich. Man legt eine E-Signatur an und die ist RIESIG und lässt sich nicht in der Größe ändern, spiegeln, drehen",
+       "rating": 1,
+       "app": "Photo to PDF Convert Scanner +"
+      },
+      {
+       "text": "Meine Kästchen zum Ankreuzen erscheinen auf meinem Handy nicht, wenn ich ein Formular benutze, aber auf dem Desktop erscheinen sie. Vorher war es da, nach diesem Update nicht mehr.",
+       "rating": 3,
+       "app": "Acrobat Reader: PDF Editor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_editing",
+      "alt": "Illustration zum Thema „Die Korrekturen in der fertigen Datei prüfen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-editing",
+       "title": "Die Änderungen in der fertigen Datei prüfen",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keep-send",
+   "title": "Das Ergebnis finden und weitergeben",
+   "intro": "Die Arbeit endet, wenn die benötigte Datei sowohl der Person selbst als auch dem Empfänger zur Verfügung steht.",
+   "art": null,
+   "observations": [
+    {
+     "id": "organization",
+     "title": "Ordnung ins Archiv bringen",
+     "passages": [
+      "Solange es wenige Scans gibt, reichen die letzten Dateien. Mit der Zeit beginnt man, Dokumente nach Arbeit, Familie oder einzelnen Angelegenheiten zu sortieren. Eine flache Liste steht dem Nachbilden einer vertrauten Struktur im Weg: Selbst die einfache Bitte um einen verschachtelten Ordner hat hier einen nachvollziehbaren Grund.",
+      "Ordner anzulegen genügt nicht: Der richtige muss auch gefunden werden. Alphabetische Sortierung und Suche nach dem Namen lösen eine andere Aufgabe als die Erkennung des Textes innerhalb eines Scans. In der Rezension unten fehlt genau diese grundlegende Navigation.",
+      "Auch das Umbenennen muss sich auf dem Handy zu Ende bringen lassen. Wenn man für jede Datei an einen Computer wechseln muss, wird das Archivieren zu regelmäßiger Zusatzarbeit. Die Suche im Inhalt kann der nächste Schritt sein, doch diese Rezensionen weisen vor allem darauf hin, wie unbequem die vorhandenen Ordner und Namen schon jetzt sind."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe diese App, habe aber eine Beschwerde – ich kann keinen Unterordner anlegen (also einen Ordner in einem anderen Ordner). Deshalb muss ich Dokumente in einer flachen Ordnerstruktur speichern. Wäre super, wenn ich Dokumente weiter in Unterordner sortieren könnte",
+       "rating": 3,
+       "app": "Doc Scan - PDF Scanner"
+      },
+      {
+       "text": "Ich benutze in TurboScan viele Ordner. Es gibt keine Möglichkeit, nach einem Ordner zu suchen. Ordner werden nicht in alphabetischer Reihenfolge aufgelistet. Alles zufällig.",
+       "rating": 1,
+       "app": "TurboScan™ Pro: PDF scanner"
+      },
+      {
+       "text": "Die App scannt ordentlich, aber wenn ich umbenennen will, friert sie ein, also muss ich jede Datei exportieren und auf meinem Computer umbenennen. Als Behelf geht das gerade so, aber es gibt zurzeit bessere Möglichkeiten, die das nicht verlangen, also nehme ich wahrscheinlich die.",
+       "rating": 2,
+       "app": "SCAN ACE · PDF Scanner App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-organization",
+       "title": "Ein Dokument über seinen Inhalt finden",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "cloud",
+     "title": "Wissen, wo die Kopie liegt",
+     "passages": [
+      "Ein lokaler Scan und seine Kopie in der Cloud sind zwei verschiedene Zustände. Eine gewohnte Synchronisierung kann aufhören zu laufen oder eine erneute Verbindung verlangen, während man weiter davon ausgeht, dass die Dokumente kopiert sind. Das Fehlen einer Fehlermeldung auf dem Bildschirm beantwortet nicht die Frage, ob das Archiv anderswo verfügbar ist.",
+      "Es hilft, den Zustand jeder Übertragung zu zeigen und den unabhängigen Zugriff auf die lokale Datei zu erhalten. Das Wiederherstellen der Verbindung sollte nicht verlangen, dass alles noch einmal gescannt wird. Nötig ist hier Klarheit über die ausgeführte Handlung; eine einzelne Schaltfläche zum Verbinden mit der Cloud ersetzt nicht die Prüfung, dass das Dokument dort tatsächlich angekommen ist.",
+      "Ein neues Handy ist ein guter Test für ein Archiv. Wiederherzustellen sind nicht nur die Bilder, sondern auch die Namen, die Ordner und die Notizen. Eine Liste der nicht übertragenen Dateien erlaubt es, das Kopieren nach einem Fehler fortzusetzen, ohne die ganze Bibliothek von Hand zu vergleichen und ohne die Dokumente erneut aufzunehmen."
+     ],
+     "quotes": [
+      {
+       "text": "Am Anfang lief es super, nachdem sie die Pro- und VIP-Pakete gekauft hatten. Jetzt, Jahre später, synchronisiert die App aber nicht mehr mit dem iCloud-Konto unter iOS. Und nach mehreren E-Mails an den Kundendienst haben die Lösungen das Problem nicht gelöst.",
+       "rating": 1,
+       "app": "SwiftScan AI Document Scanner"
+      },
+      {
+       "text": "Diese App lief so viele Jahre super. Jetzt kriege ich sie nicht mehr dazu, mit Dropbox oder Google Drive zu synchronisieren.",
+       "rating": 2,
+       "app": "Scanner Pro・Scan PDF Documents"
+      },
+      {
+       "text": "Ich hatte diese App vor ein, zwei Jahren mit meinem Google-Drive-Konto verbunden, und dann musste ich mich vor ein paar Monaten neu authentifizieren und konnte es nicht. Google hat mich gewarnt, dass JotNot Pro versucht, an sensible Daten aus meinem Google-Konto zu kommen, und nicht verifiziert ist.",
+       "rating": 1,
+       "app": "JotNot Scanner App Pro"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_cloud",
+      "alt": "Illustration zum Thema „Wissen, wo die Kopie liegt“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "delivery",
+     "title": "Genau die richtige Datei verschicken",
+     "passages": [
+      "Ein Link zu einem Dokument und ein PDF im Speicher des Handys passen zu verschiedenen Arten der Übergabe. Wenn der Empfänger eine Datei braucht, muss die Schaltfläche „Teilen“ genau diese liefern können, mit allen Seiten und Änderungen.",
+      "Ein PDF zu erzeugen und es dem Empfänger zuzustellen sind zwei verschiedene Ergebnisse. Die Rezension über die nie angekommenen E-Mails zeigt, warum die Meldung „Gesendet“ eine genaue Bedeutung braucht. Es hilft, die fertige Datei aufzubewahren, damit man die Übergabe auf einem anderen Weg wiederholen kann, ohne das Dokument von Grund auf neu zusammenzusetzen.",
+      "Ein großes Dokument bringt eine Grenze für die Größe mit sich. Vor dem Verschicken werden der Name, die Seitenzahl und die Dateigröße gebraucht. Wenn die Bilder komprimiert werden müssen, hilft ein Blick auf das Kleingedruckte bei der Wahl einer brauchbaren Kopie: Eine geringere Größe bedeutet für sich genommen noch nicht, dass das Dokument fertig ist."
+     ],
+     "quotes": [
+      {
+       "text": "Der PDF-Export muss einfacher werden. Ich brauche keinen Link, ich brauche ein PDF in den Dateien auf meinem Handy.",
+       "rating": 3,
+       "app": "Adobe Scan: PDF & OCR Scanner"
+      },
+      {
+       "text": "Benutze turbo scan seit Jahren. Lief einwandfrei, dann konnte ich eines Tages gescannte Dokumente nicht mehr als pdf-Dateien verschicken. Normalerweise drücke ich bei dem gescannten pdf auf Senden und kriege innerhalb von Sekunden eine E-Mail, die zeigt, dass es angekommen ist. Jetzt kriege ich die E-Mail mal und mal nicht",
+       "rating": 2,
+       "app": "TurboScan™ Pro: PDF scanner"
+      },
+      {
+       "text": "Einfach, leicht zu bedienen. Nutze die App gern, um unterwegs Dokumente vom Handy zu scannen und zu mailen. Für Dokumente mit 1 oder 2 Seiten läuft es fantastisch. Mit mehrseitigen Dokumenten habe ich mich abgemüht – 6-14 Seiten. Die App kann das, aber ich kann die Dateigröße nicht anpassen, und am Ende sind es oft mehr als 10mb und das lässt sich nicht ver",
+       "rating": 3,
+       "app": "Doc Scan - PDF Scanner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-delivery",
+       "title": "Genau die richtige Datei verschicken",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-1",
+        "scanner-pdf-3"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst das Dokument zum Empfänger bringen",
+  "body": "Die erste Priorität ist, ein Dokument vollständig zu prüfen: von einer ungünstigen Aufnahme bis zur Datei, die außerhalb der App geöffnet wird. Wichtig ist zu sehen, ob Seiten, Farbe und Notizen erhalten geblieben sind, ob sich das Ergebnis finden und das Verschicken wiederholen lässt. Hier beschreiben die Rezensionen den Verlust bereits geleisteter Arbeit, deshalb ist das Beheben solcher Fehler mehr wert als ein weiterer Filter.\n\nDie Spezialisierung wählt man besser danach. Ein Buch braucht eine lange unfertige Serie, eine Abrechnung die vom Empfänger gewünschte Sammlung von Belegen, ein Archiv die spätere erneute Suche. Das sind nach Arbeitsaufwand verschiedene Produkte. Eine Beschwerde über eine einzelne Schaltfläche zeigt noch nicht, dass jemand bereit ist, für deren Behebung alle Dokumente in einen neuen Scanner zu überführen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-scan",
+   "title": "Das bewahren, wofür man fotografiert hat",
+   "depth": 0
+  },
+  {
+   "id": "observation-capture",
+   "title": "Den Bildausschnitt von Hand korrigieren",
+   "depth": 1
+  },
+  {
+   "id": "observation-color",
+   "title": "Die gewählte Farbe behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-ocr",
+   "title": "Den Text neben dem Original korrigieren",
+   "depth": 1
+  },
+  {
+   "id": "theme-document",
+   "title": "Eine Datei zusammensetzen, der man trauen kann",
+   "depth": 0
+  },
+  {
+   "id": "observation-pages",
+   "title": "Das ganze Dokument vor dem Speichern sehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-editing",
+   "title": "Die Änderungen in der fertigen Datei prüfen",
+   "depth": 1
+  },
+  {
+   "id": "theme-keep-send",
+   "title": "Das Ergebnis finden und weitergeben",
+   "depth": 0
+  },
+  {
+   "id": "observation-organization",
+   "title": "Ordnung ins Archiv bringen",
+   "depth": 1
+  },
+  {
+   "id": "observation-cloud",
+   "title": "Wissen, wo die Kopie liegt",
+   "depth": 1
+  },
+  {
+   "id": "observation-delivery",
+   "title": "Genau die richtige Datei verschicken",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst das Dokument zum Empfänger bringen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

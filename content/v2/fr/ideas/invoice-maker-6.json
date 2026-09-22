@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "invoice-maker-6",
+ "category": "invoice-maker",
+ "categoryName": "Factures pour les clients",
+ "title": "La même facture dans un message pratique",
+ "description": "Le document peut être transmis de la façon dont le client a l’habitude, tandis que le chiffrage garde un historique unique.",
+ "cover": {
+  "src": "ideas/invoice-maker-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Sur le terrain, la conversation se fait par messages, alors que l’app oblige à chercher une adresse e-mail."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Je suis installateur de pneus à domicile et je cherchais une société de facturation où je peux envoyer tout de suite les prix à mes clients etc. la plupart des sociétés proposent pas les SMS, seulement l’e-mail, mais Invoice le fait.",
+    "rating": 5,
+    "app": "Invoice Simple: Invoice Maker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choisir le fichier ou le lien et le canal d’envoi indépendamment de la création de la facture. Enregistrer une nouvelle transmission comme un événement du même document."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Avant l’envoi, il faut vérifier le destinataire et la pièce jointe ; changer de canal ne crée pas une nouvelle dette."
+  }
+ ],
+ "rank": 395,
+ "free": false
+}

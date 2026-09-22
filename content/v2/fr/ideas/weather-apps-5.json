@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-5",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "La météo par adresse de chantier",
+ "description": "L’équipe voit les intervalles dont elle a besoin et l’évolution des conditions sur ses chantiers.",
+ "cover": {
+  "src": "ideas/weather-apps-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Des travaux différents dépendent de conditions différentes. Une seule température commune n’aide pas à coordonner le planning sur plusieurs chantiers."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’utilise cette appli depuis des années en tant qu’utilisateur premium/payant parce que je travaille dehors et j’ai besoin des alertes quand la foudre ou du mauvais temps arrive. Les alertes ont arrêté de fonctionner.",
+    "rating": 1,
+    "app": "WeatherBug: Weather Forecast"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment ça pourrait marcher"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Enregistrer les adresses, les périodes et les paramètres qui comptent pour l’équipe. Montrer ce qui a changé et transmettre une seule vue d’ensemble validée à tous les participants."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Les règles d’arrêt des travaux se fixent à part ; l’app ne doit pas déclarer d’elle-même que les conditions sont sûres."
+  }
+ ],
+ "rank": 65,
+ "free": false
+}

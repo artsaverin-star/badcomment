@@ -10,6 +10,7 @@ import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import Leaderboard, { type Row } from "@/components/Leaderboard";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,7 @@ const cleanTitle = (s: string) => { const m = (s || "").replace(/^[A-Za-z][A-Za-
 export default async function IdeasTopPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
 
   const nameOf = (slug: string): string => {
     const r = (RATING_BY_SLUG as Record<string, { name?: string; nameEn?: string }>)[slug];

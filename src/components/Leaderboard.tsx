@@ -4,6 +4,7 @@ import { useState } from "react";
 import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export type Row = {
   title: string; oneLiner: string; category: string; categoryName: string;
@@ -39,14 +40,13 @@ export default function Leaderboard({
 }) {
   const [auth, setAuth] = useState(false);
   const ru = locale !== "en";
-  const lp = ru ? "ru" : "en";
 
   return (
     <>
       <ol className="card-min flex flex-col divide-y divide-[var(--color-border-subtle)] rounded-[22px] px-5 sm:px-6">
         {rows.map((r, i) => (
           <li key={i}>
-            <a href={`/${lp}/segment/${r.category}`} className="group flex flex-col gap-3 py-5 sm:gap-2">
+            <a href={oldHref(ru, `/segment/${r.category}`)} className="group flex flex-col gap-3 py-5 sm:gap-2">
               <div className="flex items-start gap-3.5">
                 <span className="mt-0.5 w-6 shrink-0 text-right text-subhead font-semibold tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                 <div className="min-w-0 flex-1">

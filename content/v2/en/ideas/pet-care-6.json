@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "pet-care-6",
+ "category": "pet-care",
+ "categoryName": "Pet care",
+ "title": "A walk with somebody else",
+ "description": "The route and the events of the walk are available to the owner without handing over their account.",
+ "cover": {
+  "src": "ideas/pet-care-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "On a walk with a dog walker, the owner’s phone stays at home. The tracker has to work in exactly that combination of devices."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "My dog walker took my dog on a walk and since they didn't have access to the app, the collar showed my dog all the way in downtown, miles away from the actual location.",
+    "rating": 2,
+    "app": "Fi - GPS Dog Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this might work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "The walker starts a separate session, and the owner sees the time of the last update and how the recording is going. When it ends, the route is saved with its markers."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch out for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A lost connection has to be visible. The last known point is not passed off as the current position."
+  }
+ ],
+ "rank": 70,
+ "free": false
+}

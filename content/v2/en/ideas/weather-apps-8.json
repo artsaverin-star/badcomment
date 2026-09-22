@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "weather-apps-8",
+ "category": "weather-apps",
+ "categoryName": "Weather",
+ "title": "The history of a home weather station",
+ "description": "The information and the settings survive a change of network or of where the station stands.",
+ "cover": {
+  "src": "ideas/weather-apps-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "After replacing a router or moving house, a person wants to continue the observations, not start the archive over."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "If you change Internet providers you might as well throw this thing in the trash. Second Ambient, changed to Starlink and now nothing. Split the 2.4/5.0 as instructed, nothing. Ambient has ancient coding, not changed since dial-up internet.",
+    "rating": 1,
+    "app": "Ambient Weather Network"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Keep the observations going"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Tie the archive to the device and change the connection separately. Once the link is restored, show the last record received and the period that was missed. When the station is moved, add a note about the new place."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Where a separate check is needed"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "History will not fix a device that is incompatible with a new network. Check the connection on supported equipment first; then the transfer of the archive and telling apart the periods before and after the move."
+  }
+ ],
+ "rank": 250,
+ "free": false
+}

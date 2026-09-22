@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "focus-productivity",
+ "name": "Concentration et productivité",
+ "summary": "Commencer une séance, moins se laisser distraire et comprendre où est passé le temps — trois raisons différentes d’ouvrir une app de concentration.",
+ "corpus": {
+  "reviews": 18140,
+  "apps": 75
+ },
+ "lead": "Parfois, un minuteur court suffit. Parfois, ce qui aide, c’est un accord pour travailler à côté de quelqu’un d’autre. Et parfois, il faut repérer le moment où la main ouvre le fil par habitude. Un grand ensemble de fonctions peut gêner chacune de ces tâches : avant que le travail commence, il y a l’app elle-même à comprendre.\n\nCes outils méritent donc d’être jugés sur un moment précis de la journée : la séance choisie a-t-elle commencé, les limites sont-elles claires, et peut-on ensuite reconnaître son propre travail dans l’historique. Les heures enregistrées, elles, ne sont pas la même chose qu’une tâche accomplie.",
+ "cover": {
+  "src": "research/ResearchLaunch_focus-productivity_cover",
+  "alt": "Concentration et productivité",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_focus-productivity_audiences",
+  "alt": "Différentes tâches dans la catégorie « Concentration et productivité ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Commencer sa propre séance",
+   "body": "On choisit une plage de temps pour étudier ou travailler et on cherche un moyen clair de s’y mettre. Ce qui compte, c’est une durée adaptée, un fond sonore facultatif et un résultat visible. Une longue configuration avant le départ peut retirer de l’énergie à la séance elle-même."
+  },
+  {
+   "title": "Travailler à côté d’autres personnes",
+   "body": "Il faut le sentiment que quelqu’un d’autre est occupé à son propre travail au même moment. Une présence partagée peut tenir un accord sur le temps sans messagerie et sans obligation de répondre. Le degré de contact se choisit à part."
+  },
+  {
+   "title": "Interrompre le basculement habituel",
+   "body": "On décide à l’avance de compliquer l’accès à une distraction choisie. Ce peut être une courte pause ou une règle plus stricte. Ce qui compte, ce sont des conditions claires pour l’activation, pour les exceptions et pour le retour de l’accès, y compris quand les plans changent."
+  }
+ ],
+ "sections": [
+  {
+   "id": "session",
+   "title": "Aider à commencer et à poser le téléphone",
+   "intro": "Un minuteur, le son et la présence d’une autre personne peuvent soutenir une séance. Leur valeur se voit à la vitesse à laquelle l’attention revient à la tâche.",
+   "art": null,
+   "observations": [
+    {
+     "id": "reward",
+     "title": "Laisser la récompense pour après la séance",
+     "passages": [
+      "Un personnage ou un petit objet pour une pièce virtuelle peut donner une raison agréable de poursuivre une séance. Dans l’avis ci-dessous, une personne associe un tel compagnon à ses révisions et au suivi du temps. Ici, la récompense accompagne un vrai travail au lieu de le remplacer.",
+      "Pour un autre auteur, une plante qu’il voulait est devenue la raison d’étudier une heure entière. C’est une expérience personnelle, mais elle montre une mécanique claire : un petit résultat dans l’app est réservé pour la fin de la séance. L’obtenir n’oblige pas à ouvrir un jeu à part au milieu du travail.",
+      "La limite apparaît quand atteindre le minuteur suppose de contourner des événements, des collections et des récompenses. L’avis suivant décrit exactement ce genre de distraction. Il est plus utile de juger le chemin jusqu’au début d’une séance : combien de décisions il a fallu avant que la personne puisse poser le téléphone. Un bilan calme après une séance peut soutenir le retour sans nouveaux écrans obligatoires."
+     ],
+     "quotes": [
+      {
+       "text": "C’est littéralement le seul moyen que j’ai eu pour me concentrer en cours de statistiques ce semestre. Molly (ma copine de concentration) est trop douée pour m’aider à suivre depuis combien de temps je bosse et pour me motiver à continuer, et la déco de chambre qu’on peut acheter avec des chaussettes est super mignonne !",
+       "rating": 5,
+       "app": "Focus Friend, by Hank Green"
+      },
+      {
+       "text": "j’ai révisé une heure d’affilée juste pour avoir des plantes plus mignonnes",
+       "rating": 5,
+       "app": "Forest: Focus for Productivity"
+      },
+      {
+       "text": "Il se passe trop de choses. Comment c’est censé m’aider à me concentrer avec autant de fonctions ? des plantes, des animaux, des événements de connexion quotidienne, y’a TROP. Ça devrait être plus simple, sinon c’est juste une distraction de plus. et les animations sont pas mignonnes :((",
+       "rating": 2,
+       "app": "Focus Plant：forest app blocker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_focus-productivity_reward",
+      "alt": "Illustration du thème « Laisser la récompense pour après la séance ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-reward",
+       "title": "Laisser la récompense pour après la séance",
+       "body": "",
+       "ideas": [
+        "focus-productivity-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "time",
+     "title": "Montrer le temps restant sans décodage",
+     "passages": [
+      "La durée doit convenir à la tâche de la personne. L’un a besoin d’une heure, l’autre de dix minutes pour commencer quelque chose de difficile. La demande d’un minuteur court ci-dessous ne justifie pas un mode unique pour tous ceux qui ont des difficultés semblables ; elle montre pourquoi il faut laisser choisir une plage à sa mesure.",
+      "La plage choisie doit se lire facilement. Si le cercle entier vaut une heure quel que soit le réglage, une demi-heure ressemble à une séance déjà à moitié finie. L’auteur de l’avis suivant veut voir toute la durée choisie comme un tout. Pour un écran partagé de salle de classe, la même forme devra être vérifiée à part, à distance.",
+      "Une fois lancé, le minuteur doit continuer à compter quand on range le téléphone ou qu’on ouvre un document de travail. Sinon, l’app exige qu’on reste à l’intérieur pour une séance qui se déroule à l’extérieur. À cela s’ajoute, pour une routine, l’étape suivante : ce qui est terminé, ce qui reste à venir, et si le plan peut changer sans relancer toute la séquence."
+     ],
+     "quotes": [
+      {
+       "text": "Il faudrait des minuteurs plus courts (10 min) pour les gens avec un tdah svp ce serait génial",
+       "rating": 3,
+       "app": "FocusFlight - Deepfocus Timer"
+      },
+      {
+       "text": "Je m’en suis servi deux-trois fois jusqu’à ce que je me rende compte du défaut fatal. Le temps qu’on choisit devrait faire UN CERCLE ENTIER. Si tu règles le minuteur sur une heure, le cercle devrait représenter une heure. Mais si tu règles le minuteur sur une demi-heure., Le cercle devrait représenter une demi-heure. Comme ça tu peux voir visuellement",
+       "rating": 2,
+       "app": "Time Timer"
+      },
+      {
+       "text": "Ce serait une appli géniale, sauf que la fonction minuteur d’objectif ne compte pas le temps si l’appli n’est pas au premier plan ! Plein d’applis aujourd’hui ont des minuteurs qui marchent quand même en arrière-plan, là ça fait juste un retour en arrière fainéant aux smartphones d’il y a 10 ans.",
+       "rating": 3,
+       "app": "Productive - Habit Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-time",
+       "title": "Montrer le temps restant sans décodage",
+       "body": "",
+       "ideas": [
+        "focus-productivity-6",
+        "focus-productivity-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sound",
+     "title": "Donner la main sur le fond sonore et la fin",
+     "passages": [
+      "Entre le silence complet et la musique ordinaire, on peut chercher un fond sonore qui convienne. L’auteur ci-dessous décrit sa propre perception : la musique distrait, et le silence n’aide pas non plus. C’est une raison de laisser essayer un fond sonore dans sa propre séance, plutôt que de promettre que le son agit de la même façon sur tout le monde.",
+      "Réunir le fond sonore et le minuteur évite de passer d’un outil à l’autre. Mais la musique doit rester facultative : on peut la retirer, changer son volume ou la laisser jouer après la fin de la plage. L’utilité tient à un accompagnement pratique du travail choisi, pas à un mode sonore obligatoire.",
+      "La fin d’une séance fait aussi partie de ce scénario. Un signal ou une publicité peuvent changer le volume d’un autre son, et l’utilisateur est obligé de rouvrir l’app. Il est important de tester tout le chemin jusqu’au retour du son précédent, pas seulement le premier lancement agréable."
+     ],
+     "quotes": [
+      {
+       "text": "Ça fait presque 2 ans que j’utilise Brain.fm et je le recommanderai jamais assez à ceux qui ont un TDAH ou qui ont juste du mal à se concentrer sur leurs tâches. Personnellement je trouve la musique normale trop distrayante et le silence rend mon cerveau trop bruyant. Brain.fm est un super égaliseur avec une musique qui empêche mon cerveau d",
+       "rating": 5,
+       "app": "Brain.fm: Focus & Sleep Music"
+      },
+      {
+       "text": "J’aime bien qu’en plus du minuteur ils fournissent un fond sonore pour aider à rester concentré.",
+       "rating": 4,
+       "app": "Focus Keeper - Pomodoro Timer"
+      },
+      {
+       "text": "Ça fait quelques années que j’utilise cette appli et de temps en temps il y a un souci avec la baisse automatique du son. On dirait que certaines pubs ont un effet sur le volume audio quand les alarmes sonnent, souvent, ces derniers temps, le volume ne revient pas à son niveau d’origine, ce qui oblige à fermer et rouvrir l’appli.",
+       "rating": 3,
+       "app": "Timer+ Countdown & Stopwatch"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_focus-productivity_sound",
+      "alt": "Illustration du thème « Donner le contrôle du fond et de la fin ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "together",
+     "title": "Être là sans conversation obligatoire",
+     "passages": [
+      "Un groupe de travail silencieux donne le sentiment d’un temps commun : les autres ont commencé leur séance aussi et restent à côté. L’avis ci-dessous apprécie exactement cette présence partagée et muette. Ce n’est pas la même chose qu’une conversation et cela n’oblige pas à répondre aux messages.",
+      "Pour un tel mode, il suffit de savoir que la séance a commencé et que l’autre participant est occupé à son propre travail. S’il est en retard ou termine plus tôt, on peut poursuivre son propre travail. La vérification de l’idée peut commencer avec deux personnes qui se connaissent, sans grand réseau, sans classements ni recherche permanente de compagnie.",
+      "Un chat à l’intérieur de la séance change l’accord : un lieu de plus qu’on a envie de consulter apparaît juste à côté. L’auteur suivant y voit une contradiction directe avec le but de l’app. La conversation peut être laissée entre les séances, et y prendre part peut être un choix à part."
+     ],
+     "quotes": [
+      {
+       "text": "C’est une super appli c’est maintenant mon appli de révision préférée. Elle m’a aidée à me concentrer et à m’y mettre pour réviser ! Elle m’a aussi aidée avec ma faible capacité d’attention ma fonction préférée c’est de pouvoir réviser avec d’autres gens dans les groupes de travail silencieux. Téléchargez-la ! Vous le regretterez pas super pour les étu",
+       "rating": 5,
+       "app": "Flipd: focus & study timer"
+      },
+      {
+       "text": "J’adore cette appli et l’idée, ça m’aide vraiment à me concentrer quand un minuteur tourne et que d’autres gens « révisent avec moi ». J’adore la musique et la fonction stats.",
+       "rating": 4,
+       "app": "Flipd: focus & study timer"
+      },
+      {
+       "text": "Ajouter une fonction chat aux séances est un énorme retour en arrière. On est là pour se concentrer, pour avoir une motivation et une raison de poser le téléphone, pas pour socialiser. C’est pas une fonction c’est une distraction qui ruine tout l’objectif de la séance.",
+       "rating": 4,
+       "app": "Focus Town: Study With Friends"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-together",
+       "title": "Être là sans conversation obligatoire",
+       "body": "",
+       "ideas": [
+        "focus-productivity-3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "distraction",
+   "title": "Choisir sa propre limite de distraction",
+   "intro": "Un écran calme, une courte pause et une limite stricte donnent des résultats différents. Il faut comprendre à l’avance le mode qu’on a choisi.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pause",
+     "title": "Remarquer le passage vers le fil",
+     "passages": [
+      "Une courte question avant l’ouverture du fil rend visible un geste habituel : la personne veut-elle vraiment y aller maintenant. Dans l’avis ci-dessous, un seul arrêt suffit à revoir l’intention. C’est une tâche plus douce que d’interdire l’accès pour toute la soirée.",
+      "La pause doit apparaître au passage qui a été choisi. Si elle se déclenche à l’ouverture de la lampe torche ou d’un panneau système, l’app gêne une action que l’utilisateur n’a jamais voulu limiter. Le réglage mérite d’être testé aussi bien sur les basculements accidentels que sur les outils nécessaires pendant le travail.",
+      "La forme de l’arrêt n’est pas neutre non plus. La vibration, le son et un écran de respiration peuvent être vécus différemment ; pouvoir retirer un effet désagréable compte pour continuer à s’en servir. Une intervention ne peut pas être jugée utile au seul motif qu’elle a retardé l’ouverture du fil."
+     ],
+     "quotes": [
+      {
+       "text": "Ça fait le travail. Rien que de me faire marquer un temps d’arrêt et de me demander « Tu as vraiment besoin de regarder ce site ? Tu as besoin de le faire MAINTENANT ? », ça suffit comme rappel pour empêcher mon esprit de partir ailleurs.",
+       "rating": 4,
+       "app": "one sec | screen time + focus"
+      },
+      {
+       "text": "C’est une super appli. Mais ça se déclenchait trop facilement. Des fois je veux désactiver le mode ne pas déranger ou autre dans le centre de contrôle et ça le redéclenchait. Si le changement d’appli intentionnel doit passer par la version pro, alors au moins autorisez les petits accès hors de l’appli comme utiliser la lampe torche ou ouvrir le centre de contrôle pour ne",
+       "rating": 4,
+       "app": "one sec | screen time + focus"
+      },
+      {
+       "text": "Dans l’ensemble, cette appli m’a aidé à rester loin d’Instagram pendant un certain temps. Ce que j’ai fini par vraiment détester, c’est l’impossibilité, en version gratuite, de couper les vibrations pour l’intervention de respiration. Les vibrations me stressent et je les coupe dès que je peux, et je suis pas en état de pouvo",
+       "rating": 3,
+       "app": "one sec | screen time + focus"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_focus-productivity_pause",
+      "alt": "Illustration du thème « Remarquer le passage dans le fil ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pause",
+       "title": "Remarquer le passage vers le fil",
+       "body": "",
+       "ideas": [
+        "focus-productivity-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "commitment",
+     "title": "Connaître la sévérité avant de lancer",
+     "passages": [
+      "Une règle plus stricte déplace la décision sur l’accès au moment du réglage. L’auteur ci-dessous apprécie la possibilité rare de lever la limite en urgence. Pour lui, la difficulté d’annuler est tout le sens du mode ; quelqu’un d’autre peut choisir une pause plus douce.",
+      "Un objet physique ajoute une action à la décision : se lever et poser le téléphone dessus. Un avis positif montre pourquoi cette distance peut être pratique. Avant de lancer, il faut savoir ce qui est limité, quand la règle prend fin et ce qu’il faudra pour récupérer l’accès.",
+      "En voyage ou avec un emploi du temps modifié, les mêmes conditions peuvent gêner. Si l’objet est loin, la personne doit savoir à l’avance quelles options sont prévues. Ce n’est pas un argument pour retirer la sévérité à tout le monde : ce qui compte, c’est de permettre de la choisir sciemment et de tester une journée ordinaire en même temps qu’une exception au plan."
+     ],
+     "quotes": [
+      {
+       "text": "C’est le MEILLEUR outil pour bloquer des sites précis. Je les ai tous essayés, et Freedom gagne haut la main ! J’adore la fonction de blocage « hard-mode » qui n’autorise un déblocage d’urgence qu’une fois tous les sept jours. L’interface est simple et facile à comprendre (et elle change pas tout le temps pour embrouiller",
+       "rating": 5,
+       "app": "Freedom: Screen Time Control"
+      },
+      {
+       "text": "Je trouve que Brick est simple, facile à utiliser, et pas du tout prise de tête ! Pour moi, le meilleur c’est la partie physique. Une fois que l’horaire réglé se termine, il faut vraiment se lever et poser le téléphone dessus pour le déverrouiller. Comme c’est pas un minuteur passif qui rend l’accès tout seul, je trouve que ça préser",
+       "rating": 5,
+       "app": "Brick - Ditch Distractions"
+      },
+      {
+       "text": "J’ai adoré ce produit, mais j’ai parlé au service client et comment ils ont retiré la fonction de programmation en déplacement. C’est rédhibitoire quand certains d’entre nous peuvent pas prévoir leurs horaires qui changent tout le temps et voyagent pas avec le dongle.",
+       "rating": 2,
+       "app": "Brick - Ditch Distractions"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-commitment",
+       "title": "Connaître la sévérité avant de lancer",
+       "body": "",
+       "ideas": [
+        "focus-productivity-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "home",
+     "title": "Simplifier l’entrée dans le téléphone",
+     "passages": [
+      "Changer l’écran d’accueil retire les incitations visuelles habituelles à ouvrir une app. On peut préférer une simple liste et moins d’icônes voyantes. En même temps, atteindre ces mêmes apps autrement peut rester une partie du fonctionnement ordinaire du téléphone.",
+      "Pour choisir, il est utile de nommer le résultat voulu : un écran d’aspect plus calme, ou un accès limité. Si tout ce qu’il faut est un point d’entrée plus simple, des interdictions supplémentaires peuvent se révéler inutiles. Si la personne cherche une limite ferme, un simple changement d’apparence ne répondra pas à ses attentes.",
+      "Pour certaines personnes, il suffit de retirer les incitations visuelles à une ouverture inutile. C’est un résultat à part entière et il peut être jugé sans blocage strict. Il vaut la peine de demander à part ce qui a changé dans une journée ordinaire : est-il devenu plus simple de trouver ce qu’il faut, et la personne a-t-elle ouvert le téléphone moins souvent sans tâche en tête."
+     ],
+     "quotes": [
+      {
+       "text": "Dès le moment où je l’ai téléchargée, mon temps d’écran a chuté d’un coup. J’ai commencé à passer plus de temps dans l’instant présent, à profiter de ma famille, et de ma vie. C’était il y a deux mois. Je dépense jamais d’argent dans les applis (par principe), mais je vous le dis, j’ai acheté un abonnement à vie aussi vite",
+       "rating": 5,
+       "app": "Blank Spaces Launcher"
+      },
+      {
+       "text": "Tout ce que ça fait c’est remplacer l’écran d’accueil mais on peut toujours accéder à toutes ses applis avec une simple recherche. Plein de bugs. La société dit satisfaction garantie 100% à l’achat mais répond pas aux demandes de remboursement donc j’ai dû passer par Apple pour en avoir un",
+       "rating": 1,
+       "app": "Blank Spaces Launcher"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_focus-productivity_home",
+      "alt": "Illustration du thème « Simplifier l’entrée dans le téléphone ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "title": "Reconnaître son propre travail dans l’historique",
+   "intro": "Les heures enregistrées deviennent utiles quand on peut voir les séances d’origine et corriger une imprécision.",
+   "art": null,
+   "observations": [
+    {
+     "id": "stats",
+     "title": "Séparer le temps enregistré du résultat",
+     "passages": [
+      "Un historique aide à comparer ses propres façons de travailler, si l’on y reconnaît ses séances réelles. L’auteur ci-dessous se sert du suivi du temps pour exactement cette comparaison. Mais la durée n’est qu’une partie du résultat : une heure de préparation ne confirme pas encore que le sujet est compris.",
+      "Il faut d’abord faire confiance aux enregistrements eux-mêmes. Quand un graphique hebdomadaire déplace une séance à une heure du matin, les conclusions tirées du bilan perdent leur fondement. Il est utile d’ouvrir les séances d’origine, de voir leurs horaires et de corriger l’erreur là où un suivi manuel est prévu.",
+      "Vient ensuite la compréhension de ce qui est compté exactement. La musique de fond pendant le travail et le défilement actif sur le téléphone donnent deux sens différents au même nombre d’heures. Pour un examen, il faut encore des thèmes et une vérification des connaissances ; pour une facture client, des tâches, un tarif et les pauses déduites. Aucun total général de minutes ne remplace ces fondements."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai eu l’idée de suivre mes activités dans le temps pour rendre ma productivité mesurable, et pour suivre si certaines stratégies de productivité que je voulais utiliser marchaient. Cette appli fait tout ce dont j’avais besoin. Génial !",
+       "rating": 5,
+       "app": "ATracker Time Tracker"
+      },
+      {
+       "text": "Bon, je commence par dire que j’adore cette appli en général, il y a 1 truc qui m’empêche d’acheter le pass à l’année en fait. Ce truc c’est que les stats hebdo sont complètement fausses, je révise pas à 1 h du matin, et le graphique arrête pas de dire que c’est là que je révise, quand on regarde les trucs un par un, non",
+       "rating": 3,
+       "app": "Flipd: focus & study timer"
+      },
+      {
+       "text": "Je mets Spotify pendant que je bosse, du coup ça dit que j’ai été sur mon téléphone dix heures par jour alors que c’est pas du tout exact. Ce qu’on pourrait sélectionner les applis qui « comptent pas »",
+       "rating": 3,
+       "app": "OffScreen: Screen Time Control"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-stats",
+       "title": "Séparer le temps enregistré du résultat",
+       "body": "",
+       "ideas": [
+        "focus-productivity-2",
+        "focus-productivity-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Moins de décisions avant le début du travail",
+  "body": "La première amélioration dans cette catégorie, c’est de raccourcir le chemin de l’intention à la séance. Une durée adaptée, un travail qui continue après l’extinction de l’écran et un fond sonore facultatif sont plus utiles qu’une nouvelle collection de récompenses. Les séances partagées, les pauses avant le fil et les limites strictes méritent d’être ajoutées pour le moment précis où c’est ce soutien-là qui manque à la personne.\n\nPour un nouveau produit, il est raisonnable de choisir une seule tâche vérifiable : commencer un court travail, mener une séance calme à deux ou préparer des heures enregistrées pour une facture. Il ne faut pas les réunir sous une promesse générale de productivité. Y revenir doit laisser plus de temps au travail principal ; des statistiques exactes et un personnage sympathique n’ont de sens qu’à cette condition."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-session",
+   "title": "Aider à commencer et à poser le téléphone",
+   "depth": 0
+  },
+  {
+   "id": "observation-reward",
+   "title": "Laisser la récompense pour après la séance",
+   "depth": 1
+  },
+  {
+   "id": "observation-time",
+   "title": "Montrer le temps restant sans décodage",
+   "depth": 1
+  },
+  {
+   "id": "observation-sound",
+   "title": "Donner la main sur le fond sonore et la fin",
+   "depth": 1
+  },
+  {
+   "id": "observation-together",
+   "title": "Être là sans conversation obligatoire",
+   "depth": 1
+  },
+  {
+   "id": "theme-distraction",
+   "title": "Choisir sa propre limite de distraction",
+   "depth": 0
+  },
+  {
+   "id": "observation-pause",
+   "title": "Remarquer le passage vers le fil",
+   "depth": 1
+  },
+  {
+   "id": "observation-commitment",
+   "title": "Connaître la sévérité avant de lancer",
+   "depth": 1
+  },
+  {
+   "id": "observation-home",
+   "title": "Simplifier l’entrée dans le téléphone",
+   "depth": 1
+  },
+  {
+   "id": "theme-review",
+   "title": "Reconnaître son propre travail dans l’historique",
+   "depth": 0
+  },
+  {
+   "id": "observation-stats",
+   "title": "Séparer le temps enregistré du résultat",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Moins de décisions avant le début du travail",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

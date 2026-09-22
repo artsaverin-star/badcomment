@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "ai-writing-8",
+ "category": "ai-writing",
+ "categoryName": "Assistants d’écriture IA",
+ "title": "Une histoire que le joueur dirige",
+ "description": "Le personnage de l’utilisateur, les événements admis et les versions brutes sont conservés séparément.",
+ "cover": {
+  "src": "ideas/ai-writing-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Dans un dialogue de jeu de rôle, une action non voulue accomplie à la place du héros change le jeu lui-même. Des décisions épinglées aident à garder ce qui a été convenu."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "arrêtez de faire parler les bots à ma place et laissez-moi vraiment faire ma propre trame et mes propres actions au lieu que le bot contrôle mes paroles et ce que je fais parce que ça gâche tout l’intérêt de parler au bot",
+    "rating": 2,
+    "app": "Character AI: Chat, Talk, Text"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Laisser l’utilisateur maîtriser les faits du monde et interdire que des décisions soient prises en silence pour son personnage. Conserver les versions et un export de l’histoire."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Vérifier le retour en arrière après une suite ratée. La correction d’un épisode doit revoir les hypothèses qui y sont liées plutôt que de les laisser dans une mémoire cachée."
+  }
+ ],
+ "rank": 380,
+ "free": false
+}

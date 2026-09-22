@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "car-maintenance",
+ "name": "Car maintenance",
+ "summary": "Work trips, fill-ups and service: which records are worth linking, so that later you can find a gap, recall a repair or put a report together.",
+ "corpus": {
+  "reviews": 13395,
+  "apps": 56
+ },
+ "lead": "A car log promises to free the owner from having to remember everything. But mileage is needed for one job, a receipt from the shop for another, and an error code for a conversation about a fault. Mix that data together without links you can follow, and you get one more archive in which the answer is hard to find.\n\nThree different directions show up in the reviews: tracking work trips, service history, and working with scanner data. They can sit side by side in the store, but they do not have to become one app. What follows traces the result needed in each case, and what gets in the way of drawing it out of records that have already been made.",
+ "cover": {
+  "src": "research/ResearchLaunch_car-maintenance_cover",
+  "alt": "Car maintenance",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_car-maintenance_audiences",
+  "alt": "People’s jobs: Car maintenance",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Close out the work shift",
+   "body": "A driver needs to gather the day’s trips, separate the personal routes and hand the total to the accountant or the client. A gap is easier to restore today than at the end of the month."
+  },
+  {
+   "title": "Recall the car’s service",
+   "body": "The owner is looking for the date of a repair, an odometer reading and a receipt. That information will be needed at the next service, at a visit to the shop, or when the car is sold."
+  },
+  {
+   "title": "Run a personal garage",
+   "body": "A person has several cars or a mix of machines. They want to see the upcoming jobs together while keeping a separate history for each one."
+  }
+ ],
+ "sections": [
+  {
+   "id": "mileage",
+   "title": "Turn trips into a history you have checked",
+   "intro": "Automatic recording is useful together with the ability to notice a gap and correct it while the day is still fresh.",
+   "art": null,
+   "observations": [
+    {
+     "id": "record",
+     "title": "Notice a missed trip in time",
+     "passages": [
+      "Automatic start removes the need to remember a button before every trip. But a gap is discovered late if the app stopped recording after a logout or a change of settings. Then the history has to be reconstructed from memory, and short stops can break it into extra pieces on top of that.",
+      "A sensor failure can leave several days unrecorded at once. So it is not enough for the log to wait silently for the next trip: the state of the connection and of the recording has to be visible. A warning helps you notice that tracking has stopped, but it does not let the app learn the routes it never recorded.",
+      "A short check at the end of the shift lets a route be restored while it is still remembered. If the gap was caused by a logout, that should be said plainly. Trips added by hand are worth keeping apart from those recorded by the sensor: later it will be clear which is a measurement and which is history the owner reconstructed."
+     ],
+     "quotes": [
+      {
+       "text": "I drive A LOT for someone who is not a trucker. I have driven about 70,000 miles since downloading this app, then purchasing the motion-sensing device that auto-tracks trips. I learned the hard way that, even though my iPhone is less than 15\" away from the \"bug,\" it does not always automatically track trips.",
+       "rating": 3,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "The 3 Star overall is because of the inconsistent trip auto-start feature that is supposed to engage with the USB Bluetooth chip that's plugged in your vehicle's USB port. This past week it stopped recognizing my vehicle beacon and I missed two days of tracking.",
+       "rating": 3,
+       "app": "Mileage Tracker App by TripLog"
+      },
+      {
+       "text": "At least once a month I will get logged out automatically and no notification about it and have to review notes and memory to input the stops. No point in using this as you'll still have to keep a written log of where you go on a daily basis.",
+       "rating": 1,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_record",
+      "alt": "Illustration for the theme “Noticing a missed trip in time”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-record",
+       "title": "Notice a missed trip in time",
+       "body": "",
+       "ideas": [
+        "car-maintenance-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "report",
+     "title": "Get a report for the work you picked",
+     "passages": [
+      "Splitting personal and business trips is useful when it leads to a checked total for the period you need. Bulk tagging saves steps, but it becomes dangerous for the accuracy of the log when it reaches wider than the filter that was chosen. A person is sure they have handled the visible list, and other records change instead.",
+      "A bulk edit has to match the list the person is looking at. Before confirming it, show the number of trips and the filter in use; afterwards, offer a way to undo the action. Otherwise the “business” tag can land on personal routes, and a good-looking final report only locks the mistake in.",
+      "The report is needed for the period a person actually works in: a month, a year or the length of one job. Splitting it into months should not force anyone to stitch a year together by hand. For several clients you can add a trip tag and separate totals, but that kind of specialization calls for finding out how the driver prepares and hands over documents today."
+     ],
+     "quotes": [
+      {
+       "text": "I have been using MileIQ for 8 years now. It is very user friendly and I am able to accurately keep track of my personal and business miles easily. At the end of the year I simply create my report and send it to my accountant. I highly recommend it.",
+       "rating": 4,
+       "app": "MileIQ: Mileage Tracker & Log"
+      },
+      {
+       "text": "When selecting multiple items when classifying you have to be very careful selecting the trip or it will open the trip. When filtering and selecting all to mass classify it selects all the trips you have unclassified. Not just the filtered trips.",
+       "rating": 3,
+       "app": "Mileage Tracker by Everlance"
+      },
+      {
+       "text": "I've been using this app for 5 years now for my taxes. Super easy to use to send to my accountant and to my email for the year-end tax report. However, lately, they don't let you send the whole year's report, instead, month by month. Kinda hassle to keep going back month to month record.",
+       "rating": 1,
+       "app": "Mileage Tracker App by TripLog"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-report",
+       "title": "Get a report for the work you picked",
+       "body": "",
+       "ideas": [
+        "car-maintenance-3",
+        "car-maintenance-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "power",
+     "title": "Test recording in the conditions of your own shift",
+     "passages": [
+      "Background recording lives inside the conditions of a particular shift: how long the trips are, power in the car, and location permissions. For one driver a power-connection mode can be a convenient way to control recording. For another, what matters is understanding why trips do not appear with the permissions they chose.",
+      "A “power only” mode suits someone who plugs the phone in on every work trip. Without that habit it will create new gaps. Choosing a mode should have consequences you can follow: when recording starts, under what condition it stops, and which permissions it needs.",
+      "If background mode does not fit, what is left is a manual log — with the start, the end and the events of the shift. Its value has to be tested separately: a person has to agree to regular entry for the sake of the form they need. That is a different way of keeping records, not a promise to fix battery drain with a new interface."
+     ],
+     "quotes": [
+      {
+       "text": "This app works well without any battery consequence as long as I have it set to track in \"Power Supply Only\" mode. Then it only seems to run the GPS and try to track mileage while it's plugged in to power in the car.",
+       "rating": 3,
+       "app": "Motus - Business Mileage Log"
+      },
+      {
+       "text": "The app uses a huge amount of battery life and unless you keep it \"always on\" instead of \"only when using,\" it won't track your mileage and trips.",
+       "rating": 1,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "The only problem I think Motus has is using user location all the time. It won't work when you put it on use location when using the app. That's a big issue to think and it kills my phone battery.",
+       "rating": 4,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_power",
+      "alt": "Illustration for the theme “Checking the log under your own shift conditions”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-power",
+       "title": "Test recording in the conditions of your own shift",
+       "body": "",
+       "ideas": [
+        "car-maintenance-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "service",
+   "title": "Work out what happened to the car",
+   "intro": "Documents, intervals and costs answer different questions. What links them is a particular car and a particular event.",
+   "art": null,
+   "observations": [
+    {
+     "id": "archive",
+     "title": "Find the receipt together with the work that was done",
+     "passages": [
+      "A receipt becomes useful when it can be found next to the work and the odometer reading. That link is how an owner reconstructs a service later on. The bare fact of an attached photo helps little if the text cannot be read after the upload, or the history is out of reach on a new phone.",
+      "A receipt compressed past legibility loses its point exactly when the details are needed: the list of work, the date or the amount. The archive has to keep a readable proof next to the service record. Being able to enlarge the document and get a separate copy later matters.",
+      "A separate job for the archive is surviving a change of phone. Having an account does not by itself mean that the records and the attachments will come back: you see that only after opening an old service entry on the new device. From an archive like that, a history for the buyer can be put together, choosing the work in advance and leaving out personal details that do not belong."
+     ],
+     "quotes": [
+      {
+       "text": "I've been using this app for 8 years to track all maintenance related expenses on my personal vehicle. I love the simplicity of attaching a picture of the receipt to each log I make. I pull up past receipts and odometer readings to gauge when something needs to be done.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Uploaded images of receipts are very poor. They are clearly reduced once the upload has been completed. This was a serious downfall.",
+       "rating": 3,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "I've lost all of my data. Everything going back since 2019 on my car as well as records on two other cars are completely gone. Either a recent update wiped it or updating to a new phone did. I've had it synced to my Gmail account since I started using this app many years ago and all my data is gone.",
+       "rating": 1,
+       "app": "Auto Care Kit"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-archive",
+       "title": "Find the receipt together with the work that was done",
+       "body": "",
+       "ideas": [
+        "car-maintenance-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "interval",
+     "title": "Set a reminder for a particular job",
+     "passages": [
+      "A date and a mileage reading describe different conditions for the next service. When an app ties them together rigidly, a person cannot move the interval they chose for their own purpose. Work already done matters just as much: before creating a new record, it helps to find when the service happened before.",
+      "Let the time condition and the distance condition be set independently, and show which past event the reminder rests on. A person picks the interval itself on the grounds that suit their own car. The log’s job is to store those conditions exactly and make the link to the history visible.",
+      "The history is needed before the next service is scheduled too: the work may have been done by the previous owner. A record with a date, a mileage reading and a document helps put a specific question to the shop. The saving named in a review is one person’s experience; the log itself does not determine whether the car needs a part replaced now."
+     ],
+     "quotes": [
+      {
+       "text": "Been using for 8 years or so… best part is keeping track of MPG and enter services like oil changes, etc. Since it has both time and distance, can set oil changes for 12 months or 12k miles, which ever comes first.",
+       "rating": 4,
+       "app": "Fuel Monitor Pro"
+      },
+      {
+       "text": "Great that tracking by mileage is now an option… problem is it is not independent from date. You cannot select a custom mileage interval separate from date. I cannot set my oil change to 12 months or 10k miles. Every month is tied to 1k miles.",
+       "rating": 2,
+       "app": "Car Cave - Car Maintenance Log"
+      },
+      {
+       "text": "I thought I needed to change my transmission fluid (on a Mercedes) because I bought the car used. I downloaded the app and it let me know exactly when it was changed and saved me $800.",
+       "rating": 5,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_interval",
+      "alt": "Illustration for the theme “Setting a reminder for a specific job”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "fuel",
+     "title": "Correct the fill-up history without rebuilding it",
+     "passages": [
+      "A missed fill-up is an ordinary case of correcting history. If it cannot be inserted in the right place without deleting the records that follow, a person has to choose between an incomplete log and entering everything again. A change of units also has to preserve the meaning of the original readings.",
+      "A missed fill-up should be inserted by its date and odometer reading, with the events that follow left in place. Before saving, it is worth showing which stretches of the calculation will change. Then the correction gives the log back its completeness instead of forcing a person to delete correct history for the sake of one old receipt.",
+      "Changing the units of measurement should not change the distance traveled. If the history looks different after switching from kilometers to miles, the owner loses the ability to compare years and to share the data with a mechanic. The original readings and a correction you can follow matter more than a new chart: the chart rests on that history."
+     ],
+     "quotes": [
+      {
+       "text": "I've been using this app for over a decade and I find it so helpful. I started using it just to track my mileage, but soon realized that all of my automotive expenses, reminders, and notes can have a single home!",
+       "rating": 5,
+       "app": "Road Trip MPG"
+      },
+      {
+       "text": "Changing my rating to 1 star because you cannot add a missed fuelup without deleting all of the fuelups after it. The \"Last odometer\" field is autofilled and you cannot change it manually. Therefore the mileage calculation will be WRONG.",
+       "rating": 1,
+       "app": "Fuelly: MPG & Service Tracker"
+      },
+      {
+       "text": "Love this app, but the revamp caused my mileage from the last 6 years to convert to kilometers. When I switched back to miles, about 35,000 miles were missing. I share this data with my mechanic and now it's all screwed up!",
+       "rating": 3,
+       "app": "Fuel MPG Calculator"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-fuel",
+       "title": "Correct the fill-up history without rebuilding it",
+       "body": "",
+       "ideas": [
+        "car-maintenance-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "garage",
+     "title": "Keep the history of different machines apart",
+     "passages": [
+      "A personal garage can hold more items than the basic tier allows for, while needing less than a large fleet. An owner may want to keep a car, a motorcycle and other machines in exactly the same way. A sudden jump to a plan out of all proportion does not explain how to carry that simple scenario on.",
+      "The sharp jump from five cars to fleet pricing leaves the personal garage between two products. In the review cited here the person even names the number of items they want and the price; that is a concrete reason to talk to this audience, but not yet a finished plan. What they need is a separate history per machine and a shared overview of the work, without driver management and business processes.",
+      "Mileage, engine hours and seasonal service cannot be flattened onto one scale without thinking. A machine’s card has to hold the units and the reminder rules that suit it. The shared overview is for the upcoming work, while the detailed history stays with each item."
+     ],
+     "quotes": [
+      {
+       "text": "I have three vintage Mercedes and a Porsche Cayenne. Coming from the airline world, I am a stickler about maintenance records. Autoist is the perfect digital companion to hardcopy records.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "It's a nice app that does just what I needed. I only wish I could add more vehicles. I have motorcycles, ATV's, and such that I'd like to track and would gladly pay, but it goes from 5 at a very reasonable price to $100 per month to track a fleet. Uhh, no. Can I just pay $40 for 10 vehicles?",
+       "rating": 4,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "I do really love the way this app works. It has allowed me to keep track of a lot of things I used to forget about. Only reason I can't give it five stars is because I wish there was a way to add more slots. I manage my employer's family vehicles.",
+       "rating": 4,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_garage",
+      "alt": "Illustration for the theme “Keeping histories of different machines apart”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-garage",
+       "title": "Keep the history of different machines apart",
+       "body": "",
+       "ideas": [
+        "car-maintenance-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diagnostic",
+   "title": "Prepare the data for the conversation with the shop",
+   "intro": "A code that has been read is the start of working the problem out. It has to be saved together with the conditions under which it was taken.",
+   "art": null,
+   "observations": [
+    {
+     "id": "codes",
+     "title": "Save the code without a hasty diagnosis",
+     "passages": [
+      "An explanation of the code you can follow helps make sense of what the scanner picked up. But first it has to be established that reading works on this particular pairing of car and adapter. A good experience on one car does not explain why the codes you need are out of reach on another.",
+      "Show the compatibility, the result of the read and the raw code separately from the explanation. That lets the data be used in the rest of the conversation about the problem. An automatic caption should not be turned into a final diagnosis or into permission to keep driving: the app’s job here is to pass on the information it got, clearly.",
+      "For a second conversation, the date of the read, the adapter model and what the car itself makes available are useful. If part of the data was not read, that has to be visible. The question for the product is how to hand the mechanic an exact result, not how to name a cause confidently from a single label."
+     ],
+     "quotes": [
+      {
+       "text": "The best thing for me is how it tells you how serious a problem is and if it's okay to keep driving or not. I also like the live data stuff and how it explains codes in a way that actually makes sense. Being able to clear codes is nice too.",
+       "rating": 4,
+       "app": "FIXD OBD2 Scanner"
+      },
+      {
+       "text": "I drive a 2016 Chrysler. Not a very old car and not an obscure make. It has been throwing three codes that a cheaper OBDII scanner easily picks up and the check engine light has been on for months. Their app claims there are no codes and no CEL.",
+       "rating": 2,
+       "app": "ZUS - Save Car Expenses"
+      },
+      {
+       "text": "Worked for my BMW 128 (12V battery change) but barely works for a Lexus LX470. Do not buy for anything other than a BMW. I can't even read basic OBD codes for the Lexus.",
+       "rating": 1,
+       "app": "Carly OBD2 car scanner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-codes",
+       "title": "Save the code without a hasty diagnosis",
+       "body": "",
+       "ideas": [
+        "car-maintenance-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Service history first",
+  "body": "For a first product I would pick the service history of a personal car: the work, the date, the odometer and a readable receipt in one record. The value shows up at a specific moment — recalling a past replacement, discussing it with the shop, or showing the history to a buyer. You can start by moving a few real documents across and then looking for the event you need some time later. What matters is finding out whether the owner is ready to add records regularly after a visit to the shop.\n\nWork trips are a separate direction, with a daily check and requirements for reports. Diagnostics calls for tested hardware compatibility on top of that. It is early to add both directions for the sake of a long list of features: each one complicates the product, and a simple archive does not get any more useful for it."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-mileage",
+   "title": "Turn trips into a history you have checked",
+   "depth": 0
+  },
+  {
+   "id": "observation-record",
+   "title": "Notice a missed trip in time",
+   "depth": 1
+  },
+  {
+   "id": "observation-report",
+   "title": "Get a report for the work you picked",
+   "depth": 1
+  },
+  {
+   "id": "observation-power",
+   "title": "Test recording in the conditions of your own shift",
+   "depth": 1
+  },
+  {
+   "id": "theme-service",
+   "title": "Work out what happened to the car",
+   "depth": 0
+  },
+  {
+   "id": "observation-archive",
+   "title": "Find the receipt together with the work that was done",
+   "depth": 1
+  },
+  {
+   "id": "observation-interval",
+   "title": "Set a reminder for a particular job",
+   "depth": 1
+  },
+  {
+   "id": "observation-fuel",
+   "title": "Correct the fill-up history without rebuilding it",
+   "depth": 1
+  },
+  {
+   "id": "observation-garage",
+   "title": "Keep the history of different machines apart",
+   "depth": 1
+  },
+  {
+   "id": "theme-diagnostic",
+   "title": "Prepare the data for the conversation with the shop",
+   "depth": 0
+  },
+  {
+   "id": "observation-codes",
+   "title": "Save the code without a hasty diagnosis",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Service history first",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

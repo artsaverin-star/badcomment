@@ -1,0 +1,427 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "plant-care",
+ "name": "Soin des plantes",
+ "summary": "Reconnaître une plante, se souvenir de son entretien et comprendre ce que signifie une feuille qui a changé sont des tâches différentes, que relie l’historique d’un spécimen précis.",
+ "corpus": {
+  "reviews": 14107,
+  "apps": 64
+ },
+ "lead": "Quand les feuilles changent, le nom de l’espèce ne suffit pas : il faut se rappeler ce qui est arrivé à cette plante-là. Quand on a plusieurs pots semblables à la maison, la date du dernier arrosage compte plus que de reconnaître encore une fois chaque cliché.\n\nOn commencera donc par le journal personnel, qui fonctionne même sans nom exact. On verra ensuite comment le relier aux rappels et à l’examen d’un état inhabituel. Cet ordre permet de distinguer une aide utile d’un catalogue qui recommence chaque fois à faire connaissance avec la plante depuis zéro.",
+ "cover": {
+  "src": "research/ResearchLaunch_plant-care_cover",
+  "alt": "Soin des plantes",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_plant-care_audiences",
+  "alt": "Différentes tâches dans la catégorie « Soin des plantes ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Tenir une collection de plantes d’intérieur",
+   "body": "Un propriétaire expérimenté a besoin de son propre journal : des photographies, les noms des spécimens et les dernières actions. Une variété rare ou une erreur de reconnaissance ne doit pas empêcher d’ajouter un nouveau pot."
+  },
+  {
+   "title": "Adapter l’arrosage aux conditions réelles",
+   "body": "L’entretien quotidien consiste à rapprocher le rappel de ce qui se passe à la maison ou au jardin. Le propriétaire voit la terre et le temps qu’il fait, et il connaît sa façon d’arroser. Son observation doit orienter ce qui est enregistré et l’étape suivante, plutôt que de compter comme une erreur du calendrier."
+  },
+  {
+   "title": "Comprendre un nouveau symptôme",
+   "body": "Devant un nouveau symptôme, on veut comprendre quoi vérifier et comment poursuivre l’observation. Il faut des précisions claires et un lien entre la réponse, la photographie et les conditions. Le nom d’un problème supposé a un sens à l’intérieur de cet examen, pas à sa place."
+  }
+ ],
+ "sections": [
+  {
+   "id": "collection",
+   "title": "Garder sa plante et son historique",
+   "intro": "La fiche d’un spécimen doit exister même quand le nom exact n’est pas encore connu.",
+   "art": null,
+   "observations": [
+    {
+     "id": "identity",
+     "title": "Créer une fiche avant l’identification exacte",
+     "passages": [
+      "La reconnaissance aide à commencer à faire connaissance avec une plante, mais la réponse de l’appareil photo peut changer. Dans le premier avis, une personne compare les noms proposés avec la commande qu’elle sait avoir passée. Ce qu’il lui faut, c’est un moyen de garder son propre nom et de préciser l’identification, pas d’accepter à nouveau l’une des propositions.",
+      "Renvoyer la même image une deuxième fois ne doit pas non plus tourner à la devinette. Il est utile de séparer le nom propre du spécimen de la supposition sur l’espèce. La photographie, l’emplacement et l’historique d’entretien sont enregistrés tout de suite ; la partie de référence peut être corrigée plus tard, sans créer une nouvelle plante.",
+      "Même un propriétaire expérimenté peut vouloir précisément un journal, et non un outil d’identification. L’auteur de l’avis suivant tient un journal de ses orchidées bien que le catalogue et la reconnaissance ne le satisfassent pas. L’ajout à la main est donc un usage à part entière de l’app, et non un écran de secours en cas d’échec de l’appareil photo."
+     ],
+     "quotes": [
+      {
+       "text": "Trois jours de suite, j’ai pris cette plante en photo et ça m’a sorti trois variétés différentes pour dire ce que c’est…\nJe sais que j’ai commandé du Purple Firespike … mais l’appli n’arrête pas de me dire que c’est un chèvrefeuille mexicain ou deux autres variétés, je sais plus.",
+       "rating": 3,
+       "app": "PictureThis - Plant Identifier"
+      },
+      {
+       "text": "J’ai pris la même photo et je l’ai renvoyée plusieurs fois & à chaque fois ça revenait avec une identification différente , toutes complètement fausses.",
+       "rating": 1,
+       "app": "Plant Identifier: ChatPlant AI"
+      },
+      {
+       "text": "Dans l’ensemble, l’appli est super ! Je m’en sers comme journal pour mes orchidées. Par contre, elle n’a pas l’intelligence d’identifier correctement mes orchidées, et la base pour les recherches manuelles est assez limitée côté espèces d’orchidées.",
+       "rating": 3,
+       "app": "Plantum - AI Plant Identifier"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_identity",
+      "alt": "Illustration du thème « Commencer une fiche avant l’identification exacte ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "history",
+     "title": "Se souvenir de ce qui a été fait à chaque spécimen",
+     "passages": [
+      "Une collection personnelle contient plus qu’une liste d’espèces. Les photographies distinguent les spécimens semblables, et la date du dernier arrosage répond à une question pratique fréquente. L’auteur ci-dessous se sert d’un tel historique depuis des années et n’a plus besoin d’un apprentissage élaboré des bases de l’entretien.",
+      "Ce travail doit survivre à un changement de téléphone. Il ne suffit pas que le nombre de fiches corresponde : il vaut la peine de vérifier les photographies, les derniers événements et les réglages des rappels. Sinon le propriétaire obtient des noms vides à la place de sa collection et ressaisit ce qu’il avait déjà entré une fois.",
+      "Une mise à jour de l’app ne doit pas non plus repartir de zéro pour le journal. La perte des plantes et des actions accumulées, décrite ci-dessous, annule le bénéfice acquis. Avant d’étendre le catalogue ou d’ajouter de nouveaux conseils, il importe davantage de rendre accessible ce qui est déjà enregistré. Pour une collection partagée, l’étape suivante est de voir qui a fait l’entretien et quand, afin de ne pas répéter l’action."
+     ],
+     "quotes": [
+      {
+       "text": "Ça fait 5 ans ou plus que j’utilise cette appli. J’ai beaucoup d’expérience avec mes plantes, du coup je préfère la version gratuite. Je m’en sers pour organiser mes plantes avec des photos. Mais surtout pour garder la trace du dernier arrosage.",
+       "rating": 5,
+       "app": "Planta: Plant & Garden Care"
+      },
+      {
+       "text": "J’ai passé beaucoup de temps à configurer tous mes jardins là-dedans, avec l’entretien et les notifications. Quand j’ai acheté un nouveau téléphone, rien n’a été transféré. Tellement décevant. J’adorais jusque-là.",
+       "rating": 2,
+       "app": "Plant Identifier: LeafSnap"
+      },
+      {
+       "text": "Je comprends que c’est passé à une appli payante avec trois jours d’essai. Ce que je comprends pas, c’est qu’une mise à jour supprime toutes mes plantes et tout mon progrès. J’ai supprimé l’appli. Je m’en suis servi longtemps pour tout perdre au final.",
+       "rating": 2,
+       "app": "Flora - Plant ID & Diagnosis"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-history",
+       "title": "Se souvenir de ce qui a été fait à chaque spécimen",
+       "body": "",
+       "ideas": [
+        "plant-care-3",
+        "plant-care-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "care",
+   "title": "Rapprocher le rappel de l’état réel",
+   "intro": "Un calendrier aide à ne pas oublier une vérification. L’action se choisit à la lumière des observations et des conditions concrètes.",
+   "art": null,
+   "observations": [
+    {
+     "id": "watering",
+     "title": "Distinguer « vérifié » de « arrosé »",
+     "passages": [
+      "Un rappel donne l’occasion de vérifier la plante, mais il ne remplace pas l’observation du propriétaire. Si la terre est encore humide, il faut une marque « vérifié, arrosage pas nécessaire ». Une simple coche « fait » crée un historique faux : plus tard, on ne sait plus quand la plante a réellement été arrosée.",
+      "La façon d’arroser peut aussi différer de ce que le programme suppose. Dans l’avis ci-dessous, une personne ne peut pas décrire son système de goutte-à-goutte et reçoit des rappels quotidiens qui ne conviennent pas. Il faut des réglages visibles et une correction à la main qui garde le fait de l’action séparé de la date prévue.",
+      "Les conditions locales posent une autre limite au calendrier. L’auteur qui vit en Arizona doit modifier le calcul parce que sa température sort de la plage disponible. L’app devrait signaler une telle lacune plutôt que de délivrer un calendrier avec la même assurance qu’avant. Pour les plantations saisonnières, pour la même raison, il importe de séparer les dates proposées, le plan choisi et la date réelle de l’événement."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore cette appli. Je l’utilise depuis un peu plus d’un an. J’aimerais bien pouvoir lui dire quand je plante 2 plantes différentes ensemble dans 1 pot et surtout que ma plante est encore humide quand elle recommande d’arroser.",
+       "rating": 4,
+       "app": "Greg: Plant Identifier & Care"
+      },
+      {
+       "text": "Le calendrier d’arrosage pose problème parce que je sais pas comment représenter un système de goutte-à-goutte qui fait un trempage en profondeur. Résultat, je reçois des rappels tous les jours pour arroser des plantes qui devraient l’être 1-2 fois par semaine.",
+       "rating": 3,
+       "app": "Planta: Plant & Garden Care"
+      },
+      {
+       "text": "J’adore cette appli, sauf un gros manque. Je vis en Arizona et les températures sont, une bonne partie de l’année, bien plus élevées que le haut de la plage dans l’appli. Du coup le calendrier d’arrosage calculé par l’appli est pas juste. Il faut tout ajuster à la main. Et beaucoup de plantes du désert sont même pas dans la base.",
+       "rating": 3,
+       "app": "Blossom - Plant Care Guide"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_watering",
+      "alt": "Illustration du thème « Distinguer “vérifié” et “arrosé” ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-watering",
+       "title": "Distinguer « vérifié » de « arrosé »",
+       "body": "La même distinction entre le plan et le fait est nécessaire dans des tâches plus étroites : suivre le développement d’une bouture ou tenir des plantations saisonnières. Elles ne doivent pas être réduites à un intervalle d’arrosage de plus.",
+       "ideas": [
+        "plant-care-2",
+        "plant-care-4",
+        "plant-care-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "symptoms",
+     "title": "Partir de ce qui a changé",
+     "passages": [
+      "On photographie une feuille qui a changé en ayant déjà une question précise en tête. Un verdict général « en bonne santé » n’aide pas quand on voit des dégâts, et une liste de versions opposées n’explique pas comment les distinguer. Le premier pas utile est de nommer le signe remarqué et de dire ce que le cliché ne montre pas.",
+      "Relier les questions à ce signe : demander l’angle nécessaire ou des précisions sur les conditions et l’historique des changements. La réponse doit montrer quelle partie de l’examen repose sur l’image et quelle partie sur ce que le propriétaire a rapporté. La suite consiste alors à préciser le cas, et non à envoyer la même photographie encore et encore.",
+      "Au lieu d’un nom de maladie affirmé d’après un seul cliché, il est utile de constituer une suite : quand le signe est apparu, comment il a changé, ce qui se passait du côté de l’entretien. Un autre angle ou une photographie de la plante entière peut éclaircir le cas. La qualité du produit se voit ici à la précision des questions de clarification et à la possibilité de comparer les photographies."
+     ],
+     "quotes": [
+      {
+       "text": "J’arrêtais pas de voir la pub de l’appli, qui scanne l’herbe du jardin et repère les problèmes. J’ai lancé l’essai, j’ai pris plusieurs photos de ma pelouse mourante et mal en point que les jardiniers ont toujours pas réparée. De près, de loin, etc. Chaque photo dit qu’elle est en bonne santé.",
+       "rating": 2,
+       "app": "Plantion - Plant Identifier"
+      },
+      {
+       "text": "Cette appli, faut payer presque 50 $ par mois pour utiliser la fonction diagnostic en prenant une photo. Une fois sur deux elle dit que la plante est en bonne santé même quand les feuilles sont jaunes et à moitié mangées par les nuisibles.",
+       "rating": 3,
+       "app": "Plantfie・Plant Care Identifier"
+      },
+      {
+       "text": "J’ai acheté l’abonnement à cause d’une pub vue sur Instagram. C’était une vidéo assez claire où cette appli reconnaissait la plante et donnait des conseils très précis. Au lieu de ça elle a donné des conseils très génériques du genre « c’est soit trop d’arrosage soit pas assez » sans rien de vraiment précis.",
+       "rating": 2,
+       "app": "Plantion - Plant Identifier"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-symptoms",
+       "title": "Partir de ce qui a changé",
+       "body": "",
+       "ideas": [
+        "plant-care-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "action",
+     "title": "Enregistrer l’action et regarder ce qui s’est passé",
+     "passages": [
+      "L’aide face à un problème n’est pas la même chose qu’une fiche d’espèce ordinaire. La personne connaît déjà le nom de la plante, mais ne comprend pas ce qui a changé ni quoi faire ensuite. Dans l’avis ci-dessous, un album photo est jugé inutile précisément parce qu’il ne répond pas à cette question.",
+      "Une histoire positive montre un autre résultat : l’auteur a obtenu une explication et une suite claire pour l’entretien. C’est la preuve d’un seul cas, pas une vérification de l’exactitude de la méthode. Il est utile d’enregistrer l’action choisie à côté de la date et de la photographie d’origine, pour que la réponse suivante tienne compte de ce qui a déjà été fait.",
+      "La suite se passe parfois en dehors de l’app. L’auteur ci-dessous mentionne explicitement des questions supplémentaires à la pépinière. Un bref historique des photographies, des conditions et des actions aide à transmettre le cas à une personne et à revenir avec une nouvelle observation. Cela vaut mieux qu’une énième réponse indépendante sur la même plante, sans mémoire de la tentative précédente."
+     ],
+     "quotes": [
+      {
+       "text": "Je sais ce que sont mes plantes, j’ai besoin de savoir quels problèmes il y a et ce qu’on peut faire. J’ai pas besoin d’un album photo de mes plantes. A I D E Z-moi à sauver mes plantes.",
+       "rating": 1,
+       "app": "PlantAI: Identifier & Diagnose"
+      },
+      {
+       "text": "A sauvé ma plante préférée. Elle a bien diagnostiqué un excès d’arrosage et donné un vrai calendrier d’entretien. J’enlève une étoile parce que le scanner photo peut être un peu difficile si l’éclairage est pas parfait, mais sinon c’est super.",
+       "rating": 4,
+       "app": "Plant Identifier & Care App"
+      },
+      {
+       "text": "Je l’ai téléchargée il y a un moment, sans penser que ça servirait vraiment à quelque chose MAIS j’avais complètement tort. Grâce à cette appli (et à des recherches en plus à la pépinière), j’ai environ 10 plantes qui se portent super bien alors que je connaissais rien au jardinage de moi-même ! Cette appli me rend fier d’être un jardinier qui apprend.",
+       "rating": 5,
+       "app": "Planta: Plant & Garden Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_action",
+      "alt": "Illustration du thème « Enregistrer une action et voir ce qui s’est passé ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-action",
+       "title": "Enregistrer l’action et regarder ce qui s’est passé",
+       "body": "",
+       "ideas": [
+        "plant-care-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pet",
+     "title": "Préciser la plante, l’animal et le fondement de l’information",
+     "passages": [
+      "Une question sur une plante près d’un animal exige des précisions : de quelle plante et de quel animal parle-t-on. Une étiquette générale « adapté aux animaux de compagnie » masque ces différences, et des mentions opposées dans la recherche et sur la fiche enregistrée rendent l’information inutilisable pour un choix.",
+      "Utiliser un nom cohérent et montrer une source vérifiable de l’information, avec l’animal nommé. La supposition de l’appareil photo doit rester distinguable d’une espèce confirmée. Si l’information nécessaire manque, signaler la lacune ; l’absence d’une entrée dans un ouvrage de référence ne doit pas être transformée en marque positive d’autorisation de contact.",
+      "Une information de ce genre demande un travail éditorial à part : des noms cohérents, des faits vérifiés et une date de révision. Une erreur de reconnaissance ne doit pas se transformer discrètement en recommandation positive. Dans une première version, il vaut mieux laisser l’inconnu explicitement inconnu que de combler les lacunes par une étiquette générale rassurante."
+     ],
+     "quotes": [
+      {
+       "text": "J’aimerais que l’appli me dise précisément pour qui la plante est toxique. Est-ce que c’est les humains, les chats, les chiens, les lapins, les furrets, les hérissons, les dragons barbus, les phalangers volants, etc. Ça aiderait beaucoup les gens qui ont des animaux à bien choisir leurs plantes. J’achèterais l’appli pour ça parce que j’adore les plantes, mais j’ai aussi des animaux.",
+       "rating": 3,
+       "app": "Plantfie・Plant Care Identifier"
+      },
+      {
+       "text": "J’ai un arbre de Madagascar (Dracaena Marginata) et dans la recherche ça dit que c’est adapté aux animaux de compagnie, mais dès que je l’ajoute à mes plantes ça dit que c’est toxique pour les animaux, alors c’est quoi ?",
+       "rating": 3,
+       "app": "Flora - Plant ID & Diagnosis"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pet",
+       "title": "Préciser la plante, l’animal et le fondement de l’information",
+       "body": "",
+       "ideas": [
+        "plant-care-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "help",
+   "title": "Obtenir une aide qui a une suite",
+   "intro": "Un examen utile du cas conserve les informations déjà réunies et permet de revenir avec une nouvelle observation.",
+   "art": null,
+   "observations": [
+    {
+     "id": "expert",
+     "title": "Comprendre qui répond et comment poursuivre",
+     "passages": [
+      "Une réponse automatique rapide et le recours à un spécialiste créent des attentes différentes. Dans le premier cas, ce qu’on apprécie, c’est d’obtenir l’information tout de suite et de pouvoir poser une question complémentaire. L’avis positif ci-dessous reconnaît aussi des erreurs — un chat commode n’est pas un examen sans faute.",
+      "Le nom de l’assistant n’explique pas à lui seul le format. L’auteur suivant ne comprend pas qui a examiné son cas : une personne ou un système automatique. Avant l’envoi de la question et son paiement, il faut montrer clairement quelle aide est proposée et quelles informations elle prend en compte.",
+      "Si l’on a payé pour s’adresser à une personne, l’attente de la réponse fait partie du service. Il faut un état clair de la demande et une suite claire ; les semaines d’incertitude décrites ci-dessous ne se réparent pas avec de nouvelles photographies sur la fiche. Les éléments réunis méritent d’être gardés dans un seul cas, pour qu’à l’arrivée de la réponse il ne faille pas recommencer toute la description."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est très utile pour diagnostiquer les maladies et soigner les plantes. J’aime bien la variété des outils qu’on peut utiliser, et le chat IA pour avoir vite des infos dessus. Même si l’appli a donné plusieurs fois des informations inexactes, dans l’ensemble elle est bien.",
+       "rating": 4,
+       "app": "PlantAI: Identifier & Diagnose"
+      },
+      {
+       "text": "Je me souviens de l’époque où cette appli avait un humain qui examinait les questions et les problèmes de plantes quand on les envoyait. Maintenant c’est que de l’IA. Même quand tu envoies un truc avec la fonction santé de la plante, ça te dit bizarrement que c’est examiné par « Kate ». Je suppose que Kate est générée par l’IA ? C’est un peu trompeur de faire croire aux gens qu’il y a un humain derrière.",
+       "rating": 4,
+       "app": "Blossom - Plant Care Guide"
+      },
+      {
+       "text": "Bonjour eh bien je trouve que c’est très utile parce que je peux identifier les plantes. Ça marche pas toujours très bien pour décider si une plante est en bonne santé ou pas. Des fois je suis pas d’accord, mais ce qui m’a vraiment énervé c’est que j’ai payé 20 $ pour qu’un expert des plantes m’aide avec une plante et ça fait des semaines et des semaines.",
+       "rating": 3,
+       "app": "Plantum - AI Plant Identifier"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_expert",
+      "alt": "Illustration du thème « Savoir qui répond et comment continuer ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "D’abord, un historique auquel on peut se fier",
+  "body": "La base la plus convaincante ici, c’est le journal d’une plante précise : le nom qu’on lui donne soi-même, des photographies, des actions réelles et la survie à un changement de téléphone. Il est utile aussi bien au propriétaire expérimenté qui n’a pas besoin d’un outil d’identification qu’au débutant qui demandera de l’aide plus tard. L’amélioration suivante est un rappel qui autorise la réponse honnête « vérifié, pas encore arrosé ».\n\nL’examen des symptômes, un calendrier saisonnier et l’information pour les propriétaires d’animaux demandent chacun une qualité de contenu à part. Ils ne doivent pas être ajoutés comme des réponses assurées par-dessus une reconnaissance imprécise. Il faut d’abord comprendre quelles observations le programme sait relier et expliquer, et où il doit laisser la question ouverte. L’historique d’un cas donne une suite utile même quand un seul cliché ne suffit pas pour répondre."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-collection",
+   "title": "Garder sa plante et son historique",
+   "depth": 0
+  },
+  {
+   "id": "observation-identity",
+   "title": "Créer une fiche avant l’identification exacte",
+   "depth": 1
+  },
+  {
+   "id": "observation-history",
+   "title": "Se souvenir de ce qui a été fait à chaque spécimen",
+   "depth": 1
+  },
+  {
+   "id": "theme-care",
+   "title": "Rapprocher le rappel de l’état réel",
+   "depth": 0
+  },
+  {
+   "id": "observation-watering",
+   "title": "Distinguer « vérifié » de « arrosé »",
+   "depth": 1
+  },
+  {
+   "id": "observation-symptoms",
+   "title": "Partir de ce qui a changé",
+   "depth": 1
+  },
+  {
+   "id": "observation-action",
+   "title": "Enregistrer l’action et regarder ce qui s’est passé",
+   "depth": 1
+  },
+  {
+   "id": "observation-pet",
+   "title": "Préciser la plante, l’animal et le fondement de l’information",
+   "depth": 1
+  },
+  {
+   "id": "theme-help",
+   "title": "Obtenir une aide qui a une suite",
+   "depth": 0
+  },
+  {
+   "id": "observation-expert",
+   "title": "Comprendre qui répond et comment poursuivre",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "D’abord, un historique auquel on peut se fier",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

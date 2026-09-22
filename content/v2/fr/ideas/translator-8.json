@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "translator-8",
+ "category": "translator",
+ "categoryName": "Traducteurs",
+ "title": "Un long document dont les passages non traduits sont visibles",
+ "description": "L’original et la traduction sont enregistrés page par page, et les parties non traitées sont faciles à retrouver.",
+ "cover": {
+  "src": "ideas/translator-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "L’apparition des premiers paragraphes donne l’impression que c’est terminé. Un tableau, un scan ou la fin du fichier peuvent rester sans traduction."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’ai essayé d’importer un PDF depuis Fichiers. J’ai pas trouvé de moyen d’importer un document depuis où que ce soit dans l’univers connu. C’était la raison principale pour laquelle je l’ai téléchargée. Je vais la supprimer maintenant. Seul Clippy était moins utile.",
+    "rating": 2,
+    "app": "Microsoft Translator"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Avant le lancement, montrer les limites de volume et de format. Après le traitement, donner un aperçu des pages et des passages non traduits, et un accès direct au fragment d’origine."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Les noms, les chiffres et les formulations importants demandent une vérification. Une structure conservée aide à lire le document, mais ne confirme pas l’exactitude de son contenu."
+  }
+ ],
+ "rank": 591,
+ "free": false
+}

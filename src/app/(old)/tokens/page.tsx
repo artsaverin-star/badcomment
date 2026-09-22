@@ -3,6 +3,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export default async function TokensPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
 
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   return (
     <main className="mx-auto w-full max-w-[860px] px-4 pb-24 pt-12 sm:px-6 sm:pt-20">
       <header className="text-center">

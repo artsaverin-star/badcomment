@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "car-maintenance-6",
+ "category": "car-maintenance",
+ "categoryName": "車のメンテナンス",
+ "title": "個人のガレージをひとつの一覧で",
+ "description": "車もほかの機械もそれぞれの記録を持ち、近く必要な作業はまとめて見える。",
+ "cover": {
+  "src": "ideas/car-maintenance-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "対象をいくつも持つ所有者に必要なのは、複雑な車両群の管理なしの秩序だ。機械の種類が違えば、測り方も整備の仕方も違う。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "発電機とRVとバイク3台とトラックを持っています。このアプリは気に入っていて、何年も使っています。個人の車両の台数を増やせるプランを出さないことにした開発者の考えが、理解できません。",
+    "rating": 3,
+    "app": "AUTOsist Fleet Management App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "対象ごとに固有の単位、書類、間隔を与える。まとめた一覧には、選ばれた近く必要な作業だけを出す。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "本当に対応できる数種類の機械から始める。車の走行距離を軸にした万能の書式は、稼働時間や季節ごとの作業には合わない。"
+  }
+ ],
+ "rank": 168,
+ "free": false
+}

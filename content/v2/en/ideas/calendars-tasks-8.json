@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "calendars-tasks-8",
+ "category": "calendars-tasks",
+ "categoryName": "Calendars and tasks",
+ "title": "Every task along the way",
+ "description": "The working day’s route with a card for every stop: contact, task, notes and the result of the last visit.",
+ "cover": {
+  "src": "ideas/calendars-tasks-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A work route has not only addresses but also a required order: where to pick up materials, who to visit first, where to finish the shift. An automatic route may not take these conditions into account."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Defining start/last stop/1st stop has left the chat! Want to reorganize what it calculates for you? Sorry no ain’t happening. I love that I can see all my stops on the map in one view, that is the number 1 critical detail I need. But it won’t let me organize the stops how I",
+    "rating": 3,
+    "app": "Route4Me Route Planner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it might work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Show the stops on a map and in a list, and allow the first and last to be pinned. Keep the contact, the task and the result with the visit. After a manual change, recalculate the route without cancelling the pinned conditions."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Take a person’s route with its known constraints and ask them to change one stop. It should be clear to them what changed. A promise to cut travel time needs separate testing on real trips."
+  }
+ ],
+ "rank": 148,
+ "free": false
+}

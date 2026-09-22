@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { BrowseAppItem } from "./CatalogBrowser";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 function analyzedReviews(n: number, locale: Locale): string {
   if (locale === "en") return `${n.toLocaleString("en-US")} ${n === 1 ? "review" : "reviews"} analyzed`;
@@ -16,7 +17,7 @@ function analyzedReviews(n: number, locale: Locale): string {
 function AppCard({ a, locale }: { a: BrowseAppItem; locale: Locale }) {
   return (
     <Link
-      href={`/${a.slug}`}
+      href={oldHref(locale, `/${a.slug}`)}
       className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_66px] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]"
     >
       {a.icon ? (

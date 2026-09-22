@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "run-tracking",
+ "name": "Course à pied",
+ "summary": "Enregistrer la course en entier, entendre les indications dont on a besoin et reprendre le plan après une interruption — des tâches plus importantes qu’un seul chiffre d’allure globale.",
+ "corpus": {
+  "reviews": 18463,
+  "apps": 50
+ },
+ "lead": "Avant de sortir, on veut choisir une séance, ranger le téléphone et courir. Mais en chemin, il s’avère que la montre réclame une connexion, que la musique ne revient pas après une indication ou que l’enregistrement s’est mis en pause sans se faire remarquer. Après l’arrivée, il reste un résultat que personne ne sait lire.\n\nLa suite examine d’abord l’enregistrement, puis l’aide pendant la course, puis le retour à la séance suivante. Chaque étape a son propre critère d’utilité : conserver ce qui s’est réellement passé, donner une indication compréhensible et laisser une étape suivante réalisable.",
+ "cover": {
+  "src": "research/ResearchLaunch_run-tracking_cover",
+  "alt": "Course à pied",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_run-tracking_audiences",
+  "alt": "Tâches des gens : Course à pied",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Débuter ou revenir à la course",
+   "body": "Le début et le retour après une interruption demandent tous deux un choix clair de la séance suivante. Ce qui compte, c’est de gérer séparément le calendrier et la position dans le programme, en conservant la trace de ce qui a déjà été fait."
+  },
+  {
+   "title": "Courir sans regarder le téléphone",
+   "body": "Quand le téléphone est rangé ou resté à la maison, les indications et l’état de l’enregistrement doivent être clairs sans contrôle permanent de l’écran. Ici, le confort se joue sur toute la séance, y compris sur la façon dont elle se termine."
+  },
+  {
+   "title": "Vérifier un segment ou un parcours précis",
+   "body": "Un total moyen ne remplace pas l’information sur un segment couru, sur la distance parcourue sur un tapis de course ou sur le virage à prendre. Il faut d’abord choisir sa propre question, et seulement ensuite le jeu d’indicateurs qui lui convient."
+  }
+ ],
+ "sections": [
+  {
+   "id": "record",
+   "title": "Enregistrer ce qui s’est réellement passé",
+   "intro": "La rue, le tapis de course et une montre sans téléphone exigent chacun une manière différente de vérifier l’enregistrement.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pause",
+     "title": "Remarquer l’arrêt de l’enregistrement",
+     "passages": [
+      "Une pause que personne ne remarque change le sens du résultat : la course est finie, mais on ne sait pas quelle partie est arrivée dans l’historique. Un arrêt après le verrouillage de l’écran et un contact involontaire dans la poche méritent d’être distingués, même si, pour le coureur, le résultat est le même — devoir s’occuper de l’enregistrement en pleine course.",
+      "L’état de la séance a donc besoin d’un signal accessible et d’une façon évidente de reprendre. La vérification avant usage doit couvrir la position habituelle de l’appareil : ranger le téléphone, verrouiller l’écran, revenir à l’enregistrement. Un bon résultat permet de distinguer une séance complète d’un fragment, sans faire passer un trou pour une mesure effectuée.",
+      "À la fin, il est utile de montrer non seulement le total, mais aussi les portions sans données. Le coureur peut alors ajouter une note ou enregistrer le fragment comme une séance incomplète. Compléter automatiquement le trajet manquant, sans rien qui le signale, revient à modifier l’historique que la personne s’attendait à obtenir."
+     ],
+     "quotes": [
+      {
+       "text": "The design and the idea are great. But when the phone screen turns off, the app gets lost. It goes on pause and loses the GPS connection. And like that it's useless. Ran 5km and after 500 meters the screen went off and so did the app.",
+       "rating": 3,
+       "app": "Running App - Run Tracker"
+      },
+      {
+       "text": "Le minuteur s’arrête quand le téléphone se met en veille tout seul. Il recommence à enregistrer seulement une fois le téléphone réveillé. Du coup à chaque fois que je cours sur une durée fixée, je sais pas quand ça y est.",
+       "rating": 1,
+       "app": "RUN interval - Running Timer"
+      },
+      {
+       "text": "J’utilise cette appli depuis 2017 et elle était top, mais elle s’est mise à faire des pauses automatiques souvent, même avec la pause automatique désactivée et alors que je suis vraiment en train de courir ! C’est hyper frustrant de devoir tripoter mon téléphone en courant.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pause",
+      "alt": "Illustration du thème « Remarquer que l’enregistrement s’est arrêté ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "distance",
+     "title": "Savoir d’où vient la distance",
+     "passages": [
+      "La rue et le tapis de course créent des conditions différentes pour l’enregistrement de la distance. Un chiffre qui convient à un parcours où l’on se déplace peut ne pas décrire une séance sur place. Et même un seul parcours en extérieur peut être enregistré de plusieurs façons : on ne peut pas supposer d’avance que les totaux coïncideront.",
+      "Il est utile de conserver l’origine du chiffre — l’appareil, le mode choisi ou une valeur saisie à la main. Pouvoir ajouter les kilomètres du tapis résout la question de l’historique, mais ne rend pas toutes les sources identiques. Quand on compare des résultats, il importe de savoir ce qui est comparé exactement et quelle part des données a été saisie par la personne.",
+      "La correction à la main peut être utile après une séance sur tapis ou une perte de signal. La valeur d’origine et la manière dont elle a été modifiée méritent d’être conservées. Ainsi, la comparaison des semaines ne mélange pas la distance mesurée et la distance corrigée, et l’utilisateur comprend l’écart entre les appareils."
+     ],
+     "quotes": [
+      {
+       "text": "GPS pas précis. J’ai roulé exactement sur le même parcours et j’ai fait demi-tour à mon repère de mile, celui qui la veille, sur ma sortie, marquait mes 2 miles, donc l’aller-retour aurait dû faire 4 miles. Le lendemain, mon repère était décalé de 0,2 mile. Ce qui met mon aller-retour à 3,8 miles et pas 4.",
+       "rating": 2,
+       "app": "Map My Run GPS Running Tracker"
+      },
+      {
+       "text": "Si on utilise cette appli pour courir dehors, ça marche bien. Ça enregistre tout correctement, ça envoie les notifications dans les écouteurs, etc. Par contre si on l’utilise en intérieur sur un tapis de course, ça n’enregistre pas correctement la distance ni les pas, et ça ne partage pas les infos avec la montre.",
+       "rating": 3,
+       "app": "C25K® 5K Running Coach & Map"
+      },
+      {
+       "text": "J’aime beaucoup cette appli. J’aimerais quand même qu’on puisse saisir la distance des courses sur tapis. Je voudrais que cette distance soit comptée.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-distance",
+       "title": "Savoir d’où vient la distance",
+       "body": "",
+       "ideas": [
+        "run-tracking-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "watch",
+     "title": "Préparer la séance avant de sortir",
+     "passages": [
+      "L’existence d’une version pour la montre ne signifie pas encore que le téléphone peut rester à la maison. Pour l’utilisateur, c’est une condition de choix à part entière, et elle doit être claire avant l’achat et avant la première sortie.",
+      "Même une séance téléchargée peut se révéler indisponible : le fichier est déjà sur la montre, mais l’écran de la sélection réclame le téléphone. D’où l’utilité d’une simple liste des séances qui s’ouvrent directement sur l’appareil, sans connexion.",
+      "Le fonctionnement autonome doit être vérifié de bout en bout : trouver la séance, la lancer, recevoir les indications et terminer l’enregistrement sur la montre. L’historique peut être transmis plus tard. Si un mode particulier exige le téléphone, cela doit être visible avant le départ, et non se découvrir en plein parcours."
+     ],
+     "quotes": [
+      {
+       "text": "C’est difficile de noter cette appli. Je l’ai achetée à cause du manque honteux d’applis de course avec une fonction tours. Dans mon empressement à acheter j’ai pas vu dans les avis - pas dans la description- que pour utiliser l’Apple Watch il faut avoir son téléphone sur soi. J’ai acheté l’Apple Watch pour pouvoir courir sans",
+       "rating": 3,
+       "app": "Runmeter Running & Walking GPS"
+      },
+      {
+       "text": "L’idée est vraiment super, et les courses guidées sont vraiment géniales, mais il manque une fonction essentielle : un dossier de téléchargements dans l’appli Apple Watch. Même si tu télécharges la course sur ton Apple Watch, aucune des collections ne se charge quand tu ouvres l’appli sans le téléphone à côté.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      },
+      {
+       "text": "J’ai cette appli depuis un moment et j’aime vraiment l’histoire et le fait que ça garde en forme mais j’ai eu des problèmes, mes pas sont pas comptés quand je cours sur un tapis et j’ai eu une Apple Watch récemment et c’est dommage que je puisse pas lancer ni être suivi sur mon Apple Watch au lieu de mon téléphone.",
+       "rating": 3,
+       "app": "Zombies, Run!"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_watch",
+      "alt": "Illustration du thème « Préparer la séance avant de partir ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-watch",
+       "title": "Préparer la séance avant de sortir",
+       "body": "",
+       "ideas": [
+        "run-tracking-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Aider pendant la course",
+   "intro": "Une indication doit être courte et se rapporter au segment ou au virage en cours.",
+   "art": null,
+   "observations": [
+    {
+     "id": "audio",
+     "title": "Entendre l’indication et sa propre musique",
+     "passages": [
+      "L’accompagnement vocal fait partie de la course elle-même. On peut être content de la cohabitation entre la musique et les indications et pourtant ne pas aimer la voix elle-même — comme dans l’avis ci-dessous. Mieux vaut proposer ce choix à l’avance : un court extrait montre la manière de parler avant même de sortir.",
+      "Une autre panne survient après l’indication : la musique reste atténuée jusqu’à la fin de la séance. Des voix supplémentaires n’y changeront rien. Ce qu’il faut vérifier, c’est tout le cycle sonore — l’indication a retenti, elle s’est terminée, le volume habituel est revenu.",
+      "Enfin, les indications peuvent ne pas se faire entendre du tout avec le lecteur de musique choisi. Un essai avec de vrais écouteurs et de la vraie musique compte ici plus qu’une démonstration dans l’app. Régler la fréquence et le contenu des messages a du sens une fois qu’on les entend de façon fiable et qu’ils n’empêchent pas de continuer la séance."
+     ],
+     "quotes": [
+      {
+       "text": "J’aime beaucoup la progression douce de cette appli marche/course. Et j’aime pouvoir écouter ma propre musique et entendre quand même les indications ! Le seul truc c’est que… je déteste cette horrible VOIX DE ROBOT. Ça fait tellement impersonnel. J’aimerais que None to Run corrige ça et là ce serait parfait.",
+       "rating": 3,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "Je suis pas content quand j’utilise l’appli et que la voix arrive pour me dire « je suis à la moitié », le volume de ma musique baisse beaucoup et je peux pas le remonter tant que j’ai pas fini d’utiliser l’appli à ce moment-là. Ça affecte vraiment beaucoup mon expérience de course.",
+       "rating": 3,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "J’ai eu aucune indication audio en l’utilisant. Je sais pas si c’est parce que j’utilise Spotify, mais d’autres applis comme Couch to 5k, elles, parlent bien par-dessus Spotify.",
+       "rating": 2,
+       "app": "Watch to 5K－Couch to 5km coach"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-audio",
+       "title": "Entendre l’indication et sa propre musique",
+       "body": "",
+       "ideas": [
+        "run-tracking-4",
+        "run-tracking-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pace",
+     "title": "Comprendre l’indicateur du segment en cours",
+     "passages": [
+      "L’allure moyenne de toute la séance masque la différence entre la marche, la course et les segments pris un à un. Si quelqu’un veut comprendre en particulier la partie courue, un chiffre global de plus ne l’aide pas. Une indication d’accélérer n’a elle aussi de sens que par rapport à une portion en cours clairement identifiée.",
+      "Un affichage utile rattache un indicateur à la période à laquelle il se rapporte : le segment en cours, un tour terminé ou toute la séance. Cela permet d’examiner son propre enregistrement sans mélanger des activités différentes. Le choix de ces données relève de l’interface et de la comptabilisation ; il n’exige pas que l’app invente une allure unique qui conviendrait à tout le monde.",
+      "Sur la montre, le choix d’une seule valeur principale compte particulièrement. Une fois la séance terminée, cette valeur peut être dépliée avec les tours et les passages entre la marche et la course. Une telle lecture explique le résultat et le garde lié à la structure réelle de la séance, et pas seulement à un unique chiffre moyen."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore l’appli pour les programmes d’entraînement. Elle me dit si je dois accélérer, ralentir, ou si je suis à la bonne allure. Elle donne pas certains des tours et certains détails que d’autres applis donnent.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "Ma seule suggestion pour améliorer l’appli, ce serait de pouvoir voir mon allure pendant chaque section, j’aimerais savoir quelle allure je tiens pendant les portions de course. J’ai utilisé une autre appli de course qui me permettait de le faire.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      },
+      {
+       "text": "Cette appli est au mieux correcte. Si on la suit, on arrive là où on veut aller. Par contre, elle ne donne pas les allures par segment en temps réel ni dans le résumé, tout est en moyenne. Il n’y a pas non plus de mise à jour quand on court en miles plutôt qu’en temps, ce qui est hyper frustrant.",
+       "rating": 2,
+       "app": "10K Trainer by C25K®"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pace",
+      "alt": "Illustration du thème « Comprendre le chiffre du segment en cours ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Comprendre l’indicateur du segment en cours",
+       "body": "",
+       "ideas": [
+        "run-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "route",
+     "title": "Recevoir l’indication du virage à prendre",
+     "passages": [
+      "Les indications virage par virage permettent de suivre un parcours en ouvrant la carte moins souvent. Un avis positif apprécie à la fois la recherche d’un itinéraire qui convient et l’accompagnement le long de celui-ci : ce sont deux parties d’une même expérience.",
+      "Des virages en trop sur une portion droite minent la confiance dans l’indication suivante. Il ne suffit pas d’énoncer à temps le texte calculé — il faut le confronter à un vrai changement de direction. Un parcours familier permet de repérer vite un tel décalage.",
+      "Les indications doivent aussi parvenir à l’appareil choisi. Si elles ont cessé de se faire entendre sur la montre, une ligne exploitable sur la carte n’offre plus le même confort. La vérification principale consiste à parcourir tout l’itinéraire avec le mode d’écoute pour lequel la personne a choisi l’app, y compris l’écart par rapport au parcours et le retour sur celui-ci."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est tellement meilleure que les autres qui prétendent faire la même chose. J’ai jamais de mal à trouver des parcours, et les indications virage par virage me gardent toujours sur la bonne voie.",
+       "rating": 5,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "J’adore l’idée de cette appli ! Et avec quelques améliorations, elle pourrait être parfaite. D’abord, comme d’autres utilisateurs l’ont dit, elle crée et annonce souvent des virages inutiles au milieu de la course. Je suis sur une portion droite et elle me dit « tournez à droite, tournez à gauche » pour me faire continuer tout droit.",
+       "rating": 3,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "Les dernières mises à jour ont complètement cassé la fonction principale de l’appli, annoncer les virages et les directions du parcours. L’appli ne parle plus du tout depuis mon Apple Watch.",
+       "rating": 1,
+       "app": "RunGo - The Best Routes to Run"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-route",
+       "title": "Recevoir l’indication du virage à prendre",
+       "body": "",
+       "ideas": [
+        "run-tracking-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Continuer après une interruption ordinaire",
+   "intro": "Le calendrier change plus souvent que l’objectif de l’entraînement. L’historique et l’étape suivante doivent rester clairs.",
+   "art": null,
+   "observations": [
+    {
+     "id": "plan",
+     "title": "Déplacer un jour sans rompre l’enchaînement",
+     "passages": [
+      "Un programme clair supprime la question de la séance à ouvrir ensuite. Dans l’avis ci-dessous, un démarrage progressif a aidé une personne à se mettre à la course. C’est une expérience utile, mais cela ne signifie pas que le même enchaînement conviendra à tout le monde.",
+      "Pour une autre personne, le passage à l’étape suivante paraît trop brutal. Son propre schéma d’intervalles dans l’avis est l’expression d’un mécontentement, pas une norme de charge toute prête. Ce qui compte ici pour un produit, c’est un retour compréhensible et la possibilité de refaire une séance connue, sans inscrire des réalisations qui n’ont jamais eu lieu.",
+      "L’emploi du temps est une raison de changement distincte. Déplacer une séance à un autre jour n’équivaut pas à modifier sa difficulté. Si le calendrier est tenu à l’écart de l’enchaînement, la personne peut organiser sa semaine tout en gardant un historique honnête et le point de reprise qu’elle a choisi."
+     ],
+     "quotes": [
+      {
+       "text": "Je suis pas un coureur et cette appli est en train de me transformer en coureur ! C’est dur de courir mais la façon dont ce programme t’y amène en douceur rend ça faisable ! J’ai 57 ans et j’en suis à la semaine 5, course 2, et c’est de plus en plus facile.",
+       "rating": 5,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "Ça progresse beaucoup trop vite !!! Ça passe d’intervalles de 5 min à 8 puis à 20 en une semaine. Ridicule. Ça devrait augmenter les intervalles de course de 2 à 3, 4, 5, 6, 7, 8, 9 et réduire les intervalles de marche de 2 à 1 minute puis à 30 secondes.",
+       "rating": 1,
+       "app": "Couch to 5K® - Run training"
+      },
+      {
+       "text": "Utiliser l’appli pour préparer un marathon m’a enlevé les devinettes du genre « qu’est-ce que je dois faire aujourd’hui ». J’adore le calendrier, je peux voir à l’avance et m’organiser en conséquence…ou réorganiser si besoin.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_plan",
+      "alt": "Illustration du thème « Déplacer un jour sans casser la série ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-plan",
+       "title": "Déplacer un jour sans rompre l’enchaînement",
+       "body": "",
+       "ideas": [
+        "run-tracking-1",
+        "run-tracking-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "story",
+     "title": "Laisser le choix de la motivation",
+     "passages": [
+      "Une raison de revenir peut être l’envie de savoir comment l’histoire se poursuit. Dans l’avis qui suit, c’est l’intrigue qui a ramené la personne après une interruption. C’est le récit d’une motivation personnelle ; sa vitesse et la fréquence de ses sorties ne prouvent pas un effet pour les autres utilisateurs.",
+      "Un autre avis formule l’intérêt plus simplement : la course a cessé d’être ressentie comme une corvée. Un tel produit ne rivalise pas seulement par son jeu d’indicateurs, mais par la façon dont la personne veut passer le temps de la séance.",
+      "La ville, les provisions et les personnages créent l’attente de l’épisode suivant. Pour le développement, c’est un travail de contenu à part : il faut une suite à l’histoire et un retour commode vers elle. Ajouter un seul écran de jeu à un compteur ne suffit pas ; il vaut la peine de vérifier si les gens reviennent bien pour l’épisode suivant."
+     ],
+     "quotes": [
+      {
+       "text": "Je suis revenu à Zombies, Run! il y a quelques mois après une pause. Ça m’a vite remis à courir six jours par semaine. Ça reste amusant et l’écriture est vraiment prenante. Et je deviens plus rapide. Beaucoup plus rapide.",
+       "rating": 5,
+       "app": "Zombies, Run!"
+      },
+      {
+       "text": "Cette appli a transformé mon rapport à la course : de corvée à plaisir !",
+       "rating": 5,
+       "app": "INTVL"
+      },
+      {
+       "text": "Il y a plein de programmes 5k pour débutants, celui-là te donne une histoire dans laquelle t’investir pendant que tu le fais. Sauver la ville, ramasser des provisions, fuir les zombies.",
+       "rating": 5,
+       "app": "Zombies, Run! 5k Training"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "D’abord mener une séance sans intervenir",
+  "body": "La première priorité, c’est une course complète avec le téléphone rangé : l’enregistrement continue, les indications s’entendent, la musique revient, le résultat est enregistré. Dans les avis, ces pannes gênent la séance elle-même, si bien que de nouveaux indicateurs ne les compensent pas. Ce qu’il vaut la peine de tester, ce sont des scénarios entiers dans la rue, sur le tapis de course et sur la montre, plutôt que des écrans isolés.\n\nVient ensuite la raison d’ouvrir l’app la fois suivante. Certains ont besoin d’un plan clair, d’autres du détail des segments, d’autres encore d’un nouveau chapitre de l’histoire. Ce sont des directions de produit différentes. Le déplacement d’une date et la répétition d’une séance peuvent être rendus commodes sans promettre la précision d’un coach personnel. Et l’intérêt d’une intrigue mérite d’être vérifié par l’envie de connaître la suite, sans lui attribuer un résultat sportif universel."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-record",
+   "title": "Enregistrer ce qui s’est réellement passé",
+   "depth": 0
+  },
+  {
+   "id": "observation-pause",
+   "title": "Remarquer l’arrêt de l’enregistrement",
+   "depth": 1
+  },
+  {
+   "id": "observation-distance",
+   "title": "Savoir d’où vient la distance",
+   "depth": 1
+  },
+  {
+   "id": "observation-watch",
+   "title": "Préparer la séance avant de sortir",
+   "depth": 1
+  },
+  {
+   "id": "theme-during",
+   "title": "Aider pendant la course",
+   "depth": 0
+  },
+  {
+   "id": "observation-audio",
+   "title": "Entendre l’indication et sa propre musique",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Comprendre l’indicateur du segment en cours",
+   "depth": 1
+  },
+  {
+   "id": "observation-route",
+   "title": "Recevoir l’indication du virage à prendre",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Continuer après une interruption ordinaire",
+   "depth": 0
+  },
+  {
+   "id": "observation-plan",
+   "title": "Déplacer un jour sans rompre l’enchaînement",
+   "depth": 1
+  },
+  {
+   "id": "observation-story",
+   "title": "Laisser le choix de la motivation",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "D’abord mener une séance sans intervenir",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

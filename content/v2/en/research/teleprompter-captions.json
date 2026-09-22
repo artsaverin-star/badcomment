@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "teleprompter-captions",
+ "name": "Teleprompter and captions",
+ "summary": "From script to finished clip: how to speak at your own pace, reshoot individual phrases and fix captions without redoing the whole recording.",
+ "corpus": {
+  "reviews": 9895,
+  "apps": 41
+ },
+ "lead": "A teleprompter is needed at the moment a person has already prepared a thought and wants to get it across to the camera. Small failures get in the way here: the line has run off, a pause has unexpectedly stopped the recording, the take you wanted was not saved. After the shoot the same work carries on in the captions and in the export.\n\nA good tool protects the parts that worked. A slip of the tongue should not mean reshooting the opening, a wrong word should not mean laying out the captions again, an export error should not mean recording the speech again. That is the common criterion for the capabilities below: how much of the work already done a person keeps after each fix.",
+ "cover": {
+  "src": "research/ResearchLaunch_teleprompter-captions_cover",
+  "alt": "Teleprompter and captions",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_teleprompter-captions_audiences",
+  "alt": "People’s jobs: Teleprompter and captions",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Shoots a short clip alone",
+   "body": "One author in front of the camera: reads the script, pauses and picks the take that worked. They need to fix one phrase while keeping the rest of the recording."
+  },
+  {
+   "title": "Performs with an operator or a remote",
+   "body": "The speaker cannot keep touching the screen. The controls have to repeat what was rehearsed: the same version of the text, clear buttons and a saved speed."
+  },
+  {
+   "title": "Prepares captions for a recording",
+   "body": "The author starts from video that has already been shot. What matters is finding the gaps, checking the translation and getting a clip where the captions stay readable."
+  }
+ ],
+ "sections": [
+  {
+   "id": "speak",
+   "title": "Record a speech at your own pace",
+   "intro": "A script helps you speak, as long as driving the text does not take more attention than the thought itself.",
+   "art": null,
+   "observations": [
+    {
+     "id": "eye",
+     "title": "Reading while keeping your eyes on the camera",
+     "passages": [
+      "A teleprompter cuts down the switching of the gaze between the script and the lens. But text below the camera, a line that is too wide or the wrong size can make the reading visible. Comfort is judged both by the speaker and by the person who watches the clip later.",
+      "The position, width and size settings have to be tied to a short review of the recording. Then you can pick a readable option for your own distance to the camera. A handsome script editor is secondary: the useful result is that a person makes out the phrase and keeps the chosen direction of gaze, without hunting for the right line at the same time.",
+      "A fixed reading zone saves you from hunting for the next line all over the screen. Its position, width and font size are worth choosing from a short test take at the real distance to the camera. The setup has worked if the text reads and the movement of the eyes does not distract the viewer."
+     ],
+     "quotes": [
+      {
+       "text": "Finally, I’m not looking “over there” to read my script, then “over here”to look in the camera. And the “auto-scroll” follows MY pace.",
+       "rating": 5,
+       "app": "Teleprompter.com"
+      },
+      {
+       "text": "I get very nervous while I am speaking in front of a camera and it does not look natural at all since I can not stop myself looking elsewhere. I was looking for a teleprompter app that could help me remember what to say while I am speaking and helping me keep eye contact wi",
+       "rating": 5,
+       "app": "Teleprompter - VILO"
+      },
+      {
+       "text": "There should be a line going through the middle of a screen which is where the speaker's eyes should be at all times. If he or she starts reading from the top of the screen, it'll be obvious to the viewer that",
+       "rating": 3,
+       "app": "Teleprompter Video & Mirror"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_eye",
+      "alt": "Illustration for the theme “Reading while keeping your eyes on the camera”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "pace",
+     "title": "Controlling the pace and the pauses",
+     "passages": [
+      "Voice tracking helps you speak at your own pace, as long as the scroll reacts to speech correctly. A background conversation or music can shift the text, and a long script can expose a difficulty that a short trial does not show. A set speed calls for a different kind of control: a fine enough adjustment and a value that is saved.",
+      "Voice scrolling has to tell the speaker’s speech from an extraneous sound. When music or someone else’s conversation is taken for a continuation of the script, the author loses their place. So the automation needs a visible current fragment and a quick manual return that does not end the recording.",
+      "A manual speed is useful as a mode of its own, but it has to be saved with the script. Dialing the pace in again before every take is an extra part of the shoot. Voice tracking and a constant speed solve one job in different ways; switching between them should leave the text on the current phrase."
+     ],
+     "quotes": [
+      {
+       "text": "The app simply works. Having the voice recognition cue is a night and day difference to “dumb” teleprompter apps.",
+       "rating": 4,
+       "app": "PromptSmart Pro - Teleprompter"
+      },
+      {
+       "text": "The auto scroll is suppose to move as you speak....sure does...if music plays (with no one is singing), when other people speak in the background",
+       "rating": 1,
+       "app": "▶Teleprompter"
+      },
+      {
+       "text": "The fatal flaw is the inability to save a desired scroll speed. Every time you open a script it reverts back to the default 50, which is way too fast.",
+       "rating": 2,
+       "app": "▶Teleprompter"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Controlling the pace and the pauses",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "return",
+     "title": "Reshooting a phrase and keeping the part that worked",
+     "passages": [
+      "Live speech allows for a slip, a pause and a step away from the script. Going back to a line should help restore the thought, not suddenly end the video or throw the text far ahead. Otherwise a short correction means reshooting a part that already worked.",
+      "Three actions have to be kept apart here: stopping the scroll, choosing a phrase and controlling the recording. Their state has to be visible separately. Before a shoot it is worth breaking off on purpose and carrying on from the previous sentence. That experience shows how comfortable a teleprompter is more accurately than reading a script through from start to finish without a mistake.",
+      "A pause can be part of live speech: the author explains a thought in their own words and then comes back to the script. If they decide to reshoot a phrase, a paragraph can serve as the point to return to. Several takes and a small margin before and after a line help to assemble the clip; the join itself still has to be watched in the full sequence."
+     ],
+     "quotes": [
+      {
+       "text": "When trying to record videos and start at a new point within the script, the script jumps way far ahead and you can’t back up. It takes me hours to record a five minute script because I keep having to start over.",
+       "rating": 2,
+       "app": "BIGVU Teleprompter Captions AI"
+      },
+      {
+       "text": "I hate how each time I scroll back on the teleprompter, it pauses the video, then you have the end the video and delete the old video and redo it all.",
+       "rating": 2,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "You can now pause which is especially helpful for me because I do sometimes go off script.",
+       "rating": 5,
+       "app": "Telepromptr"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_return",
+      "alt": "Illustration for the theme “Reshooting a line while keeping the good part”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-return",
+       "title": "Reshooting a phrase and keeping the part that worked",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "camera",
+     "title": "Keeping the chosen way of shooting",
+     "passages": [
+      "A built-in camera makes the path to a recording shorter. But a person may choose another camera for what it can do, or may want to record audio only. In those cases the teleprompter is needed as a helper to the chosen way of shooting, not as a compulsory replacement for it.",
+      "Sometimes there is no need to record a picture at all: a person is reading text for a voice-over. A separate audio mode keeps the script and the pace control without a compulsory camera. That is a more definite job than a promise to combine a teleprompter with every shooting app.",
+      "Compatibility cannot be described by a single “over the camera” button. It takes tested combinations of devices, apps and recording modes. If a limitation makes it impossible to show the text next to the lens, the supported option is worth explaining before a long script is imported."
+     ],
+     "quotes": [
+      {
+       "text": "The built-in recorder is a big plus.",
+       "rating": 5,
+       "app": "Teleprompter App"
+      },
+      {
+       "text": "I don't understand why you have to record with the camera. In my case, I may only need my voice.",
+       "rating": 3,
+       "app": "Teleprompter for Video Pro"
+      },
+      {
+       "text": "The pop-up teleprompter does not show text when the native camera is open. Nor does the popup start when you zoom out with your fingers.",
+       "rating": 3,
+       "app": "Teleprompter for Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-camera",
+       "title": "Keeping the chosen way of shooting",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "remote",
+     "title": "Setting up the controls before recording starts",
+     "passages": [
+      "A remote lets you stop the text and go back to a line without leaving the frame. What matters to a speaker is a few familiar commands, not a large set of settings. If a button they are used to stops working after an update, a way of shooting that has already been rehearsed has to be changed.",
+      "A connected remote does not yet mean its buttons drive the script. A trial run has to show the result of every press: start, pause, movement up and down. That way an incompatibility turns up before the shoot, and the user does not spend hours repeating the pairing of a device that is already recognized.",
+      "When an operator drives the text, the speaker has to be able to see who is controlling the scroll right now. If the connection is lost, stopping at the current spot is more useful than carrying on at an unknown pace. The remote is also worth checking after the screen locks and after reconnecting."
+     ],
+     "quotes": [
+      {
+       "text": "the Scroll up and down functions on a presentation remote (like podcaster) no longer works with this app. So I bit the bullet and got another teleprompter app for $90/year.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "my podcaster presentation remotes (I have 2) don’t allow the screen to scroll up or down when I press the button on the remote. I tried it on 2 separate iPhones and doesn’t work. It took 2 1/2 hours of my time trying to troubleshoot.",
+       "rating": 2,
+       "app": "Teleprompter Pro"
+      },
+      {
+       "text": "was on a professional job and the voice scroll option did not work. We switched to the remote and it was super buggy.",
+       "rating": 2,
+       "app": "PromptSmart Pro - Teleprompter"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_remote",
+      "alt": "Illustration for the theme “Setting up the controls before recording starts”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-remote",
+       "title": "Setting up the controls before recording starts",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-4",
+        "teleprompter-captions-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Taking the recording through to a finished clip",
+   "intro": "Recognized words, translation, styling and export are consecutive stages, each with a check of its own.",
+   "art": null,
+   "observations": [
+    {
+     "id": "captions",
+     "title": "Checking what was heard, then the translation",
+     "passages": [
+      "Captions you get quickly take away the typing by hand, but a phrase that was skipped still calls for intervention. Translation adds one more stage: the source line may be recognized correctly while the sense in the other language comes out badly. Fixing those errors with the same action is awkward.",
+      "Every line needs to be tied to the matching moment in the video, with the original and the translation distinguishable side by side. Then you can find the gap, check what was heard and change the right layer. The value of the automation is set by the time it takes to reach checked text, not only by the speed of the first result.",
+      "Translation appears after recognition and calls for a check of its own. If a name or a number has been corrected in the source line, the linked translation has to be looked at again. An editor that shows the audio, the source line and its translation saves the hunt for the right spot; the accuracy of the meaning is still checked by a person who knows the languages."
+     ],
+     "quotes": [
+      {
+       "text": "It gave me the closed caption for my video. Took less than eight seconds.",
+       "rating": 5,
+       "app": "AI Captions for Videos: VidCap"
+      },
+      {
+       "text": "The auto caption is good, but only when it works. There are a lot of sentences it just skips all together, which I have to then manually add in.",
+       "rating": 3,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "Submitted a video in Spanish to be transcribed and translated into English and it did a very poor job of translating. I’d like a refund for my subscription",
+       "rating": 2,
+       "app": "Translate Add Subtitles Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-captions",
+       "title": "Checking what was heard, then the translation",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "layout",
+     "title": "Keeping the caption readable in motion",
+     "passages": [
+      "A caption has to sit in the place chosen for it in a specific frame. Being able to change the font and the color is useful together with control of the position and of the video format. Text at the edge or lines that have overlapped can make a neat caption unusable to watch.",
+      "So the styling has to be checked in motion and in the proportions the clip will actually be used in. A line break has to stay independent of the neighboring captions. A useful preview shows not one good-looking still but a sequence of frames with readable text.",
+      "The proportions have to be chosen before the styling: a placement that is comfortable in a horizontal frame may not suit a vertical one. In a full review it is worth seeing a long line and a change of shot, not a single good frame. An individual line break has to survive a change of the shared style."
+     ],
+     "quotes": [
+      {
+       "text": "customizable text, fonts, colors, shadows, etc • can place text anywhere on video • various video aspect ratios to choose from",
+       "rating": 4,
+       "app": "MixCaptions: Video Captions"
+      },
+      {
+       "text": "I tried adding captions to my video but they’re always stuck at the very bottom of the screen, how am I able to move the text around?",
+       "rating": 4,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "I'm surprised there's no option for the 9:16 ratio, crucial for many streaming platforms.",
+       "rating": 3,
+       "app": "AutoCap: Auto Video Captions"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_layout",
+      "alt": "Illustration for the theme “Keeping a caption readable while it moves”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-layout",
+       "title": "Keeping the caption readable in motion",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "export",
+     "title": "Opening the finished file and checking it",
+     "passages": [
+      "After a good take and a proofread, the main value has already been created. Losing it at the saving step is especially painful: a message that the export has finished can sit next to a missing file or captions that have vanished. Processing it again is no substitute for access to the original work.",
+      "The last step has to show where the file was saved and let you open the finished video. Until that check it is useful to keep the source and the edits made to it separately. Then a person can carry on from the same state and make sure that both the recording and the chosen styling are still in the clip they hand over.",
+      "With a long video it is useful to keep the result of the processing stage by stage. If the export is interrupted, a person has to come back to the captions that are done and the takes they picked. Checking the beginning, the middle and the end of the file helps to spot a stretch that was missed before sending it."
+     ],
+     "quotes": [
+      {
+       "text": "So many times after recording a several minute video, I click the camera to save it, and my recording disappears. That’s very frustrating.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "I recorded a long video using this app and it would not let me export at the end!!! My phone just got extremely hot... and the app showed that it was fully done exporting.",
+       "rating": 1,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "Every bad take, it saves, every video I complete that I’m prepared to use is magically lost. Do not download this app.",
+       "rating": 1,
+       "app": "Teleprompter App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Opening the finished file and checking it",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Keep the take that worked",
+  "body": "I would start with the solo author of short videos and one complete job: read a script, reshoot a slip and get a clip with the captions corrected. This is where it is easiest to see where the time is saved. It is enough to let a person shoot their usual text, deliberately fix one phrase and take the recording through to a file. If a correction means starting over, extra styles and effects do not solve the main job.\n\nA remote, an operator and long lectures belong to other shooting conditions. They are worth developing after the main scenario has been chosen, or as a separate specialization. The main result of the first product is work kept after a mistake: the takes that worked, the proofread text and the ability to repeat only the step that failed."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-speak",
+   "title": "Record a speech at your own pace",
+   "depth": 0
+  },
+  {
+   "id": "observation-eye",
+   "title": "Reading while keeping your eyes on the camera",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Controlling the pace and the pauses",
+   "depth": 1
+  },
+  {
+   "id": "observation-return",
+   "title": "Reshooting a phrase and keeping the part that worked",
+   "depth": 1
+  },
+  {
+   "id": "observation-camera",
+   "title": "Keeping the chosen way of shooting",
+   "depth": 1
+  },
+  {
+   "id": "observation-remote",
+   "title": "Setting up the controls before recording starts",
+   "depth": 1
+  },
+  {
+   "id": "theme-finish",
+   "title": "Taking the recording through to a finished clip",
+   "depth": 0
+  },
+  {
+   "id": "observation-captions",
+   "title": "Checking what was heard, then the translation",
+   "depth": 1
+  },
+  {
+   "id": "observation-layout",
+   "title": "Keeping the caption readable in motion",
+   "depth": 1
+  },
+  {
+   "id": "observation-export",
+   "title": "Opening the finished file and checking it",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Keep the take that worked",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

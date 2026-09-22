@@ -1,0 +1,333 @@
+/* ==========================================================================
+   inApp v2 — design tokens (docs/site-v2/spec/05-design-system.md §6).
+   Sources: Inapp/Studio/StudioStyle.swift, Inapp/Clarity/ClarityStyle.swift,
+   ClarityReadingStyle.swift. Namespaced --ia-* so nothing collides with the
+   old site's globals.css (which is a separate entry and is never loaded here).
+
+   <html data-theme="light" | "dark" | "system">, default "light" (cookie ia_theme).
+   "system" follows prefers-color-scheme live.
+   Serif stack per spec 09 C21 (no Gelasio). Onest comes from next/font/local
+   (src/site/fonts.ts) through --ia-font-onest.
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* ---- Color: surfaces ---- */
+  --ia-paper: #f5f5f7;
+  --ia-paper-reading: #fcfcfd;
+  --ia-surface: #ffffff;
+  --ia-soft: #ebecf0;
+  --ia-accent-soft: #edf1ff;
+  --ia-glass: rgb(254 254 255 / 0.86);
+  --ia-glass-border: rgb(0 0 0 / 0.04);
+  --ia-scrim: rgb(0 0 0 / 0.2);
+
+  /* ---- Color: content ---- */
+  --ia-ink: #191a20;
+  --ia-secondary: #666872;
+  --ia-accent: #3458db;
+  --ia-action: #3458db;
+  --ia-on-action: #ffffff;
+  --ia-line: #dedfe5;
+  --ia-danger: #c0443f;
+  --ia-error-system: #ff3b30;
+  --ia-success: #26714e;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ia-paper: #111214;
+  --ia-paper-reading: #17181b;
+  --ia-surface: #1d1e22;
+  --ia-soft: #28292f;
+  --ia-accent-soft: #262d45;
+  --ia-glass: rgb(34 35 39 / 0.86);
+  --ia-glass-border: rgb(255 255 255 / 0.08);
+  --ia-scrim: rgb(0 0 0 / 0.48);
+
+  --ia-ink: #f2f2f5;
+  --ia-secondary: #aaadb8;
+  --ia-accent: #94aaff;
+  --ia-action: #3458db; /* unchanged on purpose: white on #3458DB is 5.89:1 */
+  --ia-on-action: #ffffff;
+  --ia-line: #383a42;
+  --ia-danger: #f4928c;
+  --ia-error-system: #ff453a;
+  --ia-success: #80c9a3;
+}
+
+[data-theme="system"] {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    color-scheme: dark;
+    --ia-paper: #111214;
+    --ia-paper-reading: #17181b;
+    --ia-surface: #1d1e22;
+    --ia-soft: #28292f;
+    --ia-accent-soft: #262d45;
+    --ia-glass: rgb(34 35 39 / 0.86);
+    --ia-glass-border: rgb(255 255 255 / 0.08);
+    --ia-scrim: rgb(0 0 0 / 0.48);
+    --ia-ink: #f2f2f5;
+    --ia-secondary: #aaadb8;
+    --ia-accent: #94aaff;
+    --ia-action: #3458db;
+    --ia-on-action: #ffffff;
+    --ia-line: #383a42;
+    --ia-danger: #f4928c;
+    --ia-error-system: #ff453a;
+    --ia-success: #80c9a3;
+  }
+}
+
+/* Theme-independent + derived tokens (recomputed wherever data-theme is set). */
+:root,
+[data-theme] {
+  /* derived colors */
+  --ia-line-card: color-mix(in srgb, var(--ia-line) 55%, transparent);
+  --ia-line-65: color-mix(in srgb, var(--ia-line) 65%, transparent);
+  --ia-line-70: color-mix(in srgb, var(--ia-line) 70%, transparent);
+  --ia-line-80: color-mix(in srgb, var(--ia-line) 80%, transparent);
+  --ia-ink-045: color-mix(in srgb, var(--ia-ink) 4.5%, transparent);
+  --ia-ink-055: color-mix(in srgb, var(--ia-ink) 5.5%, transparent);
+  --ia-ink-15: color-mix(in srgb, var(--ia-ink) 15%, transparent);
+  --ia-ink-16: color-mix(in srgb, var(--ia-ink) 16%, transparent);
+  --ia-ink-20: color-mix(in srgb, var(--ia-ink) 20%, transparent);
+  --ia-ink-65: color-mix(in srgb, var(--ia-ink) 65%, transparent);
+  --ia-accent-17: color-mix(in srgb, var(--ia-accent) 17%, transparent);
+  --ia-selection: color-mix(in srgb, var(--ia-accent) 24%, transparent);
+  --ia-paper-80: color-mix(in srgb, var(--ia-paper) 80%, transparent);
+
+  /* ---- Fonts ---- */
+  --ia-font-serif: Georgia, "PT Serif", "Noto Serif", "Hiragino Mincho ProN", "Yu Mincho",
+    "Noto Serif JP", serif;
+  --ia-font-serif-ui: ui-serif, "New York", var(--ia-font-serif);
+  --ia-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", sans-serif;
+  --ia-font-rounded: ui-rounded, "SF Pro Rounded", var(--ia-font-sans);
+  --ia-font-display: var(--ia-font-onest, "Onest"), var(--ia-font-sans);
+
+  /* ---- Type scale (size / line-height) ---- */
+  /* Georgia 400 */
+  --ia-fs-title: 1.875rem; /* 30/34 */
+  --ia-lh-title: 1.136;
+  --ia-fs-card-title: 1.375rem; /* 22/27 */
+  --ia-lh-card-title: 1.227;
+  --ia-fs-lead: 1.25rem; /* 20/28.7 */
+  --ia-lh-lead: 1.436;
+  --ia-fs-quote: 1.25rem; /* 20/29.7 */
+  --ia-lh-quote: 1.486;
+  --ia-fs-body-serif: 1.1875rem; /* 19/27.6 */
+  --ia-lh-body-serif: 1.452;
+  --ia-fs-subtitle: 1.1875rem; /* 19/26.6 */
+  --ia-lh-subtitle: 1.4;
+  /* System sans (iOS text styles) */
+  --ia-fs-large-title: 2.125rem; /* 34/41 */
+  --ia-lh-large-title: 1.206;
+  --ia-fs-title2: 1.375rem; /* 22/28 */
+  --ia-lh-title2: 1.273;
+  --ia-fs-headline: 1.0625rem; /* 17/22 w600 */
+  --ia-lh-headline: 1.294;
+  --ia-fs-body: 1.0625rem; /* 17/22 */
+  --ia-lh-body: 1.294;
+  --ia-lh-body-relaxed: 1.53; /* 17/26 summaries */
+  --ia-fs-subheadline: 0.9375rem; /* 15/20 */
+  --ia-lh-subheadline: 1.333;
+  --ia-fs-footnote: 0.8125rem; /* 13/18 */
+  --ia-lh-footnote: 1.385;
+  --ia-fs-caption: 0.75rem; /* 12/16 */
+  --ia-lh-caption: 1.333;
+  /* Onest display */
+  --ia-fs-display: clamp(2.375rem, 1.9rem + 2vw, 3rem); /* 38 → cap 48 */
+  --ia-lh-display: 1.17;
+  --ia-ls-display: -0.02em;
+  --ia-fs-display-copy: clamp(1.125rem, 1rem + 0.4vw, 1.625rem); /* 18 → cap 26 */
+  --ia-lh-display-copy: 1.44;
+
+  /* ---- Spacing ---- */
+  --ia-space-1: 4px;
+  --ia-space-2: 6px;
+  --ia-space-3: 8px;
+  --ia-space-4: 10px;
+  --ia-space-5: 12px;
+  --ia-space-6: 14px;
+  --ia-space-7: 16px;
+  --ia-space-8: 18px;
+  --ia-space-9: 20px;
+  --ia-space-10: 22px;
+  --ia-space-11: 24px;
+  --ia-space-12: 28px;
+  --ia-space-13: 32px;
+  --ia-gutter-catalog: 20px;
+  --ia-gutter-reader: 22px;
+  --ia-gutter-welcome: 24px;
+  --ia-gap-article: 32px;
+  --ia-gap-section: 20px;
+  --ia-gap-paragraph: 20px;
+
+  /* ---- Widths ---- */
+  --ia-w-catalog: 680px;
+  --ia-w-library: 660px;
+  --ia-w-reading: 640px;
+  --ia-w-welcome-chrome: 600px;
+  --ia-w-welcome: 440px;
+  --ia-w-welcome-copy: 360px;
+  --ia-w-grid-md: 1040px;
+  --ia-w-grid-lg: 1080px;
+  --ia-w-grid-xl: 1200px;
+
+  /* ---- Radii ---- */
+  --ia-radius-tag: 4px;
+  --ia-radius-paper-sm: 6px;
+  --ia-radius-paper: 9px;
+  --ia-radius-thumb: 12px;
+  --ia-radius-button: 14px;
+  --ia-radius-field: 16px;
+  --ia-radius-group-sm: 18px;
+  --ia-radius-card: 20px;
+  --ia-radius-art: 20px;
+  --ia-radius-idea-card: 24px;
+  --ia-radius-note: 26px;
+  --ia-radius-research-card: 28px;
+  --ia-radius-modal: 28px;
+  --ia-radius-sheet: 38px;
+  --ia-radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --ia-shadow-research-card: 0 6px 32px rgb(0 0 0 / 0.055);
+  --ia-shadow-idea-card: 0 6px 28px rgb(0 0 0 / 0.05);
+  --ia-shadow-tabbar: 0 8px 36px rgb(0 0 0 / 0.12);
+  --ia-shadow-tab-pill: 0 1px 6px rgb(0 0 0 / 0.04);
+  --ia-shadow-glass: 0 4px 24px rgb(0 0 0 / 0.08);
+  --ia-shadow-paper: 0 7px 20px rgb(0 0 0 / 0.085);
+  --ia-shadow-illustration: 0 9px 24px rgb(0 0 0 / 0.045);
+  --ia-shadow-device: 0 24px 48px rgb(0 0 0 / 0.2);
+  --ia-shadow-menu: 0 12px 40px rgb(0 0 0 / 0.14);
+
+  /* ---- Sizes ---- */
+  --ia-hit: 44px;
+  --ia-search-h: 56px;
+  --ia-tab-item-h: 50px;
+  --ia-toolbar-h: 60px;
+  --ia-tabbar-reserve: calc(50px + 12px + 18px + env(safe-area-inset-bottom));
+
+  /* ---- Motion ---- */
+  --ia-dur-press: 220ms;
+  --ia-dur-press-welcome: 140ms;
+  --ia-dur-tab: 490ms;
+  --ia-dur-scroll: 250ms;
+  --ia-dur-step: 510ms;
+  --ia-dur-reveal: 1130ms;
+  --ia-dur-text-reveal: 450ms;
+  --ia-dur-paper: 1380ms;
+  --ia-dur-float: 3.4s;
+  --ia-dur-ambient: 12s;
+  --ia-dur-sheet: 320ms;
+  --ia-ease-press: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ia-ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+  --ia-ease-tab: linear(
+    0,
+    0.055,
+    0.179,
+    0.328,
+    0.476,
+    0.608,
+    0.718,
+    0.805,
+    0.872,
+    0.921,
+    0.955,
+    0.978,
+    0.992,
+    1.001,
+    1.006,
+    1.007,
+    1.008,
+    1.007,
+    1.006,
+    1.005,
+    1.004,
+    1.003,
+    1
+  );
+  --ia-ease-step: linear(
+    0,
+    0.03,
+    0.102,
+    0.197,
+    0.3,
+    0.403,
+    0.5,
+    0.588,
+    0.666,
+    0.732,
+    0.789,
+    0.835,
+    0.873,
+    0.904,
+    0.928,
+    0.947,
+    0.962,
+    0.973,
+    0.982,
+    0.988,
+    0.993,
+    0.996,
+    1
+  );
+  --ia-ease-reveal: linear(
+    0,
+    0.084,
+    0.275,
+    0.5,
+    0.711,
+    0.881,
+    1,
+    1.071,
+    1.102,
+    1.105,
+    1.091,
+    1.068,
+    1.044,
+    1.023,
+    1.007,
+    0.996,
+    0.991,
+    0.989,
+    0.989,
+    0.991,
+    0.994,
+    0.996,
+    1
+  );
+
+  /* ---- Z ---- */
+  --ia-z-toolbar: 40;
+  --ia-z-tabbar: 50;
+  --ia-z-topnav: 60;
+  --ia-z-menu: 70;
+  --ia-z-toast: 80;
+  --ia-z-scrim: 90;
+  --ia-z-sheet: 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  [data-theme] {
+    --ia-dur-press: 0ms;
+    --ia-dur-tab: 0ms;
+    --ia-dur-step: 0ms;
+    --ia-dur-reveal: 0ms;
+    --ia-dur-text-reveal: 0ms;
+    --ia-dur-paper: 0ms;
+    --ia-dur-scroll: 0ms;
+    --ia-dur-sheet: 0ms;
+  }
+}

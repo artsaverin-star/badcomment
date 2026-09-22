@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "travel-planning-1",
+ "category": "travel-planning",
+ "categoryName": "Reiseplanung",
+ "title": "Angaben zur Flugauslastung mit Kontext",
+ "description": "Für Reisen mit Non-Rev-Tickets: bei Nutzermeldungen zu freien Plätzen die Zeit, die Herkunft und die Bedingungen sehen.",
+ "cover": {
+  "src": "ideas/travel-planning-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Wer mit einem Non-Rev-Ticket reist, schaut sich die Meldungen zur Auslastung eines Flugs an. Zwei fast gleichzeitig eingetragene Werte können einander widersprechen, und eine selbstbewusste Farbanzeige verdeckt diese Unsicherheit."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ich habe buchstäblich Auslastungen für 2 verschiedene Airlines bekommen, die +1 und +7 angezeigt haben. Keine 10 Sekunden später wurden neue Auslastungen eingetragen, die 0 und -1 zeigten. Die Auslastungen sind 90% der Zeit unzuverlässig.",
+    "rating": 1,
+    "app": "StaffTraveler"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Die Handlung, die einfacher werden soll"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Neben jeder Angabe sollten die Zeit, die Quelle und die Bedingungen der Beobachtung stehen. Ein neuer Eintrag vernichtet den vorherigen nicht: Es ist zu sehen, was sich geändert hat und wie frisch die Daten sind."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Was über den Nutzen entscheidet"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Anfangen muss man bei der Verfügbarkeit und der Qualität der Quellen, nicht bei einer Karte der Flüge. Nutzermeldungen garantieren keinen Platz an Bord. Ohne einen verlässlichen Weg, frische Angaben zu bekommen und zu prüfen, ist ein eigenes Produkt bisher nicht begründet."
+  }
+ ],
+ "rank": 100,
+ "free": false
+}

@@ -1,0 +1,434 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "hiking-trails",
+ "name": "Randonnées et itinéraires",
+ "summary": "Trouver un sentier adapté, préparer une carte qui fonctionne sans réseau et conserver ce qu’on a parcouru — trois étapes où le randonneur a besoin d’informations différentes.",
+ "corpus": {
+  "reviews": 8565,
+  "apps": 26
+ },
+ "lead": "À la maison, un itinéraire ressemble à une ligne claire. Sur le terrain, ce sont d’autres choses qui comptent : savoir si le niveau de zoom voulu s’ouvrira sans connexion, quand la note sur l’eau est apparue, où l’enregistrement s’est arrêté. Et après la randonnée, on veut garder la marche elle-même, sans le trajet depuis le parking.\n\nSéparons le plan préparé, les observations faites sur le sentier et le chemin réellement enregistré. Cette différence aide à voir où un produit facilite vraiment la randonnée, et où il laisse une image soignée dont on ne comprend pas les fondements.",
+ "cover": {
+  "src": "research/ResearchLaunch_hiking-trails_cover",
+  "alt": "Randonnées et sentiers",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_hiking-trails_audiences",
+  "alt": "Tâches des gens : Randonnées et sentiers",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Préparer un sentier précis",
+   "body": "La préparation d’une sortie précise commence par le territoire et le sentier choisi. Il faut le détail du chemin, une couche adaptée et un moyen de vérifier le contenu avant de partir, tant qu’il reste du temps pour choisir un autre outil."
+  },
+  {
+   "title": "Vérifier les conditions au fil de la randonnée",
+   "body": "Sur une portion inconnue, on compare sa position à la carte et on lit ce qu’on sait de ce lieu précis. Ce qui compte, c’est le niveau de zoom, la date d’une note et la disponibilité des données déjà préparées, sans avoir à les chercher à nouveau."
+  },
+  {
+   "title": "Conserver la randonnée et partager sa progression",
+   "body": "L’enregistrement de la randonnée sert à une histoire personnelle, alors que l’envoi de sa position fait partie d’un accord avec ses proches. Ce sont des résultats différents : une trace enregistrée sur le téléphone ne signifie pas qu’un autre appareil a reçu des informations récentes."
+  }
+ ],
+ "sections": [
+  {
+   "id": "prepare",
+   "title": "Préparer son propre itinéraire",
+   "intro": "Un catalogue et un éditeur doivent aider sur le territoire choisi, pas seulement montrer beaucoup de belles destinations.",
+   "art": null,
+   "observations": [
+    {
+     "id": "find",
+     "title": "Commencer par le territoire voulu",
+     "passages": [
+      "Un catalogue d’itinéraires se juge sur le territoire qu’on a en tête. Un grand nombre total de sentiers n’aide pas à préparer une sortie si le chemin voulu reste introuvable ou si ses détails sont cachés derrière une navigation inhabituelle. Une recherche qui fonctionne doit mener d’un nom ou d’un lieu à des informations avec lesquelles on peut poursuivre la préparation.",
+      "Commencer par vérifier un sentier connu et l’itinéraire envisagé : voir si la ligne, la description et les détails disponibles sont visibles. La portée du catalogue et ses limites se jugent ainsi plus facilement. Un résultat vide ne doit pas être masqué par une sélection d’alternatives lointaines, riche en apparence mais qui ne répond pas à la question de départ.",
+      "Il est utile d’enregistrer non seulement le sentier qui a plu, mais aussi la raison du choix : la longueur, la surface, le dénivelé ou un départ commode. Au retour à la préparation, ces conditions facilitent la comparaison des options. Les informations manquantes doivent rester un manque visible au lieu d’être comblées par une appréciation générale de l’itinéraire."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore cette appli pour dénicher les pépites pas trop bondées dans les parcs. J’adore tous les détails sur les sentiers et les niveaux de difficulté, comme ça on sait dans quoi on s’engage.",
+       "rating": 5,
+       "app": "National Park Trail Guide"
+      },
+      {
+       "text": "Elle a pas trouvé le premier endroit que j’ai cherché !!! Un sentier très connu de la Gila Wilderness, quand même. J’ai supprimé l’appli quelques minutes après ma première recherche.",
+       "rating": 2,
+       "app": "onX Backcountry: Trail GPS App"
+      },
+      {
+       "text": "J’ai pris l’abonnement pour mon prochain voyage à Death Valley et le sentier qu’il me faut est pas dans la liste. J’ai téléchargé Gaia et AllTrails et les deux l’avaient.",
+       "rating": 3,
+       "app": "Cairn Hiking Safety Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_hiking-trails_find",
+      "alt": "Illustration du thème « Partir du territoire voulu ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-find",
+       "title": "Commencer par le territoire voulu",
+       "body": "",
+       "ideas": [
+        "hiking-trails-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "draw",
+     "title": "Vérifier comment les points ont été reliés",
+     "passages": [
+      "Tracer un itinéraire aide à poser une idée directement sur la carte. Une appréciation positive d’un éditeur dit que cette façon de préparer est commode, mais elle ne dit pas encore comment la ligne suit les sentiers réels.",
+      "Relier deux points en ligne droite coupe les courbes. Un segment tracé à la main et un segment posé sur un sentier de la carte doivent donc avoir un aspect différent. Sans cette différence, la longueur finale peut rester incompréhensible pour l’auteur même du plan.",
+      "Si l’accrochage n’a pas fonctionné, l’éditeur doit le montrer avant l’enregistrement. Pouvoir ajouter un point, annuler une modification et examiner la portion obtenue aide à corriger l’idée. Cela ne confirme pas l’état du sentier sur le terrain, mais rend le plan calculé plus clair."
+     ],
+     "quotes": [
+      {
+       "text": "La fonction de dessin — sur un iPad — est excellente, et l’appli est vraiment bien conçue",
+       "rating": 5,
+       "app": "Footpath Route Planner"
+      },
+      {
+       "text": "La carte suit pas la courbe naturelle du chemin. Ça s’accroche en ligne droite du coup c’est dur d’avoir une distance juste",
+       "rating": 3,
+       "app": "Footpath Route Planner"
+      },
+      {
+       "text": "plus d’une fois sur deux ça s’accroche pas au sentier quoi que je fasse. Ça transforme une évaluation rapide d’itinéraire en",
+       "rating": 2,
+       "app": "Gaia GPS: Mobile Trail Maps"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-draw",
+       "title": "Vérifier comment les points ont été reliés",
+       "body": "",
+       "ideas": [
+        "hiking-trails-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "layers",
+     "title": "Choisir une carte adaptée",
+     "passages": [
+      "Une couche de carte à laquelle on est habitué peut être la raison principale d’utiliser un service : son niveau de détail convient au territoire et à la façon dont on la lit. La disparition d’une couche modifie un outil de travail plus que de nouveaux boutons. Dans l’avis ci-dessous, la valeur de l’app est directement liée à une carte précise.",
+      "Il importe donc d’indiquer les conditions d’accès pour des cartes et des téléchargements précis. Si la couverture ou les conditions ont changé, la personne doit l’apprendre avant la prochaine sortie et pouvoir enregistrer ses propres itinéraires à part. Ce problème n’est pas la même chose que le mécontentement devant un nouvel aspect de l’app."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise l’appli GAIA depuis des années mais ils prennent plus en charge la couche de carte National Geo Trails.\nJ’utilisais cette couche environ 90% du temps parce qu’elle donne un niveau de détail qu’aucune des autres options n’a.",
+       "rating": 2,
+       "app": "Gaia GPS: Mobile Trail Maps"
+      },
+      {
+       "text": "Outdoor active a racheté view ranger, et a maintenant désactivé des fonctions pour les utilisateurs à vie qui avaient payé pour des cartes. Du coup c’est quasiment inutilisable.",
+       "rating": 1,
+       "app": "Outdooractive"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_hiking-trails_layers",
+      "alt": "Illustration du thème « Choisir la bonne carte ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "trail",
+   "title": "Se servir de la carte sur le terrain",
+   "intro": "Les informations préparées à l’avance doivent rester accessibles et conserver le contexte des observations.",
+   "art": null,
+   "observations": [
+    {
+     "id": "offline",
+     "title": "Vérifier le téléchargement avant de partir",
+     "passages": [
+      "L’intérêt d’une carte hors ligne apparaît là où le réseau est hors de portée. Dans l’exemple qui suit, une carte topographique est restée accessible pendant toute une randonnée d’une semaine sans réseau mobile. C’est un scénario complet à part entière.",
+      "Mais une icône de téléchargement ne dit rien de son contenu. La personne a besoin de la zone qu’elle a choisie et d’un niveau de zoom lisible ; une partie des détails peut encore exiger un réseau. Il est utile de montrer exactement ce qui a été préparé et de permettre d’ouvrir cet ensemble avant de partir.",
+      "La vérification la plus importante consiste à rouvrir la carte sans connexion, pas seulement à attendre la fin du téléchargement. L’avis ci-dessous décrit l’écart entre ces deux actions. Si le téléchargement est incomplet, l’app doit montrer à l’avance les zones manquantes et permettre de poursuivre la préparation."
+     ],
+     "quotes": [
+      {
+       "text": "Ça rend l’utilisation d’une carte topo beaucoup plus simple. Pas besoin de réseau mobile. Ça a très bien marché pendant une semaine de rando avec sac à dos dans les Smokies.",
+       "rating": 5,
+       "app": "Tomstrails GPS UTM"
+      },
+      {
+       "text": "Avec les cartes hors ligne, j’ai pas à me soucier du réseau mobile.",
+       "rating": 5,
+       "app": "onX Backcountry: Trail GPS App"
+      },
+      {
+       "text": "J’ai l’abonnement Plus. J’ai téléchargé une carte pour m’en servir hors ligne. Je suis allé sur un sentier loin de toute couverture. J’ai essayé d’utiliser la carte téléchargée : « Non disponible. Ce que vous cherchez n’est pas consultable. »",
+       "rating": 2,
+       "app": "AllTrails: Hike, Bike & Run"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-offline",
+       "title": "Vérifier le téléchargement avant de partir",
+       "body": "",
+       "ideas": [
+        "hiking-trails-2",
+        "hiking-trails-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "notes",
+     "title": "Lire une note avec son lieu et sa date",
+     "passages": [
+      "Une note sur l’eau ou sur l’état d’un sentier tire sa valeur de son lien avec un lieu et un moment. Un ancien récit peut aider à comprendre une portion, mais il ne vaut pas un message récent. Sans date et sans contexte d’origine, un résumé court risque de faire ressembler des observations différentes à un seul état actuel.",
+      "Conserver le chemin vers l’entrée d’origine et laisser voir la suite des messages. L’absence de nouvelles notes doit elle aussi rester visible : elle ne signifie pas que les conditions sont restées les mêmes. Au moment de préparer, il est utile de lire justement la portion dont on a besoin et le moment de l’observation, au lieu de prendre l’activité de toute la communauté pour de la fraîcheur en tout point.",
+      "L’eau, un gué et l’état d’un sentier peuvent changer. Un nouveau marqueur ne doit donc pas effacer l’historique précédent, et un ancien ne doit pas paraître actuel sans explication. Une suite d’observations aide à poser la question suivante tout en gardant la distinction entre l’expérience d’autrui et les conditions d’aujourd’hui."
+     ],
+     "quotes": [
+      {
+       "text": "Pouvoir repérer les points d’eau, ça change tout.",
+       "rating": 5,
+       "app": "FarOut: Hike, Bike, Paddle"
+      },
+      {
+       "text": "Les comptes rendus de sortie des utilisateurs sont utiles pour connaître l’état récent des sentiers.",
+       "rating": 5,
+       "app": "WTA Trailblazer: Go Hiking"
+      },
+      {
+       "text": "Farout a ajouté une fonction ia qui classe et supprime les commentaires automatiquement et maintenant des années de commentaires utiles ont juste disparu, faites mieux farout",
+       "rating": 2,
+       "app": "FarOut: Hike, Bike, Paddle"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_hiking-trails_notes",
+      "alt": "Illustration du thème « Lire une note avec le lieu et la date ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-notes",
+       "title": "Lire une note avec son lieu et sa date",
+       "body": "",
+       "ideas": [
+        "hiking-trails-6",
+        "hiking-trails-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "record",
+   "title": "Conserver ce qu’on a parcouru et transmettre ce qu’on sait",
+   "intro": "Le plan, l’enregistrement du déplacement et le message aux proches peuvent chacun se trouver dans un état différent.",
+   "art": null,
+   "observations": [
+    {
+     "id": "track",
+     "title": "Corriger une portion en trop en gardant l’original",
+     "passages": [
+      "Le chemin enregistré peut différer du chemin parcouru, même sur un sentier familier. Dans l’exemple qui suit, les repères de distance se déplacent d’une marche à l’autre. L’enregistrement d’origine est donc utile, mais il n’est pas à lui seul une mesure sans erreur de l’itinéraire.",
+      "Un autre problème apparaît après la randonnée : on a oublié d’arrêter le chronomètre et un trajet en voiture s’est ajouté à la marche. Rogner par le temps en regardant la carte permet de garder la portion voulue et de conserver l’enregistrement complet pour comparaison.",
+      "Une pause peut créer la situation inverse — une partie du chemin ne s’est pas enregistrée. Cet intervalle doit rester visible. S’il y a deux fragments enregistrés, on peut les réunir pour une histoire personnelle ; les mesures de la portion manquante, elles, ne peuvent pas être rétablies en une seule modification."
+     ],
+     "quotes": [
+      {
+       "text": "Je marche presque tous les jours sur le même parcours mais j’atteins les repères de 1/4 et 1/2 mile à des endroits différents d’un jour à l’autre.",
+       "rating": 2,
+       "app": "Walkmeter Walking & Hiking GPS"
+      },
+      {
+       "text": "Relive a supprimé la fonction pour rogner les itinéraires. Si tu oublies d’arrêter l’enregistrement après une activité, ça enregistre tout jusqu’à ce que tu penses à « terminer », ce qui rend les données et la carte inutilisables. Corrigez ça s’il vous plaît parce que c’est rédhibitoire.",
+       "rating": 2,
+       "app": "Relive: Hike & Ride Memories"
+      },
+      {
+       "text": "Ça se met en pause automatiquement quand tu fais une halte et ça redémarre pas automatiquement.",
+       "rating": 4,
+       "app": "Relive: Hike & Ride Memories"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-track",
+       "title": "Corriger une portion en trop en gardant l’original",
+       "body": "",
+       "ideas": [
+        "hiking-trails-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sharing",
+     "title": "Se mettre d’accord sur ce que verront les proches",
+     "passages": [
+      "Un message automatique en cas de retard peut aider à s’entendre avec ses proches sur le retour. Dans l’expérience citée, une famille apprécie justement cet accord. Il est utile d’expliquer à l’avance ce que le destinataire verra et quelle heure sera affichée à côté des coordonnées.",
+      "En même temps, l’enregistrement du déplacement peut s’arrêter tout seul. Un avis sur une trace interrompue ne prouve pas un échec de transmission, mais il montre pourquoi « le dernier point connu » n’est pas toujours la position actuelle de la personne. L’ancienneté des données doit rester visible.",
+      "Enfin, des coordonnées peuvent être enregistrées sur l’appareil sans jamais parvenir à l’autre partie. Il faut distinguer la dernière entrée locale, une tentative d’envoi et une mise à jour réellement reçue. Tester le scénario entier avant la randonnée aide les deux parties à lire l’écran de la même façon ; cela ne garantit pas qu’une connexion ou de l’aide suivront."
+     ],
+     "quotes": [
+      {
+       "text": "Le système de notification automatique rassure énormément ma famille parce qu’ils savent qu’ils seront prévenus avec ma dernière position GPS connue si je tarde à revenir du sentier.",
+       "rating": 5,
+       "app": "Cairn Hiking Safety Tracker"
+      },
+      {
+       "text": "ça a juste arrêté de me suivre au milieu de ma rando rim2rim au Grand Canyon. Je sais pas pourquoi c’est arrivé vu que j’ai jamais laissé ma batterie tomber à zéro.",
+       "rating": 1,
+       "app": "Cairn Hiking Safety Tracker"
+      },
+      {
+       "text": "ça envoie à ton cercle de sécurité une carte de la couverture mobile au lieu des positions réelles.\n\nÇa enregistre les positions réelles (et ça consomme beaucoup d’énergie) mais ça les envoie pas.",
+       "rating": 1,
+       "app": "Cairn Hiking Safety Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_hiking-trails_sharing",
+      "alt": "Illustration du thème « Se mettre d’accord sur ce que la famille verra ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-sharing",
+       "title": "Se mettre d’accord sur ce que verront les proches",
+       "body": "",
+       "ideas": [
+        "hiking-trails-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Préparer un seul itinéraire de bout en bout",
+  "body": "Pour commencer, choisir un territoire connu et mener la préparation d’une seule randonnée jusqu’à un résultat qui fonctionne : le sentier voulu est trouvé, la carte s’ouvre sans réseau, les notes gardent leurs dates et le plan personnel est accessible sur l’appareil choisi. Ce sont exactement les ruptures que décrivent les avis. Un catalogue énorme ne compense pas l’absence du sentier voulu ni un téléchargement qui ne s’ouvre pas.\n\nEnsuite, on peut choisir une spécialisation : les étapes de plusieurs jours, la modification de ses propres traces ou la préparation d’informations pour ses proches. Chacune a son résultat et ses limites. Il importe surtout de ne pas confondre un point enregistré avec un point reçu par l’autre partie. Un produit est utile quand il montre ce qui est préparé et ce qui est connu, en laissant les manques visibles, plutôt que quand il donne l’apparence d’une randonnée entièrement maîtrisée."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-prepare",
+   "title": "Préparer son propre itinéraire",
+   "depth": 0
+  },
+  {
+   "id": "observation-find",
+   "title": "Commencer par le territoire voulu",
+   "depth": 1
+  },
+  {
+   "id": "observation-draw",
+   "title": "Vérifier comment les points ont été reliés",
+   "depth": 1
+  },
+  {
+   "id": "observation-layers",
+   "title": "Choisir une carte adaptée",
+   "depth": 1
+  },
+  {
+   "id": "theme-trail",
+   "title": "Se servir de la carte sur le terrain",
+   "depth": 0
+  },
+  {
+   "id": "observation-offline",
+   "title": "Vérifier le téléchargement avant de partir",
+   "depth": 1
+  },
+  {
+   "id": "observation-notes",
+   "title": "Lire une note avec son lieu et sa date",
+   "depth": 1
+  },
+  {
+   "id": "theme-record",
+   "title": "Conserver ce qu’on a parcouru et transmettre ce qu’on sait",
+   "depth": 0
+  },
+  {
+   "id": "observation-track",
+   "title": "Corriger une portion en trop en gardant l’original",
+   "depth": 1
+  },
+  {
+   "id": "observation-sharing",
+   "title": "Se mettre d’accord sur ce que verront les proches",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Préparer un seul itinéraire de bout en bout",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

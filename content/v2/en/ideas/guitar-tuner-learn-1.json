@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "guitar-tuner-learn-1",
+ "category": "guitar-tuner-learn",
+ "categoryName": "Guitar: tuner and learning",
+ "title": "A tuner with a clear target",
+ "description": "The chosen string stays on screen next to the sound that was recognized.",
+ "cover": {
+  "src": "ideas/guitar-tuner-learn-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A beginner follows the needle without always noticing that the app is now identifying a different note."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "it kept telling me to tune up my d cord so i decided to trust it since it tuned everything else good but then my string broke after so much tuning and the app still saying it was like one number closer after i kept tuning",
+    "rating": 2,
+    "app": "GuitarTuna: Tune & Play Guitar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "First fix the string or a saved tuning. Show the confidence of the recognition separately, and ask for the sound again when the signal is not enough."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The prompt has to explain the current target; a motionless needle does not mean the measurement is still running."
+  }
+ ],
+ "rank": 240,
+ "free": false
+}

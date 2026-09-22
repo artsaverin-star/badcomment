@@ -6,10 +6,12 @@ import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import OldSiteBanner from "@/components/OldSiteBanner";
 import PageTracker from "@/components/PageTracker";
 import FavSync from "@/components/FavSync";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
+import { getOldSiteContext } from "@/lib/oldSite.server";
 
 // Self-host the already-vendored Inter subsets so production builds never
 // depend on Google Fonts being reachable. Separate families form a glyph
@@ -17,16 +19,16 @@ import { getAccess } from "@/lib/access";
 const interLatin = localFont({
   variable: "--font-inter-latin",
   src: [
-    { path: "../../public/og-fonts/inter-latin-500-normal.woff", weight: "500", style: "normal" },
-    { path: "../../public/og-fonts/inter-latin-800-normal.woff", weight: "800", style: "normal" },
+    { path: "../../../public/og-fonts/inter-latin-500-normal.woff", weight: "500", style: "normal" },
+    { path: "../../../public/og-fonts/inter-latin-800-normal.woff", weight: "800", style: "normal" },
   ],
   display: "swap",
 });
 const interCyrillic = localFont({
   variable: "--font-inter-cyrillic",
   src: [
-    { path: "../../public/og-fonts/inter-cyrillic-500-normal.woff", weight: "500", style: "normal" },
-    { path: "../../public/og-fonts/inter-cyrillic-800-normal.woff", weight: "800", style: "normal" },
+    { path: "../../../public/og-fonts/inter-cyrillic-500-normal.woff", weight: "500", style: "normal" },
+    { path: "../../../public/og-fonts/inter-cyrillic-800-normal.woff", weight: "800", style: "normal" },
   ],
   display: "swap",
 });
@@ -53,6 +55,8 @@ export default async function RootLayout({
   // Show the launch-price badge (LaunchOffer) to everyone who doesn't already
   // own everything (lifetime / admin / friend).
   const access = await getAccess();
+  // Site v2: the proxy marks old pages (/<L>/old/… or served in place) with x-ia-* headers.
+  const oldSite = await getOldSiteContext();
   return (
     <html
       lang={locale}
@@ -120,6 +124,13 @@ gtag('js',new Date());gtag('config','G-G3J6K8VBD6',{send_page_view:false});`,
               ],
             }),
           }}
+        />
+        <OldSiteBanner
+          locale={locale}
+          site={oldSite.site}
+          publicPath={oldSite.publicPath}
+          newPath={oldSite.newPath}
+          soon={oldSite.soon}
         />
         <Header
           locale={locale}

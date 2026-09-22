@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "plant-care-2",
+ "category": "plant-care",
+ "categoryName": "Soin des plantes",
+ "title": "Arroser après avoir vérifié l’état",
+ "description": "Noter l’humidité et les actions réelles, et déplacer un rappel sans fausse entrée sur l’arrosage.",
+ "cover": {
+  "src": "ideas/plant-care-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Le propriétaire reçoit un rappel et note l’état réel : vérifié, arrosé ou action reportée. La date suivante et l’historique montrent ces différences, et une correction à la main n’oblige pas à contourner le calendrier."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ça a failli tuer plusieurs de mes plantes en allongeant au hasard le calendrier d’arrosage. Par exemple certaines sont passées d’un calendrier de 10 jours à 27 jours.",
+    "rating": 1,
+    "app": "Planta: AI Plant & Garden Care"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Un rappel de vérification"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "On peut commencer par un intervalle à soi et un déplacement facile après une vérification. Si le programme propose de modifier le calendrier, il montre ce qui a changé ; un passage inattendu de dix jours à vingt-sept, comme dans l’avis, ne doit pas rester invisible."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ne pas enregistrer un arrosage qui n’a pas eu lieu"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "La vérification principale, ce sont plusieurs cas ordinaires où le rappel n’a pas correspondu à l’action nécessaire. L’app aide à se souvenir de ses observations, au lieu de les remplacer par un calendrier d’arrosage universel valable pour toutes les conditions."
+  }
+ ],
+ "rank": 57,
+ "free": false
+}

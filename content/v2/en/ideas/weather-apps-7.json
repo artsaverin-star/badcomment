@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "weather-apps-7",
+ "category": "weather-apps",
+ "categoryName": "Weather",
+ "title": "Following how a storm develops",
+ "description": "The chosen place, the changes to the forecast and the warnings available, gathered together.",
+ "cover": {
+  "src": "ideas/weather-apps-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A general map with a track line does not explain which time the latest update refers to."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "During hurricane Milton I used this app to keep a close tracking of the landfall trajectory and decide when and where to evacuate. Very helpful and easy to use.",
+    "rating": 5,
+    "app": "Zoom Earth - Weather Forecast"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Show the issue time, the forecast area and its changes, and keep a way through to the official messages. Allow several addresses to be followed."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A forecast contains uncertainty. A single thin line should not create the appearance of an exact future path."
+  }
+ ],
+ "rank": 58,
+ "free": false
+}

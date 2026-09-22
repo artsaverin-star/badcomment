@@ -1,0 +1,428 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "resume-builder",
+ "name": "Créateurs de CV",
+ "summary": "Reporter un CV existant, choisir l’expérience qui correspond à l’offre et obtenir un fichier lisible. Là où un créateur de CV épargne du travail, et là où il oblige à tout recommencer.",
+ "corpus": {
+  "reviews": 4338,
+  "apps": 26
+ },
+ "lead": "Le travail sur un CV commence bien avant le choix d’un modèle. Il faut se rappeler son expérience, décider ce qui se rapporte à l’offre et le décrire avec ses propres mots. Celui qui a un document terminé veut mettre à jour quelques lignes ; le débutant veut comprendre sur quoi écrire tout court. Le même formulaire vide les aide différemment.\n\nEt pour l’un comme pour l’autre, le travail se termine hors de l’éditeur : par un document envoyé qui dit ce qu’il faut. Un beau modèle vaut donc d’être jugé avec l’import, les versions enregistrées et l’export. La perte d’une seule description importante peut annuler le confort de toutes les étapes précédentes.",
+ "cover": {
+  "src": "research/ResearchLaunch_resume-builder_cover",
+  "alt": "Créateurs de CV",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_resume-builder_audiences",
+  "alt": "Tâches des gens : Créateurs de CV",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Compléter un CV existant",
+   "body": "Un nouveau poste ou un nouveau projet est arrivé. La personne veut changer quelques lignes tout en gardant les détails du travail précédent."
+  },
+  {
+   "title": "Postuler depuis un téléphone",
+   "body": "Pas d’ordinateur à portée de main, et l’offre est déjà trouvée. Il faut corriger les documents, vérifier les pièces jointes et les envoyer de la manière habituelle."
+  },
+  {
+   "title": "Décrire son expérience plus clairement",
+   "body": "L’auteur bute sur la formulation ou prépare un premier CV. Il lui faut des questions et des exemples qui aident à se rappeler son propre travail, pas ceux qui lui attribuent les réalisations d’autrui."
+  }
+ ],
+ "sections": [
+  {
+   "id": "content",
+   "title": "D’abord rassembler l’expérience et la mettre en ordre",
+   "intro": "Le contenu doit se conserver indépendamment du modèle. L’auteur choisit quels faits se rapportent à une candidature précise.",
+   "art": null,
+   "observations": [
+    {
+     "id": "import",
+     "title": "Reporter l’expérience en gardant les détails",
+     "passages": [
+      "Lors du report d’un document existant, l’important est de garder non seulement les noms des lieux de travail, mais aussi les détails pour lesquels il a été rédigé. Un CV académique et un CV court pour une candidature peuvent avoir des longueurs différentes. Le raccourcissement automatique d’un long parcours change le résultat lui-même, même si la nouvelle page a l’air soignée.",
+      "Sans import, une mise à jour se transforme en nouvelle saisie complète. Pour quelqu’un qui a un long document, cela peut mettre fin au premier contact avec un créateur de CV avant même le choix d’un modèle. Une entrée par un fichier existant devrait laisser l’original accessible et montrer les sections reportées, au lieu d’obliger à remplir un formulaire vide depuis le début.",
+      "Un CV académique ne peut pas être réduit en silence à un CV ordinaire d’une ou deux pages. Il faut d’abord garder tout le contenu et montrer ce qui n’a pas trouvé sa place dans la mise en page choisie. L’auteur pourra composer une version compacte à part — c’est une décision éditoriale sur le contenu, pas un effet secondaire de l’import.",
+      "S’il n’y a pas encore de document terminé, il faut une autre entrée : des questions sur les études, les projets, les petits boulots et l’apport personnel. Un exemple de formulation aide à démarrer, mais il ne devient une expérience réelle qu’une fois précisé par l’auteur."
+     ],
+     "quotes": [
+      {
+       "text": "Impossible d’ajuster, de modifier d’ajouter du texte. Rate plein de champs importants en important le profil LinkedIn. Pas pour les pros",
+       "rating": 1,
+       "app": "Resume Builder & CV Maker AI"
+      },
+      {
+       "text": "Donc l’appli n’a pas l’option pour téléverser un CV. Ce qui veut dire que si tu as un CV de 10 pages comme le mien tu dois tout ressaisir caractère par caractère ! C’est pénible donc je l’ai pas fait.",
+       "rating": 1,
+       "app": "Resume Creator AI, PDF Builder"
+      },
+      {
+       "text": "J’ai téléchargé l’appli pour m’aider à faire un CV professionnel pour le milieu universitaire. Ça, c’est pas un resume. Un CV et un resume, c’est PAS la même chose. L’appli dit qu’elle aide pour les CV, eh bien NON, elle écrit un resume d’une ou deux pages, mais toute ma carrière et tout mon travail présentés sur un CV, ça manque.",
+       "rating": 1,
+       "app": "Resume AI Intelligent CV App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_resume-builder_import",
+      "alt": "Illustration du thème « Reporter l’expérience sans perdre les détails ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-import",
+       "title": "Reporter l’expérience en gardant les détails",
+       "body": "",
+       "ideas": [
+        "resume-builder-8",
+        "resume-builder-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "title": "Choisir l’ordre pour une candidature précise",
+     "passages": [
+      "La mise à jour d’un CV est une tâche à part entière. Après avoir ajouté un poste récent, la personne veut le placer au-dessus du précédent ; pour une autre candidature, une expérience plus ancienne peut compter davantage. Si l’ordre est rigidement lié au moment de la saisie, une simple correction se transforme en suppression et nouvelle saisie de tout le parcours.",
+      "Remonter une entrée est une opération simple, et elle doit laisser son contenu intact. Supprimer d’anciens postes pour obtenir un nouvel ordre est particulièrement absurde dans un document auquel on revient pendant des années. L’éditeur a besoin d’actions explicites pour réordonner, et d’une annulation, plutôt que d’un ordre fixé par hasard au moment de la saisie.",
+      "Réordonner les sections aide à présenter une même expérience de différentes façons. L’archive principale garde les détails ; la version pour une offre garde la partie choisie et son ordre. Un projet masqué ne doit pas être supprimé de l’archive, et changer une couleur ou les marges ne doit pas changer ce que l’auteur a décidé de raconter."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai acheté cette appli pour créer mon CV ce que j’ai fait il y a deux ans j’ai maintenant d’autres postes à ajouter à mon CV sauf que quand tu ajoutes un nouveau poste ça le met en bas au lieu de le mettre en haut. Un CV c’est censé aller du poste le plus récent vers les plus anciens",
+       "rating": 2,
+       "app": "Resume Builder by Nobody"
+      },
+      {
+       "text": "J’utilise une appli de CV depuis des années. Ce qui serait utile c’est de pouvoir réorganiser son parcours professionnel. Quand tu saisis une nouvelle expérience, ça l’ajoute en bas de la liste. Et si tu aimes avoir ton expérience la plus récente/pertinente en haut tu dois supprimer chaque poste que tu as eu et recommencer de z",
+       "rating": 3,
+       "app": "Resume & CV Builder"
+      },
+      {
+       "text": "J’aimerais qu’il y ait plus d’options pour permettre plus de réglages perso, genre changer les couleurs. Ce serait cool aussi de pouvoir déplacer les sections en mode aperçu. Et virez les restrictions sur la taille des marges et de la police.",
+       "rating": 3,
+       "app": "Resume Builder - PDF Templates"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-order",
+       "title": "Choisir l’ordre pour une candidature précise",
+       "body": "",
+       "ideas": [
+        "resume-builder-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rewrite",
+     "title": "Voir ce qui a changé dans la formulation",
+     "passages": [
+      "Une lettre de motivation plus courte est un bénéfice clair de l’IA. Mais le raccourcissement perd son sens si le paragraphe s’interrompt, si un intitulé de poste détaillé devient un nom générique et si l’on ne peut pas revenir à l’original. Une langue fluide peut cacher la perte d’un fait essentiel.",
+      "Un intitulé de poste raccourci peut perdre la spécialisation, et des notes de compétences placées automatiquement peuvent ajouter une affirmation absente de l’original. De tels changements doivent être montrés à côté du texte précédent. L’auteur doit les accepter par morceaux, en gardant la possibilité de revenir à l’original.",
+      "Une suggestion est utile comme question : quelle tâche la personne a-t-elle menée, de quoi était-elle responsable, quel résultat peut-elle confirmer. Des exemples tout prêts aident à se rappeler le travail, mais ils ne doivent pas devenir automatiquement des réalisations. S’il n’y a ni fait ni chiffre, mieux vaut laisser la question à l’auteur que de combler le vide par une phrase convaincante."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore la façon dont ça m’aide à réécrire ma lettre de motivation pour la rendre plus concise et les mises en page uniques sont super. J’aimerais quand même que les bugs soient corrigés quand on utilise l’aide de l’IA. Ça coupe les paragraphes au milieu d’une idée, du coup il faut tout recommencer de zéro. Et en plus, y a pas de bouton retour.",
+       "rating": 4,
+       "app": "Kickresume: AI Resume Builder"
+      },
+      {
+       "text": "J’ai utilisé l’option pour importer une version existante et le résultat… Ça avait supprimé TOUS les détails et réduit les intitulés de poste à des versions génériques et en plus ça a mis des notes sur 5 pour chaque compétence",
+       "rating": 1,
+       "app": "Resume AI Intelligent CV App"
+      },
+      {
+       "text": "L’IA change tout en autre chose. Complètement différent",
+       "rating": 1,
+       "app": "Resume Builder - AI Resumate"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_resume-builder_rewrite",
+      "alt": "Illustration du thème « Voir ce qui a changé dans la formulation ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-rewrite",
+       "title": "Voir ce qui a changé dans la formulation",
+       "body": "",
+       "ideas": [
+        "resume-builder-3",
+        "resume-builder-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "draft",
+     "title": "Changer la mise en page sans perdre le texte",
+     "passages": [
+      "Un modèle doit changer la présentation du texte en laissant le texte lui-même intact. Sinon, essayer une mise en page devient une opération risquée : la personne vérifie si le nom, le lieu de travail ou une section entière n’a pas disparu. Un problème semblable apparaît avec la lettre, quand ce qui a été écrit est remplacé en silence par l’exemple d’origine.",
+      "Si un modèle n’a pas de place pour le nom ou l’expérience, cela doit se voir avant son application. La mise en page choisie doit montrer exactement ce qui ne tient pas, et le contenu doit se conserver indépendamment d’elle. On peut alors choisir une autre allure pour le document sans ressaisir les sections perdues.",
+      "La lettre de motivation et le texte de l’exemple doivent eux aussi être stockés séparément. Le retour au modèle ne peut pas remplacer un brouillon personnel par les mots de quelqu’un d’autre. Un historique des modifications et une archive d’expérience indépendante permettent de revenir à la dernière version même après un essayage de mise en page raté."
+     ],
+     "quotes": [
+      {
+       "text": "Tu vas changer de modèle et devine quoi tout toutes mes infos disparaissent en plus de ça j’arrive pas à comprendre comment je peux partager le CV avec les entreprises qui attendent mon CV.",
+       "rating": 2,
+       "app": "Resume & CV Builder"
+      },
+      {
+       "text": "Je passe les modèles en revue et ils n’incluent pas toutes les infos que j’ai saisies. Chaque modèle perd soit mon nom soit mon expérience professionnelle. Ça n’a pas vraiment de sens d’utiliser cette appli si toutes tes infos peuvent pas s’afficher sur le modèle de ton choix",
+       "rating": 2,
+       "app": "Resume & CV Builder"
+      },
+      {
+       "text": "J’ai passé plus d’une heure à essayer d’écrire ma lettre de motivation, et une fois que j’avais fini ça a effacé tout ce que j’avais écrit et c’est revenu au texte d’exemple.",
+       "rating": 1,
+       "app": "CV Maker ·"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-draft",
+       "title": "Changer la mise en page sans perdre le texte",
+       "body": "",
+       "ideas": [
+        "resume-builder-4"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "title": "Obtenir un document qu’on peut vraiment envoyer",
+   "intro": "Les conditions de l’export et la qualité du fichier relèvent du résultat principal du travail, pas des possibilités supplémentaires.",
+   "art": null,
+   "observations": [
+    {
+     "id": "price",
+     "title": "Connaître à l’avance les conditions du fichier terminé",
+     "passages": [
+      "Le prix du téléchargement relève du résultat principal d’un créateur de CV. L’apprendre après avoir saisi toute sa carrière est une tout autre expérience que choisir un export payant à l’avance. Il en va de même pour le filigrane : un document peut être visible dans l’éditeur et rester inadapté à l’envoi tel qu’on l’a reçu.",
+      "Avant un gros travail, il vaut la peine de savoir quel fichier l’accès choisi comprend, combien de fois on peut l’obtenir et ce qui change après le paiement. Une mise en page simple sans filigrane peut suffire ; un riche catalogue de modèles ne remplace pas des conditions claires pour obtenir son propre document.",
+      "Une limite sur le nombre d’exports rend l’aperçu particulièrement important. Une erreur de modèle ne doit pas consommer une tentative pendant que la personne cherche une description disparue. Un export unique et un abonnement pour un travail régulier sur les candidatures sont des offres différentes ; dans les deux cas, il faut des conditions d’accès à son propre texte après le paiement."
+     ],
+     "quotes": [
+      {
+       "text": "ils prennent ton CV en otage tant que tu paies pas un abonnement. Après avoir péniblement créé un profil et tout tapé je n’ai pas pu exporter sans payer un abonnement. En plus tu peux pas faire de capture d’écran sans que tout le CV disparaisse.",
+       "rating": 1,
+       "app": "Resume Creator AI, PDF Builder"
+      },
+      {
+       "text": "J’ai fait tout le CV en me disant ah ouais c’est les outils qu’on paie avec la formule ben non pas du tout en fait c’est la possibilité de télécharger qu’on paie en plus des outils",
+       "rating": 1,
+       "app": "Resume Builder - CV Engineer"
+      },
+      {
+       "text": "Seulement 2 téléchargements gratuits. Vérifie bien que ça bugue pas et que ça supprime rien avant de télécharger. Le premier m’a effacé toute une description d’un de mes postes. Sinon très simple à utiliser. Des modèles très simples donc n’attends pas du sophistiqué et le meilleur : pas de filigrane !",
+       "rating": 4,
+       "app": "Resume Builder - CV Engineer"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_resume-builder_price",
+      "alt": "Illustration du thème « Connaître à l’avance les conditions du fichier fini ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "export",
+     "title": "Trouver et ouvrir le fichier après l’export",
+     "passages": [
+      "Générer le fichier, l’enregistrer et l’envoyer sont des actions différentes. Un message sur la préparation d’un PDF ne signifie pas encore que le document est apparu dans un dossier accessible. Et avoir appuyé sur le bouton d’envoi du courrier ne confirme pas qu’il y avait quelque chose en pièce jointe.",
+      "La personne doit voir un résultat, pas une « génération » sans fin. Après une création réussie, le fichier peut être ouvert, on peut choisir où l’enregistrer et l’obtenir de nouveau sans reconstruire le CV. Si le traitement s’est terminé par une erreur, les données saisies restent en place et la raison ne se cache pas derrière un écran disparu.",
+      "L’envoi de la lettre est une étape à part : il faut encore joindre le fichier terminé. Pour une même candidature, il est utile de réunir le CV et la lettre de motivation, en montrant le destinataire et les versions des pièces jointes. Un tel dossier aide à éviter la confusion, mais l’app doit d’abord fournir chaque fichier séparément de façon fiable."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai fait un CV et j’ai choisi télécharger. J’ai un « génération du PDF » mais le CV disparaît. Il est pas dans mon dossier fichiers. J’ai déjà payé l’appli et je regrette.",
+       "rating": 1,
+       "app": "Resume Builder Pro with AI"
+      },
+      {
+       "text": "Ça me laisse aller jusqu’au bout de la création du CV pour au final ne jamais charger après avoir appuyé sur le bouton « générer pdf ».",
+       "rating": 1,
+       "app": "Resume Maker⁺"
+      },
+      {
+       "text": "J’aime vraiment bien cette appli, mais après avoir passé presque une heure à monter mon CV je peux pas l’enregistrer. Quand je l’envoie par mail ça envoie rien.",
+       "rating": 2,
+       "app": "Got Resume Builder"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Trouver et ouvrir le fichier après l’export",
+       "body": "",
+       "ideas": [
+        "resume-builder-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "layout",
+     "title": "Vérifier la lecture hors de l’éditeur",
+     "passages": [
+      "L’aperçu montre l’intention du modèle, tandis que le destinataire voit le document exporté. Des caractères qui se sont décalés, une lettre de motivation au bord coupé ou un format refusé n’apparaissent qu’après la mise en page. Ces problèmes demandent des vérifications différentes : l’intégralité du texte, les limites de la page et la compatibilité avec un mode d’envoi précis.",
+      "Ouvrir le fichier terminé en dehors du créateur de CV et parcourir toutes les pages. Si une impression est prévue, l’évaluer à part. Cette vérification répond à une question pratique : la personne à l’autre bout recevra-t-elle le document complet et lisible qu’on voulait envoyer.",
+      "Un fichier portant l’extension PDF peut tout de même être refusé par un formulaire de dépôt précis. Il faut distinguer les limites du formulaire d’un document défectueux, en gardant la possibilité d’obtenir une autre version convenable. La vérification de l’extraction du texte montrera en plus l’ordre de lecture ; elle ne prédit ni la décision de l’employeur, ni le passage de tous les systèmes de sélection."
+     ],
+     "quotes": [
+      {
+       "text": "Le CV est magnifique en ligne, mais quand je l’ai imprimé le texte est bizarre, les lettres font pas la même taille il y a des lettres en majuscules alors qu’elles devraient pas. On dirait littéralement un ratage d’IA.",
+       "rating": 1,
+       "app": "Resume Builder Pro with AI"
+      },
+      {
+       "text": "Une génération de lettre de motivation était décentrée avec le côté droit de la page coupé. Les designs des modèles sont corrects mais n’utilisent pas bien l’espace",
+       "rating": 2,
+       "app": "Resume Maker⁺"
+      },
+      {
+       "text": "L’appli dit que les CV sont au format PDF, mais les sites d’emploi n’acceptent jamais l’appli. Ils disent toujours « format non valide ».",
+       "rating": 3,
+       "app": "Resume Star 2: Pro CV Designer"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_resume-builder_layout",
+      "alt": "Illustration du thème « Vérifier la lecture en dehors de l’éditeur ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-layout",
+       "title": "Vérifier la lecture hors de l’éditeur",
+       "body": "",
+       "ideas": [
+        "resume-builder-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Mener une seule mise à jour jusqu’à l’envoi",
+  "body": "Pour un premier produit, je choisirais une personne qui a déjà un CV et doit préparer vite une nouvelle candidature. C’est une tâche précise : reporter le document, ajouter l’expérience récente, choisir ce qui se rapporte à l’offre et obtenir un fichier. Sur un vrai CV, on voit bien quelle part de saisie manuelle a été supprimée et si des détails importants ont disparu.\n\nLa priorité, c’est la conservation du contenu et d’une version à part pour une offre. Les nouveaux modèles et les formulations générées ont du sens après cela. Aider un débutant à faire un premier CV est aussi une hypothèse prometteuse, mais cela demande une autre entrée, par des questions. Réunir les deux scénarios dans un seul long formulaire n’en vaut pas la peine : il oblige l’auteur expérimenté à se répéter et n’explique toujours pas au débutant sur quoi écrire."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-content",
+   "title": "D’abord rassembler l’expérience et la mettre en ordre",
+   "depth": 0
+  },
+  {
+   "id": "observation-import",
+   "title": "Reporter l’expérience en gardant les détails",
+   "depth": 1
+  },
+  {
+   "id": "observation-order",
+   "title": "Choisir l’ordre pour une candidature précise",
+   "depth": 1
+  },
+  {
+   "id": "observation-rewrite",
+   "title": "Voir ce qui a changé dans la formulation",
+   "depth": 1
+  },
+  {
+   "id": "observation-draft",
+   "title": "Changer la mise en page sans perdre le texte",
+   "depth": 1
+  },
+  {
+   "id": "theme-delivery",
+   "title": "Obtenir un document qu’on peut vraiment envoyer",
+   "depth": 0
+  },
+  {
+   "id": "observation-price",
+   "title": "Connaître à l’avance les conditions du fichier terminé",
+   "depth": 1
+  },
+  {
+   "id": "observation-export",
+   "title": "Trouver et ouvrir le fichier après l’export",
+   "depth": 1
+  },
+  {
+   "id": "observation-layout",
+   "title": "Vérifier la lecture hors de l’éditeur",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Mener une seule mise à jour jusqu’à l’envoi",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

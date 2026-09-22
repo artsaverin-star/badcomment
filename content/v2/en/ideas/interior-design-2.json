@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "interior-design-2",
+ "category": "interior-design",
+ "categoryName": "Interior design and floor plans",
+ "title": "A plan with exact dimensions",
+ "description": "A planner where dimensions can be entered as numbers and refined by hand. After a wall is edited you can see what changed around it, and a bad step can be undone.",
+ "cover": {
+  "src": "ideas/interior-design-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A person transfers the dimensions of their apartment onto the screen. If changing one wall quietly shifts the others, the whole drawing has to be checked again. Exact entry matters together with explainable behavior from the neighboring elements."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Every time I adjust a wall it changes other dimensions. Hours wasted managing the app vs project. Gave up and drew it with paper and pencil. MUCH easier.",
+    "rating": 1,
+    "app": "Live Home 3D - House Design"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "A wall’s length can be set as a number, and the key dimensions locked. If a new value is incompatible with the rest, the editor shows the conflict and offers a choice of what to change. After an edit the affected dimensions are visible; undo restores the previous geometry."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Transfer a room with known dimensions onto the screen and change one wall. The person should be able to explain what happened around it and restore the original plan. A promise that “the other walls never move” gets in the way here: linked dimensions may genuinely need recalculating."
+  }
+ ],
+ "rank": 364,
+ "free": true
+}

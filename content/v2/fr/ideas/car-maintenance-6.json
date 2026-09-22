@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "car-maintenance-6",
+ "category": "car-maintenance",
+ "categoryName": "Entretien de la voiture",
+ "title": "Un seul aperçu du garage personnel",
+ "description": "Les voitures et les autres engins ont des journaux distincts, tandis que les travaux à venir sont visibles ensemble.",
+ "cover": {
+  "src": "ideas/car-maintenance-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Le propriétaire de plusieurs engins a besoin d’ordre sans gestion de flotte compliquée. Les différents types d’engins diffèrent par leurs mesures et leur entretien."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’ai un générateur, un camping-car, 3 motos et un pick-up. J’aime bien l’appli et je l’ai depuis plusieurs années. Je ne comprends pas pourquoi les développeurs ont choisi de ne pas proposer une formule où le nombre de véhicules personnels ne peut pas être augmenté.",
+    "rating": 3,
+    "app": "AUTOsist Fleet Management App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Donner à chaque engin ses propres unités, documents et intervalles. N’afficher dans l’aperçu commun que les actions à venir sélectionnées."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Commencer par quelques types d’engins réellement pris en charge. Un formulaire universel bâti autour du kilométrage d’une voiture ne convient pas aux heures moteur ni aux travaux saisonniers."
+  }
+ ],
+ "rank": 168,
+ "free": false
+}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string; icon?: string | null };
 
@@ -57,7 +58,7 @@ export default function MobileSearch({ locale = "ru" }: { locale?: Locale }) {
             <button
               key={h.slug}
               type="button"
-              onClick={() => router.push(h.slug)}
+              onClick={() => router.push(oldHref(locale, h.slug))}
               className="flex items-center gap-3 border-t border-[var(--color-border-subtle)] py-3 text-left first:border-t-0"
             >
               {h.icon ? (

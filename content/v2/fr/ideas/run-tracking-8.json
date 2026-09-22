@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "run-tracking-8",
+ "category": "run-tracking",
+ "categoryName": "Course à pied",
+ "title": "Un parcours en boucle depuis sa position",
+ "description": "L’itinéraire proposé peut être vérifié à l’avance, et les indications s’écoutent pendant la course.",
+ "cover": {
+  "src": "ideas/run-tracking-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "En terrain inconnu, l’utilisateur compte revenir à son point de départ. Si l’accompagnement ne reprend pas après un écart, le problème demeure même lorsque la boucle elle-même est bien construite."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ça recalcule pas l’itinéraire. Ça te dit pas quand tu es sorti du parcours. Et le pire c’est qu’une fois revenu sur le parcours ça te donne plus les indications virage par virage. Imagine : tu es en déplacement pro, tu vas courir et tu es perdu.",
+    "rating": 1,
+    "app": "RunGo - The Best Routes to Run"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Vérifier le retour sur le parcours"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Avant le départ, montrer tout l’itinéraire et l’endroit où il commence. Pendant la course, signaler un écart, proposer une suite et reprendre les indications une fois le coureur revenu. Garder la carte accessible à tout moment."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Où s’arrête la promesse"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Une ligne calculée ne confirme pas que le chemin est praticable en ce moment. Mais l’app peut dire clairement si elle guide encore le long du parcours et à quel point se rapporte l’indication suivante."
+  }
+ ],
+ "rank": 228,
+ "free": false
+}

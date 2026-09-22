@@ -1,0 +1,496 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "habit-tracking",
+ "name": "Habitudes",
+ "summary": "Ce qui aide à cocher ce qui a été fait, à revenir après un jour manqué et à utiliser un tracker à son propre rythme.",
+ "corpus": {
+  "reviews": 31299,
+  "apps": 98
+ },
+ "lead": "Le matin, on essaie de partir à l’heure ; le soir, on essaie de se rappeler ce qu’on a réussi à faire ; une semaine plus tard, on regarde une case vide et on décide s’il vaut encore la peine de continuer. À chacune de ces étapes, le tracker doit aider autrement. Une indication mène à l’action, une coche garde le fait, l’historique aide à comprendre les jours précédents.\n\nLe point faible apparaît quand le suivi oblige à prendre une habitude de plus — passer de longs moments à remplir l’app et à corriger son calendrier. La question importante pour cette catégorie : le tracker aide-t-il à poursuivre une vie ordinaire après une distraction, un jour manqué ou un changement de planning ?",
+ "cover": {
+  "src": "research/ResearchHabits_cover",
+  "alt": "Une femme pose la pierre suivante d’une allée à côté d’une plante en fleurs.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchHabits_audiences",
+  "alt": "Vu d’en haut : trois personnes lisent, s’étirent et arrosent une plante.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Se préparer et faire le pas suivant",
+   "body": "Pour certains, le plus dur est de commencer à se préparer le matin ; pour d’autres, de ne pas se laisser distraire entre deux actions. Ce qui aide ici, c’est un ordre clair, une étape suivante visible et la possibilité de reprendre là où on s’est arrêté. Le niveau de détail d’un planning est à choisir selon la personne : une même suite d’images peut servir à un enfant comme à un adulte."
+  },
+  {
+   "title": "S’observer soi-même sur la durée",
+   "body": "Certains veulent cocher chaque jour leurs promenades ou leur lecture. À d’autres, il est plus utile de retenir la date du dernier ménage, de voir le repos parmi leurs séances de sport ou de tenir compte d’un planning de postes. L’historique commence à aider quand ses enregistrements correspondent à la vie réelle de la personne, et quand un changement d’objectif ne réécrit pas le passé."
+  },
+  {
+   "title": "Se mettre d’accord avec quelqu’un d’autre",
+   "body": "Un couple peut choisir une habitude commune, un parent peut préparer un planning, un professionnel peut parcourir les enregistrements d’un client avant un rendez-vous. Ces relations n’ont pas les mêmes limites. Qui établit le plan, qui l’exécute et qui voit le détail : mieux vaut le décider avant d’inviter quelqu’un dans un tracker commun."
+  }
+ ],
+ "sections": [
+  {
+   "id": "start",
+   "title": "D’abord — rendre l’action faisable",
+   "intro": "Un tracker entre dans une journée qui existe déjà, avec son travail, ses trajets et ses distractions. La première question est de savoir à quel moment il servira. Une fois l’action faite, il faut une coche rapide ; pendant la préparation, il faut parfois une indication sur ce qu’il faut faire ensuite.",
+   "art": null,
+   "observations": [
+    {
+     "id": "first-habit",
+     "title": "Commencer par une seule action réelle",
+     "passages": [
+      "Au lieu de l’habitude, on peut se mettre sans s’en rendre compte à entretenir le tracker : choisir l’apparence, remplir des paramètres, déplacer des plans. L’auteur d’un avis décrit explicitement ce remplissage comme une tâche de plus, pour laquelle l’attention manque. Plus ce chemin doit être répété souvent, plus chaque champ superflu compte.",
+      "Un avis positif apprécie une app qui n’essaie pas d’être mille choses à la fois. La première rencontre peut se construire autour d’une seule action de la personne, en montrant à quoi ressemblera l’entrée de demain. Les possibilités avancées peuvent être proposées une fois qu’on voit ce qui lui manque.",
+      "L’enregistrement lui-même prend des formes différentes. Une coche répond à la question « est-ce que c’est fait », tandis qu’une photo et une note aident à se rappeler les circonstances. Ce sont des tâches différentes : ajouter un journal détaillé à un simple compteur n’a de sens que si la personne revient vraiment à ces informations."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai essayé plein de trackers d’habitudes, mais il y a presque toujours TROP de choses à remplir, au point que ça m’a donné envie de pas les utiliser. Tout remplir, on aurait dit que ça devait devenir une habitude en soi. Mon cerveau TDAH se laisse trop distraire.",
+       "rating": 5,
+       "app": "everyday - Habit Tracker"
+      },
+      {
+       "text": "Je viens de télécharger cette appli et pour l’instant j’adore ! J’aime bien sa simplicité et le fait qu’elle essaie pas d’être 1000 choses à la fois. L’interface est intuitive et agréable à regarder.",
+       "rating": 5,
+       "app": "Onrise: Habit Tracker & Focus"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "photo-journal",
+       "title": "Choisir un autre format d’enregistrement",
+       "body": "Un journal photo des repas est un scénario voisin, pas une fonction obligatoire d’un tracker. Il a du sens quand la personne a besoin de se rappeler les circonstances plutôt que de compter des actions accomplies.",
+       "ideas": [
+        "habit-tracking-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "quick-mark",
+     "title": "Cocher ce qui est fait avant de l’oublier",
+     "passages": [
+      "Un widget ou une montre sert à un moment précis : l’action est déjà faite, ouvrir le téléphone n’est pas pratique, et une saisie remise à plus tard peut se perdre au milieu d’autres choses. Dans un avis positif, le chemin est décrit comme littéralement quelques appuis.",
+      "Un rappel règle la tâche voisine — il ramène l’attention sur ce qui n’est pas encore fait. Un auteur apprécie plusieurs alertes pour une même habitude, parce qu’il a tendance à repousser la première. Il est utile ici de relier l’alerte à un choix clair : faire maintenant, reporter ou enregistrer le résultat. La fréquence, c’est à la personne de l’ajuster à sa journée.",
+      "Après la coche, il reste à vérifier le retour. Un auteur qui utilise la montre se plaint précisément d’une barre qui ressemble à une progression sans la refléter. La saisie rapide perd son sens si on ne sait pas si le résultat a été enregistré. La personne doit voir tout de suite la coche enregistrée et pouvoir annuler un appui erroné."
+     ],
+     "quotes": [
+      {
+       "text": "On a beaucoup réfléchi à cette appli et ça se voit. Tellement simple à utiliser, et c’est agréable de cocher un objectif terminé. Un appui sur le widget, un appui sur l’objectif, et c’est fait. Ou alors les Raccourcis Siri. C’est parfait.",
+       "rating": 5,
+       "app": "Awesome Habits: Habit Tracker"
+      },
+      {
+       "text": "Tellement intuitive, et facile à prendre en main tout de suite ! J’adore qu’on puisse ajouter plusieurs rappels pour la même habitude. Super pratique pour les gens comme moi qui ont tendance à appuyer sur snooze, et en fait cette appli fait à la fois liste de choses à faire et tracker d’habitudes.",
+       "rating": 5,
+       "app": "HabitShare - Habit Tracker"
+      },
+      {
+       "text": "J’aime bien pouvoir valider mes habitudes depuis ma montre. Sinon je tiendrai pas. Mais l’interface de la montre pourrait être meilleure. La petite barre du widget qui a l’air de devoir montrer la progression le fait pas. On dirait toujours que 2/3 de mes habitudes sont faites.",
+       "rating": 3,
+       "app": "Habitify: Habit Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_quick-mark",
+      "alt": "Une femme avec un sac, à une porte ouverte, tend son poignet où se trouve une montre.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "quick-capture",
+       "title": "Terminer la saisie sur l’appareil qui convient",
+       "body": "Une telle saisie mérite d’être essayée à l’endroit où se passe l’action : une promenade, une séance de sport ou les préparatifs du soir. La rapidité compte plus que le nombre de moyens de saisie.",
+       "ideas": [
+        "habit-tracking-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "feedback",
+     "title": "Donner à la coche une fin agréable",
+     "passages": [
+      "Le geste quotidien peut plaire en lui-même : maintenir le bouton, sentir la réponse, voir ce qui a été fait. Dans un avis sur un tracker simple, le son et la vibration sont mentionnés en même temps que la brièveté de l’action. L’expressivité est ici intégrée à l’usage, elle n’oblige pas à démêler des règles à part.",
+      "Un autre auteur décrit une petite fierté après chaque coche. Cette expérience ne permet pas de juger de l’utilité de l’animation en général. Une première expérience agréable peut changer quand le même geste se répète chaque jour.",
+      "La personne peut choisir une réponse expressive ou une confirmation discrète. On voit alors quelle option reste confortable à l’usage quotidien. Un système de jeu à part vaut la peine d’être ajouté quand son rôle dans une pratique précise est clair."
+     ],
+     "quotes": [
+      {
+       "text": "Dans l’ensemble, j’aime vraiment cette appli. Il y a pas de pub et les développeurs collectent pas tes données. L’appli, c’est le suivi d’habitudes dans sa forme la plus simple. T’ouvres l’appli et tu maintiens le bouton, sans chichi. Les sons et le retour haptique sont super.",
+       "rating": 3,
+       "app": "(Not Boring) Habits"
+      },
+      {
+       "text": "Ça a changé ma vie ! Au départ j’ai téléchargé cette appli pour me créer des habitudes. Cocher chaque habitude que j’ai faite, c’est tellement satisfaisant. C’est cette petite fierté qui te fait continuer. Même si ce changement n’a l’air de rien, quand tu l’intègres à ta vie, ça compte.",
+       "rating": 5,
+       "app": "MyRoutine: Organize your day"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "sequence",
+     "title": "Indiquer quoi faire maintenant",
+     "passages": [
+      "Pendant la préparation, une liste de tâches ne répond qu’à une partie des questions. Il reste à comprendre quelle action vient ensuite et combien de temps il reste avant de partir. Un avis apprécie particulièrement les indications qui actualisent l’heure de début de l’étape suivante et celle de fin de toute la séquence.",
+      "L’ordre compte même quand plusieurs tâches sont prévues à la même heure. Un auteur demande de pouvoir les trier à l’intérieur de ce créneau commun. Pour un produit, c’est une raison de tester un petit scénario réel : que se passe-t-il si la première étape s’éternise, si un élément est déjà fait, ou si la personne se laisse distraire en cours de route ?",
+      "La forme de l’indication demande elle aussi un choix. Un utilisateur adulte raconte qu’un planning visuel conçu pour les enfants lui a convenu. Il est donc plus utile de vérifier si la personne reconnaît l’action sur l’image et comprend la transition que de décider de toute l’interface d’après l’âge. Pour un usage familial s’ajoute une tâche de plus — transmettre le planning préparé sur l’appareil où il servira."
+     ],
+     "quotes": [
+      {
+       "text": "c’est une des meilleures applis que j’aie jamais utilisées. J’ai essayé tellement d’applis de routine, de minuteurs, mais celle-là est la plus utile jusqu’ici. les rappels qui se mettent à jour en permanence pour dire quand la prochaine tâche va commencer et quand tout va finir sont IMMENSÉMENT utiles.",
+       "rating": 5,
+       "app": "Routine Planner, Habit Tracker"
+      },
+      {
+       "text": "Cette appli est une perle et je l’aime vraiment, elle vaut chaque centime. J’ai trois petites suggestions que j’ADORERAIS voir mises en place. Faire en sorte que les tâches prévues à la même heure ou dans le même créneau puissent être triées dans un ordre précis.",
+       "rating": 4,
+       "app": "Habit Hub: Routine Tracker"
+      },
+      {
+       "text": "Je suis un adulte avec un TDAH de type inattentif et un TDI. J’ai utilisé plein d’applis de planning et de listes de tâches pour adultes qui étaient très fonctionnelles mais qui marchaient pas pour moi. Ensuite j’ai regardé s’il existait des applis pour le TDAH et il y en avait, mais quelle chance ! J’ai trouvé celle-là, prévue pour les enfants, qui marche parfaitement pour mon cerveau.",
+       "rating": 5,
+       "app": "Visual Schedule Daily Routine"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_sequence",
+      "alt": "Les gestes du matin s’alignent en un chemin qui mène hors de la maison.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "family-sequence",
+       "title": "Transmettre le planning là où il s’exécute",
+       "body": "Dans une famille, celui qui établit le planning et celui qui s’en sert peuvent être deux personnes différentes. Transmettre la séquence à jour compte plus qu’un calendrier commun à tous.",
+       "ideas": [
+        "habit-tracking-3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "progress",
+   "title": "Ensuite — apprendre à continuer",
+   "intro": "Quelques journées bien remplies ne montrent pas encore si l’outil convient sur la durée. La vraie épreuve commence avec une saisie oubliée, un planning qui change ou une interruption. Ce qui compte, c’est la façon dont cela apparaît dans l’historique et ce que la personne voit en revenant.",
+   "art": null,
+   "observations": [
+    {
+     "id": "elapsed-time",
+     "title": "Choisir ce qu’on compte exactement",
+     "passages": [
+      "Une tâche qui se répète n’a pas toujours besoin d’être rattachée à une case quotidienne. Pour l’entretien de la maison, il peut suffire de savoir combien de temps s’est écoulé depuis la dernière fois. Un auteur utilise le compteur précisément pour le ménage périodique et d’autres tâches domestiques, alors que l’app était pensée pour autre chose.",
+      "Dans une autre situation, le même nombre aide à voir le temps écoulé depuis le début de l’arrêt d’une habitude. Un auteur apprécie particulièrement de l’avoir sur le widget. La mécanique paraît la même, mais le sens d’un nouvel événement diffère : pour le ménage, il ouvre simplement l’intervalle suivant, tandis que dans une histoire personnelle il peut se vivre bien plus durement.",
+      "Un des avis associe la remise à zéro à la honte. C’est une raison de concevoir avec soin l’enregistrement d’un nouvel événement : garder les périodes précédentes, permettre de corriger la date et d’ajouter une explication. Le compteur montre une partie de l’expérience, mais il n’explique pas la raison de l’interruption."
+     ],
+     "quotes": [
+      {
+       "text": "En tant que personne avec un TDAH, je trouve que cette appli change tout pour suivre les démarches du quotidien, le ménage et tout ce qui revient à intervalles réguliers. Même si elle a été conçue pour aider à arrêter des habitudes comme la cigarette, je la trouve incroyablement utile pour suivre n’importe quoi de périodique.",
+       "rating": 5,
+       "app": "Days Since: Quit Habit Tracker"
+      },
+      {
+       "text": "J’ai utilisé deux ou trois applis de ce genre les quelques fois où j’ai essayé d’arrêter de boire, et celle-là m’aide vraaaaiment, honnêtement. J’adore la présentation et les options de personnalisation. C’est vraiment joli et le widget qui me montre depuis combien de jours je suis sobre est super utile.",
+       "rating": 5,
+       "app": "I Am Sober"
+      },
+      {
+       "text": "l’idée de base de compter les jours est extrêmement utile. quand tu rechutes, remettre le compteur à zéro donne presque un sentiment de culpabilité, surtout quand tu es allé loin. une fois que tu prends l’habitude de t’en servir, la culpabilité déclenche vraiment quelque chose dans ton cerveau.",
+       "rating": 2,
+       "app": "Days Since: Quit Habit Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "attempt-history",
+       "title": "Garder les périodes après un nouvel événement",
+       "body": "Un nouveau décompte ne doit pas effacer les périodes précédentes. L’historique aide à distinguer un événement de plus de la perte de tout le chemin parcouru.",
+       "ideas": [
+        "habit-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pause-correction",
+     "title": "Distinguer le repos, le jour manqué et la saisie oubliée",
+     "passages": [
+      "Une case vide peut vouloir dire plusieurs choses : l’action n’a pas eu lieu, la personne a fait une pause, ou elle n’a simplement pas saisi le résultat. Un auteur demande que la série soit gardée pendant une maladie et des vacances. C’est une question sur les règles de l’historique, et il vaut mieux la régler avant la première interruption.",
+      "Une saisie oubliée demande autre chose. Dans un avis, une personne veut entrer trois tâches faites la veille, et cela réclame quinze appuis. Le travail est déjà fait ; c’est maintenant une saisie pénible qui empêche de l’enregistrer. Pouvoir ouvrir le jour voulu et corriger plusieurs coches garde son sens au journal.",
+      "Il y a aussi une demande de « non fait » explicite : le matin est passé, et l’action du matin n’aura plus lieu. C’est ainsi qu’on distingue une journée clôturée d’une journée non remplie. Ces états servent à lire honnêtement son propre historique, pas à punir pour une case vide.",
+      "Avec le travail posté s’ajoute la limite de la journée : minuit du calendrier peut tomber au milieu de la journée de travail. C’est un réglage de planning à part. Il ne remplace pas une pause ni une coche tardive ; il détermine à quelle journée appartient une action."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est globalement très bien et elle m’a beaucoup aidé depuis que je l’ai. Mais il manque une fonction assez importante : une option pour mettre les habitudes en pause sans perdre sa série. Par exemple si tu tombes malade ou si tu pars en vacances.",
+       "rating": 4,
+       "app": "HelloHabit - Daily Planner"
+      },
+      {
+       "text": "J’aime vraiment cette appli, mais il lui manque cruellement une façon plus simple de modifier les habitudes pour les dates passées. Là, si je veux ajouter 3 tâches que j’ai faites hier, ça demande 15 appuis ! BEAUCOUP trop lourd. Le mieux serait tout simplement de laisser les utilisateurs modifier n’importe quel jour directement.",
+       "rating": 4,
+       "app": "Habit Tracker - Evoday"
+      },
+      {
+       "text": "J’aime bien cette appli mais il y a un problème. J’aimerais qu’on puisse marquer des habitudes comme non faites. Par exemple, si j’ai une routine du matin et que j’ai pas fait une habitude, et que le matin est déjà passé, c’est clair que je peux plus la faire maintenant.",
+       "rating": 4,
+       "app": "Grit: Daily Habit Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_pause-correction",
+      "alt": "Une personne se repose parmi les jours déjà enregistrés : une pause n’efface pas le chemin déjà parcouru.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "flexible-history",
+       "title": "Revenir sans recréer l’habitude",
+       "body": "Revenir après un jour manqué est une partie à part entière de l’usage d’un tracker. Cela doit garder leur sens aux enregistrements précédents.",
+       "ideas": [
+        "habit-tracking-1"
+       ]
+      },
+      {
+       "directionId": "shift-day",
+       "title": "Rattacher la journée au planning de la personne",
+       "body": "Pour un poste de nuit, il est plus utile de définir correctement le début de la journée que d’ajouter une alerte de plus à une heure inconfortable.",
+       "ideas": [
+        "habit-tracking-7"
+       ]
+      },
+      {
+       "directionId": "clear-challenge",
+       "title": "Montrer les règles du programme à l’avance",
+       "body": "Un programme à durée fixée demande des règles claires d’avance sur la fin d’une journée et le début d’une nouvelle tentative.",
+       "ideas": [
+        "habit-tracking-9"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "long-view",
+     "title": "Garder un historique auquel on a envie de revenir",
+     "passages": [
+      "Un aperçu du mois aide à voir ce qui se perd dans la liste du jour : où les actions se sont répétées, où étaient les trous, ce qui a changé avec le temps. Une forme visuelle peut faciliter cette lecture. Un auteur dit précisément qu’il pense en images et qu’un tracker simple et visuel lui convient.",
+      "Un autre utilisateur revient à l’app depuis de nombreuses années et apprécie une façon rapide de noter ses comportements. Ici, la saisie et l’aperçu travaillent ensemble : l’historique existe parce qu’on arrive à l’alimenter. Ce n’est pas seulement le beau graphique qu’il vaut la peine de tester, mais aussi le passage de celui-ci à une journée précise.",
+      "Au fil des ans, les habitudes elles-mêmes changent. Un auteur raconte qu’il revoit périodiquement sa liste et qu’il veut s’en servir sur différents appareils. Mieux vaut donc garder un changement d’objectif avec sa date : les anciennes coches doivent rester compréhensibles. L’export et le transfert de l’historique méritent d’être testés sur des enregistrements accumulés : les dates, les explications et les anciens objectifs survivent-ils ?"
+     ],
+     "quotes": [
+      {
+       "text": "je craque pour les jolies applis et c’est exactement ça. je pense beaucoup en images et j’adore utiliser everyday pour suivre mes habitudes. c’est tellement simple et intuitif à utiliser et je me suis perdue à lire tous les articles de recherche et les vidéos etc. qui sont fournis.",
+       "rating": 4,
+       "app": "everyday - Habit Tracker"
+      },
+      {
+       "text": "Ça fait des années que j’utilise cette appli par intermittence, mais là ça fait deux ans d’affilée que je m’en sers très régulièrement et ça a eu un énorme impact positif sur ma vie. Avoir une façon vraiment rapide et simple de noter mes schémas et mes comportements, c’est incroyable.",
+       "rating": 5,
+       "app": "Way of Life - Habit Tracker"
+      },
+      {
+       "text": "J’utilise cette appli depuis des années. Je sais même pas combien. J’ai l’impression qu’il y a au moins 10 ans. De temps en temps je réévalue la liste de mes habitudes — mise à jour etc. C’est là que je me dis que ce serait génial de l’avoir sur mon téléphone et mon iPad.",
+       "rating": 5,
+       "app": "Way of Life - Habit Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "portable-history",
+       "title": "Vérifier que ce qui s’est accumulé est conservé",
+       "body": "L’historique accumulé devient une valeur en soi. Mieux vaut le garder avec les dates des changements d’objectifs, pour que les anciennes coches restent compréhensibles.",
+       "ideas": [
+        "habit-tracking-10"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "together",
+   "title": "Et choisir le soutien qui convient",
+   "intro": "Un historique personnel peut devenir la base d’une conversation avec un proche ou un professionnel. Mais l’accès aux coches change la relation au tracker. Mieux vaut donc construire l’usage partagé autour d’un accord précis : pourquoi on regarde les enregistrements et comment y réagir.",
+   "art": null,
+   "observations": [
+    {
+     "id": "social-choice",
+     "title": "Convenir de ce qu’on fait exactement ensemble",
+     "passages": [
+      "Un tracker commun peut commencer par une conversation ordinaire : un couple choisit les habitudes sur lesquelles il veut travailler. L’enregistrement commun prolonge alors un accord qui existe déjà. Il est utile de préciser ce que les participants ont besoin de voir chez l’autre et quelle réaction ils considèrent comme un soutien.",
+      "Entre amis, un jeu peut jouer le même rôle. Dans un avis, les participants savent qu’ils pourraient tricher avec le système mais n’en ont pas envie : ce qui les intéresse, c’est de continuer ensemble. Ce détail aide à séparer la participation mutuelle du contrôle extérieur. La seule visibilité des coches n’explique pas encore ce qui tient un groupe précis.",
+      "Il y a un autre côté : une personne décrit comment les résultats des autres poussent à justifier sa propre séance. Cet exemple venu d’une app de sport est utile comme avertissement sur la comparaison. Il ne prouve pas que toute mécanique commune soit nuisible, mais il montre pourquoi la visibilité de tous les résultats ne doit pas être rendue obligatoire.",
+      "Travailler avec un coach n’est pas la même chose qu’échanger des coches entre amis. Ici, les enregistrements aident à préparer un rendez-vous précis, et il vaut mieux limiter l’accès aux actions convenues. Ce qu’il faut vérifier, c’est ce qui a changé dans la conversation, pas le nombre de rappels reçus par le client."
+     ],
+     "quotes": [
+      {
+       "text": "C’est pas mon genre de laisser des avis sur les applis mais celle-là me donne tellement envie de l’utiliser que j’ai dû écrire un avis pour dire à quel point je la recommande. Après avoir discuté avec mon copain de quelques habitudes qu’on veut tous les deux prendre et travailler, on cherchait un truc qu’on pourrait utiliser et suivre ensemble.",
+       "rating": 5,
+       "app": "HabitShare - Habit Tracker"
+      },
+      {
+       "text": "Mes amis et moi on s’en sert pour rester motivés et se tenir mutuellement responsables. Je sais que c’est juste un RPG où on peut facilement tricher, mais bizarrement on a pas envie de tricher et le jeu nous garde accrochés. Je viens de prendre un abonnement annuel, ce que je fais rarement.",
+       "rating": 5,
+       "app": "Habitica: Gamified Taskmanager"
+      },
+      {
+       "text": "En tant qu’athlète d’endurance de longue date, c’est facile de se faire aspirer par la comparaison. Mon ami a fait ça, je suis à la traîne. Oh, ma course d’aujourd’hui était vraiment lente, il faut que je me trouve une excuse dans la description de ma séance sur Strava pour que les gens aient le contexte et pensent pas que je suis lent.",
+       "rating": 4,
+       "app": "Gentler Streak Workout Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_social-choice",
+      "alt": "Deux amis se passent un arrosoir, chacun s’occupant de sa propre plate-bande.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "shared-routine",
+       "title": "Partir de l’accord du couple",
+       "body": "Une habitude commune commence par un accord sur le soutien. La visibilité complète du journal de l’autre n’est pas nécessaire pour cela.",
+       "ideas": [
+        "habit-tracking-4"
+       ]
+      },
+      {
+       "directionId": "session-report",
+       "title": "Préparer la conversation avec un professionnel",
+       "body": "Pour un rendez-vous avec un professionnel, des enregistrements choisis et des explications sur la période peuvent suffire, sans accès à tout le journal personnel.",
+       "ideas": [
+        "habit-tracking-6"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "La principale épreuve — le lendemain d’un jour manqué",
+  "body": "Pour un tracker qui existe déjà, l’amélioration la plus concrète est de faciliter le retour. Ouvrir une journée passée, corriger quelques coches, distinguer une pause d’une action manquée et passer à l’action suivante. Ce n’est pas une promesse de former une habitude : l’app ne fait que retirer un obstacle créé par ses propres règles.\n\nPour un nouveau produit, il vaut mieux choisir un seul rythme de vie : le travail posté, les préparatifs du matin en famille ou des coches personnelles rapides. Ils n’ont pas les mêmes exigences envers le planning et la participation des autres. Montre à quelqu’un son propre historique avec une interruption dedans et regarde s’il peut le poursuivre sans explication. S’il faut d’abord démêler les séries, les pénalités et les réglages, la nouvelle mécanique est redevenue un travail à part."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-start",
+   "title": "D’abord — rendre l’action faisable",
+   "depth": 0
+  },
+  {
+   "id": "observation-first-habit",
+   "title": "Commencer par une seule action réelle",
+   "depth": 1
+  },
+  {
+   "id": "observation-quick-mark",
+   "title": "Cocher ce qui est fait avant de l’oublier",
+   "depth": 1
+  },
+  {
+   "id": "observation-feedback",
+   "title": "Donner à la coche une fin agréable",
+   "depth": 1
+  },
+  {
+   "id": "observation-sequence",
+   "title": "Indiquer quoi faire maintenant",
+   "depth": 1
+  },
+  {
+   "id": "theme-progress",
+   "title": "Ensuite — apprendre à continuer",
+   "depth": 0
+  },
+  {
+   "id": "observation-elapsed-time",
+   "title": "Choisir ce qu’on compte exactement",
+   "depth": 1
+  },
+  {
+   "id": "observation-pause-correction",
+   "title": "Distinguer le repos, le jour manqué et la saisie oubliée",
+   "depth": 1
+  },
+  {
+   "id": "observation-long-view",
+   "title": "Garder un historique auquel on a envie de revenir",
+   "depth": 1
+  },
+  {
+   "id": "theme-together",
+   "title": "Et choisir le soutien qui convient",
+   "depth": 0
+  },
+  {
+   "id": "observation-social-choice",
+   "title": "Convenir de ce qu’on fait exactement ensemble",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "La principale épreuve — le lendemain d’un jour manqué",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

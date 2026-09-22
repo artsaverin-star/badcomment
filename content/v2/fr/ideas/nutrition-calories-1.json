@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "nutrition-calories-1",
+ "category": "nutrition-calories",
+ "categoryName": "Calories et nutrition",
+ "title": "L’alimentation à côté du graphique de glucose",
+ "description": "Les entrées de repas et les données disponibles du capteur sur une même échelle de temps — pour l’observation et pour une conversation avec un spécialiste.",
+ "cover": {
+  "src": "ideas/nutrition-calories-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Un utilisateur de capteur veut voir l’heure d’un repas à côté des mesures déjà prises. La citation ci-dessous apprécie la possibilité de connecter les différents appareils utilisés."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Vu que j’utilise à la fois dexcom et libre, j’adore vraiment pouvoir le connecter à l’un ou à l’autre. C’est tellement bien de pouvoir voir comment les aliments agissent sur ta glycémie.",
+    "rating": 5,
+    "app": "SNAQ - Diabetes Food Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Mettre côte à côte les entrées d’une même journée"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Placer les repas et les données du capteur sur une échelle de temps commune. Garder visibles la source, l’heure d’arrivée et les trous, laisser ouvrir une entrée alimentaire précise et y ajouter son propre commentaire."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Garder la distinction entre l’observation et la conclusion"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "La proximité de deux événements dans le temps n’établit pas à elle seule la cause d’une variation de la mesure. Le premier résultat d’un tel outil, c’est une sélection commode à parcourir et à discuter, sans prescrire d’aliments ni modifier le traitement automatiquement."
+  }
+ ],
+ "rank": 2,
+ "free": false
+}

@@ -1,0 +1,460 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "photo-editing",
+ "name": "Éditeurs photo",
+ "summary": "Où un éditeur photo perd le résultat : dans une modification du visage passée inaperçue, dans le traitement d’une série ou dans l’enregistrement du fichier. Et quelles tâches méritent un outil à part.",
+ "corpus": {
+  "reviews": 45035,
+  "apps": 100
+ },
+ "lead": "Un câble retiré, un bijou proprement détouré et une photo destinée à l’impression ne se vérifient pas de la même façon. Un bel aperçu dans l’éditeur ne suffit pas : il faut un résultat qu’on puisse examiner, corriger et utiliser ensuite.\n\nCe décryptage suit le travail sur l’image elle-même : le contrôle du changement, sa répétition sur plusieurs images et l’enregistrement. Il est ainsi plus facile de distinguer un outil étroit utile d’un jeu de filtres semblables de plus.",
+ "cover": {
+  "src": "research/ResearchLaunch_photo-editing_cover",
+  "alt": "Éditeurs photo",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_photo-editing_audiences",
+  "alt": "Différentes tâches dans la catégorie « Éditeurs photo ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Retoucher légèrement un portrait et rester soi-même",
+   "body": "Pour une retouche légère d’un portrait, on choisit un changement précis plutôt qu’une apparence entièrement nouvelle. Ce qui compte, ce sont les traits reconnaissables, la force de l’effet et la comparaison avec l’original. Certaines particularités de la photo, on veut les garder, même si l’algorithme propose de les retirer."
+  },
+  {
+   "title": "Préparer des images pour le travail",
+   "body": "Une série de travail demande des réglages reproductibles, des contours de produit exacts et un moyen commode de continuer d’un appareil à l’autre. Une image réussie doit encore devenir un ensemble d’images cohérentes. Ce qu’on apprécie ici, ce sont des outils prévisibles et un enregistrement clair."
+  },
+  {
+   "title": "Faire une photo personnelle ou un cadeau souvenir",
+   "body": "Une photo de famille ou un montage souvenir se prépare pour un événement et un destinataire précis. Ce qui compte, ce sont les visages, la composition et son adéquation au mode d’impression ou de publication choisi. L’original aide à comparer le résultat et à revenir à une autre version de la retouche."
+  }
+ ],
+ "sections": [
+  {
+   "id": "edit",
+   "title": "Ne changer que ce qui était voulu",
+   "intro": "Le traitement automatique est utile tant qu’on reconnaît l’original et qu’on garde la maîtrise du résultat.",
+   "art": null,
+   "observations": [
+    {
+     "id": "remove-object",
+     "title": "Retirer ce qui est en trop et garder le reste",
+     "passages": [
+      "Une petite retouche isolée peut changer toute la photo : retirer un objet en trop et laisser le reste de la scène tranquille. La valeur d’un tel outil tient à la précision du contour et à une vérification claire du résultat. Pour cette tâche, il n’est pas obligatoire de maîtriser un studio universel aux dizaines de modes.",
+      "Laisser les gens sélectionner la zone voulue, examiner l’endroit modifié et revenir à l’état d’origine. Il est particulièrement utile d’éprouver les détails difficiles juste à côté de ce qui doit être gardé. Un éditeur spécialisé peut rester un maillon d’un ensemble d’outils si son résultat se transmet facilement, sans refaire une retouche déjà faite.",
+      "Un câble sur fond de ciel et un câble par-dessus des cheveux sont des cas de difficulté différente. Pour éprouver l’idée, il vaut la peine de prendre des images avec des contours, des reflets et de petits détails. Un résultat utile comprend la possibilité de repérer une retouche ratée et de l’annuler localement, en gardant les autres changements apportés à la photo."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est géniale, surtout la fonction de suppression d’objets. Elle est super simple à utiliser et elle fait disparaître l’objet comme s’il n’y avait rien. C’est la fonction que j’utilise le plus, pour retoucher des photos pour des amis, la famille et moi.",
+       "rating": 4,
+       "app": "SnapEdit: Photo Editor AI"
+      },
+      {
+       "text": "Bon, toutes les applis te laissent tomber de temps en temps, non ? Mais celle-là m’a très rarement fait défaut quand j’avais besoin d’enlever des trucs difficiles, des bijoux, même du nail art. Le vernis toujours parfaitement intact. Sa détection des contours est géniale !!!",
+       "rating": 5,
+       "app": "TouchRetouch"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_photo-editing_remove-object",
+      "alt": "Illustration du thème « Retirer ce qui est en trop et garder le reste ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-remove-object",
+       "title": "Retirer ce qui est en trop et garder le reste",
+       "body": "",
+       "ideas": [
+        "photo-editing-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "keep-identity",
+     "title": "Garder la personne reconnaissable",
+     "passages": [
+      "« Améliorer le portrait » veut dire des choses différentes : corriger la lumière, retirer un détail passager ou essayer une stylisation marquée. La suppression automatique des taches de rousseur, la modification des traits et un lissage fort peuvent tous dépasser l’intention choisie. Ici, c’est la personne sur la photo qui juge si elle reste reconnaissable.",
+      "Séparer les types de changement de leur intensité et garder une comparaison rapide avec l’original. Il est utile de voir un effet à part avant de le combiner avec d’autres. Si le résultat est joli mais ne ressemble plus à la personne voulue, pouvoir le refuser compte davantage qu’une option automatique de plus.",
+      "Un portrait professionnel peut demander un fond uniforme et une lumière uniforme, mais pas un changement d’âge ni de forme du visage. Des réglages séparés aident à exprimer cette intention. La comparaison avec l’original doit rester accessible même après plusieurs étapes : seul l’utilisateur peut décider si la retouche correspond à sa tâche."
+     ],
+     "quotes": [
+      {
+       "text": "J’ADORE le fait que ça ne me change pas ! Ça met simplement en valeur ce que j’ai de mieux et ça enlève les défauts que l’i phone accentue. Par exemple, les rides. L’objectif de l’I phone ( la façon dont il a été conçu avec une courbure, je crois que c’est ce que j’ai lu)",
+       "rating": 4,
+       "app": "Retake AI Face & Selfie Editor"
+      },
+      {
+       "text": "J’utilise fidèlement toutes les applis YouCam depuis des années. Je paie à l’année et le temps d’écran dit que je passe environ 30% de mon temps dessus en moyenne chaque semaine. Quand ils ont intégré pour la première fois la nouvelle fonction IA dans la fonction Pro Removal, j’ai été horrifié de découvrir qu’elle enlevait automatiquement mes taches de rousseur et mes grains de beauté.",
+       "rating": 2,
+       "app": "YouCam Perfect:AI Photo Editor"
+      },
+      {
+       "text": "Je viens de commencer à utiliser Citrus il n’y a pas très longtemps. Le seul problème que j’ai avec Citrus, c’est qu’il supprime parfois des détails que je voulais garder. Sur les portraits, ça peut donner une peau qui fait trop travaillée si tu laisses le réglage par défaut.",
+       "rating": 4,
+       "app": "Citrus 1 Tap Photo Enhancer AI"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-keep-identity",
+       "title": "Garder la personne reconnaissable",
+       "body": "",
+       "ideas": [
+        "photo-editing-4",
+        "photo-editing-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "style",
+     "title": "Répéter un style en tenant compte de chaque image",
+     "passages": [
+      "Le grain, la couleur et le contraste peuvent relever d’un choix d’auteur assumé. Dans un avis, une personne revient de nombreuses fois au même effet en préparant des photographies pour l’impression. C’est le témoignage de sa propre méthode de travail ; son jugement sur les photos numériques en général ne doit pas être pris pour une règle.",
+      "Le traitement en noir et blanc a une profondeur qui lui est propre : une bascule de couleur toute faite ne suffit souvent pas. L’auteur veut maîtriser l’aspect du résultat. Pour un éditeur étroit, c’est une tâche plus substantielle que d’ajouter quelques préréglages semblables de plus.",
+      "En même temps, un seul style ne veut pas dire la même correction sur chaque image. Une zone trop sombre doit être corrigée localement pendant que le traitement d’ensemble reste en place. Dans une série, il est utile de séparer la base enregistrée des changements apportés à une photo précise ; sinon, chaque répétition du préréglage doit être corrigée à la main."
+     ],
+     "quotes": [
+      {
+       "text": "Je crois que je suis devenu une sorte de gros utilisateur de Daze Cam. J’ai utilisé l’appli pour traiter plusieurs milliers de photos afin de les préparer à l’impression. Les photos numériques de presque n’importe quelle époque rendent horriblement mal à l’impression telles quelles. J’utilise Daze pour appliquer un motif de grain qui leur donne un air authentique.",
+       "rating": 5,
+       "app": "DAZE CAM - Vintage Camera"
+      },
+      {
+       "text": "J’adore cette appli ! Je prends beaucoup de photos en couleur qui se prêtent clairement à un traitement en noir et blanc, mais beaucoup d’applis qui permettent de faire la conversion n’ont pas le nombre d’options et d’effets nécessaire pour obtenir un rendu professionnel.",
+       "rating": 5,
+       "app": "Carbon - B&W Filters & Effects"
+      },
+      {
+       "text": "J’ai Afterlight depuis toujours, mais il a besoin d’être amélioré. J’utilise les filtres moins que le reste, mais quand je le fais, je suis assez satisfait. J’utilise la retouche au doigt tout le temps parce que c’est une façon relativement simple de corriger des zones isolées trop sombres ou trop claires.",
+       "rating": 4,
+       "app": "Afterlight: Film Photo Editor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_photo-editing_style",
+      "alt": "Illustration du thème « Répéter un style en tenant compte de chaque image ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-style",
+       "title": "Répéter un style en tenant compte de chaque image",
+       "body": "",
+       "ideas": [
+        "photo-editing-5",
+        "photo-editing-10"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "montage",
+     "title": "Assembler une composition et la laisser modifiable",
+     "passages": [
+      "Le montage est intéressant parce qu’on peut assembler soi-même une scène inhabituelle : ajouter un personnage, réunir des photographies de famille ou habiller une image pour un événement. Le plaisir vient de ses propres décisions : un éditeur doit donc donner une maîtrise précise des détails, et pas seulement un jeu de modèles tout faits.",
+      "Un chemin commode réunit la vue d’ensemble de la composition et le travail sur un petit fragment. Laisser les gens déplacer les éléments, préciser un détourage et revenir à une décision antérieure. Un projet enregistré est utile comme prolongement de la pensée : l’image finie peut être montrée aux proches, et la composition corrigée d’après ce qu’ils en disent.",
+      "Un collage fini et un projet enregistré ne jouent pas le même rôle. L’image peut être envoyée, mais remplacer une photographie un mois plus tard demande les calques, les polices et la disposition des éléments. La restauration d’un projet mérite donc d’être éprouvée sur une retouche précise : ouvrir une vieille carte, changer une photo et enregistrer de nouveau le résultat."
+     ],
+     "quotes": [
+      {
+       "text": "Tu peux vraiment descendre jusqu’à chaque pixel avec cette appli ; très minutieux. Je m’en suis servi pour tout, de la superposition de personnages jusqu’à TOUS les mariages, événements et fêtes. On me demande sans arrêt : « Comment tu as eu cette photo ? »",
+       "rating": 5,
+       "app": "Superimpose+:Background Eraser"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-montage",
+       "title": "Assembler une composition et la laisser modifiable",
+       "body": "",
+       "ideas": [
+        "photo-editing-9",
+        "photo-editing-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "workflow",
+   "title": "Répéter un résultat réussi",
+   "intro": "Pour une série de photos, ce qui compte, ce sont les réglages enregistrés, les retouches individuelles et l’accès aux outils familiers.",
+   "art": null,
+   "observations": [
+    {
+     "id": "series",
+     "title": "Traiter un lot sans exceptions cachées",
+     "passages": [
+      "Dans la photo de produits, la suppression du fond devient un travail qui se répète. Un auteur qui photographie des bijoux apprécie un détourage exact sur un téléphone. Pour ce scénario, il importe de garder un petit détail du produit lui-même, et pas seulement d’obtenir un fond blanc propre.",
+      "Dans une série, une petite difficulté se répète de nombreuses fois. Un autre auteur relie une mise à jour ratée à des heures de travail perdues. Une étape suivante utile : traiter d’abord quelques images difficiles, puis étendre les réglages communs au reste et laisser à la main la correction des exceptions isolées.",
+      "Le travail peut se poursuivre sur un ordinateur. Un utilisateur de Lightroom apprécie le lien entre les fichiers mobiles et le catalogue principal. La transmission doit donc conserver des versions et des changements faciles à suivre : il faut savoir quelle image est déjà traitée et où reprendre. C’est une tâche distincte de la vitesse de suppression du fond en lot."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise l’appli depuis les débuts. Elle s’est améliorée régulièrement. Je fais de la photo de bijoux. Sur le téléphone, Pixelcut c’est mon réflexe pour une suppression de fond précise et fiable quand je peux pas passer par Photoshop. Même PS Express est en dessous.",
+       "rating": 5,
+       "app": "Pixelcut AI Photo Editor"
+      },
+      {
+       "text": "J’utilise Photoroom depuis 3-4 ans. À chaque mise à jour pendant tout ce temps, ça a empiré. Cette dernière mise à jour est complètement inutilisable. Je tiens un commerce de revente de bijoux. Photoroom m’a coûté au moins 8 heures rien que cette semaine en productivité perdue.",
+       "rating": 1,
+       "app": "Photoroom: AI Photo Editor"
+      },
+      {
+       "text": "C’est une super appli. Elle est utile pour retoucher des images mobiles mais aussi des fichiers Raw. On ne voit pas tout ce que cette appli peut apporter tant qu’on ne la synchronise pas avec son catalogue Lightroom sur ordinateur. Ça m’a bien aidé.",
+       "rating": 5,
+       "app": "Lightroom: AI Photo Editor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_photo-editing_series",
+      "alt": "Illustration du thème « Traiter un lot sans exceptions cachées ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-series",
+       "title": "Traiter un lot sans exceptions cachées",
+       "body": "",
+       "ideas": [
+        "photo-editing-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "familiar-tools",
+     "title": "Retrouver une retouche familière après une mise à jour",
+     "passages": [
+      "Après une mise à jour, une retouche familière peut devenir plus difficile pour deux raisons : l’outil a changé de place, ou il n’est plus disponible. Pour un utilisateur qui revient, ce sont deux situations différentes. Chercher l’ancienne commande n’a pas de sens si les capacités ont changé, et tout réapprendre est excessif si seule sa place a changé.",
+      "Aider à reconstituer la suite d’actions familière et expliquer les changements importants juste à côté. Les nouvelles animations ne remplacent pas un accès rapide à une retouche souvent utilisée. Pour éprouver une refonte, prendre l’ancienne tâche de l’utilisateur et voir s’il peut la mener jusqu’au même résultat choisi.",
+      "Un utilisateur qui revient se souvient d’habitude de l’action : corriger une courbe, détourer un objet, appliquer un masque. Une recherche par tâches de ce genre et une courte explication sur le déplacement de la commande aident plus vite qu’un tour de toutes les nouvelles capacités. C’est particulièrement net dans un éditeur utilisé pour le travail, où une suite familière se répète de nombreuses fois."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli Snapseed *était autrefois* mon éditeur photo préféré et le plus utilisé. Elle *était* étonnamment sophistiquée vu la simplicité avec laquelle on faisait les modifications. Elle *était* accessible et aussi super facile à prendre en main pour les nouveaux. La navigation *était* intuitive.",
+       "rating": 1,
+       "app": "Snapseed: Photo Editor"
+      },
+      {
+       "text": "Snapseed était l’éditeur photo que je recommandais à tout le monde. C’était propre, facile à utiliser, et il avait vraiment des outils utiles et puissants. Puis est arrivée la refonte. Quel bazar innommable ! Ils sont tellement fiers de leurs petites animations quand ils montrent le nouveau design.",
+       "rating": 2,
+       "app": "Snapseed: Photo Editor"
+      },
+      {
+       "text": "Mise à jour : maintenant la fonction dents parfaites a disparu. les gars s’il vous plaît s’il vous plaît dites à vos développeurs d’arrêter de supprimer des fonctions clés dont vos membres ont l’habitude !!!! Mise à jour : maintenant les options de transfert de coiffure de célébrités ont disparu… pourquoi vous enlevez sans arrêt des choses ?",
+       "rating": 2,
+       "app": "FaceApp: Perfect Face Editor"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "access",
+     "title": "Comprendre les conditions avant un long traitement",
+     "passages": [
+      "En revenant à une app achetée plus tôt, on s’attend à pouvoir terminer de nouveau une tâche familière. Un nouvel écran d’abonnement peut ne pas expliquer ce qu’est devenu l’ancien achat. Dans ce cas, il faut distinguer la restauration de l’accès, un ensemble de fonctions modifié et les conditions d’un nouveau service.",
+      "Dans un avis sur les collages, l’auteur énumère une à une les capacités qu’il avait payées plus tôt. Ce n’est pas une querelle sur l’abonnement en général : la personne essaie de comprendre pourquoi son ancienne façon de travailler n’est plus accessible. L’historique d’achat et l’accès aux projets enregistrés méritent d’être expliqués juste à côté de la proposition d’un nouveau forfait.",
+      "Pour un nouvel utilisateur, un problème semblable apparaît à l’intérieur d’une retouche d’essai. Si chaque outil suivant exige une coupure publicitaire, il est difficile de tenir ensemble une comparaison des options. Une seule photo d’essai devrait parcourir tout le chemin jusqu’à un fichier : les conditions sont alors connues avant de travailler sur une grande série."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai acheté cette appli il y a des années avec un achat UNIQUE et je m’en sers depuis. Je suis resté fidèle à cette appli et je l’aurais recommandée, mais aujourd’hui j’ai voulu m’en servir et on m’a dit qu’il fallait acheter un abonnement pour télécharger l’appli que je possède déjà.",
+       "rating": 1,
+       "app": "TouchRetouch"
+      },
+      {
+       "text": "J’ai commencé à utiliser PicStitch en 2013. J’avais payé à l’époque pour un accès premium à des fonctions, et voilà qu’en ouvrant l’appli aujourd’hui je retrouve toutes ces fonctions (celles qui étaient gratuites au départ comme celles que j’ai payées) d’un coup derrière un paywall qui demande presque 100 $/an.",
+       "rating": 1,
+       "app": "Pic Stitch - Collage Editor"
+      },
+      {
+       "text": "Dès que tu ouvres l’appli, elle t’oblige à regarder une pub, tu regardes une pub en plus pour pouvoir essayer d’ajuster la photo, ensuite si tu veux aller plus loin et ajuster un autre aspect de la photo, c’est encore une pub, et après l’avoir refait c’est encore une pub.",
+       "rating": 1,
+       "app": "Remini - AI Photo Enhancer"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_photo-editing_access",
+      "alt": "Illustration du thème « Comprendre les conditions avant un long traitement ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "result",
+   "title": "Obtenir un fichier pour l’étape suivante",
+   "intro": "La retouche se termine par une publication, une impression ou une transmission. Ces exigences méritent d’être connues avant que le long travail commence.",
+   "art": null,
+   "observations": [
+    {
+     "id": "usable-export",
+     "title": "Vérifier le fichier en dehors de l’éditeur",
+     "passages": [
+      "L’image dans l’éditeur et le fichier final doivent être jugés séparément. Pour une publication, ce sont la taille et l’absence d’éléments inattendus qui comptent ; pour l’impression, le format choisi et l’aspect des détails à la taille voulue. Un effet agréable à l’écran peut se révéler inadapté pour l’étape suivante.",
+      "Intégrer un export d’essai au début du travail sur une série : montrer les réglages, le filigrane et le mode d’enregistrement. Distinguer l’original, la version modifiable et une nouvelle copie. En retouchant une vieille photo de famille, il est utile de comparer les visages et les petits détails : une expressivité ajoutée n’équivaut pas à la conservation du contenu d’origine.",
+      "Une attente à part consiste à continuer de travailler la photographie dans la photothèque habituelle, en gardant le lien avec l’original. L’auteur ne veut pas avoir affaire à de nouvelles copies sans lien entre elles. Il faut décider à l’avance de ce qui est enregistré : une nouvelle image, un projet modifiable ou des retouches de l’original. La vérification s’achève par une réouverture du fichier, pas par un message « terminé »."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est géniale !! Je voulais imprimer des photos pour un cadeau pour les 70 ans de mon père. Il me fallait donc des photos GÉNIALES. J’imprime les photos avec une appli d’un magasin près de chez moi, et presque chaque photo me donnait une erreur « basse résolution ». Alors j’ai cherché sur Google comment régler ça et j’ai trouvé cette appli.",
+       "rating": 5,
+       "app": "PhotoApp - AI Photo Enhancer"
+      },
+      {
+       "text": "Cette appli est très bien fournie et a beaucoup de commandes et de préréglages utiles qui peuvent donner un très joli rendu vintage. Mais malheureusement elle est aussi complètement inutile, parce que l’absence de contrôle sur les options de sortie fait qu’elle ne sort qu’une image en très basse résolution.",
+       "rating": 3,
+       "app": "Tezza: Aesthetic Photo Editor"
+      },
+      {
+       "text": "J’aurais payé l’abonnement à vie sans hésiter une seconde s’il ne manquait pas cette fonction essentielle : elle ne marche pas comme extension de retouche dans Photos. Je ne veux pas d’une appli qui crée de NOUVELLES images en perdant l’original. Je veux retoucher mon original sur place.",
+       "rating": 3,
+       "app": "Pixelup: AI Photo Enhancer App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-usable-export",
+       "title": "Vérifier le fichier en dehors de l’éditeur",
+       "body": "",
+       "ideas": [
+        "photo-editing-7",
+        "photo-editing-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "La priorité : une retouche maîtrisable et un fichier utilisable",
+  "body": "L’amélioration la plus substantielle ici, c’est d’aider quelqu’un à terminer une retouche précise, à repérer une erreur et à utiliser le fichier ensuite. La suppression d’objet, la retouche de portrait et la série de produits ont déjà de bons outils. Une nouvelle app doit l’emporter sur un passage difficile : un contour fin, la conservation des traits qui comptent, la répétition des réglages ou la poursuite du travail sur un autre appareil.\n\nPour une première vérification, je choisirais un seul passage de ce genre et je le mènerais du fichier source jusqu’à la réouverture du résultat. Le nombre d’effets est pour l’instant secondaire. Le rendu argentique, le monochrome et le portrait pour le travail peuvent rester des modes d’un éditeur existant ; ils ne réclament un produit à part que s’il existe une façon nettement meilleure de faire leur travail."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-edit",
+   "title": "Ne changer que ce qui était voulu",
+   "depth": 0
+  },
+  {
+   "id": "observation-remove-object",
+   "title": "Retirer ce qui est en trop et garder le reste",
+   "depth": 1
+  },
+  {
+   "id": "observation-keep-identity",
+   "title": "Garder la personne reconnaissable",
+   "depth": 1
+  },
+  {
+   "id": "observation-style",
+   "title": "Répéter un style en tenant compte de chaque image",
+   "depth": 1
+  },
+  {
+   "id": "observation-montage",
+   "title": "Assembler une composition et la laisser modifiable",
+   "depth": 1
+  },
+  {
+   "id": "theme-workflow",
+   "title": "Répéter un résultat réussi",
+   "depth": 0
+  },
+  {
+   "id": "observation-series",
+   "title": "Traiter un lot sans exceptions cachées",
+   "depth": 1
+  },
+  {
+   "id": "observation-familiar-tools",
+   "title": "Retrouver une retouche familière après une mise à jour",
+   "depth": 1
+  },
+  {
+   "id": "observation-access",
+   "title": "Comprendre les conditions avant un long traitement",
+   "depth": 1
+  },
+  {
+   "id": "theme-result",
+   "title": "Obtenir un fichier pour l’étape suivante",
+   "depth": 0
+  },
+  {
+   "id": "observation-usable-export",
+   "title": "Vérifier le fichier en dehors de l’éditeur",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "La priorité : une retouche maîtrisable et un fichier utilisable",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Idea } from "@/lib/ideas";
 import { ideaCard } from "@/lib/regenCards";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 // Ideas tab on a category page: the review-derived product ideas for this
 // category, as cards linking to their full derivation (/ideas/<slug>).
@@ -21,7 +22,7 @@ export default function CategoryIdeas({ ideas, locale = "ru" }: { ideas: Idea[];
         return (
           <Link
             key={idea.slug}
-            href={`/ideas/${idea.slug}`}
+            href={oldHref(locale, `/ideas/${idea.slug}`)}
             className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-text-tertiary)]"
           >
             <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">

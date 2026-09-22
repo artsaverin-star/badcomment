@@ -31,6 +31,7 @@ import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
+import { oldLp } from "@/lib/oldHref";
 
 // The unified niche dossier: market overview, audience, honest rating (sentiment
 // vs store), breakdown by thesis pillars, and idea cards. Server component,
@@ -97,14 +98,15 @@ function groupFindings(pillars: Pillar[], cards: Finding[]) {
 export default async function NicheDossier({
   slug,
   locale = "ru",
-  backHref = "/",
+  backHref,
 }: {
   slug: string;
   locale?: Locale;
   backHref?: string;
 }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
+  const backFallback = backHref ?? lp;
   const NF = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const r = RATING[slug];
   // Dossier (market + audience) and thesis are localized; rating verdicts overlay
@@ -268,7 +270,7 @@ export default async function NicheDossier({
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
-      <BackLink fallback={backHref} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback={backFallback} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Назад" : "Back"}
       </BackLink>
@@ -444,7 +446,7 @@ export default async function NicheDossier({
       )}
 
       <Block title={ru ? "Рейтинг по отзывам" : "Review-based rating"} lead={ru ? `Одна и та же выборка из ${r.count} приложений в двух системах оценки. Переключи и смотри, как витринная звезда согласуется с тем, что люди пишут в отзывах.` : `The same sample of ${r.count} apps in two scoring systems. Switch to see how the storefront star aligns with what people write in reviews.`}>
-        <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
+        <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`${lp}/rating/${slug}`} locale={locale} />
       </Block>
 
       {/* The ladder, honest at every rung: rating free, the FIRST finding for a

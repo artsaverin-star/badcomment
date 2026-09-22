@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "journaling-mood",
+ "name": "Journal et humeur",
+ "summary": "Noter ce qu’on vit, revenir à un moment qui a compté et choisir ce qu’on partage : un journal est utile quand il préserve le sens personnel et le contrôle de l’historique.",
+ "corpus": {
+  "reviews": 29993,
+  "apps": 95
+ },
+ "lead": "Le matin, on fait un court relevé ; le soir, on déroule une longue pensée à voix haute. Un mois plus tard, on cherche une photo, ou on veut discuter de plusieurs entrées avec un professionnel. Ce sont des façons différentes d’utiliser un même journal, et les ramener à l’humeur du jour est difficile.\n\nNous regardons d’abord les façons de faire une entrée et le retour après une pause. Ensuite la lecture de l’archive et le choix des éléments pour une conversation. La confidentialité fait partie de ce chemin : la personne doit comprendre ce qui est conservé, ce qui est transmis et comment récupérer l’accès à son propre historique.",
+ "cover": {
+  "src": "research/ResearchLaunch_journaling-mood_cover",
+  "alt": "Journaux et humeur",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_journaling-mood_audiences",
+  "alt": "Tâches des gens : Journaux et humeur",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Commencer une entrée quand les pensées sont difficiles à formuler",
+   "body": "Quand une pensée n’a pas encore pris forme, la page blanche peut gêner. Il est utile d’avoir le choix entre nommer un sentiment, une question qui tombe juste et une entrée libre, à la voix ou en texte."
+  },
+  {
+   "title": "Comprendre son vécu avec le temps",
+   "body": "Un long historique est ce qui permet de se rappeler un événement et ce qu’on a ressenti à ce moment-là. La personne revient à des entrées précises et, si elle le souhaite, les réunit pour une conversation avec un professionnel."
+  },
+  {
+   "title": "Séparer le personnel et le commun",
+   "body": "Un journal commun soutient la conversation avec les proches, tandis qu’un journal personnel garde un espace sans observateurs. Quand les deux formats se combinent, il importe de choisir en connaissance de cause qui reçoit chaque entrée."
+  }
+ ],
+ "sections": [
+  {
+   "id": "express",
+   "title": "Trouver la bonne façon de faire une entrée",
+   "intro": "Un court relevé, une longue entrée parlée et du texte libre peuvent se compléter.",
+   "art": null,
+   "observations": [
+    {
+     "id": "many-moods",
+     "title": "Garder les différents états d’une même journée",
+     "passages": [
+      "Une seule évaluation pour la journée peut masquer son déroulement : une matinée anxieuse et une soirée calme ne forment pas forcément une moyenne qui a du sens. Si l’entrée est faite au moment du ressenti, il lui faut une heure et un contexte propres, et non l’obligation de caractériser d’avance toute la journée.",
+      "Plusieurs relevés permettent de reconstituer plus tard l’enchaînement des événements. L’aperçu de la semaine est utile quand on peut en revenir aux entrées prises une à une et voir exactement ce qui a été réuni. Une bonne visualisation aide à lire l’historique en gardant les différences à l’intérieur d’une journée, au lieu d’une seule étiquette définitive.",
+      "Un relevé peut comporter une courte note sur la circonstance : après une réunion, sur la route, avant de dormir. Une telle note aide à comprendre plus tard l’enchaînement. L’aperçu ne doit pas transformer l’apparition conjointe d’événements en explication assurée des causes : ce dont la personne a besoin d’abord, ce sont ses propres entrées."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore vraiment Bearable ! C’est facile de suivre les symptômes, les humeurs et les schémas de santé au fil de la journée, c’est exactement ce que je cherchais. L’appli est bien organisée, personnalisable, et elle m’aide à repérer des tendances que je raterais sinon.",
+       "rating": 5,
+       "app": "Bearable - Symptom Tracker"
+      },
+      {
+       "text": "Cette appli est super dans l’ensemble - on peut ajouter jusqu’à 6 habitudes dans la version gratuite, ce qui va très bien dans l’ensemble. J’aime bien qu’on puisse ajouter une note pour chaque habitude faite et voir ensuite une page avec toutes les notes. J’aimerais aussi qu’il y ait une option pour noter l’humeur plusieurs fois par jour, vu que je veux suivre mes sautes d’humeur au fil de la journée.",
+       "rating": 4,
+       "app": "Habit Tracker"
+      },
+      {
+       "text": "J’adore le concept de la bulle en plusieurs couleurs, j’aimerais que ce soit plutôt une émotion précise, même des simples qu’on pourrait mettre dedans, parce que ta journée en général tu peux pas la deviner à ce moment-là, sauf si tu attends la fin de la journée, et là j’ai du mal à me souvenir et à identifier mes propres émotions.",
+       "rating": 3,
+       "app": "Mood AI - Daily journal"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_journaling-mood_many-moods",
+      "alt": "Illustration du thème « Garder les différents états d’une même journée ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-many-moods",
+       "title": "Garder les différents états d’une même journée",
+       "body": "",
+       "ideas": [
+        "journaling-mood-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "voice-video",
+     "title": "Garder la voix comme partie du journal",
+     "passages": [
+      "La voix et la vidéo peuvent être la façon principale de tenir un journal. Dans l’expérience ci-dessous, on apprécie à la fois de dire ses sentiments à voix haute et de revenir aux enregistrements vidéo. Les remplacer par du texte seul change non pas la forme, mais l’activité elle-même.",
+      "Un autre avis décrit l’intérêt d’exprimer librement des pensées avant de les avoir mises en ordre. Pour une entrée de ce genre, l’important est de ne pas perdre ce qui a été dit pendant une pause ou pendant le traitement. Une transcription peut faciliter la recherche, mais conserver l’audio d’origine doit rester un choix à part.",
+      "Les conditions d’accès au format préféré influent aussi sur la poursuite du journal. L’auteur du dernier avis a perdu tout intérêt après un changement d’accès à la vidéo. Avant qu’un historique ne s’accumule, il faut donc des conditions claires pour faire une nouvelle entrée, en lire une ancienne et déplacer les pièces jointes."
+     ],
+     "quotes": [
+      {
+       "text": "J’adorais l’idée de talkbook (qui s’appelle maintenant Heartspring). J’ai du mal à parler avec les autres, alors pouvoir mettre mes sentiments dans un journal et travailler ma parole en même temps, c’était super utile. J’adorais que le journal vidéo soit enregistré dans l’appli pour que je puisse y revenir plus tard au lieu de prendre de la place sur mon téléphone.",
+       "rating": 5,
+       "app": "Heartspring Journal"
+      },
+      {
+       "text": "Je pense trop. Je m’emmêle dans ces pensées, et après toute ma vie part un peu en vrille. C’est un moyen parfait de sortir mes pensées de ma tête et de tout démêler.",
+       "rating": 5,
+       "app": "Confide - Video Journal"
+      },
+      {
+       "text": "J’ai pris cette appli en déc. 2024. J’adorais pouvoir faire de petites entrées de journal vidéo. Mais ils ont mis à jour en « Heartspring » et maintenant il faut payer pour enregistrer. On peut taper son entrée. Mais je trouve que ça perd tout le charme. C’est un peu nul maintenant.",
+       "rating": 3,
+       "app": "Heartspring Journal"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-voice-video",
+       "title": "Garder la voix comme partie du journal",
+       "body": "",
+       "ideas": [
+        "journaling-mood-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "prompts-rhythm",
+     "title": "Poser une question qui tombe juste",
+     "passages": [
+      "Une bonne question aide à ouvrir un sujet difficile à formuler seul. L’avis ci-dessous demande de la variété et la comparaison des anciennes réponses avec les nouvelles. La répétition est donc utile quand la personne en comprend le but, et non quand elle reçoit la même suggestion en boucle.",
+      "Un rituel familier peut garder sa valeur même quand les formulations se sont usées. On peut continuer à apprécier de commencer sa journée avec un journal et demander malgré tout d’autres questions. C’est une raison de renouveler le contenu en gardant la façon d’écrire déjà connue.",
+      "Le découpage de la journée en matin et soir convient à certains utilisateurs et devient en soi une raison de revenir. Le moment de la journée mérite d’être choisi avec souplesse, en laissant l’entrée libre disponible. D’autres pratiques personnelles peuvent appeler non pas de nouvelles questions générales, mais leur propre langue et leur propre structure — c’est ce que développent les idées ci-dessous."
+     ],
+     "quotes": [
+      {
+       "text": "Je cherchais une appli de journal avec des suggestions mais pas toujours la même suggestion en boucle. J’ai qu’un nombre limité de choses pour lesquelles je suis reconnaissante, lol. Là il y a plein de bonnes suggestions, 200 déjà chargées et on peut en ajouter, et j’aime bien l’idée de pouvoir comparer mes anciennes réponses aux nouvelles.",
+       "rating": 5,
+       "app": "Prompted Journal - Shadow Work"
+      },
+      {
+       "text": "Cette appli est devenue une part importante du début de ma journée. Elle m’aide à rester ancrée et reconnaissante. Il se passe tellement de choses dans le monde extérieur. J’ai besoin de moyens de garder la paix à l’intérieur. Je recommande cette appli à mes clients. Mon seul retour, c’est d’avoir des suggestions plus variées. On dirait qu’elles se répètent.",
+       "rating": 4,
+       "app": "Gratitude: Self-Care Journal"
+      },
+      {
+       "text": "Dans l’ensemble, c’est une appli géniale, et je compte la remettre dans mon programme habituel. J’adore que les parties du journal soient séparées entre matin et soir, et aussi l’organisation des suggestions ! En plus, j’adore les défis et les citations proposées.",
+       "rating": 4,
+       "app": "5 Minute Journal・Daily Diary"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_journaling-mood_prompts-rhythm",
+      "alt": "Illustration du thème « Poser une question qui tombe juste ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-prompts-rhythm",
+       "title": "Poser une question qui tombe juste",
+       "body": "",
+       "ideas": [
+        "journaling-mood-4",
+        "journaling-mood-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gentle-return",
+     "title": "Continuer à partir d’aujourd’hui",
+     "passages": [
+      "Un personnage ou une série de relevés peuvent rendre le début plus agréable : s’occuper d’un animal numérique donne une raison concrète d’ouvrir le journal. Mais ce genre de soutien change après une interruption. Un compteur remis à zéro peut éclipser les entrées déjà faites, surtout quand le trou est dû à une maladie.",
+      "Le retour gagne à être construit autour de la continuité : montrer le chemin conservé, permettre de repartir de l’état d’aujourd’hui et, si on le souhaite, d’expliquer la pause. La couche de jeu doit rester une aide qu’on peut suivre, avec des événements supplémentaires sous contrôle. Un historique personnel n’a pas à dépendre d’une série sans faute.",
+      "Après une interruption, on doit pouvoir simplement ouvrir une nouvelle entrée, en laissant l’historique précédent à sa place. Une note facultative sur la pause aide la personne elle-même, mais ne doit pas être une condition pour continuer. Le rythme doux d’une app tient à ce genre de transitions bien plus qu’à un personnage sympathique sur le premier écran."
+     ],
+     "quotes": [
+      {
+       "text": "Quand on est nul pour trouver de la motivation, surtout quand il s’agit de gratitude, rendre un oiseau numérique heureux c’est vraiment motivant.",
+       "rating": 5,
+       "app": "Finch: Self-Care Pet"
+      },
+      {
+       "text": "Finch, dans l’ensemble, c’était un super moyen de se débarrasser des mauvaises habitudes et de tenir une routine, même si parfois on peut juste l’oublier. Si ça arrive, Finch fait très bien le travail en te demandant pourquoi tu as arrêté de l’utiliser et pourquoi tu t’y remets. Finch est très bon pour personnaliser ses « tâches du jour » selon ce dont tu as besoin.",
+       "rating": 4,
+       "app": "Finch: Self-Care Pet"
+      },
+      {
+       "text": "Cette appli te fait culpabiliser pour un seul jour manqué ! J’avais 107 jours de journal, je suis tombé malade, j’ai raté 1 jour et cette appli a ramené ma série au jour 0, comme si tous ces autres jours de journal ne comptaient pour rien !!! J’aime pas cette appli à cause de cette fonction qui fait honte !",
+       "rating": 1,
+       "app": "Gratitude: Self-Care Journal"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-gentle-return",
+       "title": "Continuer à partir d’aujourd’hui",
+       "body": "",
+       "ideas": [
+        "journaling-mood-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "meaning",
+   "title": "Revenir à une entrée et poursuivre une pensée",
+   "intro": "L’archive devient utile quand un aperçu général mène jusqu’à un moment précis.",
+   "art": null,
+   "observations": [
+    {
+     "id": "memory",
+     "title": "Retrouver un moment grâce à un détail dont on se souvient",
+     "passages": [
+      "L’archive répond à des questions précises : quand un événement a eu lieu, où se trouve une photo, ce qui a été dit à ce moment-là. Dans l’exemple ci-dessous, c’est la recherche qui permet de revenir à des moments importants des années plus tard.",
+      "Une autre manière de lire consiste à voir une période entière d’un coup. Une vidéo de fin d’année réunit de nombreuses petites entrées en une suite ; l’avis ci-dessous apprécie l’expérience émotionnelle de ce visionnage, et non la recherche d’un fait isolé.",
+      "Les deux scénarios dépendent de la conservation du matériau d’origine. La voix d’un proche ne peut pas être remplacée par le titre d’entrée qui reste. Le transfert et la restauration doivent donc être testés avec les pièces jointes, et les souvenirs inattendus comme les notifications rester sous le contrôle de la personne."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore complètement cette appli ! Je m’en sers tous les jours depuis plus de quatre ans et je l’ai souvent consultée avec la fonction recherche pour répondre à des questions qui se posent. Comme je joins des photos à la plupart de mes entrées, je retrouve vite des images d’événements importants. La fonction recherche est inestimable.",
+       "rating": 5,
+       "app": "Day One: Daily Journal & Diary"
+      },
+      {
+       "text": "Ça fait trois ans que j’utilise cette appli. J’aime vraiment l’idée de documenter chaque journée. Ça fait chaud au cœur de voir la vidéo à la fin de l’année.",
+       "rating": 5,
+       "app": "1 Second Everyday: Video Diary"
+      },
+      {
+       "text": "Daylio a décidé au hasard de supprimer tous mes enregistrements vocaux des 237 derniers jours. NE TÉLÉCHARGEZ PAS CETTE APPLI. Je suis une utilisatrice fidèle depuis 2022 et je le regrette. Des souvenirs personnels avec ma grand-mère sont partis je souffre de pertes de mémoire et c’était l’appli que j’utilisais pour me rappeler les choses et maintenant c’est parti.",
+       "rating": 1,
+       "app": "Daylio Journal - Mood Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_journaling-mood_memory",
+      "alt": "Illustration du thème « Retrouver un moment par un détail dont tu te souviens ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-memory",
+       "title": "Retrouver un moment grâce à un détail dont on se souvient",
+       "body": "",
+       "ideas": [
+        "journaling-mood-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reflection",
+     "title": "Poursuivre une pensée déjà commencée",
+     "passages": [
+      "Une question de relance est utile quand elle remarque ce que dit l’entrée et aide à nommer la pensée plus précisément. L’avis positif apprécie une suite plus concrète de sa propre pensée. La qualité se mesure ici à ce qui a changé dans sa propre entrée, et non au nombre de répliques produites par l’assistant.",
+      "Répéter des questions générales peut produire l’expérience inverse. Si la personne a déjà expliqué ce qu’elle traverse, un « comment tu te sens ? » de plus ne fait pas forcément avancer la conversation. Il faut pouvoir mettre fin à l’échange, revenir à son propre texte et garder la formulation que la personne juge importante.",
+      "La suite dépend aussi du contexte conservé. Dans l’exemple ci-dessous, des questions utiles ont perdu leur sens après la remise à zéro hebdomadaire de la conversation. Garder ou supprimer cet historique doit être la décision de l’utilisateur ; une remise à zéro automatique ne doit pas être discrètement habillée en promesse d’un long dialogue personnel."
+     ],
+     "quotes": [
+      {
+       "text": "Au début je savais pas quoi penser de la nouvelle fonction Eva, mais maintenant je peux pas commencer ma journée sans ses retours et ses questions. Ça m’oblige à être plus détaillée et plus précise, et j’ai l’impression de commencer ma journée avec plus de choses concrètes à faire. J’adore !",
+       "rating": 5,
+       "app": "5 Minute Journal・Daily Diary"
+      },
+      {
+       "text": "Au lieu de vraiment me donner des conseils ou des compétences applicables. L’agent ia de tcc me renvoie juste des questions inutiles comme un perroquet. Bien pire que d’utiliser Gemini alors que c’est censé être spécialisé.",
+       "rating": 1,
+       "app": "Clarity: CBT Self Help Journal"
+      },
+      {
+       "text": "Je trouve ça bien. J’aime bien que le chatbot soit pas comme dans les autres applis, il retient et analyse vraiment tout ce que tu dis et il pose des questions utiles. Par contre, je déteste qu’il remette ta progression à zéro chaque semaine… On est dimanche minuit et tout ce que j’ai dit au bot a été effacé.",
+       "rating": 3,
+       "app": "Clarity: CBT Self Help Journal"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-reflection",
+       "title": "Poursuivre une pensée déjà commencée",
+       "body": "Parfois, une pensée se poursuit plus facilement dans une conversation avec un professionnel. Le journal a alors besoin d’une autre fonction : réunir seulement les entrées et les questions que la personne elle-même veut aborder.",
+       "ideas": [
+        "journaling-mood-1"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "access",
+   "title": "Choisir où s’arrête l’accès",
+   "intro": "Un journal personnel, une entrée commune et une sélection faite pour une conversation demandent chacun des règles de visibilité différentes.",
+   "art": null,
+   "observations": [
+    {
+     "id": "private-and-recoverable",
+     "title": "Garder la confidentialité et un chemin de retour",
+     "passages": [
+      "Un verrouillage à part aide à tracer la limite entre l’accès au téléphone et la lecture du journal. Pouvoir écrire librement sur ses sentiments tient ici directement à un code ou à Face ID.",
+      "La façon dont on entre peut compter elle aussi. Mais le confort du déverrouillage et le moyen de retrouver l’accès après la perte du code sont deux questions différentes. Elles méritent d’être expliquées avant qu’un exemplaire unique d’un historique personnel ne se soit accumulé, et sans obliger qui que ce soit à démêler des termes techniques.",
+      "Le coût de l’incertitude apparaît dans le cas ci-dessous : une personne a supprimé l’app en espérant rétablir la connexion, et a perdu ses entrées. Il faut une réponse claire à côté de la restauration et de la suppression : quelles données seront conservées, où se trouve une copie, et ce que la voie choisie ne peut pas ramener."
+     ],
+     "quotes": [
+      {
+       "text": "c’est une bonne appli pour écrire ce que tu ressens sans que personne vienne fouiller dedans vu qu’il y a un code ou face ID pour ouvrir l’appli. ça fait deux jours que je l’utilise et j’aime bien juste raconter ma journée et comment je me sens. j’ai du mal à exprimer mes émotions et je trouve que cette appli aide.",
+       "rating": 5,
+       "app": "EMMO - 日记与笔记"
+      },
+      {
+       "text": "cette appli de journal intime est sûrement la meilleure que j’ai téléchargée. toutes les fonctions géniales sont gratuites (pas toutes mais une bonne partie) pas de pub, et bien sûr la fonction verrou c’est un truc que j’avais jamais vu ! j’adore qu’on puisse ajouter un code à chiffres si t’es tête en l’air comme moi, ou ajouter touch id.",
+       "rating": 5,
+       "app": "My Diary - Journal with Lock"
+      },
+      {
+       "text": "Cette appli est tellement inutile ! J’ai oublié mon code ,j’ai essayé tous les codes que j’utilise mais ça s’ouvre pas !…pas d’option mot de passe oublié…J’ai supprimé l’appli en me disant que j’aurais peut-être accès à mes affaires !!! J’arrive pas à croire que tout soit parti !! Je gardais des informations vitales sur ma vie depuis 2021 !! Pour que tout disparaisse en un clin d’œil !!",
+       "rating": 1,
+       "app": "Diary With Password"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_journaling-mood_private-and-recoverable",
+      "alt": "Illustration du thème « Garder la confidentialité et un moyen de revenir ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "shared-journal",
+     "title": "Discuter ensemble de ce qui a été choisi",
+     "passages": [
+      "Une question commune donne à un couple ou à une famille une raison de parler d’eux-mêmes en dehors de leur messagerie habituelle. À distance, pouvoir lire une réponse quand on a le temps et revenir à l’échange précédent a une valeur particulière. Ici, le produit soutient un échange, il ne se contente pas de garder deux notes parallèles.",
+      "Il importe de distinguer une réponse absente d’une mise à jour qui n’est jamais arrivée. Les participants ont besoin de règles de visibilité qu’ils peuvent suivre, d’un mot à dire sur les sujets et d’un accès à ce qui a déjà été écrit. Les entrées personnelles doivent rester séparées des entrées communes, pour que poursuivre une conversation de famille n’oblige pas à ouvrir tout le journal.",
+      "Une question commune n’a pas à apparaître tous les jours ; elle peut venir au rythme qui convient aux participants. Refuser de répondre ou répondre en retard n’appelle aucun verdict public. Quand un participant s’en va, il doit être clair quelles entrées déjà écrites restent à chacun et ce qui cesse d’être commun."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore complètement cette appli ! Mon mari et moi on vit à 3 000 miles l’un de l’autre en ce moment, cette appli nous a permis de nous retrouver à un autre niveau c’est un endroit sûr ! La meilleure chose qu’on ait faite pour notre mariage !",
+       "rating": 4,
+       "app": "Waffle: Shared Journal"
+      },
+      {
+       "text": "Vraiment bien pour mieux connaître sa famille et ses amis et en plus tu as des questions marrantes et excitantes !",
+       "rating": 5,
+       "app": "Waffle: Shared Journal"
+      },
+      {
+       "text": "J’ai acheté cette appli pour notre anniversaire de couple. Au début elle était pleine de super questions, on recevait environ trois questions par jour et on adorait les remplir. Environ deux semaines plus tard on ne reçoit plus qu’une question par jour et quand j’essaie d’ajouter une nouvelle liste de questions ou autre. Ça dit juste « réessayer plus tard ».",
+       "rating": 2,
+       "app": "Waffle: Shared Journal"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-shared-journal",
+       "title": "Discuter ensemble de ce qui a été choisi",
+       "body": "",
+       "ideas": [
+        "journaling-mood-7"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Préserver le sens personnel d’une entrée",
+  "body": "La première chose à choisir est le moment d’usage principal : un relevé rapide de son état, une pensée dite à voix haute, ou le retour à un souvenir. Ce moment a besoin d’un point d’entrée simple et d’une suite fiable après une pause. Dans les avis réunis ici, les gens apprécient non pas le volume d’analyse, mais la possibilité d’exprimer ce qui leur est propre et de retrouver plus tard cette expérience précise. La sécurité des pièces jointes, une restauration de l’accès qu’on peut suivre et le contrôle de ce qui est publié comptent donc plus que de nouvelles interprétations du journal.\n\nLes suggestions, un personnage et une conversation commune peuvent renforcer le scénario choisi, mais ils n’ont pas à être présents ensemble. Leur utilité se teste avec une seule question : est-ce que la personne commence ou poursuit plus facilement sa propre entrée. Des conclusions automatiques ne doivent pas se substituer à ses mots, et une sélection choisie pour quelqu’un d’autre ne doit pas ouvrir toute l’archive personnelle."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-express",
+   "title": "Trouver la bonne façon de faire une entrée",
+   "depth": 0
+  },
+  {
+   "id": "observation-many-moods",
+   "title": "Garder les différents états d’une même journée",
+   "depth": 1
+  },
+  {
+   "id": "observation-voice-video",
+   "title": "Garder la voix comme partie du journal",
+   "depth": 1
+  },
+  {
+   "id": "observation-prompts-rhythm",
+   "title": "Poser une question qui tombe juste",
+   "depth": 1
+  },
+  {
+   "id": "observation-gentle-return",
+   "title": "Continuer à partir d’aujourd’hui",
+   "depth": 1
+  },
+  {
+   "id": "theme-meaning",
+   "title": "Revenir à une entrée et poursuivre une pensée",
+   "depth": 0
+  },
+  {
+   "id": "observation-memory",
+   "title": "Retrouver un moment grâce à un détail dont on se souvient",
+   "depth": 1
+  },
+  {
+   "id": "observation-reflection",
+   "title": "Poursuivre une pensée déjà commencée",
+   "depth": 1
+  },
+  {
+   "id": "theme-access",
+   "title": "Choisir où s’arrête l’accès",
+   "depth": 0
+  },
+  {
+   "id": "observation-private-and-recoverable",
+   "title": "Garder la confidentialité et un chemin de retour",
+   "depth": 1
+  },
+  {
+   "id": "observation-shared-journal",
+   "title": "Discuter ensemble de ce qui a été choisi",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Préserver le sens personnel d’une entrée",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "translator-4",
+ "category": "translator",
+ "categoryName": "Traducteurs",
+ "title": "Traduire la parole longue avec un retour à ce qui a été dit",
+ "description": "L’enregistrement ne s’arrête pas à chaque pause, et les fragments précédents restent accessibles à la lecture.",
+ "cover": {
+  "src": "ideas/translator-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Un cours et une conversation à tour de rôle demandent des limites d’enregistrement différentes. Celui qui écoute peut vouloir revenir à la phrase précédente."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "À part les lunettes connectées Ray-Ban, j’ai pas vu d’appli de traduction simultanée. Cette appli traduit en continu l’audio en texte traduit. Utile mais ça me permet toujours pas d’écouter en continu pendant qu’un intervenant donne un cours ni de regarder un film avec la traduction en temps réel.",
+    "rating": 3,
+    "app": "Voice Translator: Translate AI"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Séparer l’écoute continue des courtes répliques. Relier les passages reconnus à la traduction et au temps, et signaler les passages manquants."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "La parole longue accumule les erreurs et le retard. Il faut des limites claires pour une séance et la possibilité de vérifier un endroit important sur l’enregistrement d’origine."
+  }
+ ],
+ "rank": 539,
+ "free": false
+}

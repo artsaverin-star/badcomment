@@ -1,0 +1,462 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "invoice-maker",
+ "name": "Invoices for clients",
+ "summary": "From agreed work to a balance due you can follow: where invoices save time for the person doing the work, and where they force a second set of records kept by hand.",
+ "corpus": {
+  "reviews": 6720,
+  "apps": 26
+ },
+ "lead": "A tradesman talked through three repair options, settled on one with the client and took a deposit. Materials and another hour of work were added later. In the evening he has to send the invoice and work out how much is still to come. A simple document becomes the sum of several agreements.\n\nWhat follows traces that path from estimate to payment. The reviews show that the value often sits between the screens: what has been agreed doesn’t need retyping, the hours belong to the right project, sending again doesn’t create a new debt, and the deposit is visible in the overall reckoning.",
+ "cover": {
+  "src": "research/ResearchLaunch_invoice-maker_cover",
+  "alt": "Client invoices",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_invoice-maker_audiences",
+  "alt": "People’s jobs: Client invoices",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Write the job up at the client’s place",
+   "body": "On site, what matters is putting the figures together quickly out of familiar services and talking the options over with the client. Typing things in again and hunting for an email address can get in the way more than a limited choice of layouts."
+  },
+  {
+   "title": "Bill a project’s hours",
+   "body": "With hourly work the document rests on the intervals that have built up. The time has to be checked against the project it belongs to, and so does the rate, before the total goes to the client."
+  },
+  {
+   "title": "Track the settlement stage by stage",
+   "body": "A deposit, a completed stage and the final settlement create several states of one job. What matters for the person doing the work is seeing the client’s outstanding balance separately from the money that has already reached him."
+  }
+ ],
+ "sections": [
+  {
+   "id": "prepare",
+   "title": "Carry agreed work on into the document",
+   "intro": "The client, the scope, the rate and the work done have to stay connected as things move from the estimate to the invoice.",
+   "art": null,
+   "observations": [
+    {
+     "id": "estimate",
+     "title": "Keep the option that was chosen",
+     "passages": [
+      "An estimate with options helps discuss the scope of work before the final decision. A heating and ventilation tech needs the choice inside a single document: three separate estimates get in the way of comparing. It is worth recording which option the client chose in the end.",
+      "Once it is agreed, another transition comes up — from estimate to invoice. Typing the descriptions and amounts again adds work that has already been done. What is needed is a transfer of the chosen lines with a way to check them before sending, not just a new blank document.",
+      "When creating, confirming and paying are connected, the whole process feels simpler. The positive review below values exactly that sequence. Extra work is worth showing separately, so that the client can see how the final settlement differs from the original one."
+     ],
+     "quotes": [
+      {
+       "text": "App is great just would be better if there was a way to add different options to estimates. For example different options for the customer to select on the estimate. I do HVAC and to send 3 different estimates is a pain.",
+       "rating": 4,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "I use the free version great for making a quick invoice if you don't mind the watermark. But often when I try to create an invoice it just spins and spins, and it doesn't work unless I delete the app and reinstall it. Also no button to convert a quote to an invoice.",
+       "rating": 3,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "I been using joist for a month and it's great. Easy to make invoices, easy for customers to sign, make payments. I enjoy using this app!",
+       "rating": 5,
+       "app": "Joist: Estimate Invoice Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_estimate",
+      "alt": "Illustration for the theme “Keeping the option that was chosen”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-estimate",
+       "title": "Keep the option that was chosen",
+       "body": "",
+       "ideas": [
+        "invoice-maker-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "catalog",
+     "title": "Use the database without changing the past",
+     "passages": [
+      "Saved clients, services and prices cut down the typing on a repeat job. With that ready-made base the figures can be put together on the move.",
+      "But not every line belongs in a permanent catalog. One-off items clutter it over time. Deleting from the reference list or archiving should leave the text and the price intact on the old invoice; a new price applies to new work rather than rewriting the past.",
+      "For work across several devices, what matters is that the same documents and reference lists are available. If part of the data stays on the phone only, work on the figures can’t continue on a tablet. It helps to show which changes haven’t been sent and to let a particular document be checked, before it gets created again at the office."
+     ],
+     "quotes": [
+      {
+       "text": "Super easy to bill on the go. Easy to navigate, saves clients for repeat business. Saves pricing for any items or tasks. Saves labor and material rates. Even adds tax if necessary.",
+       "rating": 3,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "It's easy to generate invoices but the inability to delete items once you've billed for them starts to make for a very cluttered 'items' list if you have a lot of one-offs.",
+       "rating": 2,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "I've been using Tiny Invoice for my business gor years and overall the app is well designed we love it. However, I recently experienced a serious syncing issue between my iPhone and iPad. The devices stopped syncing invoices and estimates correctly, and some data existed only on one device.",
+       "rating": 4,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-catalog",
+       "title": "Use the database without changing the past",
+       "body": "",
+       "ideas": [
+        "invoice-maker-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "hours",
+     "title": "Check the time before billing",
+     "passages": [
+      "A timer helps with invoicing when the entry is tied to a client and a project. A positive review describes the path end to end: hours are logged on different devices, then move into the project and the document. That saves counting them again.",
+      "But keeping the intervals intact matters more than multiplying them by a rate automatically. If starting or pausing wipes time that has already been recorded, the total is hard to trust. Before billing, the intervals need looking over, a forgotten timer needs fixing, and it has to be visible which hours already went into earlier invoices. Not every recorded minute is automatically agreed to be paid for."
+     ],
+     "quotes": [
+      {
+       "text": "For me, the best part of this service occurs on the back end, tallying the hours logged using the app. You can log your hours thru the web or the iPhone app, and then feed that info into your projects and ultimately into your invoices.",
+       "rating": 4,
+       "app": "Harvest: Track Time & Invoice"
+      },
+      {
+       "text": "Like the app but the Timer is so broken in the new update. I constantly wants to cancel existing times when I try to start or pause the timer. Might be a IOS widget integration issue.",
+       "rating": 2,
+       "app": "Zoho Invoice Maker App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_hours",
+      "alt": "Illustration for the theme “Checking the hours before invoicing”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-hours",
+       "title": "Check the time before billing",
+       "body": "",
+       "ideas": [
+        "invoice-maker-4",
+        "invoice-maker-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "identity",
+     "title": "Keep the result recognizable",
+     "passages": [
+      "A logo on the document helps the person doing the work keep a recognizable look. In the example that follows, that possibility is what helps someone move from paper to electronic invoices. It is part of the familiar way of presenting your work to a client.",
+      "A preview inside the editor doesn’t confirm the result yet. If the logo disappears at the recipient’s end or in print, the chosen look hasn’t actually been delivered. So what needs checking is the file or the page the client will open.",
+      "The job reference plays a more practical role: it helps find the figures in the other side’s records. The invoice number, the purchase order number and the work order number can be different fields. They are worth keeping when the document is sent again, so that both sides are discussing the same document."
+     ],
+     "quotes": [
+      {
+       "text": "I found this app after searching a long while and it has helped me finish going completely paperless. Love it and I was able to put my own logo on the letter head",
+       "rating": 5,
+       "app": "Estimate Maker for Contractors"
+      },
+      {
+       "text": "Loved this app until I realized my logo isn't showing on the clients side and when I print it out, had no problems up until a couple weeks ago and nothing seems to be working.",
+       "rating": 3,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "Awesome templates to choose and customize! My only request is that they make it where you can choose between a PO# and a WO# on an invoice. I have clients that use both",
+       "rating": 5,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-identity",
+       "title": "Keep the result recognizable",
+       "body": "",
+       "ideas": [
+        "invoice-maker-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "tax",
+     "title": "Show how the figures were arrived at",
+     "passages": [
+      "Materials and services on one invoice can call for different calculation settings. In the case that follows, the rate chosen can’t be applied to just the lines that need it. A single percentage field after the subtotal isn’t enough for his job.",
+      "The settings have to survive into the report as well. Another author needs to separate documents with tax from those without when exporting. So it is worth checking one familiar mixed invoice and how it looks in the final table, not just whether the toggle is on the screen.",
+      "Finally, the calculation has to actually run when a percentage is entered. A visible pre-tax amount, the base that was chosen and the result make an error noticeable. The app applies the rules it is given; these reviews give no grounds for deciding the appropriate rate and conditions on the user’s behalf."
+     ],
+     "quotes": [
+      {
+       "text": "It's still a great app if your line items are either taxable or non-taxable, but you can't have merchandise and labor items on the same invoice. Because the tax rate is applied AFTER the subtotal and tax is applied to both labor and merchandise items, it's a non-starter for me.",
+       "rating": 3,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "I like it, but, it would be nice to have a way to generate a report to pdf. or excel for tax purposes. I do different invoices for lawn care and handyman services where I have to charge tax for the lawn care services. It would make life so much easier If I could separate the taxed invoices from the non-taxed.",
+       "rating": 4,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "Tax is not working, is not calculating when add the percentage they use to work but now it doesn't",
+       "rating": 2,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_tax",
+      "alt": "Illustration for the theme “Showing how the total was worked out”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "payment",
+   "title": "Deliver the invoice and know what is owed",
+   "intro": "Sending, opening, partial payment and money arriving answer different questions.",
+   "art": null,
+   "observations": [
+    {
+     "id": "delivery",
+     "title": "Carry the conversation on in a convenient channel",
+     "passages": [
+      "For work in the field, sending the figures is a continuation of the conversation with the client. If the talking happens in messages, having to find an email address adds a separate step. A convenient document should land where the recipient can open it and come back to it later.",
+      "The choice of channel is worth separating from the invoice itself: sending it again shouldn’t create a different debt. What matters is keeping a recognizable name and a file or link that works. If delivery runs into trouble, the person doing the work should understand what has already been sent and have a clear way to hand the same document over another way.",
+      "Sending the same document another way should be kept as a new delivery event. It matters to let the name, the attachment and the recipient be checked before sending. Then the channel of the conversation changes while the job and its figures keep a single history."
+     ],
+     "quotes": [
+      {
+       "text": "I would recommend Invoice Simple to anybody who has a business or starting out. I'm a tire mobile installer and been looking for an Invoice company where I can send my customers immediate pricing etc. most company don't offer SMS text messaging only by email but Invoice does.",
+       "rating": 5,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "It looks like I can only email the invoice to my customers but I really need to text them too",
+       "rating": 3,
+       "app": "Zoho Invoice Maker App"
+      },
+      {
+       "text": "Half my e mails go to junk mail an I'm constantly following up with customers who say they didn't receive an e mail.",
+       "rating": 3,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-delivery",
+       "title": "Carry the conversation on in a convenient channel",
+       "body": "",
+       "ideas": [
+        "invoice-maker-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "seen",
+     "title": "Tell opening apart from payment",
+     "passages": [
+      "Sending, opening and payment answer different questions. The first review values being able to see the last two events next to the document. A history like that removes some of the checking that would otherwise have to be held in your head.",
+      "For managing jobs it especially matters to tell paid invoices from ones still outstanding. A payment may arrive another way, so a manual entry with an amount and a date is needed. Reminders should be checked against the known balance, and it should stay possible to cancel them.",
+      "A view is a separate signal, and its disappearance can strip the tool of its value for a particular person. But the absence of a mark doesn’t prove the client hasn’t read the document. It means the app doesn’t know about the corresponding event; any further contact should take that limit into account."
+     ],
+     "quotes": [
+      {
+       "text": "Easy to make invoices and just as easy to keep track of when they are seen by costumers as well as when they are payed.",
+       "rating": 5,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "This app has been amazing and makes I Big difference as far as organization goes. No more trying to keep track of who has paid and who hasn't and also allows you to keep track of all the work you have yet ahead.",
+       "rating": 5,
+       "app": "Square Invoices: Invoice Maker"
+      },
+      {
+       "text": "My main reason for using this is all is because it would notify you of when clients open your estimates and invoices. Now it has stopped working so not worth it for me anymore",
+       "rating": 2,
+       "app": "Wave: Small Business Software"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_seen",
+      "alt": "Illustration for the theme “Telling an open from a payment”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-seen",
+       "title": "Tell opening apart from payment",
+       "body": "",
+       "ideas": [
+        "invoice-maker-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "balance",
+     "title": "See the deposit and the amount still owed",
+     "passages": [
+      "A deposit reduces the balance on the job but doesn’t change the agreed scope of work. A request for a simpler way to take prepayment shows up in the review below as well. Payments are worth tying to a single job, so that the original amount and what is still to be received are visible together.",
+      "A partial payment and a payout to the person doing the work are different states. In the next review both transitions are awkward. Where the service takes the money, it helps to show the client’s recorded payment and the known state of the onward transfer separately.",
+      "At the same time, an invoice that has been sent doesn’t yet give an exact date for the money arriving. The agreed deadline, the amount actually received and the wait for the next payment have to be distinguishable. For planning money coming in, one new status isn’t enough if the source of the expected date stays unknown."
+     ],
+     "quotes": [
+      {
+       "text": "I was bummed when they started charging, but since I was so dependent on the free free version I had to pay. I wish they incorporated a way to seamlessly accept down payments.",
+       "rating": 4,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "When receiving partial payment invoice should update better, also payouts are very difficult.",
+       "rating": 4,
+       "app": "Invoice Maker ▸ Estimate App"
+      },
+      {
+       "text": "One thing I don't like about Square invoices is that they're not very transparent when it comes to payment timing. Once I send an invoice, I never really know when I'll get paid, which makes it harder to plan and manage cash flow.",
+       "rating": 1,
+       "app": "Square Invoices: Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-balance",
+       "title": "See the deposit and the amount still owed",
+       "body": "",
+       "ideas": [
+        "invoice-maker-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Check one job from estimate to balance",
+  "body": "For a launch it matters more to connect one real job than to add another ten templates. Let the chosen estimate turn into an invoice, let the hours and the costs keep their origin, and let the deposit reduce a balance that makes sense. Then the same document has to reach the client through the channel they are used to. A pass like that shows where the person doing the work is still keeping a second spreadsheet or copying data across.\n\nThe specialization is worth choosing by that extra work: a mobile tech needs one set of transitions, an hourly worker another. A good-looking PDF doesn’t join them up by itself. A new tool’s usefulness can be measured by how much retyping and unclear reckoning is left, without promising to speed up payment with a single view notification."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-prepare",
+   "title": "Carry agreed work on into the document",
+   "depth": 0
+  },
+  {
+   "id": "observation-estimate",
+   "title": "Keep the option that was chosen",
+   "depth": 1
+  },
+  {
+   "id": "observation-catalog",
+   "title": "Use the database without changing the past",
+   "depth": 1
+  },
+  {
+   "id": "observation-hours",
+   "title": "Check the time before billing",
+   "depth": 1
+  },
+  {
+   "id": "observation-identity",
+   "title": "Keep the result recognizable",
+   "depth": 1
+  },
+  {
+   "id": "observation-tax",
+   "title": "Show how the figures were arrived at",
+   "depth": 1
+  },
+  {
+   "id": "theme-payment",
+   "title": "Deliver the invoice and know what is owed",
+   "depth": 0
+  },
+  {
+   "id": "observation-delivery",
+   "title": "Carry the conversation on in a convenient channel",
+   "depth": 1
+  },
+  {
+   "id": "observation-seen",
+   "title": "Tell opening apart from payment",
+   "depth": 1
+  },
+  {
+   "id": "observation-balance",
+   "title": "See the deposit and the amount still owed",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Check one job from estimate to balance",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "invoice-maker-2",
+ "category": "invoice-maker",
+ "categoryName": "Invoices for clients",
+ "title": "The deposit and the final settlement",
+ "description": "Payments are tied to one job, and the balance can be checked against the history.",
+ "cover": {
+  "src": "ideas/invoice-maker-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "When the deposit is recorded in a spreadsheet on the side, the client and the person doing the work easily end up seeing different amounts owed."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "I wish they incorporated a way to seamlessly accept down payments.",
+    "rating": 4,
+    "app": "Invoice Maker & Estimate App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Keep every payment received with its date, show the original scope and the current balance. Make refunds and corrections separate events."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The client’s payment and the money reaching the person doing the work can happen at different times; the statuses have to be told apart."
+  }
+ ],
+ "rank": 464,
+ "free": false
+}

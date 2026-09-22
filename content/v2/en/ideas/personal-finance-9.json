@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "personal-finance-9",
+ "category": "personal-finance",
+ "categoryName": "Personal finance",
+ "title": "When will the debt payments end?",
+ "description": "A calculated schedule based on the balances, rates and payments entered. You can compare options and see how changing the terms affects the timing and the final amount.",
+ "cover": {
+  "src": "ideas/personal-finance-9",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "With several debts it can be hard to picture the whole path of payments. One reviewer values the calculation of an estimated finish date. What is useful is not the date in itself but being able to see which inputs and payments determine it."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "It has separate input for debt management and will calculate your “debt free date”- which is immensely motivating- among many other similar features.",
+    "rating": 5,
+    "app": "EveryDollar: Budget Management"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it might work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Collect the balances, the terms and the payment amounts chosen. Show the calculation period by period and allow scenarios to be compared. Mark the payments actually made separately from the planned ones; a change in a rate, a fee or a contribution has to change the forecast visibly."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Check one scenario against a known schedule and work through a change to a payment. An exact date or a saving cannot be promised without verifying the terms of the calculation. A first version helps someone understand the model and its limits; it does not choose a payoff strategy for them."
+  }
+ ],
+ "rank": 245,
+ "free": false
+}

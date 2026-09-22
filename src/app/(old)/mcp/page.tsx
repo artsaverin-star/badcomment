@@ -10,6 +10,7 @@ import InstallPicker from "./InstallPicker";
 import McpConnections, { type McpConnectionView } from "./McpConnections";
 import { plural } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +46,7 @@ export default async function McpPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const access = await getAccess();
   const user = access.user;
   const paid = access.unlimited;

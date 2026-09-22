@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "sleep-tracking-1",
+ "category": "sleep-tracking",
+ "categoryName": "Trackers de sommeil et réveils",
+ "title": "Un journal de sommeil entre les postes",
+ "description": "Compter le sommeil de jour et plusieurs périodes de repos, et voir l’historique à côté du planning de travail.",
+ "cover": {
+  "src": "ideas/sleep-tracking-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une personne dort le jour après un poste de nuit, ou en plusieurs périodes sur une journée. Un journal construit uniquement autour d’une nuit ordinaire déforme son historique avant même toute notation."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ça donne des notes catastrophiques aux gens s’ils ne dorment pas à certaines heures (qu’on ne peut pas régler). À cause des horaires de travail, les gens dorment à des heures différentes. Par exemple, quelqu’un qui bosse de nuit va dormir dans la journée mais on ne peut pas le mettre dans l’appli",
+    "rating": 4,
+    "app": "Sleep Number"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Autoriser un début et une fin arbitraires pour une période, plusieurs entrées dans une journée et des corrections manuelles qui restent visibles. Le repos peut être mis en regard des postes sans attribuer à chaque épisode une « nuit » artificielle."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Tester les passages de minuit et une suite de plusieurs postes. Les limites obtenues automatiquement et la correction du propriétaire doivent rester distinguables. Le premier résultat est un historique compréhensible, pas la promesse d’effacer les conséquences d’un planning non standard."
+  }
+ ],
+ "rank": 330,
+ "free": false
+}

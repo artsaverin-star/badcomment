@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "personal-finance-1",
+ "category": "personal-finance",
+ "categoryName": "Finances personnelles",
+ "title": "Noter l’achat. Voir ce qui reste.",
+ "description": "Un suivi manuel des dépenses sans connexion bancaire. Une saisie courte après un achat, des catégories compréhensibles et un historique qu’on peut conserver à part.",
+ "cover": {
+  "src": "ideas/personal-finance-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Certaines personnes choisissent exprès la saisie manuelle des dépenses. Ce qui compte pour elles, c’est de relier elles-mêmes un achat à une catégorie et de voir comment il a agi sur le solde. L’absence d’import bancaire peut donc être un choix assumé plutôt qu’un défaut."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Cette appli c’est exactement ce qu’il nous fallait à mon mari et moi pour reprendre le contrôle de nos dépenses. J’adore qu’elle NE SE SYNCHRONISE PAS avec tes comptes bancaires, une synchro qui finit forcément par créer des erreurs quand les achats sont mal catégorisés. J’adore qu’elle m’oblige à être INTENTIONNELLE dans mes dépenses.",
+    "rating": 5,
+    "app": "Today's Budget: Saving is fun!"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Noter d’abord le montant, et laisser ajouter la catégorie et la note sans long formulaire obligatoire. Après l’enregistrement, montrer le nouveau solde et permettre d’annuler une erreur. On peut revenir plus tard aux achats auxquels il manque encore du contexte."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "Que tester en premier"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Tester la saisie de plusieurs achats réels au cours d’une journée. La personne doit pouvoir retrouver l’achat qu’elle cherche et expliquer le changement du montant. La rapidité de saisie est utile si le suivi reste clair et n’exige pas de liste parallèle."
+  }
+ ],
+ "rank": 5,
+ "free": false
+}

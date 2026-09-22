@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "pet-care-1",
+ "category": "pet-care",
+ "categoryName": "ペットの世話",
+ "title": "投薬の記録",
+ "description": "処方された予定と、家族が実際につけた記録が、ペットの一つの履歴に並ぶ。",
+ "cover": {
+  "src": "ideas/pet-care-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "リマインダーが来たあとも、それが実行されたかどうかは分からないままだ。そして世話をする人が二人いれば、メッセージのやり取りで確かめることになる。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "うちの猫7匹の薬をまとめておくのに助かる。リマインダーのおかげで遅れずに済むし、飲ませ忘れもない。操作もとても分かりやすい。",
+    "rating": 5,
+    "app": "PetDesk"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "ペットのカードでは、処方と出来事を分けて持つ。誰が投薬を記録したか、何時か、記録は直されたか。次のリマインダーは、実際に行ったという記録の代わりにはならない。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "気をつけること"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "アプリは処方の記録をつけるのであって、治療を組み立てるのではない。履歴の修正は、家族から見えるようになっていなければならない。"
+  }
+ ],
+ "rank": 42,
+ "free": false
+}

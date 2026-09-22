@@ -1,0 +1,476 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "flashcards",
+ "name": "Cartes mémoire pour apprendre",
+ "summary": "Un bon paquet commence par les bonnes questions. Ensuite, ce qui compte, c’est de piloter les révisions et de garder son propre matériel avec les résultats des séances.",
+ "corpus": {
+  "reviews": 11059,
+  "apps": 34
+ },
+ "lead": "Un étudiant charge ses notes de cours, un musicien joint l’enregistrement d’un air, quelqu’un d’autre collecte les mots qu’il a entendus. Tous ont besoin de cartes, mais ce qui compte comme réponse et la manière de le vérifier diffèrent d’un cas à l’autre. Un grand nombre de questions générées automatiquement ne suffit pas à rendre une séance utile.\n\nNous commençons par la préparation du paquet, puis nous passons à la séance elle-même et à sa poursuite sur un autre appareil. Le fil à suivre est le parcours du matériel personnel : comment il entre dans une carte, ce que la personne en fait et ce qui est conservé après la réponse.",
+ "cover": {
+  "src": "research/ResearchLaunch_flashcards_cover",
+  "alt": "Cartes mémoire",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_flashcards_audiences",
+  "alt": "Tâches des gens : Cartes mémoire",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Poursuivre avec son propre matériel",
+   "body": "Les notes, le tableau ou un paquet déjà constitué existent. Il faut les transférer et vérifier les questions obtenues, tout en gardant du temps pour l’étude elle-même. Retaper tout à la main peut se révéler un prix trop élevé pour passer à un nouvel outil."
+  },
+  {
+   "title": "Choisir le contenu de la prochaine séance",
+   "body": "Les cartes connues, les nouvelles et celles qui restent difficiles demandent une attention différente. La personne veut comprendre la file d’attente, corriger une évaluation donnée par accident et faire revenir les thèmes sautés. Les réglages de répétition doivent aider à piloter ce choix."
+  },
+  {
+   "title": "Apprendre par le bon mode de réponse",
+   "body": "La prononciation, un schéma, un exemple musical et la restitution mot à mot imposent des conditions différentes. Dans un cas, il suffit de regarder la réponse ; dans un autre, il faut la dire à voix haute ou l’écrire. Le format de la séance mérite d’être choisi en même temps que le matériel à apprendre."
+  }
+ ],
+ "sections": [
+  {
+   "id": "create",
+   "title": "Préparer le matériel pour son propre objectif",
+   "intro": "L’import et la génération doivent aboutir à un paquet vérifié, et pas seulement à un message de réussite.",
+   "art": null,
+   "observations": [
+    {
+     "id": "generation",
+     "title": "Vérifier la question avant la première révision",
+     "passages": [
+      "Transformer la photo de notes en cartes peut éviter de les recopier. Dans un avis positif, la commodité tient précisément au transfert de mots et de définitions déjà préparés. C’est le premier bénéfice, clair, de l’automatisation.",
+      "Mais les questions obtenues doivent être triées. Un détail secondaire du cours, ou une langue erronée, éloigne la séance de son objectif. Une relecture à côté du fragment d’origine permettrait de retirer le superflu, de corriger une réponse et de vérifier ce qui reste dans le paquet avant la première répétition.",
+      "La préparation peut aussi être interrompue par une limite de chargement dont la personne n’apprend l’existence qu’après la première photo. Le volume autorisé pendant l’essai et l’attente entre deux fichiers méritent d’être montrés à l’avance. Quelques cartes vérifiées donnent un moyen d’apprécier l’utilité avant de transférer la totalité des notes."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore le fait qu’on puisse prendre en photo n’importe quels mots et définitions écrits à la main, et l’appli te les transforme en version cartes mémoire ou en version PDF. J’adore comme c’est pratique",
+       "rating": 5,
+       "app": "Knowt: AI Flashcards & Notes"
+      },
+      {
+       "text": "It makes terrible cards, no idea what principle it goes by, one time I get 10 cards, then 64, and among them things like who wrote which book, even though this is a history lecture, I uploaded a lecture in Russian and for some reason the questions come in English",
+       "rating": 3,
+       "app": "Gizmo: AI Tutor"
+      },
+      {
+       "text": "Cette appli est vraiment bien et assez utile et elle m’aide à réviser, mais j’aime pas quand j’envoie une photo de mes notes et que d’un coup je dois attendre 20 minutes pour envoyer la photo suivante ou alors je dois payer.",
+       "rating": 3,
+       "app": "Gizmo: AI Tutor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_generation",
+      "alt": "Illustration du thème « Vérifier une question avant la première révision ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-generation",
+       "title": "Vérifier la question avant la première révision",
+       "body": "",
+       "ideas": [
+        "flashcards-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "import",
+     "title": "Voir le futur paquet avant le transfert",
+     "passages": [
+      "La personne a déjà préparé un tableau et compte continuer à travailler avec. Un refus d’import global la pousse à changer d’éditeur et à répéter les tentatives sans en comprendre la cause. La première tâche est de nommer le format pris en charge et l’endroit exact de l’erreur.",
+      "Un aperçu de quelques lignes permettrait d’associer la question, la réponse et les champs supplémentaires. La traduction automatique est une autre opération, qui mérite d’être activée à part : lire un CSV avec succès ne signifie pas que l’app convertira son contenu dans la langue choisie.",
+      "Transférer un paquet déjà constitué ajoute une dépendance à un service extérieur et à un format d’archive. Une page qui ne s’ouvre pas et un fichier endommagé appellent des actions différentes. Il faut expliquer ce qui n’a pas fonctionné, conserver l’original et permettre de refaire cette seule étape sans repréparer tout le matériel."
+     ],
+     "quotes": [
+      {
+       "text": "Je veux créer des cartes sur mon PC Windows de bureau mais l’appli n’arrête pas de refuser mes fichiers CSV, qu’ils viennent d’Excel, de Notepad, de Google Sheets ou d’un texte dans un mail.",
+       "rating": 1,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "C’est pour quand la possibilité d’importer un fichier .CSV ?? J’ai essayé toutes sortes de façons d’importer un fichier comme ça et de le faire convertir automatiquement dans une langue cible. C’est extrêmement frustrant.",
+       "rating": 3,
+       "app": "AlgoApp - Flashcards"
+      },
+      {
+       "text": "J’ai essayé le site qui s’ouvre pour les imports Ankiweb et ça expire sans que la page se charge. Ensuite j’ai essayé d’importer un paquet Anki et ça renvoie une erreur. Donc cette appli me sert à rien, je comprends pas comment les autres ont une super expérience alors que ça plante dès les premières choses que j’essaie de faire.",
+       "rating": 1,
+       "app": "Spaced Repetition SmartCards+"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-import",
+       "title": "Voir le futur paquet avant le transfert",
+       "body": "",
+       "ideas": [
+        "flashcards-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "media",
+     "title": "Conserver la partie que l’on apprend vraiment",
+     "passages": [
+      "Dans un paquet de musique, le nom d’un air peut être la question, et l’enregistrement et la partition la réponse. Pour cette tâche, la pièce jointe porte le contenu principal. On ne peut pas la traiter comme un complément facultatif à une carte de texte.",
+      "Si une image a disparu d’un ancien paquet, la carte existe encore formellement, mais l’exercice a changé. Il faut montrer le fichier manquant et permettre de le restaurer ou de le remplacer, en gardant le lien avec la bonne face de la carte et avec l’historique des réponses.",
+      "La conservation commence dès la création. Un plantage pendant l’ajout d’une photo ne doit pas effacer la question déjà saisie. Un brouillon et la possibilité de rattacher un seul fichier réduisent le travail à refaire ; la vérification des anciens paquets et du transfert le protège plus tard."
+     ],
+     "quotes": [
+      {
+       "text": "Je me sers de ce programme pour travailler un vaste répertoire de musique traditionnelle irlandaise, qui doit se jouer de mémoire pendant les sessions. Je mets le nom de l’air au recto de la carte et je joins un fichier audio de l’air et une image de la partition au verso.",
+       "rating": 4,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "J’adorais cette appli il y a quelques mois. Elle est vraiment simple à utiliser, surtout comparée à anki. Je m’en sers pour la chimie organique, donc beaucoup de cartes ont des images au verso. Sauf que j’ai voulu réutiliser un paquet d’il y a deux mois, et la moitié des images avaient disparu.",
+       "rating": 2,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "J’ai téléchargé l’appli récemment et elle a planté plusieurs fois. Je suis en train de créer des cartes mémoire et d’insérer une photo et ça plante. J’ai essayé de redémarrer mon appareil et tout et ça arrête pas de le faire",
+       "rating": 2,
+       "app": "AnkiMobile Flashcards"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_media",
+      "alt": "Illustration du thème « Garder la partie en cours d’apprentissage ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-media",
+       "title": "Conserver la partie que l’on apprend vraiment",
+       "body": "",
+       "ideas": [
+        "flashcards-3",
+        "flashcards-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study",
+   "title": "Comprendre ce qui se passe dans une séance",
+   "intro": "La file d’attente, l’audio et la façon de vérifier une réponse déterminent le contenu de l’apprentissage.",
+   "art": null,
+   "observations": [
+    {
+     "id": "queue",
+     "title": "Comprendre pourquoi une carte revient",
+     "passages": [
+      "Un calendrier automatique retire une partie des décisions sur la prochaine répétition. L’avis ci-dessous salue la possibilité de régler la rétention souhaitée. Cette appréciation montre l’attrait du contrôle sur la file d’attente, mais le pourcentage choisi n’est pas une promesse de résultat pour chaque apprenant.",
+      "Mais on peut voir les mêmes mots de nombreuses fois, les reconnaître à la fin de la séance et buter dessus à nouveau le lendemain — c’est exactement l’expérience décrite ci-dessous. L’explication de la file d’attente ne réparera pas à elle seule cette expérience. Il vaut la peine de permettre d’examiner la composition d’une séance et de choisir à part un thème difficile, puis de vérifier l’utilité de la méthode plus tard, quand l’aspect familier d’une carte ne souffle plus la réponse.",
+      "Une évaluation donnée par accident est un problème d’interface plus net. Si un mot difficile est devenu « maîtrisé », la personne doit pouvoir annuler l’évaluation et le remettre en révision. Une telle correction préserve le contrôle sur le matériel sans promettre qu’un calendrier garantira désormais la mémorisation."
+     ],
+     "quotes": [
+      {
+       "text": "Une appli vraiment incroyable, qui peut être aussi puissante qu’on le veut. C’est magique de régler la rétention à 90% et de se voir réussir !",
+       "rating": 5,
+       "app": "AnkiMobile Flashcards"
+      },
+      {
+       "text": "Oui, l’appli marche. Mais je n’apprends rien. Je suis coincé dans ce que d’autres ont appelé l’enfer des révisions. À la fin d’une séance, après avoir vu les mots 10 ou 12 fois, j’arrive à les reconnaître. Mais le lendemain c’est comme si je ne les avais jamais vus. Je ne retiens rien avec cette méthode.",
+       "rating": 2,
+       "app": "AnkiMobile Flashcards"
+      },
+      {
+       "text": "Il manque des fonctions, comme par exemple la possibilité de changer à la main le statut d’un mot de Maîtrisé à En apprentissage. J’ai cliqué sur maîtrisé par accident sur un mot que je ne connaissais pas, et maintenant je ne peux plus le changer et du coup il n’apparaît pas dans la liste des mots que je dois travailler.",
+       "rating": 2,
+       "app": "GRE Vocabulary Flashcards"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-queue",
+       "title": "Comprendre pourquoi une carte revient",
+       "body": "",
+       "ideas": [
+        "flashcards-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "audio",
+     "title": "Entendre l’exemple dont on a besoin",
+     "passages": [
+      "Sur une carte de langue, le son aide à comprendre comment un mot se prononce. Un bouton qui ne marche pas, ou une lecture peu convaincante, casse précisément cette partie de la séance. Le texte reste en place, mais la personne ne peut plus faire ce pour quoi elle a ouvert l’audio.",
+      "Il est utile de voir dans quelle langue est l’audio et de pouvoir réécouter un exemple isolé. Un paquet personnel peut demander son propre enregistrement. Quand un problème apparaît, le lien avec le mot précis doit être conservé : on peut alors le signaler pour vérification, corriger le matériel et revenir au même exercice.",
+      "Pour un mot qui a plusieurs prononciations, il importe de savoir laquelle est utilisée en ce moment. Son propre enregistrement ou la voix choisie doivent suivre la carte lors d’un transfert. Changer la langue de l’audio ne doit pas s’appliquer en silence à tout un paquet mixte."
+     ],
+     "quotes": [
+      {
+       "text": "La fonction vocale ne marche tout simplement plus. Avant ça sonnait robotique, mais maintenant ça affiche un avertissement comme quoi ça va sonner robotique, et puis ça marche pas, j’ai même essayé de désinstaller et de réinstaller et ça marche TOUJOURS pas.",
+       "rating": 2,
+       "app": "Japanese"
+      },
+      {
+       "text": "Je n’ai pas trouvé que cette appli ajoutait beaucoup de mots de vocabulaire que j’aurais envie d’utiliser au quotidien. En plus les mots étaient prononcés par un modèle d’IA vraiment primitif. Chose incroyable, certaines prononciations n’étaient pas correctes.",
+       "rating": 3,
+       "app": "WordPal - Vocabulary Builder"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_audio",
+      "alt": "Illustration du thème « Entendre l’exemple qu’il te faut ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-audio",
+       "title": "Entendre l’exemple dont on a besoin",
+       "body": "",
+       "ideas": [
+        "flashcards-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "assessment",
+     "title": "Séparer la tentative de la vérification",
+     "passages": [
+      "Dans un exercice oral, l’app reconnaît d’abord la parole, puis évalue la réponse. Si quelque chose a échoué à la première étape, l’évaluation finale peut ne pas correspondre à ce que la personne a réellement dit. Il est utile de montrer ce qui a été reconnu à côté de ce qui était attendu.",
+      "Un long passage complique la tentative elle-même : la séance peut se réinitialiser avant la fin. Un découpage en fragments et la possibilité de corriger une évaluation erronée permettraient de reprendre au bon endroit. C’est un travail sur le comportement de l’exercice, pas une preuve d’une meilleure mémorisation.",
+      "Enfin, lire le verso d’une carte est un mode différent de la restitution par soi-même. Si une personne s’attend à être interrogée, cela doit être établi avant la séance, et un mode de réponse clair doit lui être proposé. Les règles diffèrent pour une formulation exacte et pour une reformulation du sens ; un simple coup d’œil à une carte ne doit pas être présenté comme les deux résultats à la fois."
+     ],
+     "quotes": [
+      {
+       "text": "Cette nouvelle mise à jour a rendu la révision audio un peu plus facile, parce que ça écoute un peu mieux (dans le sens où ça enregistre plus quand je parle), mais ça compte faux des mots que je dis très clairement et c’est vraiment frustrant de ne pas avoir la révision validée alors que je récite le verset parfaitement.",
+       "rating": 3,
+       "app": "The Bible Memory App"
+      },
+      {
+       "text": "Je teste plusieurs applis de mémorisation, et si j’aime bien l’interface de celle-ci qui suit ma progression sur chaque livre de la Bible, le Speak Out demande beaucoup de travail. C’est difficile à utiliser sur des passages « plus longs » des Écritures (plus de 2 versets), parce que ça se réinitialise et/ou ça saute et ça marque incorr",
+       "rating": 3,
+       "app": "Verses - Bible Memory"
+      },
+      {
+       "text": "Je croyais que ça allait tester mes connaissances, mais on ne fait que lire les cartes ! Ça NE TESTE PAS tes connaissances",
+       "rating": 1,
+       "app": "Brainscape - Study Flashcards"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-assessment",
+       "title": "Séparer la tentative de la vérification",
+       "body": "",
+       "ideas": [
+        "flashcards-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Reprendre là où l’on s’est arrêté",
+   "intro": "Les pièces jointes et les résultats des séances doivent revenir avec les cartes.",
+   "art": null,
+   "observations": [
+    {
+     "id": "transfer",
+     "title": "Restaurer le paquet et le déroulé des révisions",
+     "passages": [
+      "Après un changement d’appareil, la personne s’attend à retrouver son paquet et à reprendre là où elle s’est arrêtée. Mais les cartes, les évaluations des révisions et les conditions de l’accès payant peuvent se transférer séparément. Récupérer la liste ne signifie pas que les images, l’historique des révisions et le mode voulu sont revenus eux aussi.",
+      "La vérification est plus simple sur un petit ensemble connu : ouvrir les deux faces, lire les pièces jointes et retrouver la dernière évaluation. Une grande archive demande un compte rendu clair de ce qui a été transféré et un moyen de traiter ce qui manque. Le nouvel appareil devient alors la suite des séances, et non le début d’une nouvelle préparation.",
+      "Un bref rapport après le transfert aide : combien de cartes, de pièces jointes et de relevés de révision ont été restaurés. Un écart doit mener aux éléments précis qui manquent. Il importe surtout de distinguer le matériel du paquet et les conditions d’accès aux modes, pour que la conservation du travail personnel reste claire."
+     ],
+     "quotes": [
+      {
+       "text": "super vocabulaire mais ça supprime tout le temps ma progression",
+       "rating": 2,
+       "app": "GRE Vocabulary Flashcards"
+      },
+      {
+       "text": "Cette appli marchait parfaitement bien et d’un coup elle a décidé de supprimer tout mon travail en me déconnectant et en effaçant toutes les cartes que j’avais faites. Maintenant j’ai perdu des informations. Merci bien.",
+       "rating": 1,
+       "app": "Noji - Flashcards study app"
+      },
+      {
+       "text": "L’abonnement sans pub n’a pas l’air de marcher d’une plateforme à l’autre. J’ai acheté un abonnement sans pub d’un an pour mon iPad, puis j’ai téléchargé la version iPhone. Les données saisies sur l’iPad étaient là, mais les pubs étaient de retour, avec la possibilité de payer encore un abonnement d’un an pour les enlever.",
+       "rating": 2,
+       "app": "Spaced Repetition SmartCards+"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_transfer",
+      "alt": "Illustration du thème « Restaurer le paquet et la progression des révisions ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-transfer",
+       "title": "Restaurer le paquet et le déroulé des révisions",
+       "body": "",
+       "ideas": [
+        "flashcards-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "offline",
+     "title": "Enregistrer les réponses sans réseau",
+     "passages": [
+      "Une séance sur téléphone peut commencer là où la connexion se coupe ou n’existe pas du tout. Si à ce moment-là le matériel ne s’ouvre pas ou qu’une réponse ne peut pas être enregistrée, un bref moment de libre se passe à attendre. Perdre la partie déjà faite de la séance, au moment où elle se termine, est particulièrement rageant.",
+      "Avant un déplacement, il est utile de vérifier quelles cartes et quelles pièces jointes sont réellement préparées pour un accès sans réseau. Puis de les ouvrir, de répondre à quelques-unes et de revenir une fois la connexion retrouvée. La disponibilité du paquet et l’enregistrement de la progression de la séance sont deux parties distinctes de ce scénario ; les deux doivent être claires avant de commencer.",
+      "Une séance préparée comprend les deux faces des cartes et les pièces jointes dont elles ont besoin. Une fois la connexion revenue, il faut envoyer les réponses déjà données plutôt que recommencer la séance. Si le paquet a été modifié entre-temps sur un autre appareil, l’utilisateur doit comprendre quelle version du matériel participe à la répétition suivante."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli m’a déconnecté et je dois repasser par le long processus d’intro avant de pouvoir me reconnecter et c’est pénible. C’est pas la première fois. En plus, la prise en charge hors ligne est mauvaise, la limite devrait être plus élevée et ça compte aussi les cartes à l’envers comme une carte, ce qui sent le travail bâclé.",
+       "rating": 3,
+       "app": "Noji - Flashcards study app"
+      },
+      {
+       "text": "Cette appli est très bien pour réviser sur ton téléphone, mais il lui manque de vraies capacités « mobiles » parce qu’elle marche pas hors ligne. Même si tu perds la connexion un instant, il y a une erreur au moment de valider ou de mettre en pause ton examen, et du coup tu peux perdre toute ta progression.",
+       "rating": 2,
+       "app": "UWorld Medical Exam Prep"
+      },
+      {
+       "text": "Le mode hors ligne me sauve la vie et les rappels de révision me font tenir le rythme",
+       "rating": 5,
+       "app": "Noji - Flashcards study app"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Commencer par vérifier la qualité d’un seul paquet",
+  "body": "Il faut commencer par le matériel propre à l’utilisateur et par une séance menée à son terme. Les questions portent-elles sur le bon thème, les images et le son ont-ils survécu, sait-on clairement ce qui compte comme réponse ? Les avis montrent nettement les pertes à ces passages. Un nouvel algorithme de planification ne corrigera pas une question erronée ni un schéma disparu.\n\nVient ensuite le choix d’une spécialisation : un transfert facile de paquets déjà constitués, la vérification des cartes issues de notes, la révision audio ou le travail sur les formulations exactes. Chaque direction demande sa propre vérification d’utilité. Le temps économisé à la préparation se voit tout de suite ; un résultat d’apprentissage ne se déduit ni du nombre de cartes créées, ni d’une séance agréable, ni du pourcentage de rétention choisi."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-create",
+   "title": "Préparer le matériel pour son propre objectif",
+   "depth": 0
+  },
+  {
+   "id": "observation-generation",
+   "title": "Vérifier la question avant la première révision",
+   "depth": 1
+  },
+  {
+   "id": "observation-import",
+   "title": "Voir le futur paquet avant le transfert",
+   "depth": 1
+  },
+  {
+   "id": "observation-media",
+   "title": "Conserver la partie que l’on apprend vraiment",
+   "depth": 1
+  },
+  {
+   "id": "theme-study",
+   "title": "Comprendre ce qui se passe dans une séance",
+   "depth": 0
+  },
+  {
+   "id": "observation-queue",
+   "title": "Comprendre pourquoi une carte revient",
+   "depth": 1
+  },
+  {
+   "id": "observation-audio",
+   "title": "Entendre l’exemple dont on a besoin",
+   "depth": 1
+  },
+  {
+   "id": "observation-assessment",
+   "title": "Séparer la tentative de la vérification",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Reprendre là où l’on s’est arrêté",
+   "depth": 0
+  },
+  {
+   "id": "observation-transfer",
+   "title": "Restaurer le paquet et le déroulé des révisions",
+   "depth": 1
+  },
+  {
+   "id": "observation-offline",
+   "title": "Enregistrer les réponses sans réseau",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Commencer par vérifier la qualité d’un seul paquet",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

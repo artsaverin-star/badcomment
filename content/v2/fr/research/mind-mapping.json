@@ -1,0 +1,443 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "mind-mapping",
+ "name": "Cartes mentales",
+ "summary": "De la première esquisse à un ensemble de notes ou à un manuscrit : comment modifier la structure d’une carte, poursuivre le travail sur un autre appareil et transmettre le résultat.",
+ "corpus": {
+  "reviews": 2088,
+  "apps": 10
+ },
+ "lead": "Une carte mentale reste rarement telle qu’on l’a commencée. Ce sont d’abord quelques notes, puis des groupes et des liens apparaissent, et il faut plus tard en composer un ensemble de notes, un plan de projet ou un manuscrit. L’app est utile tant qu’elle laisse la structure changer aussi librement que la pensée se développe.\n\nC’est pourquoi tout le parcours du contenu compte ici : une pensée doit être notée vite, puis réorganisée et, enfin, utilisée au-delà du canevas. Les notes de cours et le plan d’un roman ont une base commune, mais des suites différentes. C’est justement là qu’il vaut la peine de chercher la spécialisation d’un nouvel éditeur.",
+ "cover": {
+  "src": "research/ResearchLaunch_mind-mapping_cover",
+  "alt": "Cartes mentales",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_mind-mapping_audiences",
+  "alt": "Tâches des gens : Cartes mentales",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Comprendre un sujet complexe",
+   "body": "Un étudiant ou un lecteur assemble ses notes à partir de concepts, d’exemples et de liens. Plus tard, il lui faut retrouver un détail et reconstituer le fil de l’explication, pas seulement regarder un bel arbre."
+  },
+  {
+   "title": "Esquisser et réorganiser ses pensées",
+   "body": "Pendant un cours ou un brainstorming, la personne écrit au clavier ou au stylet. Une pause pour chercher une commande empêche de retenir la pensée suivante."
+  },
+  {
+   "title": "Préparer du contenu pour quelqu’un d’autre",
+   "body": "L’auteur transforme la carte en plan, en manuscrit ou en document à discuter. Le destinataire doit comprendre les liens et lire les pièces jointes sans installer le même éditeur."
+  }
+ ],
+ "sections": [
+  {
+   "id": "compose",
+   "title": "Noter d’abord, comprendre ensuite",
+   "intro": "Un bon éditeur admet le flou du début. La structure se précise à mesure que le travail avance.",
+   "art": null,
+   "observations": [
+    {
+     "id": "input",
+     "title": "Écrire au rythme de la pensée",
+     "passages": [
+      "Quand on esquisse ses pensées, un geste isolé peut être rapide, mais passer sans cesse du clavier au tactile rompt l’enchaînement. L’utilisateur a besoin de commandes liées entre elles : créer un nœud, aller au nœud voisin, ouvrir une branche et poursuivre le texte. La prise en charge du clavier doit couvrir tout ce parcours.",
+      "Quelques raccourcis clavier ne suffisent pas encore à travailler sans l’écran. Si l’on peut créer un nœud mais pas passer au voisin ni ressortir d’une branche, la saisie est interrompue malgré tout. La valeur d’un mode clavier se voit sur une esquisse ordinaire : noter cinq pensées, corriger la troisième et repartir de la cinquième.",
+      "Le stylet pose un autre problème : l’écriture, la sélection et le déplacement peuvent entrer en conflit. Une tentative d’inscrire une pensée dans un nœud décale ce nœud, et l’auteur doit surveiller son geste au lieu du contenu. Une telle saisie demande ses propres commandes ; reporter les commandes clavier sur des boutons au bord de l’écran ne les remplace pas."
+     ],
+     "quotes": [
+      {
+       "text": "SimpleMind tu es bien. Tu as beaucoup d’atouts. Mais tu n’es pas encore aussi bien que mon iThoughts adoré. Il te manque la navigation au clavier toute simple pour déplier et replier les nœuds (ou les sujets), et il te manque le redimensionnement de la carte au clavier pour zoomer et dézoomer facilement.",
+       "rating": 4,
+       "app": "SimpleMind - Mind Mapping"
+      },
+      {
+       "text": "Je pensais vraiment que ce serait la bonne appli ! Mais sauf erreur de ma part, il y a pas de raccourcis clavier ? Pour brainstormer vite, il faut que je puisse faire des cartes mentales sans toucher l’écran. S’il y a pas de raccourcis clavier implémentés, je peux pas vraiment m’en servir.",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "En essayant d’utiliser mon Apple Pencil pour écrire du texte, ça faisait glisser les nœuds, ça les faisait disparaître, ou ça écrivait pas du tout. Je vais essayer de trouver autre chose.",
+       "rating": 1,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_input",
+      "alt": "Illustration du thème « Écrire au rythme de la pensée ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-input",
+       "title": "Écrire au rythme de la pensée",
+       "body": "",
+       "ideas": [
+        "mind-mapping-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "links",
+     "title": "Montrer un lien entre des branches différentes",
+     "passages": [
+      "Un arbre montre l’appartenance : un sujet se compose de parties. Mais une ligne historique, un livre ou un système peuvent comporter un lien entre des éléments de branches différentes. Si le signaler oblige à dupliquer un nœud, une même pensée se met à vivre à plusieurs endroits et la carte est plus difficile à garder entière.",
+      "Un lien entre branches permet de laisser la pensée à un seul endroit et d’y renvoyer depuis un autre. Un personnage, par exemple, appartient à une ligne narrative mais influe sur un événement dans une autre. Un libellé sur la relation l’explique au lecteur mieux qu’une copie supplémentaire du nœud.",
+      "Avoir plusieurs types de liens doit avoir une raison. Une flèche peut signifier l’ordre des événements, une autre l’influence d’un personnage. Un filtre par relation aide à lire une telle carte sans supprimer une partie du contenu. La couleur seule n’explique pas le sens d’un lien à un nouveau lecteur."
+     ],
+     "quotes": [
+      {
+       "text": "Je cherchais une appli de cartes mentales qui montre les relations non hiérarchiques (donc pas seulement parent-enfant) et qui demande pas d’abonnement, et celle-là s’est révélée excellente. L’appli est très rapide, et bien pour prendre des notes sur des livres, des frises historiques, schématiser des systèmes.",
+       "rating": 5,
+       "app": "SimpleMind Pro - Mind Mapping"
+      },
+      {
+       "text": "C’est un très bon logiciel de cartes mentales. Je trouve qu’on a beaucoup de contrôle sur la façon dont les données sont présentées, et c’est bien mieux que beaucoup d’autres logiciels de carte mentale pour relier les nœuds/éléments entre eux.",
+       "rating": 3,
+       "app": "miMind - Mind Map, Brainstorm"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-links",
+       "title": "Montrer un lien entre des branches différentes",
+       "body": "",
+       "ideas": [
+        "mind-mapping-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rearrange",
+     "title": "Réorganiser la carte en conservant les liens",
+     "passages": [
+      "La réorganisation est le travail principal sur une carte, pas la réparation d’un mauvais départ. À mesure que le sujet se clarifie, on veut déplacer ensemble plusieurs branches liées. Le déplacement nœud par nœud et une aimantation imprévisible transforment une tâche de réflexion en rangement manuel de l’espace.",
+      "Il faut une sélection de groupe maîtrisable et une idée claire de l’endroit où elle va se poser. Il importe de distinguer le déplacement libre sur le canevas et le changement de branche de rattachement : un même geste ne doit pas modifier en douce le sens de la structure. Un bon éditeur permet d’essayer un nouvel ordre et de revenir en arrière sans recréer le contenu.",
+      "Pour le plan d’un projet personnel, la réorganisation a encore un autre sens : d’une liste de préoccupations se dégage un ordre d’actions. Une échéance et une marque d’achèvement peuvent vivre à l’intérieur même des nœuds, tandis qu’une dépendance reste visible. C’est une direction possible pour un éditeur de tâches personnelles ; les plaintes sur le glisser-déposer ne prouvent pas à elles seules que l’utilisateur a besoin d’un nouveau planificateur."
+     ],
+     "quotes": [
+      {
+       "text": "Quand on déplace des blocs, le mouvement est saccadé et ça s’accroche aux endroits les plus aléatoires",
+       "rating": 1,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Pensez à la suggestion suivante : ajouter une option pour sélectionner plusieurs branches, sous-branches afin de pouvoir déplacer les éléments. C’est très frustrant de passer beaucoup de temps à remettre en place des branches mal placées.",
+       "rating": 4,
+       "app": "VisualMind: AI MindMap/Chatbot"
+      },
+      {
+       "text": "Pas moyen d’organiser et de déplacer librement les cartes mentales comme je veux et comme j’en ai besoin.",
+       "rating": 2,
+       "app": "Mind Mapping - MindMeister"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_rearrange",
+      "alt": "Illustration du thème « Réorganiser une carte sans perdre les liens ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-rearrange",
+       "title": "Réorganiser la carte en conservant les liens",
+       "body": "",
+       "ideas": [
+        "mind-mapping-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "representation",
+     "title": "Regarder le même contenu autrement",
+     "passages": [
+      "Un modèle aide à commencer tant que la structure n’est pas encore formulée. Une fois rempli, il peut s’avérer que le contenu se lit plus facilement sous forme de plan ou disposé autrement. Si le changement de forme n’est possible que sur une carte vide, le choix initial fige trop tôt la suite du travail.",
+      "Mieux vaut garder séparés le contenu d’une carte et son apparence. Une carte remplie peut alors être réorganisée en conservant les nœuds et les liens. La personne a besoin de voir ce qui change au moment de basculer : un plan linéaire montre l’ordre de lecture, une carte montre les groupes et les relations entre eux.",
+      "Dans une carte d’étude, on peut masquer une branche un moment et la reconstituer de mémoire. Dans un manuscrit, on peut lire les scènes à la suite. Ces modes utilisent ce qui est déjà écrit ; une copie séparée s’écarte vite de la carte principale et crée un travail de comparaison supplémentaire."
+     ],
+     "quotes": [
+      {
+       "text": "Les modèles sont des outils utiles, et c’est aussi très simple de créer ses propres cartes.",
+       "rating": 5,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Mes plus gros reproches sont : Pas trouvé comment changer de modèle dans une carte existante",
+       "rating": 4,
+       "app": "miMind - Mind Map, Brainstorm"
+      },
+      {
+       "text": "Il y a pas d’option pour convertir une carte mentale existante au format plan",
+       "rating": 2,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-representation",
+       "title": "Regarder le même contenu autrement",
+       "body": "",
+       "ideas": [
+        "mind-mapping-6",
+        "mind-mapping-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Poursuivre là où c’est pratique",
+   "intro": "Changer d’appareil ne doit pas se transformer en transfert manuel du projet ni en chasse aux modifications disparues.",
+   "art": null,
+   "observations": [
+    {
+     "id": "same-map",
+     "title": "Ouvrir la dernière version sur un autre appareil",
+     "passages": [
+      "Des apps sur plusieurs plateformes ne règlent qu’une partie du problème. La personne a besoin de la même carte avec les dernières modifications quand elle passe de la tablette de la maison à l’ordinateur du travail. L’envoi et le téléchargement manuels peuvent être acceptables si leur nécessité est claire à l’avance.",
+      "Travailler sans réseau n’empêche pas forcément de poursuivre. Ce qui compte davantage, c’est qu’après la reconnexion on voie que les modifications faites sur la tablette sont bien passées et que c’est bien cette version qui s’ouvre sur l’ordinateur. Un indicateur d’enregistrement doit décrire l’état réel de la carte, pas seulement la présence d’un compte.",
+      "Quand il faut au contraire envoyer le fichier à la main vers un service tiers, la personne se retrouve à suivre elle-même les versions. La poursuite automatique ne lui enlève ce travail qu’avec un historique des modifications : si deux appareils ont modifié la même branche, les variantes antérieures sont nécessaires pour un choix réfléchi plutôt que pour un écrasement silencieux."
+     ],
+     "quotes": [
+      {
+       "text": "Je suis relativement nouveau dans les cartes mentales et je voulais pas essayer les autres versions à cause de leur manque de prise en charge multiplateforme ou de leur modèle par abonnement. J’ai acheté cette appli pour macOS, iPadOS et windows. Elle marche pareil et aussi bien sur chacun.",
+       "rating": 4,
+       "app": "SimpleMind Pro - Mind Mapping"
+      },
+      {
+       "text": "Le mode hors ligne a l’air de marcher avec une synchro plutôt bonne une fois de retour en ligne",
+       "rating": 2,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Il y a pas de fonction de synchronisation dans cette appli, et je vois pas trop pourquoi. Vu qu’on peut collaborer sur une carte mentale, je devrais aussi pouvoir travailler sans accroc sur une carte sur mon iPad, puis en rentrant à la maison pouvoir la reprendre sur mon ordi sans devoir envoyer puis télécharger à la main via un 3e",
+       "rating": 2,
+       "app": "Xmind: AI Mind Map, Brainstorm"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_same-map",
+      "alt": "Illustration du thème « Ouvrir la dernière version sur un autre appareil ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-same-map",
+       "title": "Ouvrir la dernière version sur un autre appareil",
+       "body": "",
+       "ideas": [
+        "mind-mapping-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mobile-access",
+     "title": "Faire tout le travail sur la tablette",
+     "passages": [
+      "Une tablette peut être le poste de travail principal, et non un écran pour regarder le résultat. La présence d’une app mobile dit donc peu de choses sur la possibilité de réorganiser une carte, de gérer les liens ou d’effectuer une opération habituelle au stylet. L’utilisateur juge un travail précis dans une interface précise.",
+      "Un jeu d’actions incomplet sur la tablette se remarque surtout au milieu d’un projet. On peut déjà ouvrir la carte, mais y mettre de l’ordre ou changer un lien doit se faire sur l’ordinateur. Il vaut donc mieux évaluer la version mobile sur une carte remplie, et montrer les différences entre appareils avant le début du travail.",
+      "Il y a une autre limite : une app peut techniquement fonctionner sur une tablette tout en restant indisponible pour un compte personnel. Pour un auteur qui travaille seul, c’est la perte d’un poste de travail, pas un détail dans une grille tarifaire. Un éditeur complet pour tablette doit expliquer aussi bien les moyens de le piloter que les conditions d’un accès individuel."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli Ayoa iOS est pas prête pour un vrai usage. Pas de moyen clair de mettre de l’ordre dans une carte. La navigation avec l’Apple Pencil est mauvaise. La plupart des options de menu disponibles dans l’appli web sont pas disponibles.",
+       "rating": 2,
+       "app": "AYOA - Mind Mapping"
+      },
+      {
+       "text": "Souvent plus frustrant à utiliser qu’utile. On peut pas faire la moitié de ce qu’on fait sur la version web ou alors c’est vraiment pas clair comment",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "J’utilise Lucid depuis des années et limiter maintenant les tablettes et le mobile aux équipes/organisations et retirer à l’appli la prise en charge des comptes individuels (payants), c’était une très mauvaise décision.",
+       "rating": 3,
+       "app": "Lucidchart"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-mobile-access",
+       "title": "Faire tout le travail sur la tablette",
+       "body": "",
+       "ideas": [
+        "mind-mapping-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "share",
+   "title": "Transmettre la carte avec son sens",
+   "intro": "Le résultat peut devenir un document, une présentation ou du contenu de révision. Il importe de comprendre cette sortie à l’avance.",
+   "art": null,
+   "observations": [
+    {
+     "id": "export",
+     "title": "Vérifier le résultat avec les yeux du destinataire",
+     "passages": [
+      "Un fichier fini sert à ce qu’une autre personne lise la carte ou s’en serve dans son propre travail. La réussite d’un export ne montre pas si les images, les libellés et la structure ont survécu. Mieux vaut choisir le format selon l’usage du résultat, pas selon le nombre d’extensions proposées.",
+      "Ouvrir l’export en dehors de l’éditeur et vérifier un fragment significatif : le texte, une image insérée et un lien entre branches. Si une image ne convient pas, un autre format peut résoudre le problème, mais ce chemin doit être clair. Le destinataire n’est pas obligé de posséder l’app d’origine pour retrouver le sens de ce qui lui a été envoyé.",
+      "Pour une grande carte, l’échelle compte : les libellés peuvent survivre dans le fichier et rester illisibles sur la page. Un aperçu de la pagination, des marges et de l’ordre des parties permet de corriger le résultat avant l’envoi. Pour une édition ultérieure, il faut choisir séparément un format adapté."
+     ],
+     "quotes": [
+      {
+       "text": "L’export en jpg ou en png se charge pas, comme si le fichier était corrompu. Par contre, l’export en PDF a marché.",
+       "rating": 2,
+       "app": "Xmind: AI Mind Map, Brainstorm"
+      },
+      {
+       "text": "J’ai payé pour la fonction d’export et l’export d’image donne juste une erreur 500 internal server error.",
+       "rating": 1,
+       "app": "Mind Mapping - MindMeister"
+      },
+      {
+       "text": "Ça fait environ une semaine que je teste votre appli et j’ai des problèmes pour partager ma carte.. L’envoyer en pdf par mail envoie pas les images incluses dans une case.",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_export",
+      "alt": "Illustration du thème « Vérifier le résultat avec les yeux du destinataire ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Vérifier le résultat avec les yeux du destinataire",
+       "body": "",
+       "ideas": [
+        "mind-mapping-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Commencer par une seule suite de la carte",
+  "body": "Pour un nouveau produit, je choisirais une seule tâche qui vient après l’esquisse : transformer une carte d’étude en contenu de révision, par exemple. Cela permet de vérifier un bénéfice concret sans construire d’emblée un éditeur pour tout le monde. Un étudiant crée un petit ensemble de notes, y revient quelques jours plus tard et essaie de se rappeler une branche fermée. L’important est de voir si la carte l’aide à comprendre le sujet et s’il la complète volontiers.\n\nMais la saisie, la réorganisation et l’enregistrement doivent d’abord fonctionner. Sans eux, l’auto-évaluation ne fera que compliquer un éditeur faible. Pour l’auteur d’un manuscrit, la priorité serait autre — relier les scènes à un plan linéaire. Ces directions gagnent à être vérifiées séparément plutôt qu’à être réunies sous une seule promesse de « mieux penser »."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-compose",
+   "title": "Noter d’abord, comprendre ensuite",
+   "depth": 0
+  },
+  {
+   "id": "observation-input",
+   "title": "Écrire au rythme de la pensée",
+   "depth": 1
+  },
+  {
+   "id": "observation-links",
+   "title": "Montrer un lien entre des branches différentes",
+   "depth": 1
+  },
+  {
+   "id": "observation-rearrange",
+   "title": "Réorganiser la carte en conservant les liens",
+   "depth": 1
+  },
+  {
+   "id": "observation-representation",
+   "title": "Regarder le même contenu autrement",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Poursuivre là où c’est pratique",
+   "depth": 0
+  },
+  {
+   "id": "observation-same-map",
+   "title": "Ouvrir la dernière version sur un autre appareil",
+   "depth": 1
+  },
+  {
+   "id": "observation-mobile-access",
+   "title": "Faire tout le travail sur la tablette",
+   "depth": 1
+  },
+  {
+   "id": "theme-share",
+   "title": "Transmettre la carte avec son sens",
+   "depth": 0
+  },
+  {
+   "id": "observation-export",
+   "title": "Vérifier le résultat avec les yeux du destinataire",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Commencer par une seule suite de la carte",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

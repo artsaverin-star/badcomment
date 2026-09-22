@@ -1,0 +1,472 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "weather-apps",
+ "name": "Météo",
+ "summary": "On regarde la météo pour prendre une décision : aller se promener ou non, déplacer un travail ou non, ce qu’il faut attendre sur l’eau. Un bulletin utile commence par un lieu, une heure et une question claire.",
+ "corpus": {
+  "reviews": 24792,
+  "apps": 92
+ },
+ "lead": "En ville, il peut faire soleil alors qu’à l’adresse qui compte la pluie tombe déjà. La carte des précipitations a l’air vivante, mais la dernière image a été reçue il y a longtemps. Un bulletin beau et détaillé n’aide pas tant que la personne ne sait pas à quel lieu et à quel moment il se rapporte.\n\nNous examinerons d’abord ces fondations, puis les tâches spécialisées : la parcelle, l’eau, le travail en extérieur. Nous finirons par le coup d’œil rapide du quotidien. Ici, l’occasion d’un nouveau produit tient souvent au bon ensemble d’informations plutôt qu’à une prévision générale de plus.",
+ "cover": {
+  "src": "research/ResearchLaunch_weather-apps_cover",
+  "alt": "Météo",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_weather-apps_audiences",
+  "alt": "Tâches des gens : Météo",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Planifier la prochaine action en extérieur",
+   "body": "Pour la prochaine action, il faut une zone choisie et une idée claire de la place des données dans le temps. Les images de précipitations passées doivent se distinguer de la prévision à venir, sans avoir à le reconstituer d’après le mouvement de la carte."
+  },
+  {
+   "title": "Surveiller plusieurs zones",
+   "body": "Les lieux où vivent les proches ou où se déroule le travail doivent rester une liste commode. Un message est utile quand on voit tout de suite à quelle zone et à quelle période il se rapporte."
+  },
+  {
+   "title": "Vérifier des conditions spécialisées",
+   "body": "Sur l’eau, sur une parcelle et dans un scénario professionnel, ce ne sont pas les mêmes paramètres qui comptent. Il faut une période adaptée, des unités habituelles et la possibilité de voir d’où viennent les informations que l’on a sous les yeux."
+  }
+ ],
+ "sections": [
+  {
+   "id": "place-time",
+   "title": "D’abord le lieu et l’heure",
+   "intro": "Certaines informations décrivent une observation, d’autres la suite attendue. Cette différence doit se repérer facilement à l’écran.",
+   "art": null,
+   "observations": [
+    {
+     "id": "radar",
+     "title": "Voir où s’arrête l’observation",
+     "passages": [
+      "L’utilisateur ouvre le radar pour voir le déplacement des précipitations autour de lui. Dans un avis positif, l’intérêt tient à une question locale fréquente : comment la pluie évolue au cours de la journée. C’est une raison de revenir à la carte, et pas seulement de regarder l’animation.",
+      "Si la carte affiche tout l’État à chaque ouverture, il faut d’abord retrouver sa propre zone. Mémoriser la zone et le niveau de zoom supprime ce travail répété. L’heure de l’image sélectionnée doit aussi rester visible pendant l’animation.",
+      "L’autre problème est le retard des données. La dernière image disponible ne décrit pas forcément l’instant présent. L’interface doit séparer l’heure de l’observation de l’heure d’ouverture, et la suite prévue des images déjà reçues. Sinon, une animation fluide donne l’impression d’informations plus fraîches qu’elles ne le sont."
+     ],
+     "quotes": [
+      {
+       "text": "Avoir le radar Doppler sous la main m’a gardé au sec ces 10 dernières années. Pas une goutte de pluie ne m’est tombée dessus. Ok c’est peut-être un peu exagéré. Mais sérieusement j’adore cette appli je l’utilise presque tous les jours. Surtout en vivant à Miami où on a de la pluie presque tous les après-midis en été. Je peux toujours res",
+       "rating": 5,
+       "app": "MyRadar Accurate Weather Radar"
+      },
+      {
+       "text": "À chaque fois qu’on regarde le radar, on regarde tout l’État on regarde pas sa zone à soi sur le radar. Il faut zoomer à chaque fois depuis cette dernière mise à jour c’est nul.",
+       "rating": 1,
+       "app": "KAIT Region 8 Weather"
+      },
+      {
+       "text": "Avant j’adorais cette appli. Maintenant elle est largement en retard sur le radar en direct. Le plus récent que j’ai vu c’est 9 min, mais c’est en général 15 min ou plus de retard sur le direct.",
+       "rating": 1,
+       "app": "Weather Hi-Def Radar Forecast"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_radar",
+      "alt": "Illustration du thème « Voir où s’arrête l’observation ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-radar",
+       "title": "Voir où s’arrête l’observation",
+       "body": "",
+       "ideas": [
+        "weather-apps-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "local",
+     "title": "Garder le point sur lequel porte la décision",
+     "passages": [
+      "Une prévision se vérifie dans un lieu précis et à travers un événement précis : le rendez-vous en extérieur a-t-il eu lieu, la pluie a-t-elle commencé à l’heure choisie. Un nom de ville général peut masquer une zone différente du point voulu. Après un déménagement, les questions posées à un bulletin familier changent elles aussi.",
+      "Il est utile d’enregistrer le lieu exact, la période et la source disponible. Cela permet de comparer ce qui était attendu et ce qui a été observé, et de voir quelles informations sont accessibles. Le choix d’un outil devient concret : on peut vérifier l’emplacement voulu et son propre scénario, au lieu de s’en remettre seulement à l’allure générale de la prévision.",
+      "Pour un événement, un lieu peut être rattaché à un intervalle : une adresse et les heures d’un rendez-vous en soirée, par exemple. Cela permet de revenir plus tard à la même question. Un bulletin mis à jour doit montrer ce qui a changé, sans avoir à choisir de nouveau la zone et l’heure."
+     ],
+     "quotes": [
+      {
+       "text": "Après avoir organisé une fête deux fois en me fiant à l’appli qui disait qu’il ferait « ensoleillé », et m’être vite rendu compte qu’il fallait annuler la fête parce qu’il PLEUVAIT DES CORDES ! J’ai décidé de changer d’appli météo… très content de l’avoir fait.",
+       "rating": 2,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "C’est la seule appli météo où on peut repérer exactement où est la météo. Dans la plupart des applis on récupère la météo à 15 ou 20 miles de là parce que l’appli est réglée sur la ville en général et dans certaines régions du pays comme Chicago la météo peut changer énormément quand on est seulement à cinq ou 6 mi",
+       "rating": 5,
+       "app": "Tomorrow.io: Weather Forecast"
+      },
+      {
+       "text": "J’adore cette appli ! Je l’utilise depuis toujours ! Je ne me rappelle même plus la première fois que je l’ai téléchargée. Il y a au moins dix ans ? Merci pour les graphiques et tout le reste ! Je viens de déménager dans le nord, à 2,5 heures au nord de Saint Paul, à Duluth, et votre appli m’a aidée à m’y retrouver dans ma nouvelle vie avec une météo TRÈS différente.",
+       "rating": 5,
+       "app": "Weather Underground: Local Map"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "places",
+     "title": "Tenir sa propre liste de lieux",
+     "passages": [
+      "Les lieux enregistrés reflètent la vie d’une personne : un voyage, le travail, les villes où vivent les proches. Avec le temps, certains ne servent plus. Si un ancien point ne peut pas être supprimé, un coup d’œil rapide oblige à faire défiler encore une fois des villes dont on n’a pas besoin.",
+      "Ici, les avis décrivent l’échec d’une action simple, et non l’absence d’une nouvelle façon de prévoir. Ajouter, renommer, réordonner et supprimer un lieu mérite d’être testé sur une liste déjà remplie.",
+      "La position actuelle et les points enregistrés à la main doivent se distinguer. Des épingles incompréhensibles laissent la personne deviner d’où elles viennent et ce que leur suppression va changer. Une explication claire de cet état est plus utile que de nouveaux réglages ajoutés par-dessus une liste déjà confuse."
+     ],
+     "quotes": [
+      {
+       "text": "Ça a toujours été mon appli de référence pour la météo mais depuis deux mois j’arrive pas à supprimer les lieux enregistrés. Ça dit que je dois en garder un. J’ai pas besoin de faire défiler des trucs que j’ai enregistrés il y a 2 ans.",
+       "rating": 3,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "J’ai vu quelqu’un d’autre dire qu’il n’arrive pas à supprimer les lieux enregistrés donc ça doit être un bug et pas juste un truc de mon côté. Avant ça marchait mieux, mais à un moment je suppose qu’une mise à jour a rendu ça pire.",
+       "rating": 1,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "J’aime bien le radar et les fonctions de température ainsi que les alertes d’orage. Mais d’autres endroits apparaissent épinglés alors que je m’en fiche. Je sais pas comment ils se sont épinglés ni comment m’en débarrasser. Je suis sûr qu’à chaque fois que je supprime et que je recommence on me le facture.",
+       "rating": 3,
+       "app": "Storm Shield"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_places",
+      "alt": "Illustration du thème « Tenir sa propre liste de lieux ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "decision",
+   "title": "Montrer les données d’une tâche précise",
+   "intro": "Une promenade, l’arrosage et une sortie sur l’eau demandent chacun une combinaison de conditions différente.",
+   "art": null,
+   "observations": [
+    {
+     "id": "alerts",
+     "title": "Comprendre une alerte et sa remise",
+     "passages": [
+      "Une alerte se compose du message lui-même et de sa remise sur l’appareil. L’historique des alertes peut être accessible dans l’app alors que le signal attendu n’arrive jamais. Avec plusieurs villes, il y a une tâche de plus : voir tout de suite de quel lieu il s’agit.",
+      "Il est utile d’afficher la zone, l’heure, la source du message et l’état des réglages choisis. Un test de remise aide la personne à mettre au point sa propre configuration. La lecture du message à voix haute peut en faciliter la compréhension, si elle conserve ce contexte. Ainsi, un message reste une information concrète que l’on peut ouvrir et examiner, et pas seulement un son inquiétant.",
+      "Un seul signal ne peut pas garantir que la personne a été informée du danger. C’est pourquoi l’historique des messages, l’heure de publication et des réglages de remise clairs comptent. En cas de retard ou d’absence de connexion, l’app doit montrer l’état des informations plutôt que de créer un sentiment de surveillance continue."
+     ],
+     "quotes": [
+      {
+       "text": "C’est la réponse météo, j’ai toutes les villes de nos enfants dedans. J’ouvre cette appli et je sais ce qui se passe partout ! Le top !",
+       "rating": 5,
+       "app": "Storm Shield"
+      },
+      {
+       "text": "Je l’ai réglée pour m’alerter des alertes tornade et les 3 dernières fois qu’il y a eu des alertes tornade en cours dans ma zone mon appli ne s’est pas déclenchée. Heureusement que j’avais la télé allumée, sinon je n’aurais pas su. Une est passée assez près pour que j’entende le bruit de train du vent, pas de tonnerre juste de la pluie et une tornade. Aucune alert",
+       "rating": 1,
+       "app": "WSB-TV Weather"
+      },
+      {
+       "text": "Les notifications météo en cours ont arrêté de marcher. Mon mari et moi comptons sur les notifications d’orage et de foudre pour notre activité. Aucun de nous deux n’est prévenu sauf si on ouvre l’appli, même avec tout activé. Réparez ça s’il vous plaît, on en dépend pour notre sécurité et celle du matériel !",
+       "rating": 2,
+       "app": "WeatherBug: Weather Forecast"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-alerts",
+       "title": "Comprendre une alerte et sa remise",
+       "body": "",
+       "ideas": [
+        "weather-apps-4",
+        "weather-apps-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "water",
+     "title": "Comparer les conditions sur l’eau",
+     "passages": [
+      "Sur l’eau, ce qui compte, c’est la combinaison du vent et des vagues sur le plan d’eau choisi. Un avis positif décrit un usage précis : comparer des journées pour pêcher sur un grand lac. C’est autre chose que la question quotidienne de la température en ville.",
+      "Un profil pour l’eau gagne donc à être construit autour du lieu et de la période de la sortie. La vitesse et la direction du vent, ainsi que les informations disponibles sur les vagues, doivent être côte à côte et dans les unités habituelles. Les paramètres qui y ont leur place dépendent du plan d’eau ; il n’est pas nécessaire d’ajouter tout le possible à chaque écran.",
+      "Une prévision qui s’écarte de l’expérience sur place ne se corrige pas avec des graphismes plus détaillés. L’observation faite par la personne elle-même peut être affichée à côté, avec son heure et son lieu, mais elle ne confirme pas toute la prévision. Le rôle de l’interface est d’aider à comparer les informations en conservant les différences entre elles."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise l’appli depuis deux ans pour choisir les jours de pêche. Je pêche sur un grand lac qui devient flippant quand le vent souffle fort. J’ai trouvé que les vents moyens prévus sont assez justes, mais peut-être décalés de deux heures. Honnêtement, bien mieux que mes autres applis, autant sur la vitesse que sur la direction.",
+       "rating": 5,
+       "app": "WillyWeather"
+      },
+      {
+       "text": "Windfinder dit delta à 8 mph , c’était 24 mph, océan annoncé 5 ft à 20 secondes de houle, c’était 7 ft à 7 secondes… NUL",
+       "rating": 1,
+       "app": "Windfinder: Wind & Weather map"
+      },
+      {
+       "text": "L’appli se trompe sur la hauteur des vagues et et sur les MPH du vent environ 40% du temps. Quand j’utilise cette appli j’essaie aussi de parler aux gens qui sont allés sur le lac récemment pour des infos en direct.",
+       "rating": 3,
+       "app": "Windfinder: Wind & Weather map"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_water",
+      "alt": "Illustration du thème « Comparer les conditions sur l’eau ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-water",
+       "title": "Comparer les conditions sur l’eau",
+       "body": "",
+       "ideas": [
+        "weather-apps-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rain-history",
+     "title": "Choisir la période dont la parcelle a besoin",
+     "passages": [
+      "Pour une parcelle, ce qui compte, c’est l’historique cumulé des précipitations sur une période adaptée. Les dernières vingt-quatre heures et le mois en cours ne remplacent pas une semaine ou plusieurs semaines, si c’est ainsi que la personne suit son arrosage. La longueur de la fenêtre fait donc partie de la tâche, et n’est pas un réglage d’affichage.",
+      "L’estimation de l’app et le relevé du pluviomètre de la personne doivent eux aussi se distinguer. Il est utile de garder la source et les bornes de la période à côté de la quantité. Les relevés peuvent alors être comparés et l’écart compris, sans mélanger une mesure locale et des informations calculées dans un total non étiqueté.",
+      "Un propriétaire peut comparer les deux semaines avant et après un changement d’arrosage. Une plage libre et des notes sur ses propres actions rendent cet historique plus utile qu’un total figé pour un mois calendaire. Une mesure manuelle doit être conservée séparément de l’estimation d’un service."
+     ],
+     "quotes": [
+      {
+       "text": "Je l’utilise tous les jours en tant qu’agriculteur et agronome. Très précis.",
+       "rating": 5,
+       "app": "RainDrop - Rain Totals & Radar"
+      },
+      {
+       "text": "Quand j’ai acheté Raindrop ça montrait combien de pluie j’avais eu sur la semaine passée, ou sur une période de 3 semaines. C’est comme ça que je savais quand je devais arroser la pelouse. Maintenant l’appli ne donne plus que le dernier jour, 2 jours, 3 jours, et le cumul du mois en cours. Plus utilisable pour gérer l’arrosage de ma pelouse.",
+       "rating": 4,
+       "app": "RainDrop - Rain Totals & Radar"
+      },
+      {
+       "text": "J’aime vraiment bien l’appli. Mais les mesures de pluie parfois elles sont justes d’autres fois elles sont très fausses. Ici au ranch on a eu plus de 3\" de pluie. C’est ce qu’il y a dans le pluviomètre. L’appli disait que le ranch avait eu 1,85\" de pluie.",
+       "rating": 3,
+       "app": "RainDrop - Rain Totals & Radar"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-rain-history",
+       "title": "Choisir la période dont la parcelle a besoin",
+       "body": "",
+       "ideas": [
+        "weather-apps-3"
+       ]
+      },
+      {
+       "directionId": "launch-places",
+       "title": "Tenir sa propre liste de lieux",
+       "body": "Si la personne effectue ses propres mesures, une tâche de plus apparaît : conserver l’historique de l’appareil après un changement de réseau ou de lieu d’installation.",
+       "ideas": [
+        "weather-apps-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "special",
+     "title": "Ne pas mélanger les scénarios professionnels",
+     "passages": [
+      "Une tâche spécialisée demande son propre jeu de données. Une vue aéronautique, le travail sur une parcelle et les opérations professionnelles posent des questions différentes ; ajouter tous les paramètres à un seul écran ne le rend pas également utile. Même les unités choisies doivent se retrouver dans le widget, où la personne lit un court résumé.",
+      "Une extension gagne donc à être construite autour d’un contexte précis et d’une présentation habituelle. Il faut d’abord découvrir quelles informations sont nécessaires ensemble et où elles sont disponibles. Un résultat utile est un bulletin cohérent où les paramètres et les unités correspondent au travail choisi, et dont les détails peuvent s’ouvrir séparément.",
+      "Pour une tâche de travail étroite, l’exhaustivité des données, les unités et l’heure de mise à jour comptent toutes. Un bulletin pour une équipe sur le chantier et une vue aéronautique appellent des règles de vérification différentes. Pour un tel produit, mieux vaut partir d’un public précis et de sources précises, plutôt que d’ajouter une étiquette professionnelle à une fiche météo générale."
+     ],
+     "quotes": [
+      {
+       "text": "Je suis utilisateur premium depuis longtemps et c’est la meilleure appli météo pour l’aviation. Par contre, une chose à corriger c’est le widget METAR qui n’utilise pas les unités des réglages de l’appli pour la pression et la distance. Il affiche toujours hPa et KM au lieu de inHg et SM que l’utilisateur choisit",
+       "rating": 3,
+       "app": "Windy.com"
+      },
+      {
+       "text": "C’est mieux que les concurrents jusqu’ici, mais je ne m’en suis servi que quelques fois pour la préparation avant vol.",
+       "rating": 5,
+       "app": "Ventusky: Weather Forecast"
+      },
+      {
+       "text": "Comme je fais du brûlage dirigé j’aimerais des paramètres comme la hauteur de mélange, le vent à 20ft, le vent de transport, le taux de ventilation. Je pense que beaucoup de mes collègues paieraient pour PRO si c’était proposé. Ça changerait tout pour nos opérations.",
+       "rating": 4,
+       "app": "Windy.app Wind, Tides, Radar"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_special",
+      "alt": "Illustration du thème « Ne pas mélanger les usages professionnels ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-special",
+       "title": "Ne pas mélanger les scénarios professionnels",
+       "body": "",
+       "ideas": [
+        "weather-apps-2",
+        "weather-apps-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "title": "Lire d’un coup d’œil ce dont on a besoin",
+   "intro": "Le bref coup d’œil habituel doit survivre à l’ajout de nouvelles possibilités.",
+   "art": null,
+   "observations": [
+    {
+     "id": "presentation",
+     "title": "Garder la vue rapide habituelle",
+     "passages": [
+      "Une présentation agréable peut être une raison d’ouvrir la météo une fois de plus. Des chiens à l’écran rendent plus plaisant le coup d’œil habituel sur les villes où vivent les proches — c’est exactement ce que l’avis suivant apprécie. C’est une valeur en soi, qui n’a pas besoin d’être justifiée par la précision des prévisions.",
+      "Les widgets règlent une autre tâche — l’accès rapide aux informations que la personne a choisies. Pouvoir régler le zoom du radar et passer d’une vue à l’autre permet de garder sur un petit écran ce que l’on consulte le plus souvent.",
+      "Une refonte peut dégrader cette vue habituelle, même s’il y a davantage de données. Il vaut la peine de la tester sur les anciennes actions : trouver les prévisions horaires, ouvrir le radar, regarder le jour voulu. Les illustrations et les nouvelles possibilités peuvent changer, mais les informations principales doivent rester faciles à reconnaître."
+     ],
+     "quotes": [
+      {
+       "text": "Trop sympa de voir tous ces chiens ! Ça rend la journée plus joyeuse quand je regarde la météo là où vivent mes proches.",
+       "rating": 5,
+       "app": "Weather Puppy Forecast + Radar"
+      },
+      {
+       "text": "Ils font vraiment du bon boulot sur la façon dont ils conçoivent leurs widgets. Le nombre d’options pour personnaliser chaque widget est excellent. Comme les niveaux de zoom variables pour le widget radar. J’apprécie aussi beaucoup de pouvoir faire défiler ce qui est en gros plusieurs widgets en un seul. Génial !",
+       "rating": 4,
+       "app": "RainViewer: Live Weather Radar"
+      },
+      {
+       "text": "Pourquoi 4 WARN ?…a-t-on besoin d’une alerte pour un temps chaud et magnifique ? Revenez à la version précédente s’il vous plaît. Trop chargé, trop de navigation, mauvais suivi radar. Horaire et Quotidien ne sont pas faciles à voir. Rendez les graphiques plus lisibles d’un coup d’œil. J’adorais l’ancienne version. Maintenant on utilise les autres applis et votre design précédent nous manque",
+       "rating": 1,
+       "app": "WDIV 4Warn Weather"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Choisir une seule question météo",
+  "body": "Pour un nouveau produit, il est plus utile de choisir une seule question récurrente : combien de précipitations sont tombées sur la parcelle, comment les conditions changent à l’adresse d’un chantier, ou ce que montre le radar près de chez soi. Il faut ensuite vérifier si la personne peut comparer rapidement les informations pour la période dont elle a besoin. Dans cette sélection, les pertes liées au choix du lieu, à la lecture de l’heure et à la conservation des réglages habituels sont bien visibles.\n\nUne prévision plus exacte n’en découle pas automatiquement. Si l’amélioration porte sur la présentation, c’est ainsi qu’il faut la juger : moins d’actions répétées, des écarts plus clairs, un accès plus facile au message d’origine. Les scénarios de l’eau, de l’aviation et des alertes demandent chacun un travail séparé avec des utilisateurs spécialistes ; les réunir sur un seul écran ne donne pas une solution universelle toute prête."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-place-time",
+   "title": "D’abord le lieu et l’heure",
+   "depth": 0
+  },
+  {
+   "id": "observation-radar",
+   "title": "Voir où s’arrête l’observation",
+   "depth": 1
+  },
+  {
+   "id": "observation-local",
+   "title": "Garder le point sur lequel porte la décision",
+   "depth": 1
+  },
+  {
+   "id": "observation-places",
+   "title": "Tenir sa propre liste de lieux",
+   "depth": 1
+  },
+  {
+   "id": "theme-decision",
+   "title": "Montrer les données d’une tâche précise",
+   "depth": 0
+  },
+  {
+   "id": "observation-alerts",
+   "title": "Comprendre une alerte et sa remise",
+   "depth": 1
+  },
+  {
+   "id": "observation-water",
+   "title": "Comparer les conditions sur l’eau",
+   "depth": 1
+  },
+  {
+   "id": "observation-rain-history",
+   "title": "Choisir la période dont la parcelle a besoin",
+   "depth": 1
+  },
+  {
+   "id": "observation-special",
+   "title": "Ne pas mélanger les scénarios professionnels",
+   "depth": 1
+  },
+  {
+   "id": "theme-reading",
+   "title": "Lire d’un coup d’œil ce dont on a besoin",
+   "depth": 0
+  },
+  {
+   "id": "observation-presentation",
+   "title": "Garder la vue rapide habituelle",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Choisir une seule question météo",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

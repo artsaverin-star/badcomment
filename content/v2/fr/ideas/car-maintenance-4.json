@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "car-maintenance-4",
+ "category": "car-maintenance",
+ "categoryName": "Entretien de la voiture",
+ "title": "Les codes de la voiture pour la conversation avec le mécanicien",
+ "description": "Le résultat brut de la lecture et une explication qu’on peut suivre sont conservés côte à côte.",
+ "cover": {
+  "src": "ideas/car-maintenance-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Après avoir vu un avertissement, le propriétaire veut comprendre quelles données sont disponibles. Une connexion échouée et une lecture incomplète doivent être distinguées du cas où il n’y a pas de panne."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Le mieux pour moi c’est qu’elle te dit à quel point un problème est grave et si c’est bon de continuer à rouler ou pas. J’aime bien aussi le truc des données en direct et la façon dont elle explique les codes de manière vraiment compréhensible.",
+    "rating": 4,
+    "app": "FIXD OBD2 Scanner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Vérifier le couple voiture-adaptateur pris en charge. Enregistrer le code, l’heure et les paramètres disponibles dans un rapport pour la conversation qui suit."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Un seul code n’établit pas la cause d’une panne. Ne pas promettre la compatibilité avec tous les adaptateurs, le coût d’une réparation ou l’autorisation de continuer à rouler."
+  }
+ ],
+ "rank": 236,
+ "free": false
+}

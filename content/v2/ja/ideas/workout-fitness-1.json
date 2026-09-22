@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "workout-fitness-1",
+ "category": "workout-fitness",
+ "categoryName": "トレーニングとフィットネス",
+ "title": "前回のセットが目の前に",
+ "description": "種目の履歴が入力画面にあり、ウォッチからの記録も確実に保存されるジムのログ。",
+ "cover": {
+  "src": "ideas/workout-fitness-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "ユーザーは今のセットを記録しながら、前回の重量とレップ数を見たいと考える。その値をメニューの中から探すことは、セッションから注意を引き離す。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "新しいUI好き。いちばんいいのは、今のトレーニングの画面に前回の重量とレップ数が出ること。前回何をやったか調べるのに、毎回メニューをたどるのにうんざりしてた。いい変更！",
+    "rating": 5,
+    "app": "Boostcamp: Workout Programs"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "ひとつの画面で見比べて記録する"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "今日の入力欄の隣に、前回のセットを日付付きで示す。値を変えられ、実施に印を付けられ、誤って押したものを直せるようにする。ウォッチでも同じログを使い、接続が一時的に切れたときの保存を明確にする。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "履歴を指示と取り違えない"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "前回の値は文脈であって、今日必ず持ち上げるべき負荷ではない。最初の版には、速い記録とデータが残ることで足りる。重量を自動で選ぶことは、別の種類の責任を加える。"
+  }
+ ],
+ "rank": 98,
+ "free": false
+}

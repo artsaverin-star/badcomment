@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "hiking-trails-7",
+ "category": "hiking-trails",
+ "categoryName": "Randonnées et itinéraires",
+ "title": "Construire une boucle par les sentiers",
+ "description": "On peut déplacer les points d’ancrage et comparer la ligne et les dénivelés après chaque modification.",
+ "cover": {
+  "src": "ideas/hiking-trails-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une liaison automatique peut se faire autrement que la personne ne l’avait prévu."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "L’appli prétend choisir les itinéraires en utilisant les sentiers et les routes. J’ai essayé de lui faire utiliser les sentiers et les chemins piétons mais elle veut pas.",
+    "rating": 2,
+    "app": "Footpath Route Planner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Marquer les portions accrochées et celles tracées à la main, mettre en évidence la partie reconstruite et proposer une annulation. Avant l’enregistrement, parcourir tout le chemin choisi."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Le calcul d’un itinéraire ne confirme pas que chaque portion est praticable."
+  }
+ ],
+ "rank": 468,
+ "free": false
+}

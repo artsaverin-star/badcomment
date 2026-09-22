@@ -10,6 +10,7 @@ import { getLocale } from "@/lib/i18n.server";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
 import type { RegenCard } from "@/lib/regenCards";
 import type { Evidence } from "@/components/InsightCard";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -152,7 +153,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
     <main className="mx-auto w-full max-w-2xl px-4 py-10 sm:py-14">
       <div className="mb-6 flex items-center justify-between gap-3">
         <Link
-          href={`/${slug}`}
+          href={oldHref(locale, `/${slug}`)}
           className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">

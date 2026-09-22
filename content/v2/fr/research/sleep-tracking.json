@@ -1,0 +1,466 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "sleep-tracking",
+ "name": "Trackers de sommeil et réveils",
+ "summary": "Un son familier avant le coucher, un réveil qu’on comprend et un historique du repos entre les postes sont des tâches différentes, qu’il vaut mieux ne pas cacher derrière un score de sommeil unique.",
+ "corpus": {
+  "reviews": 31731,
+  "apps": 94
+ },
+ "lead": "Le soir, l’un veut lancer un fond sonore familier et poser son téléphone. Un autre, après un poste de nuit, essaie de consigner un sommeil de jour. Un troisième réécoute un son de la nuit et veut comprendre quand il a commencé. Derrière le nom commun d’« app de sommeil » se cachent des occupations bien différentes.\n\nIl n’existe pas pour elles de test de qualité universel. Un lecteur doit conserver le son choisi ; un réveil, un réglage qu’on comprend ; un journal, la véritable succession des entrées et des corrections de l’utilisateur. Ni un beau graphique ni un score automatique ne remplacent ces résultats.",
+ "cover": {
+  "src": "research/ResearchLaunch_sleep-tracking_cover",
+  "alt": "Suivi du sommeil et réveils",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_sleep-tracking_audiences",
+  "alt": "Différentes tâches dans la catégorie « Suivi du sommeil et réveils ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Répéter sa soirée habituelle en voyage",
+   "body": "La personne a déjà choisi un fond sonore et veut le lancer dans une autre chambre. Il lui faut des réglages enregistrés et un accès aux pistes sans nouvelle recherche."
+  },
+  {
+   "title": "Consigner son sommeil entre les postes",
+   "body": "Le repos de jour et plusieurs périodes dans une même journée n’entrent pas dans une nuit standard. La personne a besoin de les voir à côté du travail et de corriger les limites erronées."
+  },
+  {
+   "title": "Revenir à un enregistrement de nuit",
+   "body": "L’utilisateur veut réécouter un son, retrouver une période précise ou préparer des questions pour un spécialiste. Ce qui compte, c’est le matériau d’origine, la date et ses propres notes, pas seulement le nom de l’événement."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sound",
+   "title": "Lancer un fond sonore familier et poser son téléphone",
+   "intro": "Le scénario du soir repose sur la prévisibilité : la personne sait ce qui va jouer, combien de temps et ce qui se passera le matin.",
+   "art": null,
+   "observations": [
+    {
+     "id": "familiar-mix",
+     "title": "Garder son propre son pour le lendemain soir",
+     "passages": [
+      "Une fois choisi, un fond sonore cesse d’être un enregistrement pris au hasard dans un catalogue. La personne revient à une combinaison précise et emporte le son familier à l’hôtel, où il n’y a pas le ventilateur de la maison. Le relancer demande donc une recette enregistrée et des ingrédients disponibles, pas une nouvelle recherche parmi des centaines d’options.",
+      "En voyage, le fond sonore familier est nécessaire dans une chambre inconnue, parfois sans connexion Internet stable. Un mix enregistré ne se limite donc pas à un nom : il lui faut les pistes, leur volume, la durée et des copies locales réellement présentes. La préparation se termine par la lecture de la combinaison choisie, pas par l’indicateur de chargement d’un catalogue.",
+      "Si les ingrédients habituels deviennent indisponibles ou passent dans une autre formule, c’est tout un usage de l’app déjà installé qui se casse. Les changements devraient être annoncés avant le lancement du soir, et la recette du mix conservée. Cela n’oblige pas le produit à figer son prix pour toujours, mais cela permet à la personne de voir ce qui a changé et de choisir la suite."
+     ],
+     "quotes": [
+      {
+       "text": "Je m’en sers depuis des années et ça ne m’a jamais laissé tomber ! Je ne jure que par le son du ventilateur carré. Les sons se lisent exactement comme le ferait de la musique : quand ton téléphone est éteint ou quand tu es dans une autre appli. J’adore vraiment !",
+       "rating": 5,
+       "app": "White Noise Lite"
+      },
+      {
+       "text": "C’est ce qu’il y a de mieux, je voyage quatre nuits sur sept pour mon boulot et dans des établissements différents chaque semaine, je dors dans des chambres d’hôtel différentes bien sûr, et ça couvre le bruit",
+       "rating": 5,
+       "app": "Sleep Sounds by Sleep Pillow"
+      },
+      {
+       "text": "J’ai toujours adoré cette appli- j’ai utilisé les sons pour composer mon mix parfait pour dormir. Maintenant les quatre sons que j’avais mixés sont tous premium, et j’ai été obligé de passer à une autre appli après être resté fidèle à celle-ci pendant des années.",
+       "rating": 3,
+       "app": "BetterSleep: Relax and Sleep"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_familiar-mix",
+      "alt": "Illustration du thème « Garder son propre son pour le soir suivant ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-familiar-mix",
+       "title": "Garder son propre son pour le lendemain soir",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-8",
+        "sleep-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "nearby-noise",
+     "title": "Ne pas confondre le son de la pièce avec des données sur une personne",
+     "passages": [
+      "Masquer un son extérieur et déterminer à qui appartient un son nocturne sont deux tâches différentes. Pour la première, la personne choisit un fond sonore qui lui convient. Dans la seconde, un partenaire ou un animal peuvent se trouver à côté : un ronflement enregistré, à lui seul, ne dit donc encore rien de sa source.",
+      "Le fond sonore de nuit pose une tâche propre à celui qui écoute : trouver un son et un volume qui lui soient confortables. Pour cela, il n’est pas nécessaire d’identifier la source du bruit extérieur. Un lecteur qui réagit au bruit est une hypothèse à part : l’augmentation automatique peut se révéler moins pratique qu’un réglage constant choisi à l’avance.",
+      "Un enregistreur fait face à une autre question : le son de qui s’est retrouvé dans l’enregistrement. Le ronflement d’un animal ou d’un partenaire ne peut pas être attribué automatiquement au propriétaire du téléphone. Deux appareils donnent deux pistes, mais cela seul ne résout pas le problème de les distinguer. Mieux vaut donc considérer pour l’instant l’enregistrement à deux comme une expérimentation, pas comme un avantage tout prêt pour une app."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise cette appli depuis environ 4 ans ou plus.\nJ’adore pouvoir mélanger la pluie, les rapides d’une rivière, le vent, le bruit brun et d’autres sons pour en faire un mélange personnel. Et j’adore aussi pouvoir passer ces sons la nuit, pour couvrir les ronflements de ma femme",
+       "rating": 5,
+       "app": "White Noise HQ: sound machine"
+      },
+      {
+       "text": "C’est une super appli pour avoir du bruit de fond pendant qu’on dort. Ça aide aussi à couvrir le bruit de quelqu’un qui ronfle !",
+       "rating": 5,
+       "app": "Rain Sounds HQ: sleep aid"
+      },
+      {
+       "text": "Je me retrouve jamais dans les enregistrements juste mon chien qui ronfle mais l’aide au sommeil est top alors essaie je trouve quand même que c’est un peu cher",
+       "rating": 4,
+       "app": "Pillow: Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-nearby-noise",
+       "title": "Ne pas confondre le son de la pièce avec des données sur une personne",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-3",
+        "sleep-tracking-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "continuous-sound",
+     "title": "Jouer sans arrêts inattendus",
+     "passages": [
+      "Un fond sonore discret est censé rester en lecture : un arrêt inattendu n’a donc pas le même sens qu’une pause dans un lecteur ordinaire. Le raccord d’un enregistrement court et une publicité forte au démarrage modifient eux aussi l’environnement sonore attendu. Un large choix ne compense pas le comportement imprévisible de la piste retenue.",
+      "La prévisibilité est nécessaire avant même le début de la nuit. Une publicité forte à l’ouverture contredit l’acte même de « mettre un fond sonore discret », surtout si quelqu’un dort déjà à côté. Le lancement, le verrouillage de l’écran et la minuterie doivent être jugés comme une seule séance, et non comme des fonctions indépendantes.",
+      "Une piste courte peut se répéter toute la nuit : son raccord fait alors partie du son. La transition abrupte s’entend encore et encore, même quand le lecteur ne s’arrête techniquement jamais. La qualité de la boucle et un volume mémorisé comptent plus qu’un grand nombre de sons semblables que la personne devra de toute façon passer en revue."
+     ],
+     "quotes": [
+      {
+       "text": "Je dors tellement mieux avec les sons de l’océan. Au bout de deux mois, le lecteur s’est mis à se couper des heures avant la fin prévue de la minuterie. 2 heures après l’endormissement, ça s’arrête d’un coup, et bam ! Je me réveille. 3 nuits d’affilée à s’arrêter alors qu’il restait des heures de minuterie, et à me réveiller, j’arrête.",
+       "rating": 3,
+       "app": "Soothing Sleep Sounds"
+      },
+      {
+       "text": "Pour une appli censée t’aider à dormir, leurs pubs débiles se lancent à plein volume quand on essaie d’ouvrir l’appli et réveillent tous ceux qui ont eu la chance de s’être déjà endormis. Pas très malin pour une appli de sommeil.",
+       "rating": 4,
+       "app": "Sleep Fan"
+      },
+      {
+       "text": "lol le son de l’océan a une cassure nette à la fin de la boucle ! Ça ne gêne personne ? Celui qui a fait le montage son devrait retourner à l’école pour apprendre à faire un fondu ou à raccorder ça proprement.",
+       "rating": 3,
+       "app": "Sleep Sounds White Noise, Rain"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_continuous-sound",
+      "alt": "Illustration du thème « Lire sans arrêts imprévus ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "schedule",
+     "title": "Vérifier le prochain réveil",
+     "passages": [
+      "Un horaire relie le lancement du soir au réveil suivant. Une personne peut apprécier un son doux et avoir malgré tout du mal à activer le réveil sur une montre ou à répéter un rituel qu’elle a configuré. Le son agréable et des commandes qu’on comprend doivent être jugés séparément.",
+      "Une sonnerie agréable et un réglage pratique sont deux qualités différentes. Un avis positif sur un réveil « intelligent » décrit l’impression d’une personne, mais ne prouve pas que le bon moment ait été déterminé avec précision. Le produit doit avant tout montrer clairement quand le prochain réveil sonnera et sur quel appareil il est réglé.",
+      "Avant de dormir, il importe de voir si le réveil est actif et où il sonnera : sur le téléphone ou sur la montre. Devoir l’activer chaque fois depuis un autre appareil s’oublie facilement. Une modification ponctuelle de l’heure doit se distinguer d’un changement de l’horaire permanent : sinon, un changement pratique pour demain crée une erreur le jour suivant.",
+      "Une famille avec un jeune enfant a une autre tâche : les adultes consignent de courtes périodes de sommeil et se transmettent l’historique. Un tel journal ne découle pas des avis sur les réveils pour adultes ; il doit être examiné à part, en commençant par un simple suivi et des rappels plutôt que par la promesse de prédire le sommeil d’un enfant."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai toujours eu du mal à m’endormir et à rester endormi, surtout avec le chaos des cours, du sport, du boulot et de la vie en général. Avoir une routine du soir qui calme assez l’esprit pour glisser dans le sommeil, c’est un sacré défi. La fonction routine du soir d’Avrora m’a aidé à créer cette routine et à ma",
+       "rating": 5,
+       "app": "Avrora Sleep Sounds & Stories"
+      },
+      {
+       "text": "Je les ai toutes essayées. Les applis de sons pour dormir et se concentrer, machin apaisant, truc relaxant. Endel sort du lot, ça change tout. Ça marche vraiment. J’avais du mal à faire la sieste, mais Endel a transformé ma routine de sommeil. J’utilise les réveils intelligents et ils me réveillent au bon moment sans sonnerie stridente. Je",
+       "rating": 5,
+       "app": "Endel: Focus & Sleep Sounds"
+      },
+      {
+       "text": "L’interface est incroyablement surchargée et confuse. La seule fonction pour laquelle je voulais vraiment cette appli, c’était le réveil intelligent, mais c’est un cauchemar à configurer. Il faut l’activer directement sur la montre à chaque fois, ce qui est terriblement pénible. En plus, on ne peut même pas régler un simple réveil",
+       "rating": 1,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-schedule",
+       "title": "Vérifier le prochain réveil",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-4"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "title": "Voir son vrai planning dans l’historique",
+   "intro": "Une période nocturne n’est pas la seule forme que prend le sommeil. Les épisodes de jour, les postes et les corrections manuelles doivent rester lisibles.",
+   "art": null,
+   "observations": [
+    {
+     "id": "actual-sleep",
+     "title": "Consigner le sommeil indépendamment de minuit",
+     "passages": [
+      "Un journal perd son sens quand le sommeil est consigné par-dessus des heures d’éveil, ou quand la fenêtre nocturne habituelle ne convient pas à un planning de travail. Corriger les heures n’est pas ici un contournement du système, mais un moyen de mettre l’historique en accord avec ce que la personne se rappelle vraiment de sa journée.",
+      "Quand le sommeil enregistré se poursuit jusque sur le trajet vers le travail, la personne doit pouvoir modifier la fin de la période. L’estimation automatique et la correction de l’utilisateur devraient être conservées de façon distincte. Sans cela, le graphique paraît exact, alors que l’utilisateur sait qu’il était éveillé pendant une partie du temps.",
+      "Après un poste de nuit, le sommeil commence le matin, et une autre période est possible avant le poste suivant. Le journal doit montrer cette succession sans pénalité pour non-conformité à une nuit standard. Un calendrier de travail aide à voir le temps disponible, mais il ne permet pas à lui seul de calculer exactement de combien de repos une personne donnée a besoin."
+     ],
+     "quotes": [
+      {
+       "text": "Ça ne suit pas le sommeil avec précision. Ça compte comme du temps de sommeil même après que je me suis levé et que j’ai marché 20 min. Ou quand je mets la montre à charger avant de me coucher. Le temps de sommeil profond complètement faux aussi. L’appli apple health intégrée donne de bien meilleurs résultats, et elle est gratuite.",
+       "rating": 2,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      },
+      {
+       "text": "Cette appli me dit que je dors encore alors que je suis debout, en route pour le travail. J’ai annulé mon renouvellement automatique à cause de ça.",
+       "rating": 2,
+       "app": "Pillow: Sleep Tracker"
+      },
+      {
+       "text": "Ça donne des notes catastrophiques aux gens s’ils ne dorment pas à certaines heures (qu’on ne peut pas régler). À cause des horaires de travail, les gens dorment à des heures différentes. Par exemple, quelqu’un qui bosse de nuit va dormir dans la journée mais on ne peut pas le mettre dans l’appli, pour les calculs et les conseils santé, etc.",
+       "rating": 4,
+       "app": "Sleep Number"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_actual-sleep",
+      "alt": "Illustration du thème « Noter le sommeil indépendamment de minuit ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-actual-sleep",
+       "title": "Consigner le sommeil indépendamment de minuit",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-1",
+        "sleep-tracking-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "readable-history",
+     "title": "Comprendre de quoi le total est fait",
+     "passages": [
+      "Un total rapide et un graphique détaillé servent des attentions différentes. Parfois, il faut saisir en quelques secondes la nuit qui vient de passer ; parfois, revenir à des périodes précises et les comparer. Supprimer la vue détaillée ne se compense pas par un nouveau score global à lui seul.",
+      "Un graphique détaillé permet de revenir à une période précise au lieu de ne voir qu’un score global. Il importe d’expliquer ce que l’appareil a mesuré, ce que l’app a calculé et ce que l’utilisateur a saisi lui-même. Un avis sur l’utilité du graphique pour une personne avec un TDAH ne confirme ni un effet thérapeutique ni l’exactitude des phases calculées.",
+      "Abandonner la vue détaillée au profit d’un seul score est risqué : certaines personnes viennent précisément pour l’historique des périodes de la nuit. Un aperçu court peut rester le premier écran, le détail s’ouvrant depuis celui-ci. Les données manquantes doivent être montrées comme manquantes, pas comme un mauvais sommeil."
+     ],
+     "quotes": [
+      {
+       "text": "C’est un aperçu rapide de ce que je veux savoir. J’ai d’autres applis de suivi du sommeil très détaillées mais je n’ai pas toujours le temps de « faire des recherches » sur mon sommeil. Apple health a ces infos enterrées dans l’appli santé mais celle-ci s’affiche, me dit ce que je veux savoir et c’est fini.",
+       "rating": 5,
+       "app": "Sleep Tracker ++"
+      },
+      {
+       "text": "J’aimais vraiment bien cette appli et je l’utilise depuis un moment pour suivre mon sommeil, à cause de mon TDAH. Le graphique fourni avec le rapport m’était super utile pour ça vu que je m’en servais surtout pour voir quand j’étais dans les différentes phases, combien de fois je me réveillais, combien de temps je mettais à m’endor",
+       "rating": 1,
+       "app": "SleepScore by Sleep.ai"
+      },
+      {
+       "text": "Ouais donc cette dernière mise à jour, ils ont enlevé l’endroit où on voit quelle partie du sommeil était léger profond et paradoxal, ce qui est vraiment pénible, dans l’ensemble ça va, mais c’est vraiment décevant de voir ce changement, je vais sûrement changer d’appli maintenant.",
+       "rating": 3,
+       "app": "SleepScore by Sleep.ai"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "personal-context",
+     "title": "Ajouter les circonstances avec ses propres mots",
+     "passages": [
+      "Une personne peut remarquer un lien entre sa soirée et la nuit qui suit. Un journal permet de garder une telle réflexion à côté de la date. Mais la phrase « j’ai mieux dormi après ça » reste une observation personnelle : une seule entrée n’établit pas ce qui a provoqué le changement.",
+      "Des tags tout prêts aident à commencer, tant qu’ils décrivent l’expérience ordinaire de la personne. Un ensemble mal adapté transforme l’étiquetage en obligation supplémentaire : soit on choisit les circonstances de quelqu’un d’autre, soit on saute l’entrée. Une note libre et quelques tags à soi permettent de garder ce qui a vraiment compté ce jour-là.",
+      "Un tag à soi sert à nommer une circonstance, pas à recommander de répéter l’action. La mention du magnésium dans un avis est un exemple de tag utilisateur absent. L’app ne doit pas transformer son apparition à côté d’une bonne nuit en conseil de prendre un complément ou en promesse d’un meilleur sommeil."
+     ],
+     "quotes": [
+      {
+       "text": "Si tu notes ton alimentation et tes activités, tu peux entendre la différence que fait un repas sain sur ton sommeil par rapport à de la malbouffe.",
+       "rating": 4,
+       "app": "SnoreLab : Record Your Snoring"
+      },
+      {
+       "text": "Ça marche plutôt bien avec quelques bizarreries. La section « tague ce qui s’est passé » est remplie de tags n’importe quoi à la influenceur fitness du genre « vidéo de paysage avant le coucher », « aromathérapie » et « biofeedback », qui sont des cas à part parmi les habitudes d’avant le coucher . Qui va faire ça un jour ?",
+       "rating": 4,
+       "app": "SleepWatch - Top Sleep Tracker"
+      },
+      {
+       "text": "Dans l’ensemble, l’appli est plutôt bien et suit beaucoup d’infos sur le sommeil. Il y a une section pour ajouter des « tags » sur les habitudes d’avant le coucher pour chaque nuit.. et il y a plein d’options préréglées au choix, mais je ne vois pas d’option pour ajouter/créer son propre tag. Ex : j’ai cherché « magnésium » et je ne l’ai pas vu",
+       "rating": 4,
+       "app": "SleepWatch - Top Sleep Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_personal-context",
+      "alt": "Illustration du thème « Ajouter les circonstances avec tes propres mots ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "recording",
+   "title": "Revenir à l’enregistrement, pas seulement au score",
+   "intro": "Un total est utile quand on voit sur quelles observations il repose et qu’on peut ouvrir l’extrait d’origine.",
+   "art": null,
+   "observations": [
+    {
+     "id": "night-evidence",
+     "title": "Écouter un extrait et préparer ses questions",
+     "passages": [
+      "La réécoute peut révéler à une personne un son nocturne qu’elle n’avait jamais remarqué. C’est une observation concrète à laquelle elle peut revenir. Le nom automatique d’un événement ne remplace pas l’enregistrement et n’en fait pas un diagnostic : la source du son, les circonstances de la nuit et l’impression propre de l’utilisateur restent distinctes.",
+      "Le résultat utile, c’est un audio accessible avec les heures et ses propres notes, qu’on peut réécouter ou dont on peut discuter avec un spécialiste. Les conditions d’accès à un enregistrement méritent d’être connues avant le début de la nuit. Un produit n’a pas besoin de transformer la surprise d’une réécoute en diagnostic pour rester utile.",
+      "Un autre avis porte sur des mesures d’oxygène et l’examen qui a suivi. C’est un autre type de données, pas une conclusion tirée d’un enregistrement au microphone. Si une app rassemble des matériaux différents en vue d’une consultation, elle doit en garder séparément l’origine et les heures. La signification des mesures et le résultat de l’examen ne peuvent pas être remplacés par un récit automatique d’un son nocturne."
+     ],
+     "quotes": [
+      {
+       "text": "La plupart mettraient cinq étoiles à cette appli, j’en suis pas loin.\nJe pensais que je ronflais à peine. Ma partenaire en rigolait, et je balayais ça d’un revers de main. Puis j’ai utilisé SnoreLab… et je me suis entendu pour de vrai. J’étais sous le choc.\nPas étonnant qu’elle dorme mal, et moi non plus.\nCe moment a tout changé. J’ai commencé à prendre le sommeil au séri",
+       "rating": 4,
+       "app": "SnoreLab : Record Your Snoring"
+      },
+      {
+       "text": "Dans l’ensemble l’appli était bien et l’installation facile, par contre quand j’ai voulu écouter les ronflements et les sons divers de la nuit ça ne m’a pas laissé faire à moins de payer pour les écouter. Je galère à trouver une seule appli qui ne me fasse pas payer pour écouter",
+       "rating": 2,
+       "app": "Sleep Tracker: Recorder, Sound"
+      },
+      {
+       "text": "Cette appli m’a aidé à voir les chutes de mon taux d’oxygène la nuit. J’ai passé un examen du sommeil qui a confirmé que mon oxygène baissait vraiment, parfois jusque dans le haut des 70%. Pas d’apnée du sommeil heureusement. On m’a prescrit de l’oxygène la nuit et je me sens comme une nouvelle personne. Merci les développeurs vous m’avez sauvé la res",
+       "rating": 5,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-night-evidence",
+       "title": "Écouter un extrait et préparer ses questions",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-7"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Un journal fait pour un vrai planning",
+  "body": "Pour un premier produit, je choisirais les personnes en travail posté. Leur difficulté est précise : le sommeil de jour et plusieurs périodes de repos s’insèrent mal dans un schéma de nuit standard. Un journal avec une correction manuelle compréhensible et un calendrier de travail peut être testé sur quelques postes réels : la personne reconnaît-elle sa propre semaine, et lui est-il plus facile de reconstituer l’historique. Rien de tout cela n’exige un nouveau « score de santé ».\n\nUn lecteur de sons est une autre direction, et la base y est déjà claire : le fond sonore choisi, la disponibilité et une lecture ininterrompue. L’enregistrement conjoint depuis deux téléphones est pour l’instant une idée bien plus faible — son utilité n’est pas établie. Il vaut mieux commencer par refléter l’expérience que la personne connaît déjà, pas par promettre d’expliquer ou d’améliorer automatiquement son sommeil."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-sound",
+   "title": "Lancer un fond sonore familier et poser son téléphone",
+   "depth": 0
+  },
+  {
+   "id": "observation-familiar-mix",
+   "title": "Garder son propre son pour le lendemain soir",
+   "depth": 1
+  },
+  {
+   "id": "observation-nearby-noise",
+   "title": "Ne pas confondre le son de la pièce avec des données sur une personne",
+   "depth": 1
+  },
+  {
+   "id": "observation-continuous-sound",
+   "title": "Jouer sans arrêts inattendus",
+   "depth": 1
+  },
+  {
+   "id": "observation-schedule",
+   "title": "Vérifier le prochain réveil",
+   "depth": 1
+  },
+  {
+   "id": "theme-history",
+   "title": "Voir son vrai planning dans l’historique",
+   "depth": 0
+  },
+  {
+   "id": "observation-actual-sleep",
+   "title": "Consigner le sommeil indépendamment de minuit",
+   "depth": 1
+  },
+  {
+   "id": "observation-readable-history",
+   "title": "Comprendre de quoi le total est fait",
+   "depth": 1
+  },
+  {
+   "id": "observation-personal-context",
+   "title": "Ajouter les circonstances avec ses propres mots",
+   "depth": 1
+  },
+  {
+   "id": "theme-recording",
+   "title": "Revenir à l’enregistrement, pas seulement au score",
+   "depth": 0
+  },
+  {
+   "id": "observation-night-evidence",
+   "title": "Écouter un extrait et préparer ses questions",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Un journal fait pour un vrai planning",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

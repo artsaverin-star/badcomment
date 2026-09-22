@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import { getLocale } from "@/lib/i18n.server";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -9,7 +10,7 @@ export const dynamic = "force-dynamic";
 // payments. Requisites come from src/data/legal.json.
 export default async function OfferPage() {
   const locale = await getLocale();
-  const lp = locale === "en" ? "/en" : "/ru";
+  const lp = oldLp(locale);
   const l = getLegal();
   const seller = `${legalValue(l.fullName)}${l.selfEmployed ? ", самозанятый (плательщик НПД)" : ""}, ИНН ${legalValue(l.inn)}`;
 

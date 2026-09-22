@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "invoice-maker-7",
+ "category": "invoice-maker",
+ "categoryName": "Factures pour les clients",
+ "title": "Des trajets liés aux commandes",
+ "description": "L’itinéraire et l’objet de la visite peuvent être vérifiés avant d’entrer dans le chiffrage.",
+ "cover": {
+  "src": "ideas/invoice-maker-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Un auteur se plaint que les trajets entre adresses professionnelles sont enregistrés de façon incomplète. Le rattachement à une commande n’est utile qu’une fois que l’itinéraire lui-même est enregistré et que la personne a pu vérifier les trajets manquants."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Le suivi des miles marche seulement environ 30 pour cent du temps. Du coup vous passez la plus grande partie de votre journée à revenir en arrière et à saisir à la main les endroits où vous êtes allé. Quand on est artisan et qu’on va à plusieurs endroits dans la journée c’est vraiment pas pratique.",
+    "rating": 1,
+    "app": "FreshBooks Invoicing App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Reconstituer d’abord la journée de travail"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Montrer la succession des trajets et les intervalles sans enregistrement, permettre de préciser les adresses et l’objet de la visite. Rattacher ensuite le segment choisi à une commande et décider à part s’il entre dans le montant facturé au client."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ne pas ajouter un deuxième carnet tenu à la main"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Vérifier si l’outil réduit la soirée passée à reconstituer les adresses. Si l’automatisation rate souvent des trajets, ajouter des catégories et un beau rapport augmentera le travail au lieu de le réduire."
+  }
+ ],
+ "rank": 298,
+ "free": false
+}

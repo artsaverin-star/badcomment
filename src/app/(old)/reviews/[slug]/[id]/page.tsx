@@ -7,6 +7,7 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { getApp, getNiche, nicheName, readReviews } from "@/lib/reviews";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 const FIRST = 40;
@@ -50,7 +51,7 @@ export default async function AppReviews({
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const access = await getAccess();
   const unlocked = canAccessReviewCategory(access, slug);
   if (!unlocked) {

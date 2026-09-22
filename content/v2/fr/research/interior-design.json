@@ -1,0 +1,469 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "interior-design",
+ "name": "Design d’intérieur et plans d’aménagement",
+ "summary": "Comment choisir les changements pour sa propre pièce, vérifier les dimensions et mener la version qui plaît jusqu’à un achat ou une rénovation.",
+ "corpus": {
+  "reviews": 18442,
+  "apps": 61
+ },
+ "lead": "On ouvre une app d’intérieur avec une question sur son propre logement : est-ce qu’une autre couleur irait, est-ce que le canapé rentrera, comment expliquer ce qu’on a en tête à ses proches ou à l’artisan. Une belle image est utile si elle aide à répondre à cette question. Quand elle change les dimensions, supprime des fenêtres ou propose des choses qu’on ne peut pas se procurer, la décision de rénovation est à reprendre depuis le début.\n\nTrois tâches sont liées ici : voir une option, la vérifier sur un espace réel et transmettre le résultat. Voyons où ce lien tient et où la personne doit reconstituer un travail déjà fait.",
+ "cover": {
+  "src": "research/ResearchInterior_cover",
+  "alt": "Deux personnes comparent des échantillons de couleur dans une pièce, en tenant le plan déplié du futur intérieur.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchInterior_audiences",
+  "alt": "Des échantillons de couleur, un mètre ruban contre une armoire et un carnet de projet ouvert montrent trois tâches de la planification d’un intérieur.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Pour son propre logement",
+   "body": "Avant une rénovation ou un déménagement, on choisit des finitions, on essaie des meubles et on discute des options avec ses proches. Pas besoin de maîtriser tout l’éditeur : finir la tâche du moment suffit. Mais même pour une seule pièce, il peut falloir des outils différents — une photo pour comparer l’aspect des choses, et des dimensions pour vérifier l’agencement."
+  },
+  {
+   "title": "Pour travailler sur un espace",
+   "body": "L’artisan a besoin d’un relevé vérifiable, le designer d’une sélection à discuter, et celui qui fait visiter un bien, d’une idée claire de ce qu’il peut devenir. Ici, le résultat passe à quelqu’un d’autre. Les conditions de départ doivent tenir, et il faut voir clairement ce qui est déjà vérifié, ce qui est validé et ce qui reste une proposition."
+  },
+  {
+   "title": "Pour acheter et poursuivre la rénovation",
+   "body": "Une fois l’aspect de la pièce arrêté, il se transforme en décisions concrètes : quelle armoire commander, quelle version montrer à l’artisan, à quelle version revenir. Du temps peut passer entre ces étapes. Un produit utile aide à conserver les décisions prises avec les dimensions, les liens et les notes qui les accompagnent."
+  }
+ ],
+ "sections": [
+  {
+   "id": "visualize",
+   "title": "D’abord — voir sa propre décision",
+   "intro": "À la première étape, la visualisation aide à sortir une idée de sa tête pour la mettre à l’écran. On peut comparer les options et s’entendre sur ce qui plaît. Il vaut la peine de séparer la recherche libre d’idées de l’essai d’un changement précis : ces deux tâches n’attendent pas la même chose du résultat.",
+   "art": null,
+   "observations": [
+    {
+     "id": "decision",
+     "title": "L’image donne un sujet de discussion commun",
+     "passages": [
+      "Discuter d’un futur intérieur avec des mots est difficile : chacun imagine sa propre version d’une « pièce lumineuse et chaleureuse ». Une image ramène la conversation au concret. Les avis positifs montrent deux suites à ce visionnage — valider une rénovation avec un proche, et choisir soi-même les meubles de l’appartement.",
+      "C’est déjà un résultat utile, même si l’app ne produit pas de dessin exact. On peut comprendre quelles combinaisons plaisent et réduire le champ. Mais un style trouvé et une pièce entièrement équipée sont deux degrés d’achèvement différents : le second demande des produits précis, leurs dimensions et leur disponibilité.",
+      "Dans un exemple négatif, le lien se rompt : l’auteur reçoit une visualisation avec les mauvaises couleurs et un canapé hors des options discutées. Il y a là une tâche à part pour un produit — aider à passer d’une image qui plaît à une liste d’objets vérifiable, en gardant les conditions de départ."
+     ],
+     "quotes": [
+      {
+       "text": "Super appli pour se représenter ses travaux, surtout quand un des deux conjoints a besoin de « le voir » pour décider",
+       "rating": 5,
+       "app": "Renovate AI - Home Design"
+      },
+      {
+       "text": "j’allais engager un décorateur d’intérieur pour mon nouvel appart mais j’ai décidé d’essayer ça d’abord. TELLEMENT content de l’avoir fait. j’ai eu bien plus d’idées que prévu et j’ai acheté les trucs moi-même à partir de ce que l’appli m’a montré. ça m’a littéralement économisé des centaines de dollars",
+       "rating": 5,
+       "app": "RoomGPT : AI Interior Design"
+      },
+      {
+       "text": "J’ai payé pour des prestations de design, mais le rendu final se trompait sur les couleurs de chez moi, et il y avait un canapé qui faisait pas partie de mes options d’achat.",
+       "rating": 1,
+       "app": "Havenly: Interior Design"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "shopping-path",
+       "title": "D’un style qui plaît à un choix concret",
+       "body": "Après le choix d’un style, l’étape suivante est de trouver des objets disponibles aux bonnes dimensions et dans le budget voulu.",
+       "ideas": [
+        "interior-design-4"
+       ]
+      },
+      {
+       "directionId": "listing-view",
+       "title": "Aider quelqu’un d’autre à se représenter l’espace",
+       "body": "Une mécanique semblable peut servir pour faire visiter un bien vide. C’est une hypothèse à part : celui qui regarde doit pouvoir distinguer le lieu réel du meublement proposé.",
+       "ideas": [
+        "interior-design-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "controlled-change",
+     "title": "Reconnaître sa propre pièce",
+     "passages": [
+      "À mesure que le choix se précise, les limites de la transformation comptent. On apporte la photo d’un lieu existant, et avec elle les conditions dans lesquelles on cherche une solution. Si le résultat les perd, comparer des options pour son propre logement devient difficile.",
+      "Garder la pièce reconnaissable ne suffit pas : la modification suivante doit elle aussi obéir à la demande. Des auteurs veulent retirer une étagère ou ajouter des rideaux, et décrivent des tentatives répétées pour obtenir le changement demandé. Le temps part alors en explications à l’éditeur plutôt qu’en choix d’intérieur.",
+      "Il y a aussi une expérience positive : un auteur souligne que sa demande a bien été exécutée. Cela montre ce qu’on apprécie dans une édition contrôlée. On veut continuer à partir de la version réussie, en gardant les détails déjà choisis."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai mis une photo de ma pièce et ça me renvoie une pièce complètement différente. Tout l’intérêt c’était que j’ai un plafond cathédrale et que je voulais des idées, et ça m’a renvoyé une pièce normale, sans les fenêtres en plus. Pas utile.",
+       "rating": 2,
+       "app": "Decor AI: Room & Home Design"
+      },
+      {
+       "text": "Les prompts IA (ex : ajouter un rideau jusqu’au sol à la fenêtre, supprimer les étagères) sont ignorés, aucune formulation n’y change rien. Je cherche un autre outil.",
+       "rating": 2,
+       "app": "Arch - AI Home Design"
+      },
+      {
+       "text": "enfin une appli qui comprend vraiment ce que je veux et qui génère pas des images modifiées au hasard. Leur IA est intelligente et fait exactement ce qu’on veut.",
+       "rating": 5,
+       "app": "Remodel AI - Home Design"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_controlled-change",
+      "alt": "Une femme change un rideau ; la fenêtre, le canapé et le passage restent en place.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "bounded-photo",
+       "title": "Développer une version par étapes successives",
+       "body": "Pour un éditeur de ce type, c’est la deuxième modification qui décide : un bon résultat survit-il au changement suivant ?",
+       "ideas": [
+        "interior-design-1"
+       ]
+      },
+      {
+       "directionId": "color-preview",
+       "title": "Réduire la tâche à un seul choix",
+       "body": "Choisir une couleur est un cas plus étroit du même besoin. La comparaison sur une seule photo aide à retenir les échantillons à tester sur le mur.",
+       "ideas": [
+        "interior-design-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "title": "Ensuite — confronter à l’espace réel",
+   "intro": "Une version qui plaît doit encore être mise en place. Les portes doivent s’ouvrir, les meubles doivent rentrer, et une forme de pièce compliquée doit rester telle quelle sur le plan. À cette étape, les dimensions comptent, et la possibilité de corriger le résultat aussi. La photo ne répond plus à toutes les questions.",
+   "art": null,
+   "observations": [
+    {
+     "id": "measure",
+     "title": "Une dimension doit pouvoir être vérifiée et corrigée",
+     "passages": [
+      "Quand on reporte un lieu sur un plan, les petits détails deviennent importants. L’aimantation des murs est pratique tant qu’elle aide à dessiner ; si elle empêche de s’arrêter à la longueur voulue, c’est la forme qui se met à obéir à l’interface. Tout ce qu’on place ensuite repose sur ce compromis.",
+      "Le relevé automatique ne supprime pas le besoin de vérifier. Dans un avis, un second scan donne une surface différente, et l’auteur ne peut pas placer les angles à la main. Le problème a deux volets : le résultat fait douter, et la façon habituelle de le préciser n’est pas disponible.",
+      "Un avis positif décrit lui aussi une mesure de contrôle : l’auteur revérifie les dimensions et juge l’écart acceptable. Cela n’établit pas la précision de l’outil dans tous les cas, mais cela montre un ordre de travail utile. Obtenir d’abord la base, puis vérifier les dimensions qui comptent, et seulement ensuite les utiliser pour l’agencement ou le calcul. Une armoire dans une niche et un croquis préliminaire ne tolèrent pas les mêmes écarts."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai essayé de créer un mur de 5’ 7” de long, mais quand je fais glisser et que j’approche de 5’ 6”, ça saute tout de suite au pied entier suivant (6’).",
+       "rating": 2,
+       "app": "Floor Plan App"
+      },
+      {
+       "text": "On peut plus choisir les angles d’une pièce à la main. Du coup il n’y a aucun moyen d’être sûr qu’on mesure correctement. Toute l’automatisation sert à rien. Si je scanne deux fois la même pièce et qu’à chaque fois j’obtiens une surface différente en pieds carrés, ça vaut rien.",
+       "rating": 1,
+       "app": "magicplan"
+      },
+      {
+       "text": "J’ai revérifié les mesures après le scanner de pièce et il y avait seulement quelques pouces d’écart à chaque fois.",
+       "rating": 5,
+       "app": "4Plan Home & Interior Planner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_measure",
+      "alt": "Des gens vérifient au mètre ruban si une armoire tient dans la niche près de la plinthe.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "furniture-fit",
+       "title": "Vérifier un seul objet avant l’achat",
+       "body": "Si la tâche se limite à l’achat d’un canapé, un schéma précis de la pièce et de ce qu’elle contient peut suffire, sans éditeur de rénovation complet.",
+       "ideas": [
+        "interior-design-3"
+       ]
+      },
+      {
+       "directionId": "field-estimate",
+       "title": "Transmettre un relevé vérifié",
+       "body": "Chez l’artisan, le plan devient la base d’un calcul approximatif. Il faut distinguer les dimensions de contrôle des chiffres non vérifiés avant la remise du devis.",
+       "ideas": [
+        "interior-design-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dependencies",
+     "title": "Savoir ce qui change en même temps que le mur",
+     "passages": [
+      "Préciser les dimensions débouche presque inévitablement sur des modifications. Un mur est rallongé, un autre déplacé, une cloison retirée. Les parties d’un plan sont liées entre elles, donc une action peut toucher les éléments voisins. L’important est que la personne comprenne les conséquences et puisse revenir à l’état précédent.",
+      "Dans les avis, les ennuis commencent quand une petite action change trop de choses : il faut refaire des dimensions, ou tout un fragment du projet. Au lieu de travailler sur l’espace, la personne se met à entretenir l’éditeur.",
+      "D’où une façon concrète de tester un futur produit : donner à quelqu’un un plan déjà terminé et lui demander de le corriger. Voit-il quelles dimensions ont été touchées, peut-il tenir les contraintes qui comptent et annuler l’action ? Ce scénario en dit plus sur la maniabilité d’un éditeur que la création rapide d’une pièce rectangulaire vide."
+     ],
+     "quotes": [
+      {
+       "text": "À chaque fois que j’ajuste un mur, ça change d’autres dimensions. Des heures perdues à gérer l’appli au lieu du projet. J’ai laissé tomber et je l’ai dessiné au papier et au crayon. BEAUCOUP plus simple.",
+       "rating": 1,
+       "app": "Live Home 3D - House Design"
+      },
+      {
+       "text": "si tu supprimes un petit mur ça supprime la moitié de ton projet. ça suppose les murs à ta place et suppose les périmètres des pièces à ta place et te laisse pas continuer à créer l’emprise au sol",
+       "rating": 3,
+       "app": "Home Planner AI：Room Design 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_dependencies",
+      "alt": "Une main déplace une cloison reliée par des fils aux murs voisins du plan.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "editable-plan",
+       "title": "Faire de la correction une partie du scénario principal",
+       "body": "La saisie numérique et l’annulation sont utiles ensemble : l’une fixe la dimension voulue, l’autre permet d’explorer des options sans refaire le plan.",
+       "ideas": [
+        "interior-design-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "levels",
+     "title": "Essayer d’abord la partie difficile",
+     "passages": [
+      "Les capacités d’un éditeur méritent d’être testées sur la partie la plus difficile de son propre projet. Une maison n’a besoin que de pièces sur un seul niveau ; une autre demande un escalier et une liaison entre les étages. L’auteur d’un avis n’a pas réussi à installer un escalier, même après avoir regardé la vidéo d’aide. La cause tient peut-être à une limite de la fonction ou à l’explication, mais pour son projet le résultat est le même : il ne peut pas continuer.",
+      "Un autre utilisateur trouve depuis plusieurs années que le même type d’outil lui suffit ; il apprécie surtout la promenade dans la maison. Les deux expériences ne se contredisent pas. Un projet simple sur un seul niveau et une maison complexe n’ont pas les mêmes exigences, et la note globale d’une app ne révèle pas cette différence.",
+      "Avant toute finition détaillée, il vaut la peine de reproduire le point difficile : l’escalier, la niche, la hauteur inhabituelle. Puis de le modifier et de vérifier les pièces voisines. Un projet d’essai de ce genre montre les limites avant de reporter toute une maison. Pour celui qui construit l’éditeur, il montre quel obstacle arrête vraiment le travail et quel inconvénient les gens acceptent de contourner."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai envie d’aimer cette appli mais j’arrive pas à comprendre comment ajouter et configurer un escalier entre des plans à plusieurs niveaux. La vidéo d’aide en parle pas. Gros oubli si on peut pas ajouter d’escalier.",
+       "rating": 3,
+       "app": "Interior Design PRO"
+      },
+      {
+       "text": "J’utilise cette appli depuis 3 ans et j’ai toujours aimé. J’arrive à faire tout ce dont j’ai besoin. J’adore la fonction de promenade.",
+       "rating": 5,
+       "app": "HomeByMe - House Planner 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_levels",
+      "alt": "Deux personnes posent la dernière marche entre l’escalier et l’étage.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Et enfin — se servir de ce qui a été fait",
+   "intro": "Un projet continue au-delà de la première séance : on le montre à ses proches, on en discute avec un client, on le précise et on le transmet pour les travaux. Il vaut donc la peine de suivre tout le parcours d’un résultat fini — de l’enregistrement à la réouverture et à l’envoi.",
+   "art": {
+    "src": "research/ResearchInterior_directions",
+    "alt": "Des gens précisent ensemble les détails d’une pièce, avec un cadre, une règle et le carnet du projet.",
+    "widths": [
+     480,
+     800,
+     1200
+    ],
+    "width": 1200,
+    "height": 800
+   },
+   "observations": [
+    {
+     "id": "saved-work",
+     "title": "Enregistrer les décisions, pas seulement l’image",
+     "passages": [
+      "Au fil du travail, les décisions s’accumulent dans un projet : une option a été discutée, une autre écartée, les dimensions précisées. Une version perdue oblige à refaire toute cette chaîne. Dans un avis, l’auteur parle de cinq semaines de travail disparues après une mise à jour.",
+      "Un bouton « Enregistrer » ne donne pas à lui seul l’assurance que le travail est enregistré. L’auteur d’un autre avis appuie dessus toutes les cinq minutes et refait quand même son mood board deux fois. On a besoin de savoir quelle version est déjà écrite et si l’on peut y revenir.",
+      "La perte fait le plus mal juste après une étape difficile : les mesures sont finies, l’étage est terminé, et l’enregistrement se bloque. Un test doit donc inclure la réouverture du fichier, et non s’arrêter à l’appui sur un bouton. La version récupérée doit encore contenir les dernières dimensions, les derniers objets et les dernières notes.",
+      "Quand le résultat passe à un client ou à un artisan, la version enregistrée devient un point de repère commun. On peut y rattacher des commentaires et une liste d’objets validée, pour que le remplacement suivant n’oblige pas à refaire la présentation."
+     ],
+     "quotes": [
+      {
+       "text": "S’il vous plaîîît trouvez un moyen de récupérer mon ancien projet après votre première mise à jour tout a été supprimé.J’ai payé l’abonnement passé sans doute 5 semaines à créer juste pour que ça soit effacé.",
+       "rating": 3,
+       "app": "Planner 5D: AI Home Design"
+      },
+      {
+       "text": "J’ai dû refaire un mood board deux fois parce que ça a pas du tout enregistré mon travail. Même si j’appuyais sur « enregistrer » toutes les 5 min pour être sûre que mes changements étaient enregistrés, ça a pas enregistré mon tableau.",
+       "rating": 1,
+       "app": "Morpholio Board - Moodboard"
+      },
+      {
+       "text": "J’avais enfin réglé mes dimensions sur tout un niveau et ça a refusé d’enregistrer. Ça tournait, tournait. La seule option que j’avais c’était de fermer l’appli. Ça a supprimé tout mon travail.",
+       "rating": 2,
+       "app": "HomeByMe - House Planner 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_saved-work",
+      "alt": "Une pièce enregistrée ressurgit d’un livre ouvert ; des signets marquent les versions précédentes.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "completed-project",
+       "title": "Mener une sélection jusqu’à une version validée",
+       "body": "Pour le designer, ce qui compte, c’est le lien entre la sélection validée, les commentaires du client et le calcul de l’achat.",
+       "ideas": [
+        "interior-design-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "limits",
+     "title": "Comprendre les conditions avant le gros du travail",
+     "passages": [
+      "Un résultat enregistré peut se révéler inaccessible sans la moindre panne technique. L’auteur d’un avis dessine et enregistre un plan, puis ne découvre qu’au moment de l’ouvrir l’obligation de lancer un essai. À ce moment-là, du temps a déjà été investi dans l’app, et une condition inattendue change le regard porté sur tout ce travail.",
+      "Autre difficulté : les règles de consommation du quota. Dans l’exemple cité, une pièce annulée continue de compter comme une pièce créée. Pour la personne, c’est la correction d’une erreur ; pour le compteur, c’est une utilisation de plus. Les conditions paraissent claires jusqu’au premier écart de ce genre.",
+      "Il est utile de montrer à l’avance ce qui est consommé, comment une annulation est comptée et quel accès reste sur un projet terminé. Ces plaintes ne permettent pas de fixer un prix d’abonnement ni de promettre une forte demande. En revanche, elles permettent de composer un test de produit sérieux : parcourir le chemin de la première version à la réouverture, à la modification et à l’envoi du résultat. C’est à ces passages qu’on voit si l’outil aide à mener une intention jusqu’au bout."
+     ],
+     "quotes": [
+      {
+       "text": "Ils te laissent commencer et enregistrer un plan juste pour t’obliger à souscrire un essai gratuit pour accéder au plan. Très peu professionnel et sournois.",
+       "rating": 1,
+       "app": "DrawPlan"
+      },
+      {
+       "text": "leur « essai gratuit » s’arrête à trois pièces même si tu as fait annuler et supprimé une pièce parce que les dimensions étaient pas bonnes. Dès qu’un quatrième mur est tracé, ça compte comme une pièce, et ça compte dans ta limite de trois pièces.",
+       "rating": 1,
+       "app": "Keyplan 3D Lite - Home design"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_limits",
+      "alt": "Une gomme efface une pièce du plan, mais le jeton dépensé reste dans la boîte.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Commencer par une seule décision pour sa propre pièce",
+  "body": "Le point d’entrée le plus clair ici est un seul achat ou un seul changement dans un lieu existant. Comparer des teintes de mur, vérifier un nouveau canapé, faire valider une liste d’objets : chacune de ces tâches a un résultat dont on peut discuter avec la personne après usage. Un éditeur d’intérieur complet réunit davantage de tâches liées.\n\nIl faut donc d’abord mener un seul scénario jusqu’au bout dans une vraie pièce. Si la personne reconnaît ses conditions de départ, peut corriger la version et s’en servir pour acheter, l’outil est déjà utile. Si elle enregistre l’image, il vaut la peine de savoir si cela l’aide à comparer des options ou à discuter de son idée. Pour un produit déjà sur le marché, la priorité va aux modifications contrôlées et à la conservation de ce qui a été fait : de nouveaux styles ne remplacent pas la possibilité de continuer son propre travail."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-visualize",
+   "title": "D’abord — voir sa propre décision",
+   "depth": 0
+  },
+  {
+   "id": "observation-decision",
+   "title": "L’image donne un sujet de discussion commun",
+   "depth": 1
+  },
+  {
+   "id": "observation-controlled-change",
+   "title": "Reconnaître sa propre pièce",
+   "depth": 1
+  },
+  {
+   "id": "theme-plan",
+   "title": "Ensuite — confronter à l’espace réel",
+   "depth": 0
+  },
+  {
+   "id": "observation-measure",
+   "title": "Une dimension doit pouvoir être vérifiée et corrigée",
+   "depth": 1
+  },
+  {
+   "id": "observation-dependencies",
+   "title": "Savoir ce qui change en même temps que le mur",
+   "depth": 1
+  },
+  {
+   "id": "observation-levels",
+   "title": "Essayer d’abord la partie difficile",
+   "depth": 1
+  },
+  {
+   "id": "theme-finish",
+   "title": "Et enfin — se servir de ce qui a été fait",
+   "depth": 0
+  },
+  {
+   "id": "observation-saved-work",
+   "title": "Enregistrer les décisions, pas seulement l’image",
+   "depth": 1
+  },
+  {
+   "id": "observation-limits",
+   "title": "Comprendre les conditions avant le gros du travail",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Commencer par une seule décision pour sa propre pièce",
+   "depth": 0
+  }
+ ],
+ "free": true
+}

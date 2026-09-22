@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
+import { isOldPublicPath, oldHref, switchOldLocale } from "@/lib/oldHref";
 
 const ORDER: Locale[] = ["ru", "en"];
 const SHORT: Record<Locale, string> = { en: "EN", ru: "RU" };
@@ -55,11 +56,15 @@ export default function LangMenu({ locale }: { locale: Locale }) {
 
   function go(next: Locale) {
     if (next === locale) { setOpen(false); return; }
+    // The shared `locale` cookie is the NEW site's preference too (it may hold
+    // de/fr/ja): only write it from in-place pages, never from /<L>/old.
+    if (!isOldPublicPath(pathname)) {
+      // eslint-disable-next-line react-hooks/immutability
+      document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
+    }
+    // /ru/old/x → /en/old/x; an in-place /ru/x → /en/x.
     // eslint-disable-next-line react-hooks/immutability
-    document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
-    const base = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
-    // eslint-disable-next-line react-hooks/immutability
-    window.location.href = `/${next}${base === "/" ? "" : base}`;
+    window.location.href = switchOldLocale(pathname, next);
   }
 
   return (
@@ -77,7 +82,7 @@ export default function LangMenu({ locale }: { locale: Locale }) {
       {open && (
         <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[190px] rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-1.5 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.8)]">
           <a
-            href={`/${locale}/search`}
+            href={oldHref(locale, "/search")}
             onClick={() => setOpen(false)}
             className="flex w-full items-center gap-2.5 rounded-[14px] px-3 py-2.5 text-[14px] font-semibold text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
           >

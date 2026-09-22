@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "car-maintenance-5",
+ "category": "car-maintenance",
+ "categoryName": "Entretien de la voiture",
+ "title": "Un journal des pleins avec des corrections qu’on peut suivre",
+ "description": "Un plein oublié peut être ajouté en conservant l’ordre et en expliquant le recalcul.",
+ "cover": {
+  "src": "ideas/car-maintenance-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une date erronée ou un plein partiel change le graphique de consommation. Sans marqueurs, les chiffres paraissent plus précis que l’historique dont ils sont tirés."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "ça suit la consommation de ma voiture, ce qui me permet de savoir en détail si la consommation de ma voiture monte ou descend. ça me donne donc une très bonne idée du fonctionnement de mon moteur. En plus cet historique aide pour la valeur de revente de ma voiture.",
+    "rating": 5,
+    "app": "Fuelly: MPG & Service Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Prendre en charge l’insertion d’un enregistrement, les unités de mesure et les notes sur les conditions des trajets. Avant l’enregistrement, montrer quels segments du graphique seront recalculés."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Ne pas appeler un écart un diagnostic du moteur. Il faut d’abord vérifier la complétude des enregistrements et la comparabilité des conditions."
+  }
+ ],
+ "rank": 139,
+ "free": false
+}

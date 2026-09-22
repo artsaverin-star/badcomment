@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "invoice-maker-2",
+ "category": "invoice-maker",
+ "categoryName": "Factures pour les clients",
+ "title": "L’acompte et le décompte final",
+ "description": "Les paiements sont rattachés à une seule commande, et le solde peut être vérifié d’après l’historique.",
+ "cover": {
+  "src": "ideas/invoice-maker-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Quand l’acompte est noté dans un tableur à côté, le client et le prestataire voient facilement des montants dus différents."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’aimerais qu’ils intègrent un moyen d’accepter les acomptes sans se prendre la tête.",
+    "rating": 4,
+    "app": "Invoice Maker & Estimate App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Conserver chaque encaissement avec sa date, montrer le périmètre initial et le solde actuel. Traiter les remboursements et les corrections comme des événements à part."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Le paiement du client et l’arrivée de l’argent chez le prestataire peuvent se produire à des moments différents ; il faut distinguer les statuts."
+  }
+ ],
+ "rank": 464,
+ "free": false
+}

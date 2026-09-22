@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "music-streaming-8",
+ "category": "music-streaming",
+ "categoryName": "Listening to music",
+ "title": "Home audio control that makes sense",
+ "description": "The room, the device and the current state are visible before a setting is changed.",
+ "cover": {
+  "src": "ideas/music-streaming-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A home system can be made up of several devices. When it is unclear which one receives the command, even changing the volume is awkward."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Just bought a pair of Denon 200s. I like the sound, and every time I turn it on to listen to something I have to redo the stereo pairing. Incredibly frustrating.",
+    "rating": 2,
+    "app": "HEOS"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Support a tested set of hardware, and show the connection and the output selected. Keep a clear way to go back to the previous setting."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Do not promise compatibility with every system. After a reconnection the state on screen has to be checked against the actual device."
+  }
+ ],
+ "rank": 191,
+ "free": false
+}

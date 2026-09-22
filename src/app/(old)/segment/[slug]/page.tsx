@@ -28,6 +28,7 @@ import type { Tone } from "@/components/CardCarousel";
 import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
 import NicheDossier from "@/components/NicheDossier";
 import { hasReviewCorpus } from "@/lib/reviews";
+import { oldLp } from "@/lib/oldHref";
 
 // Categories migrated to the new dossier layout (market + audience + honest
 // rating + breakdown + idea cards). Rolled out one niche at a time.
@@ -202,7 +203,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
 
   if (DOSSIER_SLUGS.has(slug)) {
     if (!hasReviewCorpus(slug)) notFound();
@@ -418,7 +419,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <AtmosphereSetter hue={hueFromSlug(slug)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <BackLink fallback="/" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback={lp} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Назад" : "Back"}
       </BackLink>
@@ -433,7 +434,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           summary.lead && <p className="mt-8 max-w-[58ch] text-headline text-pretty text-[var(--color-text-secondary)]">{tg(summary.lead)}</p>
         )}
         {hasPeoplesRating(slug) && (
-          <Link href={`/${ru ? "ru" : "en"}/rating/${slug}`} className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+          <Link href={`${lp}/rating/${slug}`} className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
             {ru ? `Народный рейтинг: ${summary.appsCount} приложений по отзывам` : `People's rating: ${summary.appsCount} apps by reviews`}
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 3.25 10.75 8 6 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>

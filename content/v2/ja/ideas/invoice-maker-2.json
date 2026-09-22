@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "invoice-maker-2",
+ "category": "invoice-maker",
+ "categoryName": "顧客への請求書",
+ "title": "前金と最終精算",
+ "description": "支払いは一つの案件に結びつき、残額は履歴で確かめられる。",
+ "cover": {
+  "src": "ideas/invoice-maker-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "前金が別の表計算シートに記録されていると、顧客と作業する人は違う未払い額を見ることになりやすい。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "前金をすんなり受け取れる仕組みを入れてくれたらいいのに。",
+    "rating": 4,
+    "app": "Invoice Maker & Estimate App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "受け取った支払いを一件ずつ日付とともに残し、もとの範囲と今の残額を見せる。返金と訂正は別々の出来事にする。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "顧客の支払いと、お金が作業する人に届くことは、別の時に起こりうる。状態は見分けられなければならない。"
+  }
+ ],
+ "rank": 464,
+ "free": false
+}

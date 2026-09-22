@@ -2,14 +2,18 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { Header } from "@saverin/ui-web";
 import { getAccess } from "@/lib/access";
+import { getLocale } from "@/lib/i18n.server";
 import { getLibrary, type LibItem } from "@/lib/library";
 import PurchaseTracker from "@/components/PurchaseTracker";
+import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
 // «Купленное» — everything the user unlocked with tokens (direct purchases).
 export default async function LibraryPage() {
   const access = await getAccess();
+  const locale = await getLocale();
 
   return (
     <main className="mx-auto w-full max-w-[640px] px-4 py-14">
@@ -28,25 +32,25 @@ export default async function LibraryPage() {
           <p className="mx-auto mt-2 max-w-xs text-callout text-[var(--color-text-secondary)]">
             У тебя открыты все приложения, идеи и категории.
           </p>
-          <Link href="/" className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] hover:opacity-90">
+          <Link href={oldHref(locale, "/")} className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] hover:opacity-90">
             На главную
           </Link>
         </div>
       ) : (
-        <Library userId={access.user!.id} />
+        <Library userId={access.user!.id} locale={locale} />
       )}
     </main>
   );
 }
 
-async function Library({ userId }: { userId: string }) {
+async function Library({ userId, locale }: { userId: string; locale: Locale }) {
   const { categories, ideas, apps } = await getLibrary(userId);
   const empty = categories.length + ideas.length + apps.length === 0;
 
   return (
     <div className="mt-6 flex flex-col gap-8">
       <Link
-        href="/tokens"
+        href={oldHref(locale, "/tokens")}
         className="flex items-center justify-between gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-4 py-3 transition-colors hover:border-[var(--color-text-brand)]"
       >
         <span className="text-callout text-[var(--color-text-primary)]">Весь сайт навсегда, один платёж</span>
@@ -59,16 +63,16 @@ async function Library({ userId }: { userId: string }) {
         </p>
       ) : (
         <>
-          <Section title="Категории" items={categories} />
-          <Section title="Идеи" items={ideas} />
-          <Section title="Приложения" items={apps} />
+          <Section title="Категории" items={categories} locale={locale} />
+          <Section title="Идеи" items={ideas} locale={locale} />
+          <Section title="Приложения" items={apps} locale={locale} />
         </>
       )}
     </div>
   );
 }
 
-function Section({ title, items }: { title: string; items: LibItem[] }) {
+function Section({ title, items, locale }: { title: string; items: LibItem[]; locale: Locale }) {
   if (items.length === 0) return null;
   return (
     <section>
@@ -79,7 +83,7 @@ function Section({ title, items }: { title: string; items: LibItem[] }) {
         {items.map((it) => (
           <Link
             key={it.slug}
-            href={it.href}
+            href={oldHref(locale, it.path)}
             className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors hover:border-[var(--color-border-strong)]"
           >
             {it.icon ? (

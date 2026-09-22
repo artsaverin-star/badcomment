@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "mind-mapping-1",
+ "category": "mind-mapping",
+ "categoryName": "Mind maps",
+ "title": "A map with a history of changes",
+ "description": "The work continues on another device, and an earlier version can be brought back.",
+ "cover": {
+  "src": "ideas/mind-mapping-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A map holds the course of your thinking. Losing a branch during sync means losing work that cannot always be reproduced from memory."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "as soon as I had landed and reconnected to the cellular network, the app decided to automatically download the last known version of my charts from the cloud and deleted 6 hours of work without even a prompt",
+    "rating": 1,
+    "app": "Lucidchart"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Save local changes, show the state of the transfer and allow earlier versions to be opened. Leave conflicting edits for a comparison the person can follow."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Test working without a network on two devices. A backup is only useful together with a restore that can be reached and a clear choice of version."
+  }
+ ],
+ "rank": 332,
+ "free": false
+}

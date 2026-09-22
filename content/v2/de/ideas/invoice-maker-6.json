@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "invoice-maker-6",
+ "category": "invoice-maker",
+ "categoryName": "Rechnungen für Kunden",
+ "title": "Dieselbe Rechnung in einer bequemen Nachricht",
+ "description": "Das Dokument lässt sich auf die dem Kunden gewohnte Weise übergeben, während die Abrechnung eine einzige Historie behält.",
+ "cover": {
+  "src": "ideas/invoice-maker-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Im Außendienst läuft das Gespräch über Nachrichten, die App aber verlangt die Suche nach einer E-Mail-Adresse."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ich bin mobiler Reifenmonteur und habe einen Rechnungsanbieter gesucht, bei dem ich meinen Kunden sofort Preise usw. schicken kann. die meisten Anbieter bieten keine SMS an, nur E-Mail, aber Invoice schon.",
+    "rating": 5,
+    "app": "Invoice Simple: Invoice Maker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Wie das funktionieren könnte"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Datei oder Link und den Versandkanal getrennt vom Erstellen der Rechnung wählen. Eine erneute Übergabe als Ereignis desselben Dokuments festhalten."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Worauf zu achten ist"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Vor dem Verschicken brauchen Empfänger und Anhang eine Durchsicht; ein Wechsel des Kanals erzeugt keine neue Schuld."
+  }
+ ],
+ "rank": 395,
+ "free": false
+}

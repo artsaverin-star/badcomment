@@ -8,6 +8,7 @@ import BuyButton from "./BuyButton";
 import MessageIcon from "./MessageIcon";
 import { LIFETIME } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 type Card = {
   slug: string;
@@ -77,7 +78,7 @@ export default function CardDeck({
   guestCap?: number;
 }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const [auth, setAuth] = useState(false);
   const [round, setRound] = useState(0);
   const [hand, setHand] = useState<Slot[]>([]);

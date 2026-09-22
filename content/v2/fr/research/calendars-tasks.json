@@ -1,0 +1,475 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "calendars-tasks",
+ "name": "Calendriers et tâches",
+ "summary": "Comment transformer une liste de tâches en une journée réellement faisable, s’entendre sur des plans communs et ne pas perdre une tâche après un report ou un rappel manqué.",
+ "corpus": {
+  "reviews": 44363,
+  "apps": 100
+ },
+ "lead": "Le matin, il y a dix choses sur la liste et deux heures libres entre les rendez-vous. Puis l’heure du rendez-vous change, il faut aller chercher l’enfant plus tôt, et le rappel arrive quand il est déjà trop tard pour partir. Un bon planificateur aide à recomposer la journée : voir ce qui reste possible et ce qu’il faudra déplacer.\n\nLa saisie rapide ne libère la mémoire qu’à une condition : pouvoir revenir à ce qu’on a noté. C’est pourquoi la facilité de saisie, des changements d’horaire qu’on peut suivre et la conservation des accords sont liés dans cette catégorie. Voyons comment ils fonctionnent dans les affaires personnelles, dans une famille et dans une journée de travail.",
+ "cover": {
+  "src": "research/ResearchLaunch_calendars-tasks_cover",
+  "alt": "Calendriers et tâches",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_calendars-tasks_audiences",
+  "alt": "Différentes tâches dans la catégorie « Calendriers et tâches ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Noter la pensée et ne pas la perdre",
+   "body": "La personne veut noter une pensée rapidement et ne plus la tenir en mémoire. Il lui faut un endroit de saisie familier, un enregistrement visible et un second regard facile. Les paramètres supplémentaires servent plus tard, s’ils aident vraiment à mener la chose à terme."
+  },
+  {
+   "title": "Composer une journée faisable",
+   "body": "La personne met les rendez-vous en regard des tâches et recompose la journée quand quelque chose change. Ce qui compte, c’est de voir le temps disponible et la prochaine action réalisable. Une grosse tâche peut demander d’être découpée, et un rendez-vous déplacé, de revoir l’ordre des choses."
+  },
+  {
+   "title": "Concilier le travail et les plans de la famille",
+   "body": "Une famille combine les activités de différentes personnes, le travail et des postes irréguliers. Il faut une vue partagée où l’on distingue les participants et les types d’occupation. Quand quelque chose change, il importe de savoir si cela touche une seule journée ou un horaire qui se répète."
+  }
+ ],
+ "sections": [
+  {
+   "id": "plan",
+   "title": "Assembler une journée qu’on peut vraiment faire",
+   "intro": "La personne a d’abord besoin de garder l’intention. Ensuite de la comparer au temps disponible. Ces actions arrivent à des moments différents : la nuit, une note courte suffit ; le matin, il faut déjà choisir entre plusieurs choses.",
+   "art": null,
+   "observations": [
+    {
+     "id": "capture-view",
+     "title": "Noter maintenant, trier plus tard",
+     "passages": [
+      "Pour une pensée courte, ce qui compte, c’est l’accessibilité de la saisie. L’auteur préfère une barre d’ajout permanente à un bouton séparé : il y a ainsi moins d’actions entre l’intention et l’entrée. Devoir choisir un projet ou une date à ce moment-là ne peut que retarder.",
+      "La confiance vient plus tard, quand on retrouve vraiment l’entrée. Un autre utilisateur y dépose depuis des années n’importe quelle pensée, la nuit comprise, et ne la garde plus en mémoire. La rapidité est utile quand elle s’accompagne d’un retour prévisible vers ce qui a été noté.",
+      "La simplicité d’une liste a aussi une valeur en soi. L’auteur de l’avis suivant salue un outil qui l’aide à composer, ordonner et terminer ses tâches sans bruit inutile. Cette expérience ne confirme pas le besoin d’un système de projets compliqué.",
+      "Une nouvelle entrée peut n’avoir encore aucune échéance. « Demander l’attestation » ne veut pas encore dire « à faire aujourd’hui ». Un endroit pour les pensées non triées permet de les garder et de remettre l’attribution d’une heure au moment où l’on planifie la journée. Pour ceux qui aiment écrire à la main, une page numérique reliée au calendrier peut rendre le même service."
+     ],
+     "quotes": [
+      {
+       "text": "C’est une super appli mais j’ai besoin de deux ou trois changements : remettez la barre « Ajouter une nouvelle tâche », s’il vous plaît. Le rond « + » pour ajouter une tâche c’est ok mais la barre tout en haut c’est tellllllement plus rapide et plus simple.",
+       "rating": 4,
+       "app": "Do! - Simple To Do List"
+      },
+      {
+       "text": "Ça fait au moins sept ans que j’utilise Todoist et c’est bien intégré à ma vie de tous les jours. C’est le seul endroit où je peux balancer n’importe quoi n’importe quand sans avoir à y repenser. Je me réveille à 3 h du matin avec une idée, je l’ajoute et je sais que je la perdrai pas.",
+       "rating": 4,
+       "app": "Todoist: To Do List & Calendar"
+      },
+      {
+       "text": "L’appli Minimalist se démarque en faisant l’inverse de la plupart des outils de productivité — elle enlève tout le bruit. L’interface est épurée, intuitive et magnifiquement simple, centrée uniquement sur une chose : t’aider à lister, organiser et terminer tes tâches.",
+       "rating": 4,
+       "app": "To Do List MinimaList & Widget"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_calendars-tasks_capture-view",
+      "alt": "Illustration du thème « Noter maintenant, trier plus tard ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-capture-view",
+       "title": "Noter maintenant, trier plus tard",
+       "body": "",
+       "ideas": [
+        "calendars-tasks-9"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "time",
+     "title": "Voir ce qui tient vraiment dans la journée",
+     "passages": [
+      "Les rendez-vous occupent un temps précis et déterminent ce qui reste aux tâches. Deux listes indépendantes n’aident pas toujours à repérer une journée trop pleine. Sur une échelle de temps commune, le lien se voit : un nouvel appel raccourcit l’intervalle pendant lequel la personne comptait terminer quelque chose.",
+      "Un autre auteur garde l’app justement parce que le calendrier et les tâches sont au même endroit. Cela confirme le confort d’un endroit commun, mais ne prouve pas encore l’intérêt d’une planification automatique : pouvoir rapprocher soi-même les entrées peut suffire.",
+      "La demande d’un réagencement avec recalcul des heures est déjà plus précise. L’auteur veut changer l’ordre des actions et voir les nouvelles limites. Ce qui compte ici, c’est l’aperçu : quelles tâches vont se déplacer et ce qui cessera de tenir. Les changements de rendez-vous déjà convenus ne doivent pas être cachés derrière un réagencement automatique.",
+      "Pour le travail itinérant, l’intervalle libre dépend en plus du trajet. Pour une pro en salon, il dépend de la durée de la prestation et de la préparation de l’espace de travail. Ce sont des façons distinctes de développer le principe général, pas une raison d’ajouter des itinéraires et la prise de rendez-vous à tout planificateur personnel."
+     ],
+     "quotes": [
+      {
+       "text": "J’aime bien voir mon calendrier et mes tâches sur un seul écran. Les infos horaires de mon calendrier changent ce que je peux faire comme tâches et à quel moment.",
+       "rating": 5,
+       "app": "Pocket Informant"
+      },
+      {
+       "text": "J’aime bien que vous ayez à la fois le calendrier et les tâches dans la même appli ça la rend utile et c’est pour ça que je l’ai gardée après avoir téléchargé plein d’autres applis similaires.",
+       "rating": 4,
+       "app": "Todoist: To Do List & Calendar"
+      },
+      {
+       "text": "C’est un super concept, et j’ai pas trouvé d’autre appli comme ça. Mais il lui manque des choses qui la rendraient meilleure. Ce serait bien de pouvoir faire glisser les éléments dans un autre ordre et que les heures de début et de fin s’ajustent toutes seules.",
+       "rating": 3,
+       "app": "TimeBloc - Daily Planner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-time",
+       "title": "Voir ce qui tient vraiment dans la journée",
+       "body": "",
+       "ideas": [
+        "calendars-tasks-2",
+        "calendars-tasks-8"
+       ]
+      },
+      {
+       "directionId": "launch-changes",
+       "title": "Préparer une visite de travail",
+       "body": "La prise de rendez-vous relie l’heure de la prestation à la préparation : les photos et les souhaits de la cliente doivent parvenir à la pro avant le rendez-vous.",
+       "ideas": [
+        "calendars-tasks-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "manageable-step",
+     "title": "Comprendre par où commencer",
+     "passages": [
+      "Pour l’un, commencer le travail, c’est d’abord voir tout ce qu’il a à faire au même endroit. Un étudiant apprécie que l’app réunisse ses différentes listes et ses courses sans que l’ordre s’écroule. Un tel scénario demande une vue d’ensemble lisible, pas le découpage obligatoire de chaque élément.",
+      "Avec le ménage, la difficulté est autre : on ne voit pas par où commencer ni quelle quantité de travail reste tenable. L’auteur suivant apprécie des actions préparées à l’avance. Ici, le produit aide à choisir l’étape la plus proche au lieu de lire une longue liste indéfinie.",
+      "Un autre utilisateur est aidé par la structure des sessions de travail, avec laquelle il poursuit ses projets pendant plusieurs mois. On ne peut pas en tirer une technique de concentration universelle. Mais la différence entre les tâches se voit : rassembler ses engagements, réduire l’ampleur d’une action, ou rester dans le travail qu’on a choisi.",
+      "C’est pourquoi une échelle de temps visuelle et un planificateur de semestre ne doivent pas sortir du même jeu de réglages. Dans le premier cas, on vérifie le retour à l’action en cours après une distraction ; dans le second, le lien entre les devoirs, les matières, les échéances et la charge réelle de la semaine."
+     ],
+     "quotes": [
+      {
+       "text": "En tant qu’étudiant avec un TDAH sévère c’est l’appli parfaite et facile à utiliser pour garder toutes mes différentes listes de choses à faire et de courses organisées et au même endroit.",
+       "rating": 5,
+       "app": "Lists To do"
+      },
+      {
+       "text": "TLDR : ça m’a aidée à découper le ménage d’une façon que j’arrive vraiment à tenir régulièrement. je déteste le ménage à mourir et à chaque fois que je veux m’y mettre, je me sens complètement débordée par la question de savoir par où commencer. Sweepy sait toujours ce qu’il y a à faire.",
+       "rating": 5,
+       "app": "Sweepy: Home Cleaning Schedule"
+      },
+      {
+       "text": "C’est la meilleure appli que j’ai trouvée (après en avoir essayé tellement) pour gérer la concentration et la procrastination. Après 4 mois je tiens toujours le rythme dans mon travail et je termine des projets qu’il aurait été impossible de mener sans la structure que ça apporte.",
+       "rating": 4,
+       "app": "Focus To-Do: Focus Timer&Tasks"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_calendars-tasks_manageable-step",
+      "alt": "Illustration du thème « Comprendre par où commencer ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-manageable-step",
+       "title": "Comprendre par où commencer",
+       "body": "",
+       "ideas": [
+        "calendars-tasks-1",
+        "calendars-tasks-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coordinate",
+   "title": "Recomposer le plan quand la vie a changé",
+   "intro": "Une liste personnelle rencontre peu à peu l’emploi du temps de la famille, les postes, les tâches qui se répètent et les notifications. Désormais, chaque modification peut toucher une autre personne ou la semaine suivante.",
+   "art": null,
+   "observations": [
+    {
+     "id": "family-shifts",
+     "title": "Distinguer qui est occupé et qui s’est engagé",
+     "passages": [
+      "Une grande famille combine les événements de plusieurs personnes. Un calendrier unique aide à voir la journée commune, mais à lui seul il n’explique pas à qui appartient chaque activité. Dans l’avis suivant, c’est la principale situation d’usage.",
+      "La couleur d’un participant réduit le temps de lecture : un coup d’œil suffit pour voir de qui est l’événement qui approche. Ici, la mise en forme porte un sens précis. C’est surtout utile quand les mêmes activités se répètent chez différents enfants.",
+      "Avec plusieurs emplois s’ajoute une autre distinction — les postes, les jours de repos et les plans personnels. Une infirmière décrit l’usage du planning pour deux emplois et pour les activités de ses petits-enfants. Une vue partagée doit conserver ces distinctions au lieu de tout transformer en une même occupation.",
+      "Et il y a la question suivante : qui ne fait pas que participer, mais répond de l’action ? « Entraînement à six heures » ne dit pas qui ira chercher l’enfant. Désigner un responsable et confirmer un report est un développement possible du scénario familial. Pour aider un proche, une telle liste porte sur les accords à propos des visites et des tâches du quotidien ; elle ne remplace pas ce que prescrivent les spécialistes."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai une grande famille avec cinq enfants, du bébé au préado. Mes plus grands font plusieurs sports. Mon mari et moi on a aussi chacun nos activités. C’est la meilleure appli de calendrier que j’aie jamais utilisée.",
+       "rating": 5,
+       "app": "TimeTree: Shared Calendar"
+      },
+      {
+       "text": "Si tu as une grande famille et que tu aimes savoir dans quelle direction part chacun, c’est l’appli qu’il te faut, surtout si tu as plusieurs ados actifs comme moi. Chaque membre de la maison a une couleur, du coup un simple coup d’œil au calendrier.",
+       "rating": 5,
+       "app": "Shared Family Calendar: FamCal"
+      },
+      {
+       "text": "Je suis infirmière, je travaille de temps en temps dans une clinique dans la semaine et je viens de prendre une mission de remplacement dans le coin. Ça me permet de suivre mes deux jobs et les activités de mes petits-enfants. J’ai utilisé une autre appli pendant un moment mais je voyais bien qu’elle faisait pas l’affaire.",
+       "rating": 5,
+       "app": "Supershift Work Shift Calendar"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-family-shifts",
+       "title": "Distinguer qui est occupé et qui s’est engagé",
+       "body": "",
+       "ideas": [
+        "calendars-tasks-5",
+        "calendars-tasks-4",
+        "calendars-tasks-10"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "repetition",
+     "title": "Déplacer une fois et garder tout le planning",
+     "passages": [
+      "Une répétition se compose d’une règle et d’occurrences individuelles. Sauter la tâche du jour ne veut pas dire y renoncer pour de bon ; changer un poste ne veut pas dire refaire tout le planning. Si l’app confond ces actions, la personne doit rétablir la suite ou faire le tri dans les doublons apparus.",
+      "Avant un changement, il faut montrer clairement sa portée : cette occurrence seulement, ou les répétitions à venir. Après, la prochaine occurrence. Une telle vérification rend le comportement clair tout de suite, pendant que la personne se souvient encore de son intention, et non plusieurs jours plus tard, quand une tâche se révèle manquante.",
+      "Une répétition peut aussi reposer sur une autre base : toutes les deux semaines le lundi, ou deux semaines après l’exécution. Si on saute une occurrence, ces règles donnent des dates différentes. Mieux vaut proposer un exemple clair de la prochaine apparition de la tâche, directement dans le réglage. La personne voit alors le comportement avant de lui confier un paiement, l’entretien d’un appareil ou un rendez-vous chez un spécialiste."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai essayé deux programmes concurrents avant celui-là, et aucun des deux n’arrivait à gérer les tâches récurrentes comme il me le fallait. Celui-ci y arrive la plupart du temps sans problème ; de temps en temps une tâche apparaît deux fois dans le calendrier Google.",
+       "rating": 4,
+       "app": "Google Tasks: Get Things Done"
+      },
+      {
+       "text": "Quand je supprime une tâche pour la journée, alors qu’elle est réglée en tâche récurrente quotidienne, ça garde pas le réglage en continu, du coup je dois aller la chercher dans la section des tâches supprimées, ou la ressaisir. Et je me retrouve avec une quantité énorme de la même tâche.",
+       "rating": 5,
+       "app": "Reminders"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_calendars-tasks_repetition",
+      "alt": "Illustration du thème « Déplacer une fois et garder tout le planning ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "reminder",
+     "title": "Rappeler de façon à rendre l’action claire",
+     "passages": [
+      "Une alerte ordinaire se perd facilement parmi les autres notifications. L’auteur de l’avis suivant apprécie d’entendre tout de suite la formulation de l’action nécessaire. Une voix rend au rappel son sens au lieu de simplement le rendre plus fort.",
+      "Une autre personne décrit la cause exacte : elle remarque la vibration mais ne se rappelle plus à quoi celle-ci se rapportait. Le nom de la tâche et une action claire après l’alerte comptent donc plus que le choix d’un nouveau son.",
+      "L’expressivité n’aide pourtant pas si l’alerte n’arrive jamais. Un auteur a saisi des anniversaires et n’a pas reçu une seule notification. Le réglage devrait se terminer par une alerte de test sur l’appareil, pour que la personne remarque le problème avant la date qui compte.",
+      "Il est utile de séparer l’heure de l’événement de l’heure de la préparation : « rendez-vous à trois heures » et « il est temps de partir » aident à des moments différents. Après un report, la nouvelle heure de l’alerte doit être visible. Ce sont des actions vérifiables, qu’on peut améliorer sans promettre que chaque rappel arrivera à coup sûr."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai tellement de notifications sur mon téléphone que je finis par toutes les ignorer. C’est embêtant quand on oublie presque tout sans que quelque chose vienne te le rappeler. Là je peux m’engueuler moi-même depuis mon propre téléphone sur ce que j’ai précisément à faire.",
+       "rating": 4,
+       "app": "Reminder, Reminders with Voice"
+      },
+      {
+       "text": "Avec le TDAH, j’ai des soucis de mémoire de travail donc, même avec un rappel dans le calendrier, j’oublie ce que je suis en train de faire et je pars pas à l’heure. Souvent je règle ma montre pour qu’elle vibre ou mon téléphone pour qu’il sonne mais je me rappelle plus à quoi servait la vibration ou la sonnerie.",
+       "rating": 5,
+       "app": "Reminder with Voice Reminders"
+      },
+      {
+       "text": "J’ai passé un temps fou à rentrer les anniversaires et pas une seule fois j’ai eu une alerte. Si c’est moi qui fais quelque chose de travers, alors cette appli est mal conçue ou la configuration est pas très claire dans les instructions.",
+       "rating": 1,
+       "app": "Reminder & Countdown"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-reminder",
+       "title": "Rappeler de façon à rendre l’action claire",
+       "body": "",
+       "ideas": [
+        "calendars-tasks-3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continuity",
+   "title": "Garder confiance en son propre calendrier",
+   "intro": "Avec le temps, le planificateur devient l’endroit où se rangent les accords pris avec d’autres, les échéances de travail et les dates importantes. La fiabilité se voit ici dans la continuation ordinaire : ouvrir la liste qu’on connaît et y retrouver exactement ce qu’on y a laissé.",
+   "art": null,
+   "observations": [
+    {
+     "id": "saved-and-synced",
+     "title": "Ne pas confondre un chargement avec des entrées perdues",
+     "passages": [
+      "Une liste vide peut vouloir dire plusieurs choses : l’entrée n’a pas été enregistrée, le téléphone n’a pas encore reçu les données, ou l’app ne s’est pas ouverte correctement. Vu de l’extérieur, pour l’utilisateur, c’est une seule et même perte du plan. Sans explication, il doit chercher ses tâches sur d’autres appareils et comprendre où a fini la bonne version.",
+      "Montrer l’état de l’enregistrement et de la mise à jour séparément du contenu de la liste, et laisser un chemin de récupération. Au moment de choisir un planificateur, il vaut la peine de vérifier une entrée sur les appareils qu’on utilise, ainsi que l’accès à son propre historique. Une continuation fiable soutient le travail principal avec les tâches ; elle n’est pas une raison à part de compliquer le produit.",
+      "L’incertitude fait particulièrement mal : supprimer le projet vide, attendre, ou ressaisir les tâches ? Tant que l’état est inconnu, il est plus sûr de garder la dernière copie disponible et de montrer quand elle a été mise à jour. Quand deux appareils entrent en conflit, il est utile de laisser la personne comparer les changements. Une synchronisation réussie, ce n’est pas seulement l’entrée qui apparaît sur le deuxième écran, c’est aussi pouvoir comprendre ce qui est arrivé aux modifications."
+     ],
+     "quotes": [
+      {
+       "text": "Tout l’intérêt c’est de garder la trace des dates enregistrées pour ne rien rater. Aujourd’hui j’ai ouvert l’appli et elle a supprimé TOUS MES ÉVÉNEMENTS.",
+       "rating": 1,
+       "app": "Simple Calendar - SimpleCal"
+      },
+      {
+       "text": "J’adorais jusqu’à ce que l’appli supprime toutes les alarmes & refuse de les restaurer. Je suppose que le développeur a arrêté de m’écouter. J’ai pas eu d’autre réponse & je suis très déçue qu’il se fiche que l’appli marche pas.",
+       "rating": 1,
+       "app": "Alarmed ~ Reminders + Timers"
+      },
+      {
+       "text": "Je l’utilise depuis deux ans et ça avait l’air de bien marcher. Mais récemment, en passant en revue toutes les tâches et en mettant à jour plusieurs projets, je me suis rendu compte qu’il manquait des tâches dans l’appli iOS du téléphone. Après pas mal d’inquiétude et de débogage (le projet apparaissait vide sur le téléphone mais avait des tâches dans l’appli web).",
+       "rating": 1,
+       "app": "Todoist: To Do List & Calendar"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_calendars-tasks_saved-and-synced",
+      "alt": "Illustration du thème « Ne pas confondre le chargement avec des enregistrements perdus ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "changes",
+     "title": "Continuer à travailler comme avant après une mise à jour",
+     "passages": [
+      "Un planificateur qu’on a l’habitude d’utiliser vaut par la façon de faire qu’on connaît. Le premier auteur a passé plusieurs années à créer des cours et des tâches sans rien avoir de compliqué à apprendre. Son récit montre qu’une mise à jour doit tenir compte du chemin déjà maîtrisé, même si la mise en forme paraît datée.",
+      "Un autre utilisateur décrit l’ancien ensemble de possibilités gratuites : sessions de travail, suivi du temps et blocage des distractions. L’extrait ne dit pas clairement ce qui a changé après la mise à jour. Mais on voit de quelle façon de travailler il avait besoin ; les changements méritent d’être expliqués à travers ce scénario habituel.",
+      "Le troisième avis porte sur le prix : un abonné annuel dit que le coût a augmenté sans prévenir. C’est une partie distincte de la confiance. Les conditions de renouvellement et l’accès aux entrées précédentes doivent être clairs avant le changement, quelle que soit la nouvelle mise en forme.",
+      "Pour un produit déjà en service, la vérification du chemin habituel est précieuse : noter une tâche, déplacer un rendez-vous, retrouver quelque chose de terminé. Elle montrera le prix d’un changement pour quelqu’un qui a déjà confié ses plans à l’app. Pour un nouveau produit, les mêmes observations aident à choisir un scénario durable, mais elles ne prouvent pas la demande pour un calendrier universel de plus."
+     ],
+     "quotes": [
+      {
+       "text": "Ça fait quatre ans que j’utilise cette appli, et avant je l’adorais vraiment. L’interface était pas trop compliquée, et c’était facile de créer des cours et des tâches. Même si le design était pas hyper modernisé et léché comme la plupart des applis d’organisation aujourd’hui, ça marchait.",
+       "rating": 2,
+       "app": "My Study Life - School Planner"
+      },
+      {
+       "text": "Avant la dernière mise à jour j’adorais complètement cette appli. J’étais un utilisateur gratuit, et même comme ça elle faisait exactement ce que je voulais : lancer des sessions pomodoro, suivre mon temps entre différentes tâches — c’était parfait. L’option pour bloquer les applis était là.",
+       "rating": 1,
+       "app": "Focus Keeper - Pomodoro Timer"
+      },
+      {
+       "text": "J’ai pris cette appli il y a un bon moment et j’ai fini par prendre l’abonnement annuel pour avoir toutes les fonctions. Et maintenant ils ont augmenté l’abonnement sans prévenir les abonnés actuels.",
+       "rating": 2,
+       "app": "List Maker ◎"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Recomposer la journée sans perdre les accords",
+  "body": "Le scénario fort de cette catégorie, c’est la modification d’une journée déjà composée. Un nouveau rendez-vous, une tâche plus longue, un poste échangé : la personne doit voir les conséquences et décider de ce qu’elle déplace. Ajouter de nouveaux types de listes n’aidera pas si un tel changement perd des entrées ou touche tout le planning sans explication.\n\nPour un nouveau produit, il vaut la peine de choisir un seul milieu : les études, les accords de famille ou les visites de travail. Chacun a ses propres limites de temps et ses propres responsables. Pour un calendrier déjà en service, une édition prévisible et des rappels compréhensibles comptent davantage. Un test sur une journée bien remplie montrera plus que la configuration d’un bel horaire vide : la personne pourra-t-elle continuer ses tâches après un changement, sans ouvrir un second calendrier ?"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-plan",
+   "title": "Assembler une journée qu’on peut vraiment faire",
+   "depth": 0
+  },
+  {
+   "id": "observation-capture-view",
+   "title": "Noter maintenant, trier plus tard",
+   "depth": 1
+  },
+  {
+   "id": "observation-time",
+   "title": "Voir ce qui tient vraiment dans la journée",
+   "depth": 1
+  },
+  {
+   "id": "observation-manageable-step",
+   "title": "Comprendre par où commencer",
+   "depth": 1
+  },
+  {
+   "id": "theme-coordinate",
+   "title": "Recomposer le plan quand la vie a changé",
+   "depth": 0
+  },
+  {
+   "id": "observation-family-shifts",
+   "title": "Distinguer qui est occupé et qui s’est engagé",
+   "depth": 1
+  },
+  {
+   "id": "observation-repetition",
+   "title": "Déplacer une fois et garder tout le planning",
+   "depth": 1
+  },
+  {
+   "id": "observation-reminder",
+   "title": "Rappeler de façon à rendre l’action claire",
+   "depth": 1
+  },
+  {
+   "id": "theme-continuity",
+   "title": "Garder confiance en son propre calendrier",
+   "depth": 0
+  },
+  {
+   "id": "observation-saved-and-synced",
+   "title": "Ne pas confondre un chargement avec des entrées perdues",
+   "depth": 1
+  },
+  {
+   "id": "observation-changes",
+   "title": "Continuer à travailler comme avant après une mise à jour",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Recomposer la journée sans perdre les accords",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "habit-tracking-5",
+ "category": "habit-tracking",
+ "categoryName": "Habitudes",
+ "title": "Un compteur avec un historique des tentatives",
+ "description": "Le temps écoulé depuis le dernier événement, les périodes précédentes et des notes personnelles. Une nouvelle entrée lance le décompte tout en gardant l’historique parcouru.",
+ "cover": {
+  "src": "ideas/habit-tracking-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Un compteur montre le temps écoulé depuis la dernière coche, mais sa remise à zéro peut masquer tout le chemin qui précède. L’auteur d’un avis apprécie particulièrement que le nombre de tentatives soit conservé. Un tel journal permet de revenir aux enregistrements passés, même quand le décompte en cours a recommencé."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ça faisait très longtemps que j’essayais d’arrêter mon habitude. C’est seulement quand j’ai téléchargé l’appli Days Since que j’ai pu suivre ma progression. Elle gardait même le compte du nombre de fois où j’ai remis le compteur à zéro, du coup je pouvais me dire d’arrêter de jouer et de le faire, point.",
+    "rating": 5,
+    "app": "Days Since: Quit Habit Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Garder les périodes terminées et l’heure de la nouvelle tentative. Permettre de corriger une date erronée et d’ajouter une note si on le souhaite. Le compteur en cours et l’historique doivent être visibles séparément, pour qu’un nouveau départ ne ressemble pas à une suppression du passé."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "Que tester en premier"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Examiner avec la personne sa propre façon de tenir le compte. A-t-elle besoin des périodes, des notes, ou seulement d’une date exacte ? Ne pas prêter au compteur la capacité de venir à bout d’une dépendance : ce qui se teste ici, c’est le confort d’un enregistrement personnel, pas le résultat d’un traitement."
+  }
+ ],
+ "rank": 30,
+ "free": false
+}

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string; icon?: string | null };
 
@@ -34,7 +35,7 @@ export default function HeaderSearch({ locale = "ru", compact = false }: { local
       clearTimeout(id);
       ctrl.abort();
     };
-  }, [q]);
+  }, [q, ru]);
 
   useEffect(() => {
     const onDown = (e: MouseEvent) => {
@@ -48,7 +49,7 @@ export default function HeaderSearch({ locale = "ru", compact = false }: { local
     setOpen(false);
     setQ("");
     setHits([]);
-    router.push(h.slug);
+    router.push(oldHref(locale, h.slug));
   }
 
   function onKey(e: React.KeyboardEvent) {

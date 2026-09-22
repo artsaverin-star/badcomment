@@ -1,0 +1,443 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "mind-mapping",
+ "name": "Mindmaps",
+ "summary": "Vom ersten Entwurf bis zur Mitschrift oder zum Manuskript: wie man die Struktur einer Mindmap ändert, die Arbeit auf einem anderen Gerät fortsetzt und das Ergebnis weitergibt.",
+ "corpus": {
+  "reviews": 2088,
+  "apps": 10
+ },
+ "lead": "Eine Mindmap bleibt selten so, wie sie begonnen wurde. Zuerst sind es ein paar Notizen, dann kommen Gruppen und Verbindungen dazu, und später muss daraus eine Mitschrift, ein Projektplan oder ein Manuskript entstehen. Die App ist so lange nützlich, wie sie die Struktur so frei ändern lässt, wie sich der Gedanke entwickelt.\n\nDeshalb zählt hier der ganze Weg des Materials: Ein Gedanke muss schnell festgehalten, dann umgebaut und schließlich außerhalb der Leinwand genutzt werden. Eine Vorlesungsmitschrift und der Plan eines Romans haben dieselbe Grundlage, aber verschiedene Fortsetzungen. Genau darin lohnt es sich, die Spezialisierung eines neuen Editors zu suchen.",
+ "cover": {
+  "src": "research/ResearchLaunch_mind-mapping_cover",
+  "alt": "Mindmaps",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_mind-mapping_audiences",
+  "alt": "Aufgaben der Menschen: Mindmaps",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Arbeitet sich in ein komplexes Thema ein",
+   "body": "Ein Student oder ein Leser setzt aus Begriffen, Beispielen und Verbindungen eine Mitschrift zusammen. Später muss er eine Einzelheit finden und den Gang der Erklärung wiederherstellen, nicht nur einen schönen Baum ansehen."
+  },
+  {
+   "title": "Skizziert Gedanken und baut sie um",
+   "body": "Während einer Vorlesung oder eines Brainstormings schreibt jemand mit der Tastatur oder mit dem Stift. Eine Pause, um einen Befehl zu suchen, stört dabei, den nächsten Gedanken festzuhalten."
+  },
+  {
+   "title": "Bereitet Material für einen anderen Menschen vor",
+   "body": "Der Autor macht aus der Mindmap einen Plan, ein Manuskript oder ein Dokument zur Besprechung. Der Empfänger muss die Verbindungen verstehen und die Anhänge lesen können, ohne denselben Editor zu installieren."
+  }
+ ],
+ "sections": [
+  {
+   "id": "compose",
+   "title": "Erst aufschreiben, dann verstehen",
+   "intro": "Ein guter Editor lässt Unklarheit am Anfang zu. Die Struktur wird im Lauf der Arbeit genauer.",
+   "art": null,
+   "observations": [
+    {
+     "id": "input",
+     "title": "Im Tempo des Gedankens schreiben",
+     "passages": [
+      "Beim Skizzieren von Gedanken kann eine einzelne Geste schnell sein, aber der ständige Wechsel von der Tastatur zum Touch unterbricht die Folge. Der Nutzer braucht zusammenhängende Befehle: einen Knoten anlegen, zum Nachbarn wechseln, einen Zweig aufklappen und den Text fortsetzen. Die Tastaturunterstützung muss diesen ganzen Weg abdecken.",
+      "Ein paar Tastenkürzel erlauben es noch nicht, ohne den Bildschirm zu arbeiten. Wenn man einen Knoten anlegen, aber nicht zum Nachbarn wechseln oder aus einem Zweig zurückkehren kann, reißt die Eingabe trotzdem ab. Der Wert eines Tastaturmodus zeigt sich an einer gewöhnlichen Skizze: fünf Gedanken aufschreiben, den dritten korrigieren und beim fünften weitermachen.",
+      "Beim Stift liegt das Problem anders: Schreiben, Auswählen und Verschieben können einander in die Quere kommen. Der Versuch, einen Gedanken in einen Knoten zu schreiben, verschiebt den Knoten, und der Autor muss auf die Geste statt auf den Inhalt achten. Eine solche Eingabe braucht eine eigene Bedienung; die Tastaturbefehle auf Schaltflächen am Bildschirmrand zu verlegen, ersetzt sie nicht."
+     ],
+     "quotes": [
+      {
+       "text": "SimpleMind, du bist gut. Du hast viel zu bieten. Aber an mein geliebtes iThoughts kommst du noch nicht ran. Dir fehlt die einfache Tastaturnavigation, um Knoten (oder Themen) aufzuklappen und wieder zusammenzuklappen, und dir fehlt das Vergrößern und Verkleinern der Mindmap über die Tastatur, um bequem rein- und rauszuzoomen.",
+       "rating": 4,
+       "app": "SimpleMind - Mind Mapping"
+      },
+      {
+       "text": "Ich dachte wirklich, das wird die App! Aber wenn ich mich nicht irre, gibt es keine Tastenkürzel? Um schnell zu brainstormen, muss ich Mindmaps machen können, ohne den Bildschirm zu berühren. Wenn keine Tastenkürzel eingebaut sind, kann ich sie nicht wirklich nutzen.",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Beim Versuch, meinen Apple Pencil für die Texteingabe zu benutzen, wurden Knoten verschoben, verschwanden oder es wurde gar nicht geschrieben. Ich werde mir eine Alternative suchen.",
+       "rating": 1,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_input",
+      "alt": "Illustration zum Thema „Im Tempo der Gedanken schreiben“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-input",
+       "title": "Im Tempo des Gedankens schreiben",
+       "body": "",
+       "ideas": [
+        "mind-mapping-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "links",
+     "title": "Eine Verbindung zwischen verschiedenen Zweigen zeigen",
+     "passages": [
+      "Ein Baum zeigt Zugehörigkeit: Ein Thema besteht aus Teilen. Aber eine historische Linie, ein Buch oder ein System kann eine Verbindung zwischen Elementen verschiedener Zweige enthalten. Muss man dafür einen Knoten duplizieren, beginnt ein Gedanke an mehreren Stellen zu leben, und die Mindmap lässt sich schwerer zusammenhalten.",
+      "Eine Verbindung zwischen Zweigen erlaubt es, den Gedanken an einer Stelle zu lassen und von einer anderen auf ihn zu zeigen. Eine Figur gehört zum Beispiel zu einem Handlungsstrang, wirkt aber auf ein Ereignis in einem anderen. Eine Beschriftung der Beziehung erklärt das dem Leser besser als eine weitere Kopie des Knotens.",
+      "Mehrere Arten von Verbindungen sollten einen Grund haben. Ein Pfeil kann die Reihenfolge der Ereignisse meinen, ein anderer den Einfluss einer Figur. Ein Filter nach Beziehung hilft, eine solche Mindmap zu lesen, ohne einen Teil des Materials zu löschen. Die Farbe allein erklärt einem neuen Leser den Sinn einer Verbindung nicht."
+     ],
+     "quotes": [
+      {
+       "text": "Ich habe eine Mindmap-App gesucht, die auch nicht hierarchische Beziehungen zeigt (also nicht nur Eltern-Kind) und kein Abo verlangt, und die hier hat sich als hervorragend erwiesen. App ist sehr schnell und gut für Notizen zu Büchern, Zeitleisten der Geschichte, das Aufzeichnen von Systemen.",
+       "rating": 5,
+       "app": "SimpleMind Pro - Mind Mapping"
+      },
+      {
+       "text": "Es ist ne sehr gute Mindmapping-Software. Ich finde, man hat viel Einfluss darauf, wie die Daten dargestellt werden, und fürs Verbinden von Knoten/Elementen ist sie viel besser als viele andere Mindmap-Software.",
+       "rating": 3,
+       "app": "miMind - Mind Map, Brainstorm"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-links",
+       "title": "Eine Verbindung zwischen verschiedenen Zweigen zeigen",
+       "body": "",
+       "ideas": [
+        "mind-mapping-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rearrange",
+     "title": "Die Mindmap umbauen und die Verbindungen behalten",
+     "passages": [
+      "Der Umbau ist die Hauptarbeit an einer Mindmap und nicht die Reparatur eines misslungenen Anfangs. Je klarer das Thema wird, desto eher möchte man mehrere zusammengehörende Zweige gemeinsam verschieben. Das Verschieben Knoten für Knoten und ein unvorhersehbares Einrasten machen aus einer Denkaufgabe das Aufräumen von Fläche per Hand.",
+      "Nötig sind eine steuerbare Auswahl einer Gruppe und eine klare Vorstellung davon, wo sie landet. Wichtig ist, die freie Bewegung auf der Leinwand von der Änderung der Zweigzugehörigkeit zu trennen: Dieselbe Geste darf den Sinn der Struktur nicht unbemerkt ändern. Ein guter Editor lässt eine neue Ordnung ausprobieren und wieder zurückgehen, ohne das Material erneut anzulegen.",
+      "Für den Plan eines persönlichen Projekts hat der Umbau noch einen weiteren Sinn: Aus einer Liste von Anliegen schält sich eine Reihenfolge der Handlungen heraus. Frist und Erledigt-Vermerk können direkt in den Knoten stecken, und die Abhängigkeit bleibt dabei sichtbar. Das ist eine mögliche Richtung für einen Editor für persönliche Aufgaben; die Klagen über das Ziehen beweisen für sich genommen noch nicht, dass der Nutzer einen neuen Planer braucht."
+     ],
+     "quotes": [
+      {
+       "text": "Wenn man Blöcke verschiebt, ruckelt die Bewegung und es rastet an den zufälligsten Stellen ein",
+       "rating": 1,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Bitte denkt über folgenden Vorschlag nach: Baut eine Möglichkeit ein, mehrere Zweige und Unterzweige auf einmal auszuwählen, um Elemente verschieben zu können. Es ist sehr frustrierend, viel Zeit damit zu verbringen, verrutschte Zweige wieder zu ordnen.",
+       "rating": 4,
+       "app": "VisualMind: AI MindMap/Chatbot"
+      },
+      {
+       "text": "Kann Mindmaps nicht so frei ordnen und verschieben, wie ich will und muss.",
+       "rating": 2,
+       "app": "Mind Mapping - MindMeister"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_rearrange",
+      "alt": "Illustration zum Thema „Eine Karte umbauen, ohne die Verbindungen zu verlieren“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-rearrange",
+       "title": "Die Mindmap umbauen und die Verbindungen behalten",
+       "body": "",
+       "ideas": [
+        "mind-mapping-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "representation",
+     "title": "Dasselbe Material anders ansehen",
+     "passages": [
+      "Eine Vorlage hilft beim Anfangen, solange die Struktur noch nicht in Worte gefasst ist. Ist sie ausgefüllt, kann sich zeigen, dass sich das Material leichter als Plan oder anders angeordnet liest. Ist der Wechsel der Form nur auf einer leeren Mindmap möglich, legt die erste Wahl die weitere Arbeit zu früh fest.",
+      "Inhalt und Aussehen einer Mindmap bleiben besser getrennt. Dann lässt sich eine ausgefüllte Mindmap umbauen, und Knoten und Verbindungen bleiben erhalten. Ein Mensch muss sehen, was sich beim Umschalten ändert: Ein linearer Plan zeigt die Reihenfolge des Lesens, die Mindmap zeigt die Gruppen und die Beziehungen zwischen ihnen.",
+      "In einer Lern-Mindmap lässt sich ein Zweig zeitweise verbergen und aus dem Gedächtnis wiederherstellen. In einem Manuskript lassen sich die Szenen nacheinander lesen. Diese Modi nutzen das bereits Geschriebene; eine getrennte Kopie entfernt sich schnell von der Haupt-Mindmap und macht zusätzliche Arbeit beim Abgleich."
+     ],
+     "quotes": [
+      {
+       "text": "Die Vorlagen sind hilfreiche Werkzeuge, und es ist auch sehr einfach, eigene Mindmaps anzulegen.",
+       "rating": 5,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Meine größten Kritikpunkte sind: Habe nicht gefunden, wie man die Vorlage in einer bestehenden Mindmap wechselt",
+       "rating": 4,
+       "app": "miMind - Mind Map, Brainstorm"
+      },
+      {
+       "text": "Es gibt keine Möglichkeit, eine bestehende Mindmap in das Gliederungsformat umzuwandeln",
+       "rating": 2,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-representation",
+       "title": "Dasselbe Material anders ansehen",
+       "body": "",
+       "ideas": [
+        "mind-mapping-6",
+        "mind-mapping-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Dort weitermachen, wo es passt",
+   "intro": "Ein Gerätewechsel darf nicht zum Übertragen des Projekts von Hand oder zur Suche nach verschwundenen Änderungen werden.",
+   "art": null,
+   "observations": [
+    {
+     "id": "same-map",
+     "title": "Die letzte Version auf einem anderen Gerät öffnen",
+     "passages": [
+      "Apps auf mehreren Plattformen lösen nur einen Teil der Aufgabe. Der Mensch braucht dieselbe Mindmap mit den letzten Änderungen, wenn er vom Tablet zu Hause an den Computer bei der Arbeit wechselt. Hoch- und Herunterladen von Hand können hinnehmbar sein, wenn vorher klar ist, dass es nötig ist.",
+      "Arbeiten ohne Netz stört das Weitermachen nicht zwangsläufig. Wichtiger ist, dass nach dem Verbinden zu sehen ist: Die Änderungen vom Tablet sind angekommen, und auf dem Computer öffnet sich genau diese Version. Die Speicheranzeige sollte den tatsächlichen Zustand der Mindmap beschreiben und nicht nur das Vorhandensein eines Kontos.",
+      "Muss man die Datei stattdessen von Hand in einen fremden Dienst hochladen, verfolgt der Mensch die Versionen selbst. Das automatische Weiterarbeiten nimmt diese Arbeit nur zusammen mit einem Änderungsverlauf ab: Haben zwei Geräte denselben Zweig bearbeitet, braucht es die früheren Varianten für eine sinnvolle Wahl und nicht für ein stilles Überschreiben."
+     ],
+     "quotes": [
+      {
+       "text": "Ich bin ziemlich neu im Mindmapping und wollte die anderen Versionen nicht ausprobieren, wegen der fehlenden plattformübergreifenden Unterstützung oder wegen des Abo-Modells. Ich habe diese App für macOS, iPadOS und windows gekauft. Sie funktioniert überall ähnlich und gleich gut.",
+       "rating": 4,
+       "app": "SimpleMind Pro - Mind Mapping"
+      },
+      {
+       "text": "Der Offline-Modus scheint zu funktionieren, mit ziemlich guter Synchronisierung, sobald man wieder online ist",
+       "rating": 2,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "In dieser App gibt es keine Synchronisierung, und ich weiß nicht, warum. Wenn man schon gemeinsam an einer Mindmap arbeiten kann, sollte ich eigentlich auch nahtlos auf meinem iPad an einer Mindmap arbeiten können und dann, wenn ich nach Hause komme, am Desktop daran weiterarbeiten, ohne sie von Hand hoch- und dann wieder runterladen zu müssen mit einem 3rd",
+       "rating": 2,
+       "app": "Xmind: AI Mind Map, Brainstorm"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_same-map",
+      "alt": "Illustration zum Thema „Die neueste Fassung auf einem anderen Gerät öffnen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-same-map",
+       "title": "Die letzte Version auf einem anderen Gerät öffnen",
+       "body": "",
+       "ideas": [
+        "mind-mapping-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mobile-access",
+     "title": "Die ganze Arbeit auf dem Tablet erledigen",
+     "passages": [
+      "Ein Tablet kann der Hauptarbeitsplatz sein und nicht ein Bildschirm, um das Ergebnis anzusehen. Deshalb sagt das Vorhandensein einer mobilen App wenig darüber, ob sich eine Mindmap umbauen lässt, ob man die Verbindungen steuern oder eine gewohnte Aktion mit dem Stift ausführen kann. Der Nutzer beurteilt eine konkrete Arbeit in einer konkreten Oberfläche.",
+      "Ein unvollständiger Satz von Aktionen auf dem Tablet fällt mitten im Projekt am stärksten auf. Die Mindmap lässt sich schon öffnen, aber sie aufzuräumen oder eine Verbindung zu ändern, geht nur am Computer. Deshalb sollte man die mobile Version an einer ausgefüllten Mindmap beurteilen und die Unterschiede zwischen den Geräten vor dem Beginn der Arbeit zeigen.",
+      "Es gibt noch eine Grenze: Eine App kann auf dem Tablet technisch laufen und einem persönlichen Konto trotzdem nicht zur Verfügung stehen. Für einen Autor, der allein arbeitet, ist das der Verlust eines Arbeitsplatzes und keine Kleinigkeit in der Preistabelle. Ein vollwertiger Tablet-Editor muss beides erklären: die Art der Bedienung und die Bedingungen des individuellen Zugangs."
+     ],
+     "quotes": [
+      {
+       "text": "Die iOS-App von Ayoa ist nicht reif für den echten Einsatz. Keine klare Möglichkeit, eine Mindmap aufzuräumen. Die Navigation mit dem Apple Pencil ist schlecht. Die meisten Menüpunkte, die es in der Web-App gibt, sind nicht verfügbar.",
+       "rating": 2,
+       "app": "AYOA - Mind Mapping"
+      },
+      {
+       "text": "Oft eher frustrierend als hilfreich. Die Hälfte von dem, was in der Webversion geht, kann man nicht machen, oder es ist zumindest sehr unklar, wie",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      },
+      {
+       "text": "Ich nutze Lucid seit Jahren, und Tablets und Mobil jetzt auf Teams/Organisationen zu beschränken und die App für ein individuelles (bezahltes) Konto zu streichen, war eine schreckliche Entscheidung.",
+       "rating": 3,
+       "app": "Lucidchart"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-mobile-access",
+       "title": "Die ganze Arbeit auf dem Tablet erledigen",
+       "body": "",
+       "ideas": [
+        "mind-mapping-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "share",
+   "title": "Die Mindmap mitsamt ihrem Sinn weitergeben",
+   "intro": "Das Ergebnis kann zu einem Dokument, einer Präsentation oder zu Material für die Wiederholung werden. Wichtig ist, diesen Ausgang vorher zu verstehen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "export",
+     "title": "Das Ergebnis mit den Augen des Empfängers prüfen",
+     "passages": [
+      "Eine fertige Datei braucht es, damit ein anderer Mensch die Mindmap liest oder sie in seiner eigenen Arbeit nutzt. Ein erfolgreich abgeschlossener Export zeigt nicht, ob Bilder, Beschriftungen und Struktur erhalten geblieben sind. Das Format sollte man nach dem Zweck des Ergebnisses wählen und nicht nach der Zahl der angebotenen Dateiendungen.",
+      "Den Export außerhalb des Editors öffnen und einen aussagekräftigen Ausschnitt prüfen: den Text, ein eingebettetes Bild und eine Verbindung zwischen Zweigen. Taugt ein Bild nicht, kann ein anderes Format die Aufgabe lösen, aber dieser Weg muss klar sein. Der Empfänger muss die ursprüngliche App nicht besitzen, um den Sinn des Übergebenen wiederherzustellen.",
+      "Bei einer großen Mindmap zählt der Maßstab: Die Beschriftungen können in der Datei erhalten bleiben und auf der Seite trotzdem unlesbar sein. Eine Vorschau der Seitenaufteilung, der Ränder und der Reihenfolge der Teile erlaubt es, das Ergebnis vor dem Senden zu korrigieren. Für die weitere Bearbeitung braucht es eine eigene Wahl des passenden Formats."
+     ],
+     "quotes": [
+      {
+       "text": "Der Export als jpg oder png lädt nicht, als wäre die Datei beschädigt. Mit einem PDF-Export hatte ich aber Erfolg.",
+       "rating": 2,
+       "app": "Xmind: AI Mind Map, Brainstorm"
+      },
+      {
+       "text": "Ich habe für die Export-Funktion bezahlt, und der Bildexport gibt nur einen 500 Internal Server Error aus.",
+       "rating": 1,
+       "app": "Mind Mapping - MindMeister"
+      },
+      {
+       "text": "Ich teste eure App jetzt seit etwa einer Woche und habe Probleme damit, meine Mindmap zu teilen.. Wenn ich sie als pdf per E-Mail schicke, werden die eingefügten Bilder in einem Kasten nicht mitgeschickt.",
+       "rating": 3,
+       "app": "Mind Map Maker - Mindomo"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_mind-mapping_export",
+      "alt": "Illustration zum Thema „Das Ergebnis mit den Augen des Empfängers prüfen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Das Ergebnis mit den Augen des Empfängers prüfen",
+       "body": "",
+       "ideas": [
+        "mind-mapping-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Mit einer Fortsetzung der Mindmap beginnen",
+  "body": "Für ein neues Produkt würde ich eine Arbeit nach dem Entwurf auswählen: zum Beispiel eine Lern-Mindmap in Material für die Wiederholung zu verwandeln. So lässt sich ein konkreter Nutzen prüfen, ohne gleich einen Editor für alle zu bauen. Ein Student legt eine kleine Mitschrift an, kehrt ein paar Tage später zu ihr zurück und versucht, einen geschlossenen Zweig abzurufen. Wichtig ist zu sehen, ob die Mindmap ihm hilft, sich in das Thema einzuarbeiten, und ob er sie gern ergänzt.\n\nAber zuerst müssen Eingabe, Umbau und Speichern funktionieren. Ohne sie macht die Selbstabfrage einen schwachen Editor nur komplizierter. Für den Autor eines Manuskripts wäre die Priorität eine andere – die Szenen an einen linearen Plan zu binden. Diese Richtungen prüft man sinnvoller getrennt, als sie unter einem einzigen Versprechen „besser denken“ zu vereinen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-compose",
+   "title": "Erst aufschreiben, dann verstehen",
+   "depth": 0
+  },
+  {
+   "id": "observation-input",
+   "title": "Im Tempo des Gedankens schreiben",
+   "depth": 1
+  },
+  {
+   "id": "observation-links",
+   "title": "Eine Verbindung zwischen verschiedenen Zweigen zeigen",
+   "depth": 1
+  },
+  {
+   "id": "observation-rearrange",
+   "title": "Die Mindmap umbauen und die Verbindungen behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-representation",
+   "title": "Dasselbe Material anders ansehen",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Dort weitermachen, wo es passt",
+   "depth": 0
+  },
+  {
+   "id": "observation-same-map",
+   "title": "Die letzte Version auf einem anderen Gerät öffnen",
+   "depth": 1
+  },
+  {
+   "id": "observation-mobile-access",
+   "title": "Die ganze Arbeit auf dem Tablet erledigen",
+   "depth": 1
+  },
+  {
+   "id": "theme-share",
+   "title": "Die Mindmap mitsamt ihrem Sinn weitergeben",
+   "depth": 0
+  },
+  {
+   "id": "observation-export",
+   "title": "Das Ergebnis mit den Augen des Empfängers prüfen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Mit einer Fortsetzung der Mindmap beginnen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

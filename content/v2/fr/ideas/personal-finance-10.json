@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "personal-finance-10",
+ "category": "personal-finance",
+ "categoryName": "Finances personnelles",
+ "title": "Le solde à une date future",
+ "description": "Un calendrier des rentrées et des paiements avec un solde calculé. N’importe quel montant peut être ouvert jusqu’aux opérations qui le composent et recalculé après un changement du plan.",
+ "cover": {
+  "src": "ideas/personal-finance-10",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Le solde d’aujourd’hui ne montre pas ce qui se passera après le loyer et la prochaine rentrée. Un avis apprécie un calendrier où la prévision des fonds disponibles est visible jour après jour. Cette vue aide à repérer l’intervalle entre une dépense et le revenu attendu."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "C’est le seul système de suivi des factures et des revenus qui te permet vraiment de voir facilement tes fonds disponibles prévus, littéralement jour après jour sur un calendrier !  S’il vous plaît ne changez rien !",
+    "rating": 5,
+    "app": "Dollarbird - Budget Calendar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Séparer les opérations effectuées des opérations prévues. Pour une date choisie, montrer la chaîne dont le montant découle. Permettre de modifier temporairement la date ou le montant d’un paiement à venir, en gardant le scénario d’origine pour la comparaison."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "Que tester en premier"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Déplacer une rentrée d’argent à un jour plus tardif et vérifier le calcul à la main. La personne doit voir quels jours ont changé et pourquoi. La prévision dépend de l’exhaustivité du plan ; un nombre d’allure précise ne rend pas une rentrée future garantie."
+  }
+ ],
+ "rank": 351,
+ "free": false
+}

@@ -4,6 +4,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { appSlugify } from "@/lib/ratingAppSlug";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AppsDirectory() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
 
   // Built straight from the people's-rating catalog so every active niche and
   // its analyzed apps are here — the authoritative, current source. Each app

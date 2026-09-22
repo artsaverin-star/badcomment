@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "notes-pkm-10",
+ "category": "notes-pkm",
+ "categoryName": "Notes et base de connaissances",
+ "title": "Des notes personnelles avec un choix de stockage",
+ "description": "Le lieu de stockage, l’accès aux entrées, la restauration et l’export de l’archive sont clairs d’avance.",
+ "cover": {
+  "src": "ideas/notes-pkm-10",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Le propriétaire d’entrées personnelles peut ne pas vouloir en confier le contenu à un service. L’avis montre cette attente, mais ne confirme pas la protection réelle de l’app citée."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’adore vraiment cette appli, Notesnook sait pas ce que j’écris ni ce que je fais sur leur appli (je fais rien d’illégal 😂) et c’est juste parfait de savoir que mes données seront pas vendues à des entreprises tierces ni examinées par Notesnook eux-mêmes.",
+    "rating": 5,
+    "app": "Notesnook: Private note taking"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choisir et expliquer clairement un modèle de stockage et d’accès. Si un chiffrement est proposé, son implémentation, le fonctionnement des copies et la restauration doivent faire l’objet d’une vérification à part."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Un fichier local, la synchronisation dans le cloud et la protection contre la lecture sont des propriétés différentes. On ne peut pas les promettre toutes avec une seule icône de cadenas. Les conditions doivent rester claires en cas de perte d’appareil, de changement de mot de passe et de fin d’abonnement."
+  }
+ ],
+ "rank": 296,
+ "free": false
+}

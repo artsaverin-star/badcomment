@@ -10,31 +10,32 @@ import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
 import ThemeSwitch from "./ThemeSwitch";
 import { type Locale } from "@/lib/i18n";
+import { oldLp, oldRestPath, publicHref } from "@/lib/oldHref";
 
 // Center nav items: icon + label, active state driven by the current path.
-const NAV: { key: string; href: string; ru: string; en: string; icon: React.ReactNode }[] = [
+const NAV: { key: string; path: string; ru: string; en: string; icon: React.ReactNode }[] = [
   {
-    key: "breakdowns", href: "/", ru: "Разборы", en: "Breakdowns",
+    key: "breakdowns", path: "/", ru: "Разборы", en: "Breakdowns",
     icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 4v16" /></>,
   },
   {
-    key: "build", href: "/build", ru: "Создание", en: "Create",
+    key: "build", path: "/build", ru: "Создание", en: "Create",
     icon: <><path d="M12 5v14M5 12h14" /><rect x="3" y="3" width="18" height="18" rx="5" /></>,
   },
   {
-    key: "ideas", href: "/ideas", ru: "Идеи", en: "Ideas",
+    key: "ideas", path: "/ideas", ru: "Идеи", en: "Ideas",
     icon: <><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3Z" /></>,
   },
   {
-    key: "rating", href: "/rating", ru: "Рейтинг", en: "Rating",
+    key: "rating", path: "/rating", ru: "Рейтинг", en: "Rating",
     icon: <path d="M12 3.5l2.6 5.3 5.9.86-4.25 4.15 1 5.87L12 17.1l-5.25 2.76 1-5.87L3.5 9.66l5.9-.86L12 3.5Z" />,
   },
   {
-    key: "reviews", href: "/reviews", ru: "Отзывы", en: "Reviews",
+    key: "reviews", path: "/reviews", ru: "Отзывы", en: "Reviews",
     icon: <><path d="M21 11.5a8.38 8.38 0 0 1-9 8.32L3 21l1.18-9A8.5 8.5 0 1 1 21 11.5Z" /><path d="M8 10h8M8 13.5h5" /></>,
   },
   {
-    key: "mcp", href: "/mcp", ru: "MCP", en: "MCP",
+    key: "mcp", path: "/mcp", ru: "MCP", en: "MCP",
     icon: <><path d="M9 7V3M15 7V3" /><path d="M6 7h12v4a6 6 0 0 1-12 0V7Z" /><path d="M12 17v4" /></>,
   },
 ];
@@ -59,7 +60,8 @@ export default function Header({
   const ru = locale !== "en";
   // Prefix nav links with the active locale so navigation never falls back to
   // the cookie's language (which caused sections to flip to Russian on click).
-  const lp = ru ? "/ru" : "/en";
+  // The old site lives under /<L>/old, so its nav stays there.
+  const lp = oldLp(locale);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -81,8 +83,9 @@ export default function Header({
     };
   }, [menuOpen]);
 
-  // Strip a leading /ru or /en so matching works on either locale prefix.
-  const path = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
+  // Strip a leading /<L>/old, /<L> (client) so matching works on every form,
+  // including the internal path SSR sees.
+  const path = oldRestPath(pathname);
   const activeKey =
     path.startsWith("/build") ? "build"
       : path.startsWith("/ideas") ? "ideas"
@@ -101,9 +104,11 @@ export default function Header({
             : "max-w-6xl border border-transparent bg-transparent pl-1 shadow-none sm:pl-1"
         }`}
       >
-        <Link href={lp} aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
+        {/* The logo leads to the NEW site's home: a different root layout, so a
+            plain <a> (full navigation) rather than <Link>. */}
+        <a href={publicHref(locale)} aria-label="inApp" className="flex shrink-0 items-center transition-opacity hover:opacity-70">
           <Logo iconSize={26} textClassName="text-[23px]" />
-        </Link>
+        </a>
 
         {/* Center nav — absolutely centered so it stays put regardless of the
             side widths. It only renders on wide screens (≥1200px); everything
@@ -114,7 +119,7 @@ export default function Header({
             return (
               <Link
                 key={n.key}
-                href={`${lp}${n.href === "/" ? "" : n.href}`}
+                href={`${lp}${n.path === "/" ? "" : n.path}`}
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex shrink-0 items-center rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active
@@ -168,7 +173,7 @@ export default function Header({
                 return (
                   <Link
                     key={n.key}
-                    href={`${lp}${n.href === "/" ? "" : n.href}`}
+                    href={`${lp}${n.path === "/" ? "" : n.path}`}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? "page" : undefined}
                     className={`flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-headline transition-colors ${

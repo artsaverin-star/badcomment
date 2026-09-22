@@ -1,0 +1,462 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "invoice-maker",
+ "name": "Factures pour les clients",
+ "summary": "Du travail convenu à un solde à payer que l’on peut suivre : là où les factures font gagner du temps au prestataire, et là où elles obligent à tenir une deuxième comptabilité à la main.",
+ "corpus": {
+  "reviews": 6720,
+  "apps": 26
+ },
+ "lead": "Un artisan a discuté de trois options de réparation, en a retenu une avec le client et a encaissé un acompte. Des matériaux et une heure de travail supplémentaire se sont ajoutés ensuite. Le soir, il doit envoyer la facture et déterminer ce qu’il reste à recevoir. Un document simple devient la somme de plusieurs accords.\n\nLa suite retrace ce chemin du devis au paiement. Les avis montrent que la valeur se situe souvent entre les écrans : ce qui a été convenu n’a pas besoin d’être ressaisi, les heures appartiennent au bon projet, un nouvel envoi ne crée pas une nouvelle dette, et l’acompte est visible dans le décompte d’ensemble.",
+ "cover": {
+  "src": "research/ResearchLaunch_invoice-maker_cover",
+  "alt": "Factures clients",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_invoice-maker_audiences",
+  "alt": "Tâches des gens : Factures clients",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Formaliser le travail directement chez le client",
+   "body": "Sur le chantier, l’essentiel est de monter rapidement le chiffrage à partir de prestations connues et de discuter des options avec le client. La ressaisie et la recherche d’une adresse e-mail peuvent gêner davantage qu’un choix limité de mises en page."
+  },
+  {
+   "title": "Facturer les heures d’un projet",
+   "body": "Dans le travail à l’heure, le document repose sur les intervalles accumulés. Il faut vérifier à quel projet le temps se rattache, ainsi que le tarif, avant d’envoyer le total au client."
+  },
+  {
+   "title": "Suivre le règlement étape par étape",
+   "body": "Un acompte, une étape terminée et le décompte final créent plusieurs états d’une même commande. Pour le prestataire, l’important est de voir le solde restant dû par le client séparément de l’argent qui lui est déjà parvenu."
+  }
+ ],
+ "sections": [
+  {
+   "id": "prepare",
+   "title": "Poursuivre le travail convenu dans le document",
+   "intro": "Le client, le périmètre, le tarif et le travail effectué doivent rester liés lors du passage du devis à la facture.",
+   "art": null,
+   "observations": [
+    {
+     "id": "estimate",
+     "title": "Conserver l’option retenue",
+     "passages": [
+      "Un devis avec options aide à discuter du périmètre de travaux avant la décision finale. Un technicien en chauffage et ventilation a besoin du choix à l’intérieur d’un seul document : trois devis distincts gênent la comparaison. Il est utile d’enregistrer quelle option le client a finalement retenue.",
+      "Une fois l’accord obtenu, une autre transition apparaît — du devis à la facture. Ressaisir les descriptions et les montants ajoute un travail déjà fait. Ce qu’il faut, c’est un report des lignes retenues avec la possibilité de les vérifier avant l’envoi, et pas seulement un nouveau document vierge.",
+      "Quand la création, la confirmation et le paiement sont liés, tout le processus paraît plus simple. L’avis positif ci-dessous apprécie justement cet enchaînement. Les travaux supplémentaires méritent d’être présentés à part, pour que le client voie en quoi le décompte final diffère du décompte initial."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli est super, ce serait juste mieux s’il y avait moyen d’ajouter différentes options aux devis. Par exemple différentes options que le client peut choisir sur le devis. Je fais du CVC et envoyer 3 devis différents c’est la galère.",
+       "rating": 4,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "J’utilise la version gratuite, super pour faire une facture vite fait si le filigrane vous dérange pas. Mais souvent quand j’essaie de créer une facture ça tourne, ça tourne, et ça marche pas tant que je supprime pas l’appli pour la réinstaller. Et pas de bouton pour convertir un devis en facture.",
+       "rating": 3,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "Ça fait un mois que j’utilise joist et c’est super. Facile de faire des factures, facile pour les clients de signer, de payer. J’aime bien utiliser cette appli !",
+       "rating": 5,
+       "app": "Joist: Estimate Invoice Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_estimate",
+      "alt": "Illustration du thème « Garder l’option choisie ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-estimate",
+       "title": "Conserver l’option retenue",
+       "body": "",
+       "ideas": [
+        "invoice-maker-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "catalog",
+     "title": "Utiliser la base sans modifier le passé",
+     "passages": [
+      "Les clients, prestations et prix enregistrés réduisent la saisie lors d’une commande répétée. Avec cette base toute prête, le chiffrage peut se monter en déplacement.",
+      "Mais toutes les lignes n’ont pas leur place dans un catalogue permanent. Les postes ponctuels l’encombrent avec le temps. Supprimer du répertoire ou archiver doit laisser le texte et le prix intacts sur l’ancienne facture ; un nouveau prix s’applique au nouveau travail au lieu de réécrire le passé.",
+      "Pour travailler sur plusieurs appareils, ce qui compte, c’est de disposer des mêmes documents et des mêmes répertoires. Si une partie des données reste seulement sur le téléphone, le chiffrage ne peut pas se poursuivre sur une tablette. Il est utile de montrer les modifications non transmises et de permettre de vérifier un document précis, avant qu’il ne soit recréé au bureau."
+     ],
+     "quotes": [
+      {
+       "text": "Super facile de facturer en déplacement. Facile à naviguer, ça enregistre les clients pour les fois suivantes. Ça enregistre les prix de n’importe quel article ou tâche. Ça enregistre les tarifs de main-d’œuvre et de matériaux. Ça ajoute même la taxe si besoin.",
+       "rating": 3,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "C’est facile de générer des factures mais l’impossibilité de supprimer les articles une fois qu’on les a facturés finit par donner une liste « articles » très encombrée quand on a beaucoup de trucs ponctuels.",
+       "rating": 2,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "J’utilise Tiny Invoice pour mon activité depuis des années et dans l’ensemble l’appli est bien conçue on l’adore. Par contre, j’ai eu récemment un gros problème de synchro entre mon iPhone et mon iPad. Les appareils ont arrêté de synchroniser correctement les factures et les devis, et certaines données existaient seulement sur un seul appareil.",
+       "rating": 4,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-catalog",
+       "title": "Utiliser la base sans modifier le passé",
+       "body": "",
+       "ideas": [
+        "invoice-maker-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "hours",
+     "title": "Vérifier le temps avant de facturer",
+     "passages": [
+      "Un minuteur aide à facturer quand l’enregistrement est rattaché à un client et à un projet. Un avis positif décrit le parcours de bout en bout : les heures sont notées sur différents appareils, puis passent dans le projet et dans le document. Cela évite de les recompter.",
+      "Mais la conservation des intervalles compte plus que leur multiplication automatique par un tarif. Si le démarrage ou la pause efface du temps déjà enregistré, il est difficile de se fier au total. Avant de facturer, il faut parcourir les intervalles, corriger un minuteur oublié et voir quelles heures sont déjà entrées dans des factures précédentes. Les minutes enregistrées ne sont pas toutes automatiquement convenues pour être payées."
+     ],
+     "quotes": [
+      {
+       "text": "Pour moi, ce qu’il y a de mieux dans ce service se passe en coulisses, le décompte des heures notées avec l’appli. On peut noter ses heures via le web ou l’appli iPhone, et ensuite envoyer ces infos dans ses projets et au final dans ses factures.",
+       "rating": 4,
+       "app": "Harvest: Track Time & Invoice"
+      },
+      {
+       "text": "J’aime bien l’appli mais le minuteur est vraiment cassé dans la nouvelle mise à jour. Ça veut tout le temps annuler les temps existants quand j’essaie de lancer ou de mettre en pause le minuteur. C’est peut-être un souci d’intégration du widget IOS.",
+       "rating": 2,
+       "app": "Zoho Invoice Maker App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_hours",
+      "alt": "Illustration du thème « Vérifier les heures avant la facturation ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-hours",
+       "title": "Vérifier le temps avant de facturer",
+       "body": "",
+       "ideas": [
+        "invoice-maker-4",
+        "invoice-maker-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "identity",
+     "title": "Garder un résultat reconnaissable",
+     "passages": [
+      "Un logo sur le document aide le prestataire à garder une présentation reconnaissable. Dans l’exemple qui suit, c’est cette possibilité qui aide quelqu’un à passer du papier aux factures électroniques. Cela fait partie de la façon habituelle de présenter son travail à un client.",
+      "L’aperçu dans l’éditeur ne confirme pas encore le résultat. Si le logo disparaît chez le destinataire ou à l’impression, la présentation choisie n’a en fait pas été transmise. Ce qu’il faut donc vérifier, c’est le fichier ou la page que le client va ouvrir.",
+      "La référence de la commande joue un rôle plus pratique : elle aide à retrouver le chiffrage dans la comptabilité de l’autre partie. Le numéro de facture, le numéro de bon de commande et le numéro d’ordre de travail peuvent être des champs différents. Il vaut la peine de les conserver lors d’un nouvel envoi, pour que les deux parties discutent du même document."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai trouvé cette appli après avoir cherché un bon moment et elle m’a permis de passer complètement au zéro papier. J’adore et j’ai pu mettre mon propre logo sur l’en-tête",
+       "rating": 5,
+       "app": "Estimate Maker for Contractors"
+      },
+      {
+       "text": "J’adorais cette appli jusqu’à ce que je me rende compte que mon logo apparaît pas côté client ni quand je l’imprime, aucun problème jusqu’à il y a quelques semaines et là plus rien a l’air de marcher.",
+       "rating": 3,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "Des modèles géniaux à choisir et à personnaliser ! Ma seule demande c’est qu’ils fassent en sorte qu’on puisse choisir entre un n° de bon de commande et un n° d’ordre de travail sur une facture. J’ai des clients qui utilisent les deux",
+       "rating": 5,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-identity",
+       "title": "Garder un résultat reconnaissable",
+       "body": "",
+       "ideas": [
+        "invoice-maker-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "tax",
+     "title": "Montrer comment le calcul a été obtenu",
+     "passages": [
+      "Des matériaux et des prestations sur une même facture peuvent exiger des réglages de calcul différents. Dans le cas qui suit, le taux choisi ne peut pas s’appliquer aux seules lignes concernées. Un champ de pourcentage unique après le sous-total ne suffit pas pour sa tâche.",
+      "Les réglages doivent aussi se retrouver dans le rapport. Un autre auteur a besoin de séparer, à l’export, les documents avec taxe de ceux sans taxe. Il vaut donc la peine de vérifier une facture mixte connue et son rendu dans le tableau final, et pas seulement la présence de l’interrupteur à l’écran.",
+      "Enfin, le calcul doit réellement s’exécuter quand un pourcentage est saisi. Un montant hors taxe visible, la base retenue et le résultat rendent une erreur repérable. L’app applique les règles qu’on lui donne ; ces avis ne donnent aucun motif de décider à la place de l’utilisateur du taux et des conditions appropriés."
+     ],
+     "quotes": [
+      {
+       "text": "Ça reste une super appli si vos lignes sont soit taxables soit non taxables, mais on peut pas avoir des marchandises et de la main-d’œuvre sur la même facture. Comme le taux de taxe est appliqué APRÈS le sous-total et que la taxe s’applique aussi bien à la main-d’œuvre qu’aux marchandises, pour moi c’est mort.",
+       "rating": 3,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "J’aime bien, mais, ce serait bien d’avoir un moyen de générer un rapport en pdf. ou excel pour les impôts. Je fais des factures différentes pour l’entretien de pelouses et le bricolage, où je dois facturer la taxe sur l’entretien de pelouses. Ça me faciliterait tellement la vie si je pouvais séparer les factures avec taxe de celles sans.",
+       "rating": 4,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "La taxe marche pas, ça calcule pas quand on met le pourcentage avant ça marchait mais maintenant non",
+       "rating": 2,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_tax",
+      "alt": "Illustration du thème « Montrer comment le total a été calculé ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "payment",
+   "title": "Remettre la facture et savoir ce qui est dû",
+   "intro": "L’envoi, l’ouverture, le paiement partiel et l’arrivée de l’argent répondent à des questions différentes.",
+   "art": null,
+   "observations": [
+    {
+     "id": "delivery",
+     "title": "Poursuivre la conversation dans un canal pratique",
+     "passages": [
+      "Pour le travail sur le terrain, envoyer le chiffrage prolonge la conversation avec le client. Si les échanges se font par messages, devoir trouver une adresse e-mail ajoute une étape à part. Un document pratique doit arriver là où le destinataire pourra l’ouvrir et y revenir plus tard.",
+      "Le choix du canal mérite d’être séparé de la facture elle-même : un nouvel envoi ne doit pas créer une autre dette. L’important est de garder un nom reconnaissable et un fichier ou un lien qui fonctionne. En cas de problème de remise, le prestataire doit comprendre ce qui a déjà été envoyé et disposer d’un moyen clair de transmettre le même document autrement.",
+      "L’envoi du même document par un autre moyen doit être conservé comme un nouvel événement de remise. Il importe de laisser vérifier le nom, la pièce jointe et le destinataire avant l’envoi. Le canal de la conversation change alors, tandis que la commande et son chiffrage gardent un historique unique."
+     ],
+     "quotes": [
+      {
+       "text": "Je recommanderais Invoice Simple à tous ceux qui ont une entreprise ou qui se lancent. Je suis installateur de pneus à domicile et je cherchais une société de facturation où je peux envoyer tout de suite les prix à mes clients etc. la plupart des sociétés proposent pas les SMS, seulement l’e-mail, mais Invoice le fait.",
+       "rating": 5,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "On dirait que je peux seulement envoyer la facture par e-mail à mes clients alors que j’ai vraiment besoin de leur envoyer par SMS aussi",
+       "rating": 3,
+       "app": "Zoho Invoice Maker App"
+      },
+      {
+       "text": "La moitié de mes e-mails partent dans les indésirables et je suis tout le temps en train de relancer des clients qui disent qu’ils ont pas reçu d’e-mail.",
+       "rating": 3,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-delivery",
+       "title": "Poursuivre la conversation dans un canal pratique",
+       "body": "",
+       "ideas": [
+        "invoice-maker-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "seen",
+     "title": "Distinguer l’ouverture du paiement",
+     "passages": [
+      "L’envoi, l’ouverture et le paiement répondent à des questions différentes. Le premier avis apprécie de pouvoir voir les deux derniers événements à côté du document. Un tel historique supprime une partie des vérifications qu’il faudrait sinon garder en tête.",
+      "Pour gérer les commandes, il importe surtout de distinguer les factures payées de celles encore ouvertes. Un paiement peut arriver par un autre moyen, il faut donc une saisie manuelle avec un montant et une date. Les relances doivent être confrontées au solde connu, et il doit rester possible de les annuler.",
+      "La consultation est un signal à part, et sa disparition peut priver l’outil de sa valeur pour une personne donnée. Mais l’absence de marque ne prouve pas que le client n’a pas lu le document. Elle signifie que l’app ne connaît pas l’événement correspondant ; tout contact ultérieur doit tenir compte de cette limite."
+     ],
+     "quotes": [
+      {
+       "text": "Facile de faire des factures et tout aussi facile de suivre quand elles sont vues par les clients et quand elles sont payées.",
+       "rating": 5,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "Cette appli est géniale et fait une grosse différence côté organisation. Fini d’essayer de suivre qui a payé et qui a pas payé et en plus ça permet de suivre tout le travail qui reste à faire.",
+       "rating": 5,
+       "app": "Square Invoices: Invoice Maker"
+      },
+      {
+       "text": "Ma raison principale d’utiliser tout ça c’est que ça vous prévenait quand les clients ouvraient vos devis et vos factures. Maintenant ça a arrêté de marcher donc pour moi ça ne vaut plus le coup",
+       "rating": 2,
+       "app": "Wave: Small Business Software"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_seen",
+      "alt": "Illustration du thème « Distinguer une ouverture d’un paiement ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-seen",
+       "title": "Distinguer l’ouverture du paiement",
+       "body": "",
+       "ideas": [
+        "invoice-maker-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "balance",
+     "title": "Voir l’acompte et le montant restant dû",
+     "passages": [
+      "Un acompte réduit le solde de la commande mais ne change pas le périmètre de travaux convenu. La demande d’un moyen plus simple d’encaisser un paiement d’avance apparaît aussi dans l’avis ci-dessous. Il vaut la peine de rattacher les paiements à une seule commande, pour que le montant initial et ce qu’il reste à recevoir soient visibles ensemble.",
+      "Un paiement partiel et le versement au prestataire sont deux états différents. Dans l’avis suivant, les deux transitions sont peu pratiques. Là où le service encaisse l’argent, il est utile de montrer séparément le paiement enregistré du client et l’état connu du virement qui suit.",
+      "En même temps, une facture envoyée ne donne pas encore de date exacte pour l’arrivée de l’argent. Le délai convenu, la somme réellement reçue et l’attente du prochain versement doivent être distinguables. Pour planifier les rentrées d’argent, un seul nouveau statut ne suffit pas si la source de la date attendue reste inconnue."
+     ],
+     "quotes": [
+      {
+       "text": "J’étais dégoûté quand ils ont commencé à faire payer, mais comme je dépendais tellement de la version gratuite gratuite j’ai dû payer. J’aimerais qu’ils intègrent un moyen d’accepter les acomptes sans se prendre la tête.",
+       "rating": 4,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "Quand on reçoit un paiement partiel la facture devrait mieux se mettre à jour, et les versements sont très compliqués aussi.",
+       "rating": 4,
+       "app": "Invoice Maker ▸ Estimate App"
+      },
+      {
+       "text": "Un truc que j’aime pas avec les factures Square, c’est qu’elles sont pas très transparentes sur les délais de paiement. Une fois que j’ai envoyé une facture, je sais jamais vraiment quand je vais être payé, ce qui complique la prévision et la gestion de la trésorerie.",
+       "rating": 1,
+       "app": "Square Invoices: Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-balance",
+       "title": "Voir l’acompte et le montant restant dû",
+       "body": "",
+       "ideas": [
+        "invoice-maker-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Vérifier une commande du devis au solde",
+  "body": "Pour un lancement, il est plus important de relier une commande réelle que d’ajouter dix modèles de plus. Que le devis retenu se transforme en facture, que les heures et les dépenses gardent leur origine, et que l’acompte réduise un solde compréhensible. Ensuite, le même document doit parvenir au client par le canal dont il a l’habitude. Un tel parcours montre où le prestataire tient encore un deuxième tableur ou recopie des données.\n\nLa spécialisation mérite d’être choisie d’après ce travail en trop : un technicien itinérant a besoin de certaines transitions, un prestataire à l’heure d’autres. Un beau PDF ne les relie pas à lui seul. L’utilité d’un nouvel outil se mesure à la quantité de ressaisie et de décomptes flous qui subsistent, sans promettre d’accélérer le paiement avec une simple notification de consultation."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-prepare",
+   "title": "Poursuivre le travail convenu dans le document",
+   "depth": 0
+  },
+  {
+   "id": "observation-estimate",
+   "title": "Conserver l’option retenue",
+   "depth": 1
+  },
+  {
+   "id": "observation-catalog",
+   "title": "Utiliser la base sans modifier le passé",
+   "depth": 1
+  },
+  {
+   "id": "observation-hours",
+   "title": "Vérifier le temps avant de facturer",
+   "depth": 1
+  },
+  {
+   "id": "observation-identity",
+   "title": "Garder un résultat reconnaissable",
+   "depth": 1
+  },
+  {
+   "id": "observation-tax",
+   "title": "Montrer comment le calcul a été obtenu",
+   "depth": 1
+  },
+  {
+   "id": "theme-payment",
+   "title": "Remettre la facture et savoir ce qui est dû",
+   "depth": 0
+  },
+  {
+   "id": "observation-delivery",
+   "title": "Poursuivre la conversation dans un canal pratique",
+   "depth": 1
+  },
+  {
+   "id": "observation-seen",
+   "title": "Distinguer l’ouverture du paiement",
+   "depth": 1
+  },
+  {
+   "id": "observation-balance",
+   "title": "Voir l’acompte et le montant restant dû",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Vérifier une commande du devis au solde",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

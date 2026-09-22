@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "interior-design-2",
+ "category": "interior-design",
+ "categoryName": "Design d’intérieur et plans d’aménagement",
+ "title": "Un plan avec des cotes exactes",
+ "description": "Un planificateur où les dimensions se saisissent en chiffres et se corrigent à la main. Après la modification d’un mur, on voit ce qui a changé autour, et une étape ratée peut être annulée.",
+ "cover": {
+  "src": "ideas/interior-design-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "On reporte les dimensions de son appartement à l’écran. Si modifier un mur déplace discrètement les autres, il faut revérifier tout le dessin. La saisie exacte va de pair avec un comportement explicable des éléments voisins."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "À chaque fois que j’ajuste un mur, ça change d’autres dimensions. Des heures perdues à gérer l’appli au lieu du projet. J’ai laissé tomber et je l’ai dessiné au papier et au crayon. BEAUCOUP plus simple.",
+    "rating": 1,
+    "app": "Live Home 3D - House Design"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "La longueur d’un mur peut être fixée par un chiffre, et les dimensions clés verrouillées. Si une nouvelle valeur est incompatible avec le reste, l’éditeur montre le conflit et propose de choisir quoi changer. Après une modification, les dimensions touchées sont visibles ; l’annulation rétablit la géométrie précédente."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "Que tester en premier"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Reporter à l’écran une pièce aux dimensions connues et modifier un mur. La personne doit pouvoir expliquer ce qui s’est passé autour et rétablir le plan d’origine. Une promesse du type « les autres murs ne bougent jamais » gêne ici : des dimensions liées peuvent réellement demander un recalcul."
+  }
+ ],
+ "rank": 364,
+ "free": true
+}

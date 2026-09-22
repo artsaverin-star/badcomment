@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "scanner-pdf",
+ "name": "Document scanners",
+ "summary": "Capturing a document is where the work starts. After that the text has to be checked, the pages assembled, the file found and sent in the form that is needed.",
+ "corpus": {
+  "reviews": 23488,
+  "apps": 52
+ },
+ "lead": "One person photographs a receipt to attach it to a report. Another saves a family letter; a third assembles a hundred pages for work. On the first screen it is the same camera button, but each of them needs a different result.\n\nWhat follows traces a document from the shot to the recipient. In the reviews the most important difficulties often arise after a successful scan: the colors change, the pages are rearranged, the notes vanish, and instead of a file you get a link. Every one of those transitions is a job of its own for the product.",
+ "cover": {
+  "src": "research/ResearchLaunch_scanner-pdf_cover",
+  "alt": "Document scanners",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_scanner-pdf_audiences",
+  "alt": "People’s jobs: Document scanners",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Sending a few pages for school or work",
+   "body": "Several pages have to become one clear document: with the order preserved, the text readable and a size that suits the chosen way of sending. The check has to happen before it goes to the recipient."
+  },
+  {
+   "title": "Digitizing a paper archive",
+   "body": "When it is used again, what matters is not only the images of the pages but also being able to find the document, correct the recognition and return to the original. How workable an archive is shows up as the files pile up."
+  },
+  {
+   "title": "Filling in a form and returning it",
+   "body": "A filled-in form has to keep the text, the marks and the signature when it is opened outside the editor. Being able to place an element on the screen does not yet mean it will be in the file that is handed on."
+  }
+ ],
+ "sections": [
+  {
+   "id": "scan",
+   "title": "Keeping the thing you took the picture for",
+   "intro": "A line of small print, a detail in color or a handwritten word can be the main content of a document.",
+   "art": null,
+   "observations": [
+    {
+     "id": "capture",
+     "title": "Correcting the frame by hand",
+     "passages": [
+      "Auto-capture saves time as long as it identifies the page correctly. But when the camera asks you to come closer while the sheet already fills the screen, a person gets stuck: repeating one action without understanding how to get a different result. A manual shutter has to be within reach.",
+      "Errors in edge detection are a separate problem. A bent corner can turn a straight sheet into a skewed shape. What helps here is being able to bring back the original frame and set the boundaries yourself, keeping the small print and the edges of the document.",
+      "Manual correction is useful only when it can actually be used. All four corners have to move independently; the result is worth showing large enough to notice a clipped line before moving on to the next page."
+     ],
+     "quotes": [
+      {
+       "text": "I've been using this app for several years now and paid for the upgrade to pro. However, I am less and less satisfied with its performance. For example, when scanning, the app constantly says \"get closer\", even when the image to scan is filling the screen. Auto-capture only works in ideal conditions",
+       "rating": 2,
+       "app": "Scanner Mini Scan PDF & Fax"
+      },
+      {
+       "text": "This app's auto scan interprets folded corners as (the type you get with any physical document with a staple in the corner) as though your document is at a very skewed angle, and rescales photos to cartoonish and unreadable proportions.",
+       "rating": 2,
+       "app": "Photos PDF : Scanner Converter"
+      },
+      {
+       "text": "When it auto-detects the page, it gives you handles to let you readjust the area, but 75% of the time it doesn't actually let me drag all 4 handles, some stay frozen in the original place.",
+       "rating": 2,
+       "app": "Scanner - Edit PDF & documents"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_capture",
+      "alt": "Illustration for the theme “Fixing the frame by hand”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-capture",
+       "title": "Correcting the frame by hand",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "color",
+     "title": "Keeping the color you chose",
+     "passages": [
+      "Processing should help produce the document you need, not change its properties unexpectedly. A color page may be needed in color; switching to black and white during editing changes the result after the shot has already come out well. An unfamiliar tint is also reason enough to choose a different way of converting.",
+      "It helps to compare the processed image with the original and to keep the chosen mode through later edits. A universal “enhancement” is no substitute for that control. The criterion here is simple: after editing and export the document still holds the details and colors the person decided to keep.",
+      "For a drawing what matters is comparing shades, for a contract the legibility of a stamp, for a receipt the contrast of the letters. So the processing is better chosen for the job at hand. The original shot makes it possible to go back to another version when the requirements for the document change after the picture was taken."
+     ],
+     "quotes": [
+      {
+       "text": "This was touted as one of the better scanning apps. Well, the scan itself comes out very well, as soon as I want to edit anything on a document, it turns black-and-white. I scanned a beautiful color copy of a document, but every time I go to edit it, it goes from the colors to just black-and-whi",
+       "rating": 2,
+       "app": "iScanner: PDF Document Scanner"
+      },
+      {
+       "text": "All of my PDF conversions turn my documents into a funky yellow color. I don't like this at all. I also paid for the unlimited use. It does let me do that but I have since started using another PDF converter solely based on how my documents look following the conversion on this app.",
+       "rating": 3,
+       "app": "Photos PDF : Scanner Converter"
+      },
+      {
+       "text": "Scanning in black and white is fine but the app doesn't seem very happy scanning my passport in colour. I can't get the image to be clear no matter the amount of light in the background.",
+       "rating": 3,
+       "app": "Scanner PDF scan document"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-color",
+       "title": "Keeping the color you chose",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ocr",
+     "title": "Correcting the text beside the original",
+     "passages": [
+      "Text recognition is there for working with content: finding a place in a book or turning a handwritten letter into editable text. If the words are jumbled, lines are missing and correcting takes longer than typing it in, the mere availability of OCR gains you nothing.",
+      "What matters is a short path from an error to the matching place on the scan. Having the original and the result side by side helps to check doubtful words without switching between files. For your own material it is worth comparing the time it takes to get checked text with your usual way of retyping: that says more than a general promise of high accuracy.",
+      "It is particularly useful to highlight the place a line came from. A user can then check a surname or an amount without reading the whole page again. In a large document, search has to lead to the original page, even if the word that was found was recognized with an error and corrected later."
+     ],
+     "quotes": [
+      {
+       "text": "I had 2 letters that our mother's hand wrote. We needed them turned into typed letters. Scanned both letter just fine. But the transfer to text were complete fails!! 1-3 words per line (when shared to computer), words were jumbled together and also parsed into fractions of the word.",
+       "rating": 2,
+       "app": "ScanGuru: PDF Scanner App"
+      },
+      {
+       "text": "Fairly accurate on French hand-writing, but FAR LESS than the claimed 99%. After correcting the errors, I knew that reading it into Dictation would have been faster.",
+       "rating": 3,
+       "app": "AI Scanner : Image to Text"
+      },
+      {
+       "text": "I've scanned a few chapters of a book to make searching the book easier for me. When I look at the text after it converts it to a text several sections are not recognized or readable.",
+       "rating": 2,
+       "app": "FineReader: PDF Scanner & OCR"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_ocr",
+      "alt": "Illustration for the theme “Correcting the text beside the original”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-ocr",
+       "title": "Correcting the text beside the original",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "document",
+   "title": "Assembling a file you can trust",
+   "intro": "All the pages in the right order, and all the edits, have to be in the final document.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pages",
+     "title": "Seeing the whole document before saving",
+     "passages": [
+      "A batch of photographs already contains a person’s work: the right pages have been chosen. If the app takes them one at a time, it makes that selection happen all over again. For a long document that can take more time than the shooting itself.",
+      "Multiple selection doesn’t solve the assembly on its own. The order of selection has to be kept and all the pages shown before export. Otherwise a user discovers the pages have been rearranged only after sending the document to other people.",
+      "Over a run of forty pages the cost of an extra action shows especially clearly. An overview with reordering and the removal of duplicates is a useful improvement to an existing scanner. Digitizing a whole book also calls for saving work in progress: the next idea deals with that narrower scenario."
+     ],
+     "quotes": [
+      {
+       "text": "Works perfect for work and turning photos into PDFs but the main issue when I'm making a pdf I can't do multiple photos from my gallery at once I have to add one at a time. PLEASE FIX THIS!",
+       "rating": 3,
+       "app": "TurboScan™: document scanner"
+      },
+      {
+       "text": "i put my photos in in order, thinking that the app would let the photos stay in that order, but instead it uploaded every single one completely out of order. i sent it to everyone in my class and didn't realize until hours later. why does it do this ???",
+       "rating": 2,
+       "app": "Photo to PDF Converter Scanner"
+      },
+      {
+       "text": "It's an amazing app but it's annoying because I can't select multiple photos to convert at once. You have to click on them one by one. And when it's 40 photos that's a ridiculous amount of time that feels wasted.",
+       "rating": 2,
+       "app": "Photo to PDF Convert Scanner +"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pages",
+       "title": "Seeing the whole document before saving",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "editing",
+     "title": "Checking the edits in the finished file",
+     "passages": [
+      "Text in a field, a form mark and a signature have to stay elements you can control. A signature that is too big and won’t move, or a jumping cursor, makes filling in harder; notes that disappear after saving make the markup already done worthless. These are different problems on the same path to a finished document.",
+      "Editing ends with a check of the exported file. What was written, where the elements sit and the form marks that are available all have to survive in it. It matters especially to open the result outside the editor it came from: comfortable drawing over a page is no confirmation that those changes are available to someone on another device.",
+      "In a form it is worth telling input fields apart from ordinary drawing over the page. The recipient may need to carry on filling it in, or may only need to read the final copy. That choice is better explained before export, with the editable original kept separately."
+     ],
+     "quotes": [
+      {
+       "text": "I love the ease of marking up docs in Acrobat. But two massive issues: (1) Often (50/50%) I'll return to a document I've marked up (usually a 100-page screenplay) and find that my markups have totally vanished. (2) Simply exporting a PDF WITH the markups is preposterously difficult.",
+       "rating": 2,
+       "app": "Acrobat Reader: PDF Editor"
+      },
+      {
+       "text": "The fact that you cannot manipulate the signature is terrible. You create an esig and it's HUGE and cannot be resized, flipped, rotated",
+       "rating": 1,
+       "app": "Photo to PDF Convert Scanner +"
+      },
+      {
+       "text": "My check boxes are not appearing on my phone when using a form, but They appear on the desktop. It was there before but not after this update.",
+       "rating": 3,
+       "app": "Acrobat Reader: PDF Editor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_editing",
+      "alt": "Illustration for the theme “Checking the edits in the finished file”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-editing",
+       "title": "Checking the edits in the finished file",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keep-send",
+   "title": "Finding the result and passing it on",
+   "intro": "The work ends when the file that is needed is available both to the person and to the recipient.",
+   "art": null,
+   "observations": [
+    {
+     "id": "organization",
+     "title": "Putting the archive in order",
+     "passages": [
+      "While there are few scans, the most recent files are enough. In time a person starts sorting documents by work, by family or by individual matters. A flat list gets in the way of reproducing a familiar structure: even a simple request for a nested folder has a clear reason behind it here.",
+      "Creating folders is not enough: the right one still has to be found. Alphabetical order and search by name solve a different problem than recognizing the text inside a scan. What the review below is missing is exactly that basic navigation.",
+      "Renaming, too, has to be finished on the phone. If every file means turning to a computer, archiving becomes a regular piece of extra work. Search across contents may be the next step, but these reviews point above all at how awkward the existing folders and names already are."
+     ],
+     "quotes": [
+      {
+       "text": "I love this app, but have one complaint - I'm unable to create a subfolder (i.e. a folder inside of another folder). So, I have to save documents into a flat directory structure. Would be great if I could further organize documents into subfolders",
+       "rating": 3,
+       "app": "Doc Scan - PDF Scanner"
+      },
+      {
+       "text": "I use a lot of folders on TurboScan. There is no way to search for a folder. Folders are not listed in alphabetical order. It's all random.",
+       "rating": 1,
+       "app": "TurboScan™ Pro: PDF scanner"
+      },
+      {
+       "text": "App works decently for scanning, but when I try to rename, the app freezes, so I have to export and rename each file on my computer. It's a good enough workaround, but there are better options out there right now that don't require that so I will probably use those instead.",
+       "rating": 2,
+       "app": "SCAN ACE · PDF Scanner App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-organization",
+       "title": "Finding a document by its content",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "cloud",
+     "title": "Knowing where the copy is kept",
+     "passages": [
+      "A local scan and its copy in the cloud are two different states. A sync someone is used to can stop running or ask to be reconnected while the person goes on assuming the documents are copied. The absence of an error on screen does not answer the question of whether the archive is available somewhere else.",
+      "It helps to show the state of every transfer and to keep independent access to the local file. Restoring the connection should not require scanning everything again. What is needed here is clarity about the action that was carried out; one button for connecting to the cloud is no substitute for checking that the document really did appear there.",
+      "A new phone is a good test of an archive. It is not only the images that have to be restored but the names, the folders and the notes. A list of files that did not transfer lets copying continue after a failure, without comparing the whole library by hand and without shooting the documents again."
+     ],
+     "quotes": [
+      {
+       "text": "In the beginning, it worked great once they purchased the pro and VIP packages. However, now years later, the app is not syncing with the iCloud account with iOS. And after several emails to Customer Support resolutions have not resolved the issue.",
+       "rating": 1,
+       "app": "SwiftScan AI Document Scanner"
+      },
+      {
+       "text": "This app had been working great for so many years. Now I can't get it to sync with Dropbox or Google Drive.",
+       "rating": 2,
+       "app": "Scanner Pro・Scan PDF Documents"
+      },
+      {
+       "text": "I had linked this app with my Google Drive account a year or two and then a few months ago, I had to reauthenticate and couldn't. Google warned me that the JotNot Pro was trying to access sensitive data from my Google account and hadn't been verified.",
+       "rating": 1,
+       "app": "JotNot Scanner App Pro"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_scanner-pdf_cloud",
+      "alt": "Illustration for the theme “Knowing where the copy is kept”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "delivery",
+     "title": "Sending exactly the right file",
+     "passages": [
+      "A link to a document and a PDF in the phone’s storage suit different ways of handing it over. If the recipient needs a file, the Share button has to be able to produce exactly that, with all the pages and edits kept.",
+      "Creating a PDF and delivering it to the recipient are two different results. The review about emails that never arrived shows why the message “Sent” needs an exact meaning. It helps to keep the finished file so that a person can try again by another route without assembling the document from scratch.",
+      "A large document adds a limit on size. Before sending, the name, the number of pages and the size of the file are all needed. If the images have to be compressed, a look at the small print helps in choosing a usable copy: a smaller size does not by itself mean the document is ready."
+     ],
+     "quotes": [
+      {
+       "text": "Export PDF Needs Simplification. I don't need a link, I need a PDF in my phone files.",
+       "rating": 3,
+       "app": "Adobe Scan: PDF & OCR Scanner"
+      },
+      {
+       "text": "Been using turbo scan for years. Worked flawless then one day wasn't able to send documents as pdf files anymore after they were scanned. Normally I would hit send for the scanned pdf and then within seconds I would receive an email showing that I received it. Now I may or may not receive the email",
+       "rating": 2,
+       "app": "TurboScan™ Pro: PDF scanner"
+      },
+      {
+       "text": "Simple easy to use. Love using this app for scanning and emailing doc from phone when on the go. Works fantastic for 1 or 2 page docs. I have struggled with multi page docs - 6-14 pages. App can support but I can't adjust the size of the file, and it often ends up being more than 10mb and can't ge",
+       "rating": 3,
+       "app": "Doc Scan - PDF Scanner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-delivery",
+       "title": "Sending exactly the right file",
+       "body": "",
+       "ideas": [
+        "scanner-pdf-1",
+        "scanner-pdf-3"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First get the document to the recipient",
+  "body": "The first priority is to test one document all the way through: from an awkward shot to a file opened outside the app. What matters is seeing whether the pages, the color and the notes survived, whether the result can be found and the sending repeated. This is where the reviews describe work already done being lost, so clearing those failures is worth more than one more filter.\n\nSpecialization is worth choosing after that. A book needs a long unfinished run, a report needs the set of receipts the recipient wants, an archive needs searching again later. These are different products in the amount of work involved. A complaint about one button does not yet show that a person is ready to move every document into a new scanner to have it fixed."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-scan",
+   "title": "Keeping the thing you took the picture for",
+   "depth": 0
+  },
+  {
+   "id": "observation-capture",
+   "title": "Correcting the frame by hand",
+   "depth": 1
+  },
+  {
+   "id": "observation-color",
+   "title": "Keeping the color you chose",
+   "depth": 1
+  },
+  {
+   "id": "observation-ocr",
+   "title": "Correcting the text beside the original",
+   "depth": 1
+  },
+  {
+   "id": "theme-document",
+   "title": "Assembling a file you can trust",
+   "depth": 0
+  },
+  {
+   "id": "observation-pages",
+   "title": "Seeing the whole document before saving",
+   "depth": 1
+  },
+  {
+   "id": "observation-editing",
+   "title": "Checking the edits in the finished file",
+   "depth": 1
+  },
+  {
+   "id": "theme-keep-send",
+   "title": "Finding the result and passing it on",
+   "depth": 0
+  },
+  {
+   "id": "observation-organization",
+   "title": "Putting the archive in order",
+   "depth": 1
+  },
+  {
+   "id": "observation-cloud",
+   "title": "Knowing where the copy is kept",
+   "depth": 1
+  },
+  {
+   "id": "observation-delivery",
+   "title": "Sending exactly the right file",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First get the document to the recipient",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "weather-apps-3",
+ "category": "weather-apps",
+ "categoryName": "Weather",
+ "title": "Precipitation history for your land",
+ "description": "Your own period, the rain gauge readings and the service’s estimate, available for comparison.",
+ "cover": {
+  "src": "ideas/weather-apps-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "The last twenty-four hours or a calendar month do not always match how a person follows their land."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "App seems to be less and less accurate with rain totals and is taking for ever to load with full WiFi \nI’ve had this app\nFor a long time and I losing faith in this app as a farmer",
+    "rating": 1,
+    "app": "AccuWeather: Weather Forecast"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choose an arbitrary range, add manual measurements and notes about the watering. Do not mix different sources into one unlabeled total."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The information can differ in spatial accuracy and in age. That has to be visible in the comparison."
+  }
+ ],
+ "rank": 50,
+ "free": false
+}

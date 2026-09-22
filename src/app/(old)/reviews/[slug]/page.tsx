@@ -7,6 +7,7 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { getNiche, listSourceApps, nicheName } from "@/lib/reviews";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +45,9 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
+  // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
+  const seoLoc = ru ? "ru" : "en";
   const name = nicheName(niche, locale);
   const sourceReviews = niche.sourceReviews || niche.apps.reduce((sum, app) => sum + app.total, 0);
   const access = await getAccess();
@@ -56,7 +59,7 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
     "@type": "Dataset",
     name: ru ? `Отзывы о приложениях категории «${name}»` : `Reviews of apps in the ${name} category`,
     description: ru ? `${sourceReviews} размеченных отзывов о ${apps.length} приложениях.` : `${sourceReviews} labelled reviews across ${apps.length} apps.`,
-    url: `https://inapp.pro${lp}/reviews/${slug}`,
+    url: `https://inapp.pro/${seoLoc}/reviews/${slug}`,
     isPartOf: { "@id": "https://inapp.pro/reviews#dataset" },
     variableMeasured: ["review text", "star rating", "topics"],
   };

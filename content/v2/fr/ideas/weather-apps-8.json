@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-8",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "L’historique d’une station météo domestique",
+ "description": "Les informations et les réglages survivent à un changement de réseau ou d’emplacement de la station.",
+ "cover": {
+  "src": "ideas/weather-apps-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Après le remplacement d’un routeur ou un déménagement, on veut poursuivre les observations, pas recommencer l’archive."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Si on change de fournisseur Internet autant jeter ce truc à la poubelle. Deuxième Ambient, passé à Starlink et maintenant plus rien. Séparé le 2,4/5,0 comme indiqué, rien. Ambient a un code antique, pas changé depuis l’internet par modem.",
+    "rating": 1,
+    "app": "Ambient Weather Network"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Poursuivre les observations"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Rattacher l’archive à l’appareil et changer la connexion séparément. Une fois la liaison rétablie, afficher le dernier enregistrement reçu et la période manquée. Quand la station est déplacée, ajouter une note sur le nouvel emplacement."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Où une vérification séparée s’impose"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "L’historique ne réparera pas un appareil incompatible avec un nouveau réseau. Vérifier d’abord la connexion sur du matériel pris en charge ; ensuite le transfert de l’archive et la distinction entre les périodes avant et après le déplacement."
+  }
+ ],
+ "rank": 250,
+ "free": false
+}

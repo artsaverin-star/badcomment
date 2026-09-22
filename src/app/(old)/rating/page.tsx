@@ -5,6 +5,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { reviewCorpusSlugs } from "@/lib/reviews";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
+import { oldLp } from "@/lib/oldHref";
 
 type RApp = { icon: string | null; ratings: number };
 type RFile = { count?: number; apps?: RApp[] };
@@ -145,16 +146,18 @@ function cleanBlurb(value: string, locale: "ru" | "en"): string {
 export default async function RatingIndexPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
+  // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
+  const seoLoc = ru ? "ru" : "en";
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", name: ru ? "Народный рейтинг приложений" : "People\u2019s app rating", url: `https://inapp.pro${lp}/rating`, inLanguage: ru ? "ru" : "en", isPartOf: { "@id": "https://inapp.pro/#website" } },
+      { "@type": "CollectionPage", name: ru ? "Народный рейтинг приложений" : "People\u2019s app rating", url: `https://inapp.pro/${seoLoc}/rating`, inLanguage: ru ? "ru" : "en", isPartOf: { "@id": "https://inapp.pro/#website" } },
       { "@type": "BreadcrumbList", itemListElement: [
-        { "@type": "ListItem", position: 1, name: ru ? "Главная" : "Home", item: `https://inapp.pro${lp}` },
-        { "@type": "ListItem", position: 2, name: ru ? "Рейтинг" : "Ratings", item: `https://inapp.pro${lp}/rating` } ] },
+        { "@type": "ListItem", position: 1, name: ru ? "Главная" : "Home", item: `https://inapp.pro/${seoLoc}` },
+        { "@type": "ListItem", position: 2, name: ru ? "Рейтинг" : "Ratings", item: `https://inapp.pro/${seoLoc}/rating` } ] },
       { "@type": "ItemList", name: ru ? "Ниши народного рейтинга" : "People\u2019s rating niches", numberOfItems: NICHES.length,
-        itemListElement: NICHES.map((n, i) => ({ "@type": "ListItem", position: i + 1, name: ru ? n.name : n.nameEn, url: `https://inapp.pro${lp}/rating/${n.slug}` })) },
+        itemListElement: NICHES.map((n, i) => ({ "@type": "ListItem", position: i + 1, name: ru ? n.name : n.nameEn, url: `https://inapp.pro/${seoLoc}/rating/${n.slug}` })) },
     ],
   };
 

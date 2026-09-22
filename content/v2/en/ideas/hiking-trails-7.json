@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "hiking-trails-7",
+ "category": "hiking-trails",
+ "categoryName": "Hikes and routes",
+ "title": "Build a loop along the trails",
+ "description": "The anchor points can be moved, with the line and the climbs compared after each change.",
+ "cover": {
+  "src": "ideas/hiking-trails-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "An automatic join can run differently from what the person expected."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "App claims to select routes using trails and roads. I have tried to get it to use the trails and footpaths but it won’t.",
+    "rating": 2,
+    "app": "Footpath Route Planner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Mark which stretches were snapped and which were drawn by hand, highlight the part that was rebuilt and offer an undo. Before saving, look over the whole chosen path."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Calculating a route does not confirm that every stretch can be walked."
+  }
+ ],
+ "rank": 468,
+ "free": false
+}

@@ -11,6 +11,7 @@ import { getCategoryBySlug } from "@/lib/researchCategories";
 import { tg } from "@/lib/typo";
 import active from "@/data/active-categories.json";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -174,7 +175,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Link
-        href={`/${lp}/segment/${ctx.catSlug}`}
+        href={oldHref(locale, `/segment/${ctx.catSlug}`)}
         className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
       >
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -225,7 +226,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       {/* Funnel into the niche — the whole point of this landing page. */}
       <Link
-        href={`/${lp}/segment/${ctx.catSlug}`}
+        href={oldHref(locale, `/segment/${ctx.catSlug}`)}
         className="mt-20 flex flex-col gap-2 rounded-[24px] bg-[var(--color-text-primary)] p-6 transition-opacity hover:opacity-95 sm:mt-24 sm:p-8"
       >
         <span className="text-caption text-[color-mix(in_srgb,var(--color-bg-page)_65%,transparent)]">{ru ? "Вся ниша" : "The whole niche"}</span>

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "weather-apps-4",
+ "category": "weather-apps",
+ "categoryName": "天気",
+ "title": "肝心の場所のための警報",
+ "description": "保存した住所について、効力のある警報と、その時刻と履歴が見える。",
+ "cover": {
+  "src": "ideas/weather-apps-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "人は住所をいくつも保存し、そのそれぞれについて警報を待つことができる。だが、アプリの中の履歴と、端末に届く通知は、同じ知らせを受け取る別々の道だ。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "今日までは。今日、自分のいる場所に竜巻警報が出てたのに、アプリは通知すら送ってこなかった。運よく午前1時に起きてて、竜巻のサイレンが聞こえて、安全なところへ行けた。",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "知らせとその状態を見せる"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "住所ごとに、効力のある警報を集める。地域、発表の時刻、出どころ、効力の続く期間だ。配信の設定は別に見せ、その時点の接続を確かめる試しの通知を用意する。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "限界を隠さない"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "試しがうまくいっても、次の警報が届くことを約束するわけではない。知らせを取り逃がしたときに大事なのは、それを履歴の中で見つけ、いつ公表されたのかが分かることだ。"
+  }
+ ],
+ "rank": 45,
+ "free": false
+}

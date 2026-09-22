@@ -1,0 +1,424 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "guitar-tuner-learn",
+ "name": "Guitar: tuner and learning",
+ "summary": "Tuning the instrument, working out a difficult change and coming back to your own song: what helps a guitarist keep practicing.",
+ "corpus": {
+  "reviews": 17982,
+  "apps": 61
+ },
+ "lead": "Before a session a guitarist has to prepare the instrument, and during it work out what exactly to go over. The tuner needle, the chord diagram and the green check on a lesson help only when they can be tied to your own action and to the sound you heard.\n\nWhat follows traces that path from tuning to rehearsal. It looks separately at what is worth leaving as a small tool, and what needs to continue: your own song, the tuning you chose, or a difficult passage you saved. A large number of lessons is no substitute for a clear point to pick up from tomorrow.",
+ "cover": {
+  "src": "research/ResearchLaunch_guitar-tuner-learn_cover",
+  "alt": "Guitar: tuner and lessons",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_guitar-tuner-learn_audiences",
+  "alt": "People’s jobs: Guitar: tuner and lessons",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "The beginner with an instrument",
+   "body": "A beginner has trouble telling a wrong move from an unclear prompt. What they need is a goal and a result they can tell apart, an explanation of the diagram they can follow, and a way to check what the app heard."
+  },
+  {
+   "title": "The learner who practices regularly",
+   "body": "Regular practice is made up of a course, familiar songs and short review between sessions. The person wants to continue their own work, not go through the beginner’s entrance every time."
+  },
+  {
+   "title": "The player with a repertoire of their own",
+   "body": "A repertoire of your own depends on a personal tuning, the order of the songs and an exact record of a musical idea. Here a simple cheat sheet gradually becomes a working rehearsal tool."
+  }
+ ],
+ "sections": [
+  {
+   "id": "understand",
+   "title": "Understanding the prompt and checking it on the guitar",
+   "intro": "A confident indicator helps only when it is clear what exactly it heard and what it is comparing that with.",
+   "art": null,
+   "observations": [
+    {
+     "id": "tuner",
+     "title": "Separating the note you want from the sound that was heard",
+     "passages": [
+      "A tuner has two different quantities: the note you want and the sound it has just recognized. When the prompt stays unchanged for a long time, a person may go on following it without understanding why. The story below shows the cost of that uncertainty; it does not establish the technical cause of the broken string, but it does call for clearer feedback.",
+      "The target is worth fixing explicitly. In the next review the app switches between names while the person tunes a single string. The target note beside the one that was heard helps to notice the discrepancy; an insufficient signal should look like the absence of a measurement, not like the same confident needle as before.",
+      "A familiar song in a nonstandard tuning also needs a saved set of targets. Hunting down every note on six strings again turns preparation into extra work. A name for the set is convenient, but the targets themselves have to be visible when it is chosen: the person can then see what the instrument is being tuned to."
+     ],
+     "quotes": [
+      {
+       "text": "it kept telling me to tune up my d cord so i decided to trust it since it tuned everything else good but then my string broke after so much tuning and the app still saying it was like one number closer after i kept tuning",
+       "rating": 2,
+       "app": "GuitarTuna: Tune & Play Guitar"
+      },
+      {
+       "text": "When I want to tune the low E string the app identifies the chord as G or B. Improvements: make the app so when you tune let's say low E the tuner sticks to E instead of bouncing around and identifying as other chords.",
+       "rating": 2,
+       "app": "Fender Tune: Guitar Tuner App"
+      },
+      {
+       "text": "This app is great, but there is one missing feature that would make it perfect, and that is the be able to make custom tunings. I play a lot of songs that have nonstandard tuning and it is a PAIN to scroll through the entire scale to find each note for all 6 strings.",
+       "rating": 4,
+       "app": "Fine Tuner - Chromatic Tuner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_tuner",
+      "alt": "Illustration for the theme “Telling the target note from the sound heard”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-tuner",
+       "title": "Separating the note you want from the sound that was heard",
+       "body": "",
+       "ideas": [
+        "guitar-tuner-learn-1",
+        "guitar-tuner-learn-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "feedback",
+     "title": "Telling a mistake from the absence of sound",
+     "passages": [
+      "In an exercise the mic becomes the mediator between the action and the verdict. If a note has to be played several times before anything reacts, it is still unclear what happened: the learner made a mistake, or the app missed the start. Repeating the task also has to have a start that works and is easy to find.",
+      "A wrong answer that was recognized is not the same as no signal at all. When the program says only “wrong”, a person cannot check what that rests on. It helps to show the expected position and the result that was heard, and to allow a repeat or a listen to the example. The author’s claim that they played it correctly remains their own judgment, but the opacity of the check is visible without settling that argument.",
+      "The opposite error, success in silence, is just as baffling. A green check should not appear without a suitable signal. Before a graded task an audibility check helps; when it fails, the learner should keep access to the example and to a repeat, rather than learn to guess how the app behaves."
+     ],
+     "quotes": [
+      {
+       "text": "App doesn’t pick up my opening notes on exercises and I frequently have to play a note four or five times before the app hears it. If you press retry on an exercise, it tells you to press play to start the exercise but none of the buttons are mapped.",
+       "rating": 2,
+       "app": "Fretello Guitar Lessons"
+      },
+      {
+       "text": "I was on the lesson and when I played the correct string on the correct fret (before someone says it’s a user error I triple checked that I was playing the right thing and I was) it said that it was wrong and when I played a bunch",
+       "rating": 1,
+       "app": "Fretello Guitar Lessons"
+      },
+      {
+       "text": "I think the app glitches a lot. Specially when you are playing a note and it glitches thinking you play the note correctly, even though I haven’t even touched any of the strings.",
+       "rating": 2,
+       "app": "Simply Guitar - Learn Guitar"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "chords",
+     "title": "Choosing a shape that is comfortable to hold",
+     "passages": [
+      "A reference is opened for a shape that can be held at a particular place on the fretboard. A large number of variants is little help in itself if it is unclear where the barre is, which strings sound, and how the neighboring fingering differs from the chosen one. A usable library lets you compare several shapes that apply.",
+      "Here editorial checking matters as much as search. When choosing a reference, try a familiar chord and a harder shape on the instrument: can the diagram be read, and can a suitable variant be found. A missing position that was expected is worth showing as the limit of the set, rather than replacing it with a similar-looking picture.",
+      "Whether a shape applies also depends on the chords around it. So a selection becomes more useful when two positions can be put side by side and the change between them compared. Muted strings and barre variants are worth showing separately, so that the diagram doesn’t call for guesswork."
+     ],
+     "quotes": [
+      {
+       "text": "Most of the harder chord shapes the app suggests like C9, D9 etc are not really playable. It feels like this was all generated by a computer instead of a guitar player who gives chord shapes that are actually possible to play.",
+       "rating": 3,
+       "app": "GtrLib Chords"
+      },
+      {
+       "text": "I was shocked to discover that it’s missing all the standard Major 7 barre chords rooted on the E string (from F Major 7, F# Major 7, G Major 7, G# Major 7, A Major 7, etc all the way up the fretboard)! That set of E-string rooted Major 7 barre chords are the fundamental",
+       "rating": 3,
+       "app": "ChordBank: Learn Guitar Chords"
+      },
+      {
+       "text": "I love how that show different Variations for Each Chord.",
+       "rating": 5,
+       "app": "GtrLib Chords"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_chords",
+      "alt": "Illustration for the theme “Choosing a shape that is comfortable to hold”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-chords",
+       "title": "Choosing a shape that is comfortable to hold",
+       "body": "Sometimes the problem is the choice of shape, sometimes it is that a flat diagram doesn’t explain the position of the hand. A model you can rotate makes sense only if it helps work out that particular movement.",
+       "ideas": [
+        "guitar-tuner-learn-2",
+        "guitar-tuner-learn-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "practice",
+   "title": "Practicing your own music",
+   "intro": "A familiar song and one specific difficult change give a session its purpose. The app has to keep that work between attempts.",
+   "art": null,
+   "observations": [
+    {
+     "id": "fretboard",
+     "title": "Connecting the on-screen fretboard with the instrument",
+     "passages": [
+      "An on-screen exercise can help tie the name of a note to a place on the fretboard. The author below describes the moment when the layout became clearer after playing. That is a personal result, not a promise to master the instrument in ten minutes.",
+      "Another author combines short tasks like these with ordinary guitar playing. That is an important boundary: the screen supplements practice when the instrument is not at hand. It helps to end a review session with a small task for a real guitar, so that recognizing a picture doesn’t remain the only skill.",
+      "The content of the tasks themselves has to be checkable. The wrong position described in the next review goes straight into the material being memorized. An answer is worth revealing through the string, the fret and the note, and a faulty task should be easy to find and correct. A visually tidy fretboard is no guarantee of a correct explanation."
+     ],
+     "quotes": [
+      {
+       "text": "Two years of almost seeing the fretboard as a whole… 10 minutes on the “find the note” game and it finally clicked. I understand the fretboard now",
+       "rating": 5,
+       "app": "Fretonomy - Learn Fretboard"
+      },
+      {
+       "text": "I decided I want to learn all the notes across the guitar fretboard. I am practicing on guitar as mush as possible, but throughout the day I am also getting in mental exercises with this app (I use it without the guitar). It all seems to be working. I am really seeing the fretboard now",
+       "rating": 5,
+       "app": "Fret Pro Guitar Notes Trainer"
+      },
+      {
+       "text": "It will show a higher position for a note like high G then the A above G it shows a lower position on the same string. Just spent $9 to have false information.",
+       "rating": 3,
+       "app": "Fretuoso"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-fretboard",
+       "title": "Connecting the on-screen fretboard with the instrument",
+       "body": "Where the notes lie can be studied separately and then tied to a short sequence of sounds. Watching a scale and playing it yourself are different stages of that work.",
+       "ideas": [
+        "guitar-tuner-learn-3",
+        "guitar-tuner-learn-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "songs",
+     "title": "Keeping the work on your own song",
+     "passages": [
+      "One reason a person chooses a music app is certain songs. If those disappear, the reason to keep the subscription changes, as in the first review. The terms of access to the catalog and the safety of personal practice marks are worth keeping apart: removing material should not quietly erase the history of sessions.",
+      "The title of a song alone doesn’t explain what a lesson contains either. A simplified version and a full arrangement answer different expectations. It helps to show the level and the scope of the arrangement before the start, so that nobody finds out about heavy simplification several sessions in.",
+      "At best, practice leads to a clear result: playing along with the music you want to learn. The tempo you chose, the difficult bars and the order of the repeats help you come back to that work. So alongside the catalog there has to be a route of your own through the song, not just a mark that a lesson was watched."
+     ],
+     "quotes": [
+      {
+       "text": "The app is no longer worth the subscription fee after they got rid of all the great songs they used to have in the library. How to do you call yourself a guitar app when you remove AC/DC, Jimi Hendrix, Metallica, Alice and Chains, Cream, etc from the app?",
+       "rating": 2,
+       "app": "Gibson: Learn to Play Guitar"
+      },
+      {
+       "text": "Many of the lessons are over-simplified versions of songs, but I want to learn the full, accurate versions.",
+       "rating": 2,
+       "app": "Fender Play: Learn Guitar"
+      },
+      {
+       "text": "Great way to learn songs. So happy to have an app that lets me play along with songs I want to learn.",
+       "rating": 5,
+       "app": "Chordify: Songs, Chords, Tuner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_songs",
+      "alt": "Illustration for the theme “Keeping the work on your own song”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "progress",
+     "title": "Coming back to a specific place",
+     "passages": [
+      "After a break a person has to remember what they were working on. If the app returns them to the beginning every time, they rebuild that map by hand. Lessons already covered and your own point to continue from should still be available when the app is opened again.",
+      "A pause inside a lesson is an even shorter case. Being able to return to a specific place and run through a passage you already know frees time for the real difficulty. The last screen that was open doesn’t always reflect the intention, so a manual “continue from here” mark helps as well.",
+      "A streak can keep the wish to practice alive, as in the positive review below. But it answers the question of regularity, not of what the person meant to go over. The reward is worth showing together with the content of the next session, so that coming back keeps a meaning beyond a number of days."
+     ],
+     "quotes": [
+      {
+       "text": "the most frustrating quirk is the App doesn’t keep track of your progress. Each time you open the App it thinks you’re starting from the beginning and that you haven’t completed any",
+       "rating": 1,
+       "app": "Guitar Lessons - Guitar Tricks"
+      },
+      {
+       "text": "Navigation is nonexistent. If you stop lesson for a break, when you come back you have to start over and it doesn’t let you skip ahead past things you already know.",
+       "rating": 3,
+       "app": "Tuner Pro: Guitar Tuner & Tab"
+      },
+      {
+       "text": "They have gamified it like Duolingo and that’s very motivating to complete different practice features and keep my streak going.",
+       "rating": 3,
+       "app": "Ukulele Tuner & Lessons: Kala"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "play",
+   "title": "Taking the material to rehearsal",
+   "intro": "Writing a musical idea down and reading it while playing are two different modes for the same material.",
+   "art": null,
+   "observations": [
+    {
+     "id": "tabs",
+     "title": "Reading while you play",
+     "passages": [
+      "While you are performing your hands are busy. If autoscroll has stopped working you have to stop playing, even when the songs themselves are well put together. So a rehearsal mode is a job of its own: a readable size, the order of the songs and a controllable movement of the screen, tested with the instrument in your hands.",
+      "Writing down your own music has different requirements. Marks for techniques and note lengths are needed to reconstruct the intention later. In the next review a person spends time looking for a way to write down the very first move in a song. If the mark you need is missing, a long list of other features is little help.",
+      "Listening back should help check the notation, not blur it. When notes overlap against the intention, the riff is hard to verify. A separate audio note can preserve the original idea while the tablature is being edited; the two are worth linking, with the option to compare them."
+     ],
+     "quotes": [
+      {
+       "text": "I need Autoscroll and it has stopped working. I’ve tried resetting - no good. Deleting and downloading. Nope. Searching online and emailing company for a hack or fix. Nada.",
+       "rating": 2,
+       "app": "GuitarTapp PRO - Tabs & Chords"
+      },
+      {
+       "text": "The first thing I do in this song is a hammer on. I spent a great deal of time trying to determine how I could note hammer ons and pull offs. It seems you can’t.",
+       "rating": 2,
+       "app": "Guitar Tabs X - tabs editor"
+      },
+      {
+       "text": "The playback is worthless, though, the notes all play full sustain, so that the whole thing jumbles into each note together.",
+       "rating": 2,
+       "app": "Jam Maestro: create guitar tab"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_tabs",
+      "alt": "Illustration for the theme “Reading while you play”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-tabs",
+       "title": "Reading while you play",
+       "body": "",
+       "ideas": [
+        "guitar-tuner-learn-4",
+        "guitar-tuner-learn-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "A prompt you can follow matters more than a new lesson",
+  "body": "The first thing worth making reliable is the explanation of the next action: which string is being tuned, what the mic heard, and how to read the chord shape on screen. A mistake or an ambiguity here gets in the way of the practice itself. New songs and game rewards do not make up for a verdict that can’t be checked on the instrument.\n\nThen comes a saved way to continue: your own tuning, the difficult change, the tempo and the place in the lesson. Among the individual ideas, the clearest are finished tools for preparation and rehearsal. A three-dimensional hand or a game on an on-screen fretboard help only when they help you play away from the screen. So what is worth testing is a short real passage before and after the prompt, not just how comfortable the diagrams are to look at."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-understand",
+   "title": "Understanding the prompt and checking it on the guitar",
+   "depth": 0
+  },
+  {
+   "id": "observation-tuner",
+   "title": "Separating the note you want from the sound that was heard",
+   "depth": 1
+  },
+  {
+   "id": "observation-feedback",
+   "title": "Telling a mistake from the absence of sound",
+   "depth": 1
+  },
+  {
+   "id": "observation-chords",
+   "title": "Choosing a shape that is comfortable to hold",
+   "depth": 1
+  },
+  {
+   "id": "theme-practice",
+   "title": "Practicing your own music",
+   "depth": 0
+  },
+  {
+   "id": "observation-fretboard",
+   "title": "Connecting the on-screen fretboard with the instrument",
+   "depth": 1
+  },
+  {
+   "id": "observation-songs",
+   "title": "Keeping the work on your own song",
+   "depth": 1
+  },
+  {
+   "id": "observation-progress",
+   "title": "Coming back to a specific place",
+   "depth": 1
+  },
+  {
+   "id": "theme-play",
+   "title": "Taking the material to rehearsal",
+   "depth": 0
+  },
+  {
+   "id": "observation-tabs",
+   "title": "Reading while you play",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "A prompt you can follow matters more than a new lesson",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

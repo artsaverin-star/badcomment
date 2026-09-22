@@ -1,0 +1,465 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "ai-writing",
+ "name": "KI-Schreibassistenten",
+ "summary": "Hilfe beim Schreiben, bei der Korrespondenz und beim Manuskript: wo eine Korrektur eine Schwierigkeit beseitigt und wo sie dem Autor zusätzliche Arbeit macht, den Sinn wiederherzustellen.",
+ "corpus": {
+  "reviews": 21356,
+  "apps": 91
+ },
+ "lead": "Für die Hilfe mit Text gibt es eine einfache Prüfung: ob der Autor bereit ist, das Ergebnis unter seinem eigenen Namen zu verschicken. Ein grammatisch glatter Absatz kann daran scheitern, wenn er die Absicht verändert, Versprechen hinzufügt, die es nicht gab, oder mit fremder Stimme spricht. Je länger die Arbeit, desto teurer wird eine solche unbemerkte Korrektur.\n\nDeshalb endet der Wert eines Lektors nicht bei der Fassung, die er vorschlägt. Die Person muss die Änderung sehen, das Gewünschte annehmen und den vorherigen Text zurückholen. Für eine kurze E-Mail heißt das, Formulierungen zu vergleichen; für einen Roman heißt es zusätzlich, die Ereignisse und Entscheidungen früherer Kapitel zu halten.",
+ "cover": {
+  "src": "research/ResearchLaunch_ai-writing_cover",
+  "alt": "KI-Schreibassistenten",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_ai-writing_audiences",
+  "alt": "Aufgaben der Menschen: KI-Schreibassistenten",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Eine schwierige E-Mail schreiben",
+   "body": "Einem Kunden antworten, eine Bitte ablehnen oder einen Gedanken in einer Sprache erklären, die nicht die eigene ist. Der Autor kennt die Absicht, wählt aber noch, wie er sie ausdrückt."
+  },
+  {
+   "title": "Eine Nachricht barrierefrei schreiben",
+   "body": "Die Person nutzt einen Screenreader oder tut sich schwer, aus einzelnen Gedanken einen Satz zusammenzusetzen. Den Vorschlag muss sie selbst lesen, korrigieren und annehmen."
+  },
+  {
+   "title": "Ein Manuskript fortsetzen",
+   "body": "Der Autor kehrt zu den Figuren und Ereignissen bereits geschriebener Kapitel zurück. Der Assistent braucht überprüfbare Bezugsangaben, und die Person braucht die Möglichkeit, eine getroffene Entscheidung von einer groben Idee zu unterscheiden."
+  }
+ ],
+ "sections": [
+  {
+   "id": "meaning",
+   "title": "Sagen, was der Autor sagen wollte",
+   "intro": "Eine gute Formulierung bewahrt die Absicht. Dafür muss man Änderungen vergleichen und ablehnen können.",
+   "art": null,
+   "observations": [
+    {
+     "id": "rewrite",
+     "title": "Den Text korrigieren, ohne die Absicht zu verlieren",
+     "passages": [
+      "Einen Tippfehler beheben, den Ton ändern und einen Gedanken umschreiben sind verschiedene Handlungen. Werden sie unbemerkt zusammengelegt, kann ein sauberer Satz am Ende eine andere Absicht ausdrücken. Unnötige Zusätze und formelhafte Ausführlichkeit vergrößern den Umfang, den die Person danach erneut lesen und korrigieren muss.",
+      "Eine Grammatikregel und die Schreibweise eines Autors können auseinandergehen. Ein Lektor muss den Fehler von der Vorliebe unterscheiden: kurze Sätze, Zeichensetzung, den Grad an Förmlichkeit. Wird alles in einer Handlung korrigiert, muss der Autor dem Text seine Stimme erneut zurückgeben.",
+      "Einen Absatz kürzen und ihn höflicher machen sind verschiedene Aufträge. Der Autor sollte den gewünschten auswählen und nicht eine verpflichtende Mischung aus Korrekturen bekommen. Bei einer E-Mail lässt sich das an einer wichtigen Einschränkung prüfen: ob sie die Kürzung überstanden hat. Bei einem Essay kann der nächste Schritt eine Frage an ein Argument sein, aber das ist bereits eine eigene Hilfe beim Denken und kein automatischer Ersatz des Textes."
+     ],
+     "quotes": [
+      {
+       "text": "Ich will nicht, dass Grammarly AI mir beim Schreiben hilft, wegen der vielen Fehler, die es macht, indem es ein Wort doppelt einfügt, die Schreibweise eines Wortes ändert und die beabsichtigte Bedeutung der Nachricht verändert. Wenn mir die KI zur Nutzung aufgezwungen wird, schließe ich mein Konto.",
+       "rating": 2,
+       "app": "Grammarly: AI Keyboard & Notes"
+      },
+      {
+       "text": "Während meiner Testphase der Pro-Version hab ich es an ein paar literarischen Texten ausprobiert, an denen ich arbeite. Wow! Klar, es hat ein paar nützliche Sachen gefunden, und das weiß ich zu schätzen. Das Problem ist, dass es keine Einstellungen gibt, um ihm zu sagen, an welchen Stil man sich halten will. Du benutzt kein serielles Komma? Pech gehabt!",
+       "rating": 2,
+       "app": "Proofreader AI Grammar Checker"
+      },
+      {
+       "text": "Bitte um Himmels willen hört auf, Gedankenstriche zu benutzen und den Absatz unnötig länger zu machen, sodass ich es bereue, dafür Geld bezahlt zu haben",
+       "rating": 3,
+       "app": "Humanize AI: Paraphrase Tools"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_rewrite",
+      "alt": "Illustration zum Thema „Den Text korrigieren und die Absicht bewahren“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-rewrite",
+       "title": "Den Text korrigieren, ohne die Absicht zu verlieren",
+       "body": "",
+       "ideas": [
+        "ai-writing-4",
+        "ai-writing-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "letters",
+     "title": "Die Formulierung auf den Empfänger abstimmen",
+     "passages": [
+      "Eine bestimmte E-Mail hat einen Empfänger und eine Absicht, deshalb lässt sich der Nutzen der Hilfe leicht an der fertigen Nachricht beurteilen. Ein komplizierter Gedanke ist manchmal schwer auszudrücken, selbst wenn man das Thema gut kennt; in einer Sprache, die nicht die eigene ist, braucht man zusätzlich die Auswahl einer passenden Formulierung. Mehrere Varianten machen den Unterschied sichtbar, den eine einzige fertige Antwort verbirgt.",
+      "Hier ist es sinnvoll, zuerst nachzufragen, was die Person mitteilen will und wie förmlich. Ein professionellerer Ton bedeutet nicht immer einen offizielleren. Der Vergleich der Varianten sollte helfen, die eigene Formulierung zu wählen, und nicht dazu zwingen, erneut eine Lehrbuchmanier und überflüssige Länge zu entfernen.",
+      "„Professionell“ bedeutet nicht immer „offiziell und lang“. Die Antwort an einen Kunden, den man kennt, kann kurz und direkt sein. Nützliche Varianten sollten den Unterschied im Umgang mit dem Empfänger zeigen: wo eine Bitte abgemildert wurde, wo eine Frist genauer benannt wurde und wo Wörter aufgetaucht sind, die der Autor nie sagen wollte."
+     ],
+     "quotes": [
+      {
+       "text": "Ich benutze diese App jetzt seit 2 Jahren und weiß die Hilfe, die ich bekomme, sehr zu schätzen. Für nur 40 $ im Jahr greife ich oft auf diese App zurück, wenn ich Hilfe bei schwierigen beruflichen Nachrichten brauche.",
+       "rating": 5,
+       "app": "AI Chatbot & Writer: KnowIt"
+      },
+      {
+       "text": "Da ich kein Muttersprachler bin und Englisch folglich nicht meine erste gesprochene Sprache ist, hab ich mit QuillBot so viel gelernt, auch dazu, wie ich mich ausdrücken kann.",
+       "rating": 5,
+       "app": "Quillbot-AI Writing & Keyboard"
+      },
+      {
+       "text": "Diese App ist auf so viele verschiedene Arten sehr nützlich. Das Einzige, was den 5. Stern zurückhält, ist, dass es manchmal zu sehr nach Lehrbuch klingt, aber wenn du genau das anstrebst, ist das genau dein Ding.",
+       "rating": 4,
+       "app": "Paraphrase: Rewording Tool"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-letters",
+       "title": "Die Formulierung auf den Empfänger abstimmen",
+       "body": "",
+       "ideas": [
+        "ai-writing-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "accessibility",
+     "title": "Eine Korrektur selbst auswählen und annehmen",
+     "passages": [
+      "Hilfe beim Ausdrücken eigener Gedanken kann ein wichtiger Teil des alltäglichen Schreibens sein. Doch eine nützliche Variante bleibt unerreichbar, wenn der Lesefokus durch das Gespräch springt oder sich der Regler mit der verwendeten Bedienweise nicht bewegen lässt. Das Problem entsteht zwischen dem Erhalt des Textes und dem Recht, ihn selbst anzunehmen.",
+      "Deshalb muss der ganze Weg geprüft werden: den Gedanken eingeben, den Vorschlag lesen, eine Einstellung ändern, vergleichen und das Ergebnis bestätigen. Die Beschriftungen der Elemente und die Lesereihenfolge beeinflussen hier die Qualität der Leistung selbst. Ein gutes Werkzeug hilft der Person, Autor zu bleiben – einschließlich der Möglichkeit, eine unpassende Korrektur abzulehnen.",
+      "Schon eine einzige nicht barrierefreie Einstellung kann der Person die Steuerung des Ergebnisses nehmen. Wird der Ton mit einem Regler geändert, muss sich sein Wert mit assistiver Technologie lesen und ändern lassen. Für das Zusammensetzen eines Satzes aus kurzen Notizen gilt dasselbe Prinzip: Die ursprünglichen Wörter bleiben verfügbar, damit die Person darauf hinweisen kann, was falsch verstanden wurde."
+     ],
+     "quotes": [
+      {
+       "text": "Seit meinem Aneurysma und zwei Schlaganfällen läuft meine Kommunikation über Textnachrichten, und ich hab die Fähigkeit verloren zu schreiben und Sätze zusammenzusetzen, also ja, diese App ist sehr wichtig für mich",
+       "rating": 5,
+       "app": "Grammarly: AI Keyboard & Notes"
+      },
+      {
+       "text": "Claude ist eine wirklich coole KI, und die App erlaubt eine Menge. Aber als blinder Mensch, der Voiceover benutzt, muss ich mich beim Navigieren ganz schön anstrengen. Der Voiceover-Fokus beim Vorlesen der Chats ist grauenhaft. Ich muss hin und her wischen, nur um eine Antwort zu lesen.",
+       "rating": 2,
+       "app": "Claude by Anthropic"
+      },
+      {
+       "text": "Also erst mal, ich liebe die App, aber ich bin blind und kann die Regler nicht verstellen, um das Ergebnis zu beeinflussen. Der Rest der App funktioniert super mit Voiceover, nur bei den Reglern kann ich die Werte überhaupt nicht ändern.",
+       "rating": 4,
+       "app": "ParagraphAI: Writer & Keyboard"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_accessibility",
+      "alt": "Illustration zum Thema „Eine Korrektur selbst wählen und annehmen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-accessibility",
+       "title": "Eine Korrektur selbst auswählen und annehmen",
+       "body": "",
+       "ideas": [
+        "ai-writing-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "workflow",
+   "title": "Dort arbeiten, wo man ohnehin ist",
+   "intro": "Eine Tastatur und ein vollwertiger Editor sind auf unterschiedliche Weise nützlich. Beide müssen sorgsam mit dem umgehen, was bereits geschrieben ist.",
+   "art": null,
+   "observations": [
+    {
+     "id": "keyboard",
+     "title": "Innerhalb der gewöhnlichen Korrespondenz helfen",
+     "passages": [
+      "Hilfe direkt in der Tastatur verringert das Wechseln zwischen Apps. Doch sie darf die Person nicht ihre gewohnte Art der Eingabe kosten: das Wischen, eine verständliche Autokorrektur oder die Kontrolle über die ursprüngliche Nachricht. Muss der Kontext für jede Antwort von Hand übertragen werden, verschwindet ein Teil der Bequemlichkeit der Integration.",
+      "Die Anfrage nach weitreichenden Berechtigungen kann eine Person schon vor der ersten Korrektur aufhalten. Diese Rezension beschreibt die Befürchtung eines Nutzers, kein bestätigtes Auslesen von Passwörtern. Die App muss ihre tatsächliche Arbeit erklären: welchen Text sie bekommt, was sie zur Verarbeitung verschickt und welche Handlungen ohne die zusätzliche Berechtigung verfügbar sind.",
+      "Eingebaute Hilfe muss die gewöhnliche Eingabe bequem lassen. Jemand kann die Übersetzung oder die Korrektur schätzen und eine Tastatur ohne das gewohnte Wischen trotzdem ablehnen. Die ursprüngliche Nachricht und das Rückgängigmachen sind hier ebenso wichtig: Die Hilfe wird innerhalb der Korrespondenz gebraucht, nicht um den Preis der gewohnten Kontrolle über sie."
+     ],
+     "quotes": [
+      {
+       "text": "Die App ist gut, weil sie sich direkt in die Tastatur einfügt, sodass ich sie in allen Apps benutzen kann, die ich brauche.",
+       "rating": 4,
+       "app": "CharmKey: AI Rizz Keyboard"
+      },
+      {
+       "text": "Eure App ist super, wenn sie auf meinem Telefon funktioniert – aber ich bin mir nicht sicher, ob das ein Fehler ist oder ob ich meine Privatsphäre aufgeben und euch vollen Zugriff auf meinen Tastatur-Verlauf geben muss und vollen Zugriff auf meine Passwörter und jedes einzelne je geschriebene Wort!!!! Das ist ein Eingriff in die Privatsphäre.",
+       "rating": 3,
+       "app": "Quillbot-AI Writing & Keyboard"
+      },
+      {
+       "text": "Wenn diese Tastatur eine Wischfunktion hätte, wäre sie meine Lieblingstastatur. Ich wische lieber über die Tastatur, statt jede Taste einzeln antippen zu müssen.",
+       "rating": 2,
+       "app": "Writely - AI Keyboard & Writer"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "long-project",
+     "title": "Die Fakten einer langen Geschichte halten",
+     "passages": [
+      "In einer langen Geschichte sind die gemeinsame Suche nach der Handlung und die Vorbereitung der nächsten Episode beide nützlich. Doch ungefragte Zusätze, vergessene Ereignisse und wiederkehrende Formulierungen zwingen den Autor, Kraft auf das Abstimmen der Teile zu verwenden. Auch das Versprechen eines fertigen Textes bringt nichts, wenn sich das Ergebnis nicht öffnen lässt.",
+      "Ein langes Projekt verlangt einen Überblick über die Kapitel und die angenommenen Fakten: wer beteiligt ist, was bereits geschehen ist und wo es steht. Doch ein geordnetes Gedächtnis ist nur ein Teil der Aufgabe. Wiederholungen zwischen den Kapiteln und ein nicht verfügbarer Export zwingen den Autor, den Text von Hand fertigzustellen, auch wenn einzelne Fortsetzungen gut gelingen.",
+      "Das Versprechen „der Text ist fertig und verschickt“ muss von einer tatsächlich erzeugten Datei unterschieden werden. Der Autor braucht ein Ergebnis, das er öffnen und weiter bearbeiten kann. In einer Rollenspielgeschichte gibt es noch eine Grenze: Der Vorschlag des Assistenten wird nicht zur Handlung des Helden, solange der Spieler ihn nicht angenommen hat. Eine Karte der Kapitel, eine Kartei der Welt und das Rollenspielgedächtnis brauchen deshalb unterschiedliche Regeln, obwohl sie auf demselben Material beruhen."
+     ],
+     "quotes": [
+      {
+       "text": "Die App versucht, deine Geschichte zu ändern oder zusätzliches Zeug hinzuzufügen, das man nicht will. Wenn du ein Buch mit mehr als zehn Kapiteln machst, vergisst sie Ereignisse, die schon passiert sind",
+       "rating": 4,
+       "app": "Author AI: Book Creator"
+      },
+      {
+       "text": "Sie wiederholt in mehreren Kapiteln dieselben Formulierungen. Scheint das Buch nicht für die Veröffentlichung exportieren zu können.",
+       "rating": 2,
+       "app": "Author AI: Book Creator"
+      },
+      {
+       "text": "Ich mag Geschichten und es macht mir Spaß, die KI beim Schreiben von Geschichten zu lenken. Sie arbeitet mit mir zusammen, um eine Handlung und Figuren samt Themen zu entwerfen. Wenn ich sie bitte, etwas zu schreiben, das länger als 2500 Wörter ist, sagt sie, sie hätte das Schreiben abgeschlossen und es mir per E-Mail geschickt… Aber das stimmt nicht.",
+       "rating": 2,
+       "app": "Write This - AI Text Generator"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_long-project",
+      "alt": "Illustration zum Thema „Die Fakten einer langen Geschichte behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-long-project",
+       "title": "Die Fakten einer langen Geschichte halten",
+       "body": "",
+       "ideas": [
+        "ai-writing-3",
+        "ai-writing-5",
+        "ai-writing-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Das Geschriebene vor jeder Verarbeitung bewahren",
+     "passages": [
+      "Der eigene Text ist das Ergebnis von Arbeit, und er muss eine einzelne Korrektur und einen Wechsel der Zugangsbedingungen überstehen. Der Verlust nach dem Ausschneiden eines Fragments oder nach einem Kontowechsel schmerzt besonders: Jemand kam, um das Geschriebene zu verbessern, und bekam stattdessen die Aufgabe, es wiederherzustellen. Eine gelungene Erzeugung eines anderen Textes gleicht diesen Verlust nicht aus.",
+      "Ein Kontowechsel darf nicht wie eine leere Bibliothek ohne Erklärung aussehen. Vor dem Umzug braucht der Autor einen verständlichen Weg, seine Entwürfe zu bekommen und zu prüfen, dass sie sich außerhalb der App öffnen lassen. Sonst sind Jahre des Schreibens an ein einziges Konto gebunden, auch wenn die Person bereit ist, anderswo weiterzuarbeiten.",
+      "Die Erhaltung des Textes wird auch bei der gewöhnlichsten Korrektur geprüft: einen Absatz ausschneiden, an anderer Stelle einfügen, rückgängig machen. Der Verlust einer Seite bei diesem Schritt macht jede Hilfe bei der Formulierung zunichte. Regelmäßiges Schreiben lässt sich mit einem Thema für den Anfang und der Rückkehr zum letzten Entwurf unterstützen, aber zuerst muss es einen Ort geben, zu dem man zurückkehren kann."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hatte hier Bücher, die ich über 7 Jahre hinweg aufbewahrt hab, und dann werden sie einfach komplett gelöscht. Für wen haltet ihr euch eigentlich? Meine Erinnerungen und meine Kindheitserinnerungen löschen, das werde ich euch nie vergessen.",
+       "rating": 1,
+       "app": "MyStory.today"
+      },
+      {
+       "text": "Diese App braucht so dringend eine Anmeldemöglichkeit außer iCloud, denn ich musste eine neue iCloud nehmen und hab alles Geschriebene verloren, ich bin so am Boden.",
+       "rating": 2,
+       "app": "Just Write - App For Writer"
+      },
+      {
+       "text": "Gerade als ich anfangen wollte, mit dieser App zufrieden zu sein, hab ich „ausschneiden“ gemacht, um meine eigenen Wörter umzustellen, und als ich an der Stelle eingefügt hab, wo ich den Text hinhaben wollte, war die ganze Schreibseite weg! Es gibt kein Rückgängig, um die 1000+ Wörter zurückzuholen, die ich getippt hab. SO FRUSTRIEREND!!!",
+       "rating": 2,
+       "app": "Grammar AI Checker & Corrector"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-saving",
+       "title": "Das Geschriebene vor jeder Verarbeitung bewahren",
+       "body": "",
+       "ideas": [
+        "ai-writing-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "expectations",
+   "title": "Die Möglichkeiten des Assistenten verstehen",
+   "intro": "Die Zugangsbedingungen, das Redigieren und das Hinzufügen von Fakten brauchen jeweils eine eigene verständliche Erklärung.",
+   "art": null,
+   "observations": [
+    {
+     "id": "service",
+     "title": "Für einen Lektor zahlen, dessen Arbeit man versteht",
+     "passages": [
+      "Ein bekannter Name kann die Erwartung wecken, dass ein vorhandener Kauf und ein vorhandenes Konto in der neuen App funktionieren. Handelt es sich um ein eigenständiges Produkt, erfährt die Person den Unterschied zu spät – beim Versuch, den bezahlten Zugang zu bekommen. Für die Wahl zählen der Entwickler, die Anmeldebedingungen und der konkrete Nutzen der angebotenen Oberfläche.",
+      "Diese Angaben vor dem Kauf zeigen und sie an der eigenen Aufgabe ausprobieren lassen. Eine spezialisierte App kann durch ihren Editor, ihre Tastatur oder die Organisation eines Projekts bequem sein. Genau diese abgeschlossene Arbeit lohnt es sich vorzuführen, damit die Person versteht, wofür sie einen eigenen Zugang nimmt.",
+      "Ein eigenständiger Lektor sollte sich klar benennen und den eigenen Nutzen zeigen: etwa den Vergleich von Korrekturen in einer E-Mail oder die Arbeit mit Kapiteln. Ein fremder, bekannter Name schiebt sich an die Stelle dieser Wahl. Vor dem Kauf braucht die Person ein fertiges Beispiel am eigenen Text und verständliche Grenzen, nicht den Eindruck, für einen anderen bekannten Dienst zu zahlen."
+     ],
+     "quotes": [
+      {
+       "text": "Hab auf der Website ein Abo gekauft, weil ich dachte, es wäre ChatGPT (mein Fehler), aber dachte mir, wenn ich das schon gemacht hab, lad ich die App runter, kann mein Konto nicht mit der App verbinden, also hab ich meinen Kauf für hundert Dollar nicht.",
+       "rating": 1,
+       "app": "AI Chatbot with Сhat - Chatrun"
+      },
+      {
+       "text": "Irreführender Name, nicht mit Jasper AI verbunden",
+       "rating": 1,
+       "app": "Japer AI- Writer AI & Chatbot"
+      },
+      {
+       "text": "Auf instagram als chat GPT beworben, ist es definitiv nicht.",
+       "rating": 1,
+       "app": "AI Chat Assistant - ChatAI Bot"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_service",
+      "alt": "Illustration zum Thema „Für nachvollziehbare Redaktionsarbeit zahlen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "current-info",
+     "title": "Redigieren und neue Angaben trennen",
+     "passages": [
+      "Das Redigieren eines fertigen Gedankens und die Suche nach aktuellen Angaben beruhen auf unterschiedlichen Grundlagen. Ein Assistent kann eine E-Mail gut umschreiben und dabei kein Material für eine Frage zur Gegenwart haben. Das Datum der App-Version erklärt nicht, woher die Fakten einer bestimmten Antwort stammen.",
+      "Deshalb ist es nützlich, die Textkorrektur vom Hinzufügen von Angaben zu trennen. Werden neue Fakten gebraucht, zeigt man die verwendeten Materialien und aus welcher Zeit sie stammen; geht es nur um die Formulierung, bewahrt man die Daten des Autors. Diese Trennung hilft, den Moment zu bemerken, in dem der Lektor aufhörte, die Form zu ändern, und begann, Inhalt hinzuzufügen.",
+      "Schon ein einziges hinzugefügtes Datum oder eine Position verändert den Inhalt. Solche Einschübe müssen gesondert gekennzeichnet und dem Autor zur Prüfung überlassen werden. Besteht die Aufgabe nur darin, eine E-Mail zu kürzen, gibt es für den Lektor keinen Grund, sie mit Vermutungen über den Menschen oder die Organisation zu ergänzen, an die sie gerichtet ist."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab das Dauerpaket gekauft und heute erst erfahren, dass das Wissen/Training der ki im Oktober 2023 aufgehört hat… nicht gut für einen dauerhaften Kauf!",
+       "rating": 2,
+       "app": "TypeAI: AI Keyboard & Writer"
+      },
+      {
+       "text": "Scheint ein anständiges KI-Modell zu sein, aber es wurde seit 2023 nicht aktualisiert und hat deshalb kein Wissen über aktuelle Ereignisse oder irgendetwas, das nach 2023 relevant ist… Nicht 99 $ wert",
+       "rating": 2,
+       "app": "Ask Assist - AI Chat Bot"
+      },
+      {
+       "text": "Wann wurden die Informationen das letzte Mal aktualisiert? Ich will verlängern, aber es konnte keine Antworten für den Zeitraum 2026 geben. Es konnte mir nicht sagen, wer die Präsidentschaftswahl 2024 gewonnen hat.",
+       "rating": 3,
+       "app": "AI Chatbot - Nova"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst eine Korrektur, die man verantworten kann",
+  "body": "Die klarste Einstiegsaufgabe ist hier, jemandem zu helfen, eine schwierige E-Mail zu verschicken, ohne dass die Absicht verloren geht. Man kann mit einer einzigen Zielgruppe anfangen, etwa mit Menschen, die ihre Arbeitskorrespondenz in einer Sprache führen, die nicht ihre eigene ist: das Original, mehrere deutlich verschiedene Varianten und eine kurze Erklärung der Korrekturen. Prüfen sollte man, ob die Zeit bis zur fertigen E-Mail kürzer wurde und ob verlorene Bedingungen, Fristen und Schattierungen einer Bitte zurückgeholt werden mussten.\n\nEin Roman, ein Schulessay und eine Rollenspielgeschichte verlangen unterschiedliche Arbeitsregeln. Es ist zu früh, sie unter dem Versprechen eines universellen Schreibers zusammenzufassen. Gespeicherte Entwürfe, das Rückgängigmachen und ein barrierefreier Vergleich sind die Grundlage jeder Richtung. Sie erlauben es, den Nutzen eines Lektors an dem Text zu beurteilen, den der Autor angenommen hat, und nicht am Umfang des Erzeugten."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-meaning",
+   "title": "Sagen, was der Autor sagen wollte",
+   "depth": 0
+  },
+  {
+   "id": "observation-rewrite",
+   "title": "Den Text korrigieren, ohne die Absicht zu verlieren",
+   "depth": 1
+  },
+  {
+   "id": "observation-letters",
+   "title": "Die Formulierung auf den Empfänger abstimmen",
+   "depth": 1
+  },
+  {
+   "id": "observation-accessibility",
+   "title": "Eine Korrektur selbst auswählen und annehmen",
+   "depth": 1
+  },
+  {
+   "id": "theme-workflow",
+   "title": "Dort arbeiten, wo man ohnehin ist",
+   "depth": 0
+  },
+  {
+   "id": "observation-keyboard",
+   "title": "Innerhalb der gewöhnlichen Korrespondenz helfen",
+   "depth": 1
+  },
+  {
+   "id": "observation-long-project",
+   "title": "Die Fakten einer langen Geschichte halten",
+   "depth": 1
+  },
+  {
+   "id": "observation-saving",
+   "title": "Das Geschriebene vor jeder Verarbeitung bewahren",
+   "depth": 1
+  },
+  {
+   "id": "theme-expectations",
+   "title": "Die Möglichkeiten des Assistenten verstehen",
+   "depth": 0
+  },
+  {
+   "id": "observation-service",
+   "title": "Für einen Lektor zahlen, dessen Arbeit man versteht",
+   "depth": 1
+  },
+  {
+   "id": "observation-current-info",
+   "title": "Redigieren und neue Angaben trennen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst eine Korrektur, die man verantworten kann",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

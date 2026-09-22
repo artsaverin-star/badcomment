@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "sleep-tracking-1",
+ "category": "sleep-tracking",
+ "categoryName": "Schlaftracker und Wecker",
+ "title": "Ein Schlaftagebuch zwischen den Schichten",
+ "description": "Tagschlaf und mehrere Ruheabschnitte erfassen und die Historie neben dem Arbeitsplan sehen.",
+ "cover": {
+  "src": "ideas/sleep-tracking-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Ein Mensch schläft nach der Nachtschicht am Tag oder in mehreren Abschnitten über den Tag verteilt. Ein Protokoll, das nur um eine gewöhnliche Nacht herum gebaut ist, verzerrt seine Historie schon vor jeder Bewertung."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Es gibt Leuten furchtbare Bewertungen, wenn sie nicht zu bestimmten Zeiten schlafen (die man nicht einstellen kann). Wegen der Arbeitszeiten schlafen Leute zu unterschiedlichen Zeiten. Ein Nachtschichtarbeiter schläft zum Beispiel tagsüber, aber das kann man in der App nicht eintragen",
+    "rating": 4,
+    "app": "Sleep Number"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Wie das funktionieren könnte"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Beliebigen Anfang und beliebiges Ende eines Abschnitts erlauben, mehrere Einträge pro Tag und sichtbare manuelle Korrekturen. Ruhe lässt sich den Schichten zuordnen, ohne jeder Episode eine künstliche „Nacht“ zuzuweisen."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Worauf zu achten ist"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Die Übergänge über Mitternacht und eine Folge mehrerer Schichten testen. Automatisch ermittelte Grenzen und die Korrektur des Besitzers müssen unterscheidbar sein. Das erste Ergebnis ist eine nachvollziehbare Historie, kein Versprechen, die Folgen eines nicht standardmäßigen Zeitplans zu beseitigen."
+  }
+ ],
+ "rank": 330,
+ "free": false
+}

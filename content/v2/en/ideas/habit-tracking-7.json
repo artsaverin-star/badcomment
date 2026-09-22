@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "habit-tracking-7",
+ "category": "habit-tracking",
+ "categoryName": "Habits",
+ "title": "Habits on a shift schedule",
+ "description": "Tracking with a chosen start of the day and a shift schedule. Actions after midnight belong to the right period, and reminders take rest time into account.",
+ "cover": {
+  "src": "ideas/habit-tracking-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "For someone on a night shift, midnight can fall in the middle of the working day. The usual calendar reset assigns their actions to different days, although they experience them as one shift. What matters here is a boundary of the period they set themselves."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "I am a night shift nurse, and with this app, I have no control over when my day starts and ends, and the CEO has declined to make it a setting per the website. So everything resets at midnight, before I’ve even taken my lunch.",
+    "rating": 2,
+    "app": "Strides: Habit Tracker + Goals"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Let people choose the start of the day and set a repeating cycle of work and rest. Tie reminders to the chosen period. When the schedule changes, keep the old history with its original boundaries, so that past results aren’t recalculated unexpectedly."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Take the schedule of someone who works night shifts and run it through the switch to a day off. Is it clear which day a late check-in belongs to? The ability to set an arbitrary boundary is more usefully tested on a transition like that than on an ordinary week."
+  }
+ ],
+ "rank": 38,
+ "free": false
+}

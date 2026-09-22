@@ -1,0 +1,469 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "interior-design",
+ "name": "Interior design and floor plans",
+ "summary": "How to choose the changes for your own room, check the dimensions and carry the version you like through to a purchase or a renovation.",
+ "corpus": {
+  "reviews": 18442,
+  "apps": 61
+ },
+ "lead": "A person opens an interior app with a question about their own home: would a different color work, would the sofa fit, how do I explain what I have in mind to my family or to the builder. A beautiful image is useful if it helps answer that question. When it changes dimensions, removes windows or suggests things that can’t be had, the renovation decision has to be made all over again.\n\nThree jobs are linked here: seeing an option, checking it against a real space, and passing the result on. What follows looks at where that link holds, and where a person has to reassemble work they have already done.",
+ "cover": {
+  "src": "research/ResearchInterior_cover",
+  "alt": "Two people compare color samples in a room, holding an unfolded plan of the future interior.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchInterior_audiences",
+  "alt": "Color samples, a tape measure against a cabinet and an open project book show three jobs in planning an interior.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "For your own home",
+   "body": "Before a renovation or a move, a person picks finishes, tries out furniture and talks the options over with family. There is no need to master the whole editor: finishing the job at hand is enough. But even one room can call for different tools — a photograph to compare how things look, and dimensions to check the layout."
+  },
+  {
+   "title": "For working with a space",
+   "body": "A tradesperson needs a measurement that can be verified, a designer needs a selection to discuss, and whoever is showing a property needs a clear picture of what it can be. Here the result is handed to someone else. The original conditions have to survive, and it has to be clear what has already been verified, what has been agreed, and what is still only a proposal."
+  },
+  {
+   "title": "For buying and carrying the renovation on",
+   "body": "Once the look of the room is settled, it turns into concrete decisions: which wardrobe to order, which version to show the contractor, which version to go back to. Time can pass between those steps. A useful product helps keep the decisions made together with the dimensions, links and notes behind them."
+  }
+ ],
+ "sections": [
+  {
+   "id": "visualize",
+   "title": "First — see your own decision",
+   "intro": "At the first step, visualization helps move an idea out of your head and onto the screen. Options can be compared and agreement reached on what people like. It is worth separating open-ended idea hunting from trying on a specific change: the two jobs make different demands of the result.",
+   "art": null,
+   "observations": [
+    {
+     "id": "decision",
+     "title": "A picture gives everyone something to talk about",
+     "passages": [
+      "Discussing a future interior in words can be hard: everyone pictures their own version of a “light, cozy room”. An image moves the conversation to specifics. Positive reviews show two things that follow from such a viewing — agreeing a renovation with someone close to them, and picking out the furnishings for the apartment oneself.",
+      "That is already a useful outcome, even if the app doesn’t produce an accurate drawing. A person can work out which combinations they like and narrow the field. But a look that has been found and a fully specified room are different degrees of completeness: the second needs specific products, their dimensions and their availability.",
+      "In a negative example the link breaks: the author gets a visualization with the wrong colors and a sofa outside the options that had been discussed. There is a separate job for a product here — helping someone move from an image they like to a verifiable list of things, while keeping the conditions they started with."
+     ],
+     "quotes": [
+      {
+       "text": "Great app for envisioning your remodel, especially when one spouse needs to “see it” to decide",
+       "rating": 5,
+       "app": "Renovate AI - Home Design"
+      },
+      {
+       "text": "i was about to hire an interior designer for my new apartment but decided to try this first. SO glad i did. got way more ideas than i expected and i just bought stuff myself based on what the app showed me. literally saved me hundreds of dollars",
+       "rating": 5,
+       "app": "RoomGPT : AI Interior Design"
+      },
+      {
+       "text": "I paid for design services, but the final rendering had the colors in my home wrong, and included a couch that wasn’t one of my purchase options.",
+       "rating": 1,
+       "app": "Havenly: Interior Design"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "shopping-path",
+       "title": "From a look you like to a concrete choice",
+       "body": "The step after choosing a look is finding available items in the right sizes and budget.",
+       "ideas": [
+        "interior-design-4"
+       ]
+      },
+      {
+       "directionId": "listing-view",
+       "title": "Help someone else picture the space",
+       "body": "Similar mechanics may be useful when showing an empty property. That is a separate hypothesis: the viewer has to be able to tell the real space from the furnishing being proposed.",
+       "ideas": [
+        "interior-design-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "controlled-change",
+     "title": "Recognizing your own room",
+     "passages": [
+      "As the choice gets more specific, the boundaries of the makeover start to matter. A person brings a photograph of an existing space, and with it the conditions they are looking for a solution within. If the result loses them, comparing options for your own home is already hard.",
+      "Keeping the room recognizable is not enough: the next edit has to obey the request too. Authors want to remove a shelf or add curtains, and describe repeated attempts to get the change they asked for. Time then goes into explaining things to the editor rather than into choosing an interior.",
+      "There is positive experience as well: one author singles out having his request carried out. It shows what people value about controlled editing. A person wants to continue from the version that worked, keeping the details already chosen."
+     ],
+     "quotes": [
+      {
+       "text": "I put a picture in of my room and it comes back with a completely different room. The whole point was I had a cathedral ceiling I wanted to get ideas and it came back with a normal room without the windows either. Not helpful.",
+       "rating": 2,
+       "app": "Decor AI: Room & Home Design"
+      },
+      {
+       "text": "AI prompts (eg, add floor length curtain to window, delete shelves) are ignored no matter how they’re phrased. Looking for another tool.",
+       "rating": 2,
+       "app": "Arch - AI Home Design"
+      },
+      {
+       "text": "finally an app that actually understands what i want does not randomly generate edited images. Their AI is smart and does exactly what you want.",
+       "rating": 5,
+       "app": "Remodel AI - Home Design"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_controlled-change",
+      "alt": "A woman changes a curtain; the window, sofa and walkway stay where they are.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "bounded-photo",
+       "title": "Develop a version in successive steps",
+       "body": "For an editor like this the second edit is what decides it: does a good result survive the next change?",
+       "ideas": [
+        "interior-design-1"
+       ]
+      },
+      {
+       "directionId": "color-preview",
+       "title": "Narrow the job down to a single choice",
+       "body": "Choosing a color is a narrower case of the same need. Comparing on a single shot helps pick the samples to test on the wall.",
+       "ideas": [
+        "interior-design-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "title": "Then — check it against the real space",
+   "intro": "A version someone likes still has to be placed. Doors have to open, furniture has to fit, and an awkward room shape has to survive onto the plan. At this step the dimensions matter, and so does being able to correct the result. A photograph no longer answers every question.",
+   "art": null,
+   "observations": [
+    {
+     "id": "measure",
+     "title": "A dimension has to be checkable and fixable",
+     "passages": [
+      "When a person transfers a space onto a plan, small details become significant. Wall snapping is convenient while it helps you draw; if it won’t let you stop at the length you need, the shape starts obeying the interface. Everything placed afterwards rests on that compromise.",
+      "Automatic measurement doesn’t remove the need to check. In one review a repeat scan gives a different floor area, and the author can’t set the corners by hand. The problem has two halves: the result invites doubt, and the usual way of refining it isn’t available.",
+      "A positive review also describes a control measurement: the author re-checks the dimensions and finds the discrepancy acceptable. That doesn’t establish the tool’s accuracy for every case, but it does show a useful order of work. Get the base first, then check the dimensions that matter, and only then use them for layout or calculation. A wardrobe in an alcove and a preliminary sketch tolerate different discrepancies."
+     ],
+     "quotes": [
+      {
+       "text": "I tried creating a wall that’s 5’ 7” long, but as I drag and approach 5’ 6”, it immediate snaps to the next whole foot (6’).",
+       "rating": 2,
+       "app": "Floor Plan App"
+      },
+      {
+       "text": "You can’t pick the corners of a room manually anymore. This means there is no way to know for sure that you are measuring correctly. All the automation is for nothing. If I scan the same room twice and both times it’s a different sqft it’s worthless.",
+       "rating": 1,
+       "app": "magicplan"
+      },
+      {
+       "text": "I double checked the measurements after the room scanner and they were only a few inches off each time.",
+       "rating": 5,
+       "app": "4Plan Home & Interior Planner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_measure",
+      "alt": "People use a tape measure to check whether a cabinet fits the alcove by the baseboard.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "furniture-fit",
+       "title": "Check one item before buying",
+       "body": "If the job stops at buying a sofa, an accurate diagram of the room and its contents may be enough, without a full renovation editor.",
+       "ideas": [
+        "interior-design-3"
+       ]
+      },
+      {
+       "directionId": "field-estimate",
+       "title": "Pass a verified measurement on",
+       "body": "For a contractor the plan becomes the basis of a rough calculation. Control dimensions and unverified figures have to be told apart before the estimate is handed over.",
+       "ideas": [
+        "interior-design-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dependencies",
+     "title": "Knowing what changes along with the wall",
+     "passages": [
+      "Refining dimensions almost inevitably continues as edits. One wall gets longer, another moves, a partition is taken out. Parts of a plan are tied to each other, so an action can affect neighboring elements. What matters is that the person understands the consequences and can return to the previous state.",
+      "In the reviews, trouble starts when a small action changes too much: dimensions, or a whole section of the project, have to be rebuilt. Instead of working on the space, the person starts servicing the editor.",
+      "That suggests a concrete way to test a future product: hand someone a finished plan and ask them to correct it. Can they see which dimensions were affected, hold the constraints that matter, and undo the action? That scenario says more about how workable an editor is than quickly creating an empty rectangular room."
+     ],
+     "quotes": [
+      {
+       "text": "Every time I adjust a wall it changes other dimensions. Hours wasted managing the app vs project. Gave up and drew it with paper and pencil. MUCH easier.",
+       "rating": 1,
+       "app": "Live Home 3D - House Design"
+      },
+      {
+       "text": "if you delete a small wall it deletes half your project. it assumes walls for you and assume room perimeters for you and wont let you keep creating the footprint",
+       "rating": 3,
+       "app": "Home Planner AI：Room Design 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_dependencies",
+      "alt": "A hand moves a partition tied by threads to the neighboring walls of the plan.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "editable-plan",
+       "title": "Make correction part of the main flow",
+       "body": "Numeric entry and undo are useful together: one sets the dimension you need, the other lets you explore options without rebuilding the plan.",
+       "ideas": [
+        "interior-design-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "levels",
+     "title": "Try the hard part first",
+     "passages": [
+      "An editor’s capabilities are worth testing on the hardest part of your own project. One house needs nothing but rooms on a single level; another needs a staircase and a link between floors. An author of one review couldn’t set up a staircase even after watching the help video. The cause may lie in a limit of the feature or in the explanation, but for his project the outcome is the same: he can’t go on.",
+      "Another user has found the same class of tool sufficient for several years now; he particularly values walking through the house. The two experiences don’t contradict each other. A simple single-level project and a complex house make different demands, and an overall rating of an app doesn’t expose that difference.",
+      "Before any detailed finishing, it is worth reproducing the difficult joint: the staircase, the alcove, the non-standard height. Then change it and check the adjoining rooms. A trial project like that shows the limits before a whole house is transferred. For whoever builds the editor, it shows which obstacle genuinely stops the work and which inconvenience people are willing to work around."
+     ],
+     "quotes": [
+      {
+       "text": "I want to love this app but cannot figure out how to add and configure stairs between multi-level plans. Help video does not address. Major oversight if stairs cannot be added.",
+       "rating": 3,
+       "app": "Interior Design PRO"
+      },
+      {
+       "text": "I’ve used this app for 3 years and always have enjoyed it. I’m able to do all that I need to do. Love the walk through feature.",
+       "rating": 5,
+       "app": "HomeByMe - House Planner 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_levels",
+      "alt": "Two people set the last step between the staircase and the upper floor.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "And finally — put the result to use",
+   "intro": "A project continues beyond the first session: it gets shown to family, discussed with a client, refined and handed over for the work. So it is worth following the whole path of a finished result — from saving it to reopening and sending it.",
+   "art": {
+    "src": "research/ResearchInterior_directions",
+    "alt": "People work out the details of a room together, using a frame, a ruler and the project book.",
+    "widths": [
+     480,
+     800,
+     1200
+    ],
+    "width": 1200,
+    "height": 800
+   },
+   "observations": [
+    {
+     "id": "saved-work",
+     "title": "Save the decisions, not just the image",
+     "passages": [
+      "As the work goes on, decisions accumulate in a project: one option has been discussed, another rejected, the dimensions refined. A lost version forces that whole chain to be rebuilt. In one review the author writes about five weeks of work that disappeared after an update.",
+      "A “Save” button on its own gives no confidence that the work is saved. The author of another review presses it every five minutes and still rebuilds the mood board twice. A person needs to know which version has been written down and whether they can get back to it.",
+      "The loss hurts most right after a hard stretch: the measuring is done, the floor is finished, and then the save hangs. So a test has to include reopening the file, not end at pressing a button. The recovered version should still hold the latest dimensions, items and notes.",
+      "When the result is handed to a client or a tradesperson, the saved version becomes a shared reference point. Comments and an agreed list of items can be attached to it, so the next swap doesn’t mean building the presentation again."
+     ],
+     "quotes": [
+      {
+       "text": "Pleaseee find a way to get my old design back after your first update everything was deleted.I payed for the subscription spent probably 5 weeks creating just for it to get erased.",
+       "rating": 3,
+       "app": "Planner 5D: AI Home Design"
+      },
+      {
+       "text": "I had to recreate a mood board twice because it didn't save my work at all. Even though I selected \"save\" every 5 mins to ensure my changes were being saved, it did not save my board.",
+       "rating": 1,
+       "app": "Morpholio Board - Moodboard"
+      },
+      {
+       "text": "Finally got my dimensions figured out on an entire level and refused to save. Just spun and spun. Only option I had was to close app. Deleted all my work.",
+       "rating": 2,
+       "app": "HomeByMe - House Planner 3D"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_saved-work",
+      "alt": "A saved room rises again out of an open book; bookmarks mark the earlier versions.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "completed-project",
+       "title": "Carry a selection through to an agreed version",
+       "body": "What matters for a designer is the link between the agreed selection, the client’s comments and the purchase calculation.",
+       "ideas": [
+        "interior-design-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "limits",
+     "title": "Understand the terms before the long work",
+     "passages": [
+      "A saved result can turn out to be unavailable without any technical failure. The author of one review draws and saves a plan, then meets a demand to start a trial only when he tries to open it. By that point time has been invested in the app, so an unexpected condition changes how the whole effort feels.",
+      "Another difficulty is the rules for spending a quota. In the example given, a canceled room goes on counting as one that was created. To the person that is fixing a mistake; to the counter it is one more use. The terms look clear right up until the first discrepancy like that.",
+      "It helps to show in advance what gets spent, how a cancellation is counted, and what access remains to a finished project. These complaints won’t settle a subscription price or promise strong demand. What they will support is a substantive product test: walk the path from a first version to reopening, editing and sending the result. It is at those transitions that you can see whether the tool helps carry an intention through."
+     ],
+     "quotes": [
+      {
+       "text": "They let you start and save a floor plan just to make you sign up for a free trail for access to the floor plan. Very unprofessional and sneaky.",
+       "rating": 1,
+       "app": "DrawPlan"
+      },
+      {
+       "text": "their “free trial” ends at three rooms even if you hit undo and deleted a room because the dimensions weren’t right. The moment a fourth wall is drawn, it counts as a room, and that counts toward your three room limit.",
+       "rating": 1,
+       "app": "Keyplan 3D Lite - Home design"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchInterior_limits",
+      "alt": "An eraser wipes a room off the plan, but the spent token stays in the box.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Start with one decision about your own room",
+  "body": "The clearest way in here is one purchase or one change in an existing space. Comparing wall shades, checking a new sofa, agreeing a list of items: each of those jobs has a result you can discuss with a person after they have used it. A full interior editor combines more linked jobs than that.\n\nSo the thing to do first is carry one scenario through to the end in a real room. If a person recognizes the conditions they started with, can correct the version and use it when buying, the tool is already useful. If a person saves the image, it is worth finding out whether it helps them compare options or talk the idea through. For a product already on the market, the priorities are controlled edits and keeping what has been done: new styles are no substitute for being able to continue your own work."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-visualize",
+   "title": "First — see your own decision",
+   "depth": 0
+  },
+  {
+   "id": "observation-decision",
+   "title": "A picture gives everyone something to talk about",
+   "depth": 1
+  },
+  {
+   "id": "observation-controlled-change",
+   "title": "Recognizing your own room",
+   "depth": 1
+  },
+  {
+   "id": "theme-plan",
+   "title": "Then — check it against the real space",
+   "depth": 0
+  },
+  {
+   "id": "observation-measure",
+   "title": "A dimension has to be checkable and fixable",
+   "depth": 1
+  },
+  {
+   "id": "observation-dependencies",
+   "title": "Knowing what changes along with the wall",
+   "depth": 1
+  },
+  {
+   "id": "observation-levels",
+   "title": "Try the hard part first",
+   "depth": 1
+  },
+  {
+   "id": "theme-finish",
+   "title": "And finally — put the result to use",
+   "depth": 0
+  },
+  {
+   "id": "observation-saved-work",
+   "title": "Save the decisions, not just the image",
+   "depth": 1
+  },
+  {
+   "id": "observation-limits",
+   "title": "Understand the terms before the long work",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Start with one decision about your own room",
+   "depth": 0
+  }
+ ],
+ "free": true
+}

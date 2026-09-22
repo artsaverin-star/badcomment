@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-3",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "L’historique des précipitations sur sa parcelle",
+ "description": "Sa propre période, les relevés du pluviomètre et l’estimation du service, disponibles pour comparaison.",
+ "cover": {
+  "src": "ideas/weather-apps-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Les dernières vingt-quatre heures ou un mois calendaire ne correspondent pas toujours à la façon dont on suit sa parcelle."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "L’appli a l’air de moins en moins juste sur les cumuls de pluie et met une éternité à charger avec le WiFi à fond \nJ’ai cette appli\nDepuis longtemps et je perds confiance dans cette appli en tant qu’agriculteur",
+    "rating": 1,
+    "app": "AccuWeather: Weather Forecast"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment ça pourrait marcher"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choisir une plage libre, ajouter des mesures manuelles et des notes sur l’arrosage. Ne pas mélanger des sources différentes dans un total non étiqueté."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Les informations peuvent différer par leur précision spatiale et par leur ancienneté. Cela doit être visible dans la comparaison."
+  }
+ ],
+ "rank": 50,
+ "free": false
+}

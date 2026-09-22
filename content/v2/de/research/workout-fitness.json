@@ -1,0 +1,444 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "workout-fitness",
+ "name": "Training und Fitness",
+ "summary": "Eine gute App hilft, ein bestimmtes Training zu Ende zu bringen: einen machbaren Plan wählen, die Sätze eintragen und beim nächsten Mal an dieser Stelle weitermachen.",
+ "corpus": {
+  "reviews": 35074,
+  "apps": 91
+ },
+ "lead": "Ein Plan wirkt überzeugend, bis der Mensch im Studio ankommt: Das Gerät, das er braucht, ist besetzt, das Gewicht ist heute ein anderes, und das Telefon lässt sich schlecht in der Hand halten. Zu Hause gelten andere Umstände – wenig Zeit, ein kleiner Bildschirm und Einheiten, die unterbrochen werden müssen.\n\nDeshalb lohnt es sich, eine App auf dem ganzen Weg einer Einheit zu betrachten: die Bedingungen verstehen, das Gemachte eintragen, das Ergebnis und die Stelle im Programm sichern. Manche Probleme verlangen eine Korrektur des Logbuchs, andere weisen auf ein eigenes Szenario hin – etwa ein Videotraining zu Hause oder die Arbeit eines Trainers mit einem Klienten. Nicht jede fehlende Schaltfläche wird zu einem eigenständigen Produkt.",
+ "cover": {
+  "src": "research/ResearchLaunch_workout-fitness_cover",
+  "alt": "Training und Fitness",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_workout-fitness_audiences",
+  "alt": "Verschiedene Aufgaben in der Kategorie „Training und Fitness“.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Einem Kraftprogramm folgen",
+   "body": "Ein Mensch kommt mit einem Plan, sieht sich seine früheren Sätze an und trägt die heutige Ausführung ein. Er braucht eine wiedererkennbare Reihenfolge der Übungen und die Möglichkeit, die Werte zu präzisieren. Der Verlauf soll helfen, sich in der eigenen Arbeit zurechtzufinden, ohne sie erneut aus dem Gedächtnis zu rekonstruieren."
+  },
+  {
+   "title": "Zu Hause nach einer Demonstration trainieren",
+   "body": "Man muss die Bewegungen sehen, die Erklärung hören und es rechtzeitig zur nächsten Handlung schaffen. Das Telefon oder der große Bildschirm wird Teil der Einheit. Pause und Rückkehr sollen die Stelle bewahren, damit der richtige Moment nicht von Neuem gesucht werden muss."
+  },
+  {
+   "title": "Ein passendes Format der Einheiten finden",
+   "body": "Für die Wahl zählen die konkreten Bewegungen, die Körperpositionen und die vorhandene Ausrüstung. Ein Mensch will den Inhalt vorab kennen und sagen können, was ihm nicht passt. Ein allgemeines Etikett für Alter oder Niveau ersetzt diese Information über ein Programm nicht."
+  }
+ ],
+ "sections": [
+  {
+   "id": "plan",
+   "title": "Mit einem machbaren Plan ankommen",
+   "intro": "Die Wahl des Programms beginnt mit den heutigen Bedingungen: der Zeit, der Ausrüstung und verständlichen Bewegungen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "actual-load",
+     "title": "Das letzte Gewicht sehen und das heutige eintragen",
+     "passages": [
+      "Ein Programm kann das Gewicht für die nächste Einheit vorschlagen und das Tempo seines Anstiegs änderbar machen. Nutzer schätzen, wie bequem diese Fortsetzung ist, doch ihre persönlichen Berichte über das eigene Befinden belegen nicht, dass die Berechnung zu anderen Menschen passt. Der Vorschlag muss getrennt von dem gezeigt werden, was bereits gemacht wurde.",
+      "Der aktuelle Eintrag braucht Kontext: was beim letzten Mal gemacht wurde, was heute geplant ist und was tatsächlich herauskam. Sind diese Werte vermischt, ist unklar, welchen Teil des Verlaufs eine Korrektur verändert. Das Logbuch muss erlauben, das heutige Ergebnis zu sichern, ohne es an die Erwartungen des Programms anzupassen.",
+      "Auch die gewählte Zusammensetzung der Einheiten muss erhalten bleiben. Verschwindet eine hinzugefügte Übung am nächsten Tag, muss der Nutzer den Plan von vorn erklären. Vor der nächsten Einheit hilft es, die Änderungen zu zeigen und den Zugang zur früheren Fassung zu behalten; das ist eine konkrete Aufgabe, Entscheidungen zu bewahren, und keine neue Funktion eines KI-Coachs."
+     ],
+     "quotes": [
+      {
+       "text": "Dem Programm zu folgen ist einfach, wenn es dein Gewicht automatisch anpasst, und du kannst einstellen, dass es schneller oder langsamer steigt, wie du es gerade brauchst. Ich schlafe besser und meine Rückenschmerzen sind weg, seit ich angefangen habe, Gewichte zu heben.",
+       "rating": 5,
+       "app": "Stronglifts 5x5 Workout Plan"
+      },
+      {
+       "text": "Die Oberfläche ist gut. Aber die App selbst ist zum Verrücktwerden dumm. Sie hat keinen Kontext für das Timing der Trainings oder für ihren Platz in einer Reihe. Zum Beispiel kommt sie durcheinander, wenn du vorher einen Satz Bankdrücken mit 225x8 gemacht hast (erstes Training des Tages), und kapiert anscheinend nicht, warum du danach nicht dasselbe Gew",
+       "rating": 2,
+       "app": "Gymverse: Gym Workout Planner"
+      },
+      {
+       "text": "Die Idee mit dem KI-Coach mag ich, aber der hier hat ständig Aussetzer. Er fügt meiner Routine eine neue Übung hinzu und springt einen Tag später wieder zur vorherigen Routine zurück, in der die Übung nicht drin war. Er fügt sie wieder hinzu, wenn ich ihn erinnere.",
+       "rating": 1,
+       "app": "Google Health (Fitbit)"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_actual-load",
+      "alt": "Illustration zum Thema „Das letzte Gewicht sehen und das heutige eintragen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-actual-load",
+       "title": "Das letzte Gewicht sehen und das heutige eintragen",
+       "body": "",
+       "ideas": [
+        "workout-fitness-1",
+        "workout-fitness-3",
+        "workout-fitness-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "coach",
+     "title": "Verstehen, wie ein Trainer ein Programm führt",
+     "passages": [
+      "Ein fertiges Programm kann die Notwendigkeit nehmen, eine Einheit selbst zusammenzustellen. In der Rezension unten wird die Sicherheit beim Betreten des Studios geschätzt: Der Mensch weiß bereits, woran er arbeiten wird. Für den ersten Eindruck kommt es darauf an, eine gewöhnliche Einheit und ihren Platz in der Reihe zu zeigen.",
+      "Doch ein fertiger Plan hebt die Bearbeitung nicht auf. Wenn ein Teil der Supersätze abgeschaltet werden soll und es dafür keine Möglichkeit gibt, hilft die Einfachheit der ersten Wahl nicht mehr. Vor dem Start lohnt es sich zu zeigen, welche Änderungen die Oberfläche zulässt und wie sie erhalten bleiben.",
+      "Die Art der Begleitung ist ein weiterer Grund zurückzukommen. Die Stimme eines vertrauten Trainers kann mitten in einer Bewegung wichtig sein. Diesen Nutzen sollte man von der persönlichen Arbeit einer Fachperson mit dem Logbuch eines Klienten unterscheiden: Ein Katalog von Aufnahmen und der Arbeitsplatz eines Trainers lösen verschiedene Aufgaben, auch wenn beide Video verwenden."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe, liebe, liebe diese App (besonders den Teil, der auf Frauen ausgerichtet ist). Sie hat mir im Studio mehr Sicherheit gegeben und ich gehe rein und weiß, woran ich arbeite. Mir fällt es schwer, eigene Trainings und Routinen zusammenzustellen, und das hat diese Sorge komplett ausgelöscht.",
+       "rating": 5,
+       "app": "Alive by Whitney Simmons"
+      },
+      {
+       "text": "Es ist eine unkomplizierte App, die super ist, wenn dir nichts einfällt, was du machen sollst. ABER dass man nichts ändern/anpassen kann, nervt. Ich will ein paar der Supersätze abschalten, geht aber nicht. Außerdem ist sie bei den Gewichtsvorschlägen klar auf Männer ausgerichtet oder auf Frauen, die Masse aufbauen wollen. Ich finde die Gewichtsempf",
+       "rating": 4,
+       "app": "Fitness App: Gym Workout Plan"
+      },
+      {
+       "text": "Liebe die LADDAR App, hilft mir dranzubleiben, und ich freue mich immer aufs Training und ich kann’s nicht abwarten zu sehen, was mein nächstes Training ist. Coach Nicole ist klasse und hält dich während des Trainings motiviert, das hilft riesig!!",
+       "rating": 5,
+       "app": "LADDER Strength Training Plans"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-coach",
+       "title": "Verstehen, wie ein Trainer ein Programm führt",
+       "body": "",
+       "ideas": [
+        "workout-fitness-6",
+        "workout-fitness-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "movements",
+     "title": "Die Bedingungen vor der ersten Bewegung kennen",
+     "passages": [
+      "Die Erwartung einer Einheit auf dem Stuhl passt nicht zu einem Programm, in dem man auf den Boden hinuntergehen muss. Eine Bewegung erneut vorzuschlagen, die der Mensch jedes Mal überspringt, schafft ein ähnliches Problem: Die App berücksichtigt eine bereits genannte Bedingung nicht. Dadurch bleibt ein Teil des Plans für das gewählte Szenario nicht ausführbar.",
+      "Der Katalog muss Körperpositionen, Ausrüstung und Übergänge vorab zeigen, und die Vorlieben müssen für spätere Entscheidungen erhalten bleiben. Ein Überspringen und ein Austausch brauchen beide eine klare Abbildung im Plan. Bei individuellen Einschränkungen wird der Inhalt eines Programms mit einer Fachperson abgestimmt; die Aufgabe der Oberfläche ist es, die Bedingungen und die gewählten Änderungen genau wiederzugeben.",
+      "Der Filter „zu Hause“ ist zu breit: Zu Hause kann es nur einen Stuhl und zehn freie Minuten geben. Eine genauere Beschreibung nennt die Stützen, die Körperpositionen und die Ausrüstung. Und eine Filterung nach Bedingungen bestätigt nicht die medizinische Eignung einer Einheit: Individuelle Einschränkungen verlangen die Entscheidung einer Fachperson, und die Oberfläche bewahrt und zeigt diese Entscheidung."
+     ],
+     "quotes": [
+      {
+       "text": "Die Pause zwischen den Übungen ist nicht lang genug, um für die nächste Übung in Position zu kommen. Manche Übungen kann ich körperlich nicht machen und überspringe sie bei jedem Training, aber sie tauchen trotzdem immer wieder in meinen Trainings auf, und am Ende komme ich nicht auf ein volles Training, weil es nichts zum Erse",
+       "rating": 3,
+       "app": "Home Fitness for Weight Loss"
+      },
+      {
+       "text": "Meine Schulter lässt mich keine Liegestütze machen.",
+       "rating": 2,
+       "app": "Muscle Booster Workout Tracker"
+      },
+      {
+       "text": "Keine Übungen auf dem Stuhl für Senioren. Viele der ‚Senioren‘-Trainings hatten Übungen am Boden dabei. Wenn ich mich auf den Boden runterlasse, komme ich nicht wieder hoch LOL.",
+       "rating": 3,
+       "app": "Aaptiv: #1 Audio Fitness App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_movements",
+      "alt": "Illustration zum Thema „Die Bedingungen vor der ersten Bewegung kennen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-movements",
+       "title": "Die Bedingungen vor der ersten Bewegung kennen",
+       "body": "",
+       "ideas": [
+        "workout-fitness-7",
+        "workout-fitness-4",
+        "workout-fitness-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Sich nicht von der Einheit ablenken lassen",
+   "intro": "Zwischen den Sätzen soll die Oberfläche wenig Aufmerksamkeit verlangen. Uhr, Video und Timer helfen nur, wenn sie ein und dasselbe Szenario fortsetzen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "watch",
+     "title": "Einen Satz vom Handgelenk aus eintragen",
+     "passages": [
+      "Einen Satz vom Handgelenk aus zu markieren, spart Handgriffe, solange Uhr und Telefon ein und dieselbe Einheit zeigen. Laufen sie auseinander, überlegt der Mensch statt des nächsten Satzes, welches Gerät das Ergebnis behalten hat.",
+      "Besonders wichtig ist ein kurzer Verbindungsabbruch. Eine auf der Uhr gesetzte Markierung muss lokal gesichert werden und später ohne Dublette auf dem Telefon erscheinen. Der Nutzer muss sehen, was bereits eingetragen ist und was noch auf die Übertragung wartet, mit der Möglichkeit, einen falschen Wert zu korrigieren.",
+      "Auch auf der Uhr braucht es Kontext für die nächste Eingabe. Fehlen das letzte Gewicht und die Zahl der Wiederholungen, muss das Telefon wieder heraus. Die Prüfung des Szenarios umfasst deshalb nicht nur das Tippen auf „Fertig“, sondern auch das Ansehen früherer Werte, deren Korrektur und den Abschluss des ganzen Trainings."
+     ],
+     "quotes": [
+      {
+       "text": "Wenn sie richtig läuft, ist die App klasse, und die Synchronisierung mit der Apple Watch macht es so einfach, im Studio am Plan zu bleiben. Das Problem ist, wenn die beiden nicht mehr synchron sind, so ungefähr bei einem Drittel der Fälle, dann verliere ich Zeit und Konzentration mit dem Rumfummeln an App und Uhr, statt mich auf mein Training zu konzentrieren.",
+       "rating": 3,
+       "app": "JEFIT Workout Plan Gym Tracker"
+      },
+      {
+       "text": "Es ist eine gute Trainings-App. Trainings anzulegen ist einfach und ich finde es super, dass man sie in Ordnern organisieren kann. Würde fünf Sterne geben, aber mit meiner Apple Watch spinnt sie total. Scheint nur ungefähr die Hälfte der Zeit zu funktionieren, ich markiere Sätze auf meiner Watch als erledigt und es synchronisiert nicht aufs Telefon und umgek",
+       "rating": 3,
+       "app": "Hevy - Workout Tracker Gym Log"
+      },
+      {
+       "text": "Die Watch-App braucht bessere Funktionen. Ich sollte auf Uhr und Telefon mitmachen können, nicht nur auf dem einen oder dem anderen. Die Watch-App zeigt das letzte Gewicht und die Zahl der Wiederholungen nicht. Ohne das kommt man schwer weiter.",
+       "rating": 2,
+       "app": "Gymverse: Gym Workout Planner"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "large-screen",
+     "title": "Nach einer Pause an derselben Stelle weitermachen",
+     "passages": [
+      "Zu Hause hilft ein großer Bildschirm, eine Bewegung zu erkennen, ohne sich ständig dem Telefon zuzuwenden. Doch nach einer kurzen Pause kann die Übertragung abbrechen oder das Programm wieder von vorn beginnen. Dann muss selbst eine Einheit, die gefallen hat, aus dem Gedächtnis rekonstruiert werden, im Wechsel zwischen der Steuerung und der Suche nach dem richtigen Moment.",
+      "Die Bedingungen des Ansehens und die unterstützte Art der Verbindung sollte man vor dem Start klären. Danach das Anhalten, das Fortsetzen und die Rückkehr nach einem Wechsel prüfen. Ein nützliches Ergebnis ist dieselbe Demonstration, die an der gewählten Stelle weiterläuft, während das Telefon eine bequeme Steuerung der Einheit bleibt.",
+      "Ein Klingeln an der Tür oder ein kurzer Wechsel in eine andere App ist ein normaler Teil eines Trainings zu Hause. Eine gesicherte Stelle im Video erlaubt die Rückkehr ohne Suche, und eine eigene Markierung der Ausführung verhindert, dass die Zeit der Pause als Übung zählt. Hier kann die Qualität einer kleinen Bibliothek mit verlässlicher Wiedergabe mehr zählen als die Größe des Katalogs."
+     ],
+     "quotes": [
+      {
+       "text": "Liebe diese App, hasse aber, dass sie einen buchstäblich daran hindert, den Bildschirm auf den Fernseher zu spiegeln :( Ich kann mir gerade kein Internet leisten, geschweige denn ein Premium-Abo, deshalb ist es einfach mies, dass ich das auf meinem winzigen Handybildschirm machen muss",
+       "rating": 2,
+       "app": "FitOn Workouts & Fitness Plans"
+      },
+      {
+       "text": "Wie könnt ihr mich die App updaten lassen und sie kann immer noch nicht mal richtig chromecasten? Ergibt doch keinen Sinn. Liebe die Trainings, App ist meh",
+       "rating": 2,
+       "app": "BODi Home Fitness & Workouts"
+      },
+      {
+       "text": "Wenn ich das Programm der App mit dem IPhone oder IPad auf den Fernseher übertrage, startet das Programm von vorn und ich verliere meine Stelle im Training, JEDES Mal wenn ich mein Training pausiere! Das ist so frustrierend. Warum passiert das?",
+       "rating": 3,
+       "app": "Playbook - Trainers & Workouts"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_large-screen",
+      "alt": "Illustration zum Thema „Nach einer Pause an derselben Stelle weitermachen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "prescribed-timing",
+     "title": "Video, Wiederholungen und Timer in Übereinstimmung bringen",
+     "passages": [
+      "Im Heimprogramm einer Fachperson kann die Beschreibung einer Bewegung verständlich sein, während Demonstration und Timer von der vorgegebenen Zeit abweichen. Der Mensch muss das Video von Hand anhalten, um den erhaltenen Vorgaben zu folgen. Ein solcher Hinweis begleitet die Ausführung nicht, sondern schafft eine weitere Quelle von Widersprüchen.",
+      "Die vorgegebenen Wiederholungen, Haltezeiten und Übergänge müssen gesondert übermittelt werden und ihre Verbindung zum Programm behalten. Zu prüfen ist, ob der angezeigte Zähler den ursprünglichen Einstellungen der Fachperson entspricht. Eine bequeme Steuerung hilft, diesen Einstellungen zu folgen; sie darf sie nicht unbemerkt durch andere Werte ersetzen.",
+      "Ein Mensch soll nicht zwei einander widersprechende Anweisungen haben: auf der Karte die Position dreißig Sekunden halten, während im Video schon die nächste Bewegung begonnen hat. Für ein Produkt mit den Programmen einer Fachperson hilft es, die Vorgaben getrennt vom Clip zu speichern und zu zeigen, welche Änderungen an einer verordneten Einheit vorgenommen wurden."
+     ],
+     "quotes": [
+      {
+       "text": "Das Timing ist bei jeder einzelnen Übung falsch. Zum Beispiel sagt sie mir, ich soll 30 Sekunden halten, gibt mir dann aber acht Sekunden für jede Wiederholung. Und bei manchen Übungen ist es andersrum. eine soll 10 Sekunden pro Wiederholung dauern und sie sagt dir eine Minute 30 pro Wiederholung. Ergibt keinen Sinn. Meine Physio sagt d",
+       "rating": 1,
+       "app": "Medbridge GO for Patients"
+      },
+      {
+       "text": "Ich wünschte, die App würde die Übungen wirklich passend timen, nach dem Tempo und den Zeiten, die meine Physio eingetragen hat. Die Videos laufen fast 5–10x so schnell, wie sie will, dass ich diese Übungen mache, also muss ich jedes Mal rübergreifen und pausieren und wieder starten und pausieren und wieder starten.",
+       "rating": 4,
+       "app": "Medbridge GO for Patients"
+      },
+      {
+       "text": "Beschreibt die Übungen gut, aber die Zeit für jede einzelne ist zu lang oder zu kurz. Zu wenig Zeit zwischen den Übungen. Sollte eine Möglichkeit geben, das anzupassen.",
+       "rating": 3,
+       "app": "Medbridge GO for Patients"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "continuity",
+   "title": "Das Gemachte sichern und zurückkommen",
+   "intro": "Die nächste Einheit beginnt mit der letzten. Logbuch und gewähltes Programm müssen Pausen und einen Gerätewechsel überstehen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "history",
+     "title": "Die Stelle im Programm nicht verlieren",
+     "passages": [
+      "Nach einer Datenübernahme kann der Eintrag vollständig aussehen, während sich die Gesamtwerte ändern. In der Rezension unten sind die berechneten Rekorde nach einem Import gegenüber den ursprünglichen Einheiten überhöht. Prüfen muss man deshalb die Übungen, die Werte und die Regeln der Berechnung, nicht eine einzige Zahl übertragener Trainings.",
+      "Den Verlust des Logbuchs selbst sieht man noch deutlicher: Die geleistete Arbeit verschwindet. Bei einem Update und bei einem Gerätewechsel hilft es, den Zugang zur vorherigen Kopie zu behalten und zu zeigen, was die Wiederherstellung enthält. Ein Mensch muss eine vertraute Einheit öffnen und mit dem Original abgleichen können.",
+      "Das gewählte Programm ist ein eigener Teil der Daten. Ein Zurücksetzen der Schwierigkeit oder des Inhalts bei einem Update sollte nicht dadurch verdeckt werden, dass das Logbuch weiterhin verfügbar ist. Die Rückkehr beginnt mit dem letzten abgeschlossenen Training und einem klaren nächsten Schritt; vergangene Tage sind für sich genommen keine ausgeführten Einheiten."
+     ],
+     "quotes": [
+      {
+       "text": "Ich habe meine Trainings und Statistiken aus der Strong App in Hevy importiert, und alle meine Statistiken sind mindestens 2- bis 3-mal höher als das, was ich tatsächlich gemacht habe. Das heißt, mein 1RM und meine PRs stimmen nicht. Ich kann meinen Fortschritt nicht genau verfolgen.",
+       "rating": 3,
+       "app": "Hevy - Workout Tracker Gym Log"
+      },
+      {
+       "text": "Mag dieses letzte Update nicht, die Änderungen haben es weniger benutzerfreundlich gemacht. Und alle meine Trainings gelöscht.. nach 599 eingetragenen Trainings wird es Zeit, was anderes zu suchen…",
+       "rating": 3,
+       "app": "Stronglifts 5x5 Workout Plan"
+      },
+      {
+       "text": "Das ist eine gute App, einfach zu bedienen und mit viel Abwechslung. Allerdings… bei jedem Update setzt sich mein Trainingsprogramm zurück! Aktivitäten werden ohne Ankündigung entfernt oder hinzugefügt. Die Schwierigkeitseinstellungen werden auch zurückgesetzt. Diese Unbeständigkeit nervt wirklich.",
+       "rating": 3,
+       "app": "Home Fitness Coach: FitCoach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_history",
+      "alt": "Illustration zum Thema „Die Stelle im Programm nicht verlieren“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "motivation",
+     "title": "Die Rückkehr ohne unnötigen Lärm unterstützen",
+     "passages": [
+      "Eine Serie von Markierungen, eine kleine Belohnung oder ein gemeinsamer Wettbewerb können einen angenehmen Grund geben zurückzukommen. Für einen Teil der Menschen ist das ein eigener Wert neben dem Programm. Andere wollen im selben Moment nur das Logbuch und ihre früheren Übungen; ein Spielbildschirm soll diesen Weg nicht erschweren.",
+      "Es hilft, die Form der Unterstützung wählbar zu machen und den Verlauf unabhängig von der Teilnahme zu bewahren. Bei der Rückkehr nach einer Pause muss ein Mensch seine frühere Arbeit sehen und den nächsten Schritt verstehen. Gesondert lohnt es sich zu prüfen, dass Änderungen der Gestaltung nicht daran hindern, Übungen zu finden und die eigenen Einträge zu vergleichen.",
+      "Man kann einen Menschen wählen lassen, was er nach einer Einheit sehen will: eine kurze Zusammenfassung, einen persönlichen Rekord oder nur das gesicherte Logbuch. Das sind verschiedene Formen der Rückmeldung. Zur Prüfung der Idee ist es nützlicher zu erfahren, ob die gewählte Zusammenfassung hilft, erneut zu kommen, als die Zahl der geöffneten Glückwunschbildschirme zu zählen."
+     ],
+     "quotes": [
+      {
+       "text": "Die Serien-Funktion und die Bewertungen, wie gut man abschneidet, stechen in dieser App wirklich heraus, die kostenlose Variante enthält alles Nötige, klare Empfehlung",
+       "rating": 5,
+       "app": "Liftoff - Ranked Gym Workouts"
+      },
+      {
+       "text": "Es gibt hier so eine wunderbare Vielfalt an Kursen. Ich mache hauptsächlich Stretching und Yoga und entdecke ständig neue Kurse und Trainer, ich glaube also nicht, dass mir jemals die Auswahl ausgeht! Die monatlichen Schritt-Wettbewerbe mag ich auch richtig gern, weil sie mich motivieren, noch ein paar Spaziergänge einzubauen.",
+       "rating": 4,
+       "app": "FitOn Workouts & Fitness Plans"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Eine ganze Einheit prüfen",
+  "body": "Die erste Priorität ist eine Einheit, vom Start bis zum gesicherten Ergebnis. Im Studio sind das die früheren Werte, eine schnelle Markierung und eine funktionierende Uhr; zu Hause eine verständliche Demonstration, eine Pause und die Fortsetzung. Die Rezensionen zeigen, wie der Ausfall eines kleinen Übergangs einen Menschen dazu bringt, die App zu bedienen, statt das gewählte Programm auszuführen. Neue Zusammenstellungen beheben das nicht.\n\nDann lohnt es sich, das Hauptprodukt zu wählen: ein Logbuch für das eigenständige Training, einen Autorenkurs oder den Arbeitsplatz eines Trainers. Jedes hat seinen eigenen Grund wiederzukommen und zu zahlen. Sie müssen zum Start nicht vereint werden. Ob der Verlauf erhalten bleibt und wie genau die Bedingungen beschrieben sind, lässt sich unmittelbar prüfen; eine passende Belastung und die Ergebnisse des Trainings lassen sich nicht aus einer bequemen Oberfläche oder aus einzelnen positiven Rezensionen ableiten."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-plan",
+   "title": "Mit einem machbaren Plan ankommen",
+   "depth": 0
+  },
+  {
+   "id": "observation-actual-load",
+   "title": "Das letzte Gewicht sehen und das heutige eintragen",
+   "depth": 1
+  },
+  {
+   "id": "observation-coach",
+   "title": "Verstehen, wie ein Trainer ein Programm führt",
+   "depth": 1
+  },
+  {
+   "id": "observation-movements",
+   "title": "Die Bedingungen vor der ersten Bewegung kennen",
+   "depth": 1
+  },
+  {
+   "id": "theme-during",
+   "title": "Sich nicht von der Einheit ablenken lassen",
+   "depth": 0
+  },
+  {
+   "id": "observation-watch",
+   "title": "Einen Satz vom Handgelenk aus eintragen",
+   "depth": 1
+  },
+  {
+   "id": "observation-large-screen",
+   "title": "Nach einer Pause an derselben Stelle weitermachen",
+   "depth": 1
+  },
+  {
+   "id": "observation-prescribed-timing",
+   "title": "Video, Wiederholungen und Timer in Übereinstimmung bringen",
+   "depth": 1
+  },
+  {
+   "id": "theme-continuity",
+   "title": "Das Gemachte sichern und zurückkommen",
+   "depth": 0
+  },
+  {
+   "id": "observation-history",
+   "title": "Die Stelle im Programm nicht verlieren",
+   "depth": 1
+  },
+  {
+   "id": "observation-motivation",
+   "title": "Die Rückkehr ohne unnötigen Lärm unterstützen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Eine ganze Einheit prüfen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -63,7 +63,8 @@ for (const slug of active) {
     const element = NicheMarketPlayers({ slug, locale })!;
     assert.equal(element.key, slug, "Changing niche must reset query and page size");
     for (const app of element.props.data.apps) {
-      assert.equal(app.reviewHref, getApp(slug, app.appStoreId) ? `/${locale}/reviews/${slug}/${app.appStoreId}` : undefined);
+      // Old-site navigation stays inside /<L>/old (docs/site-v2/ARCHITECTURE.md §5.2).
+      assert.equal(app.reviewHref, getApp(slug, app.appStoreId) ? `/${locale}/old/reviews/${slug}/${app.appStoreId}` : undefined);
       assert.ok(!("evidence" in app) && !("hypothesis" in app), "Never serialize paid research");
     }
     const html = renderToStaticMarkup(element);

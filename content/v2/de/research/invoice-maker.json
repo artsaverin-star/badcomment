@@ -1,0 +1,462 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "invoice-maker",
+ "name": "Rechnungen für Kunden",
+ "summary": "Von der vereinbarten Arbeit bis zu einem nachvollziehbaren offenen Betrag: wo Rechnungen der ausführenden Person Zeit sparen und wo sie eine zweite Buchführung von Hand erzwingen.",
+ "corpus": {
+  "reviews": 6720,
+  "apps": 26
+ },
+ "lead": "Ein Handwerker hat drei Reparaturvarianten besprochen, sich mit dem Kunden auf eine festgelegt und eine Anzahlung bekommen. Später kamen Material und eine weitere Arbeitsstunde dazu. Am Abend muss er die Rechnung verschicken und ausrechnen, wie viel noch zu bekommen ist. Ein einfaches Dokument wird zur Summe mehrerer Absprachen.\n\nDas Folgende verfolgt diesen Weg vom Kostenvoranschlag bis zur Zahlung. Die Rezensionen zeigen, dass der Nutzen oft zwischen den Bildschirmen liegt: Vereinbartes muss nicht neu eingetippt werden, die Stunden gehören zum richtigen Projekt, erneutes Verschicken erzeugt keine neue Schuld, und die Anzahlung ist in der Gesamtabrechnung sichtbar.",
+ "cover": {
+  "src": "research/ResearchLaunch_invoice-maker_cover",
+  "alt": "Rechnungen für Kunden",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_invoice-maker_audiences",
+  "alt": "Aufgaben der Menschen: Rechnungen für Kunden",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Den Auftrag direkt beim Kunden erfassen",
+   "body": "Vor Ort kommt es darauf an, die Kalkulation schnell aus bekannten Leistungen zusammenzustellen und die Varianten mit dem Kunden zu besprechen. Erneutes Eintippen und die Suche nach einer E-Mail-Adresse können mehr stören als eine begrenzte Auswahl an Layouts."
+  },
+  {
+   "title": "Projektstunden abrechnen",
+   "body": "Bei Arbeit auf Stundenbasis stützt sich das Dokument auf die angesammelten Intervalle. Die Zugehörigkeit der Zeit zum Projekt und der Stundensatz müssen geprüft werden, bevor die Summe an den Kunden geht."
+  },
+  {
+   "title": "Die Abrechnung nach Etappen verfolgen",
+   "body": "Eine Anzahlung, eine abgeschlossene Etappe und die Schlussabrechnung erzeugen mehrere Zustände eines Auftrags. Für die ausführende Person zählt, den offenen Betrag des Kunden getrennt von dem Geld zu sehen, das bei ihr bereits eingegangen ist."
+  }
+ ],
+ "sections": [
+  {
+   "id": "prepare",
+   "title": "Vereinbarte Arbeit im Dokument fortführen",
+   "intro": "Kunde, Umfang, Preis und ausgeführte Arbeiten müssen beim Übergang vom Kostenvoranschlag zur Rechnung verbunden bleiben.",
+   "art": null,
+   "observations": [
+    {
+     "id": "estimate",
+     "title": "Die gewählte Variante festhalten",
+     "passages": [
+      "Ein Kostenvoranschlag mit Varianten hilft, den Arbeitsumfang vor der endgültigen Entscheidung zu besprechen. Ein Monteur für Heizung und Lüftung braucht die Auswahl innerhalb eines einzigen Dokuments: Drei getrennte Kostenvoranschläge stören den Vergleich. Es lohnt sich festzuhalten, welche Variante der Kunde am Ende gewählt hat.",
+      "Nach der Abstimmung entsteht ein weiterer Übergang – vom Kostenvoranschlag zur Rechnung. Das erneute Eintippen von Beschreibungen und Beträgen fügt Arbeit hinzu, die bereits getan ist. Gebraucht wird die Übernahme der gewählten Positionen mit der Möglichkeit, sie vor dem Verschicken zu prüfen, und nicht nur ein neues leeres Dokument.",
+      "Wenn Erstellen, Bestätigen und Bezahlen verbunden sind, wirkt der ganze Ablauf einfacher. Die positive Rezension unten schätzt genau diese Abfolge. Es lohnt sich dabei, zusätzliche Arbeiten getrennt auszuweisen, damit der Kunde sieht, worin sich die Schlussabrechnung von der ursprünglichen unterscheidet."
+     ],
+     "quotes": [
+      {
+       "text": "App ist super, wäre nur besser, wenn man verschiedene Varianten in Kostenvoranschläge packen könnte. Zum Beispiel verschiedene Varianten, die der Kunde im Kostenvoranschlag auswählen kann. Ich mache Heizung und Lüftung, und 3 verschiedene Kostenvoranschläge zu schicken ist nervig.",
+       "rating": 4,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "Ich nutze die Gratisversion, super für eine schnelle Rechnung, wenn einen das Wasserzeichen nicht stört. Aber oft, wenn ich eine Rechnung anlegen will, dreht sich das Rädchen nur immer weiter, und es geht erst, wenn ich die App lösche und neu installiere. Außerdem kein Knopf, um ein Angebot in eine Rechnung umzuwandeln.",
+       "rating": 3,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "Ich nutze joist jetzt seit einem Monat und es ist super. Rechnungen sind leicht gemacht, Kunden können leicht unterschreiben, zahlen. Ich benutze die App gern!",
+       "rating": 5,
+       "app": "Joist: Estimate Invoice Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_estimate",
+      "alt": "Illustration zum Thema „Die gewählte Variante behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-estimate",
+       "title": "Die gewählte Variante festhalten",
+       "body": "",
+       "ideas": [
+        "invoice-maker-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "catalog",
+     "title": "Die Datenbasis nutzen, ohne die Vergangenheit zu ändern",
+     "passages": [
+      "Gespeicherte Kunden, Leistungen und Preise verkürzen die Eingabe bei einem Folgeauftrag. Mit dieser fertigen Basis lässt sich die Kalkulation unterwegs zusammenstellen.",
+      "Aber nicht jede Position gehört in einen dauerhaften Katalog. Einmalige Posten füllen ihn mit der Zeit zu. Das Löschen aus den Stammdaten oder das Archivieren sollte Text und Preis in der alten Rechnung unangetastet lassen; ein neuer Preis gilt für neue Arbeit und schreibt nicht die Vergangenheit um.",
+      "Für die Arbeit auf mehreren Geräten zählt, dass dieselben Dokumente und Stammdaten verfügbar sind. Bleibt ein Teil der Daten nur auf dem Handy, lässt sich die Kalkulation auf einem Tablet nicht fortsetzen. Es hilft, nicht übertragene Änderungen anzuzeigen und ein bestimmtes Dokument prüfen zu lassen, bevor es im Büro erneut angelegt wird."
+     ],
+     "quotes": [
+      {
+       "text": "Superleicht, unterwegs abzurechnen. Leicht zu bedienen, speichert Kunden für Folgeaufträge. Speichert Preise für alle Posten oder Aufgaben. Speichert Arbeits- und Materialsätze. Rechnet sogar Steuer drauf, wenn nötig.",
+       "rating": 3,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "Rechnungen zu erstellen ist einfach, aber dass man Posten nicht löschen kann, sobald man sie abgerechnet hat, macht die Liste „Posten“ mit der Zeit ziemlich voll, wenn man viele Einmalsachen hat.",
+       "rating": 2,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "Ich nutze Tiny Invoice seit Jahren für mein Geschäft, und insgesamt ist die App gut gemacht, wir lieben sie. Allerdings hatte ich neulich ein ernstes Sync-Problem zwischen meinem iPhone und iPad. Die Geräte haben Rechnungen und Kostenvoranschläge nicht mehr richtig synchronisiert, und manche Daten gab es nur auf einem Gerät.",
+       "rating": 4,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-catalog",
+       "title": "Die Datenbasis nutzen, ohne die Vergangenheit zu ändern",
+       "body": "",
+       "ideas": [
+        "invoice-maker-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "hours",
+     "title": "Die Zeit vor der Rechnungsstellung prüfen",
+     "passages": [
+      "Ein Timer hilft bei der Rechnungsstellung, wenn der Eintrag mit einem Kunden und einem Projekt verbunden ist. Eine positive Rezension beschreibt den durchgehenden Weg: Stunden werden auf verschiedenen Geräten erfasst und gehen dann in das Projekt und in das Dokument über. Das spart das erneute Zusammenzählen.",
+      "Aber der Erhalt der Intervalle wiegt schwerer als das automatische Multiplizieren mit einem Stundensatz. Wenn Starten oder Pausieren bereits erfasste Zeit löscht, ist der Summe schwer zu trauen. Vor der Rechnungsstellung müssen die Intervalle durchgesehen und ein vergessener Timer korrigiert werden, und es muss sichtbar sein, welche Stunden schon in frühere Rechnungen eingegangen sind. Nicht jede erfasste Minute ist automatisch zur Zahlung vereinbart."
+     ],
+     "quotes": [
+      {
+       "text": "Für mich passiert das Beste an diesem Dienst hinten raus, beim Zusammenzählen der Stunden, die man mit der App erfasst hat. Man kann seine Stunden übers Web oder die iPhone-App erfassen und die Infos dann in seine Projekte und am Ende in seine Rechnungen schieben.",
+       "rating": 4,
+       "app": "Harvest: Track Time & Invoice"
+      },
+      {
+       "text": "Mag die App, aber der Timer ist im neuen Update total kaputt. Dauernd will er bestehende Zeiten verwerfen, wenn ich den Timer starte oder pausiere. Vielleicht ein Problem mit der IOS-Widget-Einbindung.",
+       "rating": 2,
+       "app": "Zoho Invoice Maker App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_hours",
+      "alt": "Illustration zum Thema „Die Stunden vor dem Rechnungsstellen prüfen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-hours",
+       "title": "Die Zeit vor der Rechnungsstellung prüfen",
+       "body": "",
+       "ideas": [
+        "invoice-maker-4",
+        "invoice-maker-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "identity",
+     "title": "Das Ergebnis wiedererkennbar halten",
+     "passages": [
+      "Ein Logo auf dem Dokument hilft der ausführenden Person, ein wiedererkennbares Erscheinungsbild zu behalten. Im folgenden Beispiel ist es genau diese Möglichkeit, die jemandem den Weg vom Papier zu elektronischen Rechnungen erleichtert. Sie gehört zur gewohnten Art, dem Kunden die eigene Arbeit zu präsentieren.",
+      "Eine Vorschau im Editor bestätigt das Ergebnis noch nicht. Verschwindet das Logo beim Empfänger oder im Druck, ist das gewählte Erscheinungsbild tatsächlich nicht übermittelt worden. Prüfen muss man deshalb die Datei oder die Seite, die der Kunde öffnet.",
+      "Die Auftragskennzeichnung spielt eine praktischere Rolle: Sie hilft, die Abrechnung in der Buchführung der anderen Seite zu finden. Rechnungsnummer, Bestellnummer und Auftragsnummer können verschiedene Felder sein. Es lohnt sich, sie beim erneuten Verschicken zu erhalten, damit beide Seiten dasselbe Dokument besprechen."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab diese App nach langem Suchen gefunden und sie hat mir geholfen, komplett papierlos zu werden. Liebe sie und ich konnte mein eigenes Logo in den Briefkopf setzen",
+       "rating": 5,
+       "app": "Estimate Maker for Contractors"
+      },
+      {
+       "text": "Hab die App geliebt, bis mir aufgefallen ist, dass mein Logo beim Kunden nicht angezeigt wird und beim Ausdrucken auch nicht, bis vor ein paar Wochen gab es keine Probleme und jetzt scheint nichts mehr zu gehen.",
+       "rating": 3,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "Klasse Vorlagen zum Auswählen und Anpassen! Mein einziger Wunsch ist, dass man auf einer Rechnung zwischen einer PO# und einer WO# wählen kann. Ich habe Kunden, die beides nutzen",
+       "rating": 5,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-identity",
+       "title": "Das Ergebnis wiedererkennbar halten",
+       "body": "",
+       "ideas": [
+        "invoice-maker-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "tax",
+     "title": "Zeigen, wie die Kalkulation zustande kam",
+     "passages": [
+      "Material und Leistungen auf einer Rechnung können unterschiedliche Berechnungseinstellungen verlangen. Im folgenden Fall lässt sich der gewählte Steuersatz nicht auf genau die Positionen begrenzen, die ihn brauchen. Ein einziges Prozentfeld nach der Zwischensumme reicht für seine Aufgabe nicht.",
+      "Die Einstellungen müssen auch im Bericht erhalten bleiben. Ein anderer Autor muss beim Export Dokumente mit Steuer von denen ohne Steuer trennen. Deshalb lohnt es sich, eine bekannte gemischte Rechnung und ihre Darstellung in der Endtabelle zu prüfen und nicht nur, ob der Schalter auf dem Bildschirm vorhanden ist.",
+      "Schließlich muss die Berechnung bei der Eingabe eines Prozentsatzes tatsächlich laufen. Ein sichtbarer Betrag vor der Steuer, die gewählte Grundlage und das Ergebnis machen einen Fehler bemerkbar. Die App wendet die Regeln an, die sie bekommt; diese Rezensionen bieten keine Grundlage dafür, den passenden Steuersatz und die passenden Bedingungen anstelle des Nutzers zu bestimmen."
+     ],
+     "quotes": [
+      {
+       "text": "Es ist immer noch eine gute App, wenn deine Positionen entweder steuerpflichtig oder steuerfrei sind, aber du kannst Ware und Arbeit nicht auf derselben Rechnung haben. Weil der Steuersatz NACH der Zwischensumme angewendet wird und die Steuer sowohl auf Arbeit als auch auf Ware kommt, fällt das für mich flach.",
+       "rating": 3,
+       "app": "Invoice Generator - Zoho"
+      },
+      {
+       "text": "Ich mag sie, aber, es wäre schön, wenn man für die Steuer einen Bericht als pdf. oder excel erzeugen könnte. Ich schreibe verschiedene Rechnungen für Rasenpflege und Hausmeisterdienste, wobei ich für die Rasenpflege Steuer berechnen muss. Es würde das Leben so viel leichter machen, wenn ich die besteuerten Rechnungen von den nicht besteuerten trennen könnte.",
+       "rating": 4,
+       "app": "Easy Invoice Maker App"
+      },
+      {
+       "text": "Steuer geht nicht, rechnet nicht, wenn man den Prozentsatz eingibt, früher ging das, aber jetzt nicht mehr",
+       "rating": 2,
+       "app": "Invoice & Estimate Maker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_tax",
+      "alt": "Illustration zum Thema „Zeigen, wie die Summe zustande kam“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "payment",
+   "title": "Die Rechnung zustellen und wissen, was offen ist",
+   "intro": "Versand, Öffnen, Teilzahlung und Geldeingang beantworten unterschiedliche Fragen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "delivery",
+     "title": "Das Gespräch in einem bequemen Kanal fortsetzen",
+     "passages": [
+      "Bei der Arbeit im Außendienst ist das Verschicken der Abrechnung eine Fortsetzung des Gesprächs mit dem Kunden. Läuft die Verständigung über Nachrichten, fügt die nötige Suche nach einer E-Mail-Adresse einen eigenen Schritt hinzu. Ein bequemes Dokument sollte dort landen, wo der Empfänger es öffnen und später darauf zurückkommen kann.",
+      "Es lohnt sich, die Wahl des Kanals von der Rechnung selbst zu trennen: Erneutes Verschicken sollte keine andere Schuld erzeugen. Wichtig ist, einen wiedererkennbaren Namen und eine funktionierende Datei oder einen funktionierenden Link zu behalten. Stockt die Zustellung, sollte die ausführende Person verstehen, was bereits verschickt wurde, und einen klaren Weg haben, dasselbe Dokument anders zu übergeben.",
+      "Das Verschicken desselben Dokuments auf anderem Weg sollte als neues Zustellereignis erhalten bleiben. Es zählt, Name, Anhang und Empfänger vor dem Verschicken prüfen zu lassen. Dann wechselt der Kanal des Gesprächs, während Auftrag und Abrechnung eine einzige Historie behalten."
+     ],
+     "quotes": [
+      {
+       "text": "Ich würde Invoice Simple jedem empfehlen, der ein Geschäft hat oder gerade anfängt. Ich bin mobiler Reifenmonteur und habe einen Rechnungsanbieter gesucht, bei dem ich meinen Kunden sofort Preise usw. schicken kann. die meisten Anbieter bieten keine SMS an, nur E-Mail, aber Invoice schon.",
+       "rating": 5,
+       "app": "Invoice Simple: Invoice Maker"
+      },
+      {
+       "text": "Sieht so aus, als könnte ich meinen Kunden die Rechnung nur per E-Mail schicken, aber ich muss ihnen wirklich auch per SMS schreiben",
+       "rating": 3,
+       "app": "Zoho Invoice Maker App"
+      },
+      {
+       "text": "Die Hälfte meiner E-Mails landet im Spam und ich frage dauernd bei Kunden nach, die sagen, sie hätten keine E-Mail bekommen.",
+       "rating": 3,
+       "app": "Tiny Invoice - Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-delivery",
+       "title": "Das Gespräch in einem bequemen Kanal fortsetzen",
+       "body": "",
+       "ideas": [
+        "invoice-maker-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "seen",
+     "title": "Öffnen und Zahlung unterscheiden",
+     "passages": [
+      "Versand, Öffnen und Zahlung beantworten unterschiedliche Fragen. Die erste Rezension schätzt, die beiden letzten Ereignisse neben dem Dokument sehen zu können. Eine solche Historie nimmt einen Teil der Nachfragen ab, die man sonst im Kopf behalten müsste.",
+      "Für die Steuerung der Aufträge zählt besonders, bezahlte Rechnungen von noch offenen zu unterscheiden. Eine Zahlung kann auf anderem Weg eingehen, deshalb braucht es einen Eintrag von Hand mit Betrag und Datum. Erinnerungen sollten mit dem bekannten offenen Betrag abgeglichen werden, und es sollte möglich bleiben, sie abzubrechen.",
+      "Das Ansehen ist ein eigenes Signal, und sein Wegfall kann dem Werkzeug für einen bestimmten Menschen den Wert nehmen. Aber das Fehlen einer Markierung beweist nicht, dass der Kunde das Dokument nicht gelesen hat. Es bedeutet, dass der App das entsprechende Ereignis nicht bekannt ist; jeder weitere Kontakt sollte diese Grenze berücksichtigen."
+     ],
+     "quotes": [
+      {
+       "text": "Rechnungen sind leicht gemacht und genauso leicht behält man im Blick, wann Kunden sie ansehen und wann sie bezahlt werden.",
+       "rating": 5,
+       "app": "Invoice2go: Easy Invoice Maker"
+      },
+      {
+       "text": "Diese App ist der Wahnsinn und macht einen Riesenunterschied, was Ordnung angeht. Kein Rätseln mehr, wer bezahlt hat und wer nicht, und man behält auch die ganze Arbeit im Blick, die noch vor einem liegt.",
+       "rating": 5,
+       "app": "Square Invoices: Invoice Maker"
+      },
+      {
+       "text": "Mein Hauptgrund, das alles zu nutzen, war, dass es einen benachrichtigt, wenn Kunden die Kostenvoranschläge und Rechnungen öffnen. Jetzt geht das nicht mehr, also lohnt es sich für mich nicht mehr",
+       "rating": 2,
+       "app": "Wave: Small Business Software"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_invoice-maker_seen",
+      "alt": "Illustration zum Thema „Das Öffnen von der Bezahlung unterscheiden“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-seen",
+       "title": "Öffnen und Zahlung unterscheiden",
+       "body": "",
+       "ideas": [
+        "invoice-maker-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "balance",
+     "title": "Anzahlung und noch offene Summe sehen",
+     "passages": [
+      "Eine Anzahlung verringert den offenen Betrag des Auftrags, ändert aber den vereinbarten Arbeitsumfang nicht. Der Wunsch nach einer einfacheren Annahme von Vorauszahlungen ist auch in der Rezension unten zu sehen. Es lohnt sich, Zahlungen mit einem einzigen Auftrag zu verbinden, damit der ursprüngliche Betrag und das, was noch zu bekommen ist, zusammen sichtbar sind.",
+      "Eine Teilzahlung und eine Auszahlung an die ausführende Person sind verschiedene Zustände. In der nächsten Rezension sind beide Übergänge unbequem. Wo der Dienst das Geld entgegennimmt, hilft es, die erfasste Zahlung des Kunden und den bekannten Stand der Weiterleitung getrennt zu zeigen.",
+      "Dabei gibt eine verschickte Rechnung noch kein genaues Datum für den Geldeingang. Die vereinbarte Frist, der tatsächlich erhaltene Betrag und das Warten auf die nächste Zahlung müssen unterscheidbar sein. Für die Planung der Geldeingänge reicht ein einziger neuer Status nicht, wenn die Quelle des erwarteten Datums unbekannt bleibt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich war genervt, als sie angefangen haben, Geld zu verlangen, aber weil ich so an der Gratisversion hing, musste ich zahlen. Ich wünschte, sie hätten einen Weg eingebaut, Anzahlungen reibungslos anzunehmen.",
+       "rating": 4,
+       "app": "Invoice Maker & Estimate App"
+      },
+      {
+       "text": "Bei einer Teilzahlung sollte sich die Rechnung besser aktualisieren, außerdem sind Auszahlungen sehr umständlich.",
+       "rating": 4,
+       "app": "Invoice Maker ▸ Estimate App"
+      },
+      {
+       "text": "Was ich an Square-Rechnungen nicht mag, ist, dass sie beim Zeitpunkt der Zahlung nicht sehr transparent sind. Wenn ich eine Rechnung verschickt habe, weiß ich nie wirklich, wann ich mein Geld bekomme, und das macht es schwerer, den Cashflow zu planen und im Griff zu behalten.",
+       "rating": 1,
+       "app": "Square Invoices: Invoice Maker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-balance",
+       "title": "Anzahlung und noch offene Summe sehen",
+       "body": "",
+       "ideas": [
+        "invoice-maker-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Einen Auftrag vom Kostenvoranschlag bis zum Restbetrag prüfen",
+  "body": "Für einen Start zählt es mehr, einen echten Auftrag zu verbinden, als zehn weitere Vorlagen hinzuzufügen. Der gewählte Kostenvoranschlag soll zur Rechnung werden, Stunden und Kosten sollen ihre Herkunft behalten, und die Anzahlung soll einen nachvollziehbaren offenen Betrag verringern. Danach muss dasselbe Dokument den Kunden über den Kanal erreichen, den er gewohnt ist. Ein solcher Durchgang zeigt, wo die ausführende Person immer noch eine zweite Tabelle führt oder Daten hinüberkopiert.\n\nEs lohnt sich, die Spezialisierung nach dieser Zusatzarbeit zu wählen: Ein mobiler Monteur braucht die einen Übergänge, wer auf Stundenbasis arbeitet, andere. Ein gut aussehendes PDF verbindet sie nicht von selbst. Der Nutzen eines neuen Werkzeugs lässt sich daran messen, wie viel erneutes Eintippen und wie viele unklare Abrechnungen übrig bleiben, ohne zu versprechen, die Zahlung mit einer einzigen Benachrichtigung über das Ansehen zu beschleunigen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-prepare",
+   "title": "Vereinbarte Arbeit im Dokument fortführen",
+   "depth": 0
+  },
+  {
+   "id": "observation-estimate",
+   "title": "Die gewählte Variante festhalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-catalog",
+   "title": "Die Datenbasis nutzen, ohne die Vergangenheit zu ändern",
+   "depth": 1
+  },
+  {
+   "id": "observation-hours",
+   "title": "Die Zeit vor der Rechnungsstellung prüfen",
+   "depth": 1
+  },
+  {
+   "id": "observation-identity",
+   "title": "Das Ergebnis wiedererkennbar halten",
+   "depth": 1
+  },
+  {
+   "id": "observation-tax",
+   "title": "Zeigen, wie die Kalkulation zustande kam",
+   "depth": 1
+  },
+  {
+   "id": "theme-payment",
+   "title": "Die Rechnung zustellen und wissen, was offen ist",
+   "depth": 0
+  },
+  {
+   "id": "observation-delivery",
+   "title": "Das Gespräch in einem bequemen Kanal fortsetzen",
+   "depth": 1
+  },
+  {
+   "id": "observation-seen",
+   "title": "Öffnen und Zahlung unterscheiden",
+   "depth": 1
+  },
+  {
+   "id": "observation-balance",
+   "title": "Anzahlung und noch offene Summe sehen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Einen Auftrag vom Kostenvoranschlag bis zum Restbetrag prüfen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

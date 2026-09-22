@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "car-maintenance-1",
+ "category": "car-maintenance",
+ "categoryName": "車のメンテナンス",
+ "title": "ドライバーのシフトの記録",
+ "description": "どの走行が記録されたか、合計を出す前にどこを確かめる必要があるかが見える。",
+ "cover": {
+  "src": "ideas/car-maintenance-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "バックグラウンドの記録の抜けは、月末に見つかることが多い。そのころには一つ一つの経路を復元するのは難しい。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Strideを一年使っていて前にもあったんですが今週は二回、一日まるごと走行距離が記録されないことがあって自分はUberとLyftのドライバーなのでこれはすごく大事でこうして失った日は何百ドルもの損になります",
+    "rating": 2,
+    "app": "Stride: Mileage & Tax Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "記録の状態を示し、シフトの終わりに短い確認を促す。記録された区間と、手で復元した区間は分けて持つ。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "走行距離の出どころが違えば、数え方も違いうる。比較は、どちらかの合計を自動的に正しいと宣言するのではなく、食い違いを説明するべきだ。"
+  }
+ ],
+ "rank": 207,
+ "free": false
+}

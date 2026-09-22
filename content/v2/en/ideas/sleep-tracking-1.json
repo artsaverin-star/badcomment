@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "sleep-tracking-1",
+ "category": "sleep-tracking",
+ "categoryName": "Sleep trackers and alarms",
+ "title": "A sleep diary between shifts",
+ "description": "Count daytime sleep and several stretches of rest, and see the history alongside the work schedule.",
+ "cover": {
+  "src": "ideas/sleep-tracking-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A person sleeps in the day after a night shift, or in several stretches across a day. A log built only around an ordinary night distorts their history before any scoring even starts."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "It gives terrible ratings to folks if they do not sleep in certain times (which you cannot set). Due to work schedules, people sleep at different times. For example, a night shift worker would sleep during the day but you cannot put that in the app",
+    "rating": 4,
+    "app": "Sleep Number"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Allow an arbitrary start and end for a stretch, several entries in a day, and manual edits that stay visible. Rest can be lined up with shifts without assigning every episode an artificial “night”."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Test the transitions across midnight and a run of several shifts. Boundaries obtained automatically and the owner’s own correction have to be distinguishable. The first result is a history you can follow, not a promise to undo the consequences of a non-standard schedule."
+  }
+ ],
+ "rank": 330,
+ "free": false
+}

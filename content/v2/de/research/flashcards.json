@@ -1,0 +1,476 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "flashcards",
+ "name": "Lernkarten",
+ "summary": "Ein guter Stapel beginnt mit den passenden Fragen. Danach kommt es darauf an, die Wiederholung zu steuern und das eigene Material zusammen mit den Lernergebnissen zu bewahren.",
+ "corpus": {
+  "reviews": 11059,
+  "apps": 34
+ },
+ "lead": "Ein Student lädt eine Vorlesungsmitschrift hoch, ein Musiker hängt die Aufnahme einer Melodie an, ein anderer Mensch sammelt gehörte Wörter. Alle brauchen Karten, aber was als Antwort gilt und wie sie geprüft wird, ist bei ihnen verschieden. Eine große Zahl automatisch erzeugter Fragen macht eine Lernsitzung noch nicht nützlich.\n\nWir beginnen mit der Vorbereitung des Stapels, gehen dann zur Sitzung selbst über und zur Fortsetzung auf einem anderen Gerät. Wir verfolgen dabei den Weg des eigenen Materials: wie es in eine Karte gelangt, was die Person mit der Karte tut und was nach der Antwort erhalten bleibt.",
+ "cover": {
+  "src": "research/ResearchLaunch_flashcards_cover",
+  "alt": "Lernkarten",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_flashcards_audiences",
+  "alt": "Aufgaben der Menschen: Lernkarten",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Mit dem eigenen Material weiterarbeiten",
+   "body": "Die Mitschrift, die Tabelle oder ein fertiger Stapel sind schon da. Sie müssen übertragen und die entstandenen Fragen geprüft werden, und dabei muss Zeit für das Lernen selbst bleiben. Alles noch einmal von Hand einzutippen kann sich als zu hoher Preis für den Wechsel zu einem neuen Werkzeug erweisen."
+  },
+  {
+   "title": "Den Inhalt der nächsten Sitzung wählen",
+   "body": "Bekannte, neue und noch schwierige Karten brauchen unterschiedliche Aufmerksamkeit. Man möchte die Warteschlange verstehen, eine versehentliche Markierung korrigieren und übersprungene Themen zurückholen. Die Einstellungen der Wiederholung sollten helfen, diese Wahl zu steuern."
+  },
+  {
+   "title": "Durch die passende Art des Antwortens lernen",
+   "body": "Aussprache, ein Schema, ein musikalisches Beispiel und wortgetreues Wiedergeben setzen verschiedene Bedingungen. In einem Fall genügt es, die Antwort anzusehen; in einem anderen muss sie ausgesprochen oder aufgeschrieben werden. Das Format der Sitzung wählt man am besten zusammen mit dem Material, das gelernt werden soll."
+  }
+ ],
+ "sections": [
+  {
+   "id": "create",
+   "title": "Das Material für das eigene Ziel vorbereiten",
+   "intro": "Import und Generierung sollten mit einem geprüften Stapel enden und nicht nur mit einer Erfolgsmeldung.",
+   "art": null,
+   "observations": [
+    {
+     "id": "generation",
+     "title": "Die Frage vor der ersten Wiederholung prüfen",
+     "passages": [
+      "Aus einem Foto der Mitschrift Karten zu machen kann einem das Abschreiben ersparen. In einer positiven Rezension ist die Bequemlichkeit genau damit verbunden, dass schon vorbereitete Wörter und Definitionen übernommen werden. Das ist ein verständlicher erster Nutzen der Automatisierung.",
+      "Aber die erzeugten Fragen müssen ausgesiebt werden. Ein zufälliges Detail aus der Vorlesung oder die falsche Sprache führt vom Ziel der Sitzung weg. Eine Durchsicht neben dem Ausgangsfragment würde es erlauben, das zu entfernen, was nicht gebraucht wird, eine Antwort zu korrigieren und vor der ersten Wiederholung zu prüfen, was im Stapel geblieben ist.",
+      "Die Vorbereitung kann auch ein Upload-Limit unterbrechen, von dem die Person erst nach dem ersten Foto erfährt. Wie viel die Testnutzung erlaubt und wie lange man zwischen den Dateien warten muss, zeigt man besser vorab. Ein paar geprüfte Karten geben die Möglichkeit, den Nutzen zu beurteilen, bevor die ganze Mitschrift übertragen wird."
+     ],
+     "quotes": [
+      {
+       "text": "Ich finde es super, dass man ein Foto von irgendwelchen handgeschriebenen Wörtern und Definitionen machen kann und die App macht dir daraus eine Karteikarten-Version oder eine PDF-Version. Ich finde es so praktisch",
+       "rating": 5,
+       "app": "Knowt: AI Flashcards & Notes"
+      },
+      {
+       "text": "It makes terrible cards, no idea what principle it goes by, one time I get 10 cards, then 64, and among them things like who wrote which book, even though this is a history lecture, I uploaded a lecture in Russian and for some reason the questions come in English",
+       "rating": 3,
+       "app": "Gizmo: AI Tutor"
+      },
+      {
+       "text": "Die App ist echt gut und ziemlich hilfreich und hilft mir beim Lernen, aber ich mag es nicht, wenn ich ein Foto von meinen Notizen schicke und dann auf einmal 20 Minuten warten muss, um das nächste Foto zu schicken, oder ich muss zahlen.",
+       "rating": 3,
+       "app": "Gizmo: AI Tutor"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_generation",
+      "alt": "Illustration zum Thema „Eine Frage vor der ersten Wiederholung prüfen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-generation",
+       "title": "Die Frage vor der ersten Wiederholung prüfen",
+       "body": "",
+       "ideas": [
+        "flashcards-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "import",
+     "title": "Den künftigen Stapel vor der Übertragung sehen",
+     "passages": [
+      "Die Person hat schon eine Tabelle vorbereitet und rechnet damit, weiter mit ihr zu arbeiten. Ein pauschaler Abbruch des Imports lässt sie Editoren wechseln und Versuche wiederholen, ohne die Ursache zu verstehen. Die erste Aufgabe ist, das unterstützte Format und die konkrete Stelle des Fehlers zu nennen.",
+      "Eine Vorschau auf einige Zeilen würde es erlauben, Frage, Antwort und die zusätzlichen Felder einander zuzuordnen. Die automatische Übersetzung ist ein anderer Vorgang, den man besser gesondert einschaltet: Eine CSV erfolgreich zu lesen bedeutet noch nicht, dass die App ihren Inhalt in die gewählte Sprache überträgt.",
+      "Die Übernahme eines fertigen Stapels fügt eine Abhängigkeit von einem fremden Dienst und von einem Archivformat hinzu. Eine Seite, die sich nicht öffnet, und eine beschädigte Datei verlangen verschiedene Handlungen. Gebraucht werden eine Erklärung, was nicht geklappt hat, das Aufbewahren des Originals und die Möglichkeit, genau diesen Schritt zu wiederholen, ohne das ganze Material neu vorzubereiten."
+     ],
+     "quotes": [
+      {
+       "text": "Ich will an meinem Desktop-Windows-PC Karten erstellen, aber die App lehnt meine CSV-Dateien dauernd ab, egal ob aus Excel, Notepad, Google Sheets oder Text in einer E-Mail.",
+       "rating": 1,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "Wann bringt ihr endlich den Import von .CSV-Dateien in Ordnung?? Ich hab auf alle möglichen Arten versucht, so eine Datei zu importieren und sie automatisch in eine Zielsprache umwandeln zu lassen. Das ist extrem frustrierend.",
+       "rating": 3,
+       "app": "AlgoApp - Flashcards"
+      },
+      {
+       "text": "Hab die Website probiert, die sich für Ankiweb-Importe öffnet, und die läuft in einen Timeout, ohne dass die Seite lädt. Dann hab ich versucht, einen Anki-Stapel zu importieren, und das wirft einen Fehler. Für mich ist die App also nutzlos, keine Ahnung, wie andere so tolle Erfahrungen machen, wenn sie schon bei den allerersten Sachen scheitert, die ich versuche.",
+       "rating": 1,
+       "app": "Spaced Repetition SmartCards+"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-import",
+       "title": "Den künftigen Stapel vor der Übertragung sehen",
+       "body": "",
+       "ideas": [
+        "flashcards-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "media",
+     "title": "Den Teil bewahren, der tatsächlich gelernt wird",
+     "passages": [
+      "In einem Musikstapel kann der Name einer Melodie die Frage sein, und die Antwort sind die Aufnahme und die Noten. Für diese Aufgabe trägt der Anhang den Hauptinhalt. Er lässt sich nicht als optionale Ergänzung einer Textkarte behandeln.",
+      "Ist ein Bild aus einem alten Stapel verschwunden, existiert die Karte formal weiter, aber die Übung hat sich verändert. Die fehlende Datei muss angezeigt werden, und es muss möglich sein, sie wiederherzustellen oder zu ersetzen, ohne die Verbindung zur richtigen Kartenseite und zum Antwortverlauf zu verlieren.",
+      "Die Sicherung beginnt schon beim Erstellen. Ein Absturz während des Hinzufügens eines Fotos darf die bereits eingetippte Frage nicht löschen. Ein Entwurf und die Möglichkeit, eine einzelne Datei erneut anzuhängen, verringern die Arbeit, die wiederholt werden muss; die Prüfung alter Stapel und der Übertragung schützt diese Arbeit später."
+     ],
+     "quotes": [
+      {
+       "text": "Ich benutze das Programm, um ein umfangreiches Repertoire traditioneller irischer Musik zu üben, das man bei Sessions auswendig spielen sollte. Auf die Vorderseite der Karte schreibe ich den Namen der Melodie, und auf die Rückseite kommen eine Audiodatei der Melodie und ein Bild der Noten.",
+       "rating": 4,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "Vor ein paar Monaten hab ich diese App geliebt. Sie ist echt einfach zu bedienen, besonders im Vergleich zu anki. Ich benutze sie für organische Chemie, deshalb haben viele Karten Bilder auf der Rückseite. Aber dann wollte ich einen Stapel von vor ein paar Monaten benutzen, und die Hälfte der Bilder war weg.",
+       "rating": 2,
+       "app": "Spaced Repetition SmartCards+"
+      },
+      {
+       "text": "Ich hab die App vor Kurzem runtergeladen und sie ist schon ein paar Mal abgestürzt. Ich erstelle gerade Karteikarten und füge ein Foto ein und sie stürzt ab. Ich hab mein Gerät neu gestartet und alles Mögliche versucht, und sie hört einfach nicht damit auf",
+       "rating": 2,
+       "app": "AnkiMobile Flashcards"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_media",
+      "alt": "Illustration zum Thema „Den Teil behalten, der gerade gelernt wird“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-media",
+       "title": "Den Teil bewahren, der tatsächlich gelernt wird",
+       "body": "",
+       "ideas": [
+        "flashcards-3",
+        "flashcards-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study",
+   "title": "Verstehen, was in einer Sitzung geschieht",
+   "intro": "Die Warteschlange, die Tonausgabe und die Prüfung der Antwort bestimmen, woraus das Lernen besteht.",
+   "art": null,
+   "observations": [
+    {
+     "id": "queue",
+     "title": "Die Rückkehr einer Karte verstehen",
+     "passages": [
+      "Ein automatischer Zeitplan nimmt einem einen Teil der Entscheidungen über die nächste Wiederholung ab. Die folgende Rezension lobt, dass sich die gewünschte Behaltensrate einstellen lässt. Diese Einschätzung zeigt, wie anziehend die Steuerung der Warteschlange ist, aber der gewählte Prozentsatz ist kein Versprechen eines Ergebnisses für jeden Lernenden.",
+      "Man kann dieselben Wörter aber viele Male sehen, sie gegen Ende der Sitzung erkennen und sich am nächsten Tag wieder mit ihnen schwertun – genau so ist die folgende Erfahrung beschrieben. Eine Erklärung der Warteschlange allein behebt diese Erfahrung nicht. Es lohnt sich, den Aufbau einer Sitzung einsehbar zu machen und ein schwieriges Thema gesondert auszuwählen, und den Nutzen der Methode später zu prüfen, wenn das vertraute Aussehen einer Karte die Antwort nicht mehr nahelegt.",
+      "Eine versehentliche Markierung ist ein bestimmteres Problem der Oberfläche. Ist ein schwieriges Wort zu „beherrscht“ geworden, muss die Person die Bewertung zurücknehmen und es wieder ins Lernen holen können. Eine solche Korrektur erhält die Kontrolle über das Material, ohne zu versprechen, dass nun jeder Zeitplan das Behalten sichert."
+     ],
+     "quotes": [
+      {
+       "text": "Eine wirklich unglaubliche App, die so mächtig sein kann, wie man will. Es ist wie Magie, die Behaltensrate auf 90% zu stellen und zu sehen, wie man es schafft!",
+       "rating": 5,
+       "app": "AnkiMobile Flashcards"
+      },
+      {
+       "text": "Klar, die App funktioniert. Aber ich lerne nichts. Ich stecke in dem fest, was andere die Wiederholungshölle genannt haben. Irgendwann in einer Sitzung, wenn ich die Wörter 10 oder 12 Mal gesehen hab, erkenne ich sie. Aber am nächsten Tag ist es, als hätte ich sie nie vorher gesehen. Mit dieser Methode behalte ich nichts.",
+       "rating": 2,
+       "app": "AnkiMobile Flashcards"
+      },
+      {
+       "text": "Ein paar Funktionen fehlen, zum Beispiel die Möglichkeit, den Status eines Wortes von Hand von „Beherrscht“ auf „Wird gelernt“ zu ändern. Ich hab aus Versehen bei einem Wort, das ich gar nicht kannte, auf beherrscht getippt, und jetzt kann ich das nicht mehr ändern, und deshalb taucht es nicht in der Liste der Wörter auf, die ich lernen muss.",
+       "rating": 2,
+       "app": "GRE Vocabulary Flashcards"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-queue",
+       "title": "Die Rückkehr einer Karte verstehen",
+       "body": "",
+       "ideas": [
+        "flashcards-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "audio",
+     "title": "Das passende Beispiel hören",
+     "passages": [
+      "Auf einer Sprachkarte hilft der Ton dabei, die Aussprache eines Wortes zu klären. Eine Schaltfläche, die nicht reagiert, oder eine wenig überzeugende Sprachausgabe stört genau diesen Teil der Sitzung. Der Text bleibt an seinem Platz, aber die Person kann die Handlung, für die sie den Ton geöffnet hat, nicht mehr ausführen.",
+      "Hilfreich ist es, die Sprache der Tonausgabe zu sehen und ein einzelnes Beispiel wiederholen zu können. Für einen eigenen Stapel kann eine eigene Aufnahme nötig sein. Taucht ein Problem auf, muss die Verbindung zum konkreten Wort erhalten bleiben: So kann man es zur Prüfung markieren, das Material korrigieren und danach zur selben Übung zurückkehren.",
+      "Bei einem Wort mit mehreren Aussprachen ist es wichtig, welche gerade verwendet wird. Die eigene Aufnahme oder die gewählte Stimme sollte bei einer Übertragung mit der Karte erhalten bleiben. Ein Wechsel der Tonsprache sollte nicht unbemerkt für einen ganzen gemischten Stapel gelten."
+     ],
+     "quotes": [
+      {
+       "text": "Die Sprachfunktion geht einfach nicht mehr. Früher klang sie roboterhaft, aber jetzt kommt eine Warnung, dass sie roboterhaft klingen wird, und dann geht sie einfach nicht, ich hab sogar deinstalliert und neu installiert und sie geht IMMER NOCH nicht.",
+       "rating": 2,
+       "app": "Japanese"
+      },
+      {
+       "text": "Ich fand nicht, dass diese App wirklich viele Vokabeln gebracht hat, die ich im Alltag benutzen würde. Außerdem wurden die Wörter von einem echt primitiven KI-Modell ausgesprochen. Unglaublicherweise waren manche Aussprachen nicht richtig.",
+       "rating": 3,
+       "app": "WordPal - Vocabulary Builder"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_audio",
+      "alt": "Illustration zum Thema „Das gewünschte Beispiel hören“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-audio",
+       "title": "Das passende Beispiel hören",
+       "body": "",
+       "ideas": [
+        "flashcards-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "assessment",
+     "title": "Versuch und Prüfung der Antwort trennen",
+     "passages": [
+      "Bei einer mündlichen Übung erkennt die App zuerst das Gesprochene und bewertet dann die Antwort. Ging beim ersten Schritt etwas schief, kann die abschließende Bewertung dem nicht entsprechen, was die Person tatsächlich gesagt hat. Es hilft, das Erkannte neben dem Erwarteten zu zeigen.",
+      "Ein langer Abschnitt erschwert auch den Versuch selbst: Die Sitzung kann sich vor dem Ende zurücksetzen. Eine Aufteilung in Fragmente und die Möglichkeit, eine falsche Bewertung zu korrigieren, würden es erlauben, an der richtigen Stelle weiterzumachen. Das ist Arbeit am Verhalten der Übung und kein Beleg für besseres Behalten.",
+      "Schließlich ist das Lesen der Kartenrückseite ein anderer Modus als das eigenständige Wiedergeben. Erwartet eine Person eine Prüfung, muss das vor der Sitzung geklärt und ein verständlicher Weg zum Antworten angeboten werden. Für eine genaue Formulierung und für die Wiedergabe des Sinns gelten verschiedene Regeln; ein einzelner Blick auf eine Karte sollte nicht als beide Ergebnisse ausgegeben werden."
+     ],
+     "quotes": [
+      {
+       "text": "Das neue Update hat die Audio-Wiederholung ein bisschen leichter gemacht, weil sie ein bisschen besser zuhört (also mehr mitbekommt, wenn ich rede), aber sie markiert Wörter als falsch, die ich ganz deutlich sage, und es ist echt frustrierend, dass mir die Wiederholung nicht angerechnet wird, wenn ich den Vers perfekt aufsage.",
+       "rating": 3,
+       "app": "The Bible Memory App"
+      },
+      {
+       "text": "Ich teste gerade mehrere Apps zum Auswendiglernen, und die Oberfläche dieser App gefällt mir zwar, weil sie meinen Fortschritt bei jedem Buch der Bibel verfolgt, aber Speak Out braucht noch viel Arbeit. Bei „längeren“ Schriftstellen (mehr als 2 Verse) ist es schwierig, weil es sich zurücksetzt und/oder überspringt und als falsch marki",
+       "rating": 3,
+       "app": "Verses - Bible Memory"
+      },
+      {
+       "text": "Ich dachte, das würde mein Wissen abfragen, aber man liest doch nur die Karten ab! Das TESTET dein Wissen NICHT",
+       "rating": 1,
+       "app": "Brainscape - Study Flashcards"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-assessment",
+       "title": "Versuch und Prüfung der Antwort trennen",
+       "body": "",
+       "ideas": [
+        "flashcards-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "An der vorherigen Stelle weitermachen",
+   "intro": "Anhänge und die Lernergebnisse sollten zusammen mit den Karten zurückkommen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "transfer",
+     "title": "Den Stapel und den Lernverlauf wiederherstellen",
+     "passages": [
+      "Nach einem Gerätewechsel rechnet man damit, den eigenen Stapel zu sehen und an der vorherigen Stelle weiterzumachen. Die Karten, die Lernmarkierungen und die Bedingungen des bezahlten Zugangs können aber getrennt voneinander übertragen werden. Dass die Liste wieder da ist, bedeutet noch nicht, dass auch die Bilder, der Lernverlauf und der benötigte Modus zurückgekehrt sind.",
+      "Die Prüfung gelingt am leichtesten an einem kleinen, vertrauten Kartensatz: beide Seiten öffnen, die Anhänge abspielen und die letzte Lernmarkierung finden. Für ein großes Archiv braucht es eine verständliche Aufstellung des Übertragenen und einen Weg, mit dem Fehlenden umzugehen. Dann wird ein neues Gerät zur Fortsetzung des Lernens und nicht zum Beginn einer erneuten Vorbereitung.",
+      "Nach der Übertragung hilft ein kurzer Bericht: wie viele Karten, Anhänge und Lerneinträge wiederhergestellt wurden. Eine Abweichung sollte zu den konkreten fehlenden Teilen führen. Besonders wichtig ist es, das Material des Stapels von den Bedingungen des Zugangs zu den Modi zu unterscheiden, damit die Sicherheit der eigenen Arbeit nachvollziehbar bleibt."
+     ],
+     "quotes": [
+      {
+       "text": "guter Wortschatz, aber löscht ständig meinen Fortschritt",
+       "rating": 2,
+       "app": "GRE Vocabulary Flashcards"
+      },
+      {
+       "text": "Die App lief völlig einwandfrei und hat dann plötzlich beschlossen, meine ganze mühsame Arbeit zu löschen, indem sie mich abgemeldet und alle Karten, die ich gemacht hab, gelöscht hat. Jetzt hab ich Informationen verloren. Danke.",
+       "rating": 1,
+       "app": "Noji - Flashcards study app"
+      },
+      {
+       "text": "Das werbefreie Abo funktioniert offenbar nicht über die Plattformen hinweg. Hab ein einjähriges werbefreies Abo für mein iPad gekauft, dann die iPhone-Version geladen. Die auf dem iPad eingegebenen Daten waren da, aber die Werbung war wieder da, mit der Möglichkeit, noch ein Jahresabo zu zahlen, um die Werbung loszuwerden.",
+       "rating": 2,
+       "app": "Spaced Repetition SmartCards+"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_flashcards_transfer",
+      "alt": "Illustration zum Thema „Das Kartendeck und den Lernfortschritt wiederherstellen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-transfer",
+       "title": "Den Stapel und den Lernverlauf wiederherstellen",
+       "body": "",
+       "ideas": [
+        "flashcards-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "offline",
+     "title": "Antworten ohne Netz speichern",
+     "passages": [
+      "Eine Sitzung auf dem Telefon kann dort beginnen, wo die Verbindung abbricht oder ganz fehlt. Lässt sich in diesem Moment das Material nicht öffnen oder eine Antwort nicht speichern, geht eine kurze freie Zeit mit Warten verloren. Besonders ärgerlich ist es, den schon erledigten Teil der Sitzung genau bei ihrem Abschluss zu verlieren.",
+      "Vor einer Reise hilft es, zu prüfen, welche Karten und Anhänge tatsächlich für den Zugriff ohne Netz vorbereitet sind. Danach öffnet man sie, beantwortet einige und kehrt zurück, sobald es wieder eine Verbindung gibt. Die Verfügbarkeit des Stapels und das Speichern des Sitzungsfortschritts sind zwei getrennte Teile dieses Szenarios; beide sollten vor dem Beginn klar sein.",
+      "Eine vorbereitete Sitzung umfasst beide Seiten der Karten und die nötigen Anhänge. Ist die Verbindung zurück, sollten die bereits gegebenen Antworten übertragen und nicht die Sitzung neu gestartet werden. Wurde der Stapel währenddessen auf einem anderen Gerät geändert, muss der Nutzer verstehen, welche Version des Materials an der nächsten Wiederholung teilnimmt."
+     ],
+     "quotes": [
+      {
+       "text": "Die App hat mich abgemeldet und ich muss den langen Onboarding-Prozess durchlaufen, bevor ich mich wieder anmelden kann, und das nervt. Es ist nicht das erste Mal. Außerdem ist die Offline-Unterstützung schlecht, das Limit sollte höher sein, und Karten in der Rückrichtung zählt sie auch als eigene Karte, was nach schlechter Technik klingt.",
+       "rating": 3,
+       "app": "Noji - Flashcards study app"
+      },
+      {
+       "text": "Die App ist zwar super zum Lernen auf dem Handy, aber ihr fehlen wirklich „mobile“ Fähigkeiten, weil sie offline nicht funktioniert. Selbst wenn die Verbindung nur kurz weg ist, kommt beim Abgeben oder Unterbrechen der Prüfung ein Fehler, und dadurch kann der ganze Fortschritt weg sein.",
+       "rating": 2,
+       "app": "UWorld Medical Exam Prep"
+      },
+      {
+       "text": "Der Offline-Modus ist ein Lebensretter und die Lernerinnerungen halten mich auf Kurs",
+       "rating": 5,
+       "app": "Noji - Flashcards study app"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst die Qualität eines Stapels prüfen",
+  "body": "Beginnen sollte man mit dem eigenen Material des Nutzers und einer abgeschlossenen Sitzung. Sind die Fragen zum richtigen Thema entstanden, sind Bilder und Ton erhalten geblieben, ist klar, was als Antwort gilt? In den Rezensionen sind die Verluste an diesen Übergängen gut zu sehen. Ein neuer Algorithmus für den Zeitplan behebt keine falsche Frage und kein verschwundenes Schema.\n\nDanach kommt die Wahl der Spezialisierung: eine bequeme Übertragung fertiger Stapel, die Prüfung von Karten aus der Mitschrift, die Wiederholung über den Ton oder die Arbeit mit genauen Formulierungen. Jede Richtung braucht ihre eigene Prüfung des Nutzens. Die bei der Vorbereitung gesparte Zeit ist sofort zu sehen; ein Lernergebnis lässt sich nicht aus der Zahl der erstellten Karten, aus einer angenehmen Sitzung oder aus dem gewählten Prozentsatz der Behaltensrate ableiten."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-create",
+   "title": "Das Material für das eigene Ziel vorbereiten",
+   "depth": 0
+  },
+  {
+   "id": "observation-generation",
+   "title": "Die Frage vor der ersten Wiederholung prüfen",
+   "depth": 1
+  },
+  {
+   "id": "observation-import",
+   "title": "Den künftigen Stapel vor der Übertragung sehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-media",
+   "title": "Den Teil bewahren, der tatsächlich gelernt wird",
+   "depth": 1
+  },
+  {
+   "id": "theme-study",
+   "title": "Verstehen, was in einer Sitzung geschieht",
+   "depth": 0
+  },
+  {
+   "id": "observation-queue",
+   "title": "Die Rückkehr einer Karte verstehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-audio",
+   "title": "Das passende Beispiel hören",
+   "depth": 1
+  },
+  {
+   "id": "observation-assessment",
+   "title": "Versuch und Prüfung der Antwort trennen",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "An der vorherigen Stelle weitermachen",
+   "depth": 0
+  },
+  {
+   "id": "observation-transfer",
+   "title": "Den Stapel und den Lernverlauf wiederherstellen",
+   "depth": 1
+  },
+  {
+   "id": "observation-offline",
+   "title": "Antworten ohne Netz speichern",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst die Qualität eines Stapels prüfen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

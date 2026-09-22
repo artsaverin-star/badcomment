@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 // Deterministic compact starfield for the locked-idea shimmer (module-level so
 // SSR markup is stable, no Math.random).
@@ -62,7 +63,7 @@ function DomainIcon({ slug }: { slug: string }) {
 function LockedIdeaCard({ idea, ru }: { idea: IdeaCard; ru: boolean }) {
   return (
     <Link
-      href={`/segment/${idea.category}`}
+      href={oldHref(ru, `/segment/${idea.category}`)}
       className="relative flex min-h-[168px] flex-col overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] transition-colors hover:border-[var(--color-border-strong)]"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -160,7 +161,7 @@ export default function IdeasBrowser({
             idea.locked ? (
               <LockedIdeaCard key={idea.slug} idea={idea} ru={ru} />
             ) : (
-              <Link key={idea.slug} href={`/ideas/${idea.slug}`} className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]">
+              <Link key={idea.slug} href={oldHref(ru, `/ideas/${idea.slug}`)} className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]">
                 <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.06em] text-[var(--color-text-tertiary)]">
                   <DomainIcon slug={idea.domain} />
                   {idea.categoryName}

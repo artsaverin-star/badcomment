@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "voice-recorder-2",
+ "category": "voice-recorder",
+ "categoryName": "音声録音と文字起こし",
+ "title": "自分の辞書を持つ文字起こし",
+ "description": "仕事の用語と名前を足し、あやしい箇所を確かめ、修正を残すこと。",
+ "cover": {
+  "src": "ideas/voice-recorder-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "学生や専門職が、同じ名前や用語が何度も出てくる録音を持ち込む。その人は辞書を用意し、あやしい箇所を見て、音声に照らして確かめる。修正は文字起こしとともに保存される。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "問題は難しい講義の内容（工学部の4年以上の学生です）。難しい用語が正しく文字起こしされないので、ノートはほとんど役に立たない。",
+    "rating": 2,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "同じ用語を十回直さない"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "一つの科目と、その利用者の本物の録音から始めることもできる。確かめられた名前の表記を使い回すことは役に立つが、似た語を、文脈を見ずにどこでも置き換えてはならない。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "自分の素材で何を確かめるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "主な成果は、フレーズを確かめられることを保ったまま、繰り返しの読み直しが減ることだ。専門用語が違っているというレビューは、この問題があることを裏づける。辞書を足せば認識の誤りが自動で全部なくなることを証明するわけではない。"
+  }
+ ],
+ "rank": 134,
+ "free": false
+}

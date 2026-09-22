@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "translator-8",
+ "category": "translator",
+ "categoryName": "翻訳アプリ",
+ "title": "抜けが見える長い文書",
+ "description": "原文と翻訳をページごとに保存し、手つかずの部分を見つけやすくする。",
+ "cover": {
+  "src": "ideas/translator-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "最初の段落が現れると、できあがった印象を与える。表やスキャン、ファイルの終わりが訳されないまま残ることがある。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "FilesからPDFを上げようとした。知られているかぎりの宇宙のどこからも、文書を上げる手立てが見つからなかった。それが入れた一番の理由だった。今から消す。これより役に立たなかったのはClippyくらい。",
+    "rating": 2,
+    "app": "Microsoft Translator"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "始める前に、分量と形式の制限を示す。処理のあとは、ページと抜けの一覧と、元の箇所へ飛ぶ手立てを用意する。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "大事な名前、数字、言い回しは突き合わせが要る。構造が保たれていることは文書を読む助けになるが、中身が正確だと裏づけるわけではない。"
+  }
+ ],
+ "rank": 591,
+ "free": false
+}

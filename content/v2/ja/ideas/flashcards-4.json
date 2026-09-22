@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "flashcards-4",
+ "category": "flashcards",
+ "categoryName": "暗記カード",
+ "title": "ノートからのカード、確認の一段つき",
+ "description": "学習を始める前に、元の断片を隣に置いて問題を直す。",
+ "cover": {
+  "src": "ideas/flashcards-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "自動でつくられた一式は、どうでもいい細部を尋ねたり、違う言語を使ったりすることがある。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "カードのつくり方がすごく下手で、どういう基準でやっているのか分かりません。10枚のときもあれば64枚のときもあって、その中には、たとえばどの本をだれが書いたか、みたいなものまである。これ歴史の講義なのに。ロシア語の講義をアップロードしたのに、なぜか英語で質問されます",
+    "rating": 3,
+    "app": "Gizmo: AI Tutor"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "必要な問題だけを残す"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "生成の前に言語と目的を選ぶ。そのあとは、元の箇所の隣に少数の候補を見せ、どうでもいい細部を外し、答えを直せるようにする。確かめ終えたカードは、まだ見ていないカードと分けておく。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "自動化のコストを確かめる"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "確認と修正にかかる時間を、同じデッキをいつもの方法でつくる場合と比べる。大きな一式を片づけるほうが手で用意するより長くかかるなら、生成された問題の数には価値がない。"
+  }
+ ],
+ "rank": 344,
+ "free": false
+}

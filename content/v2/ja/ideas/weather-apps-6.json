@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "weather-apps-6",
+ "category": "weather-apps",
+ "categoryName": "天気",
+ "title": "降水の様子が変わるとき",
+ "description": "レーダーは選んだ地域を保ち、過去のコマと予報を見分ける。",
+ "cover": {
+  "src": "ideas/weather-apps-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "人はまたマップを開き、そのたびに自分の地域と必要な時点を探すことになる。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "がっかり。先のレーダーを出さないレーダーアプリなんて、今まで見たことがない…。",
+    "rating": 1,
+    "app": "Weather Underground: Local Map"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "拡大率を覚え、最後の観測の時刻を示し、予報としての続きは別の見た目にする。ウィジェットは同じ地域へつながる。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "アニメーションは、計測がどれだけ古いかを隠したり、先の見積もりをすでに観測されたもののように見せたりしてはならない。"
+  }
+ ],
+ "rank": 37,
+ "free": false
+}

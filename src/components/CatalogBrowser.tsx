@@ -2,6 +2,7 @@ import Link from "next/link";
 import AppsList from "./AppsList";
 import CatGlyph from "./CatGlyph";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -105,7 +106,7 @@ function CategoryCard({ cat, domain, locale }: { cat: BrowseCategory; domain?: s
   }
   return (
     <Link
-      href={`/segment/${cat.slug}`}
+      href={oldHref(locale, `/segment/${cat.slug}`)}
       className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}
     >
       {body}

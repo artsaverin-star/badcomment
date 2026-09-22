@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "plant-care-2",
+ "category": "plant-care",
+ "categoryName": "Plant care",
+ "title": "Watering after checking the state",
+ "description": "Record the moisture and the real actions, and move a reminder without a false entry about watering.",
+ "cover": {
+  "src": "ideas/plant-care-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "The owner gets a reminder and records the actual state: checked, watered, or action postponed. The next date and the history show those differences, and a correction by hand does not require working around the calendar."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "It almost killed several of my plants by randomly extending the watering schedule. For example some went from a 10 day schedule to 27 day.",
+    "rating": 1,
+    "app": "Planta: AI Plant & Garden Care"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "A reminder to check"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "You can start with an interval of your own and an easy way to move it after a check. If the program suggests changing the schedule, it shows what changed; an unexpected shift from ten days to twenty-seven, as in the review, should not go unnoticed."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Do not record a watering that did not happen"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The main test is several ordinary cases where the reminder did not match the action needed. The app helps you remember your observations rather than replacing them with a universal watering schedule for all conditions."
+  }
+ ],
+ "rank": 57,
+ "free": false
+}

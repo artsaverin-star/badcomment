@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
+import { oldLp } from "@/lib/oldHref";
 
 export type LandingFeed = {
   items: FeedIdea[];
@@ -76,7 +77,7 @@ const NEW_NICHES = new Set([
 ]);
 
 function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const icons = c.icons.filter(Boolean).slice(0, 4);
   return (
     <Link

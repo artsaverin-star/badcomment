@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "astronomy-stargazing-1",
+ "category": "astronomy-stargazing",
+ "categoryName": "Ciel nocturne et astronomie",
+ "title": "Identifier un objet en mouvement dans le ciel",
+ "description": "Le pointage est lié au lieu actuel, à l’heure et aux données disponibles sur l’objet.",
+ "cover": {
+  "src": "ideas/astronomy-stargazing-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "On a envie de nommer un point lumineux en mouvement pendant qu’on l’observe. Une erreur de direction rend vite l’indication incompréhensible."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Je voulais une appli où je pourrais pointer mon téléphone vers le ciel pour afficher les satellites qui passent au-dessus en ce moment.",
+    "rating": 3,
+    "app": "Satellite Tracker by Star Walk"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Montrer la concordance entre la direction et l’objet proposé, et permettre de vérifier le lieu et l’heure. Quand la correspondance est douteuse, laisser la possibilité de la préciser."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Ne pas promettre une reconnaissance sûre de n’importe quel objet. La précision dépend des données, de l’appareil et des conditions d’observation."
+  }
+ ],
+ "rank": 426,
+ "free": false
+}

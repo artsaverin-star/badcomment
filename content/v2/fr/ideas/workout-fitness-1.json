@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "workout-fitness-1",
+ "category": "workout-fitness",
+ "categoryName": "Entraînements et fitness",
+ "title": "La série précédente sous les yeux",
+ "description": "Un journal de salle avec l’historique de l’exercice sur l’écran de saisie et un enregistrement clair des saisies depuis la montre.",
+ "cover": {
+  "src": "ideas/workout-fitness-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "L’utilisateur veut voir le poids et les répétitions précédents au moment même où il note la série en cours. Chercher ces valeurs dans un menu l’éloigne de la séance."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’adore la nouvelle interface. La meilleure fonction, c’est d’avoir le poids et les reps précédents sur la séance en cours. J’en avais marre de devoir toujours cliquer dans un menu pour retrouver ce que j’avais fait la fois d’avant. Super changements !",
+    "rating": 5,
+    "app": "Boostcamp: Workout Programs"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comparer et noter sur un seul écran"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Montrer la série précédente avec sa date à côté des champs du jour. Permettre de modifier les valeurs, de valider la série et de corriger un appui accidentel. Sur la montre, utiliser le même journal, avec un enregistrement clair quand la connexion se coupe un moment."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ne pas confondre l’historique avec une consigne"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Une valeur précédente est un contexte, pas une charge obligatoire pour aujourd’hui. Pour une première version, une saisie rapide et des données qui se conservent suffisent ; le choix automatique du poids ajoute une autre responsabilité."
+  }
+ ],
+ "rank": 98,
+ "free": false
+}

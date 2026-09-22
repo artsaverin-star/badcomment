@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-6",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "Quand la situation des précipitations change",
+ "description": "Le radar conserve la zone choisie et distingue les images passées de la prévision.",
+ "cover": {
+  "src": "ideas/weather-apps-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "On rouvre la carte et il faut à chaque fois retrouver sa propre zone et le moment voulu."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Déçu. C’est la seule appli radar que j’ai jamais vue qui ne montre pas le radar futur….",
+    "rating": 1,
+    "app": "Weather Underground: Local Map"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment ça pourrait marcher"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Mémoriser le niveau de zoom, afficher l’heure de la dernière observation et donner un style distinct à la suite prévue. Le widget mène à la même zone."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "L’animation ne doit pas masquer l’ancienneté des mesures, ni présenter une estimation de l’avenir comme quelque chose de déjà observé."
+  }
+ ],
+ "rank": 37,
+ "free": false
+}

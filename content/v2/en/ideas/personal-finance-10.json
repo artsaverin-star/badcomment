@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "personal-finance-10",
+ "category": "personal-finance",
+ "categoryName": "Personal finance",
+ "title": "The balance on a future date",
+ "description": "A calendar of income and payments with a calculated balance. Any amount can be opened down to the transactions behind it and recalculated after the plan changes.",
+ "cover": {
+  "src": "ideas/personal-finance-10",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "The balance today doesn’t show what will happen after the rent and the next income. One review values a calendar where the forecast of available funds is visible day by day. That view helps to spot the gap between an expense and the income expected."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "This is the only bill and income tracking system that truly allows you to easily see your available forecasted funds, literally day by day on a calendar!  Please don’t change anything!",
+    "rating": 5,
+    "app": "Dollarbird - Budget Calendar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it might work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Separate the completed transactions from the planned ones. For a chosen date, show the chain that produced the amount. Allow the date or the amount of a future payment to be changed temporarily, keeping the original scenario for comparison."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Move one incoming payment to a later day and check the calculation by hand. The person should see which days changed and why. The forecast depends on how complete the plan is; a precise-looking number doesn’t make a future payment guaranteed."
+  }
+ ],
+ "rank": 351,
+ "free": false
+}

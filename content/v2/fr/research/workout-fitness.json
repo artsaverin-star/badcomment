@@ -1,0 +1,444 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "workout-fitness",
+ "name": "Entraînements et fitness",
+ "summary": "Une bonne app aide à mener une séance précise : choisir un plan réalisable, noter les séries et reprendre à cet endroit la fois suivante.",
+ "corpus": {
+  "reviews": 35074,
+  "apps": 91
+ },
+ "lead": "Un plan paraît convaincant jusqu’à ce que la personne arrive à la salle : la machine dont elle a besoin est prise, le poids du jour n’est pas le même, et le téléphone est peu commode à tenir. À la maison, les circonstances sont autres — peu de temps, un petit écran et des séances qu’il faut interrompre.\n\nC’est pourquoi une app mérite d’être examinée sur tout le parcours d’une séance : comprendre les conditions, noter ce qui a été fait, conserver le résultat et la place dans le programme. Certains problèmes appellent une correction du journal, d’autres indiquent un scénario à part — une séance vidéo à la maison, par exemple, ou le travail d’un coach avec un client. Un bouton manquant ne devient pas toujours un produit à part entière.",
+ "cover": {
+  "src": "research/ResearchLaunch_workout-fitness_cover",
+  "alt": "Entraînement et fitness",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_workout-fitness_audiences",
+  "alt": "Différentes tâches dans la catégorie « Entraînement et fitness ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Suivre un programme de force",
+   "body": "La personne arrive avec un plan, regarde ses séries précédentes et note ce qu’elle a fait aujourd’hui. Il lui faut un ordre d’exercices reconnaissable et la possibilité de préciser les valeurs. L’historique doit l’aider à se repérer dans son propre travail sans avoir à le reconstituer de mémoire une nouvelle fois."
+  },
+  {
+   "title": "S’entraîner à la maison d’après une démonstration",
+   "body": "Il faut voir les mouvements, entendre l’explication et avoir le temps de passer à l’action suivante. Le téléphone ou le grand écran devient une partie de la séance. La pause et le retour doivent en conserver le déroulement, pour ne pas avoir à retrouver le bon moment une nouvelle fois."
+  },
+  {
+   "title": "Trouver un format de séances qui convient",
+   "body": "Ce qui compte pour le choix, ce sont les mouvements précis, les positions du corps et le matériel disponible. On veut connaître le contenu à l’avance et pouvoir dire ce qui ne convient pas. Une étiquette générale d’âge ou de niveau ne remplace pas cette information sur un programme."
+  }
+ ],
+ "sections": [
+  {
+   "id": "plan",
+   "title": "Arriver avec un plan réalisable",
+   "intro": "Le choix d’un programme commence par les conditions du jour : le temps, le matériel et des mouvements qu’on comprend.",
+   "art": null,
+   "observations": [
+    {
+     "id": "actual-load",
+     "title": "Voir le poids précédent et noter celui du jour",
+     "passages": [
+      "Un programme peut proposer le poids de la séance suivante et laisser modifier la vitesse à laquelle il monte. Les utilisateurs apprécient le confort de cette continuité, mais leurs récits personnels sur leur ressenti ne prouvent pas que le calcul convienne à d’autres. La proposition doit être montrée séparément de ce qui a déjà été fait.",
+      "La saisie en cours demande du contexte : ce qui a été fait la fois précédente, ce qui est prévu aujourd’hui et ce qui en est réellement sorti. Quand ces valeurs sont mélangées, on ne voit pas quelle partie de l’historique une correction modifie. Le journal doit permettre d’enregistrer le résultat du jour sans l’ajuster aux attentes du programme.",
+      "La composition choisie des séances doit elle aussi se conserver. Si un exercice ajouté disparaît le lendemain, l’utilisateur doit expliquer son plan une nouvelle fois. Avant la séance suivante, il est utile de montrer les changements et de garder l’accès à la version précédente ; c’est une tâche concrète de conservation des décisions, pas une nouvelle fonction de coach IA."
+     ],
+     "quotes": [
+      {
+       "text": "Facile de suivre le programme quand il ajuste tout seul le poids à soulever, et on peut le régler pour que ça augmente plus vite ou plus lentement selon les besoins. Je dors mieux et mon mal de dos a disparu depuis que j’ai commencé la muscu.",
+       "rating": 5,
+       "app": "Stronglifts 5x5 Workout Plan"
+      },
+      {
+       "text": "L’interface est bien. Mais l’appli elle-même est bête à un point frustrant. Elle a aucun contexte sur le moment des séances ni sur leur place dans une série. Par exemple, elle s’embrouille quand t’as fait avant une série de développé couché à 225x8 (première séance de la journée) et elle a l’air de pas comprendre pourquoi tu feras pas le même poids apr",
+       "rating": 2,
+       "app": "Gymverse: Gym Workout Planner"
+      },
+      {
+       "text": "J’aime bien l’idée du coach IA mais celui-là bugue beaucoup. Il ajoute un nouvel exercice à ma routine et un jour plus tard il revient à la routine d’avant qui avait pas l’exercice. Il le remet quand je le lui rappelle.",
+       "rating": 1,
+       "app": "Google Health (Fitbit)"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_actual-load",
+      "alt": "Illustration du thème « Voir le poids précédent et noter celui d’aujourd’hui ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-actual-load",
+       "title": "Voir le poids précédent et noter celui du jour",
+       "body": "",
+       "ideas": [
+        "workout-fitness-1",
+        "workout-fitness-3",
+        "workout-fitness-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "coach",
+     "title": "Comprendre comment un coach mène un programme",
+     "passages": [
+      "Un programme tout prêt peut supprimer la nécessité de composer soi-même une séance. L’avis ci-dessous apprécie l’assurance à l’entrée de la salle : la personne sait déjà sur quoi elle va travailler. Pour une première approche, il importe de montrer une séance ordinaire et sa place dans la série.",
+      "Mais un plan tout prêt ne supprime pas la modification. S’il faut désactiver une partie des supersets et qu’aucun moyen ne le permet, la simplicité du choix initial cesse d’aider. Avant de commencer, il vaut la peine de montrer quels changements l’interface autorise et comment ils seront conservés.",
+      "La manière d’accompagner est une autre raison de revenir. La voix d’un coach familier peut compter en plein milieu d’un mouvement. Cet apport doit être distingué du travail personnel d’un spécialiste sur le journal d’un client : un catalogue d’enregistrements et un espace de travail de coach résolvent des problèmes différents, même quand les deux utilisent la vidéo."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore, j’adore, j’adore cette appli (surtout la partie centrée sur les femmes). Elle m’a rendue plus sûre de moi à la salle et j’y entre en sachant sur quoi je travaille. J’ai du mal à me faire mes propres séances et ma routine et ça a complètement effacé ce souci.",
+       "rating": 5,
+       "app": "Alive by Whitney Simmons"
+      },
+      {
+       "text": "C’est une appli simple, super quand on trouve pas quoi faire. PAR CONTRE, ne pas pouvoir changer/ajuster, c’est agaçant. Je veux désactiver certains supersets mais je peux pas. Et puis c’est clairement fait pour les hommes vu les suggestions de poids, ou pour les femmes qui veulent prendre du volume. Je trouve les poids rec",
+       "rating": 4,
+       "app": "Fitness App: Gym Workout Plan"
+      },
+      {
+       "text": "J’adore l’appli LADDAR, elle m’aide à m’y tenir et j’ai toujours envie de m’entraîner et je tiens pas en place à l’idée de voir quelle sera ma prochaine séance. La coach Nicole est géniale et elle te garde motivé pendant la séance, ça aide énormément !!",
+       "rating": 5,
+       "app": "LADDER Strength Training Plans"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-coach",
+       "title": "Comprendre comment un coach mène un programme",
+       "body": "",
+       "ideas": [
+        "workout-fitness-6",
+        "workout-fitness-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "movements",
+     "title": "Connaître les conditions avant le premier mouvement",
+     "passages": [
+      "S’attendre à une séance sur chaise ne va pas avec un programme où il faut descendre au sol. Reproposer un mouvement que la personne saute à chaque fois crée un problème semblable : l’app ne tient pas compte d’une condition déjà exprimée. Résultat, une partie du plan reste irréalisable pour le scénario choisi.",
+      "Le catalogue doit montrer à l’avance les positions du corps, le matériel et les transitions, et les préférences doivent se conserver pour les choix suivants. Le saut d’un exercice et son remplacement doivent tous deux apparaître clairement dans le plan. Quand les limitations sont individuelles, le contenu d’un programme se décide avec un spécialiste ; le rôle de l’interface est de transmettre exactement les conditions et les changements choisis.",
+      "Le filtre « à la maison » est trop large : à la maison, il peut n’y avoir qu’une chaise et dix minutes de libres. Une description plus précise énumère les appuis, les positions du corps et le matériel. Et filtrer par conditions ne confirme pas qu’une séance convient médicalement : les limitations individuelles demandent la décision d’un spécialiste, et l’interface conserve et affiche cette décision."
+     ],
+     "quotes": [
+      {
+       "text": "Le temps de repos entre les exercices est pas assez long pour se mettre en position pour l’exercice suivant. Je suis physiquement incapable de faire certains exercices et je les saute à chaque séance, mais ils reviennent quand même dans mes séances, et au final j’ai pas de séance complète parce qu’il y a rien pour rempl",
+       "rating": 3,
+       "app": "Home Fitness for Weight Loss"
+      },
+      {
+       "text": "Mon épaule me permet pas de faire des pompes.",
+       "rating": 2,
+       "app": "Muscle Booster Workout Tracker"
+      },
+      {
+       "text": "Pas d’exercices sur chaise pour les seniors. Beaucoup des séances « senior » comprenaient des exercices au sol. Si je descends au sol, j’arrive pas à me relever LOL.",
+       "rating": 3,
+       "app": "Aaptiv: #1 Audio Fitness App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_movements",
+      "alt": "Illustration du thème « Connaître les conditions avant le premier mouvement ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-movements",
+       "title": "Connaître les conditions avant le premier mouvement",
+       "body": "",
+       "ideas": [
+        "workout-fitness-7",
+        "workout-fitness-4",
+        "workout-fitness-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Ne pas se laisser distraire de la séance",
+   "intro": "Entre les séries, l’interface doit demander peu d’attention. La montre, la vidéo et le minuteur n’aident que s’ils poursuivent un seul et même scénario.",
+   "art": null,
+   "observations": [
+    {
+     "id": "watch",
+     "title": "Noter une série depuis le poignet",
+     "passages": [
+      "Valider une série depuis le poignet économise des gestes, tant que la montre et le téléphone montrent une seule et même séance. Quand ils se désynchronisent, au lieu de la série suivante la personne cherche quel appareil a conservé le résultat.",
+      "La courte coupure de connexion compte le plus. Une validation faite sur la montre doit être enregistrée en local et apparaître plus tard sur le téléphone sans doublon. L’utilisateur doit voir ce qui est déjà enregistré et ce qui attend encore d’être transmis, avec la possibilité de corriger une valeur erronée.",
+      "La montre a besoin elle aussi de contexte pour la saisie suivante. Sans poids précédent ni nombre de répétitions, il faut ressortir le téléphone. La vérification du scénario ne couvre donc pas seulement l’appui sur « Terminé », mais aussi la consultation des valeurs précédentes, leur correction et la fin de toute la séance."
+     ],
+     "quotes": [
+      {
+       "text": "Quand ça marche correctement, l’appli est super et la synchro avec l’Apple Watch rend tellement facile de rester dans les clous à la salle. Le problème c’est quand les deux se désynchronisent, à peu près une fois sur trois, je perds du temps et de la concentration à bidouiller l’appli et ma montre au lieu de me concentrer sur ma séance.",
+       "rating": 3,
+       "app": "JEFIT Workout Plan Gym Tracker"
+      },
+      {
+       "text": "C’est une bonne appli d’entraînement. C’est facile de créer des séances et j’adore le fait qu’on puisse les ranger dans des dossiers. Je mettrais cinq étoiles, mais ça bugue à fond avec mon Apple Watch. On dirait que ça marche à peu près une fois sur deux, je valide des séries sur ma Watch et ça se synchronise pas avec le téléphone et vice ver",
+       "rating": 3,
+       "app": "Hevy - Workout Tracker Gym Log"
+      },
+      {
+       "text": "L’appli de la montre a besoin de meilleures fonctions. Je devrais pouvoir suivre sur la montre et sur le téléphone, pas l’un ou l’autre. L’appli de la montre affiche pas le dernier poids ni le nombre de répétitions. Dur de progresser sans.",
+       "rating": 2,
+       "app": "Gymverse: Gym Workout Planner"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "large-screen",
+     "title": "Après une pause, reprendre au même endroit",
+     "passages": [
+      "À la maison, un grand écran aide à distinguer un mouvement sans se tourner sans cesse vers le téléphone. Mais après une courte pause, la diffusion peut s’interrompre ou relancer le programme depuis le début. Alors même une séance qui a plu doit être reconstituée de mémoire, en passant des commandes à la recherche du bon moment.",
+      "Les conditions de visionnage et le mode de connexion pris en charge méritent d’être connus avant de commencer. Il faut ensuite tester l’arrêt, la reprise et le retour après un passage à autre chose. Un résultat utile, c’est la même démonstration qui continue à l’endroit choisi, le téléphone restant une commande commode de la séance.",
+      "Un coup de sonnette à la porte ou un bref passage à une autre app fait normalement partie d’une séance à la maison. Une position conservée dans la vidéo permet de revenir sans chercher, et une validation distincte empêche le temps de pause d’être compté comme de l’exercice. Ici, la qualité d’une petite bibliothèque à la lecture fiable peut compter plus que la taille du catalogue."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore cette appli mais je déteste qu’elle bloque littéralement la recopie d’écran vers la télé :( Je peux pas me payer internet en ce moment encore moins un abonnement premium alors c’est nul de devoir faire ça sur mon minuscule écran de téléphone",
+       "rating": 2,
+       "app": "FitOn Workouts & Fitness Plans"
+      },
+      {
+       "text": "Comment vous pouvez m’obliger à mettre l’appli à jour et elle arrive toujours pas à chromecaster correctement ? Expliquez-moi la logique. J’adore les séances, l’appli est bof",
+       "rating": 2,
+       "app": "BODi Home Fitness & Workouts"
+      },
+      {
+       "text": "Quand j’utilise l’iPhone ou l’iPad pour caster le programme de l’appli sur la télé, le programme repart du début et je perds ma place dans la séance à CHAQUE fois que je mets ma séance en pause ! C’est vraiment frustrant. Pourquoi ça arrive ?",
+       "rating": 3,
+       "app": "Playbook - Trainers & Workouts"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_large-screen",
+      "alt": "Illustration du thème « Après une pause, reprendre au même endroit ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "prescribed-timing",
+     "title": "Accorder la vidéo, les répétitions et le minuteur",
+     "passages": [
+      "Dans le programme à domicile d’un spécialiste, la description d’un mouvement peut être claire tandis que la démonstration et le minuteur s’écartent du temps prescrit. La personne doit arrêter la vidéo à la main pour suivre les paramètres qu’on lui a donnés. Une indication pareille n’accompagne pas l’exécution ; elle crée une source d’incohérence de plus.",
+      "Les répétitions prescrites, les temps de maintien et les transitions doivent être transmis séparément, en gardant leur lien avec le programme. Ce qu’il faut vérifier, c’est que le décompte affiché correspond aux réglages d’origine du spécialiste. Des commandes commodes aident à suivre ces réglages ; elles ne doivent pas les remplacer discrètement par d’autres valeurs.",
+      "Une personne ne doit pas avoir deux consignes qui se contredisent : tenir la position trente secondes sur la fiche, alors que dans la vidéo le mouvement suivant a déjà commencé. Pour un produit avec des programmes de spécialiste, il est utile de stocker les paramètres à part du clip et de montrer quels changements ont été apportés à une séance prescrite."
+     ],
+     "quotes": [
+      {
+       "text": "Le minutage de chaque exercice est faux. Par exemple, ça me dit de faire des maintiens de 30 secondes, mais ça me donne huit secondes pour faire chaque répétition. Et certains exercices c’est l’inverse. un est censé être à 10 secondes par répétition et ça va te dire une minute 30 par répétition. Ça n’a aucun sens. Ma kiné dit qu",
+       "rating": 1,
+       "app": "Medbridge GO for Patients"
+      },
+      {
+       "text": "J’aimerais que l’appli chronomètre vraiment les exercices comme il faut, d’après la vitesse et le rythme que ma kiné a saisis. Les vidéos vont presque 5-10x plus vite que la vitesse à laquelle elle veut vraiment que je fasse ces exercices donc je dois tendre le bras et mettre en pause et relancer et mettre en pause et relancer.",
+       "rating": 4,
+       "app": "Medbridge GO for Patients"
+      },
+      {
+       "text": "Fait du bon boulot pour décrire les exercices mais le temps alloué à chacun est trop long ou trop court. Trop peu de temps entre les exercices. Il devrait y avoir un moyen de régler ça.",
+       "rating": 3,
+       "app": "Medbridge GO for Patients"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "continuity",
+   "title": "Conserver ce qui a été fait et revenir",
+   "intro": "La séance suivante commence par la précédente. Le journal et le programme choisi doivent survivre aux pauses et à un changement d’appareil.",
+   "art": null,
+   "observations": [
+    {
+     "id": "history",
+     "title": "Ne pas perdre sa place dans le programme",
+     "passages": [
+      "Après un transfert, l’enregistrement peut sembler complet alors que les totaux changent. Dans l’avis ci-dessous, les records estimés après un import sont gonflés par rapport aux séances d’origine. Ce qu’il faut donc vérifier, ce sont les exercices, les valeurs et les règles de calcul, pas un seul chiffre de séances transférées.",
+      "La perte du journal lui-même se remarque encore plus : le travail accompli disparaît. Lors d’une mise à jour et d’un changement d’appareil, il est utile de garder l’accès à la copie précédente et de montrer ce que contient la restauration. La personne doit pouvoir ouvrir une séance familière et la comparer à l’original.",
+      "Le programme choisi est une donnée à part. Une remise à zéro de la difficulté ou du contenu pendant une mise à jour ne doit pas être masquée par le fait que le journal reste disponible. Le retour commence par la dernière séance terminée et une étape suivante claire ; les jours passés ne sont pas en eux-mêmes des séances effectuées."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai importé mes séances et mes stats de l’appli Strong vers Hevy, et toutes mes stats sont gonflées d’au moins 2 à 3 fois plus que ce que j’ai vraiment fait. Du coup mes 1RM et mes PR sont faux. Je peux pas suivre ma progression correctement.",
+       "rating": 3,
+       "app": "Hevy - Workout Tracker Gym Log"
+      },
+      {
+       "text": "J’aime pas cette dernière mise à jour et les changements l’ont rendue moins pratique. Et ça a supprimé toutes mes séances.. après 599 séances enregistrées il est temps de trouver autre chose…",
+       "rating": 3,
+       "app": "Stronglifts 5x5 Workout Plan"
+      },
+      {
+       "text": "C’est une bonne appli, facile à utiliser et avec beaucoup de variété. Par contre… à chaque mise à jour, mon programme d’entraînement se remet à zéro ! Des activités sont retirées ou ajoutées sans prévenir. Les réglages de difficulté sont remis à zéro aussi. Ce manque de constance est vraiment pénible.",
+       "rating": 3,
+       "app": "Home Fitness Coach: FitCoach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_workout-fitness_history",
+      "alt": "Illustration du thème « Ne pas perdre sa place dans le programme ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "motivation",
+     "title": "Soutenir le retour sans bruit inutile",
+     "passages": [
+      "Une série de validations, une petite récompense ou une compétition partagée peuvent donner une raison agréable de revenir. Pour une partie des gens, c’est une valeur à part, à côté du programme. D’autres, au même moment, ne veulent que le journal et leurs exercices précédents ; un écran de jeu ne doit pas compliquer ce chemin.",
+      "Il est utile de laisser choisir la forme de soutien et de conserver l’historique indépendamment de la participation. Au retour après une interruption, la personne a besoin de voir son travail passé et de comprendre l’étape suivante. Il vaut la peine de vérifier à part que les changements d’habillage ne gênent pas la recherche d’exercices et la comparaison de ses propres enregistrements.",
+      "On peut laisser la personne choisir ce qu’elle veut voir après une séance : un bref bilan, un record personnel ou seulement le journal enregistré. Ce sont des formes différentes de retour. Pour éprouver l’idée, il est plus utile de savoir si le bilan choisi aide à revenir que de compter le nombre d’écrans de félicitations ouverts."
+     ],
+     "quotes": [
+      {
+       "text": "La fonction série et les notes sur ta performance se démarquent vraiment dans cette appli, l’option gratuite comprend tout le nécessaire, je recommande à fond",
+       "rating": 5,
+       "app": "Liftoff - Ranked Gym Workouts"
+      },
+      {
+       "text": "Il y a une variété de cours vraiment formidable ici. Je fais surtout du stretching et du yoga et je découvre tout le temps de nouveaux cours et de nouveaux coachs, alors je pense pas que je serai un jour à court d’options ! J’aime aussi beaucoup les compétitions de pas mensuelles, elles me motivent à faire quelques marches en plus.",
+       "rating": 4,
+       "app": "FitOn Workouts & Fitness Plans"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Vérifier une séance entière",
+  "body": "La première priorité, c’est une seule séance, du début jusqu’à un résultat enregistré. À la salle, cela veut dire les valeurs précédentes, une validation rapide et une montre qui fonctionne ; à la maison, une démonstration claire, une pause et une reprise. Les avis montrent comment la défaillance d’une petite transition oblige la personne à s’occuper de l’app au lieu d’exécuter le programme qu’elle a choisi. De nouvelles sélections n’y changeront rien.\n\nEnsuite, il vaut la peine de choisir le produit principal : un journal pour s’entraîner seul, un cours d’auteur ou un espace de travail de coach. Chacun a sa propre raison de revenir et de payer. Il n’est pas obligatoire de les réunir au lancement. La conservation de l’historique et la précision de la description des conditions peuvent être vérifiées directement ; une charge adaptée et les résultats de l’entraînement ne se déduisent pas d’une interface commode ou de quelques avis positifs."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-plan",
+   "title": "Arriver avec un plan réalisable",
+   "depth": 0
+  },
+  {
+   "id": "observation-actual-load",
+   "title": "Voir le poids précédent et noter celui du jour",
+   "depth": 1
+  },
+  {
+   "id": "observation-coach",
+   "title": "Comprendre comment un coach mène un programme",
+   "depth": 1
+  },
+  {
+   "id": "observation-movements",
+   "title": "Connaître les conditions avant le premier mouvement",
+   "depth": 1
+  },
+  {
+   "id": "theme-during",
+   "title": "Ne pas se laisser distraire de la séance",
+   "depth": 0
+  },
+  {
+   "id": "observation-watch",
+   "title": "Noter une série depuis le poignet",
+   "depth": 1
+  },
+  {
+   "id": "observation-large-screen",
+   "title": "Après une pause, reprendre au même endroit",
+   "depth": 1
+  },
+  {
+   "id": "observation-prescribed-timing",
+   "title": "Accorder la vidéo, les répétitions et le minuteur",
+   "depth": 1
+  },
+  {
+   "id": "theme-continuity",
+   "title": "Conserver ce qui a été fait et revenir",
+   "depth": 0
+  },
+  {
+   "id": "observation-history",
+   "title": "Ne pas perdre sa place dans le programme",
+   "depth": 1
+  },
+  {
+   "id": "observation-motivation",
+   "title": "Soutenir le retour sans bruit inutile",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Vérifier une séance entière",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

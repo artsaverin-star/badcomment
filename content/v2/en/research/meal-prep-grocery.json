@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "meal-prep-grocery",
+ "name": "Menus and shopping lists",
+ "summary": "A menu pays off when it turns into a correct list and what has been bought does not get lost between phones. A look at where that path breaks.",
+ "corpus": {
+  "reviews": 12689,
+  "apps": 54
+ },
+ "lead": "A recipe for four servings, half a pack of rice at home, and the list in the hands of someone already at the store: a meal planner has to tie together information of very different precision. If it adds it all up silently, a tidy-looking total is easily wrong.\n\nWhat follows walks the path from the meals chosen to the register. There are several independent jobs along it, but the foundation is the same: understanding where an item came from, who changed it, and what still needs checking.",
+ "cover": {
+  "src": "research/ResearchLaunch_meal-prep-grocery_cover",
+  "alt": "Menus and shopping lists",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_meal-prep-grocery_audiences",
+  "alt": "Different jobs in the “Menus and shopping lists” category.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Shopping built from a meal plan",
+   "body": "A planner starts from the meals and the number of servings. What they need is one consolidated list for the days they chose, with the origin of every quantity plain to see, not a separate basket for each recipe."
+  },
+  {
+   "title": "Shopping from a shared list",
+   "body": "Shared shopping involves people on different schedules. One notices at home that something has run out, the other is already walking the store: new items and check-offs have to stay distinguishable."
+  },
+  {
+   "title": "Using what is in stock at home",
+   "body": "Stock at home helps with a decision before buying only if the information is fresh enough. A person needs to account for what comes in and what gets used without redoing a full inventory."
+  }
+ ],
+ "sections": [
+  {
+   "id": "plan",
+   "title": "Turning a meal plan into the right shopping",
+   "intro": "The recipe, the servings and what is left at home all have to take part in one calculation. Otherwise the list has to be checked from scratch.",
+   "art": null,
+   "observations": [
+    {
+     "id": "recipes",
+     "title": "Carrying a recipe through to the shopping list",
+     "passages": [
+      "Import is useful when a saved recipe can be turned into shopping. In the good case there is no need to write the ingredients out a second time: the meal chosen already knows its servings and passes its ingredients to the list.",
+      "But first the recipe itself has to be captured. A link to a page, a caption under a video and a comment are different places for the text to live. If the transfer failed, what matters is that the person can see exactly what is missing and add it by hand. A saved link with no ingredients is not yet a finished recipe card.",
+      "The next step is choosing the days and the meals that will actually go into the shopping. Swapping a dinner should change the list it feeds, not add another round of groceries on top of the old one. Your own corrections to a recipe are worth keeping too: otherwise every planning session starts with remembering again that this family cooks it differently."
+     ],
+     "quotes": [
+      {
+       "text": "This is a godsend. I love being able to see a recipe online, upload it into the app, and have the ingredients automatically added to my shopping list. LIFE CHANGING!!",
+       "rating": 5,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "I really enjoy this app, but I still have some challenges importing recipes from Facebook and TikTok. When recipes are in a facebook comment, you can't just import the recipe. You have to go into the comment with the recipe, manually copy the link to the comment and then go to the app and import t",
+       "rating": 3,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "I've been using this app for years. It is so helpful and user-friendly. It's easy to copy recipes from websites. Then as you plan your recipes for the week, you can select those dates to generate a shopping list.",
+       "rating": 5,
+       "app": "Plan to Eat"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_recipes",
+      "alt": "Illustration for the theme “Carrying a recipe through to the shopping list”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-recipes",
+       "title": "Carrying a recipe through to the shopping list",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "amounts",
+     "title": "Explaining the combined quantity",
+     "passages": [
+      "Several lines reading “eggs” mean an extra check at the shelf, while a merged quantity that is wrong looks more convincing than it should. First the servings of each meal have to be taken into account, then the names and the units have to be matched, and only then should a combined total be shown.",
+      "A useful line reveals what each recipe contributed: where the ingredient and the quantity came from. That makes it possible to spot a duplicate, a wrong unit or a recipe that should not be there. A clean list means being able to follow the arithmetic, not simply having fewer lines on screen; merges that are open to doubt have to stay correctable.",
+      "If two meals need three eggs and two eggs, the total is easy to check. But “one can of tomatoes” and “four hundred grams of tomatoes” already call for the product and the packaging to be pinned down. A good list keeps differences like that visible and lets the merge be corrected, rather than confidently displaying a total nobody has confirmed."
+     ],
+     "quotes": [
+      {
+       "text": "We use it every day. It is so easy to use. The ability to pull recipes from all over and have the app organize them is amazing. It's only my husband and I so we often adjust the portions from the original recipe which the app does for you.",
+       "rating": 5,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "I would tell it what recipes I want to cook, check off things I already have, and it would make one clean list. I had smart Clean Up on and I am still getting 6 different 'egg' list items. I try to rename them wi",
+       "rating": 2,
+       "app": "Grocery - Smart Shopping List"
+      },
+      {
+       "text": "The app will add dozens of random ingredients to the shopping list. I had 9 12 oz bags of broccoli when I needed 3. 9 bell peppers when I needed 3. The list goes on and on. It's to the point where it's completely unusable.",
+       "rating": 1,
+       "app": "eMeals - Healthy Meal Plans"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-amounts",
+       "title": "Explaining the combined quantity",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pantry",
+     "title": "Knowing how fresh the information about your stock is",
+     "passages": [
+      "A list of what is in stock at home helps decide what to buy and what to cook next. The author of the review below values not the catalog itself but being able to recall the contents of the pantry and the dates. A record of a product, though, is only useful for as long as it can be trusted.",
+      "Filling a catalog like that can be a lot of work. Scanning makes it easier — in the next review someone describes hundreds of items entered with almost no typing. But a receipt or a barcode confirms that a product came in, not the amount left after several dinners. Sometimes an honest “have it, check the amount” is better than an exact figure nobody has verified in a long time.",
+      "Even a well-filled pantry is useless at the shelf if it stayed on another device. Before adding elaborate consumption tracking, it is worth connecting filling it in at home with looking at it in the store. That also separates two ideas: keeping a shared stock list going permanently, or picking a dinner once from a few ingredients you want to use today."
+     ],
+     "quotes": [
+      {
+       "text": "Knowing exactly what's in your pantry and when it'll expire is a game changer. Now, I understand my eating habits a lot better and can budget almost to perfection without looking at the receipt.",
+       "rating": 5,
+       "app": "Pantry Check - Grocery List"
+      },
+      {
+       "text": "I'm disabled and have some memory issues. I just discovered your app and scanned everything I had, and out of 500 or so items I only had to enter about 6 manually. It's been a great help with eating and budgeting.",
+       "rating": 5,
+       "app": "Cooklist: Pantry Meals Recipes"
+      },
+      {
+       "text": "This could be a really useful app if I could log into my account on multiple devices. Unfortunately I added items in my pantry on my iPad and found out too late that I was unable to log into my account on my iPhone.",
+       "rating": 2,
+       "app": "Pantry Check - Grocery List"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_pantry",
+      "alt": "Illustration for the theme “Knowing how fresh the information about your stock is”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pantry",
+       "title": "Knowing how fresh the information about your stock is",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-3",
+        "meal-prep-grocery-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "constraints",
+     "title": "Not losing the conditions when meals are matched",
+     "passages": [
+      "Matching meals against a set of numbers takes part of the planning work away. The positive review below describes exactly that: the suggestions matching what its author asked for. It does not prove that one set of settings suits everyone, but it does show the value of a visible link between the conditions and the menu.",
+      "The conditions change over the course of a day: some of the food has already been eaten, and other options are left for dinner. A suggestion is more useful if it explains why a meal fits what remains of the request and lets its ingredients be checked. Preferences, numeric targets and excluded ingredients are worth showing separately, so that swapping one meal does not quietly change the rest of the conditions.",
+      "If the program cannot assemble a menu, a specific answer is needed: which condition is unsupported, or which data is missing. In the review below a person is left with no meals at all because of the range they set. That is a reason to explain the limits of the matching rather than promise any diet at all. The app organizes the choice; it should not invent what is in a recipe or declare it suitable without the information to say so."
+     ],
+     "quotes": [
+      {
+       "text": "I finally found an app that has everything I was looking for. The meals that they provide are based off my macros and i have not had one disappointing meal yet. I've owned it for almost 2 months. And the way they make everything so easy and organized is amazing!",
+       "rating": 5,
+       "app": "Prospre - Meal Planner"
+      },
+      {
+       "text": "FINALLY. An app that HELPS me to reach my goals by adjusting the macros. And they also provide meal ideas to help reach the rest of your macros. Love love love this app!",
+       "rating": 5,
+       "app": "FitGenie: Macro & Food Tracker"
+      },
+      {
+       "text": "I put in my macros targets for keto and it said I was outside of their 'recommended range' for fat so it didn't give me any meals. Pretty much useless unless your macros fall inside their 'recommended range'.",
+       "rating": 2,
+       "app": "Prospre - Meal Planner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-constraints",
+       "title": "Not losing the conditions when meals are matched",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shop",
+   "title": "Getting through the store without extra questions",
+   "intro": "At the shelf a short answer is what is needed: what to take, how much, and whether someone else has already bought it.",
+   "art": null,
+   "observations": [
+    {
+     "id": "shared",
+     "title": "Seeing changes made on another phone",
+     "passages": [
+      "A shared list replaces handing over a slip of paper or a string of messages. Its value shows most clearly when schedules differ: everyone adds what they need in their own time, and whoever finds it convenient does the shopping. For that, everyone needs one current version.",
+      "When a new item does not appear for the second person, the list has to be duplicated in a chat all over again. It helps to tell a saved edit from one that has not been sent yet, and to let the update be retried. When the network drops for a while, a “bought” mark must not disappear silently or come back as a new purchase.",
+      "A phone and a watch are another pair of participants in the same process. The praise below shows how natural it feels when they work in step. The practical test is simple: one person adds an item at home, the other marks a purchase on the watch; once they connect, both actions are visible, and there is no need to guess which device was in charge."
+     ],
+     "quotes": [
+      {
+       "text": "I live with my father and brother, and since our schedules are so different, it's hard to go shopping at the same time. The fact that we can all update the list and access it from our phones has been a game changer.",
+       "rating": 5,
+       "app": "Grocery List - Listonic"
+      },
+      {
+       "text": "My wife and I have been using this app for a while, but we've been running into sync issues that are happening with increasing frequency. I'll add something to our shared list, but my wife's list doesn't update. Or vice versa. And there's no way to force a sync.",
+       "rating": 2,
+       "app": "Grocery List with Sync"
+      },
+      {
+       "text": "This is a great app for shopping lists. Everything works perfectly, especially between iPhone and Apple Watch which is a rarity. And it's free!",
+       "rating": 5,
+       "app": "Our Groceries Shopping List"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_shared",
+      "alt": "Illustration for the theme “Seeing changes made on another phone”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-shared",
+       "title": "Seeing changes made on another phone",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "aisles",
+     "title": "Fitting the order to your own store",
+     "passages": [
+      "Ordering by aisle is useful when it matches a particular store and the path you usually take. An automatic category is only a suggestion: the same product can turn up in different places. Familiar purchases landing in “other” over and over force you to read the whole list again.",
+      "Let people save the order of their own store and fix where a single item sits. A setting like that has to hold on the next trip rather than call for sorting all over again. What matters to a shopper is the next aisle they need; a detailed classification of products makes sense only insofar as it helps them get there.",
+      "There is no need to promise that the route will be learned automatically over a few trips. To begin with it is enough to remember one manual rearrangement of the aisles and to put familiar products in the same place next time. The benefit is visible straight away: less walking back to a shelf already passed and less hunting through the whole list."
+     ],
+     "quotes": [
+      {
+       "text": "The Our Grocery Shopping list App is great. I can list the stores I shop at and enter the items in the order I walk through the store.",
+       "rating": 5,
+       "app": "Our Groceries Shopping List"
+      },
+      {
+       "text": "Have used this app for years to organize store runs. Pros easy to use, ability to check off items placed in cart. Cons the app is unable to categorize even the simplest things like apples, lettuce even though I buy them almost every store run.",
+       "rating": 3,
+       "app": "List Ease: Shared Grocery List"
+      },
+      {
+       "text": "They added some bull AI element and suddenly it's incapable of basic categorization. It still works but I'm nearly done with it dumping every entry into 'other'.",
+       "rating": 2,
+       "app": "Grocery List - Listonic"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-aisles",
+       "title": "Fitting the order to your own store",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "checklist",
+     "title": "Checking a purchase off while keeping the template for later",
+     "passages": [
+      "First the list has to open at all. In a store with a weak signal, the shopping already prepared has to stay available; waiting for the network stops the whole trip before the first item is checked off. After that, what matters is keeping the actions taken without a connection.",
+      "A “bought” mark closes the current purchase but does not make the product unnecessary forever. In the review below someone uses last week’s list as a template, and a delete button sitting right next to it destroys that template. These are two different operations: removing an item from today’s business and erasing it from the history. The second one especially has to be undoable.",
+      "The usual set comes back week after week, though not necessarily in full. The history helps pick out the few items needed for a new trip. That way a person has neither to rebuild a deleted list nor to read through every product the family has ever bought."
+     ],
+     "quotes": [
+      {
+       "text": "Something changed in this app about a couple of months ago. From being a brilliant and useful app for shopping has become almost unusable. Too frequently I can't open my list. This seems to be because the app wants to use the internet before showing me my list. The internet often is not available in",
+       "rating": 1,
+       "app": "SIMPLE Shopping List + To Do"
+      },
+      {
+       "text": "I WISH you would have a 'are you sure you want to delete' question before your checked items delete!! I use this list as my ongoing grocery list simply by unchecking the items I need to get at the store this week. MORE than once I have hit the trash can by accident because it is so close to the",
+       "rating": 1,
+       "app": "Shopping List - Grocery & Todo"
+      },
+      {
+       "text": "The app is easy to use, remembers past list items and lets users create multiple lists for different stores.",
+       "rating": 5,
+       "app": "Grocery List with Sync"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_checklist",
+      "alt": "Illustration for the theme “Checking a purchase off while keeping the template for later”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "total",
+     "title": "Showing the total of what is already in the cart",
+     "passages": [
+      "The cost of the whole plan and the total of the items in the cart answer different questions. The first helps with preparation, the second with understanding the current purchase before the register. If an item drops out of the calculation once it is checked off, or the total does not update, the screen stops explaining what has actually been counted.",
+      "The set of items, the quantities and the prices used all need to be labeled plainly. Manual entry can be useful if it is easy to keep up with as you move through the store. The app should show the calculation from the data it has and keep the items with no price entered yet visible separately.",
+      "A total built from entered prices stays provisional: an item sold by weight, a discount or a local tax may come out differently at the register. What matters is naming the basis of the calculation and showing the items without a price. Then a person understands the limits of the number and can decide what to put back or swap, without mistaking an estimate for a receipt."
+     ],
+     "quotes": [
+      {
+       "text": "This app is one of my most used apps. It's important that I know what my total will be at the end of shopping, and also see how much each item will be after taxes. This app does that for me. Love it quick and simple.",
+       "rating": 5,
+       "app": "Total Plus:Shopping Calculator"
+      },
+      {
+       "text": "The app is ok, but why can't we see the total of our shopping cart? I'm sure I'm like most others and mark things off as I purchase them in the store, why can't I see my total without selecting every single item?",
+       "rating": 3,
+       "app": "Total Plus:Shopping Calculator"
+      },
+      {
+       "text": "There is a bug where the total doesn't update no matter what you put on the list. Tried to put in a ticket inside the app.",
+       "rating": 2,
+       "app": "Grocery - Smart Shopping List"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-total",
+       "title": "Showing the total of what is already in the cart",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-5"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First — a list that is correct and available",
+  "body": "In this category the first thing worth getting right is the path from the meal chosen to the purchase: a serving recalculation you can follow, ingredient merging you can correct, and a list you can open with your check-offs still on it. A mistake at any of those steps sends a person back to checking everything by hand. New recipes and elaborate menu matching do not remove that work.\n\nThe next choice depends on the family’s habits. A shared pantry is useful to people who genuinely keep their stock up to date; for everyone else, picking a dinner out of leftovers once may be enough. So before expanding the catalog it is worth testing an ordinary week: swapping a meal, shopping together and repeating a list. That will show which link helps and which one adds more household bookkeeping."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-plan",
+   "title": "Turning a meal plan into the right shopping",
+   "depth": 0
+  },
+  {
+   "id": "observation-recipes",
+   "title": "Carrying a recipe through to the shopping list",
+   "depth": 1
+  },
+  {
+   "id": "observation-amounts",
+   "title": "Explaining the combined quantity",
+   "depth": 1
+  },
+  {
+   "id": "observation-pantry",
+   "title": "Knowing how fresh the information about your stock is",
+   "depth": 1
+  },
+  {
+   "id": "observation-constraints",
+   "title": "Not losing the conditions when meals are matched",
+   "depth": 1
+  },
+  {
+   "id": "theme-shop",
+   "title": "Getting through the store without extra questions",
+   "depth": 0
+  },
+  {
+   "id": "observation-shared",
+   "title": "Seeing changes made on another phone",
+   "depth": 1
+  },
+  {
+   "id": "observation-aisles",
+   "title": "Fitting the order to your own store",
+   "depth": 1
+  },
+  {
+   "id": "observation-checklist",
+   "title": "Checking a purchase off while keeping the template for later",
+   "depth": 1
+  },
+  {
+   "id": "observation-total",
+   "title": "Showing the total of what is already in the cart",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First — a list that is correct and available",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

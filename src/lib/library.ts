@@ -3,7 +3,7 @@ import { getCategoryBySlug, getAppMetaByProductId } from "./researchCategories";
 import { getIdea } from "./ideas";
 import { getProductIdBySlug } from "./appSlugs";
 
-export type LibItem = { slug: string; name: string; href: string; icon?: string | null; sub?: string };
+export type LibItem = { slug: string; name: string; /** internal old path; pages wrap it in oldHref() */ path: string; icon?: string | null; sub?: string };
 
 // What a user has bought with tokens — direct unlocks (cost > 0), so bundle
 // children (category → its apps/ideas, written at cost 0) aren't double-listed.
@@ -22,14 +22,14 @@ export async function getLibrary(
   for (const r of rows) {
     if (r.type === "category") {
       const c = getCategoryBySlug(r.slug, "ru");
-      categories.push({ slug: r.slug, name: c?.name ?? r.slug, href: `/segment/${r.slug}`, sub: "весь жанр" });
+      categories.push({ slug: r.slug, name: c?.name ?? r.slug, path: `/segment/${r.slug}`, sub: "весь жанр" });
     } else if (r.type === "idea") {
       const i = getIdea(r.slug);
-      ideas.push({ slug: r.slug, name: i?.title ?? r.slug, href: `/ideas/${r.slug}`, sub: i?.categoryName });
+      ideas.push({ slug: r.slug, name: i?.title ?? r.slug, path: `/ideas/${r.slug}`, sub: i?.categoryName });
     } else if (r.type === "app") {
       const pid = getProductIdBySlug(r.slug);
       const m = pid ? getAppMetaByProductId(pid) : null;
-      apps.push({ slug: r.slug, name: m?.name ?? r.slug, href: `/${r.slug}`, icon: m?.icon ?? null });
+      apps.push({ slug: r.slug, name: m?.name ?? r.slug, path: `/${r.slug}`, icon: m?.icon ?? null });
     }
   }
 

@@ -16,6 +16,7 @@ import { FlameIcon } from "@/components/BuildIcons";
 import { getAccess } from "@/lib/access";
 import { canBuild, REGA_BUILD_IDEA } from "@/lib/buildAccess";
 import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +31,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const niche = getNicheName(slug, locale);
   if (!niche) notFound();
 

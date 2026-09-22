@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getLocale } from "@/lib/i18n.server";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -8,5 +9,5 @@ export const dynamic = "force-dynamic";
 // кочует, а закэшированный браузером permanent потом не отозвать.
 export default async function CategoriesRedirect() {
   const locale = await getLocale();
-  redirect(locale !== "en" ? "/ru" : "/en");
+  redirect(oldHref(locale, "/"));
 }

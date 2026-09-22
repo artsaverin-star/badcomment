@@ -1,0 +1,466 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "sleep-tracking",
+ "name": "Schlaftracker und Wecker",
+ "summary": "Ein vertrauter Klang vor dem Schlafengehen, ein nachvollziehbarer Wecker und eine Aufzeichnung der Ruhezeiten zwischen den Schichten sind verschiedene Aufgaben, die man besser nicht hinter einer einzigen Schlafbewertung versteckt.",
+ "corpus": {
+  "reviews": 31731,
+  "apps": 94
+ },
+ "lead": "Am Abend will die eine Person eine vertraute Klangkulisse starten und das Telefon weglegen. Eine andere versucht nach der Nachtschicht, einen Tagschlaf einzutragen. Eine dritte hört ein Geräusch aus der Nacht noch einmal ab und will herausfinden, wann es angefangen hat. Hinter dem gemeinsamen Namen „Schlaf-App“ stehen ganz unterschiedliche Beschäftigungen.\n\nEs gibt für sie keine einzige, allgemeingültige Qualitätsprüfung. Ein Player muss den gewählten Klang bewahren, ein Wecker eine nachvollziehbare Einstellung, ein Tagebuch die tatsächliche Abfolge der Einträge und die eigenen Korrekturen des Nutzers. Weder ein schönes Diagramm noch eine automatische Bewertung ersetzt diese Ergebnisse.",
+ "cover": {
+  "src": "research/ResearchLaunch_sleep-tracking_cover",
+  "alt": "Schlaftracker und Wecker",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_sleep-tracking_audiences",
+  "alt": "Verschiedene Aufgaben in der Kategorie „Schlaftracker und Wecker“.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Den gewohnten Abend auf Reisen wiederholen",
+   "body": "Die Person hat bereits eine Klangkulisse gewählt und möchte sie in einem anderen Raum starten. Nötig sind gespeicherte Einstellungen und Zugang zu den Tracks ohne neue Suche."
+  },
+  {
+   "title": "Schlaf zwischen den Schichten erfassen",
+   "body": "Tagesruhe und mehrere Abschnitte innerhalb eines Tages passen nicht in eine Standardnacht. Die Person muss sie neben der Arbeit sehen und falsche Grenzen korrigieren können."
+  },
+  {
+   "title": "Zu einer Nachtaufnahme zurückkehren",
+   "body": "Der Nutzer will ein Geräusch noch einmal abhören, einen bestimmten Abschnitt finden oder Fragen für einen Spezialisten vorbereiten. Wichtig sind das Ausgangsmaterial, das Datum und die eigenen Notizen, nicht nur der Name des Ereignisses."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sound",
+   "title": "Eine vertraute Klangkulisse starten und das Telefon weglegen",
+   "intro": "Das Abendszenario beruht auf Vorhersehbarkeit: Die Person weiß, was erklingt, wie lange und was am Morgen passiert.",
+   "art": null,
+   "observations": [
+    {
+     "id": "familiar-mix",
+     "title": "Den eigenen Klang für den nächsten Abend behalten",
+     "passages": [
+      "Nach der Auswahl ist eine Klangkulisse keine zufällige Aufnahme aus einem Katalog mehr. Ein Mensch kehrt zu einer bestimmten Kombination zurück und nimmt den vertrauten Klang mit ins Hotel, wo der Ventilator von zu Hause fehlt. Ein erneuter Start verlangt deshalb ein gespeichertes Rezept und verfügbare Zutaten, nicht eine neue Suche durch Hunderte von Varianten.",
+      "Auf Reisen wird die vertraute Klangkulisse in einem fremden Raum gebraucht, manchmal ohne stabile Internetverbindung. Ein gespeicherter Mix ist deshalb mehr als ein Name: Es braucht die Tracks, ihre Lautstärke, die Dauer und lokale Kopien, die tatsächlich vorhanden sind. Die Vorbereitung endet damit, dass die gewählte Kombination spielt, nicht mit dem Ladesymbol eines Katalogs.",
+      "Wenn die gewohnten Zutaten nicht mehr verfügbar sind oder in einen anderen Tarif wandern, bricht eine bereits aufgebaute Art der Nutzung zusammen. Änderungen sollten vor dem Start am Abend angekündigt werden, und das Rezept des Mixes sollte erhalten bleiben. Das verpflichtet das Produkt nicht, seinen Preis für immer festzuschreiben, aber es lässt den Menschen sehen, was sich geändert hat, und das weitere Vorgehen wählen."
+     ],
+     "quotes": [
+      {
+       "text": "Benutze es seit Jahren und es hat mich nie im Stich gelassen! Ich schwöre auf das Geräusch vom Kastenventilator. Sounds laufen genau wie Musik: wenn das Handy aus ist oder wenn man in einer anderen App ist. Ich liebe es einfach!",
+       "rating": 5,
+       "app": "White Noise Lite"
+      },
+      {
+       "text": "Das ist das Beste, ich bin beruflich vier von sieben Nächten unterwegs und jede Woche in anderen Häusern, schlafe natürlich in verschiedenen Hotelzimmern, und es blendet den Lärm aus",
+       "rating": 5,
+       "app": "Sleep Sounds by Sleep Pillow"
+      },
+      {
+       "text": "Ich hab diese App immer geliebt- ich hab Sounds benutzt, um mir meinen perfekten Mix zum Einschlafen zu mischen. Jetzt sind alle vier Sounds, die ich gemischt hab, Premium, und ich musste nach Jahren der Treue zu einer neuen App wechseln.",
+       "rating": 3,
+       "app": "BetterSleep: Relax and Sleep"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_familiar-mix",
+      "alt": "Illustration zum Thema „Den eigenen Klang für den nächsten Abend behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-familiar-mix",
+       "title": "Den eigenen Klang für den nächsten Abend behalten",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-8",
+        "sleep-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "nearby-noise",
+     "title": "Das Geräusch des Raums nicht mit Daten über einen Menschen verwechseln",
+     "passages": [
+      "Ein fremdes Geräusch zu maskieren und herauszufinden, wem ein nächtliches Geräusch gehört, sind verschiedene Aufgaben. Für die erste wählt ein Mensch eine passende Klangkulisse. Bei der zweiten können ein Partner oder ein Tier in der Nähe sein, und aufgezeichnetes Schnarchen sagt für sich genommen noch nichts über die Quelle.",
+      "Bei einer nächtlichen Klangkulisse liegt die Aufgabe beim Hörer: einen Klang und eine Lautstärke finden, die für ihn angenehm sind. Dafür muss die Quelle des fremden Geräuschs nicht bestimmt werden. Ein Player, der auf Lärm reagiert, ist eine eigene Annahme: Automatisches Lauterwerden kann sich als weniger bequem erweisen als eine feste, vorab gewählte Einstellung.",
+      "Beim Rekorder stellt sich eine andere Frage: Wessen Geräusch ist in der Aufnahme gelandet? Das Schnarchen eines Tieres oder eines Partners lässt sich nicht automatisch dem Besitzer des Telefons zuschreiben. Zwei Geräte liefern zwei Spuren, lösen damit aber noch nicht die Aufgabe der Unterscheidung. Die gemeinsame Aufnahme ist deshalb vorerst als Experiment zu behandeln, nicht als fertiger Vorteil einer App."
+     ],
+     "quotes": [
+      {
+       "text": "Ich benutze diese App seit etwa 4 Jahren oder länger.\nIch liebe die Möglichkeit, Regen, Stromschnellen, Wind, braunes Rauschen und andere Sounds zu einer persönlichen Mischung zusammenzumischen. Und ich liebe es, dass ich diese Sounds nachts abspielen kann, um das Schnarchen meiner Frau zu übertönen",
+       "rating": 5,
+       "app": "White Noise HQ: sound machine"
+      },
+      {
+       "text": "Das ist eine super App für Hintergrundgeräusche beim Schlafen. Sie hilft auch, das Schnarchen von jemandem zu übertönen!",
+       "rating": 5,
+       "app": "Rain Sounds HQ: sleep aid"
+      },
+      {
+       "text": "Ich erwische mich nie in den Aufnahmen nur mein Hund schnarcht aber die Einschlafhilfe ist super also probiert es aus ich finde es allerdings etwas teuer",
+       "rating": 4,
+       "app": "Pillow: Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-nearby-noise",
+       "title": "Das Geräusch des Raums nicht mit Daten über einen Menschen verwechseln",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-3",
+        "sleep-tracking-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "continuous-sound",
+     "title": "Abspielen ohne unerwartete Stopps",
+     "passages": [
+      "Eine leise Klangkulisse soll weiterlaufen, deshalb bedeutet ein unerwarteter Stopp etwas anderes als eine Pause in einem gewöhnlichen Player. Auch die Nahtstelle einer kurzen Aufnahme und laute Werbung beim Start verändern die erwartete Klangumgebung. Eine große Auswahl gleicht unvorhersehbares Verhalten des gewählten Tracks nicht aus.",
+      "Vorhersehbarkeit wird auch vor dem Beginn der Nacht gebraucht. Laute Werbung beim Öffnen widerspricht der Handlung „eine leise Klangkulisse anmachen“ selbst, besonders wenn nebenan schon jemand schläft. Start, Bildschirmsperre und Timer müssen als eine Sitzung bewertet werden und nicht als unabhängige Funktionen.",
+      "Ein kurzer Track kann sich die ganze Nacht wiederholen, dadurch wird seine Nahtstelle Teil des Klangs. Der abrupte Übergang ist immer wieder zu hören, auch wenn der Player technisch nie stoppt. Die Qualität der Schleife und eine gemerkte Lautstärke wiegen schwerer als eine große Zahl ähnlicher Klänge, die der Mensch ohnehin durchgehen muss."
+     ],
+     "quotes": [
+      {
+       "text": "Mit Meeresrauschen schlafe ich viel besser. Nach ein paar Monaten fing der Player an, sich Stunden vor dem eingestellten Timer abzuschalten. 2 Stunden nach dem Einschlafen bricht er abrupt ab, und zack! Ich bin wach. 3 Nächte hintereinander stoppt er mit Stunden Restzeit auf dem Timer und weckt mich, für mich ist Schluss.",
+       "rating": 3,
+       "app": "Soothing Sleep Sounds"
+      },
+      {
+       "text": "Für eine App, die beim Schlafen helfen soll, kommt ihre blöde Werbung beim Starten in voller Lautstärke und weckt jeden, der das Glück hatte, schon eingeschlafen zu sein. Nicht besonders schlau bei einer Schlaf-App.",
+       "rating": 4,
+       "app": "Sleep Fan"
+      },
+      {
+       "text": "lol das Meeresrauschen hat am Ende vom Loop eine harte Kante! Stört das sonst keinen? Wer da den Schnitt gemacht hat, sollte nochmal zur Schule gehen und lernen, wie man sauber ausblendet oder nahtlos zusammenschneidet.",
+       "rating": 3,
+       "app": "Sleep Sounds White Noise, Rain"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_continuous-sound",
+      "alt": "Illustration zum Thema „Abspielen ohne unerwartete Stopps“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "schedule",
+     "title": "Das nächste Wecken prüfen",
+     "passages": [
+      "Ein Zeitplan verbindet den Start am Abend mit dem nächsten Wecken. Ein Mensch kann einen sanften Klang schätzen und trotzdem Mühe haben, den Wecker auf der Uhr zu aktivieren oder ein eingerichtetes Ritual zu wiederholen. Angenehmer Klang und nachvollziehbare Bedienung müssen getrennt bewertet werden.",
+      "Ein angenehmer Ton und eine bequeme Einrichtung sind verschiedene Vorzüge. Eine positive Rezension über ein „intelligentes“ Wecken beschreibt den Eindruck eines Menschen, beweist aber nicht, dass der passende Moment genau bestimmt wurde. Das Produkt muss vor allem deutlich zeigen, wann der nächste Wecker auslöst und auf welchem Gerät er eingestellt ist.",
+      "Vor dem Schlafen ist es wichtig zu sehen, ob der Wecker aktiv ist und wo er auslöst: auf dem Telefon oder auf der Uhr. Dass man ihn jedes Mal auf einem anderen Gerät einschalten muss, vergisst man leicht. Eine einmalige Änderung der Zeit muss sich von einer Änderung des dauerhaften Zeitplans unterscheiden: Sonst erzeugt eine bequeme Änderung für morgen einen Fehler für den Tag danach.",
+      "Eine Familie mit einem kleinen Kind hat eine andere Aufgabe: Die Erwachsenen tragen kurze Schlafabschnitte ein und geben die Historie aneinander weiter. Ein solches Tagebuch folgt nicht aus Rezensionen über Wecker für Erwachsene; es muss getrennt betrachtet werden, beginnend mit einfacher Erfassung und Erinnerungen statt mit dem Versprechen, den Schlaf eines Kindes vorherzusagen."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hatte schon immer Probleme mit dem Einschlafen und Durchschlafen, besonders bei dem Chaos aus Schule, Sport, Arbeit und dem Leben allgemein. Eine Abendroutine zu haben, die den Kopf so weit beruhigt, dass man wegdämmert, ist eine große Herausforderung. Die Routine-Funktion von Avrora hat mir geholfen, diese Routine aufzubauen, und ma",
+       "rating": 5,
+       "app": "Avrora Sleep Sounds & Stories"
+      },
+      {
+       "text": "Ich hab sie alle ausprobiert. Sound-Apps für Schlaf und Fokus, beruhigendes dies, entspannendes das. Endel sticht als Gamechanger heraus. Es funktioniert wirklich. Früher hatte ich Mühe mit Nickerchen, aber Endel hat meine Schlafroutine verändert. Ich nutze die intelligenten Wecker und sie wecken mich zur richtigen Zeit ohne schrillen Alarm. Ich",
+       "rating": 5,
+       "app": "Endel: Focus & Sleep Sounds"
+      },
+      {
+       "text": "Die Oberfläche ist unglaublich überladen und verwirrend. Die einzige Funktion, wegen der ich diese App überhaupt wollte, war der intelligente Wecker, aber die Einrichtung ist ein Albtraum. Man muss ihn jedes Mal direkt auf der Uhr aktivieren, das ist furchtbar unpraktisch. Obendrein kann man nicht mal einen einfachen Wecker einstellen",
+       "rating": 1,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-schedule",
+       "title": "Das nächste Wecken prüfen",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-4"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "title": "In der Historie den eigenen echten Zeitplan sehen",
+   "intro": "Ein Abschnitt in der Nacht ist nicht die einzige Form des Schlafs. Episoden am Tag, Schichten und manuelle Korrekturen müssen lesbar bleiben.",
+   "art": null,
+   "observations": [
+    {
+     "id": "actual-sleep",
+     "title": "Schlaf unabhängig von Mitternacht erfassen",
+     "passages": [
+      "Ein Tagebuch verliert seinen Sinn, wenn Schlaf über die Wachstunden gelegt wird oder wenn das übliche Nachtfenster nicht zum Arbeitsplan passt. Das Korrigieren der Zeiten ist hier kein Umgehen des Systems, sondern ein Weg, die Historie mit dem in Einklang zu bringen, woran sich der Mensch von seinem Tag tatsächlich erinnert.",
+      "Wenn der erfasste Schlaf bis in die Fahrt zur Arbeit hineinreicht, muss die Person das Ende des Abschnitts bearbeiten können. Die automatische Schätzung und die eigene Korrektur des Nutzers sollten unterscheidbar gespeichert werden. Sonst sieht das Diagramm genau aus, obwohl der Nutzer weiß, dass er einen Teil der Zeit wach war.",
+      "Nach einer Nachtschicht beginnt der Schlaf am Morgen, und vor der nächsten Schicht ist ein weiterer Abschnitt möglich. Das Protokoll muss diese Abfolge zeigen, ohne Abzug dafür, dass sie keiner Standardnacht entspricht. Ein Arbeitskalender hilft, die verfügbare Zeit zu zeigen, erlaubt aber für sich genommen nicht, genau zu berechnen, wie viel Ruhe ein bestimmter Mensch braucht."
+     ],
+     "quotes": [
+      {
+       "text": "Der Schlaf wird nicht genau erfasst. Es zählt als Schlafzeit, auch wenn ich schon aufgestanden bin und 20 Minuten rumlaufe. Oder wenn ich die Uhr vor dem Schlafengehen lade. Die Tiefschlafzeit auch total falsch. Die integrierte Apple Health App liefert viel bessere Ergebnisse, und sie ist kostenlos.",
+       "rating": 2,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      },
+      {
+       "text": "Diese App sagt mir, ich schlafe noch, während ich schon auf dem Weg zur Arbeit fahre. Ich hab deswegen die automatische Verlängerung gekündigt.",
+       "rating": 2,
+       "app": "Pillow: Sleep Tracker"
+      },
+      {
+       "text": "Es gibt Leuten furchtbare Bewertungen, wenn sie nicht zu bestimmten Zeiten schlafen (die man nicht einstellen kann). Wegen der Arbeitszeiten schlafen Leute zu unterschiedlichen Zeiten. Ein Nachtschichtarbeiter schläft zum Beispiel tagsüber, aber das kann man in der App nicht eintragen, für die Berechnungen und Gesundheitstipps usw.",
+       "rating": 4,
+       "app": "Sleep Number"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_actual-sleep",
+      "alt": "Illustration zum Thema „Schlaf unabhängig von Mitternacht erfassen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-actual-sleep",
+       "title": "Schlaf unabhängig von Mitternacht erfassen",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-1",
+        "sleep-tracking-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "readable-history",
+     "title": "Verstehen, woraus sich das Gesamtergebnis zusammensetzt",
+     "passages": [
+      "Ein schnelles Gesamtergebnis und ein detailliertes Diagramm bedienen unterschiedliche Arten von Aufmerksamkeit. Mal muss man die vergangene Nacht in wenigen Sekunden erfassen, mal zu einzelnen Abschnitten zurückkehren und sie vergleichen. Das Entfernen der detaillierten Ansicht lässt sich nicht allein durch eine neue Gesamtbewertung ausgleichen.",
+      "Ein detailliertes Diagramm erlaubt es einem Menschen, zu einem bestimmten Abschnitt zurückzukehren, statt nur eine Gesamtbewertung zu sehen. Es ist wichtig zu erklären, was das Gerät gemessen, was die App berechnet und was der Nutzer selbst eingetragen hat. Eine Rezension über den Nutzen des Diagramms für einen Menschen mit ADHS bestätigt weder eine therapeutische Wirkung noch die Genauigkeit der berechneten Schlafphasen.",
+      "Die detaillierte Ansicht zugunsten einer einzigen Bewertung zu streichen, ist riskant: Ein Teil der Menschen kommt gerade wegen der Historie der einzelnen Nachtabschnitte. Eine kurze Übersicht kann der erste Bildschirm bleiben, die Details öffnen sich von dort. Fehlende Daten müssen als Fehlstelle gezeigt werden, nicht als schlechter Schlaf."
+     ],
+     "quotes": [
+      {
+       "text": "Es ist eine schnelle Momentaufnahme von dem, was ich wissen will. Ich hab andere Schlaftracking-Apps, die sehr detailliert sind, aber ich hab nicht immer Zeit, meinen Schlaf zu „erforschen“. Bei Apple Health ist diese Info in der Health-App vergraben, aber das hier ploppt auf, sagt mir, was ich wissen will, und fertig.",
+       "rating": 5,
+       "app": "Sleep Tracker ++"
+      },
+      {
+       "text": "Ich mochte diese App wirklich und nutze sie schon eine Weile, um meinen Schlaf zu tracken, wegen meines ADHS. Das Diagramm im Bericht war dabei super hilfreich für mich, weil ich vor allem sehen wollte, wann ich in welchen Phasen war, wie oft ich aufgewacht bin, wie lange ich zum Einschlafen",
+       "rating": 1,
+       "app": "SleepScore by Sleep.ai"
+      },
+      {
+       "text": "Ja also bei diesem letzten Update haben sie das rausgenommen, wo man sieht, welcher Teil vom Schlaf leicht, tief und REM-Schlaf war, das ist echt nervig, insgesamt ist sie okay, aber diese Änderung ist echt enttäuschend, ich wechsle jetzt wohl die App.",
+       "rating": 3,
+       "app": "SleepScore by Sleep.ai"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "personal-context",
+     "title": "Die Umstände in eigenen Worten ergänzen",
+     "passages": [
+      "Ein Mensch kann einen Zusammenhang zwischen seinem Abend und der folgenden Nacht bemerken. Ein Tagebuch erlaubt es, einen solchen Gedanken neben dem Datum festzuhalten. Doch der Satz „danach habe ich besser geschlafen“ bleibt eine persönliche Beobachtung: Ein Eintrag stellt nicht fest, was die Veränderung ausgelöst hat.",
+      "Fertige Tags helfen beim Einstieg, solange sie den gewöhnlichen Alltag des Menschen beschreiben. Eine unpassende Auswahl macht das Markieren zu einer zusätzlichen Pflicht: Man wählt entweder fremde Umstände oder lässt den Eintrag aus. Eine freie Notiz und ein paar eigene Tags erlauben es, das festzuhalten, was an diesem Tag tatsächlich wichtig war.",
+      "Ein eigenes Tag ist eine Bezeichnung für einen Umstand, keine Empfehlung, die Handlung zu wiederholen. Die Erwähnung von Magnesium in einer Rezension ist ein Beispiel für ein fehlendes Nutzer-Tag. Die App sollte dessen Auftauchen neben einer guten Nacht nicht in den Rat verwandeln, ein Nahrungsergänzungsmittel einzunehmen, und auch nicht in das Versprechen von besserem Schlaf."
+     ],
+     "quotes": [
+      {
+       "text": "Wenn man seine Ernährung und Aktivitäten mitschreibt, kann man hören, wie viel Unterschied eine gesunde Mahlzeit beim Schlaf macht im Vergleich zu Junkfood.",
+       "rating": 4,
+       "app": "SnoreLab : Record Your Snoring"
+      },
+      {
+       "text": "Funktioniert ganz gut, mit ein paar Macken. Der Bereich „markiere, was passiert ist“ ist voll mit allem möglichen albernen Fitness-Influencer-Unsinn an Tags wie „Naturvideo vor dem Schlafen“ und „Aromatherapie“ und „Biofeedback“, die Ausreißer für das Verhalten vor dem Schlafen sind. Wer macht das denn jemals?",
+       "rating": 4,
+       "app": "SleepWatch - Top Sleep Tracker"
+      },
+      {
+       "text": "Insgesamt ist die App ziemlich gut und erfasst viele Infos zum Schlaf. Es gibt einen Bereich, um für jede Nacht „Tags“ für das Verhalten vor dem Schlafen hinzuzufügen.. und es gibt viele vorgegebene Optionen zur Auswahl, aber ich sehe keine Möglichkeit, ein eigenes Tag anzulegen. Bsp.: Ich hab nach „Magnesium“ gesucht und es nicht gefunden",
+       "rating": 4,
+       "app": "SleepWatch - Top Sleep Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_sleep-tracking_personal-context",
+      "alt": "Illustration zum Thema „Die Umstände in eigenen Worten ergänzen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "recording",
+   "title": "Zur Aufnahme zurückkehren, nicht nur zur Bewertung",
+   "intro": "Ein Gesamtergebnis ist nützlich, wenn man erkennen kann, auf welchen Beobachtungen es beruht, und den ursprünglichen Ausschnitt öffnen kann.",
+   "art": null,
+   "observations": [
+    {
+     "id": "night-evidence",
+     "title": "Einen Ausschnitt anhören und Fragen vorbereiten",
+     "passages": [
+      "Das Abhören einer Aufnahme kann einem Menschen ein nächtliches Geräusch zeigen, das er nie bemerkt hat. Das ist eine konkrete Beobachtung, zu der er zurückkehren kann. Der automatische Name eines Ereignisses ersetzt die Aufnahme nicht und macht sie nicht zu einer Diagnose: Die Quelle des Geräuschs, die Umstände der Nacht und der eigene Eindruck des Nutzers bleiben getrennt.",
+      "Das nützliche Ergebnis ist zugängliches Audio mit Zeiten und eigenen Notizen, das sich noch einmal anhören oder mit einem Spezialisten besprechen lässt. Die Bedingungen für den Zugang zu einer Aufnahme sollte man vor dem Beginn der Nacht klären. Ein Produkt muss die Überraschung beim Abhören nicht in eine Diagnose verwandeln, um nützlich zu bleiben.",
+      "In einer anderen Rezension geht es um Sauerstoffwerte und die anschließende Untersuchung. Das sind Daten anderer Art, keine Schlussfolgerung aus einer Mikrofonaufnahme. Wenn eine App verschiedene Materialien für einen Termin sammelt, muss sie deren Herkunft und Zeiten getrennt bewahren. Die Bedeutung der Werte und das Ergebnis der Untersuchung lassen sich nicht durch eine automatische Nacherzählung eines nächtlichen Geräuschs ersetzen."
+     ],
+     "quotes": [
+      {
+       "text": "Die meisten würden dieser App fünf Sterne geben, ich bin nah dran.\nIch dachte, ich schnarche kaum. Meine Partnerin hat Witze gemacht, ich hab es abgetan. Dann hab ich SnoreLab benutzt… und mich wirklich gehört. Ich war geschockt.\nKein Wunder, dass sie nicht gut geschlafen hat und ich auch nicht.\nDieser Moment hat alles verändert. Ich hab angefangen, Schlaf ernst",
+       "rating": 4,
+       "app": "SnoreLab : Record Your Snoring"
+      },
+      {
+       "text": "Die App war insgesamt gut und die Einrichtung einfach, aber als ich das Schnarchen und die zufälligen Geräusche aus der ganzen Nacht hören wollte, ging das nicht, außer ich zahle fürs Anhören. Ich suche schon ewig eine einzige App, bei der ich fürs Anhören nicht zahlen muss",
+       "rating": 2,
+       "app": "Sleep Tracker: Recorder, Sound"
+      },
+      {
+       "text": "Diese App hat mir geholfen, die Einbrüche meiner Sauerstoffwerte in der Nacht zu sehen. Hatte eine Untersuchung im Schlaflabor, die bestätigt hat, dass mein Sauerstoff wirklich abgefallen ist, manchmal bis in die oberen 70%. Zum Glück keine Schlafapnoe. Mir wurde nächtlicher Sauerstoff verschrieben und ich fühle mich wie ein neuer Mensch. Danke an die Entwickler, ihr habt mein At",
+       "rating": 5,
+       "app": "AutoSleep: Watch Sleep Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-night-evidence",
+       "title": "Einen Ausschnitt anhören und Fragen vorbereiten",
+       "body": "",
+       "ideas": [
+        "sleep-tracking-7"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Ein Tagebuch für einen echten Zeitplan",
+  "body": "Für ein erstes Produkt würde ich Menschen im Schichtdienst wählen. Ihre Schwierigkeit ist konkret: Tagschlaf und mehrere Ruheabschnitte passen schlecht in ein Standardschema der Nacht. Ein Tagebuch mit nachvollziehbarer manueller Bearbeitung und einem Arbeitskalender lässt sich über einige echte Schichten prüfen: Erkennt der Mensch seine eigene Woche wieder, und fällt es ihm leichter, die Historie zu rekonstruieren? Dafür braucht es keine neue „Gesundheitsbewertung“.\n\nEin Klangplayer ist eine andere Richtung, und dort ist die Grundlage schon klar: die gewählte Klangkulisse, Verfügbarkeit und unterbrechungsfreie Wiedergabe. Die gemeinsame Aufnahme mit zwei Telefonen ist als Idee vorerst deutlich schwächer – ihr Nutzen ist nicht belegt. Beginnen sollte man damit, dem Menschen die ihm bekannte Erfahrung zurückzuspiegeln, nicht mit dem Versprechen, seinen Schlaf automatisch zu erklären oder zu verbessern."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-sound",
+   "title": "Eine vertraute Klangkulisse starten und das Telefon weglegen",
+   "depth": 0
+  },
+  {
+   "id": "observation-familiar-mix",
+   "title": "Den eigenen Klang für den nächsten Abend behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-nearby-noise",
+   "title": "Das Geräusch des Raums nicht mit Daten über einen Menschen verwechseln",
+   "depth": 1
+  },
+  {
+   "id": "observation-continuous-sound",
+   "title": "Abspielen ohne unerwartete Stopps",
+   "depth": 1
+  },
+  {
+   "id": "observation-schedule",
+   "title": "Das nächste Wecken prüfen",
+   "depth": 1
+  },
+  {
+   "id": "theme-history",
+   "title": "In der Historie den eigenen echten Zeitplan sehen",
+   "depth": 0
+  },
+  {
+   "id": "observation-actual-sleep",
+   "title": "Schlaf unabhängig von Mitternacht erfassen",
+   "depth": 1
+  },
+  {
+   "id": "observation-readable-history",
+   "title": "Verstehen, woraus sich das Gesamtergebnis zusammensetzt",
+   "depth": 1
+  },
+  {
+   "id": "observation-personal-context",
+   "title": "Die Umstände in eigenen Worten ergänzen",
+   "depth": 1
+  },
+  {
+   "id": "theme-recording",
+   "title": "Zur Aufnahme zurückkehren, nicht nur zur Bewertung",
+   "depth": 0
+  },
+  {
+   "id": "observation-night-evidence",
+   "title": "Einen Ausschnitt anhören und Fragen vorbereiten",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Ein Tagebuch für einen echten Zeitplan",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

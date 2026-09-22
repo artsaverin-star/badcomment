@@ -3,6 +3,7 @@ import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
 import { progress, totals } from "@/lib/reviews";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +41,9 @@ export default async function ReviewMethodology() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
+  // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
+  const seoLoc = ru ? "ru" : "en";
   const t = totals();
   const detailedCorpusPct = t.sourceReviews ? (t.reviews / t.sourceReviews) * 100 : 0;
   const updated = new Intl.DateTimeFormat(lc, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${progress.updatedAt}T00:00:00Z`));
@@ -51,7 +54,7 @@ export default async function ReviewMethodology() {
     description: ru ? "Правила, пороги и ограничения тематической разметки отзывов." : "Rules, thresholds, and limitations of thematic review labelling.",
     dateModified: progress.updatedAt,
     author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
-    mainEntityOfPage: `https://inapp.pro${lp}/reviews/methodology`,
+    mainEntityOfPage: `https://inapp.pro/${seoLoc}/reviews/methodology`,
   };
 
   return (

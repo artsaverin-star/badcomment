@@ -11,6 +11,7 @@ import insightsData from "@/data/insights.json";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Reveal from "@/components/Reveal";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -261,7 +262,7 @@ export default async function MostWantedPage() {
       <p className="mx-auto mt-16 max-w-[48ch] text-center text-caption text-[var(--color-text-tertiary)]">
         {ru ? "Отзывы проанализированы автоматически по App Store и Google Play; цитаты — перевод реальных отзывов; цифры спроса — из извлечённых наблюдений." : "Reviews analyzed automatically across App Store and Google Play; quotes are translations of real reviews; demand numbers come from extracted observations."}
         {" · "}
-        <Link href="/" className="underline-offset-2 hover:text-[var(--color-text-secondary)] hover:underline">inApp</Link>
+        <Link href={oldHref(locale, "/")} className="underline-offset-2 hover:text-[var(--color-text-secondary)] hover:underline">inApp</Link>
       </p>
     </main>
   );

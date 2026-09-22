@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "habit-tracking-5",
+ "category": "habit-tracking",
+ "categoryName": "Habits",
+ "title": "A counter with a history of attempts",
+ "description": "The time since the last event, the previous periods and personal notes. A new entry starts the count while keeping the history that came before.",
+ "cover": {
+  "src": "ideas/habit-tracking-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A counter shows the time since the last check-in, but resetting it can hide the whole journey up to that point. One review author specifically values having the number of attempts kept. A log like that lets you go back to past records even when the current count has started over."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "I had been trying to quit my habit for a very long time. It wasn’t until I downloaded the Days Since app that allowed me to track my progress. It even kept up with how many times I reset the counter so I could tell myself to quit playing and just do it.",
+    "rating": 5,
+    "app": "Days Since: Quit Habit Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Keep the completed periods and the time of the new attempt. Let a wrong date be corrected and a note added if wanted. The current counter and the history should be visible separately, so that a new start doesn’t look like the deletion of the past."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Go through a person’s own way of keeping track with them. Do they need the periods, the notes, or only an exact date? Don’t credit the counter with the ability to deal with addiction: what is being tested here is how convenient a personal record is, not the outcome of treatment."
+  }
+ ],
+ "rank": 30,
+ "free": false
+}

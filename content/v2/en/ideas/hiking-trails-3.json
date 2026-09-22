@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "hiking-trails-3",
+ "category": "hiking-trails",
+ "categoryName": "Hikes and routes",
+ "title": "Downloading the area you chose",
+ "description": "A box on the map sets the area, and a list shows what it contains and whether it is ready.",
+ "cover": {
+  "src": "ideas/hiking-trails-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "When you pan around, it is hard to tell which part of the map is already prepared for use with no network."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "meh, downloading offline maps is annoying, can’t just draw a box around a region and download, they have some janky system where you have to zoom in and pan and scan everywhere.. so if you don’t pan and scan and zoom in on a particular tile it wont save. Obviously not an Outdoorsy Off Grid person.",
+    "rating": 1,
+    "app": "Topographic Maps & Trails"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Select the area, show the zoom levels and the size, and keep the state of the parts that are unfinished. Let the finished set be checked by opening it."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A download icon is no substitute for checking that the details you need are actually available."
+  }
+ ],
+ "rank": 375,
+ "free": false
+}

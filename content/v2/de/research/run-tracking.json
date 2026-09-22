@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "run-tracking",
+ "name": "Laufen",
+ "summary": "Den Lauf vollständig aufzeichnen, die nötigen Ansagen hören und den Plan nach einer Pause fortsetzen – diese Aufgaben wiegen schwerer als eine einzelne Gesamtzahl zum Tempo.",
+ "corpus": {
+  "reviews": 18463,
+  "apps": 50
+ },
+ "lead": "Vor dem Aufbruch will man eine Einheit auswählen, das Telefon wegstecken und laufen. Doch unterwegs stellt sich heraus, dass die Uhr eine Verbindung verlangt, dass die Musik nach einer Ansage nicht zurückkommt oder dass die Aufzeichnung unbemerkt auf Pause gegangen ist. Nach dem Ziel bleibt ein Ergebnis, das niemand lesen kann.\n\nIm Folgenden geht es zuerst um die Aufzeichnung, dann um die Hilfe während der Bewegung und danach um die Rückkehr zur nächsten Einheit. Jede Stufe hat ihren eigenen Prüfstein für den Nutzen: das tatsächlich Geschehene bewahren, eine verständliche Ansage geben und einen nächsten Schritt hinterlassen, der sich umsetzen lässt.",
+ "cover": {
+  "src": "research/ResearchLaunch_run-tracking_cover",
+  "alt": "Laufen",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_run-tracking_audiences",
+  "alt": "Aufgaben der Menschen: Laufen",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Mit dem Laufen anfangen oder zurückkehren",
+   "body": "Anfang und Rückkehr nach einer Pause verlangen beide eine klare Wahl der nächsten Einheit. Kalender und Stelle im Programm steuert man besser getrennt, wobei die Angaben zum bereits Absolvierten erhalten bleiben."
+  },
+  {
+   "title": "Laufen ohne Blick aufs Telefon",
+   "body": "Wenn das Telefon weggesteckt oder zu Hause geblieben ist, müssen die Ansagen und der Zustand der Aufzeichnung ohne ständige Kontrolle des Bildschirms verständlich sein. Hier entscheidet das gesamte Training über die Bequemlichkeit, einschließlich seines Abschlusses."
+  },
+  {
+   "title": "Einen einzelnen Abschnitt oder eine Route prüfen",
+   "body": "Ein Gesamtdurchschnitt ersetzt keine Angaben über einen Laufabschnitt, die Distanz auf dem Laufband oder die nötige Abbiegung. Zuerst wählt man die eigene Frage und erst danach den Satz an Kennzahlen, der zu ihr passt."
+  }
+ ],
+ "sections": [
+  {
+   "id": "record",
+   "title": "Aufzeichnen, was tatsächlich passiert ist",
+   "intro": "Straße, Laufband und eine Uhr ohne Telefon verlangen jeweils eine andere Art, die Aufzeichnung zu prüfen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pause",
+     "title": "Bemerken, dass die Aufzeichnung stehen geblieben ist",
+     "passages": [
+      "Eine unbemerkte Pause verändert die Bedeutung des Ergebnisses: Der Lauf ist zu Ende, aber welcher Teil davon in den Verlauf gelangt ist, bleibt unklar. Es lohnt sich, einen Stopp nach dem Sperren des Bildschirms von einer versehentlichen Berührung in der Tasche zu unterscheiden, auch wenn das Ergebnis für die laufende Person dasselbe ist – sie muss während der Bewegung in die Aufzeichnung eingreifen.",
+      "Deshalb braucht der Zustand des Trainings ein zugängliches Signal und einen verständlichen Weg, es fortzusetzen. Eine Prüfung vor dem Einsatz muss genau die gewohnte Lage des Geräts abdecken: Telefon wegstecken, Bildschirm sperren, zur Aufzeichnung zurückkehren. Ein gutes Ergebnis erlaubt es, ein vollständiges Training von einem Bruchstück zu unterscheiden, ohne eine Lücke als durchgeführte Messung auszugeben.",
+      "Am Ende hilft es, nicht nur das Gesamtergebnis zu zeigen, sondern auch die Abschnitte ohne Daten. Die laufende Person kann dann eine Notiz hinzufügen oder das Bruchstück als unvollständiges Training speichern. Den fehlenden Weg automatisch und ohne sichtbare Kennzeichnung zu ergänzen, heißt den Verlauf zu verändern, den der Mensch erwartet hat."
+     ],
+     "quotes": [
+      {
+       "text": "The design and the idea are great. But when the phone screen turns off, the app gets lost. It goes on pause and loses the GPS connection. And like that it's useless. Ran 5km and after 500 meters the screen went off and so did the app.",
+       "rating": 3,
+       "app": "Running App - Run Tracker"
+      },
+      {
+       "text": "Der Timer geht aus, wenn das Telefon automatisch in den Ruhezustand geht. Erst wenn man das Telefon aufweckt, fängt er überhaupt wieder an aufzuzeichnen. Wenn ich also eine feste Zeit laufe, weiß ich jedes Mal nicht, wann die um ist.",
+       "rating": 1,
+       "app": "RUN interval - Running Timer"
+      },
+      {
+       "text": "Ich nutze diese App seit 2017 und sie war klasse, aber jetzt pausiert sie andauernd von allein, sogar mit ausgeschalteter Auto-Pause und während ich wirklich laufe! Es ist unglaublich frustrierend, während des Laufens am Telefon rumfummeln zu müssen.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pause",
+      "alt": "Illustration zum Thema „Bemerken, dass die Aufnahme gestoppt ist“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "distance",
+     "title": "Wissen, woher die Distanz stammt",
+     "passages": [
+      "Straße und Laufband schaffen unterschiedliche Bedingungen für die Aufzeichnung der Distanz. Ein Wert, der zu einer Strecke mit Ortswechsel passt, beschreibt eine Einheit auf der Stelle womöglich nicht. Und selbst eine einzelne Route im Freien wird unterschiedlich aufgezeichnet: Übereinstimmende Gesamtwerte lassen sich nicht im Voraus voraussetzen.",
+      "Es hilft, die Herkunft des Werts zu speichern – das Gerät, den gewählten Modus oder eine von Hand eingegebene Zahl. Die Möglichkeit, Kilometer vom Laufband hinzuzufügen, löst die Aufgabe, einen Verlauf zu führen, macht aber nicht alle Quellen gleich. Beim Vergleich von Ergebnissen kommt es darauf an, was genau verglichen wird und welcher Teil der Angaben von einem Menschen eingetragen wurde.",
+      "Eine Korrektur von Hand kann nach einer Einheit auf dem Laufband oder nach einem Signalverlust nützlich sein. Dabei sollten der ursprüngliche Wert und die Art der Änderung erhalten bleiben. Dann vermischt ein Vergleich der Wochen die gemessene Distanz nicht mit der korrigierten, und der Nutzer versteht die Abweichung zwischen den Geräten."
+     ],
+     "quotes": [
+      {
+       "text": "GPS ungenau. Ich bin genau dieselbe Strecke gefahren und an meiner Meilenmarke umgedreht, die mir am Tag davor als 2-Meilen-Marke angezeigt wurde, hin und zurück hätten es also 4 Meilen sein müssen. Als ich es am nächsten Tag gemacht habe, war meine Marke um 0,2 Meilen daneben. Damit kam ich auf 3,8 und nicht 4 Meilen.",
+       "rating": 2,
+       "app": "Map My Run GPS Running Tracker"
+      },
+      {
+       "text": "Wenn man die App draußen beim Laufen nutzt, funktioniert sie gut. Zeichnet alles richtig auf, schickt Benachrichtigungen an die Kopfhörer usw. Wenn man sie aber drinnen auf dem Laufband nutzt, zeichnet sie Distanz und Schritte nicht richtig auf und gibt die Infos nicht an die Uhr weiter.",
+       "rating": 3,
+       "app": "C25K® 5K Running Coach & Map"
+      },
+      {
+       "text": "Die App gefällt mir wirklich gut. Ich wünschte nur, man könnte irgendwie die Distanz von Läufen auf dem Laufband eintragen. Ich hätte die Strecke gern mitgezählt.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-distance",
+       "title": "Wissen, woher die Distanz stammt",
+       "body": "",
+       "ideas": [
+        "run-tracking-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "watch",
+     "title": "Die Einheit vor dem Losgehen vorbereiten",
+     "passages": [
+      "Dass es eine Version für die Uhr gibt, bedeutet noch nicht, dass das Telefon zu Hause bleiben kann. Für den Nutzer ist das eine eigenständige Bedingung der Auswahl, und sie sollte vor dem Kauf und vor dem ersten Lauf klar sein.",
+      "Selbst eine geladene Einheit kann sich als nicht verfügbar erweisen: Die Datei liegt schon auf der Uhr, aber der Bildschirm mit der Sammlung verlangt das Telefon. Nützlich ist deshalb eine schlichte Liste von Einheiten, die sich ohne Verbindung direkt auf dem Gerät öffnen lassen.",
+      "Der eigenständige Betrieb muss vollständig geprüft werden: die Einheit finden, sie starten, die Ansagen bekommen und die Aufzeichnung auf der Uhr beenden. Der Verlauf kann später übertragen werden. Wenn ein einzelner Modus das Telefon braucht, muss das vor dem Start sichtbar sein und sich nicht erst unterwegs herausstellen."
+     ],
+     "quotes": [
+      {
+       "text": "Es ist schwer, diese App zu bewerten. Ich habe sie gekauft, weil es beschämend wenige Lauf-Apps mit Rundenfunktion gibt. In meiner Kauffreude habe ich übersehen, dass in den Rezensionen steht – nicht in der Beschreibung –, dass man für die Apple Watch das Telefon mitnehmen muss. Ich habe die Apple Watch gekauft, damit ich ohne laufen kann",
+       "rating": 3,
+       "app": "Runmeter Running & Walking GPS"
+      },
+      {
+       "text": "Das ist so eine tolle Idee, und die geführten Läufe sind wirklich großartig, aber eine wichtige Funktion fehlt: ein Downloads-Ordner in der App auf der Apple Watch. Selbst wenn man den Lauf auf die Apple Watch lädt, bekommt man keine der Sammlungen geladen, wenn man die App ohne Telefon in der Nähe öffnet.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      },
+      {
+       "text": "Ich hab die App jetzt seit einiger Zeit und mag die Geschichte wirklich und dass sie gesund hält, aber ich hatte Probleme, dass meine Schritte nicht gezählt werden, wenn ich auf dem Laufband laufe, und ich hab neulich eine Apple Watch bekommen und es ist schade, dass ich nicht auf der Apple Watch statt auf dem Telefon starten oder aufgezeichnet werden kann.",
+       "rating": 3,
+       "app": "Zombies, Run!"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_watch",
+      "alt": "Illustration zum Thema „Die Einheit vor dem Losgehen vorbereiten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-watch",
+       "title": "Die Einheit vor dem Losgehen vorbereiten",
+       "body": "",
+       "ideas": [
+        "run-tracking-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Während der Bewegung helfen",
+   "intro": "Eine Ansage muss kurz sein und sich auf den aktuellen Abschnitt oder die aktuelle Abbiegung beziehen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "audio",
+     "title": "Die Ansage und die eigene Musik hören",
+     "passages": [
+      "Die Sprachbegleitung ist Teil des Laufs selbst. Man kann mit dem Zusammenspiel von Musik und Ansagen zufrieden sein und die Stimme selbst trotzdem nicht mögen – wie in der Rezension unten. Diese Wahl gibt man besser vorab: Eine kurze Probe zeigt die Sprechweise schon vor dem Aufbruch.",
+      "Ein anderer Fehler tritt nach der Ansage auf: Die Musik bleibt bis zum Ende der Einheit leise. Zusätzliche Stimmen beheben das nicht. Zu prüfen ist der gesamte Tonablauf – die Ansage ist erklungen, sie ist zu Ende, die gewohnte Lautstärke ist zurück.",
+      "Schließlich können die Ansagen mit dem gewählten Player gar nicht zu hören sein. Eine Prüfung mit echten Kopfhörern und echter Musik zählt hier mehr als eine Vorführung innerhalb der App. Häufigkeit und Inhalt der Meldungen einzustellen lohnt sich erst, wenn sie zuverlässig hörbar sind und das Weitermachen nicht stören."
+     ],
+     "quotes": [
+      {
+       "text": "Mir gefällt der allmähliche Aufbau dieser Geh-/Lauf-App wirklich. Und mir gefällt, dass ich meine eigene Musik hören kann und die Ansagen trotzdem mitbekomme! Nur eine Sache... ich hasse diese schreckliche ROBOTERSTIMME. Klingt so unpersönlich. Ich wünschte, None to Run könnte das beheben, dann wäre es perfekt.",
+       "rating": 3,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "Ich bin nicht glücklich, immer wenn ich die App benutze und die Stimme kommt und mir sagt „ich bin bei der Hälfte“, wird meine Musik deutlich leiser und ich kann sie nicht mehr lauter machen, bis ich in dem Moment mit der App fertig bin. Das beeinträchtigt mein Lauferlebnis deutlich.",
+       "rating": 3,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "Ich hab beim Benutzen keine Audio-Ansagen bekommen. Weiß nicht, ob das daran liegt, dass ich Spotify nutze, aber andere Apps wie Couch to 5k sagen über Spotify schon an.",
+       "rating": 2,
+       "app": "Watch to 5K－Couch to 5km coach"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-audio",
+       "title": "Die Ansage und die eigene Musik hören",
+       "body": "",
+       "ideas": [
+        "run-tracking-4",
+        "run-tracking-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pace",
+     "title": "Den Wert des aktuellen Abschnitts verstehen",
+     "passages": [
+      "Das Durchschnittstempo des gesamten Trainings verbirgt den Unterschied zwischen Gehen, Laufen und den einzelnen Abschnitten. Wer gerade den Laufanteil verstehen will, dem hilft eine weitere Gesamtzahl nicht. Auch die Ansage, schneller zu werden, ergibt nur vor dem Hintergrund eines verständlichen aktuellen Abschnitts einen Sinn.",
+      "Eine nützliche Darstellung verbindet den Wert mit dem Zeitraum, zu dem er gehört: aktueller Abschnitt, abgeschlossene Runde oder die ganze Einheit. So kann ein Mensch die eigene Aufzeichnung durchgehen, ohne verschiedene Tätigkeiten zu vermischen. Die Auswahl solcher Daten ist Sache der Oberfläche und der Erfassung; sie verlangt von der App nicht, ein für alle passendes Tempo zu erfinden.",
+      "Auf der Uhr ist die Wahl eines Hauptwerts besonders wichtig. Nach dem Ende der Einheit lässt er sich zusammen mit den Runden und den Übergängen zwischen Gehen und Laufen aufklappen. Eine solche Durchsicht erklärt das Ergebnis und hält die Verbindung zum tatsächlichen Aufbau der Einheit, nicht nur zu einer allgemeinen Durchschnittszahl."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe die App wegen der Trainingsprogramme. Sie sagt mir, ob ich schneller werden, langsamer machen soll oder im Tempo liege. Manche Runden- und Auswertungssachen, die andere Apps haben, gibt sie nicht.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "Mein einziger Vorschlag, der die App besser machen würde: mein Tempo während jedes Abschnitts sehen zu können, ich wüsste gern, welches Tempo ich in den Laufteilen halte. Ich hab eine andere Lauf-App genutzt, bei der das ging.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      },
+      {
+       "text": "Die App ist bestenfalls okay. Wenn man ihr folgt, kommt man dahin, wo man hinwill. Sie gibt einem aber keine Zwischentempos in Echtzeit oder in der Zusammenfassung, alles ist ein Durchschnitt. Es gibt auch keine Meldung, wenn man nach Meilen statt nach Zeit läuft, was super frustrierend ist.",
+       "rating": 2,
+       "app": "10K Trainer by C25K®"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pace",
+      "alt": "Illustration zum Thema „Den Wert des aktuellen Abschnitts verstehen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Den Wert des aktuellen Abschnitts verstehen",
+       "body": "",
+       "ideas": [
+        "run-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "route",
+     "title": "Die Ansage zur nötigen Abbiegung bekommen",
+     "passages": [
+      "Abbiegeansagen erlauben es, einer Route zu folgen und die Karte seltener zu öffnen. Eine positive Rezension schätzt sowohl das Finden eines passenden Wegs als auch die Begleitung auf ihm: Das sind zwei Teile einer Erfahrung.",
+      "Überflüssige Abbiegungen auf einem geraden Stück untergraben das Vertrauen in die nächste Ansage. Es reicht nicht, den berechneten Text rechtzeitig auszusprechen – er muss mit einer tatsächlichen Richtungsänderung abgeglichen werden. Auf einer vertrauten Strecke fällt ein solcher Widerspruch schnell auf.",
+      "Die Ansagen müssen außerdem beim gewählten Gerät ankommen. Wenn sie auf der Uhr nicht mehr zu hören sind, bewahrt eine brauchbare Linie auf der Karte die frühere Bequemlichkeit nicht. Die wichtigste Prüfung ist, die gesamte Route mit genau der Hörweise zurückzulegen, für die der Mensch die App gewählt hat, samt Abweichung und Rückkehr auf den Weg."
+     ],
+     "quotes": [
+      {
+       "text": "Diese App ist so viel besser als andere, die behaupten, dasselbe zu können. Ich habe nie Probleme, Routen zu finden, und die Abbiegeansagen halten mich immer auf Kurs.",
+       "rating": 5,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "Ich liebe die Idee dieser App! Und mit ein paar Verbesserungen wäre sie perfekt. Zum einen baut sie, wie andere Nutzer schon geschrieben haben, mitten im Lauf oft unnötige Abbiegungen ein und sagt sie auch an. Ich bin auf einem geraden Stück und sie sagt „rechts abbiegen, links abbiegen“, damit ich geradeaus weiterlaufe.",
+       "rating": 3,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "Die letzten paar Updates haben die Kernfunktion der App, Abbiegungen und Routenangaben anzusagen, komplett kaputt gemacht. Von meiner Apple Watch spricht die App überhaupt nicht mehr.",
+       "rating": 1,
+       "app": "RunGo - The Best Routes to Run"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-route",
+       "title": "Die Ansage zur nötigen Abbiegung bekommen",
+       "body": "",
+       "ideas": [
+        "run-tracking-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Nach einer gewöhnlichen Pause weitermachen",
+   "intro": "Der Kalender ändert sich häufiger als das Ziel der Einheiten. Verlauf und nächster Schritt müssen verständlich bleiben.",
+   "art": null,
+   "observations": [
+    {
+     "id": "plan",
+     "title": "Einen Tag verschieben, ohne die Reihenfolge zu durchbrechen",
+     "passages": [
+      "Ein verständliches Programm nimmt die Frage weg, welche Einheit als Nächste zu öffnen ist. In der Rezension unten hat ein allmählicher Anfang einem Menschen geholfen, ins Laufen hineinzukommen. Das ist eine nützliche Erfahrung, sie bedeutet aber nicht, dass dieselbe Reihenfolge zu allen passt.",
+      "Einem anderen Menschen erscheint der Übergang zur nächsten Stufe zu schroff. Sein eigenes Intervallschema in der Rezension ist Ausdruck von Unzufriedenheit, kein fertiger Maßstab für die Belastung. Für ein Produkt zählen hier eine verständliche Rückmeldung und die Möglichkeit, eine vertraute Einheit zu wiederholen, ohne erfundene Abschlüsse einzuzeichnen.",
+      "Der Zeitplan ist ein eigener Grund für eine Änderung. Ein Training auf einen anderen Tag zu verschieben, ist nicht dasselbe wie seine Schwierigkeit zu ändern. Wird der Kalender von der Reihenfolge getrennt, kann ein Mensch die Woche planen und dabei einen ehrlichen Verlauf und den selbst gewählten Punkt der Fortsetzung behalten."
+     ],
+     "quotes": [
+      {
+       "text": "Ich bin kein Läufer, und diese App macht gerade einen aus mir! Laufen ist hart, aber so, wie einen dieses Programm da hineinführt, ist es machbar! Ich bin 57 und bei Woche 5, Lauf 2, und es wird immer leichter.",
+       "rating": 5,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "Steigert viel zu schnell!!! Springt in einer Woche von 5-Minuten-Intervallen auf 8 auf 20. Lächerlich. Sollte die Laufintervalle von 2 auf 3, 4, 5, 6, 7, 8, 9 erhöhen und die Gehintervalle von 2 auf 1 Minute auf 30 Sekunden senken.",
+       "rating": 1,
+       "app": "Couch to 5K® - Run training"
+      },
+      {
+       "text": "Die App fürs Marathontraining zu nutzen, hat das Rätselraten „was muss ich heute machen“ beendet. Ich liebe den Kalender, so kann ich vorausschauen und entsprechend planen....oder umstellen, wenn nötig.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_plan",
+      "alt": "Illustration zum Thema „Einen Tag verschieben, ohne die Reihenfolge zu brechen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-plan",
+       "title": "Einen Tag verschieben, ohne die Reihenfolge zu durchbrechen",
+       "body": "",
+       "ideas": [
+        "run-tracking-1",
+        "run-tracking-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "story",
+     "title": "Die Wahl der Motivation lassen",
+     "passages": [
+      "Der Grund zurückzukommen kann das Interesse daran sein, wie die Geschichte weitergeht. In der folgenden Rezension hat gerade die Handlung den Menschen nach einer Pause wieder gepackt. Das ist ein Bericht über persönliche Motivation; seine Geschwindigkeit und die Häufigkeit seiner Läufe beweisen keine Wirkung für andere Nutzer.",
+      "Eine andere Rezension formuliert den Nutzen schlichter: Laufen fühlte sich nicht mehr wie eine Pflicht an. Ein solches Produkt konkurriert nicht nur über den Satz an Kennzahlen, sondern darüber, wie ein Mensch die Zeit der Einheit verbringen will.",
+      "Die Stadt, die Vorräte und die Figuren erzeugen die Erwartung der nächsten Folge. Für die Entwicklung ist das eine eigene inhaltliche Arbeit: Die Geschichte muss weitergehen, und die Rückkehr zu ihr muss bequem sein. Einen einzelnen Spielbildschirm zu einem Zähler hinzuzufügen, reicht nicht; es lohnt sich zu prüfen, ob die Leute tatsächlich wegen der nächsten Folge zurückkommen."
+     ],
+     "quotes": [
+      {
+       "text": "Ich bin vor ein paar Monaten nach einer Auszeit zu Zombies, Run! zurückgekehrt. Sie hat mich schnell dazu gebracht, sechs Tage die Woche zu laufen. Es macht weiter Spaß und die Texte sind wirklich packend. Und ich werde schneller. Viel schneller.",
+       "rating": 5,
+       "app": "Zombies, Run!"
+      },
+      {
+       "text": "Diese App hat mein Verhältnis zum Laufen von Pflicht zu Vergnügen geändert!",
+       "rating": 5,
+       "app": "INTVL"
+      },
+      {
+       "text": "Es gibt viele 5-km-Programme für Anfänger, dieses hier gibt einem dabei eine Geschichte, in die man sich reinhängt. Die Stadt retten, Vorräte sammeln, vor Zombies weglaufen.",
+       "rating": 5,
+       "app": "Zombies, Run! 5k Training"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst eine Einheit ohne Eingreifen zu Ende bringen",
+  "body": "Die erste Priorität ist ein vollständiger Lauf mit weggestecktem Telefon: Die Aufzeichnung läuft weiter, die Ansagen sind hörbar, die Musik kommt zurück, das Ergebnis wird gespeichert. In den Rezensionen stören diese Fehler die Einheit selbst, deshalb gleichen neue Kennzahlen sie nicht aus. Prüfen sollte man ganze Abläufe auf der Straße, auf dem Laufband und auf der Uhr statt einzelner Bildschirme.\n\nDanach kommt der Grund, die App das nächste Mal zu öffnen. Die einen brauchen einen verständlichen Plan, die anderen die Einzelheiten der Abschnitte, wieder andere ein neues Kapitel der Geschichte. Das sind verschiedene Richtungen für ein Produkt. Das Verschieben eines Datums und die Wiederholung einer Einheit lassen sich bequem machen, ohne die Genauigkeit einer persönlichen Trainerbetreuung zu versprechen. Und den Nutzen einer Handlung prüft man am Interesse an der Fortsetzung, ohne ihr ein allgemeingültiges sportliches Ergebnis zuzuschreiben."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-record",
+   "title": "Aufzeichnen, was tatsächlich passiert ist",
+   "depth": 0
+  },
+  {
+   "id": "observation-pause",
+   "title": "Bemerken, dass die Aufzeichnung stehen geblieben ist",
+   "depth": 1
+  },
+  {
+   "id": "observation-distance",
+   "title": "Wissen, woher die Distanz stammt",
+   "depth": 1
+  },
+  {
+   "id": "observation-watch",
+   "title": "Die Einheit vor dem Losgehen vorbereiten",
+   "depth": 1
+  },
+  {
+   "id": "theme-during",
+   "title": "Während der Bewegung helfen",
+   "depth": 0
+  },
+  {
+   "id": "observation-audio",
+   "title": "Die Ansage und die eigene Musik hören",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Den Wert des aktuellen Abschnitts verstehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-route",
+   "title": "Die Ansage zur nötigen Abbiegung bekommen",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Nach einer gewöhnlichen Pause weitermachen",
+   "depth": 0
+  },
+  {
+   "id": "observation-plan",
+   "title": "Einen Tag verschieben, ohne die Reihenfolge zu durchbrechen",
+   "depth": 1
+  },
+  {
+   "id": "observation-story",
+   "title": "Die Wahl der Motivation lassen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst eine Einheit ohne Eingreifen zu Ende bringen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

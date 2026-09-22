@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "invoice-maker-2",
+ "category": "invoice-maker",
+ "categoryName": "Rechnungen für Kunden",
+ "title": "Die Anzahlung und die Schlussabrechnung",
+ "description": "Zahlungen sind mit einem Auftrag verbunden, und der offene Betrag lässt sich anhand der Historie prüfen.",
+ "cover": {
+  "src": "ideas/invoice-maker-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Wenn die Anzahlung nebenher in einer Tabelle notiert wird, sehen der Kunde und die ausführende Person leicht unterschiedliche Schuldbeträge."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ich wünschte, sie hätten einen Weg eingebaut, Anzahlungen reibungslos anzunehmen.",
+    "rating": 4,
+    "app": "Invoice Maker & Estimate App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Wie das funktionieren könnte"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Jeden Zahlungseingang mit seinem Datum speichern, den ursprünglichen Umfang und den aktuellen offenen Betrag zeigen. Rückerstattungen und Korrekturen zu eigenen Ereignissen machen."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Worauf zu achten ist"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Die Zahlung des Kunden und der Geldeingang bei der ausführenden Person können zu verschiedenen Zeiten stattfinden; die Status müssen unterschieden werden."
+  }
+ ],
+ "rank": 464,
+ "free": false
+}

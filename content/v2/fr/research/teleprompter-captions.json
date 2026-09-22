@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "teleprompter-captions",
+ "name": "Téléprompteur et sous-titres",
+ "summary": "Du script à la vidéo finie : comment parler à son rythme, refaire certaines phrases et corriger les sous-titres sans refaire tout l’enregistrement.",
+ "corpus": {
+  "reviews": 9895,
+  "apps": 41
+ },
+ "lead": "Un téléprompteur sert au moment où une personne a déjà préparé une idée et veut la faire passer à la caméra. Ce sont de petits ratés qui gênent ici : la ligne est partie trop loin, une pause a arrêté l’enregistrement sans prévenir, la prise voulue n’a pas été enregistrée. Après le tournage, le même travail se poursuit dans les sous-titres et dans l’export.\n\nUn bon outil protège les parties réussies. Un lapsus ne doit pas obliger à refaire le début, un mot erroné à remettre en forme les sous-titres, une erreur d’export à réenregistrer le discours. C’est le critère commun des possibilités qui suivent : quelle part du travail déjà fait la personne conserve après chaque correction.",
+ "cover": {
+  "src": "research/ResearchLaunch_teleprompter-captions_cover",
+  "alt": "Téléprompteur et sous-titres",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_teleprompter-captions_audiences",
+  "alt": "Tâches des gens : Téléprompteur et sous-titres",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Tourne seul une courte vidéo",
+   "body": "Un auteur seul devant la caméra : il lit le script, fait des pauses et choisit la prise réussie. Il lui faut corriger une phrase en gardant le reste de l’enregistrement."
+  },
+  {
+   "title": "Intervient avec un opérateur ou une télécommande",
+   "body": "L’orateur ne peut pas toucher l’écran en permanence. Les commandes doivent reproduire ce qui a été répété : la même version du texte, des boutons clairs et une vitesse enregistrée."
+  },
+  {
+   "title": "Prépare les sous-titres d’un enregistrement",
+   "body": "L’auteur part d’une vidéo déjà tournée. Ce qui compte, c’est de trouver les trous, de vérifier la traduction et d’obtenir une vidéo où les sous-titres restent lisibles."
+  }
+ ],
+ "sections": [
+  {
+   "id": "speak",
+   "title": "Enregistrer son discours à son rythme",
+   "intro": "Un script aide à parler, tant que piloter le texte ne demande pas plus d’attention que la pensée elle-même.",
+   "art": null,
+   "observations": [
+    {
+     "id": "eye",
+     "title": "Lire en gardant le regard vers la caméra",
+     "passages": [
+      "Un téléprompteur réduit les allers-retours du regard entre le script et l’objectif. Mais un texte placé sous la caméra, une ligne trop large ou une taille inadaptée peuvent rendre la lecture visible. Le confort est jugé par l’orateur comme par la personne qui regarde la vidéo ensuite.",
+      "Les réglages de position, de largeur et de taille doivent être liés à un court visionnage de l’enregistrement. On peut alors choisir une option lisible pour sa propre distance à la caméra. Un bel éditeur de script est secondaire : le résultat utile, c’est que la personne distingue la phrase et garde la direction de regard choisie, sans chercher en même temps la bonne ligne.",
+      "Une zone de lecture fixe évite de chercher la ligne suivante partout sur l’écran. Sa position, sa largeur et la taille de la police méritent d’être choisies sur une courte prise d’essai, à la distance réelle de la caméra. Le réglage est réussi si le texte se lit et si le mouvement des yeux ne distrait pas le spectateur."
+     ],
+     "quotes": [
+      {
+       "text": "Enfin je ne regarde plus « là-bas » pour lire mon script, puis « par ici » pour regarder dans la caméra. Et le « défilement auto » suit MON rythme.",
+       "rating": 5,
+       "app": "Teleprompter.com"
+      },
+      {
+       "text": "Je suis très nerveux quand je parle devant une caméra et ça fait pas naturel du tout vu que j’arrive pas à m’empêcher de regarder ailleurs. Je cherchais une appli de téléprompteur qui pourrait m’aider à me souvenir de ce que je dois dire pendant que je parle et m’aider à garder le contact visuel ave",
+       "rating": 5,
+       "app": "Teleprompter - VILO"
+      },
+      {
+       "text": "Il devrait y avoir une ligne au milieu de l’écran, c’est là que les yeux de celui qui parle devraient être en permanence. S’il ou elle commence à lire en haut de l’écran, le spectateur va voir tout de suite que",
+       "rating": 3,
+       "app": "Teleprompter Video & Mirror"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_eye",
+      "alt": "Illustration du thème « Lire en gardant les yeux sur la caméra ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "pace",
+     "title": "Piloter le rythme et les pauses",
+     "passages": [
+      "Le suivi de la voix aide à parler à son rythme, tant que le défilement réagit correctement à la parole. Une conversation de fond ou de la musique peuvent décaler le texte, et un script long peut révéler une difficulté qu’un court essai ne montre pas. Une vitesse fixée demande une autre forme de maîtrise : un réglage assez fin et une valeur qui est conservée.",
+      "Le défilement à la voix doit distinguer la parole de l’orateur d’un son extérieur. Quand la musique ou la conversation de quelqu’un d’autre est prise pour la suite du script, l’auteur perd sa place. L’automatisme a donc besoin d’un fragment courant visible et d’un retour manuel rapide qui ne termine pas l’enregistrement.",
+      "Une vitesse manuelle est utile comme mode à part entière, mais elle doit être conservée avec le script. Régler de nouveau le rythme avant chaque prise est une part de tournage en trop. Le suivi de la voix et une vitesse constante répondent à une même tâche de deux façons ; passer de l’un à l’autre doit laisser le texte sur la phrase en cours."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli marche, tout simplement. Avoir le repère de reconnaissance vocale, c’est le jour et la nuit par rapport aux applis de téléprompteur « bêtes ».",
+       "rating": 4,
+       "app": "PromptSmart Pro - Teleprompter"
+      },
+      {
+       "text": "Le défilement auto est censé avancer quand tu parles....ça avance, ça oui...si de la musique passe (sans que personne chante), quand d’autres gens parlent en fond",
+       "rating": 1,
+       "app": "▶Teleprompter"
+      },
+      {
+       "text": "Le défaut rédhibitoire, c’est qu’on peut pas enregistrer la vitesse de défilement qu’on veut. À chaque fois qu’on ouvre un script, ça revient à la valeur par défaut 50, qui est beaucoup trop rapide.",
+       "rating": 2,
+       "app": "▶Teleprompter"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Piloter le rythme et les pauses",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "return",
+     "title": "Refaire une phrase en gardant la partie réussie",
+     "passages": [
+      "La parole en direct autorise un lapsus, une pause et un écart par rapport au script. Revenir à une ligne doit aider à retrouver la pensée, pas terminer la vidéo d’un coup ni projeter le texte loin en avant. Sinon, une courte correction oblige à refaire une partie déjà réussie.",
+      "Trois actions doivent rester distinctes ici : arrêter le défilement, choisir une phrase et piloter l’enregistrement. Leur état doit être visible séparément. Avant un tournage, il vaut la peine de s’interrompre exprès et de reprendre à la phrase précédente. Cette expérience montre le confort d’un téléprompteur plus précisément qu’une lecture du script du début à la fin sans faute.",
+      "Une pause peut faire partie de la parole en direct : l’auteur explique une idée avec ses propres mots, puis revient au script. S’il décide de refaire une phrase, un paragraphe peut servir de point de reprise. Plusieurs prises et une petite marge avant et après une réplique aident à monter la vidéo ; le raccord lui-même doit quand même se regarder dans la séquence complète."
+     ],
+     "quotes": [
+      {
+       "text": "Quand j’essaie d’enregistrer des vidéos et de repartir d’un nouvel endroit dans le script, le script saute très loin en avant et on peut pas revenir en arrière. Ça me prend des heures d’enregistrer un script de cinq minutes parce que je dois tout le temps recommencer.",
+       "rating": 2,
+       "app": "BIGVU Teleprompter Captions AI"
+      },
+      {
+       "text": "Je déteste qu’à chaque fois que je remonte dans le téléprompteur, ça mette la vidéo en pause, et après il faut terminer la vidéo, supprimer l’ancienne et tout refaire.",
+       "rating": 2,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "On peut mettre en pause maintenant, ce qui m’aide beaucoup parce qu’il m’arrive de sortir du script.",
+       "rating": 5,
+       "app": "Telepromptr"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_return",
+      "alt": "Illustration du thème « Refilmer une phrase en gardant la bonne partie ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-return",
+       "title": "Refaire une phrase en gardant la partie réussie",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "camera",
+     "title": "Garder la façon de tourner choisie",
+     "passages": [
+      "Une caméra intégrée raccourcit le chemin jusqu’à l’enregistrement. Mais une personne peut choisir une autre caméra pour ce qu’elle sait faire, ou vouloir n’enregistrer que le son. Dans ces cas-là, le téléprompteur sert d’appui à la façon de tourner choisie, pas de remplacement obligatoire.",
+      "Parfois, il n’y a aucun besoin d’enregistrer l’image : la personne lit un texte pour une voix off. Un mode audio à part conserve le script et la commande du rythme sans caméra obligatoire. C’est une tâche plus définie que la promesse de combiner le téléprompteur avec toutes les apps de tournage.",
+      "La compatibilité ne se décrit pas par un seul bouton « par-dessus la caméra ». Il faut des combinaisons testées d’appareils, d’apps et de modes d’enregistrement. Si une limitation empêche d’afficher le texte à côté de l’objectif, il vaut mieux expliquer l’option prise en charge avant d’importer un script long."
+     ],
+     "quotes": [
+      {
+       "text": "L’enregistreur intégré, c’est un gros plus.",
+       "rating": 5,
+       "app": "Teleprompter App"
+      },
+      {
+       "text": "Je comprends pas pourquoi on est obligé d’enregistrer avec la caméra. Dans mon cas, j’ai peut-être besoin que de ma voix.",
+       "rating": 3,
+       "app": "Teleprompter for Video Pro"
+      },
+      {
+       "text": "Le téléprompteur en pop-up n’affiche pas le texte quand la caméra native est ouverte. Et le pop-up ne démarre pas non plus quand on dézoome avec les doigts.",
+       "rating": 3,
+       "app": "Teleprompter for Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-camera",
+       "title": "Garder la façon de tourner choisie",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "remote",
+     "title": "Préparer les commandes avant le début de l’enregistrement",
+     "passages": [
+      "Une télécommande permet d’arrêter le texte et de revenir à une ligne sans sortir du cadre. Pour un orateur, ce sont quelques commandes familières qui comptent, pas un grand jeu de réglages. Si un bouton dont il a l’habitude cesse de fonctionner après une mise à jour, il faut changer une façon de tourner déjà répétée.",
+      "Une télécommande connectée ne veut pas encore dire que ses boutons pilotent le script. Un essai doit montrer le résultat de chaque appui : démarrage, pause, déplacement vers le haut et vers le bas. Ainsi une incompatibilité apparaît avant le tournage, et l’utilisateur ne passe pas des heures à refaire l’appairage d’un appareil déjà reconnu.",
+      "Quand un opérateur pilote le texte, l’orateur doit voir qui commande le défilement à cet instant. Si la connexion est perdue, s’arrêter à l’endroit courant est plus utile que continuer à un rythme inconnu. La télécommande mérite aussi d’être vérifiée après le verrouillage de l’écran et après une reconnexion."
+     ],
+     "quotes": [
+      {
+       "text": "les fonctions de défilement haut et bas sur une télécommande de présentation (genre podcaster) ne marchent plus avec cette appli. Du coup j’ai serré les dents et j’ai pris une autre appli de téléprompteur à 90 $ par an.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "mes télécommandes de présentation podcaster (j’en ai 2) font pas défiler l’écran vers le haut ou vers le bas quand j’appuie sur le bouton de la télécommande. J’ai essayé sur 2 iPhone différents et ça marche pas. Ça m’a pris 2 1/2 heures de mon temps à chercher d’où ça venait.",
+       "rating": 2,
+       "app": "Teleprompter Pro"
+      },
+      {
+       "text": "j’étais sur une mission pro et l’option de défilement à la voix a pas marché. On est passés à la télécommande et c’était plein de bugs.",
+       "rating": 2,
+       "app": "PromptSmart Pro - Teleprompter"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_remote",
+      "alt": "Illustration du thème « Préparer les commandes avant le début de l’enregistrement ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-remote",
+       "title": "Préparer les commandes avant le début de l’enregistrement",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-4",
+        "teleprompter-captions-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Mener l’enregistrement jusqu’à une vidéo finie",
+   "intro": "Les mots reconnus, la traduction, la mise en forme et l’export sont des étapes successives, chacune avec sa propre vérification.",
+   "art": null,
+   "observations": [
+    {
+     "id": "captions",
+     "title": "Vérifier ce qui a été entendu, puis la traduction",
+     "passages": [
+      "Des sous-titres obtenus vite suppriment la saisie à la main, mais une phrase sautée demande quand même une intervention. La traduction ajoute une étape de plus : la ligne d’origine peut être reconnue correctement alors que le sens rendu dans l’autre langue est mauvais. Corriger ces erreurs par la même action n’est pas pratique.",
+      "Chaque ligne doit être liée au moment correspondant de la vidéo, avec l’original et la traduction distinguables côte à côte. On peut alors trouver le trou, vérifier ce qui a été entendu et modifier la bonne couche. La valeur de l’automatisme se mesure au temps nécessaire pour arriver à un texte vérifié, pas seulement à la vitesse du premier résultat.",
+      "La traduction apparaît après la reconnaissance et demande sa propre vérification. Si un nom ou un chiffre a été corrigé dans la ligne d’origine, la traduction liée doit être revue. Un éditeur qui montre l’audio, la ligne d’origine et sa traduction évite de chercher le bon endroit ; l’exactitude du sens reste vérifiée par une personne qui connaît les langues."
+     ],
+     "quotes": [
+      {
+       "text": "Ça m’a donné les sous-titres de ma vidéo. Ça a pris moins de huit secondes.",
+       "rating": 5,
+       "app": "AI Captions for Videos: VidCap"
+      },
+      {
+       "text": "Les sous-titres auto sont bien, mais seulement quand ça marche. Il y a plein de phrases qu’il saute carrément, et je dois les ajouter à la main après.",
+       "rating": 3,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "J’ai envoyé une vidéo en espagnol pour la faire transcrire et traduire en anglais et la traduction est vraiment mauvaise. Je voudrais me faire rembourser mon abonnement",
+       "rating": 2,
+       "app": "Translate Add Subtitles Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-captions",
+       "title": "Vérifier ce qui a été entendu, puis la traduction",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "layout",
+     "title": "Garder le sous-titre lisible en mouvement",
+     "passages": [
+      "Un sous-titre doit occuper la place choisie pour lui dans un cadre précis. Pouvoir changer la police et la couleur est utile avec le réglage de la position et du format de la vidéo. Un texte au bord ou des lignes qui se chevauchent peuvent rendre un sous-titre soigné impossible à regarder.",
+      "La mise en forme doit donc se vérifier en mouvement et dans les proportions où la vidéo sera réellement utilisée. Une coupure de ligne doit rester indépendante des sous-titres voisins. Un aperçu utile ne montre pas une seule image réussie, mais une suite d’images avec un texte lisible.",
+      "Les proportions se choisissent avant la mise en forme : un placement confortable dans un cadre horizontal peut ne pas convenir à un cadre vertical. Dans un visionnage complet, il vaut la peine de voir une longue réplique et un changement de plan, pas une seule image réussie. Une coupure de ligne individuelle doit survivre à un changement du style commun."
+     ],
+     "quotes": [
+      {
+       "text": "texte, polices, couleurs, ombres personnalisables, etc • on peut placer le texte n’importe où sur la vidéo • plusieurs formats de vidéo au choix",
+       "rating": 4,
+       "app": "MixCaptions: Video Captions"
+      },
+      {
+       "text": "J’ai essayé d’ajouter des sous-titres à ma vidéo mais ils sont toujours coincés tout en bas de l’écran, comment je fais pour déplacer le texte ?",
+       "rating": 4,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "Je suis surpris qu’il n’y ait pas d’option pour le format 9:16, pourtant essentiel pour beaucoup de plateformes de streaming.",
+       "rating": 3,
+       "app": "AutoCap: Auto Video Captions"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_layout",
+      "alt": "Illustration du thème « Garder un sous-titre lisible en mouvement ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-layout",
+       "title": "Garder le sous-titre lisible en mouvement",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "export",
+     "title": "Ouvrir le fichier fini et le vérifier",
+     "passages": [
+      "Après une prise réussie et une relecture, la valeur principale est déjà créée. La perdre à l’étape de l’enregistrement est particulièrement pénible : un message annonçant la fin de l’export peut voisiner avec un fichier absent ou des sous-titres disparus. Un nouveau traitement ne remplace pas l’accès au travail d’origine.",
+      "La dernière étape doit montrer où le fichier a été enregistré et permettre d’ouvrir la vidéo finie. Jusqu’à cette vérification, il est utile de conserver séparément la source et les corrections qui lui ont été apportées. La personne peut alors reprendre au même état et s’assurer que la vidéo qu’elle transmet contient encore l’enregistrement et la mise en forme choisie.",
+      "Sur une longue vidéo, il est utile de conserver le résultat du traitement étape par étape. Si l’export est interrompu, la personne doit retrouver les sous-titres déjà faits et les prises qu’elle a choisies. Vérifier le début, le milieu et la fin du fichier aide à repérer un passage manqué avant l’envoi."
+     ],
+     "quotes": [
+      {
+       "text": "Tellement de fois, après avoir enregistré une vidéo de plusieurs minutes, j’appuie sur la caméra pour l’enregistrer et mon enregistrement disparaît. C’est vraiment frustrant.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "J’ai enregistré une longue vidéo avec cette appli et elle m’a pas laissé exporter à la fin !!! Mon téléphone est devenu brûlant... et l’appli affichait que l’export était entièrement terminé.",
+       "rating": 1,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "Chaque mauvaise prise, elle la garde, chaque vidéo que je termine et que je compte utiliser disparaît comme par magie. Téléchargez pas cette appli.",
+       "rating": 1,
+       "app": "Teleprompter App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Ouvrir le fichier fini et le vérifier",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Préserver la prise réussie",
+  "body": "Je commencerais par l’auteur seul de vidéos courtes et une tâche complète : lire un script, refaire un lapsus et obtenir une vidéo avec les sous-titres corrigés. C’est là qu’on voit le plus facilement où le temps est gagné. Il suffit de laisser une personne tourner son texte habituel, corriger volontairement une phrase et mener l’enregistrement jusqu’à un fichier. Si une correction oblige à tout reprendre du début, des styles et des effets en plus ne résolvent pas la tâche principale.\n\nUne télécommande, un opérateur et de longues conférences relèvent d’autres conditions de tournage. Ils méritent d’être développés après le choix du scénario principal, ou comme une spécialisation à part. Le résultat principal d’un premier produit, c’est le travail conservé après une erreur : les prises réussies, le texte relu et la possibilité de refaire seulement l’étape ratée."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-speak",
+   "title": "Enregistrer son discours à son rythme",
+   "depth": 0
+  },
+  {
+   "id": "observation-eye",
+   "title": "Lire en gardant le regard vers la caméra",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Piloter le rythme et les pauses",
+   "depth": 1
+  },
+  {
+   "id": "observation-return",
+   "title": "Refaire une phrase en gardant la partie réussie",
+   "depth": 1
+  },
+  {
+   "id": "observation-camera",
+   "title": "Garder la façon de tourner choisie",
+   "depth": 1
+  },
+  {
+   "id": "observation-remote",
+   "title": "Préparer les commandes avant le début de l’enregistrement",
+   "depth": 1
+  },
+  {
+   "id": "theme-finish",
+   "title": "Mener l’enregistrement jusqu’à une vidéo finie",
+   "depth": 0
+  },
+  {
+   "id": "observation-captions",
+   "title": "Vérifier ce qui a été entendu, puis la traduction",
+   "depth": 1
+  },
+  {
+   "id": "observation-layout",
+   "title": "Garder le sous-titre lisible en mouvement",
+   "depth": 1
+  },
+  {
+   "id": "observation-export",
+   "title": "Ouvrir le fichier fini et le vérifier",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Préserver la prise réussie",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -4,6 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { IdeaCards, favSubscribe, favSnapshot } from "./TestCards";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
 export type SavedPreview = {
@@ -20,7 +21,7 @@ export type SavedPreview = {
 // old feed (feed:saved) are merged in once, so nothing saved before is lost.
 export default function SavedIdeas({ items, locale = "ru", loggedIn = false }: { items: Record<string, SavedPreview>; locale?: Locale; loggedIn?: boolean }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
 
   // One-time migration of legacy hearts into favIdeas.
   const [migrated, setMigrated] = useState(false);

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "habit-tracking-2",
+ "category": "habit-tracking",
+ "categoryName": "Habits",
+ "title": "Check off a habit on the move",
+ "description": "A quick entry from the widget, the watch or a voice command. You can check off what you have done, verify the result and fix an accidental tap.",
+ "cover": {
+  "src": "ideas/habit-tracking-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Doing the action and recording it are two different efforts. A widget or a watch can shorten the second one, as long as the person can tell that the check-in was accepted. A fast entry point loses its point when duplicates have to be reconciled later, or a lost entry hunted down."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "A lot of thought went into this app and it shows. So easy to use and a pleasant experience to mark goals complete. Tap the widget, tap the goal, and done. Or use Siri Shortcuts. This is perfect.",
+    "rating": 5,
+    "app": "Awesome Habits: Habit Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Pick one common way to check off outside the main screen. Show the result at once, allow an accidental tap to be undone and the date to be corrected. When data passes between devices, distinguish a saved entry from one that is waiting to sync."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Ask people to check off a real habit in its usual conditions: on the move, without the phone nearby, or after a delay. Test saving and checking off a second time. There is no need to start with the watch, the widgets and voice commands all at once."
+  }
+ ],
+ "rank": 22,
+ "free": false
+}

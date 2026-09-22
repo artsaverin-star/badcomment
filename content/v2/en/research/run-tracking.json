@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "run-tracking",
+ "name": "Running",
+ "summary": "Recording the whole run, hearing the cues you need and carrying on with the plan after a break — these jobs matter more than one overall pace figure.",
+ "corpus": {
+  "reviews": 18463,
+  "apps": 50
+ },
+ "lead": "Before heading out you want to pick a session, put the phone away and run. But out on the route it turns out that the watch wants a connection, that the music does not come back after a cue, or that the recording quietly went on pause. After the finish what is left is a result nobody can read.\n\nWhat follows looks first at the recording, then at help while you are moving, then at coming back for the next session. Each stage has its own test of usefulness: keep what actually happened, give a cue that makes sense, and leave a next step that can be done.",
+ "cover": {
+  "src": "research/ResearchLaunch_run-tracking_cover",
+  "alt": "Running",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_run-tracking_audiences",
+  "alt": "People’s jobs: Running",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Starting or coming back to running",
+   "body": "Starting out and coming back after a break both need a clear choice of the next session. What matters is handling the calendar and the place in the program separately, keeping the record of what has already been done."
+  },
+  {
+   "title": "Running without looking at the phone",
+   "body": "When the phone is put away or left at home, the cues and the state of the recording have to be clear without constantly checking the screen. Here convenience is decided by the whole workout, including the way it ends."
+  },
+  {
+   "title": "Checking a single segment or route",
+   "body": "An average total is no substitute for information about a running segment, the distance on a treadmill or the turn you need. Choose your own question first, and only then the set of metrics that fits it."
+  }
+ ],
+ "sections": [
+  {
+   "id": "record",
+   "title": "Recording what actually happened",
+   "intro": "The street, the treadmill and a watch without a phone each call for a different way of checking the recording.",
+   "art": null,
+   "observations": [
+    {
+     "id": "pause",
+     "title": "Noticing that the recording stopped",
+     "passages": [
+      "A pause nobody notices changes what the result means: the run is over, but which part of it reached the history is unknown. A stop after the screen locks and an accidental touch in a pocket are worth telling apart, even though for the runner the outcome is the same — having to deal with the recording while moving.",
+      "So the state of the workout needs a signal you can get at and an obvious way to carry on. A check before use has to cover the usual position of the device: put the phone away, lock the screen, come back to the recording. A good result lets a full workout be told apart from a fragment, without passing a gap off as a measurement that was taken.",
+      "At the end it helps to show not only the total but the stretches with no data. The runner can then add a note or save the fragment as an incomplete workout. Filling in the missing path automatically, with nothing to mark it, means changing the history the person expected to get."
+     ],
+     "quotes": [
+      {
+       "text": "The design and the idea are great. But when the phone screen turns off, the app gets lost. It goes on pause and loses the GPS connection. And like that it's useless. Ran 5km and after 500 meters the screen went off and so did the app.",
+       "rating": 3,
+       "app": "Running App - Run Tracker"
+      },
+      {
+       "text": "The timer shuts off when the phone automatically goes to sleep. It only begins to start recording once the phone is woken up. So every time I run for a set time, I don't know when that is.",
+       "rating": 1,
+       "app": "RUN interval - Running Timer"
+      },
+      {
+       "text": "I've been using this app since 2017 and it was great, but it has started auto-pausing frequently, even with the auto-pause feature turned off and while I'm actually running! It's incredibly frustrating to have to mess with my phone while I'm running.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pause",
+      "alt": "Illustration for the theme “Noticing that recording has stopped”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "distance",
+     "title": "Knowing where the distance came from",
+     "passages": [
+      "The street and the treadmill create different conditions for recording distance. A number that suits a route you move along may not describe a session in one place. And even a single outdoor route can be recorded differently: matching totals cannot be assumed in advance.",
+      "It helps to keep where the number came from — the device, the chosen mode or a value entered by hand. Being able to add kilometers from the treadmill solves the problem of keeping a history, but it does not make all sources the same. When results are compared, it matters what exactly is being compared and how much of the data a person entered.",
+      "Editing by hand can be useful after a treadmill session or a lost signal. The original value and the way it was changed are worth keeping. Then a comparison of weeks does not mix measured distance with corrected distance, and the user understands the difference between devices."
+     ],
+     "quotes": [
+      {
+       "text": "GPS not accurate. I rode the same exact route and turned at my mile marker that told me on my ride the day before was my 2 mile mark so round trip should have been 4 miles. When I did it next day, my mark was off by .2 of a mile. Putting my round trip at 3.8 and not 4 miles.",
+       "rating": 2,
+       "app": "Map My Run GPS Running Tracker"
+      },
+      {
+       "text": "If you use this app running outdoors, it works fine. Records everything properly, sends notifications to headphones, etc. However if you use it indoors on a treadmill it does not record distance or steps properly, and it does not share information with the watch.",
+       "rating": 3,
+       "app": "C25K® 5K Running Coach & Map"
+      },
+      {
+       "text": "I really like this app. I do wish there was some way to input distance from treadmill runs. I'd like the mileage accounted for.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-distance",
+       "title": "Knowing where the distance came from",
+       "body": "",
+       "ideas": [
+        "run-tracking-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "watch",
+     "title": "Preparing the session before heading out",
+     "passages": [
+      "The existence of a watch version does not yet mean the phone can stay at home. For the user this is a condition of choice in its own right, and it should be clear before the purchase and before the first run.",
+      "Even a downloaded session can turn out to be unavailable: the file is already on the watch, but the screen with the collection wants the phone. So a plain list of sessions that open directly on the device with no connection is useful.",
+      "Standalone operation has to be tested end to end: find the session, start it, get the cues and finish the recording on the watch. The history can be handed over later. If a particular mode needs the phone, that has to be visible before the start, not discovered out on the route."
+     ],
+     "quotes": [
+      {
+       "text": "It is difficult to rate this app. I bought it due to the shameful lack of run apps that have a lap feature. In my excitement to purchase I neglected to see in the reviews - not in the description- that to use the Apple Watch you need to carry your phone. I bought the Apple Watch so I could run without",
+       "rating": 3,
+       "app": "Runmeter Running & Walking GPS"
+      },
+      {
+       "text": "This is such a great idea, and the guided runs really are amazing, but it's missing a key feature: a downloads folder in the Apple Watch app. Even if you download the run on your Apple Watch, you can't get any of the collections to load when you open the app without your phone nearby.",
+       "rating": 2,
+       "app": "Nike Run Club: Running Coach"
+      },
+      {
+       "text": "I had this app for sometime now and really enjoy the story and the fact it keeps healthy but I encountered issues where my steps don't get counted when I run on a treadmill and I recently got a Apple Watch and it's unfortunate that I can't start or be tracked on my Apple Watch instead of my phone.",
+       "rating": 3,
+       "app": "Zombies, Run!"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_watch",
+      "alt": "Illustration for the theme “Setting up the session before heading out”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-watch",
+       "title": "Preparing the session before heading out",
+       "body": "",
+       "ideas": [
+        "run-tracking-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "during",
+   "title": "Helping while you are moving",
+   "intro": "A cue has to be short and to refer to the current segment or turn.",
+   "art": null,
+   "observations": [
+    {
+     "id": "audio",
+     "title": "Hearing the cue and your own music",
+     "passages": [
+      "Voice guidance is part of the run itself. You can be happy with how the music and the cues sit together and still dislike the voice — as in the review below. That choice is better offered in advance: a short sample shows the manner of speech before you head out.",
+      "Another failure comes after the cue: the music stays ducked until the end of the session. Extra voices will not fix it. What has to be tested is the whole audio cycle — the cue sounded, it ended, the usual volume came back.",
+      "Finally, the cues may not sound at all with the music app you chose. A test with real headphones and real music matters more here than a demonstration inside the app. Tuning how often the messages come and what they say makes sense once they can reliably be heard and do not get in the way of carrying on."
+     ],
+     "quotes": [
+      {
+       "text": "I really like the gradual progression of this walk/run app. And I like that I can listen to my own music and still hear the prompts! The only thing is... I hate that terrible ROBOT VOICE. It sounds so impersonal. I wish None to Run could fix that and then it would be perfect.",
+       "rating": 3,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "I am not happy whenever i am using the app and the voice comes on to tell me 'i'm half way through', my music volume reduces significantly and i won't be able to increase it till i'm done using the app at that moment. This experience affects my run experience significantly.",
+       "rating": 3,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "I got no audio cues when using. Not sure if this is because I use Spotify, but other apps like Couch to 5k do cue over Spotify.",
+       "rating": 2,
+       "app": "Watch to 5K－Couch to 5km coach"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-audio",
+       "title": "Hearing the cue and your own music",
+       "body": "",
+       "ideas": [
+        "run-tracking-4",
+        "run-tracking-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pace",
+     "title": "Making sense of the number for the current segment",
+     "passages": [
+      "The average pace for the whole workout hides the difference between walking, running and the individual segments. If someone wants to make sense of the running part in particular, one more overall figure does not help. A cue to speed up also means something only against a current stretch that is clear.",
+      "A useful display ties a number to the period it belongs to: the current segment, a completed lap or the whole session. That lets a person go through their own recording without mixing different activities together. Choosing such data is a job for the interface and the record-keeping; it does not require the app to invent one pace that suits everyone.",
+      "On the watch, picking one main value matters especially. Once the session is over it can be opened up along with the laps and the switches between walking and running. Going through it that way explains the result and keeps it tied to the real structure of the session, not only to one overall average."
+     ],
+     "quotes": [
+      {
+       "text": "I love the app for the training programs. It will tell me if I need to speed up, slow down, or I'm on pace. It doesn't give some of the lap and some breakdowns that other apps do.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      },
+      {
+       "text": "My only suggestion that would improve the app is to be able to see my pace during each section, I would like to know what pace I am keeping during the run portions. I've used another run app that allowed me to do this.",
+       "rating": 4,
+       "app": "5K Runner: couch potato to 5K"
+      },
+      {
+       "text": "This app is OK at best. If you follow it you will get to where you want to be. However, it does not give you split paces in real time or in the summary, everything is an average. There is also no update when running miles vs time, which is super frustrating.",
+       "rating": 2,
+       "app": "10K Trainer by C25K®"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_pace",
+      "alt": "Illustration for the theme “Reading the figure for the current split”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Making sense of the number for the current segment",
+       "body": "",
+       "ideas": [
+        "run-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "route",
+     "title": "Getting a cue for the turn you need",
+     "passages": [
+      "Turn-by-turn cues let you follow a route while opening the map less often. A positive review values both finding a suitable path and being guided along it: these are two parts of one experience.",
+      "Extra turns on a straight stretch undermine trust in the next cue. It is not enough to speak the calculated text on time — it has to be checked against a real change of direction. A familiar route makes such a gap easy to spot.",
+      "The cues also have to reach the device you chose. If they have stopped sounding on the watch, a usable line on the map no longer gives the same convenience. The main test is to cover the whole route with the listening setup the person chose the app for, including going off course and getting back on."
+     ],
+     "quotes": [
+      {
+       "text": "This app is so much better than others that claim to do the same thing. I never have trouble finding routes, and the turn by turn directions always keep me on track.",
+       "rating": 5,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "Love the idea of this app! And with a few improvements, it could be perfect. For one, as other users have stated, it often creates and narrates unnecessary turns in the middle of the run. I will be on a straight section and it will say 'turn right, turn left' to keep me going straight.",
+       "rating": 3,
+       "app": "RunGo - The Best Routes to Run"
+      },
+      {
+       "text": "The past few updates have completely broken the core function of the app to speak turns and route directions. The app no longer speaks at all from my Apple Watch.",
+       "rating": 1,
+       "app": "RunGo - The Best Routes to Run"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-route",
+       "title": "Getting a cue for the turn you need",
+       "body": "",
+       "ideas": [
+        "run-tracking-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continue",
+   "title": "Carrying on after an ordinary break",
+   "intro": "The calendar changes more often than the goal of the training does. The history and the next step have to stay clear.",
+   "art": null,
+   "observations": [
+    {
+     "id": "plan",
+     "title": "Moving a day without breaking the sequence",
+     "passages": [
+      "A clear program removes the question of which session to open next. In the review below, a gradual start helped someone get into running. That is a useful experience, but it does not mean the same sequence will suit everyone.",
+      "For another person the step to the next stage feels too abrupt. His own scheme of intervals in the review is an expression of frustration, not a ready-made standard of load. What matters for a product here is clear feedback and the option to repeat a familiar session, without drawing in completions that never happened.",
+      "The schedule is a separate reason to change things. Moving a workout to another day is not the same as changing its difficulty. If the calendar is kept apart from the sequence, a person can plan the week while keeping an honest history and the point they chose to carry on from."
+     ],
+     "quotes": [
+      {
+       "text": "I am not a runner and this app is turning me into one! It's hard to run but the way this program eases you into it has made this achievable! I'm 57 and I'm on week 5, run 2 and it's getting easier and easier.",
+       "rating": 5,
+       "app": "None to Run: Beginner, 5K, 10K"
+      },
+      {
+       "text": "Progresses way too quickly!!! Jumps from 5 min intervals to 8 to 20 in one week. Ridiculous. Should increase running intervals from 2 to 3, 4, 5, 6, 7, 8, 9 and decrease walk intervals from 2 to 1 minute to 30 seconds.",
+       "rating": 1,
+       "app": "Couch to 5K® - Run training"
+      },
+      {
+       "text": "Using app for marathon training has taken the guess work out of 'what do i need to do today'. Love the calendar so I can see ahead and plan accordingly....or rearrange if needed.",
+       "rating": 4,
+       "app": "Runna: Running Plans & Coach"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_run-tracking_plan",
+      "alt": "Illustration for the theme “Moving a day without breaking the sequence”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-plan",
+       "title": "Moving a day without breaking the sequence",
+       "body": "",
+       "ideas": [
+        "run-tracking-1",
+        "run-tracking-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "story",
+     "title": "Leaving the choice of motivation",
+     "passages": [
+      "A reason to come back can be wanting to know how the story continues. In the review that follows it was the plot that drew the person back after a break. This is an account of personal motivation; his speed and how often he runs do not prove an effect for other users.",
+      "Another review puts the benefit more simply: running stopped feeling like a duty. A product like that competes not only on its set of metrics but on how a person wants to spend the time of the session.",
+      "The town, the supplies and the characters create an expectation of the next episode. For development that is a separate body of content work: the story has to continue and it has to be easy to come back to. Adding one game screen to a counter is not enough; it is worth checking whether people do come back for the next installment."
+     ],
+     "quotes": [
+      {
+       "text": "I returned to Zombies, Run! a few months ago after time off. It quickly has gotten me running six days a week. It keeps it fun and the writing is really engaging. And I'm getting faster. A lot faster.",
+       "rating": 5,
+       "app": "Zombies, Run!"
+      },
+      {
+       "text": "This app has changed my relationship to running from chore to treat!",
+       "rating": 5,
+       "app": "INTVL"
+      },
+      {
+       "text": "There are a lot of beginner 5k programs, this one gives you a story to invest in while you do it. Save the town, gather supplies, run from zombies.",
+       "rating": 5,
+       "app": "Zombies, Run! 5k Training"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First get through a session without intervening",
+  "body": "The first priority is a complete run with the phone put away: the recording keeps going, the cues are audible, the music comes back, the result is saved. In the reviews these failures get in the way of the session itself, so new metrics do not make up for them. What is worth testing is whole scenarios on the street, on the treadmill and on the watch, rather than individual screens.\n\nAfter that comes the reason to open the app next time. Some people need a clear plan, some the detail of the segments, some a new chapter of the story. These are different directions for a product. Moving a date and repeating a session can be made easy without promising the precision of a personal coach. And the value of a plot is worth testing by interest in the continuation, without crediting it with a universal athletic result."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-record",
+   "title": "Recording what actually happened",
+   "depth": 0
+  },
+  {
+   "id": "observation-pause",
+   "title": "Noticing that the recording stopped",
+   "depth": 1
+  },
+  {
+   "id": "observation-distance",
+   "title": "Knowing where the distance came from",
+   "depth": 1
+  },
+  {
+   "id": "observation-watch",
+   "title": "Preparing the session before heading out",
+   "depth": 1
+  },
+  {
+   "id": "theme-during",
+   "title": "Helping while you are moving",
+   "depth": 0
+  },
+  {
+   "id": "observation-audio",
+   "title": "Hearing the cue and your own music",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Making sense of the number for the current segment",
+   "depth": 1
+  },
+  {
+   "id": "observation-route",
+   "title": "Getting a cue for the turn you need",
+   "depth": 1
+  },
+  {
+   "id": "theme-continue",
+   "title": "Carrying on after an ordinary break",
+   "depth": 0
+  },
+  {
+   "id": "observation-plan",
+   "title": "Moving a day without breaking the sequence",
+   "depth": 1
+  },
+  {
+   "id": "observation-story",
+   "title": "Leaving the choice of motivation",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First get through a session without intervening",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

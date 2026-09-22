@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "teleprompter-captions",
+ "name": "Teleprompter und Untertitel",
+ "summary": "Vom Skript zum fertigen Clip: wie man im eigenen Tempo spricht, einzelne Sätze neu dreht und Untertitel korrigiert, ohne die ganze Aufnahme neu zu machen.",
+ "corpus": {
+  "reviews": 9895,
+  "apps": 41
+ },
+ "lead": "Ein Teleprompter wird in dem Moment gebraucht, in dem jemand einen Gedanken bereits vorbereitet hat und ihn zur Kamera bringen will. Hier stören kleine Pannen: Die Zeile ist weggelaufen, eine Pause hat die Aufnahme unerwartet gestoppt, der gewünschte Take wurde nicht gespeichert. Nach dem Dreh geht dieselbe Arbeit in den Untertiteln und im Export weiter.\n\nEin gutes Werkzeug schützt die gelungenen Teile. Ein Versprecher darf keinen neuen Dreh des Anfangs verlangen, ein falsches Wort kein erneutes Gestalten der Untertitel, ein Fehler beim Export keine neue Aufnahme der Rede. Genau das ist das gemeinsame Kriterium für die Möglichkeiten weiter unten: wie viel der schon getanen Arbeit jemand nach jeder Korrektur behält.",
+ "cover": {
+  "src": "research/ResearchLaunch_teleprompter-captions_cover",
+  "alt": "Teleprompter und Untertitel",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_teleprompter-captions_audiences",
+  "alt": "Aufgaben der Menschen: Teleprompter und Untertitel",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Dreht einen kurzen Clip allein",
+   "body": "Ein Autor allein vor der Kamera: liest das Skript, macht Pausen und wählt den gelungenen Take. Er muss einen Satz korrigieren und dabei den Rest der Aufnahme behalten."
+  },
+  {
+   "title": "Tritt mit Operator oder Fernbedienung auf",
+   "body": "Der Sprecher kann nicht ständig den Bildschirm berühren. Die Steuerung muss das Geprobte wiederholen: dieselbe Version des Textes, klare Tasten und eine gespeicherte Geschwindigkeit."
+  },
+  {
+   "title": "Bereitet Untertitel zu einer Aufnahme vor",
+   "body": "Der Autor beginnt mit bereits gedrehtem Video. Wichtig ist, die ausgelassenen Stellen zu finden, die Übersetzung zu prüfen und einen Clip zu bekommen, in dem die Untertitel lesbar bleiben."
+  }
+ ],
+ "sections": [
+  {
+   "id": "speak",
+   "title": "Eine Rede im eigenen Tempo aufnehmen",
+   "intro": "Ein Skript hilft beim Sprechen, solange die Steuerung des Textes nicht mehr Aufmerksamkeit verlangt als der Gedanke selbst.",
+   "art": null,
+   "observations": [
+    {
+     "id": "eye",
+     "title": "Lesen und den Blick bei der Kamera halten",
+     "passages": [
+      "Ein Teleprompter verringert das Wechseln des Blicks zwischen Skript und Objektiv. Aber Text unterhalb der Kamera, eine zu breite Zeile oder eine unpassende Größe können das Lesen sichtbar machen. Über die Bequemlichkeit urteilen sowohl der Sprecher als auch die Person, die den Clip später ansieht.",
+      "Die Einstellungen für Position, Breite und Größe müssen mit einem kurzen Ansehen der Aufnahme verbunden sein. Dann lässt sich eine lesbare Variante für den eigenen Abstand zur Kamera finden. Ein schöner Skript-Editor ist zweitrangig: Das nützliche Ergebnis ist, dass jemand den Satz erkennt und die gewählte Blickrichtung behält, ohne gleichzeitig die richtige Zeile suchen zu müssen.",
+      "Eine feste Lesezone erspart die Suche nach der nächsten Zeile über den ganzen Bildschirm. Ihre Position, Breite und Schriftgröße wählt man am besten anhand eines kurzen Test-Takes aus dem echten Abstand zur Kamera. Die Einstellung ist gelungen, wenn der Text lesbar ist und die Bewegung der Augen den Zuschauer nicht ablenkt."
+     ],
+     "quotes": [
+      {
+       "text": "Endlich schaue ich nicht mehr „da rüber“, um mein Skript zu lesen, und dann „hier rüber“, um in die Kamera zu sehen. Und der „Auto-Scroll“ folgt MEINEM Tempo.",
+       "rating": 5,
+       "app": "Teleprompter.com"
+      },
+      {
+       "text": "Ich werde sehr nervös, wenn ich vor einer Kamera spreche, und es sieht überhaupt nicht natürlich aus, weil ich nicht aufhören kann, woanders hinzuschauen. Ich habe eine Teleprompter-App gesucht, die mir helfen könnte, mich beim Sprechen daran zu erinnern, was ich sagen soll, und die mir hilft, den Blickkontakt zu hal",
+       "rating": 5,
+       "app": "Teleprompter - VILO"
+      },
+      {
+       "text": "Es sollte eine Linie mitten durch den Bildschirm laufen, da sollten die Augen des Sprechers die ganze Zeit sein. Wenn er oder sie anfängt, oben am Bildschirm zu lesen, ist es für den Zuschauer offensichtlich, dass",
+       "rating": 3,
+       "app": "Teleprompter Video & Mirror"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_eye",
+      "alt": "Illustration zum Thema „Lesen und dabei den Blick zur Kamera halten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "pace",
+     "title": "Tempo und Pausen steuern",
+     "passages": [
+      "Das Folgen der Stimme hilft, im eigenen Tempo zu sprechen, solange der Textlauf richtig auf die Rede reagiert. Ein Gespräch im Hintergrund oder Musik können den Text verschieben, und ein langes Skript kann eine Schwierigkeit zeigen, die bei einer kurzen Probe unsichtbar bleibt. Eine festgelegte Geschwindigkeit verlangt eine andere Art von Steuerung: eine ausreichend feine Einstellung und einen gespeicherten Wert.",
+      "Der stimmgesteuerte Textlauf muss die Rede des Sprechers von einem fremden Geräusch unterscheiden. Wird Musik oder das Gespräch anderer für eine Fortsetzung des Skripts gehalten, verliert der Autor die Stelle. Deshalb braucht die Automatik einen sichtbaren aktuellen Abschnitt und eine schnelle manuelle Rückkehr, die die Aufnahme nicht beendet.",
+      "Eine manuelle Geschwindigkeit ist als eigener Modus nützlich, muss aber zusammen mit dem Skript gespeichert werden. Das Tempo vor jedem Take neu einzustellen, ist ein zusätzlicher Teil des Drehs. Das Folgen der Stimme und eine konstante Geschwindigkeit lösen eine Aufgabe auf verschiedene Weise; der Wechsel zwischen ihnen sollte den Text beim aktuellen Satz lassen."
+     ],
+     "quotes": [
+      {
+       "text": "Die App funktioniert einfach. Die Spracherkennung als Stichwortgeber ist ein Unterschied wie Tag und Nacht zu „dummen“ Teleprompter-Apps.",
+       "rating": 4,
+       "app": "PromptSmart Pro - Teleprompter"
+      },
+      {
+       "text": "Der Auto-Scroll soll sich angeblich bewegen, während man spricht....tut er auch...wenn Musik läuft (ohne dass jemand singt), wenn andere Leute im Hintergrund reden",
+       "rating": 1,
+       "app": "▶Teleprompter"
+      },
+      {
+       "text": "Der fatale Mangel ist, dass man die gewünschte Scrollgeschwindigkeit nicht speichern kann. Jedes Mal, wenn man ein Skript öffnet, springt sie zurück auf den Standardwert 50, der viel zu schnell ist.",
+       "rating": 2,
+       "app": "▶Teleprompter"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pace",
+       "title": "Tempo und Pausen steuern",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "return",
+     "title": "Einen Satz neu drehen und den gelungenen Teil behalten",
+     "passages": [
+      "Lebendige Rede lässt einen Versprecher, eine Pause und einen Schritt weg vom Skript zu. Die Rückkehr zu einer Zeile soll helfen, den Gedanken wiederherzustellen, und nicht unerwartet das Video beenden oder den Text weit nach vorn werfen. Sonst verlangt eine kurze Korrektur, einen bereits gelungenen Teil neu zu drehen.",
+      "Hier müssen drei Handlungen getrennt bleiben: den Textlauf anhalten, einen Satz wählen und die Aufnahme steuern. Ihr Zustand muss getrennt sichtbar sein. Vor einem Dreh lohnt es sich, absichtlich abzubrechen und vom vorherigen Satz aus weiterzumachen. Diese Erfahrung zeigt genauer, wie bequem ein Teleprompter ist, als ein fehlerfreies Lesen des Skripts von Anfang bis Ende.",
+      "Eine Pause kann Teil lebendiger Rede sein: Der Autor erklärt einen Gedanken mit eigenen Worten und kehrt dann zum Skript zurück. Entscheidet er sich, einen Satz neu zu drehen, kann ein Absatz als Rückkehrpunkt dienen. Mehrere Takes und ein kleiner Puffer vor und nach einer Zeile helfen, den Clip zusammenzusetzen; den Übergang selbst muss man trotzdem in der ganzen Abfolge ansehen."
+     ],
+     "quotes": [
+      {
+       "text": "Wenn ich Videos aufnehmen und an einer neuen Stelle im Skript anfangen will, springt das Skript viel zu weit nach vorn und man kommt nicht zurück. Ich brauche Stunden für ein fünfminütiges Skript, weil ich ständig von vorn anfangen muss.",
+       "rating": 2,
+       "app": "BIGVU Teleprompter Captions AI"
+      },
+      {
+       "text": "Ich hasse es, dass jedes Mal, wenn ich im Teleprompter zurückscrolle, das Video pausiert wird, und dann muss man das Video beenden und das alte Video löschen und alles noch mal machen.",
+       "rating": 2,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "Man kann jetzt pausieren, was für mich besonders hilfreich ist, weil ich manchmal vom Skript abweiche.",
+       "rating": 5,
+       "app": "Telepromptr"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_return",
+      "alt": "Illustration zum Thema „Eine Zeile neu aufnehmen und den guten Teil behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-return",
+       "title": "Einen Satz neu drehen und den gelungenen Teil behalten",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "camera",
+     "title": "Die gewählte Art zu drehen behalten",
+     "passages": [
+      "Eine eingebaute Kamera macht den Weg zur Aufnahme kürzer. Aber jemand kann wegen ihrer Möglichkeiten eine andere Kamera wählen oder nur den Ton aufnehmen wollen. In diesen Fällen wird der Teleprompter als Helfer der gewählten Art zu drehen gebraucht, nicht als verpflichtender Ersatz dafür.",
+      "Manchmal muss gar kein Bild aufgenommen werden: Jemand liest einen Text für eine Vertonung. Ein eigener Audiomodus behält das Skript und die Steuerung des Tempos ohne verpflichtende Kamera. Das ist eine bestimmtere Aufgabe als das Versprechen, einen Teleprompter mit jeder App zum Drehen zu verbinden.",
+      "Die Kompatibilität lässt sich nicht mit einer einzigen Taste „über der Kamera“ beschreiben. Es braucht geprüfte Kombinationen aus Geräten, Apps und Aufnahmemodi. Verhindert eine Einschränkung, den Text neben dem Objektiv zu zeigen, sollte die unterstützte Variante erklärt werden, bevor ein langes Skript importiert wird."
+     ],
+     "quotes": [
+      {
+       "text": "Der eingebaute Rekorder ist ein großer Pluspunkt.",
+       "rating": 5,
+       "app": "Teleprompter App"
+      },
+      {
+       "text": "Ich verstehe nicht, warum man mit der Kamera aufnehmen muss. In meinem Fall brauche ich vielleicht nur meine Stimme.",
+       "rating": 3,
+       "app": "Teleprompter for Video Pro"
+      },
+      {
+       "text": "Der Pop-up-Teleprompter zeigt keinen Text, wenn die native Kamera offen ist. Und das Popup startet auch nicht, wenn man mit den Fingern rauszoomt.",
+       "rating": 3,
+       "app": "Teleprompter for Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-camera",
+       "title": "Die gewählte Art zu drehen behalten",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "remote",
+     "title": "Die Steuerung vor dem Start der Aufnahme einrichten",
+     "passages": [
+      "Eine Fernbedienung erlaubt es, den Text anzuhalten und zu einer Zeile zurückzukehren, ohne das Bild zu verlassen. Für einen Sprecher zählen ein paar vertraute Befehle, nicht eine große Auswahl an Einstellungen. Funktioniert eine gewohnte Taste nach einem Update nicht mehr, muss eine bereits geprobte Art zu drehen geändert werden.",
+      "Eine verbundene Fernbedienung bedeutet noch nicht, dass ihre Tasten das Skript steuern. Ein Probelauf muss das Ergebnis jedes Tastendrucks zeigen: Start, Pause, Bewegung nach oben und nach unten. So zeigt sich eine Inkompatibilität vor dem Dreh, und der Nutzer verbringt keine Stunden damit, das Koppeln eines bereits erkannten Geräts zu wiederholen.",
+      "Führt ein Operator den Text, muss für den Sprecher sichtbar sein, wer gerade den Textlauf steuert. Bei einem Verbindungsverlust ist es nützlicher, an der aktuellen Stelle anzuhalten, als in einem unbekannten Tempo weiterzulaufen. Die Fernbedienung sollte man auch nach dem Sperren des Bildschirms und nach einer erneuten Verbindung prüfen."
+     ],
+     "quotes": [
+      {
+       "text": "die Funktionen zum Hoch- und Runterscrollen auf einer Präsentationsfernbedienung (wie podcaster) funktionieren mit dieser App nicht mehr. Also hab ich in den sauren Apfel gebissen und mir eine andere Teleprompter-App für 90 $ im Jahr geholt.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "meine podcaster Präsentationsfernbedienungen (ich habe 2) lassen den Bildschirm nicht hoch- oder runterscrollen, wenn ich die Taste auf der Fernbedienung drücke. Ich hab es auf 2 verschiedenen iPhones probiert und geht nicht. Hat mich 2 1/2 Stunden gekostet, den Fehler zu suchen.",
+       "rating": 2,
+       "app": "Teleprompter Pro"
+      },
+      {
+       "text": "war bei einem professionellen Job und die Option mit dem Scrollen per Stimme hat nicht funktioniert. Wir sind auf die Fernbedienung umgestiegen und die war total verbuggt.",
+       "rating": 2,
+       "app": "PromptSmart Pro - Teleprompter"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_remote",
+      "alt": "Illustration zum Thema „Die Steuerung vor dem Aufnahmestart einrichten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-remote",
+       "title": "Die Steuerung vor dem Start der Aufnahme einrichten",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-4",
+        "teleprompter-captions-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finish",
+   "title": "Die Aufnahme bis zum fertigen Clip bringen",
+   "intro": "Erkannte Wörter, Übersetzung, Gestaltung und Export sind aufeinanderfolgende Stufen, jede mit einer eigenen Prüfung.",
+   "art": null,
+   "observations": [
+    {
+     "id": "captions",
+     "title": "Das Gehörte prüfen, dann die Übersetzung",
+     "passages": [
+      "Schnell erhaltene Untertitel ersparen das Tippen von Hand, aber ein übersprungener Satz verlangt trotzdem einen Eingriff. Die Übersetzung fügt eine weitere Stufe hinzu: Die Ausgangszeile kann richtig erkannt sein, während der Sinn in der anderen Sprache schlecht wiedergegeben ist. Diese Fehler mit derselben Handlung zu beheben, ist umständlich.",
+      "Jede Zeile muss mit dem passenden Moment im Video verbunden sein, und daneben müssen Original und Übersetzung unterscheidbar stehen. Dann lässt sich die ausgelassene Stelle finden, das Gehörte prüfen und die richtige Ebene ändern. Den Wert der Automatik bestimmt die Zeit bis zum geprüften Text, nicht nur die Geschwindigkeit des ersten Ergebnisses.",
+      "Die Übersetzung entsteht nach der Erkennung und verlangt eine eigene Prüfung. Wurde in der Ausgangszeile ein Name oder eine Zahl korrigiert, muss auch die verknüpfte Übersetzung noch einmal angesehen werden. Ein Editor, in dem Ton, Ausgangszeile und ihre Übersetzung zu sehen sind, erspart die Suche nach der richtigen Stelle; die Genauigkeit des Sinns prüft trotzdem ein Mensch, der die Sprachen beherrscht."
+     ],
+     "quotes": [
+      {
+       "text": "Es hat mir die Untertitel für mein Video gemacht. Hat weniger als acht Sekunden gedauert.",
+       "rating": 5,
+       "app": "AI Captions for Videos: VidCap"
+      },
+      {
+       "text": "Die automatischen Untertitel sind gut, aber nur wenn sie funktionieren. Es gibt viele Sätze, die einfach komplett übersprungen werden und die ich dann von Hand nachtragen muss.",
+       "rating": 3,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "Hab ein Video auf Spanisch eingereicht, damit es transkribiert und ins Englische übersetzt wird, und die Übersetzung war echt schlecht. Ich hätte gern mein Geld für das Abo zurück",
+       "rating": 2,
+       "app": "Translate Add Subtitles Video"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-captions",
+       "title": "Das Gehörte prüfen, dann die Übersetzung",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "layout",
+     "title": "Den Untertitel in Bewegung lesbar halten",
+     "passages": [
+      "Ein Untertitel muss den für ihn gewählten Platz in einem bestimmten Bild einnehmen. Schrift und Farbe ändern zu können, ist nützlich zusammen mit der Steuerung von Position und Videoformat. Text am Rand oder übereinandergelaufene Zeilen können einen sauberen Untertitel beim Ansehen unbrauchbar machen.",
+      "Deshalb muss die Gestaltung in Bewegung geprüft werden und in den Proportionen, in denen der Clip tatsächlich genutzt wird. Ein Zeilenumbruch muss unabhängig von den benachbarten Untertiteln bleiben. Eine nützliche Vorschau zeigt nicht ein hübsches Standbild, sondern eine Folge von Bildern mit lesbarem Text.",
+      "Die Proportionen müssen vor der Gestaltung gewählt werden: Eine Platzierung, die im querformatigen Bild praktisch ist, passt im hochformatigen vielleicht nicht. Beim vollständigen Ansehen lohnt es sich, eine lange Zeile und einen Bildwechsel zu sehen, nicht ein einzelnes gelungenes Bild. Ein einzelner Zeilenumbruch muss einen Wechsel des gemeinsamen Stils überstehen."
+     ],
+     "quotes": [
+      {
+       "text": "anpassbarer Text, Schriften, Farben, Schatten usw. • Text lässt sich überall im Video platzieren • verschiedene Seitenverhältnisse für das Video zur Auswahl",
+       "rating": 4,
+       "app": "MixCaptions: Video Captions"
+      },
+      {
+       "text": "Ich hab versucht, Untertitel in mein Video einzufügen, aber die kleben immer ganz unten am Bildschirm, wie kann ich den Text verschieben?",
+       "rating": 4,
+       "app": "Subcap: Captions AI, Subtitles"
+      },
+      {
+       "text": "Ich bin überrascht, dass es keine Option für das Verhältnis 9:16 gibt, das für viele Streamingplattformen entscheidend ist.",
+       "rating": 3,
+       "app": "AutoCap: Auto Video Captions"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_teleprompter-captions_layout",
+      "alt": "Illustration zum Thema „Die Untertitel in Bewegung lesbar halten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-layout",
+       "title": "Den Untertitel in Bewegung lesbar halten",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "export",
+     "title": "Die fertige Datei öffnen und prüfen",
+     "passages": [
+      "Nach einem gelungenen Take und dem Korrekturlesen ist der wichtigste Wert bereits entstanden. Ihn beim Speichern zu verlieren, ist besonders unangenehm: Eine Meldung über den abgeschlossenen Export kann neben einer fehlenden Datei oder verschwundenen Untertiteln stehen. Eine erneute Verarbeitung ersetzt den Zugang zur ursprünglichen Arbeit nicht.",
+      "Der letzte Schritt muss zeigen, wo die Datei gespeichert wurde, und das fertige Video öffnen lassen. Bis zu dieser Prüfung ist es nützlich, das Original und die daran vorgenommenen Änderungen getrennt aufzubewahren. Dann kann jemand vom selben Zustand aus weiterarbeiten und sich vergewissern, dass im übergebenen Clip sowohl die Aufnahme als auch die gewählte Gestaltung geblieben sind.",
+      "Bei einem langen Video ist es nützlich, das Ergebnis der Verarbeitung Stufe für Stufe zu sichern. Bricht der Export ab, muss jemand zu den fertigen Untertiteln und den gewählten Takes zurückkommen können. Eine Prüfung von Anfang, Mitte und Ende der Datei hilft, einen übersprungenen Abschnitt vor dem Versenden zu bemerken."
+     ],
+     "quotes": [
+      {
+       "text": "So oft schon: Ich nehme ein Video von mehreren Minuten auf, klicke auf die Kamera, um es zu speichern, und meine Aufnahme ist weg. Das ist echt frustrierend.",
+       "rating": 2,
+       "app": "Teleprompter"
+      },
+      {
+       "text": "Ich hab mit dieser App ein langes Video aufgenommen und am Ende ließ sie mich nicht exportieren!!! Mein Handy wurde einfach extrem heiß... und die App hat angezeigt, dass der Export komplett fertig ist.",
+       "rating": 1,
+       "app": "Video Teleprompter Lite"
+      },
+      {
+       "text": "Jeden schlechten Take speichert sie, jedes fertige Video, das ich wirklich benutzen will, ist wie durch Zauberei weg. Ladet diese App nicht runter.",
+       "rating": 1,
+       "app": "Teleprompter App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-export",
+       "title": "Die fertige Datei öffnen und prüfen",
+       "body": "",
+       "ideas": [
+        "teleprompter-captions-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Den gelungenen Take bewahren",
+  "body": "Ich würde mit dem einzelnen Autor kurzer Videos anfangen und mit einer abgeschlossenen Arbeit: ein Skript lesen, einen Versprecher neu drehen und einen Clip mit korrigierten Untertiteln bekommen. Hier ist am leichtesten zu sehen, wo Zeit gespart wird. Es genügt, jemanden seinen gewohnten Text drehen zu lassen, absichtlich einen Satz zu korrigieren und die Aufnahme bis zur Datei zu bringen. Muss man für eine Korrektur von vorn anfangen, lösen zusätzliche Stile und Effekte die Hauptaufgabe nicht.\n\nFernbedienung, Operator und lange Vorlesungen gehören zu anderen Drehbedingungen. Es lohnt sich, sie zu entwickeln, nachdem das Hauptszenario gewählt ist, oder als eigene Spezialisierung. Das wichtigste Ergebnis des ersten Produkts ist die nach einem Fehler bewahrte Arbeit: die gelungenen Takes, der korrekturgelesene Text und die Möglichkeit, nur den misslungenen Schritt zu wiederholen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-speak",
+   "title": "Eine Rede im eigenen Tempo aufnehmen",
+   "depth": 0
+  },
+  {
+   "id": "observation-eye",
+   "title": "Lesen und den Blick bei der Kamera halten",
+   "depth": 1
+  },
+  {
+   "id": "observation-pace",
+   "title": "Tempo und Pausen steuern",
+   "depth": 1
+  },
+  {
+   "id": "observation-return",
+   "title": "Einen Satz neu drehen und den gelungenen Teil behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-camera",
+   "title": "Die gewählte Art zu drehen behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-remote",
+   "title": "Die Steuerung vor dem Start der Aufnahme einrichten",
+   "depth": 1
+  },
+  {
+   "id": "theme-finish",
+   "title": "Die Aufnahme bis zum fertigen Clip bringen",
+   "depth": 0
+  },
+  {
+   "id": "observation-captions",
+   "title": "Das Gehörte prüfen, dann die Übersetzung",
+   "depth": 1
+  },
+  {
+   "id": "observation-layout",
+   "title": "Den Untertitel in Bewegung lesbar halten",
+   "depth": 1
+  },
+  {
+   "id": "observation-export",
+   "title": "Die fertige Datei öffnen und prüfen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Den gelungenen Take bewahren",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

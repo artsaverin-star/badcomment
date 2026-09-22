@@ -59,6 +59,18 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
     reviewed by Apple and will be available soon; continue on the web. **No automatic polling
     of Apple** — the owner will paste the link manually after approval.
 
+## Legal pages (Apple-facing; hotfix on branch hotfix/apple-legal, 2026-09-22)
+
+- `/<L>/offer` = **Terms of Use** for the app and the site (Apple standard EULA + inApp Plus
+  subscription disclosures). It must never mention website prices or web payment methods — the
+  iOS app's «Условия использования» row opens it and App Review reads it.
+- `/<L>/offer/payment` = the website's **public payment offer** (YooKassa, 990 ₽), text unchanged.
+  Footers link both; checkout UI links `/offer/payment`.
+- `/<L>/contacts` = **Support** page (App Store support URL `/en/contacts`): English on `/en`,
+  contact e-mail, restore/cancel/refund via Apple, seller requisites; no price or buy CTA in the
+  chrome of `/offer` and `/contacts`.
+- The new site reproduces these pages from the hotfix branch content (all 5 locales).
+
 ## Safety
 
 14. Work happens in the worktree `/Users/artsaverin/projects/badcomment-v2`, branch `site-v2`.

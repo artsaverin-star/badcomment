@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "car-maintenance-4",
+ "category": "car-maintenance",
+ "categoryName": "Car maintenance",
+ "title": "Car codes for the conversation with the mechanic",
+ "description": "The raw result of the read and an explanation you can follow are kept side by side.",
+ "cover": {
+  "src": "ideas/car-maintenance-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Having seen a warning, the owner wants to work out what data is available. A failed connection and an incomplete read have to be told apart from there being no fault."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "The best thing for me is how it tells you how serious a problem is and if it’s okay to keep driving or not. I also like the live data stuff and how it explains codes in a way that actually makes sense.",
+    "rating": 4,
+    "app": "FIXD OBD2 Scanner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Check the supported pairing of car and adapter. Save the code, the time and the available parameters into a report for the conversation that follows."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A single code does not establish the cause of a fault. Do not promise compatibility with every adapter, the cost of a repair, or permission to keep driving."
+  }
+ ],
+ "rank": 236,
+ "free": false
+}

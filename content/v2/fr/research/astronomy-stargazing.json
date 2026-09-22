@@ -1,0 +1,441 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "astronomy-stargazing",
+ "name": "Ciel nocturne et astronomie",
+ "summary": "Identifier l’objet au-dessus de sa tête et préparer une soirée au télescope. Ce qu’il faut savoir avant de sortir et ce qui aide à poursuivre les observations.",
+ "corpus": {
+  "reviews": 15866,
+  "apps": 53
+ },
+ "lead": "Une personne remarque un point lumineux et lève son téléphone vers le ciel. Une autre prépare longtemps à l’avance une sortie avec un télescope. Une troisième veut voir une comète dont elle vient tout juste d’entendre parler. Chacune attend un résultat différent : un nom, un plan de soirée réalisable ou un objet précis dans le catalogue.\n\nLe nombre d’étoiles sur la carte ne répond à lui seul à aucune de ces demandes. Ce qui compte, c’est de relier l’écran au lieu, à l’heure et à ce que l’observateur est capable de faire. Ce qui suit examine où ce lien aide, où il se rompt et quels produits distincts on peut construire dessus.",
+ "cover": {
+  "src": "research/ResearchLaunch_astronomy-stargazing_cover",
+  "alt": "Ciel nocturne et astronomie",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_astronomy-stargazing_audiences",
+  "alt": "Tâches des gens : Ciel nocturne et astronomie",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Regarder le ciel pour la première fois en famille",
+   "body": "La tâche est de nommer une étoile visible ou de trouver la Lune avec un enfant. Le premier objet compréhensible compte plus qu’un grand catalogue et qu’une longue prise en main des réglages."
+  },
+  {
+   "title": "Préparer une soirée au télescope",
+   "body": "L’observateur choisit ses cibles, une heure et son matériel. Une erreur de préparation consomme le temps limité passé dehors et peut faire échouer une séance à plusieurs."
+  },
+  {
+   "title": "Chercher un événement précis",
+   "body": "La personne a installé l’app pour une comète ou une configuration de planètes. Elle veut savoir si l’événement est visible depuis l’endroit où elle se trouve et à quel moment cela vaut la peine de regarder."
+  }
+ ],
+ "sections": [
+  {
+   "id": "orientation",
+   "title": "Faire coïncider la carte avec le ciel au-dessus de soi",
+   "intro": "Le premier résultat doit être reconnaissable. Le lieu, l’heure et la direction aident à comprendre ce que l’écran montre exactement.",
+   "art": null,
+   "observations": [
+    {
+     "id": "known-object",
+     "title": "Comprendre où pointe la carte",
+     "passages": [
+      "La carte devient compréhensible dès qu’on la fait coïncider avec ce qu’on voit. Un pointage simple et le nom d’un objet donnent un premier succès rapide. Si l’écran montre une autre direction, l’observateur débutant ne sait pas s’il s’est trompé lui-même, si le bon lieu est sélectionné ou si l’appareil demande un réglage.",
+      "Le nom d’une étoile est utile quand on voit clairement à quel point il se rapporte. Si l’écran n’établit aucun lien clair avec la direction du regard, un débutant ne sait pas s’il doit partir en quête d’un réglage de boussole, changer de lieu ou choisir un autre objet. Le premier écran doit répondre justement à cette question ; les modes compliqués peuvent attendre.",
+      "Un repère visible et familier, la Lune par exemple, aide à vérifier la direction. Le lieu et l’heure de la carte doivent figurer à côté : un saut accidentel dans le passé peut ressembler à une erreur de pointage. Pour un point en mouvement, cette vérification compte encore plus, mais trouver un satellite est une tâche à part, qui dépend de données à jour et non de la capacité à nommer avec assurance n’importe quel objet du ciel."
+     ],
+     "quotes": [
+      {
+       "text": "C’est l’appli la plus simple de mon téléphone ! Tu la pointes littéralement vers une planète ou une étoile et c’est identifié. J’adore l’astronomie et j’adore cette appli !",
+       "rating": 5,
+       "app": "Classic Sky Map 2"
+      },
+      {
+       "text": "Aucune idée de ce que l’appli me montre vraiment (ou ne me montre pas). Je veux juste pointer une étoile et avoir le nom.",
+       "rating": 1,
+       "app": "Star Walk 2 Plus: Live Sky Map"
+      },
+      {
+       "text": "Pour l’instant, ça me plaît. J’aimerais que la vue du ciel montre la lune pour être sûr que mon orientation et ma compréhension des étoiles sont bonnes. Téléchargée pour observer les étoiles avec mon fils. Il a trouvé ça « supercool »",
+       "rating": 4,
+       "app": "SkySafari"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_known-object",
+      "alt": "Illustration du thème « Comprendre où la carte est orientée ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-known-object",
+       "title": "Comprendre où pointe la carte",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "moon",
+     "title": "Obtenir une réponse courte sur la Lune",
+     "passages": [
+      "Une question sur la phase de la Lune ne demande souvent pas d’explorer toute la carte. La personne veut ouvrir l’app et voir tout de suite le nom, l’image de la phase et la date voulue. Quand le libellé disparaît au profit d’une navigation compliquée, une action courte et utile se transforme en recherche dans l’interface.",
+      "Une réponse courte a tout de même ses conditions : la date et l’heure doivent correspondre au lieu choisi. Un calendrier décalé d’un jour rend un écran simple peu fiable. Et les notes personnelles sur la pêche ou d’autres activités doivent être distinguées des données astronomiques : l’expérience de l’auteur d’un avis ne prouve pas que la phase influe sur le résultat.",
+      "Si quelqu’un a besoin de l’heure de la pleine lune, elle doit se trouver directement par le nom de l’événement. L’ajout de la date choisie à un calendrier personnel découle naturellement de cette tâche courte. Une grande carte n’est pas obligatoire : un petit calendrier peut être plus pratique, à condition de garder des libellés clairs et de ne pas noyer les gens sous les rappels."
+     ],
+     "quotes": [
+      {
+       "text": "Je l’utilise depuis 2 mois maintenant. Ce qui la rend géniale, c’est à quel point elle est basique. Tu ouvres l’appli et tout de suite, en plein milieu, s’affiche une image à jour de la phase de la lune. Je me sers de ces infos sur la lune pour la pêche. Selon les stades, le poisson mord agressivement ou pas. Je pêche quand ils m",
+       "rating": 5,
+       "app": "The Moon: Calendar Moon Phases"
+      },
+      {
+       "text": "Les dates du calendrier sont décalées d’un jour. Je me dis que ce serait une mise à jour facile mais il n’y en a eu aucune et ça fait au moins 6 mois que j’ai l’appli. Je vais supprimer cette appli et en chercher une autre.",
+       "rating": 2,
+       "app": "Sky and Moon phases calendar"
+      },
+      {
+       "text": "Je ne veux vraiment qu’une seule chose de cette appli : savoir quand la lune est pleine. Les dernières mises à jour t’obligent à chercher cette information toute simple parce que les libellés ont été enlevés. Tellement pénible.",
+       "rating": 2,
+       "app": "Deluxe Moon Pro • App & Widget"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-moon",
+       "title": "Obtenir une réponse courte sur la Lune",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-4",
+        "astronomy-stargazing-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evening",
+   "title": "Préparer une observation précise",
+   "intro": "L’objet, l’heure, les conditions et le matériel doivent se réunir en un seul plan réalisable.",
+   "art": null,
+   "observations": [
+    {
+     "id": "event",
+     "title": "Trouver l’événement pour lequel on est venu",
+     "passages": [
+      "Installer l’app pour un événement précis crée une attente précise : l’objet doit se trouver par son nom et être lié au lieu et à l’heure de l’observation. S’il est absent après l’achat d’un pack thématique, le nombre d’autres objets ne compense pas l’occasion manquée.",
+      "L’actualité du catalogue se vérifie sur le nom pour lequel la personne est venue. Avant d’acheter un pack, elle doit pouvoir trouver la comète voulue et voir quelles informations sont disponibles à son sujet. Sinon, des dizaines d’autres objets n’aident en rien à mener à bien la seule tâche qui a motivé l’installation.",
+      "Il y a une différence entre l’absence d’un objet et un supplément pour l’afficher. Ces conditions sont mieux exposées sur la fiche de l’événement avant l’achat. Un plan enregistré doit mener au même objet pour le lieu choisi et montrer les corrections si les informations ont changé."
+     ],
+     "quotes": [
+      {
+       "text": "grâce à cette appli j’ai vu l’alignement des planètes",
+       "rating": 5,
+       "app": "Star & Planet Finder"
+      },
+      {
+       "text": "J’ai acheté le pack comètes pour m’aider à trouver Tsuchinshan-ATLAS et elle n’est pas dans la liste.",
+       "rating": 1,
+       "app": "Star Chart"
+      },
+      {
+       "text": "Vous pouvez pas mettre une comète qui passe une fois tous les 80 000 ans dans la section Ce soir ou Événements sans payer plus ? Quelle déception.",
+       "rating": 2,
+       "app": "SkySafari 7 Plus"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_event",
+      "alt": "Illustration du thème « Trouver l’événement pour lequel tu es venu ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-event",
+       "title": "Trouver l’événement pour lequel on est venu",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "forecast",
+     "title": "Choisir une heure et voir l’incertitude",
+     "passages": [
+      "Un seul verdict pour la soirée masque les différences entre les heures et les conditions. Ce qui importe à un observateur, c’est le moment où les nuages arriveront, la température à attendre et ce que cela implique pour préparer le matériel. Une bonne prévision générale peut être un repère utile, mais une sortie particulière demande une lecture plus fine dans le temps.",
+      "Les conditions doivent se rapporter au lieu choisi et indiquer l’heure de leur mise à jour. Un beau score global ne peut pas masquer le désaccord avec la pluie derrière la fenêtre. Des chiffres séparés pour la couverture nuageuse et les autres conditions aident à montrer sur quoi repose le verdict, même si à eux seuls ils ne rendent pas la prévision infaillible.",
+      "Un score global pour la soirée peut masquer des nuages qui arrivent justement à l’heure du départ. Une vue heure par heure montre à quel moment se rapporte la prévision et quel chiffre change. Cela ne supprime pas l’erreur de prévision, mais donne à l’observateur une raison de décaler la sortie ou de choisir une autre cible."
+     ],
+     "quotes": [
+      {
+       "text": "On utilise CSC depuis plus de 20 ans, et ça a toujours été la prévision la plus juste qui existe ! Les mises à jour sont quotidiennes, et parfois, on dirait même plus fréquentes. Rarement voire jamais vraiment faux, et si tu veux ta propre carte, il suffit d’envoyer tes coordonnées. Mon",
+       "rating": 5,
+       "app": "iCSC: Clear Sky Chart Viewer"
+      },
+      {
+       "text": "Waouh. Ça a l’air chouette. Le ciel est complètement couvert et il pleut. L’appli affiche ciel dégagé et nuit noire. L’appli dit que je devrais être dehors sous la pluie avec mon télescope. Hahahaha. Quelle blague.",
+       "rating": 1,
+       "app": "iCSC: Clear Sky Chart Viewer"
+      },
+      {
+       "text": "J’aimais vraiment bien la façon dont l’appli marchait mais ces derniers temps je trouve qu’elle n’est pas très juste. Il lui faudrait peut-être des plages horaires, au lieu d’un seul chiffre pour toute la soirée. Mais ce soir, par exemple, on a été bouchés par les nuages dès 8 h du soir alors que Sky Live annonçait 81% de ciel dégagé ce soir. Ce sera peut-être 81% dégagé dans",
+       "rating": 2,
+       "app": "Sky Live: Heavens Above Viewer"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-forecast",
+       "title": "Choisir une heure et voir l’incertitude",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "equipment",
+     "title": "Préparer le télescope avant la rencontre",
+     "passages": [
+      "La facilité de connexion du télescope a de la valeur en même temps qu’une direction compréhensible à l’écran. Le seul fait d’être connecté n’aide pas à pointer le matériel si le repère est absent ou difficile à vérifier. Une mise à jour obligatoire dehors ajoute un autre problème : la préparation commence pendant l’observation déjà prévue.",
+      "Une connexion n’est pas encore un pilotage : l’observateur a besoin d’un repère visible indiquant la direction actuelle. Si le télescope se connecte mais que le réticule a disparu, impossible de savoir où il est pointé. La vérification d’un ensemble précis doit aller jusqu’à ce résultat observable au lieu de s’arrêter à un message « connecté ».",
+      "Les mises à jour et l’état de préparation du matériel doivent être réglés avant de sortir avec des invités. Une demande répétée d’installer un micrologiciel déjà installé peut prendre toute la soirée. Une liste de cibles préparée n’est utile qu’une fois cette base en place ; pour un débutant, il vaut la peine d’ajouter quelques observations atteignables et des attentes claires vis-à-vis de son télescope."
+     ],
+     "quotes": [
+      {
+       "text": "Je sortirais pas mon télescope sans elle !\nFacile à prendre en main et facile à connecter à mon Meade LX600 de 14 pouces .",
+       "rating": 4,
+       "app": "SkySafari 7 Pro"
+      },
+      {
+       "text": "Le télescope se connecte avec SkySafari 7 plus. Mais la cible en œil-de-bœuf n’apparaît pas à l’écran. Du coup on sait pas où on pointe ni vers quoi on se déplace. C’est un gros problème. SkySafari 6 n’a pas ce problème ! Merci de régler ça.",
+       "rating": 4,
+       "app": "SkySafari 7 Plus"
+      },
+      {
+       "text": "La version 3.0 aurait eu besoin de plus de tests avant sa sortie. Soirée gâchée avec des proches impatients de voir le SeeStar marcher, à essayer de passer outre un message vocal erroné qui demandait de mettre à jour le micrologiciel déjà à jour.\n\nSituation très gênante et des ados qui n’ont pas pu avoir une bonne première expérience de l’astronomie.",
+       "rating": 2,
+       "app": "Seestar"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_equipment",
+      "alt": "Illustration du thème « Préparer le télescope avant la rencontre ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-equipment",
+       "title": "Préparer le télescope avant la rencontre",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-5",
+        "astronomy-stargazing-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "explore",
+   "title": "Choisir ce que l’on veut explorer ensuite",
+   "intro": "Observer depuis le sol et voyager dans un modèle répondent à des questions différentes. Il est utile de montrer ces possibilités par une action que la personne peut essayer.",
+   "art": null,
+   "observations": [
+    {
+     "id": "scale",
+     "title": "Comprendre ce que montre le modèle",
+     "passages": [
+      "La carte au-dessus de sa tête et un voyage dans un modèle de l’Univers donnent des expériences différentes. Dans le premier cas, la tâche est de trouver un objet depuis le sol ; dans le second, de voir sa place dans un espace plus vaste ou d’examiner sa surface. Une couverture plus large et un modèle plus détaillé ne sont pas non plus la même chose.",
+      "Un grand nombre d’objets ne signifie pas une surface détaillée pour chacun d’eux. Si toutes les planètes se ressemblent, le vol libre cesse vite d’être une exploration. Pour un produit de ce type, il est plus important de montrer quelques lieux substantiels et d’expliquer ce qui repose sur des données et ce qui n’est là qu’à titre d’illustration.",
+      "La promesse d’« explorer l’Univers » dit peu de chose sur ce qu’on peut faire réellement. L’un veut une vue d’ensemble de la galaxie, l’autre la surface d’une planète, et une recherche sur un mot général peut ne mener nulle part. Une visite d’essai des échelles prises en charge explique le produit mieux qu’un tel slogan.",
+      "Le ciel d’une époque passée choisie constitue un intérêt de recherche à part. C’est un autre axe du modèle : ce qui compte ici, c’est la plage de dates et les hypothèses du calcul, et non la profondeur du zoom vers une planète. Un tel mode mérite d’être vérifié sur les questions d’un auteur ou d’un enseignant précis."
+     ],
+     "quotes": [
+      {
+       "text": "Appli formidable qui offre une perspective totalement différente du fait de « regarder dehors » depuis notre petit perchoir sur la terre. Allez-y, sautez carrément hors de la Voie lactée et regardez en arrière pour changer. Waouh !\nÇa me dépasse que quelqu’un puisse calculer la position de ce que nous voyons comme immo",
+       "rating": 5,
+       "app": "Our Galaxy"
+      },
+      {
+       "text": "J’adore ce jeu. Il y a de vraies planètes, des lunes, des trous noirs et d’autres corps célestes, tous prêts à être explorés. J’aimerais juste que les surfaces des planètes soient mieux faites, c’est à peu près toutes les mêmes surfaces qui font plastique et il n’y a rien à explorer vraiment. J’aimerais aussi qu’il y ait des",
+       "rating": 4,
+       "app": "Stars and Planets - Astronomy"
+      },
+      {
+       "text": "cette appli disait explore les mystères de l’univers moi genre oh je veux voir l’univers du coup je cherche l’univers. Ce qui sort zéro résultat genre mec tu te fous de moi et faut payer pour faire de l’ARAR c’est même pas si cool mec ma mère a dû claquer 15 $ pour de la pauvre AR mec télécharge pas cette appl",
+       "rating": 2,
+       "app": "3D Solar System - Planets View"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-scale",
+       "title": "Comprendre ce que montre le modèle",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "trial",
+     "title": "Aller jusqu’à une première observation avant de payer",
+     "passages": [
+      "Une première expérience doit aller jusqu’à quelque chose de concret : nommer une étoile, trouver la Lune ou regarder le ciel à une heure choisie. Une coupure publicitaire après chaque appui interrompt justement cet essai. Un paiement inattendu pour l’étape dont on a besoin laisse la personne sans savoir si l’outil lui convient.",
+      "Un essai utile permet de mener à bien un petit scénario sur son propre ciel et montre à l’avance les possibilités payantes. Il n’a pas à ouvrir tout le catalogue. Sa tâche est d’aider à voir un résultat et à choisir la profondeur d’utilisation du produit à partir d’une action réellement faite.",
+      "Une offre payante gagne à prolonger ce que la personne a déjà essayé. Pour l’un, ce sont des objets plus détaillés, pour l’autre un calendrier ou le pilotage du matériel. Une plainte au sujet d’informations payantes sur la Lune montre l’attente de l’auteur d’un avis ; elle n’établit pas une liste générale de fonctions que tout produit serait tenu de donner gratuitement."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli m’a donné tous les noms de constellations et d’étoiles gratuitement, sans paywall. Et en plus simple et facile. Parfait.",
+       "rating": 5,
+       "app": "Constellation Map mobile"
+      },
+      {
+       "text": "Quand j’arrive à faire tourner l’appli elle a l’air très bien, mais je clique sur quelque chose et j’ai une pub de 15 secondes. Je reviens à l’écran principal, je zoome sur une étoile et j’ai une pub de 15 secondes. Je veux bien essayer cette appli mais si je peux même pas la tester à fond pourquoi j’irais payer pour.",
+       "rating": 1,
+       "app": "Star Walk：Find Stars & Planets"
+      },
+      {
+       "text": "J’aime bien comment ça marche et tout ce qu’on peut voir, mais mon seul souci c’est le nombre de paywalls. Pour des trucs comme les nébuleuses je comprends un peu mais apprendre des choses sur la lune, beaucoup moins. Ça reste plutôt bien quand même, j’aimerais juste qu’on ait pas à payer pour genre la moitié de l’appli.\n\nJ’ai remarqué que ça",
+       "rating": 4,
+       "app": "Star Gazer - Live Sky View Map"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_trial",
+      "alt": "Illustration du thème « Atteindre la première observation avant de payer ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Aider à passer une première soirée",
+  "body": "Pour un premier produit, je choisirais le propriétaire débutant d’un télescope : l’aider à composer une courte liste de cibles adaptées à son matériel, à son lieu et à son temps. Ce scénario est plus concret qu’une promesse de montrer tout l’Univers. Il doit être vérifié sur une sortie qui a réellement eu lieu : la préparation à la maison a-t-elle fonctionné, au moins une partie des cibles choisies a-t-elle été trouvée et la raison d’un échec était-elle claire. Il importe de distinguer ce qu’une belle photographie fait attendre et ce qui est accessible quand on observe de ses propres yeux.\n\nUn catalogue d’événements rares, un modèle historique et le pilotage de matériel complexe peuvent devenir des directions distinctes. Il ne faut pas les ajouter toutes en même temps. Pour un premier produit, le résultat principal est plus modeste : la personne a passé une soirée compréhensible, a conservé la trace de ses observations et sait quoi essayer lors de la prochaine sortie."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-orientation",
+   "title": "Faire coïncider la carte avec le ciel au-dessus de soi",
+   "depth": 0
+  },
+  {
+   "id": "observation-known-object",
+   "title": "Comprendre où pointe la carte",
+   "depth": 1
+  },
+  {
+   "id": "observation-moon",
+   "title": "Obtenir une réponse courte sur la Lune",
+   "depth": 1
+  },
+  {
+   "id": "theme-evening",
+   "title": "Préparer une observation précise",
+   "depth": 0
+  },
+  {
+   "id": "observation-event",
+   "title": "Trouver l’événement pour lequel on est venu",
+   "depth": 1
+  },
+  {
+   "id": "observation-forecast",
+   "title": "Choisir une heure et voir l’incertitude",
+   "depth": 1
+  },
+  {
+   "id": "observation-equipment",
+   "title": "Préparer le télescope avant la rencontre",
+   "depth": 1
+  },
+  {
+   "id": "theme-explore",
+   "title": "Choisir ce que l’on veut explorer ensuite",
+   "depth": 0
+  },
+  {
+   "id": "observation-scale",
+   "title": "Comprendre ce que montre le modèle",
+   "depth": 1
+  },
+  {
+   "id": "observation-trial",
+   "title": "Aller jusqu’à une première observation avant de payer",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Aider à passer une première soirée",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "music-streaming",
+ "name": "Musikhören",
+ "summary": "Warteschlange, Musikbibliothek und die Stelle, an der man aufgehört hat: warum der Hörer seine eigene Auswahl bewahren muss, auch wenn er Gerät oder Musikdienst wechselt.",
+ "corpus": {
+  "reviews": 25893,
+  "apps": 95
+ },
+ "lead": "Mal möchte man etwas Neues hören, mal genau das Album, das schon ausgewählt ist. Diese Absichten lassen sich leicht vermischen: Empfehlungen drängen in die Warteschlange, eine seltene Version verschwindet aus der Liste, ein langer Mix fängt von vorn an. Der Mensch bedient wieder die App, statt zu hören.\n\nIn den Rezensionen stehen Wünsche an mehrere verschiedene Produkte: an einen Player für persönliche Dateien, an ein Werkzeug für den Umzug einer Sammlung und an das Gespräch rund um Musik. Das gemeinsame Motiv ist, die eigene Auswahl zu bewahren. Im Folgenden geht es darum, wo sie verloren geht – ohne jede Verbesserung zum Anlass zu nehmen, noch einen Streamingdienst zu bauen.",
+ "cover": {
+  "src": "research/ResearchLaunch_music-streaming_cover",
+  "alt": "Musikhören",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_music-streaming_audiences",
+  "alt": "Aufgaben der Menschen: Musikhören",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Baut eine eigene Sammlung auf",
+   "body": "Dieser Hörer wählt bestimmte Ausgaben, bewahrt seltene Dateien auf und merkt sich die Reihenfolge der Alben. Der Verlust einer Liste ist für ihn der Verlust angesammelter Arbeit, auch wenn sich die Songs noch finden lassen."
+  },
+  {
+   "title": "Hört unterwegs",
+   "body": "Die Musik ist im Voraus ausgewählt, die Verbindung kann abreißen. Die Warteschlange muss nach einem Stopp weiterlaufen, ohne dass man auf dem Bildschirm erneut nach Tracks sucht."
+  },
+  {
+   "title": "Sucht Musik und Gesprächspartner",
+   "body": "Der eine braucht neue Interpretationen eines bekannten Werks, der andere einen Sender in der Muttersprache, der dritte den Austausch von Eindrücken mit Freunden. Das sind verschiedene Arten, zur Musik zurückzukehren."
+  }
+ ],
+ "sections": [
+  {
+   "id": "selection",
+   "title": "Bekanntes wählen oder Neues finden",
+   "intro": "Diese Modi können nebeneinander bestehen, solange der Mensch versteht, wer gerade die nächste Aufnahme bestimmt.",
+   "art": null,
+   "observations": [
+    {
+     "id": "queue",
+     "title": "Die gewählten Grenzen der Warteschlange behalten",
+     "passages": [
+      "Die gespeicherten Songs zu mischen und ähnliche hinzuzufügen sind zwei verschiedene Aufträge. Im ersten Fall hat der Mensch die Grenzen der Auswahl bereits festgelegt. Wiederholungen aus einem kleinen Teil der Sammlung oder ein plötzliches fremdes Genre machen diese Auswahl sinnlos: Man muss den Player beobachten und Tracks überspringen.",
+      "Das Mischen soll die Reihenfolge innerhalb der gewählten Liste ändern. Wenn sich bei jedem Start dieselbe Abfolge wiederholt, bekommt der Hörer nicht die erwartete Abwechslung, auch wenn der Modus formal eingeschaltet ist. Eine sichtbare Warteschlange hilft zu verstehen, was als Nächstes kommt, und die Auswahl zu ändern, ohne die Sammlung neu zusammenzustellen.",
+      "Empfehlungen brauchen eine eigene Zustimmung. Mal ist ein Mensch bereit, die Liste zu verlassen, mal will er innerhalb eines Genres oder eines Albums bleiben. Ein Dislike muss eine verständliche Wirkung auf die Auswahl haben, und eine Absage an Vorschläge muss die bereits gewählte Warteschlange erhalten. Das ist eine Verbesserung eines vorhandenen Players und für sich genommen kein Grund für einen neuen Musikdienst."
+     ],
+     "quotes": [
+      {
+       "text": "Bitte, um Gottes willen, repariert euren SHUFFLE. Der ist absolut furchtbar. Ich hab es satt, mit eingeschaltetem Shuffle immer und immer und immer wieder dieselben Songs zu hören.",
+       "rating": 2,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "Ich benutze die App gern. Der Shuffle-Modus braucht noch Arbeit, weil er jedes Mal, wenn ich die App benutze, dieselben Songs in derselben Reihenfolge spielt.",
+       "rating": 4,
+       "app": "Plexamp"
+      },
+      {
+       "text": "Ich weiß nicht, was im letzten halben bis ganzen Jahr mit dem Algorithmus passiert ist, aber er hat sich verändert. Seitdem mischt er Genres und spielt Interpreten, die ich nie höre. Oder er denkt, weil ich ab und zu mal Popmusik höre, muss ich alle Popmusik lieben, obwohl ich disliked habe",
+       "rating": 1,
+       "app": "YouTube Music"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_queue",
+      "alt": "Illustration zum Thema „Die gewählten Grenzen der Warteschlange behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "discovery",
+     "title": "Einer Entdeckung eine Fortsetzung geben",
+     "passages": [
+      "Eine gute Entdeckung ist nicht unbedingt ein Song, der dem vorherigen ähnelt. Zu ihr kann man über einen unbekannten Komponisten, einen kleinen Interpreten, eine Stimmung oder einen kuratierten Radiosender kommen. Der Wert entsteht in der unerwarteten, aber verständlichen Nachbarschaft von Aufnahmen: Es wird interessant, wohin diese Auswahl sonst noch führt.",
+      "Einer Entdeckung eine Fortsetzung geben: den Track speichern, den Interpreten öffnen, zur Zusammenstellung zurückkehren. Ein kuratierter Sender und die Suche im Katalog können nebeneinander bestehen, denn sie verlangen einen unterschiedlichen Grad an Beteiligung. Für jemanden, der seltene Musik liebt, kann die Breite innerhalb eines bekannten Genres wichtiger sein als die Größe des Katalogs insgesamt.",
+      "Ein kuratierter Sender bietet eine Art der Auswahl, zu der man zurückkehren möchte. Das unterscheidet sich von der algorithmischen Suche nach einem ähnlichen Song. Für die einen ist dieser Eingang klassische Musik mit der Wahl der Interpretation, für die anderen eine Sendung in einer vertrauten Sprache. Beide Richtungen brauchen ihr eigenes Publikum und eine verfügbare Quelle für Musik."
+     ],
+     "quotes": [
+      {
+       "text": "Das ist eine großartige App, um neue Musik zu finden, ich habe mit dieser App meine Lieblingssongs gefunden. Ich finde, es wäre eine coole Ergänzung, bei den gespeicherten Songs Playlists hinzuzufügen.",
+       "rating": 5,
+       "app": "Discz: Discover & Share Music"
+      },
+      {
+       "text": "Ich habe IDAGIO seit Jahren abonniert. Ich liebe ihre „mood“-Funktion und die große Bandbreite an Musik, die sie anbieten. Das hier ist nicht die „Top Ten“ der Klassik. Ich habe Komponisten kennengelernt, die neu für mich waren, und meinen musikalischen Horizont erweitert. Danke, IDAGIO.",
+       "rating": 4,
+       "app": "IDAGIO Stream Classical Music"
+      },
+      {
+       "text": "Die kuratierten Sender sind einfach die besten. Durchdachte und unterhaltsame Sender bringen mich immer wieder zurück! Die Algorithmen für verwandte Songs und Interpreten liegen manchmal etwas daneben, Luft nach oben gibt es immer. Absolute Empfehlung!",
+       "rating": 5,
+       "app": "LiveOne Music"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-discovery",
+       "title": "Einer Entdeckung eine Fortsetzung geben",
+       "body": "",
+       "ideas": [
+        "music-streaming-1",
+        "music-streaming-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "title": "Verstehen, was in den Hörverlauf eingegangen ist",
+     "passages": [
+      "Der Hörverlauf hilft, das eigene musikalische Jahr zu sehen: welche Songs einen Monat begleitet haben, wozu der Mensch zurückgekehrt ist, was unerwartet zum Lieblingsstück wurde. Für diese Aufgabe ist ein Zähler eine Art, sich zu erinnern, und das Sortieren nach der Zahl der Wiedergaben ein weiterer Eingang in die Sammlung.",
+      "Zeitraum und Inhalt der Kennzahl direkt daneben erklären. Ein Monatsergebnis, die Aktivität eines Tages und der vollständige Verlauf beantworten verschiedene Fragen. Das Ansehen einer einzigen Grafik darf nicht zu einer eigenen Reise durch die Werbung werden: Eine kurze Rückkehr zu bekannter Musik verliert ihren Sinn, wenn sie zu viele Schritte verlangt.",
+      "Das Sortieren nach der Zahl der Wiedergaben ist eine weitere Art, die persönliche Sammlung zu öffnen. Dabei muss das Produkt erklären, welche Daten in den Zähler eingegangen sind und über welchen Zeitraum. Ein Tagebuch der Eindrücke kann einen unvollständigen Verlauf ergänzen, darf persönliche Markierungen aber nicht als genaue Statistik aller Dienste ausgeben."
+     ],
+     "quotes": [
+      {
+       "text": "App läuft super, ich finde es klasse, meine Top-Tracks und -Interpreten zu sehen und dazu, wie oft ich einen Song gespielt habe",
+       "rating": 5,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "So viel von der App steckt jetzt nicht nur hinter einer Bezahlschranke, sondern ist auch noch mit Werbung zugepflastert. Doppelte Pop-ups mit Timer, bevor man sie schließen kann, nur um eine einzige Grafik zu sehen, dann animierte Bannerwerbung, die die ganze App langsam und aufgebläht macht!",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "Bitte, ich flehe euch an, bringt die Funktion zurück, danach zu sortieren, wie oft man einen Song gehört hat, das ist eine einzigartige Funktion, die andere Apps nicht haben, bitte bringt sie zurück.",
+       "rating": 1,
+       "app": "Offline Music Player"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_history",
+      "alt": "Illustration zum Thema „Wissen, was in den Verlauf gekommen ist“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-history",
+       "title": "Verstehen, was in den Hörverlauf eingegangen ist",
+       "body": "",
+       "ideas": [
+        "music-streaming-3",
+        "music-streaming-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "shared",
+     "title": "Sich einigen, wer die nächste Aufnahme auswählt",
+     "passages": [
+      "Gleichzeitig mit einem nahen Menschen zu hören und jemanden über den gemeinsamen Geschmack kennenzulernen sind verschiedene soziale Aufgaben. In einer gemeinsamen Sitzung ist bereits bekannt, wer teilnimmt; es bleibt, sich über die Warteschlange und die Steuerung zu einigen. Beim Kennenlernen muss man zuerst den Geschmack des anderen verstehen und entscheiden, ob man ein Gespräch beginnen will.",
+      "Beim gemeinsamen Hören ist bereits bekannt, mit wem der Mensch zusammen sein will. Das Problem ist ein anderes: beitreten, die gemeinsame Warteschlange sehen und verstehen, wer sie steuert. Ein Verbindungsfehler zerstört das Treffen, auch wenn die Auswahl von Menschen nach Geschmack in derselben App gut funktioniert.",
+      "Die Suche nach Menschen mit ähnlichem Geschmack kann für sich genommen ein Kaufgrund sein. Das Entfernen einer solchen Funktion lässt den Menschen ohne die Beschäftigung zurück, für die er bezahlt hat, auch wenn der Player weiterspielt. Für ein Tagebuch mit Freunden muss man zuerst verstehen, ob die Menschen das Gespräch schätzen, die Empfehlungen der anderen oder gerade das Finden neuer Bekanntschaften: Das sind verschiedene Gründe zurückzukehren."
+     ],
+     "quotes": [
+      {
+       "text": "diese App fasst meinen ganzen Musikgeschmack in einem kurzen Überblick zusammen, ich liebe es, wie sie mich mit Leuten zusammenbringt, die dieselbe Musik mögen wie ich!",
+       "rating": 5,
+       "app": "makromusic Dating for Spotify"
+      },
+      {
+       "text": "So verbuggt, ich kann nicht mit meiner Freundin in einen Jam einsteigen, ohne dass es bei mir komplett ausrastet. Diese App war mal so gut und jetzt ist sie einfach Müll!",
+       "rating": 1,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "Hab mir das dauerhafte Premium wegen der soulmates-Funktion geholt, um Leute mit ähnlichem Geschmack zu treffen und ein paar neue Freunde zu finden. Die Funktion wurde entfernt und mein Geld war umsonst. Bringt soulmates zurück",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "collection",
+   "title": "Die eigene Musikbibliothek behalten",
+   "intro": "Die Zusammenstellung und die Reihenfolge einer Sammlung haben Wert, auch wenn ein einzelner Track vorübergehend nicht verfügbar ist.",
+   "art": null,
+   "observations": [
+    {
+     "id": "playlist",
+     "title": "Die Zusammenstellung behalten, auch wenn ein Track verschwindet",
+     "passages": [
+      "Eine Playlist bewahrt Entscheidungen, die sich aus dem Gedächtnis nur schwer wiederholen lassen: welche Aufnahme zu wählen ist, was danebengestellt wird, was für später bleibt. Deshalb ist das Verschwinden einer Liste etwas anderes, als wenn ein Track vorübergehend nicht verfügbar ist. Verloren geht die vom Menschen zusammengestellte Reihenfolge, auch wenn die Songs selbst weiterhin existieren.",
+      "Die Zusammenstellung einer Sammlung getrennt von der Möglichkeit der Wiedergabe bewahren. Ein Eintrag zu einem nicht verfügbaren Song ist nützlicher als eine leere Stelle: Über ihn lässt sich eine andere Version finden oder die Liste wiederherstellen. Vor einem Gerätewechsel und vor dem Umzug zwischen Diensten ist es wichtig zu sehen, welche Listen vollständig übernommen wurden und welche Aufmerksamkeit brauchen.",
+      "Der Verlust einer lokalen Sammlung nach dem Auslagern der App ist ein eigener Fall: Die Titel, die Reihenfolge und die Dateien selbst können unterschiedlich gespeichert sein. Bevor jemand Speicherplatz freigibt, muss er sehen, was bleibt und wie sich der Rest zurückholen lässt. Beim Umzug zwischen Diensten kommt der Abgleich der Track-Versionen hinzu: Ein übereinstimmender Titel bedeutet noch nicht dieselbe Aufnahme."
+     ],
+     "quotes": [
+      {
+       "text": "Ich habe wegen des letzten Updates über 2000 Songs verloren und benutze diese App seitdem kaum noch ich kann gar nicht in Worte fassen wie s!auer ich bin meine Haupt-Playlist die „favorites“ hieß wurde gelöscht weg nach dem Update ich kann mich nicht an all die Songs erinnern 🤨 ich habe diesen Account seit mindestens 15 Jahren",
+       "rating": 2,
+       "app": "MyMixtapez: Playlists 24/7"
+      },
+      {
+       "text": "Ich habe Pandora aktualisiert und es hat meinen Account komplett gelöscht! Ich musste mich neu anmelden und die Sender noch einmal auswählen. Ich hatte meine „kuratierte Liste“ – IHR habt sie gelöscht. Nicht gut, Pandora.",
+       "rating": 1,
+       "app": "Pandora: Music & Podcasts"
+      },
+      {
+       "text": "Diese App war jahrelang die beste Offline-Musik-App die ich hatte aber meine ganze Musik und alle Playlists sind weg dafür sind mein gewählter Hintergrund und mein Suchverlauf geblieben und ich hab die App nur ausgelagert wie sonst auch",
+       "rating": 1,
+       "app": "Offline Music Player-MP3&Video"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_playlist",
+      "alt": "Illustration zum Thema „Die Zusammenstellung behalten, auch wenn ein Track verschwindet“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-playlist",
+       "title": "Die Zusammenstellung behalten, auch wenn ein Track verschwindet",
+       "body": "",
+       "ideas": [
+        "music-streaming-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "files",
+     "title": "Eigene Dateien vom Zugang zu ihnen unterscheiden",
+     "passages": [
+      "Persönliche Musikdateien bieten einen anderen Weg, eine Musikbibliothek zusammenzustellen: eigene Aufnahmen und seltene Versionen aufbewahren, sie am Computer ordnen und vom Telefon aus weiterhören. Dieser Weg ist besonders wertvoll, wenn das gewünschte Werk im gewohnten Katalog fehlt oder sich seine Verfügbarkeit geändert hat.",
+      "Über die Bequemlichkeit entscheidet die ganze Kette vom Speicher bis zur Wiedergabe. Die Formate der eigenen Dateien, die Reihenfolge der Alben und den Zugang zu den gewünschten Aufnahmen auf dem Telefon prüfen. Ein Stream vom Heimserver und eine lokale Kopie lösen verschiedene Aufgaben; der Bildschirm der Sammlung soll helfen, sie zu unterscheiden, statt zum Raten an der Play-Taste zu zwingen.",
+      "Ein Streaming-Katalog kann sich nach dem Umzug in ein anderes Land ändern: Der gewohnte Dienst oder eine Aufnahme sind dann nicht verfügbar. Persönliche Dateien sind ein anderer Weg, eine Musikbibliothek zusammenzustellen, sofern jemand passende Aufnahmen und das Recht hat, sie zu nutzen. Aber ein neuer Player darf nicht versprechen, einen gesperrten Katalog zurückzubringen; er ist für die Dateien zuständig, die dem Besitzer zur Verfügung stehen, und für deren bewahrte Reihenfolge."
+     ],
+     "quotes": [
+      {
+       "text": "Hunderte cd, zu viele Steaming-Dienste und genug technisches Wissen, um mich in Schwierigkeiten zu bringen. Hab plex media server mit plex pass lifetime aufgesetzt und kann jetzt meine eigene Musik über plexamp überall streamen. Hat mir Hunderte pro Jahr gespart. Tschüss Spotify!",
+       "rating": 5,
+       "app": "Plexamp"
+      },
+      {
+       "text": "ich bin ein Nischenmusik-Freak und die Streaming-Plattformen stoßen mich echt ab, entweder mit einem Übermaß an Werbung oder damit, dass viele Songs, die ich mag, einfach nicht verfügbar sind. diese App löst beide Probleme UND ich kann meine Musik auf dem Handy überall so sortieren wie zu Hause am Desktop!",
+       "rating": 5,
+       "app": "Evermusic: Cloud Music Player"
+      },
+      {
+       "text": "Ich bin seit mehr als 6 Jahren ein treuer Nutzer, als ich in den MENA-Ländern gelebt habe, nach der Einwanderung in die USA , war ich überrascht, dass die App hier nicht verfügbar ist. Ich liebe diese App wirklich und ich hoffe, ihr denkt darüber nach, sie weltweit auszuweiten, damit die Nutzer sie weiter genießen können, egal wo sie leben.",
+       "rating": 4,
+       "app": "Anghami: Play Music & Podcasts"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-files",
+       "title": "Eigene Dateien vom Zugang zu ihnen unterscheiden",
+       "body": "",
+       "ideas": [
+        "music-streaming-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "playback",
+   "title": "An einem anderen Ort weiterhören",
+   "intro": "Die Fahrt, die Anlage zu Hause und eine lange Aufnahme verlangen, dass der gewählte Zustand erhalten bleibt, nicht nur eine verfügbare Wiedergabetaste.",
+   "art": null,
+   "observations": [
+    {
+     "id": "travel",
+     "title": "Nach einem Stopp weiterhören",
+     "passages": [
+      "Ein Download-Symbol nützt nur dann, wenn die gewählte Musik auf der Fahrt, für die sie gebraucht wird, tatsächlich verfügbar ist. Wichtig sind die Zusammenstellung der heruntergeladenen Auswahl und die verständlichen Bedingungen ihrer Speicherung. Einen Track, der in der Liste aufgetaucht ist, muss man noch von einem Track unterscheiden, der ohne Verbindung abspielbereit ist.",
+      "Im Auto kommt die Fortsetzung der Warteschlange hinzu: Nach einem kurzen Stopp will man den nächsten gewählten Track hören. Eine vertraute Fahrt mit Stopp und Rückkehr prüfen. Zeigt die Steuerung im Auto die eine Auswahl an, während etwas anderes läuft, beheben große Tasten das Hauptproblem nicht – den Verlust der Kontrolle über das Hören.",
+      "Nach einem Stopp oder einer erneuten Verbindung soll die Warteschlange an ihrem Platz bleiben. Bei einem langen Mix kommt die genaue Position hinzu: Erneut danach zu suchen ist unbequem. Das ist eine mögliche Spezialisierung für einen Player für lange Aufnahmen, aber Rezensionen über eine verschwundene Warteschlange im Auto beweisen für sich genommen keine Nachfrage nach einer eigenen App für Mixe."
+     ],
+     "quotes": [
+      {
+       "text": "Ich habe mit Spotify Schluss gemacht und hatte danach was mit Tidal. Ich hatte große Hoffnungen und habe versucht, dabeizubleiben, aber die Offline-/Download-Funktion ist einfach mies. Ich habe einen langen Arbeitsweg ohne Empfang und muss Musik zuverlässig herunterladen. Tschüss Tidal",
+       "rating": 2,
+       "app": "TIDAL Music: HiFi Sound"
+      },
+      {
+       "text": "Erstens, wenn das CarPlay-Interface nicht wäre, würde ich 5 Sterne geben. Aber ich nutze diese App hauptsächlich im Auto, das Apple CarPlay Interface ist mir wichtig. Das CarPlay-Interface bei dieser App hängt, spielt nicht den richtigen Song, spielt einen Song aus einer Liste statt dem, was auf dem CarPlay-Bildschirm ausgewählt ist.",
+       "rating": 2,
+       "app": "JioSaavn Music & Podcasts"
+      },
+      {
+       "text": "Wenn ich Apple Carplay benutze, hört Deezer einfach plötzlich auf und es sind keine Songs mehr in der Warteschlange. Passiert ungefähr einmal alle vier Stunden Fahrt, sogar mit vollem 5G-Empfang. Abgesehen von diesem Ärgernis ist Deezer fantastisch!",
+       "rating": 4,
+       "app": "Deezer: Music Player, Podcast"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_travel",
+      "alt": "Illustration zum Thema „Nach einem Stopp weiterhören“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-travel",
+       "title": "Nach einem Stopp weiterhören",
+       "body": "",
+       "ideas": [
+        "music-streaming-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sound",
+     "title": "Wissen, worauf eine Einstellung angewendet wurde",
+     "passages": [
+      "Die Einstellung des Klangs wird zu einem persönlichen Teil der Sammlung: Ein passender Equalizer erlaubt es, Musik so zu hören, wie es dem Besitzer bestimmter Kopfhörer gefällt. Aber eine Änderung, die einem Track nützt, kann dem nächsten im Weg stehen. Besonders deutlich zeigt sich dieser Unterschied bei der Wiedergabegeschwindigkeit und bei individuellen Presets.",
+      "Neben der Einstellung den Wirkungsbereich zeigen: die aktuelle Aufnahme, die gewählte Zusammenstellung oder den ganzen Player. Nach dem Wechsel eines Presets muss die Stellung der Regler dem angewendeten Zustand entsprechen. Schnell zum ursprünglichen Klang zurückkehren zu können hilft, Änderungen zu vergleichen, ohne sich jede Bewegung eines Schiebereglers zu merken.",
+      "Die Wiedergabegeschwindigkeit braucht einen verständlichen Wirkungsbereich: nur diesen Track oder den ganzen Player. Sonst ändert eine Einstellung für die eine Interpretation versehentlich die nächste. Eine Anlage zu Hause fügt eine weitere Wahl hinzu – einen bestimmten Lautsprecher oder Raum. Ihre Steuerung gehört zur Hardware und verlangt eine eigene Prüfung, nicht einfach eine weitere Registerkarte im Equalizer."
+     ],
+     "quotes": [
+      {
+       "text": "😭 das ist der BESTE Musikplayer auf iOS, allein für den EQ würde ich den vollen Preis zahlen, pls gebt uns höhere und mehr Bänder 🥹",
+       "rating": 5,
+       "app": "Flacbox: Hi-Res Music Player"
+      },
+      {
+       "text": "Hey, ich mag diese App wirklich der Sound ist solide und der EQ lässt sich echt gut bedienen. Aber mir ist ein Bug bei den Reglern für Bass und Höhen aufgefallen. Wenn ich Bass oder Höhen auf etwa 50% stelle und dann auf ein anderes Preset wechsle, zeigt der Regler vielleicht etwas Niedrigeres an, so wie 30%, aber es klingt trotzdem, als hinge es fest bei",
+       "rating": 4,
+       "app": "Silence Music: Equalizer, Musi"
+      },
+      {
+       "text": "Ich liebe es wirklich, mit der Audiomod-Funktion Tracks schneller oder langsamer zu machen, aber ich wünschte, die App würde besser damit umgehen. Im Moment bleibt ein Mod, wenn ich ihn einschalte, bei jedem einzelnen Song an, den ich spiele. Ich will bestimmte Audiomods auf bestimmte Songs anwenden können und sie nur für diese Tracks gespeichert lassen.",
+       "rating": 3,
+       "app": "Audiomack - Play Music Offline"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-sound",
+       "title": "Wissen, worauf eine Einstellung angewendet wurde",
+       "body": "",
+       "ideas": [
+        "music-streaming-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Die Sammlung bewahren, nicht den ganzen Streamingdienst bauen",
+  "body": "Für ein kleines Team würde ich zuerst das Sichern und Übertragen von Playlists zwischen einem bestimmten Satz unterstützter Dienste prüfen. Das Ergebnis ist hier verständlich: Der Mensch sieht die frühere Reihenfolge, die nicht verfügbaren Aufnahmen und die zweifelhaften Übereinstimmungen. Vor der Entwicklung muss man sicher sein, dass die Dienste es erlauben und technisch zulassen, die nötigen Daten zu bekommen. Ohne das wird ein schöner Bildschirm für den Umzug kein funktionierendes Produkt.\n\nDie Alternative ist ein Player für die Besitzer eigener Dateien mit einem guten Szenario für die Fahrt und den Offline-Zugang. Ein Musiktagebuch und Audio zu Hause verlangen schon ein anderes Publikum und andere Gründe zurückzukehren. Es lohnt sich nicht, alles auf einmal zu verbinden: Der anfängliche Vorteil soll eine bestimmte Sammlung oder Gewohnheit des Hörers bewahren und nicht versprechen, sein ganzes musikalisches Leben zu ersetzen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-selection",
+   "title": "Bekanntes wählen oder Neues finden",
+   "depth": 0
+  },
+  {
+   "id": "observation-queue",
+   "title": "Die gewählten Grenzen der Warteschlange behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-discovery",
+   "title": "Einer Entdeckung eine Fortsetzung geben",
+   "depth": 1
+  },
+  {
+   "id": "observation-history",
+   "title": "Verstehen, was in den Hörverlauf eingegangen ist",
+   "depth": 1
+  },
+  {
+   "id": "observation-shared",
+   "title": "Sich einigen, wer die nächste Aufnahme auswählt",
+   "depth": 1
+  },
+  {
+   "id": "theme-collection",
+   "title": "Die eigene Musikbibliothek behalten",
+   "depth": 0
+  },
+  {
+   "id": "observation-playlist",
+   "title": "Die Zusammenstellung behalten, auch wenn ein Track verschwindet",
+   "depth": 1
+  },
+  {
+   "id": "observation-files",
+   "title": "Eigene Dateien vom Zugang zu ihnen unterscheiden",
+   "depth": 1
+  },
+  {
+   "id": "theme-playback",
+   "title": "An einem anderen Ort weiterhören",
+   "depth": 0
+  },
+  {
+   "id": "observation-travel",
+   "title": "Nach einem Stopp weiterhören",
+   "depth": 1
+  },
+  {
+   "id": "observation-sound",
+   "title": "Wissen, worauf eine Einstellung angewendet wurde",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Die Sammlung bewahren, nicht den ganzen Streamingdienst bauen",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

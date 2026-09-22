@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "travel-planning-1",
+ "category": "travel-planning",
+ "categoryName": "旅行の計画",
+ "title": "文脈つきの搭乗率の情報",
+ "description": "社員割引の券での移動のために。空席についての利用者の報告の、時刻と出どころと条件が見える。",
+ "cover": {
+  "src": "ideas/travel-planning-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "社員割引の券で移動するとき、人は便の搭乗率についての報告を見る。ほぼ同時に投稿された二つの数字が食い違うことがあり、自信ありげな色の表示はその不確かさを隠す。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "2つの航空会社の空き状況が、ほんとに+1と+7で出てきた。10秒もしないうちに新しい数字が入って0と-1になってた。この空き状況は90%の場面で当てにならない。",
+    "rating": 1,
+    "app": "StaffTraveler"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "簡単にすべき操作"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "どの情報の横にも、時刻と出どころと観察したときの条件が要る。新しい記録は前の記録を消さない。何が変わったのか、データがどれだけ新しいのかが見える。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "役に立つかどうかを決めるもの"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "出発点は便の地図ではなく、出どころの手に入りやすさと質だ。利用者の報告は機内の席を保証しない。新しい情報を手に入れて確かめる安定した方法がなければ、独立した製品はまだ正当化できない。"
+  }
+ ],
+ "rank": 100,
+ "free": false
+}

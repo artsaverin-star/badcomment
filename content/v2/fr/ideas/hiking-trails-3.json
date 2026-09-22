@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "hiking-trails-3",
+ "category": "hiking-trails",
+ "categoryName": "Randonnées et itinéraires",
+ "title": "Télécharger la zone choisie",
+ "description": "Un cadre sur la carte délimite la zone, et une liste montre son contenu et son état de préparation.",
+ "cover": {
+  "src": "ideas/hiking-trails-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "En balayant la carte, il est difficile de savoir quelle partie est déjà préparée pour un usage sans réseau."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "bof, télécharger les cartes hors ligne c’est pénible, on peut pas juste tracer un cadre autour d’une région et télécharger, ils ont un système bancal où il faut zoomer et balayer et scanner partout.. du coup si tu balaies pas et que tu scannes pas et que tu zoomes pas sur une tuile précise ça enregistre pas. Visiblement pas quelqu’un du genre plein air hors réseau.",
+    "rating": 1,
+    "app": "Topographic Maps & Trails"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Sélectionner la zone, montrer les niveaux de zoom et la taille, conserver l’état des parties inachevées. Permettre de vérifier l’ensemble prêt en l’ouvrant."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Une icône de téléchargement ne remplace pas la vérification que les détails voulus sont réellement disponibles."
+  }
+ ],
+ "rank": 375,
+ "free": false
+}

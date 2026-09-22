@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "weather-apps-4",
+ "category": "weather-apps",
+ "categoryName": "Weather",
+ "title": "A warning for the place that matters",
+ "description": "For saved addresses, the warnings in force, their time and their history are all visible.",
+ "cover": {
+  "src": "ideas/weather-apps-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A person can save several addresses and expect warnings for each. But the history in the app and the notification on the device are two different ways of receiving the same message."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "until today when my location was under a tornado warning and the app didn’t even send me a notification. Luckily I was awake at 1 am and heard the tornado sirens and was able to get to safety.",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Show the message and its state"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "For each address, gather the warnings in force: the area, the issue time, the source and the period they cover. Show the delivery settings separately and offer a test notification that checks the connection at that moment."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Do not hide the limitation"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A successful test does not promise that the next warning will be delivered. When a message is missed, what matters is finding it in the history and seeing when it was published."
+  }
+ ],
+ "rank": 45,
+ "free": false
+}

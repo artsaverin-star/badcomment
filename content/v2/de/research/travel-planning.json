@@ -1,0 +1,432 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "travel-planning",
+ "name": "Reiseplanung",
+ "summary": "Ein Reiseplan nützt, wenn man danach handeln kann: eine Bestätigung finden, bemerken, dass etwas fehlt, und eine Änderung des Reiseplans klären.",
+ "corpus": {
+  "reviews": 25175,
+  "apps": 90
+ },
+ "lead": "Am Eingang stellt sich heraus: Im Postfach liegt die Kaufbestätigung, aber nicht der Voucher. Nach der Annullierung eines Flugs führt der Link zum Umbuchen zurück zu derselben Annullierung. In beiden Fällen sind die Angaben zur Reise zusammengetragen, und der nächste Schritt ist trotzdem unklar.\n\nSehen wir uns an, wie sich dieser Bruch vermeiden lässt: prüfen, ob eine Buchung übernommen wurde, sich mit den Mitreisenden abstimmen und die Dokumente vor der Abreise bereitlegen. Die Suche nach günstigen Angeboten und das Führen eines Reisetagebuchs lösen andere Aufgaben – sie ersetzen nicht die verlässliche Arbeit mit bereits getroffenen Entscheidungen.",
+ "cover": {
+  "src": "research/ResearchLaunch_travel-planning_cover",
+  "alt": "Reiseplanung",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_travel-planning_audiences",
+  "alt": "Verschiedene Aufgaben in der Kategorie „Reiseplanung“.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Bestätigungen aus verschiedenen Diensten sammeln",
+   "body": "Buchungen aus verschiedenen Diensten müssen sich zu einem gemeinsamen Plan mit den richtigen Terminen, Orten und Teilnehmern zusammenfügen. Wichtig ist, das Ergebnis der Übernahme zu sehen und die fehlenden Teile vor der Reise zu bemerken."
+  },
+  {
+   "title": "Eine Reise für eine Gruppe organisieren",
+   "body": "Den gemeinsamen Reiseplan brauchen alle Mitreisenden, aber das Recht, ihn zu ändern, und der Zugang zu den Dokumenten können sich unterscheiden. Ausgaben müssen mit den Teilnehmern und mit einer nachvollziehbaren Grundlage der Berechnung verbunden sein."
+  },
+  {
+   "title": "Sich während der Reise zurechtfinden",
+   "body": "Unterwegs braucht man schnellen Zugang zum Ticket, zur Adresse und zur laufenden Reise. Ändert sich eine Buchung, kommt es darauf an, nicht nur die Nachricht über das Problem zu finden, sondern auch eine Handlung, die dazu möglich ist."
+  }
+ ],
+ "sections": [
+  {
+   "id": "assemble",
+   "title": "Die Reise aus bestätigten Teilen zusammensetzen",
+   "intro": "Ein attraktives Angebot, ein gekauftes Ticket und eine ausgewertete E-Mail sind verschiedene Zustände. Es kommt darauf an, sie auseinanderzuhalten.",
+   "art": null,
+   "observations": [
+    {
+     "id": "bookings",
+     "title": "Bemerken, was aus der E-Mail nicht übernommen wurde",
+     "passages": [
+      "Ein einziger Reiseplan erspart die Frage, über welchen Dienst das Hotel oder der Wagen gebucht wurde. Verbundene Teile lassen auch ein Fehlen erkennen: Zwischen einem Flug und dem nächsten Tag kann die nötige Bestätigung schlicht nicht vorhanden sein. Genau diese Geschlossenheit macht die Zusammenstellung nützlicher als einen Ordner mit weitergeleiteten E-Mails.",
+      "Der Import muss zeigen, was aus jeder Quelle herausgelesen wurde: Termine, Teilstrecken, Teilnehmer und die Felder, die nicht übernommen wurden. Eine angenommene E-Mail muss noch zu einem prüfbaren Eintrag werden. Eine bequeme Korrektur von Hand hilft, die Zusammenstellung abzuschließen, und behält dabei die ursprüngliche Bestätigung neben dem Ergebnis.",
+      "Wird eine weitergeleitete E-Mail abgelehnt, muss die Person den Grund sehen und einen Weg, die Buchung von Hand einzutragen. Sie ohne Erklärung noch einmal weiterzuleiten, bringt nichts. Es hilft, die Verbindung zur ursprünglichen E-Mail zu behalten, damit sich die eingetragenen Termine und Teilstrecken prüfen lassen. Für den Reiseberater ist das außerdem eine Möglichkeit, den Reiseplan vor der Übergabe an den Kunden zu prüfen."
+     ],
+     "quotes": [
+      {
+       "text": "Das zieht sich automatisch meine Flug-, Hotel- und Mietwagendaten und packt sie in einen gut lesbaren Reiseplan. Ich bin beruflich so viel unterwegs, dass ich schon mal vergessen habe, ein Hotel oder einen Mietwagen zu buchen, und ich habe es in letzter Minute gemerkt, weil TripIt gemerkt hat, dass etwas fehlt. Danke!",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "Ich benutze diese App seit mehr als 10 Jahren. Ich liebe, wie sie alle Reisedaten an einem Ort hält. Ich weiß längst nicht mehr, über welches Portal ich welche Teilstrecke gebucht habe, aber tripit hält mir alles an einem Ort. Einfach die Reservierungsmail weiterleiten",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "Ich benutze diese App ziemlich viel. Sie hilft mir bei der ganzen Urlaubsplanung für alle meine kommenden Reisen. In letzter Zeit bekomme ich aber ständig Ablehnungen bei Flugbuchungen per Mail. Wenn ich die Buchungsmail von einer Airline einfach weiterleite, kommt sie oft zurück. Ich weiß nicht, warum, und manchmal muss ich rein in d",
+       "rating": 3,
+       "app": "TripIt: Travel Planner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_bookings",
+      "alt": "Illustration zum Thema „Bemerken, was es nicht aus der E-Mail geschafft hat“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-bookings",
+       "title": "Bemerken, was aus der E-Mail nicht übernommen wurde",
+       "body": "",
+       "ideas": [
+        "travel-planning-6",
+        "travel-planning-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "constraints",
+     "title": "Innerhalb der tatsächlichen Einschränkungen suchen",
+     "passages": [
+      "Bei einer Reise mit mehreren Stopps kommt es darauf an, den ganzen Weg zu vergleichen. Einzelne günstige Tickets muss man noch nach Terminen und Uhrzeiten zusammenfügen. Eine positive Rezension zeigt Interesse genau daran: Varianten für mehrere Teilstrecken zu suchen.",
+      "Eine Begrenzung der Zahl der Teilstrecken bricht dieses Szenario ab, noch bevor der Vergleich beginnt. Ein Autor versucht, drei Flüge einzutragen, aber die mobile Oberfläche lässt nur zwei zu. Zuerst muss man also die echte Reise beschreiben können; passende Kombinationen kommen danach.",
+      "Auch flexible Termine müssen innerhalb der eigenen Bedingungen der Person bleiben. Eine Reise von Freitag bis Montag passt nicht dadurch, dass der Dienst Donnerstag und Samstag zum Wochenende erklärt hat. Die Grenzen, die sich nicht verschieben lassen, sollten vor der Suche festgelegt und bei jeder neuen Variante beibehalten werden."
+     ],
+     "quotes": [
+      {
+       "text": "Ich konnte die die mehreren Stopps für meinen Urlaub mit jeder Menge Optionen finden",
+       "rating": 4,
+       "app": "KAYAK: Flights, Hotels & Cars"
+      },
+      {
+       "text": "Ich versuche, eine Reise mit 3 Teilstrecken zu buchen. Die Webseite für den PC stürzt ab, und die App bietet keine Möglichkeit, über die 2 vorhandenen Felder hinaus noch einen Flug hinzuzufügen :(",
+       "rating": 2,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "Es wäre super, wenn man die Zeitspanne auswählen könnte, die man wegfahren will, bevor man den Ort mit flexiblen Daten prüft ich will einfach zwischen Freitag und Montag verreisen und jedes Mal wenn ich auf Wochenendtrips tippe gibt es mir Flüge von Donnerstag bis Samstag das ist kein Wochenendtrip an einem Donnerstag und F",
+       "rating": 4,
+       "app": "Skyscanner Flights & Travel"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-constraints",
+       "title": "Innerhalb der tatsächlichen Einschränkungen suchen",
+       "body": "Beim Roadtrip stellt sich dieselbe Aufgabe, wenn Stopps hinzukommen: Ein neuer Punkt darf die Person nicht über einen bereits gefahrenen Weg zurückschicken. Ob eine Straße aber für ein bestimmtes Fahrzeug taugt, verlangt eine eigene Prüfung.",
+       "ideas": [
+        "travel-planning-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "price",
+     "title": "Gleiche Bedingungen vergleichen",
+     "passages": [
+      "Ein Hinweis auf einen gefallenen Preis beantwortet eine klare Frage: was sich am beobachteten Angebot geändert hat. Er nützt, wenn die Person dieselbe Strecke und dieselben Bedingungen wiedererkennt. Ein Preis ohne den Inhalt des Angebots ist noch keine Grundlage, um Varianten zu vergleichen.",
+      "Der Rat zu warten ist bereits eine Prognose. Ein Autor beschreibt, dass er ihm gefolgt ist und der Preis dann gestiegen ist. Diese Erfahrung erlaubt kein Urteil über irgendein Prognosesystem, zeigt aber, warum sich Warten nicht mit der Sicherheit eines bereits vorliegenden Angebots darstellen lässt.",
+      "Selbst den aktuellen Preis muss man beim Wechsel zum Verkäufer noch einmal prüfen. Ist die Summe dort eine andere, muss klar sein, ob sich Gepäck, Tarif, Termine oder das Angebot selbst geändert haben. Der Dienst sollte die Parameter des Vergleichs bewahren und den Zeitpunkt der Beobachtung zeigen, nicht nur eine attraktive Zahl."
+     ],
+     "quotes": [
+      {
+       "text": "Sagt einem automatisch Preissenkungen",
+       "rating": 4,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "TLDR: Es hat mich über 300+ Dollar gekostet, dass es mir gesagt hat, der Flug würde runtergehen, während er in Wirklichkeit auf fast 1000 pro Person hochgeschossen ist Es schien, als wäre hopper perfekt, um mehrere Flüge bei mehreren Airlines anzusehen,\nPreise zu vergleichen und sogar Flüge beobachten zu können, und Hopper würde dich benachrichtigen, wenn der",
+       "rating": 3,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "In letzter Zeit fällt mir auf, dass der beworbene Preis meistens nicht verfügbar ist, sobald man auf die Seite des eigentlichen Anbieters weitergeleitet wird. Just fly besonders unehrlich beim beworbenen Preis gegenüber dem Preis, der auftaucht, kurz bevor man auf Absenden drückt. Die Flexibilität der Suche in momondo mag ich aber",
+       "rating": 3,
+       "app": "momondo: Flights, Hotels, Cars"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_price",
+      "alt": "Illustration zum Thema „Gleiche Bedingungen vergleichen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-price",
+       "title": "Gleiche Bedingungen vergleichen",
+       "body": "Auch Angaben zu freien Plätzen und zum Mobilfunknetz veralten schnell. Die folgenden Ideen betrachtet man am besten als Arbeit an der Qualität der Beobachtungen: Ohne ausreichend frische Daten macht eine neue Oberfläche sie nicht verlässlich.",
+       "ideas": [
+        "travel-planning-1",
+        "travel-planning-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coordinate",
+   "title": "Sich auf einen gemeinsamen Plan einigen",
+   "intro": "Die Teilnehmer müssen den Reiseplan, die eigenen Ausgaben und das, was noch zu entscheiden ist, gleich verstehen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "group",
+     "title": "Vorschlag und Vereinbarung trennen",
+     "passages": [
+      "Ein gemeinsamer Plan verringert wiederholte Erklärungen, wenn alle dieselben Angaben zur Reise haben. Aber der Link des Organisators gibt einem Mitreisenden nicht immer die vollständige Buchung oder die Möglichkeit, die benötigten Dokumente zu sehen. Es kommt darauf an, die Teilnahme am Reiseplan, das Recht, ihn zu ändern, und den Zugang zu einzelnen Bestätigungen auseinanderzuhalten.",
+      "Die Berechnung der Ausgaben bringt eine eigene Frage mit: wer in welcher Summe steckt und warum ein Anteil so ausgefallen ist. Logistik und Geld zusammenzulegen ist bequem, solange die Begründung lesbar bleibt. Prüfen sollte man eine Änderung der Gruppenzusammensetzung und die Änderung einer einzelnen Ausgabe, nicht nur die erste Veröffentlichung des Plans.",
+      "In einer Gruppe kommt es darauf an, einen vorgeschlagenen Ort von einem bereits gekauften Ticket zu unterscheiden. Eine Abstimmung hilft bei der Wahl, aber das Ergebnis muss mit einem nachvollziehbaren Status in den gemeinsamen Plan übergehen. Für Ausgaben ist derselbe Übergang nützlich: die Summe erfassen, die Teilnehmer wählen und die Berechnung erklären, auch für den Fall, dass eine Person später dazugekommen ist."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe das, weil ich es mit den anderen Reisenden in meiner Gruppe teilen kann. Es gibt keine Missverständnisse!",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "Wie viele wissen, kann das Planen und Organisieren einer Reise stressig sein und es ist schwer, alle auf denselben Stand zu bringen. Diese App hat das Planen meiner Reise und die Logistik soooo viel besser gemacht! Ich liebe das Layout und ich liebe, dass das Aufteilen von Kosten und Budgets dabei ist, weil es das ganze unnötige Drama vermeidet, damit alle",
+       "rating": 5,
+       "app": "Batch: Let's Party"
+      },
+      {
+       "text": "Mein einziger Kritikpunkt ist, wie das Geld berechnet wird das macht es ein bisschen kompliziert",
+       "rating": 4,
+       "app": "Batch: Let's Party"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-group",
+       "title": "Vorschlag und Vereinbarung trennen",
+       "body": "",
+       "ideas": [
+        "travel-planning-5",
+        "travel-planning-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "day",
+     "title": "Den Tag von der eigenen Adresse aus aufbauen",
+     "passages": [
+      "In einer fremden Stadt hilft eine Karte, nahe beieinander liegende Orte zusammenzufassen und denselben Weg nicht mehrfach zu gehen. Ein Autor schätzt die Verbindung von Lage und Zeit: Sie ergibt die Grundlage für einen Tag und nicht nur eine Auswahl von Sehenswürdigkeiten.",
+      "Doch die Nähe ist nur ein Teil der Planung. Ein Besuch mit Zeitfensterticket, das Mittagessen oder die Notwendigkeit, das Gepäck abzuholen, können die bequeme Reihenfolge verändern. Orte müssen sich deshalb umstellen lassen, und die Folgen einer Änderung müssen im Tagesplan zu sehen sein.",
+      "Die Route beginnt an der tatsächlichen Adresse der Person. Steht ihre Unterkunft nicht im Hotelkatalog, muss sich der Punkt von Hand eintragen lassen. Sonst rechnet die Optimierung von einem fremden Startpunkt aus, und der Reisende muss den Tag selbst neu zusammensetzen."
+     ],
+     "quotes": [
+      {
+       "text": "Ich liebe diese App! Benutze sie oft, um unsere Sightseeing-Touren im Urlaub zu organisieren. Tolle Vorschläge für Unternehmungen und Sehenswürdigkeiten in der Nähe. Die Zeit- und Kartenfunktionen helfen uns, mehr zu sehen, ohne Wege doppelt zu gehen. Jede Menge Geheimtipps.",
+       "rating": 5,
+       "app": "Visit A City"
+      },
+      {
+       "text": "Ich plane wahnsinnig gern, und in großen Städten nach der Nähe sehen und planen zu können, um das Beste aus seiner Zeit zu machen, damit man nicht im Zickzack läuft, ist riesig. Diese App ist super und so hilfreich",
+       "rating": 5,
+       "app": "Wanderlog - Travel Planner"
+      },
+      {
+       "text": "Wenn es dein Hotel nicht kennt, hast du keinen Startpunkt! Man muss eine Adresse eingeben dürfen, denn vielleicht ist mein „Hotel“ ein Airbnb. Das ist irgendwie nutzlos!",
+       "rating": 1,
+       "app": "Visit A City"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_day",
+      "alt": "Illustration zum Thema „Den Tag von der eigenen Adresse aus aufbauen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-day",
+       "title": "Den Tag von der eigenen Adresse aus aufbauen",
+       "body": "",
+       "ideas": [
+        "travel-planning-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "title": "Den Plan unterwegs nutzen",
+   "intro": "Am Gate oder an der Tür des Museums zählt der nächste Schritt. Der Zugang dazu darf nicht verlangen, die ganze Reise noch einmal zusammenzusetzen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "documents",
+     "title": "Das nötige Ticket ohne Suche öffnen",
+     "passages": [
+      "Eine Zahlungsbestätigung und ein Dokument, das Einlass verschafft, sind verschiedene Ergebnisse. An der Tür kann ein bestimmter Voucher oder Code verlangt werden, während die E-Mail nur den Kauf meldet. Selbst ein vorbereitetes Ticket verliert seinen Nutzen, wenn der Zugang dazu von einer App abhängt, die in diesem Moment nicht verfügbar ist.",
+      "Vor dem Aufbruch lohnt es sich zu prüfen, welches Dokument gebraucht wird und ob sich die vorbereitete Kopie öffnen lässt. Angaben, die über das Netz aktualisiert werden müssen, sollten getrennt sichtbar sein. So bleibt der Zugang zu dem erhalten, was man schon hat, und es wird klar, für welche aktuellen Angaben man sich an die Quelle wenden muss.",
+      "Vor der Abreise hilft es zu zeigen, welche Dokumente bereits auf dem Gerät gespeichert sind und welche bisher nur über einen Link verfügbar sind. Dabei sind eine statische Kopie und veränderliche Angaben zum Flug unterschiedlich aktuell. Die Person muss verstehen, was sie ohne Netz öffnen kann und was sie erneut prüfen muss."
+     ],
+     "quotes": [
+      {
+       "text": "Preise konkurrenzfähig, die Voucher haben alle gut funktioniert, die App hatte eine einfache Oberfläche und die Erinnerungen fand ich gut.",
+       "rating": 5,
+       "app": "GetYourGuide: Plan & Book"
+      },
+      {
+       "text": "Ich habe universal studio Singapore über die MMT-App gebucht\nUnd sie haben mir nur die Bestätigungsmai geschickt, aber ohne den Voucher (QR-Code).\nJetzt um 1:10 Uhr nachmittags stehe ich vor universal und versuche sie zu erreichen, aber jeder sagt, das sei nicht seine Abteilung Bucht nie etwas über sie",
+       "rating": 1,
+       "app": "MakeMyTrip Flight, Hotel, Bus"
+      },
+      {
+       "text": "Ich mag CityPASS. Es hat ein gutes Preis-Leistungs-Verhältnis geboten. Aber als ich den Pass benutzen musste, war die App 2 Stunden lang nicht verfügbar. Der Bildschirm war einfach weiß. Ich habe mein Handy neu gestartet. Mit WLAN verbunden. Nichts schien zu helfen. Man sollte Screenshots von seinen Tickets machen, damit man sie sicher benutzen kann, falls die App so ausfäl",
+       "rating": 3,
+       "app": "My CityPASS"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "change",
+     "title": "Nach einer Änderung den nächsten Schritt sehen",
+     "passages": [
+      "Während der Reise sind Angaben zur eigenen Buchung und zum Anschluss besonders wertvoll. Eine positive Rezension beschreibt genau diese Erfahrung: Die Person weiß, was auf der nächsten Teilstrecke mit ihrem Gepäck geschieht. Ein bequemer Zugang zu genau dieser einen Reise zählt mehr als ein allgemeines Schaufenster mit Reisezielen.",
+      "Nach einer Verspätung wird dieser Zugang entscheidend. Wenn die App langsam ist und die Buchungsverwaltung schwer zu finden ist, kommt eine Person von der Nachricht nicht zur Handlung. Der aktuelle Reiseplan, die ursprüngliche Bestätigung und die möglichen Wege der Änderung müssen nebeneinanderstehen.",
+      "Ein angebotener und ein bereits angenommener Ersatz müssen auseinandergehalten werden. Die automatische Umbuchung passt dem Autor nicht, und der Link lässt keine andere Variante wählen. Ein Assistent kann den zugehörigen Transfer und die Übernachtung zeigen, darf sie aber nicht als automatisch mit dem Flug geändert behandeln."
+     ],
+     "quotes": [
+      {
+       "text": "Hat von der Reservierung bis zur Ankunft am Ziel sehr geholfen. Die App schickt ausgezeichnete Angaben, die nicht mal ein Mitarbeiter beim Check-in zusichern konnte. Nämlich, dass mein Gepäck von Air Canada zu meinem zweiten Anschlussflug gebracht wird. Die Buchung in der App zu verwalten ist klasse. Eine 5-Sterne-App.",
+       "rating": 5,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "Die App ist wirklich langsam und hakt, vor allem wenn man nach einer Verspätung oder Annullierung von Flügen Änderungen am Flugplan machen will. Sehr schwer, sich zurechtzufinden. Sollte auf der Startseite eine ganz leicht erreichbare Suche haben, und jede Funktion sollte über den jeweiligen Tab leicht erreichbar sein.",
+       "rating": 2,
+       "app": "United Airlines"
+      },
+      {
+       "text": "Ich habe einen Flug in einem ganzen Monat, der annulliert wurde. Die Ersatzverbindung, auf die KLM mich automatisch umgebucht hat, passt mir nicht. In meiner Buchung steht, dass ich über meinen Link zur Buchungsverwaltung selbst umbuchen kann, aber das ist eine Schleife zu der Meldung, dass mein ursprünglicher Flug annulliert ist, und erlaubt kei",
+       "rating": 1,
+       "app": "KLM - Book a flight"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_change",
+      "alt": "Illustration zum Thema „Nach einer Änderung den nächsten Schritt sehen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst – eine prüfbare Buchung und der nächste Schritt",
+  "body": "Die überzeugendste Richtung ist, eine bereits gekaufte Reise bis zur Nutzung zu bringen: den Import prüfen, das echte Ticket finden und klären, was nach einer Änderung des Flugs zu tun ist. Diese Schwierigkeiten entstehen in dem Moment, in dem jemand schon Verpflichtungen hat und wenig Zeit, die Angaben erneut zusammenzusetzen. Für eine erste Version lohnt es sich, einen solchen Übergang auszuwählen und ihn an einer unvollständigen E-Mail oder einer geänderten Buchung zu prüfen.\n\nEin gemeinsamer Plan für die Gruppe kann diese Lösung stärken. Ein Reisetagebuch ist ein eigenes Produkt mit einem anderen Ziel. Und Nachschlagewerke zu Flugauslastungen und eSIMs hängen bisher vor allem von der Qualität und der Frische der Daten ab: Eine neue Darstellung allein beseitigt ihre schwache Stelle nicht."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-assemble",
+   "title": "Die Reise aus bestätigten Teilen zusammensetzen",
+   "depth": 0
+  },
+  {
+   "id": "observation-bookings",
+   "title": "Bemerken, was aus der E-Mail nicht übernommen wurde",
+   "depth": 1
+  },
+  {
+   "id": "observation-constraints",
+   "title": "Innerhalb der tatsächlichen Einschränkungen suchen",
+   "depth": 1
+  },
+  {
+   "id": "observation-price",
+   "title": "Gleiche Bedingungen vergleichen",
+   "depth": 1
+  },
+  {
+   "id": "theme-coordinate",
+   "title": "Sich auf einen gemeinsamen Plan einigen",
+   "depth": 0
+  },
+  {
+   "id": "observation-group",
+   "title": "Vorschlag und Vereinbarung trennen",
+   "depth": 1
+  },
+  {
+   "id": "observation-day",
+   "title": "Den Tag von der eigenen Adresse aus aufbauen",
+   "depth": 1
+  },
+  {
+   "id": "theme-travel",
+   "title": "Den Plan unterwegs nutzen",
+   "depth": 0
+  },
+  {
+   "id": "observation-documents",
+   "title": "Das nötige Ticket ohne Suche öffnen",
+   "depth": 1
+  },
+  {
+   "id": "observation-change",
+   "title": "Nach einer Änderung den nächsten Schritt sehen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst – eine prüfbare Buchung und der nächste Schritt",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

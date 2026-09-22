@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "teleprompter-captions-4",
+ "category": "teleprompter-captions",
+ "categoryName": "Téléprompteur et sous-titres",
+ "title": "Un téléprompteur pour un orateur et un opérateur",
+ "description": "L’un lit, l’autre pilote le texte depuis un appareil à part.",
+ "cover": {
+  "src": "ideas/teleprompter-captions-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Pendant un enregistrement, il est peu pratique pour l’orateur de tendre la main vers l’écran. Un opérateur peut piloter le script si les deux voient la même version."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Je l’ai téléchargée au départ pour un tournage où Clive Davis interviewait des amis légendaires à lui pour une émission spéciale à la télé. L’opérateur TPT précédent s’est fait virer parce qu’il n’arrivait pas à suivre les modifications que Davis faisait au script à la volée.",
+    "rating": 4,
+    "app": "Teleprompter Pro"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Synchroniser le texte et la position, et signaler qui a la main. Si la connexion tombe, conserver le dernier état compréhensible."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Les modifications faites pendant la parole demandent un mode à part. Les lignes devant l’orateur ne doivent pas se décaler à l’improviste après chaque changement de l’opérateur."
+  }
+ ],
+ "rank": 586,
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "run-tracking-3",
+ "category": "run-tracking",
+ "categoryName": "Course à pied",
+ "title": "Un historique des courses sur tapis",
+ "description": "Un mode pour une séance sur place, avec une source claire de la distance et une correction à la main.",
+ "cover": {
+  "src": "ideas/run-tracking-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "La façon de mesurer un parcours en extérieur ne convient pas toujours au tapis de course."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Si on utilise cette appli pour courir dehors, ça marche bien. Ça enregistre tout correctement, ça envoie les notifications dans les écouteurs, etc. Par contre si on l’utilise en intérieur sur un tapis de course, ça n’enregistre pas correctement la distance ni les pas, et ça ne partage pas les infos avec la montre.",
+    "rating": 3,
+    "app": "C25K® 5K Running Coach & Map"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Conserver le mode choisi et la source du chiffre, permettre de saisir la valeur affichée par la machine ou de corriger le résultat. Garder l’enregistrement d’origine reconnaissable."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "La correction à la main aide à tenir un historique, mais elle ne transforme pas tous les appareils en instruments également précis."
+  }
+ ],
+ "rank": 485,
+ "free": false
+}

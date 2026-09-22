@@ -6,6 +6,7 @@ import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
 import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 // Playing-card style decks for the /test prototype: portrait cards with a
 // centered SF-style line icon, title and short description. Tapping a card
@@ -478,7 +479,7 @@ export function IdeaCards({ ideas, locked, loggedIn = false, locale = "ru", colu
           locale={locale}
           favId={open.slug}
           action={open.categorySlug ? (
-            <a href={`/${ru ? "ru" : "en"}/segment/${open.categorySlug}`} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
+            <a href={oldHref(ru, `/segment/${open.categorySlug}`)} className="flex w-full items-center justify-center rounded-full bg-[var(--color-text-primary)] px-4 py-3 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">
               {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
             </a>
           ) : undefined}

@@ -13,6 +13,7 @@ import { ideaContentEn } from "@/lib/regenCards";
 import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -87,7 +88,6 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "ru" : "en";
   if (!isActiveCategory(slug)) notFound();
   const cat = getCategoryBySlug(slug, ru ? "ru" : "en");
   if (!cat) notFound();
@@ -182,7 +182,7 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
 
       {topIdeaTitle && (
         <Link
-          href={`/${lp}/segment/${slug}`}
+          href={oldHref(locale, `/segment/${slug}`)}
           className="group mt-6 block rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 sm:p-5 transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))]"
         >
           <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What every one of them is missing"}</p>

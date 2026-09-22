@@ -1,0 +1,441 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "astronomy-stargazing",
+ "name": "Night sky and astronomy",
+ "summary": "Identify the object overhead and prepare an evening with the telescope. What you need to know before going outside, and what helps you keep observing.",
+ "corpus": {
+  "reviews": 15866,
+  "apps": 53
+ },
+ "lead": "A person notices a bright dot and raises their phone to the sky. Another plans a trip out with a telescope well in advance. A third wants to see a comet they have only just heard about. Each needs a different result: a name, a workable plan for the evening, or a specific object in the catalog.\n\nThe number of stars on the map answers none of those requests on its own. What matters is tying the screen to the place, the time and what the observer is able to do. What follows looks at where that link helps, where it breaks, and what separate products can be built on it.",
+ "cover": {
+  "src": "research/ResearchLaunch_astronomy-stargazing_cover",
+  "alt": "The night sky and astronomy",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_astronomy-stargazing_audiences",
+  "alt": "People’s jobs: The night sky and astronomy",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "First time looking at the sky with family",
+   "body": "The job is to name a visible star or find the Moon together with a child. The first object that makes sense matters more than a large catalog and a long acquaintance with the settings."
+  },
+  {
+   "title": "Preparing an evening with the telescope",
+   "body": "The observer picks targets, an hour and equipment. A mistake in the preparation burns the limited time outside and can wreck a shared viewing."
+  },
+  {
+   "title": "Looking for a specific event",
+   "body": "The person installed the app for a comet or an arrangement of planets. They want to know whether the event can be seen from where they are, and when it makes sense to look."
+  }
+ ],
+ "sections": [
+  {
+   "id": "orientation",
+   "title": "Line the map up with the sky overhead",
+   "intro": "The first result has to be recognizable. Place, time and direction help make sense of what exactly the screen is showing.",
+   "art": null,
+   "observations": [
+    {
+     "id": "known-object",
+     "title": "Work out which way the map is pointed",
+     "passages": [
+      "The map makes sense once a person lines it up with what they can see. Simple pointing and the name of an object give a quick first success. If the screen shows a different direction, a beginning observer has no idea whether they got it wrong themselves, whether the right place is selected, or whether the device needs configuring.",
+      "A star’s name is useful when it is clear which dot it belongs to. If the screen shows no clear link to where you are looking, a newcomer does not know whether to go hunting for a compass setting, change the place, or pick a different object. The first screen should answer exactly that question; the complicated modes can wait.",
+      "A familiar visible landmark, the Moon for instance, helps check the direction. The map’s place and time have to sit beside it: an accidental jump into the past can look like a pointing error. For a moving dot that check matters even more, but finding a satellite is a separate job that depends on current data, not on confidently naming any object in the sky."
+     ],
+     "quotes": [
+      {
+       "text": "This is the easiest app on my phone! You literally just point it in the direction of a planet or star and it’s identified. I love astronomy and I love this app!",
+       "rating": 5,
+       "app": "Classic Sky Map 2"
+      },
+      {
+       "text": "No idea what the app is actually showing (or not showing) me. Just want to point at a star and get the name.",
+       "rating": 1,
+       "app": "Star Walk 2 Plus: Live Sky Map"
+      },
+      {
+       "text": "So far, enjoying this. Wish the sky view would show the moon so I can be positive that my orientation and understanding of the stars is correct. Downloaded to star gaze with my son. He thought it was “supercool”",
+       "rating": 4,
+       "app": "SkySafari"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_known-object",
+      "alt": "Illustration for the theme “Working out where the map is pointed”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-known-object",
+       "title": "Work out which way the map is pointed",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "moon",
+     "title": "Get a short answer about the Moon",
+     "passages": [
+      "A question about the Moon phase often needs no exploration of the whole map. A person wants to open the app and see the name, the picture of the phase and the date they need straight away. When the label disappears in favor of complicated navigation, a short useful action turns into a search through the interface.",
+      "A short answer still has its conditions: the date and time have to match the chosen place. A calendar that is off by a day makes a simple screen unreliable. And personal notes about fishing or other pursuits have to be told apart from astronomical data: a reviewer’s experience does not prove that the phase affects the outcome.",
+      "If someone needs the time of the full moon, it should be findable directly by the name of the event. Adding the chosen date to a personal calendar grows naturally out of that short job. A big map is not required: a small calendar can be more convenient, as long as it keeps its labels clear and does not bury people in reminders."
+     ],
+     "quotes": [
+      {
+       "text": "I’ve been using this for 2 months now. What makes it great is how basic it is. Open the app and right away displayed right in the middle is an updated visual of the moon phase. I use this moon info for fishing. At different stages the fish will or will not be biting aggressively. I fish when they a",
+       "rating": 5,
+       "app": "The Moon: Calendar Moon Phases"
+      },
+      {
+       "text": "The dates on the calendar are off by one day. I would think it's an easy update but there has not been one offered and I've had the app for at least 6 months. I'll be deleting this app and looking for another.",
+       "rating": 2,
+       "app": "Sky and Moon phases calendar"
+      },
+      {
+       "text": "I really only want one thing from this app and that is to know when the moon is full. Recent updates make you search for this simple information as the labels have been removed. So annoying.",
+       "rating": 2,
+       "app": "Deluxe Moon Pro • App & Widget"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-moon",
+       "title": "Get a short answer about the Moon",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-4",
+        "astronomy-stargazing-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evening",
+   "title": "Prepare a specific observation",
+   "intro": "The object, the hour, the conditions and the equipment have to come together into one workable plan.",
+   "art": null,
+   "observations": [
+    {
+     "id": "event",
+     "title": "Find the event you came for",
+     "passages": [
+      "Installing the app for a specific event creates a precise expectation: the object has to be findable by name and tied to the place and time of the observation. If it is not there after a themed pack has been bought, the number of other objects does not make up for the chance that was missed.",
+      "How current the catalog is gets tested by the name the person came for. Before buying a pack they should be able to find the comet they want and see what information about it is available. Otherwise dozens of other objects do nothing to finish the one job that caused the install.",
+      "There is a difference between an object being absent and an extra charge for showing it. Those terms are better set out on the event card before the purchase. A saved plan should lead to the same object for the chosen place and show any corrections if the information has changed."
+     ],
+     "quotes": [
+      {
+       "text": "thanks to this app i saw the planet alignment",
+       "rating": 5,
+       "app": "Star & Planet Finder"
+      },
+      {
+       "text": "Bought the comet pack to help find Tsuchinshan-ATLAS and it’s not listed.",
+       "rating": 1,
+       "app": "Star Chart"
+      },
+      {
+       "text": "You can’t include a-once-in-80,000-year comet in the Tonight or Events section without paying more money? What a disappointment.",
+       "rating": 2,
+       "app": "SkySafari 7 Plus"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_event",
+      "alt": "Illustration for the theme “Finding the event you came for”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-event",
+       "title": "Find the event you came for",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "forecast",
+     "title": "Pick an hour and see the uncertainty",
+     "passages": [
+      "One verdict for the evening hides the differences between hours and conditions. What matters to an observer is when the clouds will arrive, what temperature to expect and what that means for getting the gear ready. A good general forecast can be a useful reference point, but a particular trip out needs a finer reading by time.",
+      "The conditions have to refer to the chosen place and show when they were updated. A handsome overall score cannot hide a disagreement with the rain outside the window. Separate figures for cloud cover and other conditions help show what the verdict rests on, though on their own they do not make the forecast infallible.",
+      "An overall score for the evening can hide clouds arriving at exactly the hour you head out. An hour-by-hour view shows which time the forecast refers to and which figure is changing. It does not remove forecast error, but it gives the observer grounds to move the trip or pick a different target."
+     ],
+     "quotes": [
+      {
+       "text": "We have used CSC for over 20 years, and it has been consistently the most accurate forecast out there! Updates occur daily, and sometimes, seems to be more frequent than that. Seldom if ever significantly wrong, and if you want your own map, it is a simple process of uploading your coordinates. My",
+       "rating": 5,
+       "app": "iCSC: Clear Sky Chart Viewer"
+      },
+      {
+       "text": "Wow. Looks cool. It’s total cloud cover and raining. The app shows it’s clear and dark. App says I should be outside in the rain with my telescope. Hahahaha. What a joke.",
+       "rating": 1,
+       "app": "iCSC: Clear Sky Chart Viewer"
+      },
+      {
+       "text": "I really liked the way the app worked but my recent experience is it’s not very accurate. Maybe it needs some time ranges, instead of one number that covers the entire evening. But tonight, for example, we got clouded out by 8pm after Sky Live said 81% clear tonight. Maybe it will be 81% clear in a",
+       "rating": 2,
+       "app": "Sky Live: Heavens Above Viewer"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-forecast",
+       "title": "Pick an hour and see the uncertainty",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "equipment",
+     "title": "Get the telescope ready before the gathering",
+     "passages": [
+      "Connecting the telescope easily has value together with a direction on screen that makes sense. The fact of a connection on its own does not help aim the equipment if the pointer is missing or hard to check. A mandatory update outdoors adds another problem: the preparation starts during the observation that was already planned.",
+      "A connection is not yet control: the observer needs a visible pointer showing the current direction. If the telescope connects but the crosshair is gone, there is no telling where it is aimed. Testing a particular setup has to reach that observable result instead of stopping at a “connected” message.",
+      "Updates and the readiness of the equipment have to be sorted out before heading out with guests. A repeated demand to install firmware that is already installed can take the whole evening. A prepared list of targets is only useful once that groundwork is in place; for a beginner it is worth adding a few achievable observations and clear expectations of their telescope."
+     ],
+     "quotes": [
+      {
+       "text": "I wouldn’t take my telescope out without it!\nUser friendly and easy to connect to my 14 inch Meade LX600 .",
+       "rating": 4,
+       "app": "SkySafari 7 Pro"
+      },
+      {
+       "text": "The telescope connects using SkySafari 7 plus. But the bulls eye target does not show up on the display. So you do not know where you are pointing or slewing to. This is a big issue. SkySafari 6 does not have this issue! Please address this.",
+       "rating": 4,
+       "app": "SkySafari 7 Plus"
+      },
+      {
+       "text": "Ver 3.0 needed more testing before release. Wasted an evening with relatives excited to see the SeeStar work trying to get past an erroneous voice prompt to upgrade the already upgraded firmware.\n\nVery embarrassing situation and teen kids unable to have a good first experience with Astronomy.",
+       "rating": 2,
+       "app": "Seestar"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_equipment",
+      "alt": "Illustration for the theme “Setting up the telescope before the meet-up”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-equipment",
+       "title": "Get the telescope ready before the gathering",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-5",
+        "astronomy-stargazing-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "explore",
+   "title": "Choose what to explore next",
+   "intro": "Observing from the ground and traveling through a model answer different questions. It helps to show those capabilities through something the person can try.",
+   "art": null,
+   "observations": [
+    {
+     "id": "scale",
+     "title": "Understand what the model is showing",
+     "passages": [
+      "The map overhead and a journey through a model of the universe are different experiences. In the first, the job is to find an object from the ground; in the second, to see where it sits in a larger space or to examine its surface. Wider coverage and a more detailed model are not the same thing either.",
+      "A large number of objects does not mean a detailed surface for each of them. If the planets all look the same, free flight soon stops being exploration. For a product like this it matters more to show a few substantial places and to explain what rests on data and what is there as a stand-in illustration.",
+      "The promise to “explore the universe” says little about what you can actually do. One person wants an overview of the galaxy, another the surface of a planet, and a search on a general word can lead nowhere. A trial tour of the scales that are supported explains the product better than a slogan like that.",
+      "The sky of a chosen past time is a research interest of its own. That is a different axis of the model: what matters here is the range of dates and the assumptions in the calculation, not how far you can zoom toward a planet. A mode like that is worth testing against the questions of a particular writer or teacher."
+     ],
+     "quotes": [
+      {
+       "text": "Wonderful app that provides a perspective that is totally different than “looking out” from our small perch on the earth. Go ahead and jump all the way out of the Milky Way and look back for a change. Wow!\nIt is beyond my understanding how anyone can calculate the position of what we see as unmo",
+       "rating": 5,
+       "app": "Our Galaxy"
+      },
+      {
+       "text": "I love this game. It has real planets, moons, black holes, and other celestial bodies, all ready for you to explore. I only wish the planet’s surfaces were better made, they’re pretty much all the same plastic-looking surfaces with nothing for you to really explore. I also wish there were realistic",
+       "rating": 4,
+       "app": "Stars and Planets - Astronomy"
+      },
+      {
+       "text": "this app said explore the mysteries of the universe I’m like oh I want to see the universe so I search up the universe. What pops up zero results like bro are you kidding me and you gotta pay money to do ARAR isn’t even that cool bro my mom had to spend $15 on freaking AR bro do not download this ap",
+       "rating": 2,
+       "app": "3D Solar System - Planets View"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-scale",
+       "title": "Understand what the model is showing",
+       "body": "",
+       "ideas": [
+        "astronomy-stargazing-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "trial",
+     "title": "Reach a first observation before paying",
+     "passages": [
+      "A first experience has to get as far as something concrete: naming a star, finding the Moon, or looking at the sky for a chosen time. An ad break after every tap interrupts exactly that trial. An unexpected charge for the step they need leaves a person without an answer as to whether the tool suits them.",
+      "A useful trial lets someone finish a small scenario on their own sky and shows the paid capabilities in advance. It does not have to open the whole catalog. Its job is to help them see a result and choose how deeply to use the product on the basis of something they actually did.",
+      "A paid tier is best continued from what the person has already tried. For one that means more detailed objects, for another a calendar or control of equipment. A complaint about paid information on the Moon shows one reviewer’s expectation; it does not establish a general list of features that every product is obliged to give away free."
+     ],
+     "quotes": [
+      {
+       "text": "This app gave me all of the constellation and star names for free, no paywall. Also simple and easy. Perfect.",
+       "rating": 5,
+       "app": "Constellation Map mobile"
+      },
+      {
+       "text": "If I can get the app to run it seems very good, but I click something and I get a 15 second ad. I return to the main screen zoom in on a star and get a 15 second ad. I want to give this app a try but when I can’t even fully test drive it why would I want to pay for it.",
+       "rating": 1,
+       "app": "Star Walk：Find Stars & Planets"
+      },
+      {
+       "text": "I really like how it works and how many things you can see, but my only problem is how many paywalls there are. For things like nebulas I can somewhat understand but learning about the moon, not so much. Still pretty great tho, just wish ya didn’t have to pay for like half the app.\n\nI did notice it",
+       "rating": 4,
+       "app": "Star Gazer - Live Sky View Map"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_astronomy-stargazing_trial",
+      "alt": "Illustration for the theme “Reaching the first observation before paying”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Help someone through a first evening",
+  "body": "For a first product I would pick the beginning telescope owner: help them put together a short list of targets suited to their equipment, their place and their time. That scenario is more concrete than a promise to show the whole universe. It has to be tested on a trip that actually happened: whether the preparation at home worked, whether at least some of the chosen targets were found, and whether the reason for a failure was clear. It matters to tell apart what a beautiful photograph leads you to expect and what is available when you observe with your own eyes.\n\nA catalog of rare events, a historical model and control of complicated equipment can become separate directions. They should not all be added at once. The main result for a first product is more modest: a person had an evening that made sense, kept a record of their observations and knows what to try on the next trip out."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-orientation",
+   "title": "Line the map up with the sky overhead",
+   "depth": 0
+  },
+  {
+   "id": "observation-known-object",
+   "title": "Work out which way the map is pointed",
+   "depth": 1
+  },
+  {
+   "id": "observation-moon",
+   "title": "Get a short answer about the Moon",
+   "depth": 1
+  },
+  {
+   "id": "theme-evening",
+   "title": "Prepare a specific observation",
+   "depth": 0
+  },
+  {
+   "id": "observation-event",
+   "title": "Find the event you came for",
+   "depth": 1
+  },
+  {
+   "id": "observation-forecast",
+   "title": "Pick an hour and see the uncertainty",
+   "depth": 1
+  },
+  {
+   "id": "observation-equipment",
+   "title": "Get the telescope ready before the gathering",
+   "depth": 1
+  },
+  {
+   "id": "theme-explore",
+   "title": "Choose what to explore next",
+   "depth": 0
+  },
+  {
+   "id": "observation-scale",
+   "title": "Understand what the model is showing",
+   "depth": 1
+  },
+  {
+   "id": "observation-trial",
+   "title": "Reach a first observation before paying",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Help someone through a first evening",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

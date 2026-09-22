@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "music-streaming",
+ "name": "Écoute de la musique",
+ "summary": "La file d’attente, la bibliothèque et l’endroit où l’on s’est arrêté : pourquoi un auditeur a besoin que ses propres choix survivent, même quand il change d’appareil ou de service musical.",
+ "corpus": {
+  "reviews": 25893,
+  "apps": 95
+ },
+ "lead": "Parfois on a envie d’entendre quelque chose de nouveau, parfois c’est justement l’album déjà choisi. Ces intentions se confondent facilement : les recommandations s’invitent dans la file d’attente, une version rare disparaît de la liste, un long mix repart du début. La personne se remet à manœuvrer l’app au lieu d’écouter.\n\nLes avis contiennent des demandes qui visent plusieurs produits différents : un lecteur de fichiers personnels, un outil pour déménager une collection et de la conversation autour de la musique. Le motif commun, c’est de garder ses propres choix. Ce qui suit examine où ils se perdent, sans faire de chaque amélioration une raison de construire encore un service de streaming.",
+ "cover": {
+  "src": "research/ResearchLaunch_music-streaming_cover",
+  "alt": "Écoute de musique",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_music-streaming_audiences",
+  "alt": "Tâches des gens : Écoute de musique",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Se constituer sa propre collection",
+   "body": "Cet auditeur choisit des éditions précises, garde des fichiers rares et retient l’ordre des albums. Perdre une liste, c’est perdre un travail accumulé, même si l’on peut encore retrouver les chansons."
+  },
+  {
+   "title": "Écouter en déplacement",
+   "body": "La musique est choisie à l’avance et la connexion peut tomber. La file d’attente doit continuer après un arrêt, sans devoir rechercher à nouveau les morceaux à l’écran."
+  },
+  {
+   "title": "Chercher de la musique et des interlocuteurs",
+   "body": "L’un veut de nouvelles interprétations d’une œuvre familière, l’autre une station dans sa propre langue, le troisième un échange d’impressions avec des amis. Ce sont des façons différentes de revenir à la musique."
+  }
+ ],
+ "sections": [
+  {
+   "id": "selection",
+   "title": "Choisir du connu ou trouver du nouveau",
+   "intro": "Ces modes peuvent coexister tant que la personne comprend qui choisit l’enregistrement suivant.",
+   "art": null,
+   "observations": [
+    {
+     "id": "queue",
+     "title": "Garder les limites fixées pour la file d’attente",
+     "passages": [
+      "Mélanger les chansons enregistrées et ajouter des titres similaires sont deux consignes différentes. Dans le premier cas, la personne a déjà fixé les limites du choix. Les répétitions d’une petite partie de la collection, ou un genre étranger qui surgit, rendent ce choix inutile : on finit par surveiller le lecteur et passer des morceaux.",
+      "La lecture aléatoire doit changer l’ordre à l’intérieur de la liste choisie. Quand la même séquence revient à chaque démarrage, l’auditeur n’obtient pas la variété attendue, même si le mode est formellement activé. Une file d’attente visible aide à voir ce qui vient ensuite et à changer la sélection sans reconstruire la collection.",
+      "Les recommandations demandent un consentement à part. Parfois la personne est prête à sortir de la liste, parfois elle veut rester dans un genre ou un album. Un « je n’aime pas » doit avoir un effet clair sur ce qui est choisi, et refuser les suggestions doit laisser intacte la file d’attente déjà choisie. C’est une amélioration d’un lecteur existant, pas en soi une raison de créer un nouveau service musical."
+     ],
+     "quotes": [
+      {
+       "text": "Par pitié pour l’amour de dieu réparez votre LECTURE ALÉATOIRE. Elle est absolument nulle. J’en ai marre d’entendre les mêmes chansons encore et encore et encore avec la lecture aléatoire activée.",
+       "rating": 2,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "J’aime bien utiliser l’appli. Le mode aléatoire a besoin d’un peu de travail, vu qu’il joue les mêmes chansons dans le même ordre à chaque fois que j’utilise l’appli.",
+       "rating": 4,
+       "app": "Plexamp"
+      },
+      {
+       "text": "Je sais pas trop ce qui est arrivé à l’algorithme ces six derniers mois voire cette dernière année mais il a changé. Depuis, il s’est mis à mélanger les genres et à passer des artistes que j’écoute jamais. Ou alors il croit que comme j’écoute un peu de pop de temps en temps je dois adorer toute la pop même si j’ai disliké",
+       "rating": 1,
+       "app": "YouTube Music"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_queue",
+      "alt": "Illustration du thème « Garder les limites fixées pour la file ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "discovery",
+     "title": "Donner une suite à une découverte",
+     "passages": [
+      "Une bonne découverte n’est pas forcément une chanson qui ressemble à la précédente. On peut y arriver par un compositeur qu’on ne connaît pas, un petit artiste, une humeur ou une station de radio éditoriale. La valeur naît d’un voisinage d’enregistrements inattendu mais qui a du sens : on se demande où ce choix mène encore.",
+      "Donner une suite à la découverte : enregistrer le morceau, ouvrir l’artiste, revenir à la sélection. Une station éditoriale et une recherche dans le catalogue peuvent coexister, parce qu’elles demandent des degrés d’implication différents. Pour qui aime la musique rare, l’étendue à l’intérieur d’un genre familier compte parfois plus que la taille du catalogue en général.",
+      "Une station éditoriale propose un caractère de sélection vers lequel on a envie de revenir. Cela diffère d’une recherche algorithmique de chanson similaire. Pour les uns, cette entrée sera la musique classique avec un choix d’interprétation, pour les autres une émission dans une langue familière. Les deux directions demandent leur propre public et une source de musique disponible."
+     ],
+     "quotes": [
+      {
+       "text": "C’est une appli géniale pour trouver de la nouvelle musique, j’ai trouvé mes chansons préférées avec cette appli. Je trouve que ce serait un ajout sympa d’ajouter des playlists dans les chansons enregistrées.",
+       "rating": 5,
+       "app": "Discz: Discover & Share Music"
+      },
+      {
+       "text": "Je suis abonné à IDAGIO depuis des années. J’adore leur fonction « mood » et la large gamme de musique qu’ils proposent. C’est pas le « top ten » du classique. On m’a fait découvrir des compositeurs nouveaux pour moi et ça a élargi mon champ d’écoute. Merci, IDAGIO.",
+       "rating": 4,
+       "app": "IDAGIO Stream Classical Music"
+      },
+      {
+       "text": "Les stations éditoriales sont tout simplement les meilleures. Des stations réfléchies et divertissantes me font revenir ! Les algorithmes pour les chansons et les artistes liés tombent parfois un peu à côté, il y a toujours de la marge de progression. Je recommande à fond !",
+       "rating": 5,
+       "app": "LiveOne Music"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-discovery",
+       "title": "Donner une suite à une découverte",
+       "body": "",
+       "ideas": [
+        "music-streaming-1",
+        "music-streaming-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "title": "Comprendre ce qui est entré dans l’historique",
+     "passages": [
+      "L’historique d’écoute aide à voir sa propre année musicale : quelles chansons ont accompagné un mois, ce vers quoi on est revenu, ce qui est devenu un favori de façon inattendue. Pour cette tâche, un compteur est une façon de se souvenir, et le tri par nombre d’écoutes est une autre entrée dans la collection.",
+      "Expliquer juste à côté la période et ce que le chiffre recouvre. Un total mensuel, l’activité quotidienne et l’historique complet répondent à des questions différentes. Regarder un seul graphique ne doit pas se transformer en voyage à part à travers la publicité : un court retour à une musique familière perd son sens s’il demande trop d’étapes.",
+      "Le tri par nombre d’écoutes est une autre façon d’ouvrir une collection personnelle. En même temps, le produit doit expliquer quelles données sont entrées dans le compteur et sur quelle période. Un journal d’impressions peut compléter un historique incomplet, mais il ne doit pas faire passer des marques personnelles pour des statistiques exactes de tous les services."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli marche super bien, j’adore pouvoir voir mes morceaux et mes artistes les plus écoutés et en plus combien de fois j’ai écouté une chanson",
+       "rating": 5,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "Une grande partie de l’appli n’est pas seulement passée derrière un paywall, elle est en plus couverte de pubs. Des doubles pop-up avec un minuteur avant de pouvoir les fermer pour voir un seul graphique, puis des bannières animées qui ralentissent et alourdissent toute l’appli !",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "S’il vous plaît, je vous supplie de remettre la fonction de tri par nombre de fois qu’on a écouté une chanson, c’est une fonction unique que les autres applis n’ont pas, s’il vous plaît remettez-la.",
+       "rating": 1,
+       "app": "Offline Music Player"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_history",
+      "alt": "Illustration du thème « Savoir ce qui est entré dans l’historique ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-history",
+       "title": "Comprendre ce qui est entré dans l’historique",
+       "body": "",
+       "ideas": [
+        "music-streaming-3",
+        "music-streaming-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "shared",
+     "title": "S’entendre sur qui choisit l’enregistrement suivant",
+     "passages": [
+      "Écouter en même temps qu’un proche et faire connaissance grâce à un goût commun sont deux tâches sociales différentes. Dans une session partagée, on sait déjà qui participe ; il reste à s’entendre sur la file d’attente et sur les commandes. Pour faire connaissance, il faut d’abord comprendre le goût de l’autre et décider si on a envie d’engager la conversation.",
+      "Dans l’écoute à plusieurs, on sait déjà avec qui la personne veut être. Le problème est autre : rejoindre, voir la file d’attente commune et comprendre qui la commande. Une panne de connexion casse la rencontre, même si l’appariement des gens par goût dans la même app fonctionne bien.",
+      "Trouver des gens au goût proche peut être à soi seul une raison d’acheter. Retirer une fonction pareille laisse la personne sans l’activité qu’elle a payée, même si le lecteur continue de jouer. Pour un journal partagé avec des amis, il faut d’abord comprendre si les gens apprécient la conversation, les recommandations des uns et des autres, ou justement la rencontre de nouvelles personnes : ce sont des raisons différentes de revenir."
+     ],
+     "quotes": [
+      {
+       "text": "cette appli réunit tous mes goûts musicaux en une lecture rapide, j’adore la façon dont elle me met en relation avec des gens qui aiment la même musique que moi !",
+       "rating": 5,
+       "app": "makromusic Dating for Spotify"
+      },
+      {
+       "text": "Tellement bugué, je peux pas rejoindre un jam avec ma Copine sans que ça parte complètement en vrille. Cette appli était tellement bien avant et maintenant c’est juste naze !",
+       "rating": 1,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "J’ai pris le premium à vie pour la fonction soulmates pour rencontrer des gens aux goûts proches et me faire de nouveaux amis. La fonction a été retirée et mon paiement a servi à rien. Remettez soulmates",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "collection",
+   "title": "Garder sa propre bibliothèque musicale",
+   "intro": "La composition d’une collection et son ordre ont de la valeur même quand un morceau est temporairement indisponible.",
+   "art": null,
+   "observations": [
+    {
+     "id": "playlist",
+     "title": "Garder la composition même quand un morceau disparaît",
+     "passages": [
+      "Une playlist garde des décisions difficiles à refaire de mémoire : quel enregistrement choisir, quoi mettre à côté, quoi laisser pour plus tard. C’est pourquoi la disparition d’une liste n’est pas la même chose que l’indisponibilité temporaire d’un morceau. L’ordre assemblé par la personne est perdu, même si les chansons elles-mêmes existent toujours.",
+      "Garder la composition d’une collection séparément de la possibilité de la lire. Une entrée pour une chanson indisponible est plus utile qu’une case vide : à partir d’elle, on peut trouver une autre version ou reconstruire la liste. Avant de changer d’appareil ou de passer d’un service à l’autre, il importe de voir quelles sélections sont passées en entier et lesquelles demandent de l’attention.",
+      "Perdre une collection locale après le déchargement de l’app est un cas à part : les noms, l’ordre et les fichiers eux-mêmes peuvent être stockés de façons différentes. Avant de libérer de la place, la personne doit voir ce qui restera et comment récupérer le reste. Le passage d’un service à l’autre ajoute une vérification des versions des morceaux : un titre identique ne signifie pas encore le même enregistrement."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai perdu plus de 2000 chansons à cause de la dernière mise à jour et j’ai pas beaucoup utilisé cette appli depuis je peux même pas exprimer à quel point je suis furax ma playlist principale qui s’appelait « favoris » a été supprimée partie après la mise à jour je me souviens pas de toutes ces chansons 🤨 j’ai ce compte depuis au moins 15 ans",
+       "rating": 2,
+       "app": "MyMixtapez: Playlists 24/7"
+      },
+      {
+       "text": "J’ai mis à jour Pandora et ça a complètement effacé mon compte ! J’ai dû me reconnecter et rechoisir toutes les stations. J’avais ma « sélection » — c’est VOUS qui l’avez supprimée. Pas terrible, Pandora.",
+       "rating": 1,
+       "app": "Pandora: Music & Podcasts"
+      },
+      {
+       "text": "Cette appli était la meilleure appli de musique hors ligne que j’avais depuis des années mais toute ma musique et mes playlists ont été effacées par contre mon fond choisi et mon historique de recherche sont restés et j’ai juste déchargé l’appli comme d’habitude",
+       "rating": 1,
+       "app": "Offline Music Player-MP3&Video"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_playlist",
+      "alt": "Illustration du thème « Garder la sélection même si un morceau disparaît ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-playlist",
+       "title": "Garder la composition même quand un morceau disparaît",
+       "body": "",
+       "ideas": [
+        "music-streaming-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "files",
+     "title": "Distinguer ses propres fichiers de l’accès qu’on y a",
+     "passages": [
+      "Les fichiers musicaux personnels offrent une autre façon de constituer une bibliothèque : garder ses propres enregistrements et des versions rares, les organiser sur un ordinateur et continuer à écouter depuis le téléphone. Ce chemin est particulièrement précieux quand l’œuvre voulue n’est pas dans le catalogue habituel, ou quand sa disponibilité a changé.",
+      "La commodité se joue sur toute la chaîne, du stockage à la lecture. Tester les formats de ses fichiers, l’ordre des albums et l’accès aux enregistrements voulus sur le téléphone. Un flux depuis un serveur domestique et une copie locale résolvent des tâches différentes ; l’écran de la collection doit aider à les distinguer au lieu de faire deviner d’après le bouton Play.",
+      "Un catalogue de streaming peut changer après un déménagement dans un autre pays : le service dont on a l’habitude, ou un enregistrement, se révèle indisponible. Les fichiers personnels sont une autre façon de constituer une bibliothèque, à condition que la personne ait des enregistrements appropriés et le droit de s’en servir. Mais un nouveau lecteur ne doit pas promettre de ramener un catalogue bloqué ; il répond des fichiers dont dispose le propriétaire et de l’ordre dans lequel ils étaient gardés."
+     ],
+     "quotes": [
+      {
+       "text": "Des centaines de cd, trop de services de steaming, et assez de connaissances techniques pour m’attirer des ennuis. Mis en place plex media server avec le plex pass à vie et maintenant je peux écouter ma propre musique en streaming via plexamp n’importe où. Ça m’a économisé des centaines par an. Adieu Spotify !",
+       "rating": 5,
+       "app": "Plexamp"
+      },
+      {
+       "text": "je suis un dingue de musique de niche et les plateformes de streaming me font carrément fuir, soit avec une surabondance de pubs soit parce qu’une grande partie des chansons que j’aime sont juste pas disponibles. cette appli règle mes deux problèmes ET en plus je peux trier ma musique sur mon téléphone partout exactement comme je le fais sur mon ordi à la maison !",
+       "rating": 5,
+       "app": "Evermusic: Cloud Music Player"
+      },
+      {
+       "text": "Je suis un utilisateur fidèle depuis plus que 6 ans quand je vivais dans les pays MENA, après avoir immigré aux USA, j’ai été surpris que l’appli soit pas disponible ici. J’aime vraiment cette appli et j’espère que vous envisagerez de l’étendre au monde entier pour que les utilisateurs puissent continuer à en profiter où qu’ils vivent.",
+       "rating": 4,
+       "app": "Anghami: Play Music & Podcasts"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-files",
+       "title": "Distinguer ses propres fichiers de l’accès qu’on y a",
+       "body": "",
+       "ideas": [
+        "music-streaming-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "playback",
+   "title": "Continuer à écouter ailleurs",
+   "intro": "La route, un système domestique et un long enregistrement exigent tous que l’état choisi soit conservé, et pas seulement un bouton de lecture qui marche.",
+   "art": null,
+   "observations": [
+    {
+     "id": "travel",
+     "title": "Continuer à écouter après un arrêt",
+     "passages": [
+      "Une pastille de téléchargement n’est utile que si la musique choisie est vraiment disponible pendant le trajet voulu. Ce qui compte, c’est la composition de la sélection téléchargée et les conditions dans lesquelles elle est stockée. Un morceau apparu dans la liste reste à distinguer d’un morceau prêt à être lu sans connexion.",
+      "En voiture s’y ajoute la continuité de la file d’attente : après un court arrêt, on veut entendre le morceau suivant qu’on a choisi. Tester un trajet familier avec un arrêt et un retour. Si les commandes dans la voiture montrent un choix alors qu’autre chose est en train de jouer, de grands boutons ne règlent pas le problème principal, la perte de contrôle sur l’écoute.",
+      "Après un arrêt ou une reconnexion, la file d’attente doit rester là où elle était. Pour un long mix s’y ajoute la position exacte : la rechercher à nouveau est pénible. C’est une spécialisation possible pour un lecteur construit autour des longs enregistrements, mais les avis sur une file d’attente de voiture disparue ne prouvent pas à eux seuls une demande pour une app dédiée aux mixes."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai rompu avec Spotify et j’ai eu une histoire de rebond avec Tidal. J’avais de grands espoirs, et j’ai essayé de m’y tenir, mais la fonction hors ligne/téléchargement est juste nulle. J’ai un long trajet quotidien sans réseau et j’ai besoin de télécharger de la musique de façon fiable. Adieu Tidal",
+       "rating": 2,
+       "app": "TIDAL Music: HiFi Sound"
+      },
+      {
+       "text": "D’abord, s’il n’y avait pas l’interface CarPlay, je mettrais 5 étoiles. Mais, mon usage principal de cette appli c’est dans la voiture, l’interface Apple CarPlay est importante pour moi. L’interface CarPlay de cette appli se bloque, joue pas la bonne chanson, joue une chanson d’une liste au lieu de ce qui est choisi sur l’écran CarPlay.",
+       "rating": 2,
+       "app": "JioSaavn Music & Podcasts"
+      },
+      {
+       "text": "Quand j’utilise Apple Carplay, Deezer s’arrête d’un coup et il n’y a plus aucune chanson dans la file d’attente. Ça arrive à peu près une fois toutes les quatre heures de conduite même avec toutes les barres en 5G. À part cette gêne, Deezer est fantastique !",
+       "rating": 4,
+       "app": "Deezer: Music Player, Podcast"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_travel",
+      "alt": "Illustration du thème « Continuer l’écoute après un arrêt ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-travel",
+       "title": "Continuer à écouter après un arrêt",
+       "body": "",
+       "ideas": [
+        "music-streaming-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sound",
+     "title": "Savoir à quoi un réglage s’applique",
+     "passages": [
+      "Les réglages de son deviennent une part personnelle de la collection : le bon égaliseur permet d’écouter la musique comme l’aime le propriétaire d’un casque donné. Mais un changement utile à un morceau peut gêner le suivant. Cette différence se voit surtout sur la vitesse de lecture et sur les préréglages individuels.",
+      "Montrer à côté du réglage sa portée : l’enregistrement en cours, la sélection choisie ou le lecteur entier. Après un changement de préréglage, la position des commandes doit correspondre à l’état appliqué. Pouvoir revenir vite au son d’origine aide à comparer les changements sans mémoriser chaque mouvement de curseur.",
+      "La vitesse de lecture a besoin d’une portée claire : ce morceau seulement, ou le lecteur entier. Sinon un réglage fait pour une interprétation change la suivante par accident. Un système domestique ajoute un autre choix : une enceinte ou une pièce précise. Sa commande relève du matériel et demande une vérification à part, pas simplement un onglet d’égaliseur de plus."
+     ],
+     "quotes": [
+      {
+       "text": "😭 c’est le MEILLEUR lecteur de musique sur iOS, je paierais plein tarif rien que pour l’eq, svp donnez-nous des bandes plus hautes et plus nombreuses 🥹",
+       "rating": 5,
+       "app": "Flacbox: Hi-Res Music Player"
+      },
+      {
+       "text": "Hé, j’aime vraiment cette appli le son est solide et l’EQ est franchement agréable à utiliser. Mais j’ai remarqué un bug avec les boutons de basses et d’aigus. Si je règle les basses ou les aigus autour de 50%, puis que je passe à un autre preset, le bouton peut afficher quelque chose de plus bas genre 30%, mais on dirait que ça reste bloqué sur le",
+       "rating": 4,
+       "app": "Silence Music: Equalizer, Musi"
+      },
+      {
+       "text": "J’adore vraiment utiliser la fonction Audiomod pour accélérer ou ralentir les morceaux, mais j’aimerais que l’appli la gère mieux. Là, si j’active un mod, il reste actif pour chaque chanson que je joue. Je veux pouvoir appliquer certains Audiomods à des chansons précises et qu’ils restent enregistrés seulement pour ces morceaux.",
+       "rating": 3,
+       "app": "Audiomack - Play Music Offline"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-sound",
+       "title": "Savoir à quoi un réglage s’applique",
+       "body": "",
+       "ideas": [
+        "music-streaming-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Garder la collection, ne pas construire tout un service de streaming",
+  "body": "Pour une petite équipe, je testerais d’abord la sauvegarde et le transfert de playlists entre un ensemble précis de services pris en charge. Le résultat y est clair : la personne voit l’ordre qu’elle avait, les enregistrements indisponibles et les correspondances douteuses. Avant tout développement, il faut s’assurer que les services autorisent et permettent techniquement d’obtenir les données voulues. Sans cela, un bel écran de transfert ne deviendra pas un produit qui fonctionne.\n\nL’alternative, c’est un lecteur pour ceux qui possèdent leurs fichiers, avec un bon scénario pour la route et l’accès hors ligne. Un journal musical et l’audio domestique demandent déjà un autre public et d’autres raisons de revenir. Cela ne vaut pas la peine de tout réunir d’un coup : l’avantage initial doit conserver une collection ou une habitude précise de l’auditeur, plutôt que promettre de remplacer toute sa vie musicale."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-selection",
+   "title": "Choisir du connu ou trouver du nouveau",
+   "depth": 0
+  },
+  {
+   "id": "observation-queue",
+   "title": "Garder les limites fixées pour la file d’attente",
+   "depth": 1
+  },
+  {
+   "id": "observation-discovery",
+   "title": "Donner une suite à une découverte",
+   "depth": 1
+  },
+  {
+   "id": "observation-history",
+   "title": "Comprendre ce qui est entré dans l’historique",
+   "depth": 1
+  },
+  {
+   "id": "observation-shared",
+   "title": "S’entendre sur qui choisit l’enregistrement suivant",
+   "depth": 1
+  },
+  {
+   "id": "theme-collection",
+   "title": "Garder sa propre bibliothèque musicale",
+   "depth": 0
+  },
+  {
+   "id": "observation-playlist",
+   "title": "Garder la composition même quand un morceau disparaît",
+   "depth": 1
+  },
+  {
+   "id": "observation-files",
+   "title": "Distinguer ses propres fichiers de l’accès qu’on y a",
+   "depth": 1
+  },
+  {
+   "id": "theme-playback",
+   "title": "Continuer à écouter ailleurs",
+   "depth": 0
+  },
+  {
+   "id": "observation-travel",
+   "title": "Continuer à écouter après un arrêt",
+   "depth": 1
+  },
+  {
+   "id": "observation-sound",
+   "title": "Savoir à quoi un réglage s’applique",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Garder la collection, ne pas construire tout un service de streaming",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

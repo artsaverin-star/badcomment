@@ -1,0 +1,485 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "personal-finance",
+ "name": "Finances personnelles",
+ "summary": "Comment savoir quel argent est disponible maintenant, lequel est déjà nécessaire pour les paiements et de quoi se compose chaque montant.",
+ "corpus": {
+  "reviews": 32561,
+  "apps": 99
+ },
+ "lead": "Après un achat, on veut savoir combien il reste. Avant de payer une facture, se rappeler quelles dépenses sont encore à venir. Un journal des opérations ne répond à ces questions qu’en partie : le total dépend de l’exhaustivité des saisies, des dates de paiement et du fait que l’argent attendu ait été compté ou non comme déjà reçu.\n\nL’utilité d’une app de finances ne se mesure donc pas au nombre de rapports, mais à sa capacité d’expliquer un montant et de laisser modifier les données de départ. Ce qui suit examine le suivi manuel, le budget à la journée, les dépenses communes et les paiements à venir comme autant de façons d’obtenir une réponse claire sur son propre argent.",
+ "cover": {
+  "src": "research/ResearchFinance_cover",
+  "alt": "Un couple à table range l’argent du quotidien selon son usage.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchFinance_audiences",
+  "alt": "Un reçu avec un carnet, des enveloppes et une maison miniature montrent les achats quotidiens et les dépenses à venir.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Pour les achats du quotidien",
+   "body": "On note ses dépenses et on les compare au plan. Ce qu’il faut, c’est un rythme qu’on arrive à tenir : une saisie après l’achat, une vérification le soir, ou un coup d’œil aux opérations importées. Parfois, garder les choses simples compte plus qu’ajouter un rapport de plus."
+  },
+  {
+   "title": "Pour les obligations proches et les objectifs à venir",
+   "body": "Le solde actuel doit être mis en regard des dates de paiement, du revenu attendu et des achats à venir. Le jour, la semaine et le mois donnent des vues différentes d’un même budget. Ce qu’il faut ici, c’est pouvoir vérifier le calcul et modifier le plan."
+  },
+  {
+   "title": "Pour l’argent commun et le suivi sur la durée",
+   "body": "Les partenaires ont besoin de comprendre le budget de la même façon, même si l’un d’eux saisit plus souvent que l’autre. Avec des années de suivi, un autre souci apparaît : retrouver une ancienne opération et continuer après un changement de téléphone. Des saisies devenues habituelles se transforment en archive personnelle."
+  }
+ ],
+ "sections": [
+  {
+   "id": "routine",
+   "title": "D’abord — composer une image qu’on peut suivre",
+   "intro": "Tout calcul commence par des saisies. D’où viendront les opérations, et comment vérifier qu’elles sont justes ? La saisie manuelle et l’import automatique créent des tâches différentes.",
+   "art": null,
+   "observations": [
+    {
+     "id": "manual",
+     "title": "Une saisie doit tenir dans une journée ordinaire",
+     "passages": [
+      "La saisie à la main est parfois choisie pour le geste lui-même. Après avoir acheté des courses ou payé un trajet, on regarde une fois de plus le montant et l’objet de la dépense. L’auteur d’un avis a essayé exprès des apps aux capacités supplémentaires et est resté à la saisie simple.",
+      "Un autre auteur choisit lui aussi la saisie manuelle, même s’il la qualifie franchement de fastidieuse. Ce qui l’aide, c’est une réaction de jeu. Ici, la valeur de la mise en forme tient au retour à la saisie ; une seule expérience de ce genre ne signifie pas que tout le monde a besoin d’un système de jeu.",
+      "Les détails peuvent être trop nombreux : choisir un compte, des catégories imbriquées et des notes obligatoires transforment le suivi domestique en travail de comptabilité. Le minimum raisonnable est fixé par la question qu’on posera plus tard à la saisie. À quoi serviront sa catégorie ou sa note — et y reviendra-t-on seulement ?",
+      "Une difficulté à part, c’est de continuer après plusieurs jours manqués. L’ancien historique peut être conservé, mais un suivi incomplet ne doit pas être présenté comme un solde vérifié sur le compte. L’achat suivant devrait aider à revenir à la saisie, sans obliger à reconstituer d’abord toute la période."
+     ],
+     "quotes": [
+      {
+       "text": "C’est la première appli de budget que j’ai téléchargée. J’ai continué à explorer d’autres applis avec toutes les fonctions en plus, synchro bancaire, modèles, stockage des reçus etc etc, et honnêtement je suis tellement content que cette appli soit restée fidèle à ses racines de saisie manuelle toute simple. La saisie manuelle c’est justement ça, l’intérêt.",
+       "rating": 5,
+       "app": "Spending Tracker"
+      },
+      {
+       "text": "Les développeurs, lisez s’il vous plaît cet avis d’un utilisateur adulte normal et raisonnable. C’est fastidieux de saisir les dépenses à la main, mais c’est important parce que ça oblige à faire attention à ce qu’on dépense. Le but de l’appli c’est de faire de la saisie des dépenses une habitude, et la mécanique de jeu fait exactement ça.",
+       "rating": 4,
+       "app": "Fortune City: Expense Tracker"
+      },
+      {
+       "text": "Ça a été étonnamment difficile de trouver une méthode de budget qui demande pas de compte en ligne et qui — à l’autre extrême — m’oblige pas non plus à être en gros mon propre comptable de la pire façon. C’est le meilleur mélange de détail, de confidentialité et de simplicité que j’ai trouvé.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_manual",
+      "alt": "Une personne reporte un achat d’un reçu dans son carnet de dépenses.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "manual-archive",
+       "title": "Raccourcir le chemin de l’achat à la saisie",
+       "body": "Le suivi manuel convient à ceux qui apprécient l’attention portée à l’achat lui-même. La connexion automatique des comptes n’est pas forcément l’étape suivante de ce produit.",
+       "ideas": [
+        "personal-finance-1"
+       ]
+      },
+      {
+       "directionId": "return-to-tracking",
+       "title": "Continuer après une journée non saisie",
+       "body": "Le retour au suivi peut être séparé de la reconstitution des saisies manquées, en signalant que les totaux sont incomplets.",
+       "ideas": [
+        "personal-finance-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "overview",
+     "title": "Du total à une opération précise",
+     "passages": [
+      "Une fois les saisies rassemblées, il devient possible de voir le mouvement de l’argent dans son ensemble. Dans un extrait, un auteur explique qu’il ne se servait que du budget et des objectifs : comprendre ce qui entrait sur le compte et ce qui en sortait lui suffisait.",
+      "L’étape suivante consiste à comprendre de quoi le total se compose. Dans un autre extrait, un auteur loue la catégorisation des opérations. Même quand le classement automatique fonctionne bien, on peut avoir besoin de son propre sens d’une catégorie : un achat en magasin peut être des courses pour la maison ou la dépense d’un rendez-vous de travail. Une correction doit modifier le total correspondant de façon prévisible.",
+      "Parfois la question est encore plus précise : quel est ce prélèvement qui revient dans l’historique ? Un utilisateur décrit un abonnement retrouvé dont il n’arrivait pas à établir lui-même l’origine. Pour ce genre de recherche, le nom, les dates et le lien entre opérations répétées comptent. Cet exemple aide à faire la différence entre un décryptage de fond des dépenses et un résumé qui ne montre qu’un total déjà connu."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai commencé à utiliser Monarch en janvier. J’ai pas utilisé toutes les fonctions, mais j’ai bien utilisé le budget et la fonction objectifs. Je voulais juste être sûr de comprendre ce qui entrait et sortait de mon compte. Ça a super bien marché pour moi. Ça m’a aidé à me sentir plus maître de la situation.",
+       "rating": 1,
+       "app": "Monarch: Budget & Track Money"
+      },
+      {
+       "text": "L’appli CoPilot en elle-même est solide. L’interface est intuitive, les outils de budget sont bien pensés, et le moteur de catégorisation est un des rares qui apprend vraiment le comportement de l’utilisateur au lieu de tout mettre en vrac après chaque opération.",
+       "rating": 1,
+       "app": "Copilot: Track & Budget Money"
+      },
+      {
+       "text": "Jai été prélevé par un site dont j’ai vraiment aucune idée de ce que c’était ni comment il a commencé à me prélever, mais je trouvais le site nulle part. J’ai vu une pub pour rocket money et j’ai décidé d’essayer. Ça a trouvé l’abonnement tout de suite.",
+       "rating": 5,
+       "app": "Rocket Money - Bills & Budgets"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "decisions",
+   "title": "Ensuite — comprendre ce que change un achat",
+   "intro": "Avant un nouvel achat, il faut savoir quel argent est déjà réservé aux obligations et pour quelle durée le reste est prévu. L’historique des dépenses passées ne suffit pas ici.",
+   "art": null,
+   "observations": [
+    {
+     "id": "allowance",
+     "title": "Le montant disponible a besoin d’une explication et d’une durée",
+     "passages": [
+      "Un chiffre clair pour ce qui reste aujourd’hui évite de refaire le calcul avant chaque achat. Un auteur décrit un ordre qui lui parle : saisir les dépenses récurrentes et l’épargne qu’il souhaite, puis répartir le reste sur les jours. Il sait aussi ce qu’il advient de l’argent qu’il ne dépense pas. Ce sont ces règles qui donnent son sens au nombre.",
+      "Une autre personne trouve la semaine plus facile à regarder. Une telle période peut être plus simple à rapprocher des achats habituels que de garder un mois entier en tête. Ce qui compte, c’est de pouvoir relier l’horizon choisi à son propre calendrier, plutôt que de déclarer une seule façon de calculer valable pour tous.",
+      "Une formule qu’on n’arrive pas à suivre, à l’inverse, oblige à recalculer le résultat soi-même — cette difficulté est décrite elle aussi dans les avis. Le montant principal doit s’ouvrir sur ses parties : le solde de départ, les paiements pris en compte, la période et les achats saisis. Pour vérifier, ajoute une dépense familière et demande à la personne d’expliquer le changement. Si l’argent est réparti à l’avance par destination, la même question se pose à l’intérieur de chaque enveloppe numérique."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli te laisse entrer toutes tes factures et dépenses récurrentes et combien tu veux épargner et ensuite elle divise le reste par le nombre de jours du mois — et tu reçois ce montant chaque jour comme de l’argent de poche. Si tu dépenses pas tout, ça passe au jour suivant. C’est simple, efficace, et ça marche vraiment.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      },
+      {
+       "text": "Je faisais mon budget au mois et j’ai toujours pensé qu’un budget à la Semaine aurait pas de sens pour moi parce que j’arrivais pas à sortir du raisonnement en dépenses par mois. Mais cette appli m’a fait passer au budget à la Semaine ! Si tu es quelqu’un qui adore les maths comme moi et qui veut voir en temps réel si tes dépenses sont dans les clous, cette appli est parfaite.",
+       "rating": 5,
+       "app": "Weekly: Budget Planner & Bills"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_allowance",
+      "alt": "Des enveloppes séparées gardent l’argent des engagements ; la part dépensable du budget reste à côté.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "available",
+       "title": "Ouvrir l’arithmétique du montant disponible",
+       "body": "Le montant principal doit s’ouvrir sur son calcul : les saisies et les règles dont il découle. Sinon, on doit mener un second calcul dans sa tête.",
+       "ideas": [
+        "personal-finance-2"
+       ]
+      },
+      {
+       "directionId": "digital-envelopes",
+       "title": "Répartir le budget par destination",
+       "body": "Les enveloppes proposent une autre façon de répartir. Ici, il ne faut pas seulement comprendre les dépenses, mais aussi le déplacement de l’argent entre les destinations.",
+       "ideas": [
+        "personal-finance-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "couple",
+     "title": "Deux personnes doivent comprendre le solde de la même façon",
+     "passages": [
+      "Dans un couple, le budget devient un accord. Un auteur décrit la répartition des rôles : il tient les comptes, sa femme fait la plupart des achats. Il leur faut un équivalent numérique des enveloppes, parce que les espèces ne conviennent pas aux dépenses ordinaires. Un montant commun n’aide que lorsque les deux comprennent à quels achats il est destiné.",
+      "Un autre couple apprécie que les achats faits depuis les comptes connectés apparaissent dans un historique commun. C’est une autre manière de tenir le même accord : la nouvelle information doit parvenir à temps à la deuxième personne. Le mode partagé mérite donc d’être testé sur deux appareils, y compris la correction d’une saisie erronée et une mise à jour retardée.",
+      "En même temps, le partage n’oblige pas à ouvrir entièrement tous les comptes. Un futur produit devra aider à choisir les catégories communes, les saisies privées et les actions disponibles. Ces réglages se vérifient mieux sur un achat familial ordinaire : qui l’ajoute, qui peut le corriger et quel montant le partenaire voit après la modification."
+     ],
+     "quotes": [
+      {
+       "text": "Ma femme et moi on a galéré pendant des années à chercher la meilleure façon de se parler de notre budget. Moi je tiens les comptes, c’est elle qui dépense le plus. On n’aime pas les espèces parce qu’on dépense beaucoup en ligne, et les cartes c’est juste plus pratique. Sans enveloppes en liquide il nous fallait un équivalent numérique.",
+       "rating": 5,
+       "app": "Goodbudget Budget Planner"
+      },
+      {
+       "text": "Ça fait un peu plus de deux ans que j’utilise Honeydue — TELLEMENT utile pour ma femme et moi pour gérer nos dépenses et notre budget. J’ai essayé toutes les autres applis et c’est celle-ci qui marche le mieux pour nous. Voilà comment on s’en sert : on a tous nos comptes connectés, et chaque fois que l’un de nous fait un achat ça apparaît en temps réel.",
+       "rating": 5,
+       "app": "Honeydue: Couples Finance"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_couple",
+      "alt": "Deux personnes vérifient un budget commun, chacune gardant une part personnelle de l’argent.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "shared",
+       "title": "S’entendre sur ce que deux personnes voient et peuvent faire",
+       "body": "Un budget commun a deux tâches : mettre à jour le montant à temps et préserver les limites convenues des dépenses personnelles.",
+       "ideas": [
+        "personal-finance-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "future",
+     "title": "Le solde d’aujourd’hui et le solde après un paiement sont deux nombres différents",
+     "passages": [
+      "Un total mensuel positif n’explique pas encore ce qui se passera au milieu du mois. Le loyer peut tomber avant le revenu attendu. L’auteur d’un avis apprécie justement le calendrier : il lui permet de choisir une date future et de voir le solde calculé en tenant compte des événements saisis.",
+      "Pouvoir modifier ces événements compte aussi. Un autre auteur souligne la facilité à régler les revenus et les paiements récurrents. Pour un produit, l’étape suivante est de montrer les conséquences d’une modification : quels jours ont changé après le déplacement d’une rentrée d’argent, et quelles dépenses sont restées à leur date d’origine. L’argent attendu doit être distingué de l’argent déjà reçu.",
+      "L’approche peut être étendue à différents horizons. Avec un revenu variable — voir quelles obligations sont couvertes par les paiements réellement arrivés. Avec des dettes — comparer des échéanciers calculés à des conditions données. Dans les deux cas, il est utile de laisser modifier le montant ou la date de départ et de suivre le résultat. Le calcul montre les conséquences du plan saisi ; à lui seul, il ne confirme ni un revenu futur ni les conditions d’un prêteur."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai découvert Dollarbird il y a environ trois ou quatre ans. Je reprends les commentaires d’un autre utilisateur je comprends pas pourquoi plus de gens utilisent pas cette appli. Je les ai toutes essayées. La plupart suivent les budgets — comme cette appli aussi — mais la vue calendrier des flux d’argent te montre quel sera ton solde à n’importe quelle date future.",
+       "rating": 5,
+       "app": "Dollarbird - Budget Calendar"
+      },
+      {
+       "text": "Dollarbird c’est mon appli préférée pour les prévisions de budget et pour suivre mes soldes et mes dépenses. C’est hyper facile de mettre en place les paiements et les revenus récurrents, et en plus facile à changer.",
+       "rating": 4,
+       "app": "Dollarbird - Budget Calendar"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "scheduled-balance",
+       "title": "Suivre les conséquences du déplacement d’un paiement",
+       "body": "Une date future est utile quand on voit de quoi le solde se compose et qu’on peut le recalculer après avoir modifié un paiement.",
+       "ideas": [
+        "personal-finance-10"
+       ]
+      },
+      {
+       "directionId": "variable-income",
+       "title": "Séparer ce qui est arrivé de ce qui est attendu",
+       "body": "Avec un revenu variable, il importe de voir quelles obligations sont couvertes par l’argent déjà reçu. Une rentrée attendue reste une hypothèse du plan.",
+       "ideas": [
+        "personal-finance-6"
+       ]
+      },
+      {
+       "directionId": "debt-scenarios",
+       "title": "Comparer des variantes d’échéancier à des conditions données",
+       "body": "Le calcul du remboursement des dettes est une tâche voisine, avec ses propres conditions de départ. Le calendrier montre le résultat des hypothèses saisies, pas une date de fin promise.",
+       "ideas": [
+        "personal-finance-9"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Distinguer ce qui est prévu de ce qui est déjà mis de côté",
+     "passages": [
+      "L’épargne prend une destination claire quand des montants précis sont liés à des objectifs. Un auteur décrit plusieurs objectifs avec des montants et des fréquences de versement différents. Cette vue aide à revenir à son propre plan : à quel achat on se prépare et jusqu’où on est allé.",
+      "Une règle de versement ajoute une action à ce plan. Un autre utilisateur apprécie de pouvoir fixer les conditions de déplacement de l’argent. Ici, un indicateur qui monte ne suffit plus : il faut voir si le dernier versement a eu lieu et quelles opérations composent le montant actuel.",
+      "Un journal d’épargne et un outil de virement n’auront pas les mêmes obligations. Dans un journal, on note ce qu’on a fait soi-même ; dans un service relié à un compte, le statut d’une opération doit être visible. Une première version peut se limiter à des objectifs avec un montant, une échéance et des marques de versement. On peut la vérifier sur un versement manqué : le calcul des étapes restantes change-t-il, et voit-on clairement ce qui est réellement mis de côté ?"
+     ],
+     "quotes": [
+      {
+       "text": "J’ai cette appli et je m’en sers en continu depuis plusieurs années. Je l’utilise pour l’épargne. J’ai plusieurs objectifs, chacun avec son montant à atteindre et sa fréquence d’épargne. J’ai constaté que cette appli m’a profondément aidé à passer à la vitesse supérieure côté épargne.",
+       "rating": 5,
+       "app": "Oportun: Savings & Loans"
+      },
+      {
+       "text": "J’ai cette appli depuis à peu près un an et je l’adore tellement, j’ai toujours galéré à mettre de l’argent de côté le tdah faisait que je dépensais plus dès que je gagnais plus donc quoi qu’il arrive je vivais d’une paie à l’autre. J’adore pouvoir fixer différents objectifs et différentes règles pour la façon dont l’argent est déplacé.",
+       "rating": 4,
+       "app": "Qapital: The Money Saving App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "dated-goals",
+       "title": "Préparer un plan pour une date connue",
+       "body": "Un versement noté et le plan à venir doivent rester deux grandeurs distinctes. Un versement manqué change le chemin qui reste, pas le montant déjà mis de côté.",
+       "ideas": [
+        "personal-finance-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continuity",
+   "title": "Et garder la possibilité de continuer",
+   "intro": "Les catégories, les notes et les plans s’accumulent dans l’app. Ce qui compte maintenant, c’est de pouvoir revenir à une saisie, la transmettre à quelqu’un d’autre ou poursuivre le suivi dans un autre outil.",
+   "art": null,
+   "observations": [
+    {
+     "id": "archive",
+     "title": "L’historique doit rester utilisable",
+     "passages": [
+      "Des années de suivi permettent de comparer des périodes et de revenir sur des décisions passées. L’auteur d’un avis utilise son app depuis plus de dix ans et mentionne la consultation de ses dépenses anciennes à côté de ses saisies quotidiennes. Dans ce scénario, retrouver le bon mois compte autant qu’ajouter vite un nouvel achat.",
+      "La profondeur des saisies varie pourtant. Un autre auteur apprécie de pouvoir régler le niveau de détail sur ses propres tâches. Les dépenses professionnelles peuvent demander des notes et des justificatifs ; pour un achat personnel, la date et l’objet suffisent. Lors d’un transfert de données, ces liens méritent d’être conservés, pour qu’une archive détaillée ne se transforme pas en une série de montants inexplicables.",
+      "La perte d’accès touche un travail déjà fait. Dans un avis, une personne décrit une app précédente dont le support a pris fin et dont des années de données ont disparu. Tester un futur produit doit inclure d’en sortir : exporter une courte période, ouvrir le fichier à part, retrouver une saisie choisie et en vérifier les détails. La présence d’un bouton d’export ne signifie pas encore que l’historique pourra servir."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise cette appli depuis plus de dix ans, et elle continue de m’impressionner. Elle est simple, intuitive et incroyablement puissante — tout ce qu’il faut pour un budget perso, au même endroit. Que tu suives tes dépenses quotidiennes, que tu prépares tes budgets mensuels ou que tu revoies tes dépenses passées, elle gère tout sans accroc.",
+       "rating": 5,
+       "app": "Coins - Spending Tracker"
+      },
+      {
+       "text": "J’utilise XpenseTracker depuis au moins 2013 et sans doute plus longtemps. Il se personnalise assez pour donner autant ou aussi peu de détail que tu veux.",
+       "rating": 5,
+       "app": "XpenseTracker"
+      },
+      {
+       "text": "J’ai commencé à utiliser une appli en 2016 pour suivre mes finances. J’ai payé cette autre appli pour un usage à vie et ensuite ils ont décidé de passer à l’abonnement et ont arrêté le support pour les clients qui avaient acheté à vie. L’appli a été retirée et j’ai perdu des années de données.",
+       "rating": 5,
+       "app": "Debit & Credit"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_archive",
+      "alt": "Un historique de dépenses passe avec soin d’un vieux carnet à un neuf.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "work-expense-records",
+       "title": "Transmettre les dépenses avec leurs notes",
+       "body": "Une dépense professionnelle doit souvent être expliquée à quelqu’un d’autre. Le reçu, le trajet et la note doivent rester attachés à la saisie lors de la transmission.",
+       "ideas": [
+        "personal-finance-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "payment",
+     "title": "Les conditions de paiement font elles aussi partie du plan",
+     "passages": [
+      "On met le coût d’un outil en regard de l’usage qu’on en fait. Un auteur remercie expressément pour un achat unique : ce qui compte pour lui, c’est d’obtenir les capacités dont il a besoin sans nouvelle dépense récurrente. C’est une préférence concrète, à prendre en compte lors du test d’une offre.",
+      "Dans un autre avis, un utilisateur soutient le droit du développeur à être payé et raconte son passage depuis la version précédente. Cela montre la disposition d’une personne précise à accepter un changement du produit, mais n’explique pas quel modèle de paiement il préfère. Conclure de cet extrait qu’il soutient l’abonnement serait prématuré.",
+      "L’autrice d’un autre avis décrit une longue recherche d’une app abordable pour son budget familial. Ces préférences diffèrent, et aucun prix unique ne s’en déduit. Avant de payer, il faut pouvoir terminer une tâche familière et comprendre les conditions d’accès à ses propres saisies.",
+      "Le renouvellement mérite d’être relié au travail qu’un service accomplit vraiment de façon régulière. Un journal simple, l’import des opérations et un budget commun ne créent pas la même valeur. C’est l’objet d’un test séparé de l’offre, pas une conclusion tirée d’une note élevée dans la boutique."
+     ],
+     "quotes": [
+      {
+       "text": "Ce que j’ADORE avec cette appli c’est que la version payante c’est un achat UNIQUE et pas un abonnement. Merci merci merci.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      },
+      {
+       "text": "Déjà, ignorez les commentaires négatifs, surtout ceux qui parlent de « pompe à fric ». Le développeur a droit à une rémunération juste pour son travail. J’ai eu Fudget classic pendant plus de 7 ans, et je suis passé à celui-ci.",
+       "rating": 5,
+       "app": "Fudget: Monthly Budget Planner"
+      },
+      {
+       "text": "CETTE APPLI EST GÉNIALE ! J’ai littéralement passé HUIT HEURES à chercher une bonne appli de budget. Il y en a TELLEMENT ! Et elles font toutes payer au mois, ou elles demandent une somme délirante. Ce qui va très bien quand on est agent de change mais moi je suis juste une mère avec un seul revenu.",
+       "rating": 5,
+       "app": "Monefy: Money Tracker"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Commencer par un montant qu’on peut expliquer",
+  "body": "Le point prometteur ici, c’est une seule réponse claire sur l’argent. Par exemple, combien est disponible jusqu’à la prochaine rentrée et quels paiements sont déjà pris en compte. Il faut commencer par une personne qui calcule cela aujourd’hui dans une note, un tableur ou dans sa tête. Qu’elle saisisse ses opérations, change la date d’un paiement et explique le montant obtenu.\n\nS’il faut un second calcul pour l’expliquer, un beau rapport n’a pas encore résolu la tâche. Si les données sont incomplètes, le résultat doit montrer cette limite. Le suivi partagé, les enveloppes et l’import automatique peuvent tous faire avancer le produit, mais chacun de ces ajouts doit garder le calcul compréhensible. Les avis confirment le besoin de comprendre son propre argent ; la préférence pour un modèle précis de suivi et de paiement reste à établir séparément."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-routine",
+   "title": "D’abord — composer une image qu’on peut suivre",
+   "depth": 0
+  },
+  {
+   "id": "observation-manual",
+   "title": "Une saisie doit tenir dans une journée ordinaire",
+   "depth": 1
+  },
+  {
+   "id": "observation-overview",
+   "title": "Du total à une opération précise",
+   "depth": 1
+  },
+  {
+   "id": "theme-decisions",
+   "title": "Ensuite — comprendre ce que change un achat",
+   "depth": 0
+  },
+  {
+   "id": "observation-allowance",
+   "title": "Le montant disponible a besoin d’une explication et d’une durée",
+   "depth": 1
+  },
+  {
+   "id": "observation-couple",
+   "title": "Deux personnes doivent comprendre le solde de la même façon",
+   "depth": 1
+  },
+  {
+   "id": "observation-future",
+   "title": "Le solde d’aujourd’hui et le solde après un paiement sont deux nombres différents",
+   "depth": 1
+  },
+  {
+   "id": "observation-saving",
+   "title": "Distinguer ce qui est prévu de ce qui est déjà mis de côté",
+   "depth": 1
+  },
+  {
+   "id": "theme-continuity",
+   "title": "Et garder la possibilité de continuer",
+   "depth": 0
+  },
+  {
+   "id": "observation-archive",
+   "title": "L’historique doit rester utilisable",
+   "depth": 1
+  },
+  {
+   "id": "observation-payment",
+   "title": "Les conditions de paiement font elles aussi partie du plan",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Commencer par un montant qu’on peut expliquer",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

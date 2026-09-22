@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "car-maintenance-5",
+ "category": "car-maintenance",
+ "categoryName": "車のメンテナンス",
+ "title": "直し方が分かる給油の記録帳",
+ "description": "抜けた給油を、順序を保ったまま追加でき、再計算も説明される。",
+ "cover": {
+  "src": "ideas/car-maintenance-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "日付の誤りや満タンでない給油は、燃費のグラフを変える。印がなければ、数字はそれが集められた履歴よりも正確に見えてしまう。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "車の燃費を記録してくれるので、自分の車の燃費が上がっているのか下がっているのかが細かく分かります。おかげでエンジンの調子がどうなのかがよくつかめます。それにこの記録は車の下取り額の助けにもなります。",
+    "rating": 5,
+    "app": "Fuelly: MPG & Service Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "記録の差し込み、測定の単位、走行の条件についてのメモに対応する。保存の前に、グラフのどの区間が計算し直されるのかを示す。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "ずれをエンジンの診断と呼んではいけない。まず記録の完全さと、条件が比べられるものかどうかを確かめる必要がある。"
+  }
+ ],
+ "rank": 139,
+ "free": false
+}

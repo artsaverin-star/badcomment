@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "travel-planning-1",
+ "category": "travel-planning",
+ "categoryName": "Planification de voyages",
+ "title": "Des informations de remplissage des vols avec leur contexte",
+ "description": "Pour les voyages en billets à tarif réduit : voir l’heure, l’origine et les conditions derrière les signalements de places libres faits par les utilisateurs.",
+ "cover": {
+  "src": "ideas/travel-planning-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "En voyageant avec un billet à tarif réduit, on regarde les signalements sur le remplissage d’un vol. Deux chiffres publiés presque en même temps peuvent se contredire, et un indicateur de couleur affirmatif masque cette incertitude."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’ai littéralement reçu des remplissages pour 2 compagnies différentes affichant +1 et +7. Moins de 10 secondes après, de nouveaux remplissages ont été saisis affichant 0 et -1. Les remplissages sont peu fiables 90 % du temps.",
+    "rating": 1,
+    "app": "StaffTraveler"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "L’action à simplifier"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "À côté de chaque information, il faut l’heure, la source et les conditions d’observation. Une nouvelle entrée ne détruit pas la précédente : on voit ce qui a changé et à quel point les données sont fraîches."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ce qui décide de l’utilité"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Il faut commencer par la disponibilité et la qualité des sources, pas par une carte des vols. Les signalements des utilisateurs ne garantissent pas une place à bord. Sans moyen fiable d’obtenir et de vérifier des informations fraîches, un produit distinct n’est pas encore justifié."
+  }
+ ],
+ "rank": 100,
+ "free": false
+}

@@ -1,0 +1,496 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "habit-tracking",
+ "name": "Gewohnheiten",
+ "summary": "Was dabei hilft, Erledigtes zu markieren, nach einem Aussetzer zurückzukehren und einen Tracker im eigenen Rhythmus zu nutzen.",
+ "corpus": {
+  "reviews": 31299,
+  "apps": 98
+ },
+ "lead": "Morgens versucht ein Mensch, pünktlich aus dem Haus zu kommen, abends versucht er sich zu erinnern, was er geschafft hat, und eine Woche später schaut er auf ein leeres Kästchen und entscheidet, ob er überhaupt weitermacht. In jeder dieser Phasen muss der Tracker anders helfen. Ein Hinweis führt zur Handlung, eine Markierung hält die Tatsache fest, der Verlauf hilft, die vorherigen Tage einzuordnen.\n\nDie Schwachstelle entsteht, wenn das Festhalten selbst zu einer weiteren Gewohnheit wird – langes Ausfüllen der App und Korrigieren ihres Kalenders. Die wichtige Frage für diese Kategorie: Hilft der Tracker einem Menschen, nach einer Ablenkung, einem Aussetzer oder einer Planänderung das gewöhnliche Leben fortzusetzen?",
+ "cover": {
+  "src": "research/ResearchHabits_cover",
+  "alt": "Eine Frau legt den nächsten Stein in einen Weg neben einer blühenden Pflanze.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchHabits_audiences",
+  "alt": "Von oben: drei Menschen lesen, dehnen sich und gießen eine Pflanze.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Sich fertig machen und den nächsten Schritt gehen",
+   "body": "Den einen fällt es schwer, morgens mit dem Fertigmachen zu beginnen, den anderen, sich zwischen den Handlungen nicht ablenken zu lassen. Hier helfen eine klare Reihenfolge, ein sichtbarer nächster Schritt und die Möglichkeit, an der Stelle weiterzumachen, an der man aufgehört hat. Wie ausführlich ein Plan ist, sollte zum konkreten Menschen passen: Dieselbe Bilderfolge kann einem Kind und einem Erwachsenen gleichermaßen nützen."
+  },
+  {
+   "title": "Sich selbst über lange Zeit beobachten",
+   "body": "Die einen wollen täglich Spaziergänge oder das Lesen markieren. Für andere ist es nützlicher, sich das Datum des letzten Putzens zu merken, zwischen den Trainings die Erholung zu sehen oder einen Schichtplan zu berücksichtigen. Der Verlauf beginnt dann zu helfen, wenn seine Einträge dazu passen, wie der Mensch tatsächlich lebt, und wenn Änderungen an den Zielen die Vergangenheit nicht umschreiben."
+  },
+  {
+   "title": "Sich mit einem anderen Menschen absprechen",
+   "body": "Ein Paar kann eine gemeinsame Gewohnheit wählen, ein Elternteil einen Plan vorbereiten, eine Fachkraft vor einem Treffen die Einträge eines Klienten durchgehen. Diese Beziehungen haben unterschiedliche Grenzen. Wer den Plan aufstellt, wer ihn ausführt und wem die Einzelheiten sichtbar sind, klärt man besser, bevor jemand in einen gemeinsamen Tracker eingeladen wird."
+  }
+ ],
+ "sections": [
+  {
+   "id": "start",
+   "title": "Zuerst – die Handlung machbar machen",
+   "intro": "Ein Tracker tritt in einen Tag ein, den es schon gibt: mit Arbeit, Wegen und Ablenkungen. Die erste Frage ist, in welchem Moment er nützt. Nach einer erledigten Handlung braucht es eine schnelle Markierung; beim Fertigmachen kann ein Hinweis nötig sein, was als Nächstes zu tun ist.",
+   "art": null,
+   "observations": [
+    {
+     "id": "first-habit",
+     "title": "Mit einer einzigen echten Handlung beginnen",
+     "passages": [
+      "Statt der Gewohnheit kann man unbemerkt anfangen, sich um den Tracker zu kümmern: Gestaltung auswählen, Einstellungen ausfüllen, Pläne verschieben. Ein Rezensionsautor beschreibt das Ausfüllen ausdrücklich als weitere Aufgabe, für die die Aufmerksamkeit nicht reicht. Je öfter dieser Weg wiederholt werden muss, desto mehr fällt jedes zusätzliche Feld ins Gewicht.",
+      "In einer positiven Rezension wird eine App geschätzt, die nicht versucht, tausend Dinge auf einmal zu sein. Die erste Begegnung kann sich um eine einzige eigene Handlung drehen und zeigen, wie der morgige Eintrag aussehen wird. Erweiterte Möglichkeiten kann man anbieten, wenn klar wird, was dem Menschen fehlt.",
+      "Auch der Eintrag selbst ist verschieden. Ein Häkchen beantwortet die Frage „wurde es gemacht“, während ein Foto und eine Notiz helfen, sich an die Umstände zu erinnern. Das sind verschiedene Aufgaben: Ein ausführliches Tagebuch in einen einfachen Zähler einzubauen, ergibt nur dann Sinn, wenn der Mensch wirklich zu diesen Angaben zurückkehrt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab schon viele Gewohnheits-Tracker ausprobiert, aber fast immer gibt es VIEL zu viel auszufüllen, sodass ich sie gar nicht mehr nutzen wollte. Das ganze Ausfüllen fühlte sich an, als müsste es selbst eine Gewohnheit sein. Mein ADHS-Hirn lässt sich zu leicht ablenken.",
+       "rating": 5,
+       "app": "everyday - Habit Tracker"
+      },
+      {
+       "text": "Ich hab die App gerade erst geladen und bis jetzt liebe ich sie! Mir gefällt die Einfachheit und dass sie nicht versucht, 1000 Dinge auf einmal zu sein. Die Oberfläche ist intuitiv und schön anzusehen.",
+       "rating": 5,
+       "app": "Onrise: Habit Tracker & Focus"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "photo-journal",
+       "title": "Ein anderes Format für den Eintrag wählen",
+       "body": "Ein Foto-Esstagebuch ist ein benachbartes Szenario, keine notwendige Funktion eines Trackers. Es ergibt Sinn, wenn ein Mensch sich an die Umstände erinnern muss, statt erledigte Handlungen zu zählen.",
+       "ideas": [
+        "habit-tracking-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "quick-mark",
+     "title": "Erledigtes markieren, bevor es vergessen ist",
+     "passages": [
+      "Ein Widget oder eine Uhr nützen in einem bestimmten Moment: Die Handlung ist schon erledigt, das Telefon zu öffnen ist unbequem, und ein aufgeschobener Eintrag kann zwischen anderen Dingen verloren gehen. In einer positiven Rezension wird der Weg als buchstäblich wenige Fingertipps beschrieben.",
+      "Eine Erinnerung löst die benachbarte Aufgabe – sie holt die Aufmerksamkeit zurück zu dem, was noch nicht getan ist. Ein Autor schätzt mehrere Signale für eine Gewohnheit, weil er dazu neigt, das erste aufzuschieben. Hier hilft es, das Signal mit einer klaren Wahl zu verbinden: jetzt tun, verschieben oder das Ergebnis eintragen. Die Häufigkeit soll der Mensch auf seinen eigenen Tag abstimmen.",
+      "Nach der Markierung bleibt noch die Rückmeldung zu prüfen. Ein Autor, der die Uhr nutzt, beklagt ausdrücklich einen Balken, der wie Fortschritt aussieht, ihn aber nicht abbildet. Schnelle Eingabe verliert ihren Sinn, wenn unklar ist, ob das Ergebnis gespeichert wurde. Ein Mensch sollte die gespeicherte Markierung sofort sehen und ein versehentliches Tippen rückgängig machen können."
+     ],
+     "quotes": [
+      {
+       "text": "In dieser App steckt viel Überlegung, und man merkt es. So einfach zu bedienen, und Ziele als erledigt zu markieren macht richtig Freude. Aufs Widget tippen, aufs Ziel tippen, fertig. Oder Siri-Kurzbefehle nutzen. Das ist perfekt.",
+       "rating": 5,
+       "app": "Awesome Habits: Habit Tracker"
+      },
+      {
+       "text": "So intuitiv, und man kommt sofort rein! Ich finde es super, dass man mehrere Erinnerungen für dieselbe Gewohnheit anlegen kann. Besonders praktisch für Leute wie mich, die dazu neigen, die Schlummertaste zu drücken, und eigentlich fühlt sich die App an wie eine To-do-Liste und ein Gewohnheits-Tracker in einem.",
+       "rating": 5,
+       "app": "HabitShare - Habit Tracker"
+      },
+      {
+       "text": "Mir gefällt, dass ich Gewohnheiten von der Uhr aus abhaken kann. Sonst bleibe ich nicht dran. Aber die Oberfläche auf der Uhr könnte besser sein. Der kleine Widget-Balken, der aussieht, als müsste er den Fortschritt zeigen, tut es nicht. Es sieht immer so aus, als wären 2/3 meiner Gewohnheiten erledigt.",
+       "rating": 3,
+       "app": "Habitify: Habit Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_quick-mark",
+      "alt": "Eine Frau mit Tasche an der offenen Tür hält ihr Handgelenk mit der Uhr vor sich.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "quick-capture",
+       "title": "Den Eintrag auf dem passenden Gerät abschließen",
+       "body": "Einen solchen Eintrag prüft man am besten am Ort der Handlung: beim Spaziergang, beim Training oder beim abendlichen Fertigmachen. Die Schnelligkeit zählt mehr als die Zahl der Eingabewege.",
+       "ideas": [
+        "habit-tracking-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "feedback",
+     "title": "Der Markierung einen angenehmen Abschluss geben",
+     "passages": [
+      "Die tägliche Geste kann für sich genommen gefallen: die Taste gedrückt halten, die Reaktion spüren, das Erledigte sehen. In einer Rezension zu einem einfachen Tracker werden der Ton und die Vibration zusammen mit der kurzen Handlung genannt. Die Ausdruckskraft steckt hier in der Nutzung und verlangt nicht, sich gesondert mit Regeln auseinanderzusetzen.",
+      "Ein anderer Autor beschreibt ein kleines Gefühl von Stolz nach jeder Markierung. Aus dieser Erfahrung lässt sich nicht auf den Nutzen von Animation im Allgemeinen schließen. Ein angenehmer erster Eindruck kann sich ändern, wenn sich dieselbe Geste jeden Tag wiederholt.",
+      "Ein Mensch kann eine ausdrucksstarke Reaktion oder eine stille Bestätigung wählen. So zeigt sich, welche Variante im Alltag angenehm bleibt. Ein eigenes Spielsystem fügt man am besten dann hinzu, wenn seine Rolle in einer konkreten Praxis klar ist."
+     ],
+     "quotes": [
+      {
+       "text": "Im Großen und Ganzen mag ich die App wirklich. Es gibt keine Werbung, und die Entwickler sammeln keine Daten. Die App ist Gewohnheitstracking in seiner einfachsten Form. Man öffnet einfach die App und hält die Taste gedrückt, kein Schnickschnack. Die Sounds und das haptische Feedback sind klasse.",
+       "rating": 3,
+       "app": "(Not Boring) Habits"
+      },
+      {
+       "text": "Verändert das Leben! Ursprünglich hab ich die App geladen, um Gewohnheiten aufzubauen. Jede erledigte Gewohnheit abzuhaken fühlt sich so befriedigend an. Es ist dieses kleine Gefühl von Stolz, das einen weitermachen lässt. Egal wie klein die Veränderung wirkt, wenn man sie ins Leben einbaut, zählt sie.",
+       "rating": 5,
+       "app": "MyRoutine: Organize your day"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "sequence",
+     "title": "Hinweisen, was jetzt zu tun ist",
+     "passages": [
+      "Beim Fertigmachen beantwortet eine Aufgabenliste nur einen Teil der Fragen. Man muss noch herausfinden, welche Handlung als Nächstes kommt und wie viel Zeit bis zum Aufbruch bleibt. In einer Rezension werden besonders die Hinweise geschätzt, die laufend aktualisieren, wann der nächste Schritt beginnt und wann die ganze Folge endet.",
+      "Die Reihenfolge zählt auch dann, wenn mehreren Aufgaben dieselbe Zeit zugewiesen ist. Ein Autor bittet darum, sie innerhalb dieses gemeinsamen Zeitfensters sortieren zu können. Für ein Produkt ist das ein Anlass, ein kleines echtes Szenario zu prüfen: Was passiert, wenn sich der erste Schritt hinzieht, wenn ein Punkt schon erledigt ist oder wenn der Mensch auf halbem Weg abgelenkt wird?",
+      "Auch die Form des Hinweises will gewählt sein. Ein erwachsener Nutzer erzählt, dass ihm ein visueller Tagesplan passte, der für Kinder gedacht war. Deshalb ist es nützlicher zu prüfen, ob ein Mensch die Handlung auf dem Bild erkennt und den Übergang versteht, als die gesamte Oberfläche nach dem Alter zu bestimmen. Für die Nutzung in der Familie kommt eine weitere Aufgabe hinzu – den vorbereiteten Plan auf das Gerät zu bringen, auf dem er genutzt wird."
+     ],
+     "quotes": [
+      {
+       "text": "Das ist eine der besten Apps, die ich je genutzt hab. Ich hab so viele Routine-Apps und Timer probiert, aber die hier war bisher die hilfreichste. die ständig aktualisierten Erinnerungen, wann die nächste Aufgabe anfängt und wann alles vorbei ist, sind UNGLAUBLICH hilfreich.",
+       "rating": 5,
+       "app": "Routine Planner, Habit Tracker"
+      },
+      {
+       "text": "Diese App ist ein Schatz und ich mag sie wirklich, jeden Cent wert. Ich habe drei kleine Vorschläge, die ich SO GERN umgesetzt sehen würde. Macht es so, dass Aufgaben, die zur selben Zeit oder im selben Zeitfenster anstehen, in einer bestimmten Reihenfolge sortiert werden können.",
+       "rating": 4,
+       "app": "Habit Hub: Routine Tracker"
+      },
+      {
+       "text": "Ich bin erwachsen, mit unaufmerksamem ADHS und DIS. Ich hab viele Planungs- und To-do-Apps für Erwachsene benutzt, die sehr funktional waren, bei mir aber nicht funktioniert haben. Dann hab ich geschaut, ob es Apps für ADHS gibt, und es gibt sie, aber ich Glückspilz! Ich hab diese hier gefunden, die für Kinder gedacht ist und perfekt zu meinem Kopf passt.",
+       "rating": 5,
+       "app": "Visual Schedule Daily Routine"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_sequence",
+      "alt": "Die Morgenhandlungen reihen sich zu einem Weg, der aus dem Haus führt.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "family-sequence",
+       "title": "Den Plan dorthin bringen, wo er ausgeführt wird",
+       "body": "In einer Familie können der Ersteller des Plans und sein Nutzer verschiedene Menschen sein. Die Übertragung der aktuellen Abfolge zählt mehr als ein gemeinsamer Kalender für alle.",
+       "ideas": [
+        "habit-tracking-3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "progress",
+   "title": "Dann – lernen, weiterzumachen",
+   "intro": "Ein paar sauber ausgefüllte Tage zeigen noch nicht, ob das Werkzeug auf lange Sicht passt. Die eigentliche Prüfung beginnt mit einem vergessenen Eintrag, einem geänderten Zeitplan oder einer Unterbrechung. Wichtig ist, wie sie sich im Verlauf niederschlagen und was ein Mensch bei der Rückkehr sieht.",
+   "art": null,
+   "observations": [
+    {
+     "id": "elapsed-time",
+     "title": "Auswählen, was genau gezählt wird",
+     "passages": [
+      "Nicht jede wiederkehrende Aufgabe muss an ein tägliches Kästchen gebunden sein. Für die Instandhaltung im Haushalt kann es reichen zu wissen, wie lange das letzte Mal her ist. Ein Autor nutzt den Zähler genau für periodisches Putzen und andere Hausarbeiten, obwohl die App für eine andere Aufgabe gedacht war.",
+      "In einer anderen Situation hilft dieselbe Zahl einem Menschen, die Zeit seit dem Beginn des Ausstiegs aus einer Gewohnheit zu sehen. Ein Autor schätzt ausdrücklich, dass sie auf dem Widget verfügbar ist. Die Mechanik sieht gleich aus, doch die Bedeutung eines neuen Ereignisses unterscheidet sich: Beim Putzen beginnt damit einfach das nächste Intervall, im persönlichen Verlauf kann es weit schärfer erlebt werden.",
+      "Eine der Rezensionen verbindet das Zurücksetzen mit Scham. Das ist ein Grund, das Festhalten eines neuen Ereignisses sorgfältig zu entwerfen: die vorherigen Zeiträume behalten, das Datum korrigierbar machen und eine Erklärung zulassen. Der Zähler zeigt einen Teil der Erfahrung, erklärt aber nicht den Grund für die Unterbrechung."
+     ],
+     "quotes": [
+      {
+       "text": "Als Mensch mit ADHS finde ich, dass die App alles verändert, wenn es darum geht, den Alltagskram, das Putzen und alles, was regelmäßig ansteht, im Griff zu behalten. Eigentlich wurde sie entwickelt, um mit Gewohnheiten wie Rauchen aufzuhören, aber ich finde sie unglaublich nützlich, um alles Regelmäßige zu verfolgen.",
+       "rating": 5,
+       "app": "Days Since: Quit Habit Tracker"
+      },
+      {
+       "text": "Ich hab ein paar von diesen Apps benutzt, bei den wenigen Malen, die ich mit dem Trinken aufhören wollte, und die hier hilft mir echt wiiiirklich, ehrlich. Ich liebe das Layout und die Anpassungsmöglichkeiten. Sie sieht echt schön aus, und das Widget, das mir zeigt, wie viele Tage ich schon nüchtern bin, ist so hilfreich.",
+       "rating": 5,
+       "app": "I Am Sober"
+      },
+      {
+       "text": "die Grundidee, die Tage zu zählen, hilft extrem. wenn man rückfällig wird, fühlt man sich fast schuldig, den Zähler zurückzusetzen, besonders wenn man schon weit gekommen ist. sobald man sich daran gewöhnt hat, löst dieses Schuldgefühl echt was im Kopf aus.",
+       "rating": 2,
+       "app": "Days Since: Quit Habit Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "attempt-history",
+       "title": "Die Zeiträume nach einem neuen Ereignis behalten",
+       "body": "Ein neuer Zählbeginn sollte die vorherigen Zeiträume nicht löschen. Der Verlauf hilft, ein weiteres Ereignis vom Verlust des ganzen bisherigen Weges zu unterscheiden.",
+       "ideas": [
+        "habit-tracking-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pause-correction",
+     "title": "Erholung, Aussetzer und vergessenen Eintrag unterscheiden",
+     "passages": [
+      "Ein leeres Kästchen kann Verschiedenes bedeuten: Die Handlung fand nicht statt, der Mensch machte eine Pause, oder er trug das Ergebnis einfach nicht ein. Ein Autor bittet darum, die Serie während Krankheit und Urlaub zu erhalten. Das ist eine Frage nach den Regeln des Verlaufs, und sie klärt man besser vor der ersten Unterbrechung.",
+      "Ein vergessener Eintrag verlangt etwas anderes. In einer Rezension will ein Mensch drei gestern erledigte Aufgaben eintragen, und dafür braucht es fünfzehn Fingertipps. Die Arbeit ist schon getan; jetzt hindert die unbequeme Eingabe daran, sie festzuhalten. Die Möglichkeit, den benötigten Tag zu öffnen und mehrere Markierungen zu korrigieren, erhält den Sinn des Tagebuchs.",
+      "Es gibt auch die Bitte um ein ausdrückliches „nicht erledigt“: Der Morgen ist vorbei, und die morgendliche Handlung findet nicht mehr statt. So lässt sich ein abgeschlossener Tag von einem unausgefüllten unterscheiden. Diese Zustände gibt es, damit Menschen ihren eigenen Verlauf ehrlich lesen können, nicht um sie für ein leeres Kästchen zu bestrafen.",
+      "Bei Schichtarbeit kommt die Tagesgrenze hinzu: Die kalendarische Mitternacht kann mitten in den Arbeitstag fallen. Das ist eine eigene Einstellung des Zeitplans. Sie ersetzt weder eine Pause noch eine späte Markierung, sondern bestimmt, zu welchem Tag eine Handlung gehört."
+     ],
+     "quotes": [
+      {
+       "text": "Die App ist insgesamt richtig gut und hat mir seit dem Download viel geholfen. Aber eine ziemlich wichtige Funktion fehlt, nämlich die Möglichkeit, Gewohnheiten zu pausieren, ohne die Serie zu verlieren. Zum Beispiel wenn man krank wird oder in den Urlaub fährt.",
+       "rating": 4,
+       "app": "HelloHabit - Daily Planner"
+      },
+      {
+       "text": "Mag die App wirklich, aber sie braucht dringend einen einfacheren Weg, Gewohnheiten für vergangene Tage zu bearbeiten. Wenn ich jetzt 3 Aufgaben nachtragen will, die ich gestern erledigt habe, sind das 15 Fingertipps! VIEL zu umständlich. Am besten wäre, Nutzer einfach jeden Tag direkt bearbeiten zu lassen.",
+       "rating": 4,
+       "app": "Habit Tracker - Evoday"
+      },
+      {
+       "text": "Ich mag die App, aber es gibt ein Problem. Ich hätte gern die Möglichkeit, Gewohnheiten als nicht erledigt zu markieren. Wenn ich zum Beispiel eine Morgenroutine habe und eine Gewohnheit nicht gemacht habe und der Morgen schon vorbei ist, dann ist ja klar, dass ich sie jetzt nicht mehr schaffen kann.",
+       "rating": 4,
+       "app": "Grit: Daily Habit Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_pause-correction",
+      "alt": "Ein Mensch ruht zwischen den schon gespeicherten Tagen: eine Pause löscht den zurückgelegten Weg nicht.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "flexible-history",
+       "title": "Zurückkehren, ohne die Gewohnheit neu anzulegen",
+       "body": "Die Rückkehr nach einem Aussetzer ist ein eigenständiger Teil der Arbeit mit einem Tracker. Sie muss den Sinn der früheren Einträge bewahren.",
+       "ideas": [
+        "habit-tracking-1"
+       ]
+      },
+      {
+       "directionId": "shift-day",
+       "title": "Den Tag an den Zeitplan des Menschen binden",
+       "body": "Für die Nachtschicht ist es nützlicher, den Beginn des Tages richtig zu bestimmen, als ein weiteres Signal zu einer unpassenden Zeit hinzuzufügen.",
+       "ideas": [
+        "habit-tracking-7"
+       ]
+      },
+      {
+       "directionId": "clear-challenge",
+       "title": "Die Regeln des Programms vorab zeigen",
+       "body": "Ein Programm mit festem Zeitraum braucht vorab klare Regeln dafür, wie ein Tag endet und wie ein neuer Versuch beginnt.",
+       "ideas": [
+        "habit-tracking-9"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "long-view",
+     "title": "Einen Verlauf bewahren, zu dem man zurückkehren mag",
+     "passages": [
+      "Ein Überblick über den Monat hilft zu sehen, was in der heutigen Liste untergeht: wo sich Handlungen wiederholten, wo Lücken waren, was sich mit der Zeit änderte. Eine visuelle Form kann dieses Lesen erleichtern. Ein Autor sagt ausdrücklich, dass ihm das Denken in Bildern und ein einfacher, anschaulicher Tracker liegen.",
+      "Ein anderer Nutzer kehrt seit vielen Jahren zur App zurück und schätzt einen schnellen Weg, Verhalten festzuhalten. Hier wirken Eintrag und Überblick zusammen: Der Verlauf entsteht, weil er sich ergänzen lässt. Zu prüfen ist nicht nur die ansprechende Grafik, sondern auch der Schritt von ihr zu einem konkreten Tag.",
+      "Über die Jahre ändern sich die Gewohnheiten selbst. Ein Autor erzählt, dass er seine Liste regelmäßig durchsieht und sie auf verschiedenen Geräten nutzen möchte. Deshalb speichert man eine Zieländerung besser zusammen mit ihrem Datum: Die alten Markierungen müssen verständlich bleiben. Export und Übertragung des Verlaufs prüft man am besten an angesammelten Einträgen: Bleiben die Datumsangaben, die Erläuterungen und die früheren Ziele erhalten?"
+     ],
+     "quotes": [
+      {
+       "text": "ich steh total auf hübsche Apps und genau das ist die hier. ich denke sehr visuell und ich nutze everyday total gern fürs Gewohnheitstracking. sie ist so einfach und intuitiv zu bedienen und ich hab mich beim Lesen all der Studienartikel und Videos usw. verloren, die dabei waren.",
+       "rating": 4,
+       "app": "everyday - Habit Tracker"
+      },
+      {
+       "text": "Ich nutze die App jetzt seit Jahren mal mehr, mal weniger, aber seit ein paar Jahren am Stück ganz konsequent, und sie hat mein Leben enorm positiv beeinflusst. Einen wirklich schnellen und einfachen Weg zu haben, meine Muster und mein Verhalten festzuhalten, ist unglaublich.",
+       "rating": 5,
+       "app": "Way of Life - Habit Tracker"
+      },
+      {
+       "text": "Ich benutze diese App seit Jahren. Ich weiß nicht mal, wie viele. Gefühlt mindestens 10 Jahre. Ab und zu gehe ich meine gelisteten Gewohnheiten neu durch – aktualisieren usw. Dann denke ich, wie toll es wäre, sie auf meinem Handy und auf meinem iPad zu haben.",
+       "rating": 5,
+       "app": "Way of Life - Habit Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "portable-history",
+       "title": "Prüfen, ob das Angesammelte erhalten bleibt",
+       "body": "Der angesammelte Verlauf wird zu einem eigenen Wert. Ihn bewahrt man am besten zusammen mit den Datumsangaben der Zieländerungen, damit frühere Markierungen verständlich bleiben.",
+       "ideas": [
+        "habit-tracking-10"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "together",
+   "title": "Und die passende Unterstützung wählen",
+   "intro": "Ein persönlicher Verlauf kann zur Grundlage eines Gesprächs mit einem nahen Menschen oder einer Fachkraft werden. Doch der Zugang zu den Markierungen verändert das Verhältnis zum Tracker. Deshalb baut man die gemeinsame Nutzung besser um eine konkrete Absprache: wozu die Einträge angesehen werden und wie auf sie zu reagieren ist.",
+   "art": null,
+   "observations": [
+    {
+     "id": "social-choice",
+     "title": "Absprechen, was genau man gemeinsam tut",
+     "passages": [
+      "Ein gemeinsamer Tracker kann mit einem gewöhnlichen Gespräch beginnen: Ein Paar wählt die Gewohnheiten, an denen es arbeiten will. Der gemeinsame Eintrag setzt dann eine schon bestehende Absprache fort. Es lohnt sich zu klären, was die Beteiligten beim anderen sehen müssen und welche Reaktion sie als Unterstützung ansehen.",
+      "Bei Freunden kann ein Spiel denselben Zweck erfüllen. In einer Rezension wissen die Beteiligten, dass sie das System austricksen könnten, wollen es aber nicht: Sie haben Interesse daran, gemeinsam weiterzumachen. Dieses Detail hilft, wechselseitige Beteiligung von Kontrolle von außen zu unterscheiden. Die bloße Sichtbarkeit der Markierungen erklärt noch nicht, was eine bestimmte Gruppe zusammenhält.",
+      "Es gibt auch die andere Seite: Ein Mensch beschreibt, wie fremde Ergebnisse einen dazu bringen, das eigene Training zu rechtfertigen. Dieses Beispiel aus einer Sport-App ist als Warnung vor dem Vergleich nützlich. Es beweist nicht, dass jede gemeinsame Mechanik schadet, zeigt aber, warum die Sichtbarkeit aller Ergebnisse nicht verpflichtend sein darf.",
+      "Die Arbeit mit einem Coach unterscheidet sich vom Austausch der Markierungen unter Freunden. Hier helfen die Einträge, sich auf ein bestimmtes Treffen vorzubereiten, und den Zugang beschränkt man besser auf die abgesprochenen Handlungen. Zu prüfen ist, was sich im Gespräch verändert hat, nicht wie viele Erinnerungen der Klient bekommen hat."
+     ],
+     "quotes": [
+      {
+       "text": "Ich bin nicht der Typ, der Apps bewertet, aber auf die hier hatte ich so richtig Lust, dass ich eine Rezension schreiben musste, um zu sagen, wie sehr ich sie empfehle. Nachdem ich mit meinem Freund über ein paar Gewohnheiten gesprochen hatte, die wir beide aufbauen und an denen wir arbeiten wollen, haben wir etwas gesucht, das wir beide nutzen und gemeinsam verfolgen können.",
+       "rating": 5,
+       "app": "HabitShare - Habit Tracker"
+      },
+      {
+       "text": "Meine Freunde und ich nutzen das, um motiviert zu bleiben und uns gegenseitig in der Pflicht zu halten. Ich weiß, es ist nur ein RPG, bei dem man leicht schummeln kann, aber irgendwie wollen wir gar nicht schummeln, und das Spiel hält uns bei der Stange. Hab gerade ein Jahresabo gekauft, was ich selten mache.",
+       "rating": 5,
+       "app": "Habitica: Gamified Taskmanager"
+      },
+      {
+       "text": "Als langjähriger Ausdauersportler rutscht man leicht in den Vergleich rein. Mein Freund hat das geschafft, ich falle zurück. Ach, mein Lauf heute war echt langsam, ich muss in der Beschreibung meines Strava-Trainings eine Ausrede unterbringen, damit die Leute den Kontext haben und nicht denken, ich bin langsam.",
+       "rating": 4,
+       "app": "Gentler Streak Workout Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchHabits_social-choice",
+      "alt": "Zwei Freunde reichen einander die Gießkanne und pflegen jeder das eigene Beet.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "shared-routine",
+       "title": "Mit der Absprache des Paares beginnen",
+       "body": "Eine gemeinsame Gewohnheit beginnt mit einer Absprache über Unterstützung. Die vollständige Sichtbarkeit des fremden Tagebuchs ist dafür nicht nötig.",
+       "ideas": [
+        "habit-tracking-4"
+       ]
+      },
+      {
+       "directionId": "session-report",
+       "title": "Sich auf das Gespräch mit einer Fachkraft vorbereiten",
+       "body": "Für ein Treffen mit einer Fachkraft können ausgewählte Einträge und Erläuterungen für den Zeitraum genügen, ohne Zugang zum gesamten persönlichen Tagebuch.",
+       "ideas": [
+        "habit-tracking-6"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Die Hauptprüfung ist der Tag nach einem Aussetzer",
+  "body": "Für einen bestehenden Tracker ist die konkreteste Verbesserung, die Rückkehr zu erleichtern. Einen vergangenen Tag öffnen, einige Markierungen korrigieren, eine Pause von einer verpassten Handlung unterscheiden und zur nächsten Handlung übergehen. Das ist kein Versprechen, eine Gewohnheit aufzubauen: Die App räumt nur ein Hindernis aus dem Weg, das sie mit ihren eigenen Regeln geschaffen hat.\n\nFür ein neues Produkt lohnt es sich, einen Lebensrhythmus zu wählen: Schichtarbeit, das morgendliche Fertigmachen einer Familie oder schnelle persönliche Markierungen. Sie stellen unterschiedliche Anforderungen an den Zeitplan und an die Beteiligung anderer Menschen. Einem Menschen seinen eigenen Verlauf mit einer Unterbrechung darin zeigen und beobachten, ob er ihn ohne Erklärung fortsetzen kann. Wenn er sich erst mit Serien, Strafen und Einstellungen auseinandersetzen muss, ist die neue Mechanik wieder zu einer eigenen Arbeit geworden."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-start",
+   "title": "Zuerst – die Handlung machbar machen",
+   "depth": 0
+  },
+  {
+   "id": "observation-first-habit",
+   "title": "Mit einer einzigen echten Handlung beginnen",
+   "depth": 1
+  },
+  {
+   "id": "observation-quick-mark",
+   "title": "Erledigtes markieren, bevor es vergessen ist",
+   "depth": 1
+  },
+  {
+   "id": "observation-feedback",
+   "title": "Der Markierung einen angenehmen Abschluss geben",
+   "depth": 1
+  },
+  {
+   "id": "observation-sequence",
+   "title": "Hinweisen, was jetzt zu tun ist",
+   "depth": 1
+  },
+  {
+   "id": "theme-progress",
+   "title": "Dann – lernen, weiterzumachen",
+   "depth": 0
+  },
+  {
+   "id": "observation-elapsed-time",
+   "title": "Auswählen, was genau gezählt wird",
+   "depth": 1
+  },
+  {
+   "id": "observation-pause-correction",
+   "title": "Erholung, Aussetzer und vergessenen Eintrag unterscheiden",
+   "depth": 1
+  },
+  {
+   "id": "observation-long-view",
+   "title": "Einen Verlauf bewahren, zu dem man zurückkehren mag",
+   "depth": 1
+  },
+  {
+   "id": "theme-together",
+   "title": "Und die passende Unterstützung wählen",
+   "depth": 0
+  },
+  {
+   "id": "observation-social-choice",
+   "title": "Absprechen, was genau man gemeinsam tut",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Die Hauptprüfung ist der Tag nach einem Aussetzer",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

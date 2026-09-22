@@ -1,0 +1,432 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "travel-planning",
+ "name": "Planification de voyages",
+ "summary": "Un plan de voyage est utile quand on peut s’en servir pour agir : retrouver une confirmation, repérer un oubli et gérer un changement d’itinéraire.",
+ "corpus": {
+  "reviews": 25175,
+  "apps": 90
+ },
+ "lead": "À l’entrée, on découvre que la boîte mail contient la confirmation d’achat, mais pas le voucher. Après l’annulation d’un vol, le lien de nouvelle réservation ramène à cette même annulation. Dans les deux cas, les informations sur le voyage ont été réunies, et l’étape suivante reste floue.\n\nVoyons comment éviter cette rupture : vérifier qu’une réservation a bien été transférée, s’accorder avec ses compagnons de voyage et préparer les documents avant le départ. La chasse aux bonnes affaires et le carnet de voyage résolvent d’autres tâches — ils ne remplacent pas un travail fiable sur des décisions déjà prises.",
+ "cover": {
+  "src": "research/ResearchLaunch_travel-planning_cover",
+  "alt": "Organisation de voyages",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_travel-planning_audiences",
+  "alt": "Différentes tâches dans la catégorie « Organisation de voyages ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Rassembler des confirmations venues de services différents",
+   "body": "Les réservations faites sur des services différents doivent former un seul plan, avec les bonnes dates, les bons lieux et les bons participants. Ce qui compte, c’est de voir le résultat du transfert et de repérer les parties manquantes avant le voyage."
+  },
+  {
+   "title": "Organiser un voyage à plusieurs",
+   "body": "L’itinéraire commun est nécessaire à tous les compagnons de voyage, mais le droit de le modifier et l’accès aux documents peuvent différer. Les dépenses doivent être rattachées aux participants et à une base de calcul compréhensible."
+  },
+  {
+   "title": "S’orienter pendant le voyage",
+   "body": "En route, il faut un accès rapide au billet, à l’adresse et au voyage en cours. Quand une réservation change, l’important est de trouver non seulement le message sur le problème, mais aussi une action que l’on peut engager à son sujet."
+  }
+ ],
+ "sections": [
+  {
+   "id": "assemble",
+   "title": "Assembler le voyage à partir de parties confirmées",
+   "intro": "Une offre attirante, un billet acheté et un e-mail traité sont des états différents. Il importe de les distinguer.",
+   "art": null,
+   "observations": [
+    {
+     "id": "bookings",
+     "title": "Repérer ce qui n’est pas sorti de l’e-mail",
+     "passages": [
+      "Un itinéraire unique supprime la question de savoir par quel service l’hôtel ou la voiture ont été réservés. Des parties reliées entre elles permettent aussi de voir une absence : entre un vol et le lendemain, la confirmation nécessaire peut tout simplement manquer. C’est cette intégrité qui rend l’assemblage plus utile qu’un dossier d’e-mails transférés.",
+      "L’import doit montrer ce qui a été extrait de chaque source : dates, segments, participants et champs non repris. Un e-mail accepté doit encore devenir une entrée vérifiable. Une correction manuelle commode permet de terminer l’assemblage en gardant la confirmation d’origine à côté du résultat.",
+      "Si un e-mail transféré est rejeté, la personne doit voir la raison et un moyen d’ajouter la réservation à la main. Le transférer de nouveau sans explication ne sert à rien. Il est utile de garder le lien vers l’e-mail d’origine, afin de pouvoir vérifier les dates et les segments saisis. Pour un agent de voyages, c’est aussi un moyen de vérifier l’itinéraire avant de le remettre au client."
+     ],
+     "quotes": [
+      {
+       "text": "Ça récupère tout seul les infos de mon vol, de l’hôtel et de la voiture de location et ça en fait un itinéraire facile à lire. Je voyage tellement pour le travail que j’ai déjà oublié de réserver un hôtel ou une voiture de location, et j’ai pu m’en rendre compte à la dernière minute parce que TripIt a remarqué qu’il manquait quelque chose. Merci !",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "J’utilise cette appli depuis plus de 10 ans. J’adore le fait que ça garde toutes tes données de voyage au même endroit. Je ne me rappelle plus sur quel portail j’ai réservé quel segment, mais tripit garde tout au même endroit pour moi. Il suffit de transférer le mail de réservation",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "J’utilise pas mal cette appli. Elle m’aide pour toute la préparation de mes vacances et de tous mes futurs voyages. Mais ces derniers temps je me fais tout le temps rejeter les réservations de vol envoyées par mail. Si je transfère juste le mail de réservation d’une compagnie, ça me revient en erreur plein de fois. Je ne sais pas pourquoi et parfois je dois aller dans l",
+       "rating": 3,
+       "app": "TripIt: Travel Planner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_bookings",
+      "alt": "Illustration du thème « Repérer ce qui n’est pas sorti de l’e-mail ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-bookings",
+       "title": "Repérer ce qui n’est pas sorti de l’e-mail",
+       "body": "",
+       "ideas": [
+        "travel-planning-6",
+        "travel-planning-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "constraints",
+     "title": "Chercher à l’intérieur des vraies contraintes",
+     "passages": [
+      "Dans un voyage à plusieurs étapes, ce qui compte est de comparer le trajet entier. Des tarifs avantageux pris séparément restent à raccorder par les dates et les horaires. Un avis positif montre justement cet intérêt : chercher des options sur plusieurs segments.",
+      "Une limite sur le nombre de segments casse ce scénario avant même toute comparaison. Un auteur essaie de saisir trois vols, mais l’interface mobile n’en accepte que deux. Il faut donc d’abord permettre de décrire le voyage réel ; les combinaisons adaptées viennent ensuite.",
+      "Les dates souples doivent elles aussi rester dans les conditions de la personne. Un voyage du vendredi au lundi ne devient pas adapté du seul fait que le service a appelé week-end le jeudi et le samedi. Les limites qui ne bougent pas devraient être fixées avant la recherche et conservées pour chaque nouvelle option."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai pu trouver les différentes étapes de mes vacances avec plein d’options",
+       "rating": 4,
+       "app": "KAYAK: Flights, Hotels & Cars"
+      },
+      {
+       "text": "J’essaie de réserver un voyage en 3 segments. Le site pour PC plante, et l’appli ne propose pas d’ajouter un autre vol au-delà des 2 cases existantes :(",
+       "rating": 2,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "Ce serait super bien de pouvoir choisir la durée qu’on veut partir avant de regarder l’endroit avec les dates flexibles je veux juste partir entre le vendredi et le lundi et à chaque fois que je clique sur voyages du week-end ça me donne des vols du jeudi au samedi c’est pas un voyage de week-end le jeudi et le v",
+       "rating": 4,
+       "app": "Skyscanner Flights & Travel"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-constraints",
+       "title": "Chercher à l’intérieur des vraies contraintes",
+       "body": "Dans un voyage en voiture, la même tâche apparaît quand on ajoute des étapes : un nouveau point ne doit pas renvoyer la personne sur un chemin déjà parcouru. Mais savoir si une route convient à un véhicule donné demande une vérification à part.",
+       "ideas": [
+        "travel-planning-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "price",
+     "title": "Comparer les mêmes conditions",
+     "passages": [
+      "Une alerte de baisse répond à une question claire : ce qui a changé dans l’offre suivie. Elle est utile si la personne reconnaît le même trajet et les mêmes conditions. Un prix sans le contenu de l’offre ne donne pas encore de base pour comparer des options.",
+      "Un conseil d’attendre est déjà une prévision. Un auteur raconte l’avoir suivi et avoir vu le prix monter. Cette expérience ne permet de juger aucun système de prévision, mais elle montre pourquoi l’attente ne peut pas être présentée avec l’assurance d’une offre déjà obtenue.",
+      "Même le prix actuel doit être revérifié au passage chez le vendeur. Si le montant y est différent, il faut pouvoir comprendre si ce sont les bagages, le tarif, les dates ou l’offre elle-même qui ont changé. Le service devrait conserver les paramètres de la comparaison et montrer à quel moment le prix a été observé, et pas seulement un chiffre attirant."
+     ],
+     "quotes": [
+      {
+       "text": "Ça te prévient tout seul des baisses de prix",
+       "rating": 4,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "TLDR : ça m’a coûté plus de 300+ dollars à me dire que le vol allait baisser alors qu’en vrai il a grimpé à presque 1000 par personne On aurait dit que hopper était parfait pour voir plusieurs vols sur plusieurs compagnies,\nComparer les prix, et même avoir l’option de suivre des vols et Hopper te prévenait quand le",
+       "rating": 3,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "Ces derniers temps j’ai commencé à remarquer que le prix affiché n’est en général pas disponible une fois qu’on est redirigé vers le vrai site du fournisseur. Just fly étant particulièrement malhonnête sur le prix annoncé par rapport au prix qui apparaît juste au moment de valider. J’aime bien la souplesse de la recherche dans momondo",
+       "rating": 3,
+       "app": "momondo: Flights, Hotels, Cars"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_price",
+      "alt": "Illustration du thème « Comparer des conditions identiques ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-price",
+       "title": "Comparer les mêmes conditions",
+       "body": "Les informations sur les places libres et sur la couverture mobile se périment elles aussi vite. Les idées qui suivent sont à considérer comme un travail sur la qualité des observations : sans données assez fraîches, une nouvelle interface ne les rendra pas fiables.",
+       "ideas": [
+        "travel-planning-1",
+        "travel-planning-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coordinate",
+   "title": "S’accorder sur un plan commun",
+   "intro": "Les participants doivent comprendre de la même façon l’itinéraire, leurs propres dépenses et ce qui reste à décider.",
+   "art": null,
+   "observations": [
+    {
+     "id": "group",
+     "title": "Distinguer une proposition d’un accord",
+     "passages": [
+      "Un plan commun réduit le nombre d’explications répétées quand tout le monde a les mêmes informations sur le voyage. Mais le lien de l’organisateur ne donne pas toujours au compagnon de voyage la réservation complète ni le moyen de voir les documents dont il a besoin. Il importe de distinguer la participation à l’itinéraire, le droit de le modifier et l’accès à des confirmations précises.",
+      "Le calcul des dépenses ajoute une question propre : qui entre dans chaque montant et pourquoi une part est ce qu’elle est. Réunir la logistique et l’argent est commode tant que le raisonnement reste lisible. Ce qu’il vaut la peine de tester, c’est un changement dans la composition du groupe et la modification d’une dépense isolée, pas seulement la première publication du plan.",
+      "Dans un groupe, il importe de ne pas confondre un lieu que quelqu’un a proposé avec un billet déjà acheté. Un vote aide à choisir, mais le résultat doit passer dans le plan commun avec un statut compréhensible. Les dépenses gagnent au même passage : enregistrer le montant, choisir les participants et expliquer le calcul, y compris le cas où une personne s’est jointe plus tard."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore, je peux partager avec les autres voyageurs de mon groupe. Plus aucun malentendu !",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "Comme beaucoup le savent, préparer et organiser un voyage peut être stressant et c’est dur de mettre tout le monde d’accord. Cette appli a tellllement amélioré la préparation de mon voyage et la logistique ! J’adore la mise en page et j’adore qu’elle inclue le partage des frais et les budgets parce que ça évite tout le drama inutile pour que tout le monde puisse",
+       "rating": 5,
+       "app": "Batch: Let's Party"
+      },
+      {
+       "text": "Mon seul reproche c’est la façon dont l’argent est calculé ça rend les choses un peu compliquées",
+       "rating": 4,
+       "app": "Batch: Let's Party"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-group",
+       "title": "Distinguer une proposition d’un accord",
+       "body": "",
+       "ideas": [
+        "travel-planning-5",
+        "travel-planning-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "day",
+     "title": "Construire la journée depuis sa propre adresse",
+     "passages": [
+      "Dans une ville inconnue, une carte aide à regrouper les lieux proches et à ne pas repasser plusieurs fois par le même chemin. Un auteur apprécie la combinaison du lieu et de l’heure : elle donne la base d’une journée, et pas seulement une sélection de sites à voir.",
+      "Mais la proximité n’est qu’une partie de la planification. Une visite avec un billet à heure fixe, un déjeuner ou la nécessité de récupérer ses bagages peuvent changer l’ordre le plus commode. Les lieux doivent donc rester déplaçables, et les conséquences d’un changement doivent être visibles dans le plan de la journée.",
+      "L’itinéraire part de l’adresse réelle de la personne. Si son logement ne figure pas dans le catalogue d’hôtels, il faut pouvoir saisir le point à la main. Sinon l’optimisation se fait depuis un départ qui n’est pas le sien, et le voyageur doit reconstruire la journée lui-même."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore cette appli ! Je m’en sers souvent pour organiser nos visites en vacances. De bonnes suggestions de choses à faire et de sites à voir à proximité. Les fonctions horaires et carte nous aident à voir plus sans revenir sur nos pas. Plein de pépites.",
+       "rating": 5,
+       "app": "Visit A City"
+      },
+      {
+       "text": "Je planifie tout, alors pouvoir voir et organiser selon la proximité dans les grandes villes, profiter au maximum de son temps sans faire des zigzags, c’est énorme. Cette appli est top et vraiment utile",
+       "rating": 5,
+       "app": "Wanderlog - Travel Planner"
+      },
+      {
+       "text": "S’il ne connaît pas ton hôtel, tu n’as pas de point de départ ! On devrait pouvoir saisir une adresse parce que mon point « hôtel » c’est peut-être un Airbnb. C’est un peu inutile !",
+       "rating": 1,
+       "app": "Visit A City"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_day",
+      "alt": "Illustration du thème « Construire la journée à partir de son adresse ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-day",
+       "title": "Construire la journée depuis sa propre adresse",
+       "body": "",
+       "ideas": [
+        "travel-planning-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "title": "Se servir du plan en route",
+   "intro": "À la porte d’embarquement ou à l’entrée du musée, ce qui compte est l’étape suivante. Y accéder ne devrait pas obliger à réassembler tout le voyage.",
+   "art": null,
+   "observations": [
+    {
+     "id": "documents",
+     "title": "Ouvrir le bon billet sans le chercher",
+     "passages": [
+      "Une confirmation de paiement et un document qui donne accès sont deux résultats différents. À l’entrée, un voucher ou un code précis peut être exigé, alors que l’e-mail ne fait que signaler l’achat. Même un billet préparé à l’avance perd son utilité si son accès dépend d’une app indisponible à ce moment-là.",
+      "Avant de partir, il vaut la peine de vérifier quel document sera nécessaire et si la copie préparée s’ouvre. Les informations qui exigent une mise à jour par le réseau devraient être visibles à part. Cette approche conserve l’accès à ce qui est déjà obtenu et montre pour quelles informations actuelles il faudra revenir à la source.",
+      "Avant le départ, il est utile de montrer quels documents sont déjà enregistrés sur l’appareil et lesquels ne sont encore accessibles que par un lien. Une copie figée et des informations de vol changeantes n’ont pas la même actualité. La personne doit comprendre ce qu’elle pourra ouvrir sans réseau et ce qu’il faudra vérifier de nouveau."
+     ],
+     "quotes": [
+      {
+       "text": "Prix compétitifs, les vouchers ont tous bien marché, l’appli avait une interface simple et j’ai apprécié les rappels.",
+       "rating": 5,
+       "app": "GetYourGuide: Plan & Book"
+      },
+      {
+       "text": "J’ai réservé universal studio Singapore via l’appli MMT\nEt ils m’ont seulement envoyé le mail de confirmation mais sans le voucher (QR code).\nLà il est 1 h 10 de l’après-midi je suis devant universal et j’essaie de les contacter mais tout le monde dit que c’est pas leur service Ne réservez jamais rien chez eux",
+       "rating": 1,
+       "app": "MakeMyTrip Flight, Hotel, Bus"
+      },
+      {
+       "text": "J’aime bien CityPASS. Le rapport qualité-prix était bon. Mais, au moment où j’avais besoin d’utiliser le pass, l’appli a été indisponible pendant 2 heures. L’écran était tout blanc. J’ai redémarré mon téléphone. Je me suis connecté au wifi. Rien ne marchait. Il faut faire des captures d’écran de vos billets pour être sûr de pouvoir les utiliser au cas où l’appli serait en panne co",
+       "rating": 3,
+       "app": "My CityPASS"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "change",
+     "title": "Après un changement, voir l’étape suivante",
+     "passages": [
+      "Pendant le voyage, les informations sur sa propre réservation et sur sa correspondance sont particulièrement précieuses. Un avis positif décrit exactement cette expérience : la personne sait ce qui arrivera à son bagage sur le segment suivant. Un accès commode à un voyage précis compte plus qu’une vitrine générale de destinations.",
+      "Après un retard, cet accès devient critique. Quand l’app est lente et que la gestion de la réservation est difficile à trouver, la personne ne peut pas passer du message à une action. L’itinéraire en cours, la confirmation d’origine et les moyens possibles de le modifier doivent se trouver côte à côte.",
+      "Il faut distinguer un remplacement proposé d’un remplacement accepté. La nouvelle réservation automatique ne convient pas à l’auteur, et le lien ne permet pas de choisir une autre option. Un assistant peut montrer le transfert et la nuitée qui y sont liés, mais il ne doit pas les considérer comme modifiés automatiquement en même temps que le vol."
+     ],
+     "quotes": [
+      {
+       "text": "M’a beaucoup aidé de la réservation à l’arrivée à destination. L’appli envoie d’excellentes informations que même un agent n’a pas pu me confirmer à l’enregistrement. Précisément que mon bagage sera transféré par Air Canada sur mon deuxième vol de correspondance. Gérer sa réservation dans l’appli, c’est génial. Une appli 5 étoiles.",
+       "rating": 5,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "L’appli est vraiment lente et rame, surtout quand on essaie de modifier son plan de vol après un retard ou des annulations de vols. Très difficile à naviguer. Il devrait y avoir une recherche très facile d’accès sur la page d’accueil, et chaque fonction devrait être facile d’accès depuis chaque onglet.",
+       "rating": 2,
+       "app": "United Airlines"
+      },
+      {
+       "text": "J’ai un vol dans un mois entier qui a été annulé. L’itinéraire de remplacement sur lequel KLM m’a rebooké automatiquement ne me convient pas. C’est écrit dans ma réservation que je peux me rebooker moi-même avec mon lien de gestion de réservation, mais ça boucle sur le message qui dit que mon vol d’origine est annulé et ça ne per",
+       "rating": 1,
+       "app": "KLM - Book a flight"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_change",
+      "alt": "Illustration du thème « Après un changement, voir l’étape suivante ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "D’abord — une réservation vérifiable et l’étape suivante",
+  "body": "La direction la plus convaincante consiste à mener jusqu’à l’usage un voyage déjà acheté : vérifier l’import, retrouver le vrai billet et comprendre quoi faire après la modification d’un vol. Ces difficultés surviennent au moment où la personne a déjà des engagements et peu de temps pour rassembler de nouveau les informations. Pour une première version, il vaut la peine de choisir un seul de ces passages et de le tester sur un e-mail incomplet ou une réservation qui a changé.\n\nUn plan commun de groupe peut renforcer cette solution. Le carnet de voyage est un produit distinct, avec un autre but. Et les guides sur le remplissage des vols et sur les eSIM dépendent encore avant tout de la qualité et de la fraîcheur des données : une nouvelle présentation ne supprime pas à elle seule leur point faible."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-assemble",
+   "title": "Assembler le voyage à partir de parties confirmées",
+   "depth": 0
+  },
+  {
+   "id": "observation-bookings",
+   "title": "Repérer ce qui n’est pas sorti de l’e-mail",
+   "depth": 1
+  },
+  {
+   "id": "observation-constraints",
+   "title": "Chercher à l’intérieur des vraies contraintes",
+   "depth": 1
+  },
+  {
+   "id": "observation-price",
+   "title": "Comparer les mêmes conditions",
+   "depth": 1
+  },
+  {
+   "id": "theme-coordinate",
+   "title": "S’accorder sur un plan commun",
+   "depth": 0
+  },
+  {
+   "id": "observation-group",
+   "title": "Distinguer une proposition d’un accord",
+   "depth": 1
+  },
+  {
+   "id": "observation-day",
+   "title": "Construire la journée depuis sa propre adresse",
+   "depth": 1
+  },
+  {
+   "id": "theme-travel",
+   "title": "Se servir du plan en route",
+   "depth": 0
+  },
+  {
+   "id": "observation-documents",
+   "title": "Ouvrir le bon billet sans le chercher",
+   "depth": 1
+  },
+  {
+   "id": "observation-change",
+   "title": "Après un changement, voir l’étape suivante",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "D’abord — une réservation vérifiable et l’étape suivante",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

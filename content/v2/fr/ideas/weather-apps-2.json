@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-2",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "Informations météo pour une tâche aéronautique",
+ "description": "Les messages et les unités nécessaires, réunis dans une vue cohérente.",
+ "cover": {
+  "src": "ideas/weather-apps-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Dans un bulletin professionnel, même une différence d’unités entre l’app et le widget gêne la lecture habituelle. C’est un problème de cohérence étroit, et il vaut la peine de le distinguer d’une promesse de préparer un vol dans son intégralité."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Cette appli est incroyablement utile. En tant que pilote, la météo joue un rôle crucial dans la préparation des vols. Windy apporte des informations précieuses qui assurent la sécurité des passagers. Dans ma recherche de la meilleure appli météo, celle-ci est sortie nettement gagnante.",
+    "rating": 5,
+    "app": "Windy.com"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Rendre cohérente une seule vue de travail"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choisir un ensemble précis de messages avec un spécialiste et le tester sur l’écran principal et dans le widget : unités, heure d’émission, données manquantes. Partir d’une seule vue cohérente, et non d’un assistant aéronautique universel."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Vérifier le déroulement réel du travail"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Découvrir quelles sources et quels outils l’utilisateur doit quand même ouvrir en parallèle. Si le nouvel écran ne fait que les dupliquer et ajoute une vérification croisée de plus, il n’y a peut-être pas de produit séparé ici."
+  }
+ ],
+ "rank": 29,
+ "free": false
+}

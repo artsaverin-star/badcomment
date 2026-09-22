@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "astronomy-stargazing-5",
+ "category": "astronomy-stargazing",
+ "categoryName": "星空と天文",
+ "title": "自分の望遠鏡のための天体リスト",
+ "description": "カタログの天体と自分で入れた座標が、対応する機材のための計画にまとまる。",
+ "cover": {
+  "src": "ideas/astronomy-stargazing-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "慣れた観測者には、出来合いの星図に載っていない天体が必要になることがある。あるレビューでは、その求めは測光から来ている。座標を入力して望遠鏡を向けたい、ということだ。これは機材を準備する一般的な画面よりも狭い課題だ。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "望遠鏡そのものは使ってて楽しい。変光星とAGNの測光に使い始めたところ。こういう天体はたいていアプリの星図に入ってない。RAとDecを入力してGoToできたら、どれだけ楽になるか。",
+    "rating": 3,
+    "app": "Seestar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "天体を名前でも座標でも追加でき、計画に保存できるようにする。対応している個々の機種について、自動導入と必要な動作モードが使えるのかを示す。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "対応は個々の機種について確かめなければならない。接続に成功しても、導入と撮影のすべてのモードに対応しているとはまだ言えない。"
+  }
+ ],
+ "rank": 536,
+ "free": false
+}

@@ -7,6 +7,7 @@ import { findRatingApp, getNicheName } from "@/lib/ratingAppSlug";
 import { tg } from "@/lib/typo";
 import { hasReviewCorpus } from "@/lib/reviews";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +46,7 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
   const { slug, app } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const a = findRatingApp(slug, app, locale);
   const niche = getNicheName(slug, locale);
   if (!a || !niche || !hasReviewCorpus(slug)) notFound();

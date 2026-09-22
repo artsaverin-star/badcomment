@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "workout-fitness-1",
+ "category": "workout-fitness",
+ "categoryName": "Workouts and fitness",
+ "title": "The last set in front of you",
+ "description": "A gym log with the exercise history on the entry screen and clear saving of records from the watch.",
+ "cover": {
+  "src": "ideas/workout-fitness-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "The user wants to see the previous weight and reps right while recording the current set. Hunting for those values through a menu pulls the user away from the session."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Love the new UI. Best feature is having the previous weight and reps on current workout. I was tired of always having to click through a menu to figure out what I did last time. Great changes!",
+    "rating": 5,
+    "app": "Boostcamp: Workout Programs"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Compare and record on one screen"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Show the previous set with its date next to today’s fields. Allow the values to be changed, the set to be marked done, and an accidental tap to be corrected. On the watch, use the same log, with clear saving when the connection drops for a while."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Don’t confuse history with instruction"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "A previous value is context, not a load you are required to lift today. For a first version, fast recording and data that survives are enough; choosing the weight automatically adds a different kind of responsibility."
+  }
+ ],
+ "rank": 98,
+ "free": false
+}

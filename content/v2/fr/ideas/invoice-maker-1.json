@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "invoice-maker-1",
+ "category": "invoice-maker",
+ "categoryName": "Factures pour les clients",
+ "title": "Du devis à une facture convenue",
+ "description": "La formule de travaux retenue se poursuit dans le document sans ressaisie.",
+ "cover": {
+  "src": "ideas/invoice-maker-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Plusieurs devis distincts compliquent la comparaison et laissent ouverte la question de savoir quelle option a été validée."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "L’appli est super, ce serait juste mieux s’il y avait moyen d’ajouter différentes options aux devis. Par exemple différentes options que le client peut choisir sur le devis. Je fais du CVC et envoyer 3 devis différents c’est la galère.",
+    "rating": 4,
+    "app": "Invoice Simple: Invoice Maker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Montrer les options dans une seule discussion, enregistrer la version retenue et reporter ses lignes dans la facture. Formaliser les travaux supplémentaires à part."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Un nouveau modèle ou un nouveau prix ne doit pas modifier un document déjà convenu."
+  }
+ ],
+ "rank": 368,
+ "free": false
+}

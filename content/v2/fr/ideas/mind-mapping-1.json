@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "mind-mapping-1",
+ "category": "mind-mapping",
+ "categoryName": "Cartes mentales",
+ "title": "Une carte avec un historique des modifications",
+ "description": "Le travail se poursuit sur un autre appareil, et on peut revenir à une version antérieure.",
+ "cover": {
+  "src": "ideas/mind-mapping-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une carte conserve le fil de la réflexion. Perdre une branche pendant la synchronisation, c’est perdre un travail qu’on ne peut pas toujours reproduire de mémoire."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "à peine atterri et reconnecté au réseau mobile, l’appli a décidé de télécharger automatiquement depuis le cloud la dernière version connue de mes schémas et a supprimé 6 heures de travail sans même me demander",
+    "rating": 1,
+    "app": "Lucidchart"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Enregistrer les modifications locales, montrer l’état du transfert et permettre d’ouvrir les versions antérieures. Laisser les modifications en conflit pour une comparaison que la personne peut suivre."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Tester le fonctionnement sans réseau sur deux appareils. Une copie de sauvegarde n’est utile qu’avec une restauration accessible et un choix de version clair."
+  }
+ ],
+ "rank": 332,
+ "free": false
+}

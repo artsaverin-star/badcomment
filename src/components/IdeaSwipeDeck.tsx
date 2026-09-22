@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
+import { oldHref } from "@/lib/oldHref";
 
 export type SwipeCard = {
   slug: string;
@@ -182,7 +183,7 @@ function CardBody({ c, ru }: { c: SwipeCard; ru: boolean }) {
         </div>
       )}
 
-      <a href={`/${ru ? "ru" : "en"}/segment/${c.category}`} className="mt-auto inline-flex items-center gap-1.5 pt-6 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]" onPointerDown={(e) => e.stopPropagation()}>
+      <a href={oldHref(ru, `/segment/${c.category}`)} className="mt-auto inline-flex items-center gap-1.5 pt-6 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]" onPointerDown={(e) => e.stopPropagation()}>
         {ru ? "Открыть разбор ниши" : "Open the niche breakdown"}
         <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </a>

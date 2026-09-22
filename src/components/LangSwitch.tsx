@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
+import { isOldPublicPath, switchOldLocale } from "@/lib/oldHref";
 
 const ORDER: Locale[] = ["ru", "en"];
 const LABELS: Record<Locale, string> = { en: "EN", ru: "RU" };
@@ -17,13 +18,17 @@ export default function LangSwitch({ locale }: { locale: Locale }) {
   function set(next: Locale) {
     if (next === cur) return;
     setCur(next);
-    // eslint-disable-next-line react-hooks/immutability
-    document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
+    // The shared `locale` cookie is the NEW site's preference too (it may hold
+    // de/fr/ja): only write it from in-place pages, never from /<L>/old.
+    if (!isOldPublicPath(pathname)) {
+      // eslint-disable-next-line react-hooks/immutability
+      document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
+    }
     // Hard navigation to the locale-prefixed URL: the client RSC route through
     // the proxy could hang for ages; a full load is instant (server ~0.1s).
-    const base = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
+    // /ru/old/x → /en/old/x; an in-place /ru/x → /en/x.
     // eslint-disable-next-line react-hooks/immutability
-    window.location.href = `/${next}${base === "/" ? "" : base}`;
+    window.location.href = switchOldLocale(pathname, next);
   }
 
   return (

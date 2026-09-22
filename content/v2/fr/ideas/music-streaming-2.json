@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "music-streaming-2",
+ "category": "music-streaming",
+ "categoryName": "Écoute de la musique",
+ "title": "Un lecteur pour une collection musicale personnelle",
+ "description": "Les fichiers du stockage choisi sont disponibles, avec un état de téléchargement clair.",
+ "cover": {
+  "src": "ideas/music-streaming-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Les versions rares et ses propres enregistrements peuvent être stockés en dehors du catalogue de streaming. L’utilisateur a besoin d’un chemin unique jusqu’à l’écoute."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Je stocke ma musique sur OneDrive pour y accéder facilement depuis plein d’appareils. Cette appli rend vraiment facile la création de playlists et le téléchargement des fichiers pour écouter hors ligne. L’intégration CarPlay marche parfaitement aussi. Exactement ce que je cherchais.",
+    "rating": 5,
+    "app": "CloudBeats: Cloud Music Player"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Prendre en charge des formats et des sources précis, et montrer les copies locales. Garder l’ordre des albums, la file d’attente et la position."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Tester les grandes collections et l’absence de connexion. Le nom d’un fichier dans la liste ne doit pas signifier qu’il est déjà prêt à être lu sans réseau."
+  }
+ ],
+ "rank": 87,
+ "free": false
+}

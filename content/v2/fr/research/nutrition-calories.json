@@ -1,0 +1,457 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "nutrition-calories",
+ "name": "Calories et nutrition",
+ "summary": "Noter ce qu’on mange, comprendre ce qu’il y a dedans et conserver l’historique — trois tâches qu’un journal alimentaire doit traiter sans travail en plus.",
+ "corpus": {
+  "reviews": 29852,
+  "apps": 95
+ },
+ "lead": "La soupe de la veille, la moitié d’un gratin, un café en vitesse — ce qu’on mange correspond rarement à une portion bien nette sortie d’un catalogue. La personne doit d’abord noter ce qu’elle a réellement mangé. Si chaque déjeuner se transforme en recherche et en recalcul, même des statistiques détaillées restent vides.\n\nEnsuite, les tâches divergent. À l’un il suffit de répéter les plats habituels, un autre a besoin de nutriments précis, un troisième d’entrées pour une conversation avec un spécialiste. Ce qui suit retrace ce chemin, de la saisie rapide jusqu’à un historique encore utilisable des mois plus tard.",
+ "cover": {
+  "src": "research/ResearchLaunch_nutrition-calories_cover",
+  "alt": "Calories et nutrition",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_nutrition-calories_audiences",
+  "alt": "Différentes tâches dans la catégorie « Calories et nutrition ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Noter son alimentation habituelle",
+   "body": "Quand l’alimentation est stable, il importe plus de répéter ce qu’on connaît que de chercher à nouveau à chaque fois. La personne a déjà investi du temps dans ses propres aliments et ses propres plats. Ce qu’il lui faut, c’est une saisie quotidienne courte, avec la possibilité de changer la portion ou un seul ingrédient en gardant le reste de l’entrée."
+  },
+  {
+   "title": "Tenir compte de la cuisine maison et de la portion réelle",
+   "body": "Celui qui cuisine chez lui connaît la composition de tout ce qu’il a préparé, mais n’en mange qu’une partie. Il lui faut relier la recette à la portion, choisir une unité de mesure habituelle et corriger la quantité plus tard. Un même nom de plat peut d’ailleurs cacher des ingrédients différents."
+  },
+  {
+   "title": "Observer son alimentation pour sa propre tâche",
+   "body": "Certains surveillent des nutriments précis, d’autres réunissent un historique pour une conversation avec un spécialiste. Ces tâches diffèrent du calcul d’un total pour la journée. Il est utile de choisir les informations dont on a besoin et de voir d’où elles viennent, sans remplir l’écran de tous les chiffres disponibles."
+  }
+ ],
+ "sections": [
+  {
+   "id": "entry",
+   "title": "D’abord — noter ce qu’on mange",
+   "intro": "L’opération la plus fréquente doit prendre en compte les aliments connus, les recettes maison et la possibilité de se tromper de portion.",
+   "art": null,
+   "observations": [
+    {
+     "id": "repeat",
+     "title": "Un petit-déjeuner habituel — sans nouvelle recherche",
+     "passages": [
+      "Un petit-déjeuner qui se répète transforme le journal en court rituel : choisir son entrée, préciser la quantité, enregistrer. Après le travail initial de préparation des recettes et des aliments, cette économie est particulièrement sensible. Une base personnelle doit alléger la saisie suivante, pas seulement s’accumuler dans le calendrier.",
+      "Copier un repas aide à garder la composition habituelle. Si un yaourt ou la taille de la portion a changé aujourd’hui, il faut pouvoir corriger exactement cela. Un rappel peut compléter ce rituel, mais il ne doit pas empêcher de noter vite ce qu’on a mangé.",
+      "La recherche doit elle aussi tenir compte de l’historique personnel. Si la personne choisit toujours le même parfum d’un produit, cinq autres options avant lui créent du travail en plus. Les éléments récents et enregistrés méritent d’être distingués et montrés avant des résultats semblables venus de la base générale."
+     ],
+     "quotes": [
+      {
+       "text": "J’aime bien cette appli. Surtout une fois que j’y ai mis toutes mes recettes et les aliments que je mange, super rapide !",
+       "rating": 5,
+       "app": "My Macros+ | Macro Tracker"
+      },
+      {
+       "text": "Trop content que RP ait sorti une appli géniale pour suivre ça chaque jour. Je la trouve très simple à utiliser et j’adore pouvoir dupliquer des repas vu que je mange la même chose presque tous les jours. Les rappels « c’est l’heure de manger » c’est tellement utile vu que j’ai une vie tellement chargée...ça m’aide à bien espacer mes repas.",
+       "rating": 5,
+       "app": "RP Diet Coach & Planner"
+      },
+      {
+       "text": "Ce qui m’agace le plus, c’est la fonction recherche. Je comprends pas pourquoi, quand je commence à taper un aliment, les suggestions qui arrivent sont pas les aliments que j’ai enregistrés ou notés récemment. C’est exaspérant. Par exemple, quand je tape Premier Protein, ça me sort 5 parfums avant le parfum que j’utilise régul",
+       "rating": 4,
+       "app": "WeightWatchers Program"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_nutrition-calories_repeat",
+      "alt": "Illustration du thème « Un petit-déjeuner habituel — sans nouvelle recherche ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "scan",
+     "title": "Reconnaître, et laisser corriger",
+     "passages": [
+      "La photo de l’assiette supprime la recherche des composants un par un, et le code-barres aide à trouver un produit emballé. Les deux méthodes reposent sur des bases différentes : une image doit être interprétée, un code rapproché d’une fiche du catalogue. Dans les deux cas, la personne a besoin de voir exactement ce qui va arriver dans le journal.",
+      "Montrer le nom, la composition et la quantité avant l’enregistrement. Pour un emballage, la comparaison avec l’étiquette est commode ; pour un plat, la correction des composants et de la portion. Une bonne saisie rapide comporte un chemin court vers la modification : ayant repéré une erreur, la personne poursuit son entrée au lieu de recommencer la recherche de l’aliment sur un écran vide.",
+      "Ici, la valeur de la vitesse est facile à mal mesurer. Une fiche remplie instantanément ne signifie pas encore une entrée terminée : la personne peut passer une minute à corriger une composition erronée. La question la plus parlante, c’est le nombre d’actions qui restent avant d’enregistrer des aliments qu’elle reconnaît elle-même à l’écran."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore cette appli. Compter les calories est simple. Je prends une photo de mon assiette et l’appli calcule les calories de tout le repas. Je n’ai plus besoin de chercher chaque aliment un par un. J’adore aussi la partie hydratation.",
+       "rating": 5,
+       "app": "Eato®: Calorie Tracker"
+      },
+      {
+       "text": "Je me suis enfin mis à suivre mes Marcos avec une appli au lieu de faire ça à l’œil et cette appli a rendu ça hyper simple !! Le scanner de code-barres c’est un cheat code c’est sûr.",
+       "rating": 5,
+       "app": "Cronometer: Calorie Counter"
+      },
+      {
+       "text": "L’IA a pris du poulet pour des chips. Elle a dit qu’une tortilla pauvre en glucides à 60 calories faisait plus de 2000 calories.",
+       "rating": 1,
+       "app": "BitePal: Food Calorie Counter"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "database",
+     "title": "Trouver les aliments de sa propre cuisine",
+     "passages": [
+      "Une grande base ne résout pas la tâche si l’on y trouve difficilement la cuisine maison habituelle, un produit local ou un plat précis d’une carte. Un nom voisin ne convient pas toujours non plus : la composition et la taille peuvent différer. Le confort dépend alors de la facilité à créer sa propre entrée et à la réutiliser.",
+      "Relier la recherche aux ajouts personnels et garder l’option choisie. Pour un nouvel élément, il est utile de distinguer les informations de l’emballage, la composition d’une recette et une estimation saisie par la personne. Cela permet de préciser l’entrée plus tard et de comprendre d’où vient un chiffre, sans transformer chaque déjeuner en un remplissage de répertoire à recommencer.",
+      "Une recette personnelle peut combler un trou dans une grande base. Mais pour cela, le plat ajouté doit se retrouver sous son nom habituel et rester disponible après un changement de téléphone. Pour un premier produit, une bibliothèque étroite d’une seule cuisine peut se révéler plus utile qu’un catalogue immense où l’on distingue mal une entrée qui correspond d’une entrée approximative."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli donne très peu d’options d’aliments pour quelqu’un qui cuisine chez lui. Je mange pas souvent dehors. Et je cuisine tout moi-même. Je viens d’arrêter My Fitness Pal. On dirait que cette appli me suffira pas non plus.",
+       "rating": 2,
+       "app": "Calorie Counter by fatsecret"
+      },
+      {
+       "text": "Je comprends, l’appli est bien pour les utilisateurs américains ou ceux qui mangent surtout des plats emballés. Mais si tu vis à l’étranger et que tu cuisines plein de plats maison, c’est dur à utiliser. J’aimerais qu’il y ait une base d’utilisateurs plus large avec des habitudes alimentaires similaires.",
+       "rating": 4,
+       "app": "MacroFactor - Macro Tracker"
+      },
+      {
+       "text": "J’ai essayé d’ajouter un truc simple, le steak grillé de Chick-fil-A, et c’était pas proposé. Quand je l’ai cherché dans l’IA, ça n’a rien renvoyé. Quand tu essaies de compter tes macros, pouvoir ajouter des éléments détaillés c’est crucial.",
+       "rating": 2,
+       "app": "MacrosFirst - Macro Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_nutrition-calories_database",
+      "alt": "Illustration du thème « Trouver de quoi manger dans sa cuisine ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "portion",
+     "title": "Séparer ce qui a été cuisiné de ce qui a été mangé",
+     "passages": [
+      "La recette décrit l’ensemble de ce qui a été cuisiné, l’entrée du journal la part qui a été mangée. Quand ces deux niveaux sont mélangés, il faut ressaisir les ingrédients. La composition générale, le poids cuit ou le nombre de portions se gardent auprès du plat, tandis que la quantité mangée se choisit au moment de l’ajouter à une journée.",
+      "Quand on cuisine pour plusieurs jours, un plat créé une fois peut resservir. La modification de la fournée suivante ne doit pas réécrire en silence les portions passées. C’est ce qui garde un sens à l’historique, même si la composition d’un gratin habituel change avec le temps.",
+      "Les unités de saisie sont une question à part. Une personne peut peser l’huile en grammes alors que l’app demande des millilitres. Il faut montrer quelle grandeur est attendue et prendre en charge les façons de l’écrire qui conviennent, sans conversion cachée. Le menu et l’usage des restes sont un prolongement possible de cette tâche, développé dans l’idée suivante."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli peut être un super outil si tu manges du poulet et du riz tous les jours, parce que tu peux les peser un par un. Là où ça a coincé pour moi, c’est quand tu essaies de faire une recette de meal prep pour la semaine. Il y a nulle part où créer une recette, mettre le nombre de portions ou le poids total, et ensuite l’ajouter à une journée.",
+       "rating": 2,
+       "app": "RP Diet Coach & Planner"
+      },
+      {
+       "text": "Je me suis enfin mis à suivre mes Marcos avec une appli au lieu de faire ça à l’œil et cette appli a rendu ça hyper simple !! Le scanner de code-barres c’est un cheat code c’est sûr et c’est assez facile de construire et créer de nouveaux repas si tu fais du meal prep.",
+       "rating": 5,
+       "app": "Cronometer: Calorie Counter"
+      },
+      {
+       "text": "J’ai deux problèmes avec cette appli : je peux saisir mon poids uniquement en livres. Je veux utiliser les kg. Il devrait y avoir une option pour choisir. Je mesure pas mon huile d’olive en ml, je veux juste pouvoir entrer le poids en grammes.",
+       "rating": 3,
+       "app": "Lose It! Calorie Counter"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-portion",
+       "title": "Séparer ce qui a été cuisiné de ce qui a été mangé",
+       "body": "",
+       "ideas": [
+        "nutrition-calories-3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "purpose",
+   "title": "Compter ce dont la personne a besoin",
+   "intro": "Les mêmes entrées peuvent servir à des fins différentes. C’est le but qui décide de ce qu’il vaut la peine de mettre sur le premier écran.",
+   "art": null,
+   "observations": [
+    {
+     "id": "goal",
+     "title": "Tenir compte de l’objectif, pas l’imposer",
+     "passages": [
+      "Un journal peut servir des buts différents. Un avis apprécie le suivi du poids et le prolongement calculé du graphique. Il importe de distinguer les mesures déjà saisies d’une prévision, et l’objectif choisi par la personne de l’hypothèse automatique de l’app.",
+      "Un autre auteur salue la modification des calories et des macros à partir du journal. C’est une appréciation personnelle, pas la preuve que l’app détermine le métabolisme avec précision. Quand un objectif change, il faut la valeur précédente, le motif de la révision et un moyen de voir les entrées qui le fondent.",
+      "Le désaccord sur le but se voit surtout quand une personne attend une prise de poids et que l’app continue de baisser les objectifs. Une plainte de ce genre ne se règle pas avec un nouveau graphique. La proposition doit rester séparée de la décision de l’utilisateur et d’un plan convenu avec un spécialiste. Un journal sans objectifs calculés reste une autre voie — la carte ci-dessous l’examine."
+     ],
+     "quotes": [
+      {
+       "text": "J’adore vraiment cette appli. Ça fait maintenant des années que je l’utilise. Elle fait exactement ce que je veux faire. Un truc que j’aime : j’arrive à repérer des schémas dans la perte et la prise de poids. J’adore aussi les algorithmes de prédiction. Je peux voir un poids prévu à une date donnée à partir d’un objectif de poids prévu.",
+       "rating": 5,
+       "app": "Happy Scale"
+      },
+      {
+       "text": "Cette appli est vraiment pensée pour la vraie vie. Les ajustements adaptatifs des calories et des macros selon ton métabolisme, ça tombe sous le sens. Suivre tes macros/calories à côté de ton poids quotidien a bien plus de sens que de suivre les mouvements ou l’activité. Tous les trackers et les estimations de dépense calorique c’est juste du bruit.",
+       "rating": 5,
+       "app": "MacroFactor - Macro Tracker"
+      },
+      {
+       "text": "Facile de suivre les Macros et oui, la plupart du temps, ça aide vraiment à perdre du poids, mais pour prendre du muscle vraiment pas, parce que ça te donne de moins en moins de calories à chaque fois, moins de protéines, moins de glucides, je suis actuellement à 1200 calories et j’ai tout le temps faim.",
+       "rating": 3,
+       "app": "MacroFactor - Macro Tracker"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_nutrition-calories_goal",
+      "alt": "Illustration du thème « Tenir compte de l’objectif au lieu de l’imposer ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-goal",
+       "title": "Tenir compte de l’objectif, pas l’imposer",
+       "body": "",
+       "ideas": [
+        "nutrition-calories-5",
+        "nutrition-calories-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "nutrients",
+     "title": "Distinguer un trou dans les données d’un zéro",
+     "passages": [
+      "Le total des calories ne répond qu’à une seule question. Tel journal peut avoir besoin de protéines, de fibres ou de certaines vitamines et de certains minéraux. Un écran détaillé n’est pourtant utile que dans la mesure où les données sur les aliments notés sont renseignées. Une valeur manquante et un vrai zéro ne peuvent pas s’afficher de la même façon.",
+      "Laisser choisir les chiffres principaux et ouvrir le détail d’un aliment. Signaler les trous dans la synthèse, pour qu’on voie quelles entrées demandent d’être précisées. Cette approche aide à préparer des questions de fond sur sa propre alimentation et ne surcharge pas la saisie quotidienne de chiffres dont la personne ne se sert pas.",
+      "Un total de fibres, par exemple, dit peu de chose si ce champ est vide pour la moitié des aliments notés. À côté du total, il est utile d’expliquer que le calcul est incomplet et de permettre de préciser des éléments particuliers. Noter des objectifs fixés par un spécialiste diffère aussi d’une attribution d’objectifs par l’app elle-même."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise cette appli depuis ~6 ans avec une régularité variable, des objectifs différents, des régimes différents, et un THS. C’est sans doute le tracker fitness+nutrition GRATUIT le PLUS complet et le plus personnalisable. Ce qui m’a marqué au départ c’est le suivi des micronutriments, je connais aucune appli gratuite qui le fait (ni même payante !).",
+       "rating": 3,
+       "app": "Cronometer: Calorie Counter"
+      },
+      {
+       "text": "La psychologie est bonne mais là où Noom laisse le plus tomber ses abonnés payants, c’est qu’il n’y a pas de suivi des fibres. En 2026, alors qu’on nous dit que les fibres & les protéines sont ce qu’il y a de plus important, on peut pas suivre les deux avec un abonnement à 200 $ ? Quand on est autant sous GLP-1 ?",
+       "rating": 3,
+       "app": "Noom Weight Loss, Food Tracker"
+      },
+      {
+       "text": "En fait j’aime vraiment bien cette appli. Pouvoir saisir les aliments et suivre mes macros avec précision m’aide à rester dans les clous. Mon souci c’est : où est le suivi des fibres ? On se concentre plus que jamais sur le bien-être global.",
+       "rating": 3,
+       "app": "FitHub - AI Calorie Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-nutrients",
+       "title": "Distinguer un trou dans les données d’un zéro",
+       "body": "",
+       "ideas": [
+        "nutrition-calories-6",
+        "nutrition-calories-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "title": "Revenir aux données et continuer",
+   "intro": "Avec le temps, la valeur d’un journal passe des chiffres isolés au travail qui s’y est accumulé : les recettes, les observations et une façon habituelle de saisir.",
+   "art": null,
+   "observations": [
+    {
+     "id": "integration",
+     "title": "Construire un historique qu’on peut vérifier à la source",
+     "passages": [
+      "Regarder ensemble l’alimentation, le poids et l’activité peut réduire les allers-retours entre journaux. Un avis positif apprécie en plus le retour du coach. Mais réunir des sources n’est utile que si l’on voit clairement quelles données ont réellement été transmises.",
+      "Une mesure manquée et une journée sans mesure sont deux cas différents. Quand le poids n’arrive que rarement, montrer le dernier enregistrement reçu et sa source, pour que la personne puisse comparer une journée dont elle se souvient avec l’app d’origine.",
+      "Le doublon crée l’erreur inverse : une même activité est représentée plusieurs fois. Dans le dernier avis, cela touche aussi le calcul qui suit. Avant de fusionner, il faut des règles de reconnaissance des répétitions et un accès aux événements d’origine. Un graphique commun ne doit pas cacher de quelles entrées son total est fait."
+     ],
+     "quotes": [
+      {
+       "text": "J’apprécie beaucoup cette appli et sa simplicité d’usage ! Elle s’intègre complètement avec mon appli d’entraînement et permet à mon coach sportif de me faire des retours réguliers !",
+       "rating": 5,
+       "app": "MyFitnessPal: Calorie Counter"
+      },
+      {
+       "text": "J’aime bien utiliser cette appli, ça enlève l’effort de surveiller mon sport et mes apports en calories. Par contre, je l’ai reliée à Apple health et elle a récupéré mon poids seulement quatre fois en environ deux mois ! Je suis sûr que c’est facile à corriger.",
+       "rating": 3,
+       "app": "Cal AI - Calorie Tracker"
+      },
+      {
+       "text": "Ça récupère le sport depuis Apple Health. Les pas, la marche, l’elliptique, tout est ajouté à ton total de pas. Ça donne un chiffre faux pour le nombre de calories que tu peux avaler parce que le sport est compté deux fois.",
+       "rating": 2,
+       "app": "SnapCal: AI Calorie Counter"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_nutrition-calories_integration",
+      "alt": "Illustration du thème « Construire un historique vérifiable avec la source ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-integration",
+       "title": "Construire un historique qu’on peut vérifier à la source",
+       "body": "Une fois les entrées réunies, différentes façons de s’en servir apparaissent : mettre l’alimentation en regard d’une mesure, préparer son propre historique pour un rendez-vous, ou ouvrir une période choisie à un spécialiste. Ce sont des scénarios distincts, pas trois noms pour une seule intégration.",
+       "ideas": [
+        "nutrition-calories-1",
+        "nutrition-calories-2",
+        "nutrition-calories-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "archive",
+     "title": "Garder les recettes et la façon habituelle de noter",
+     "passages": [
+      "Une base personnelle, ce ne sont pas que des totaux quotidiens. Elle comprend les aliments créés par la personne, les recettes complexes, les noms des repas et les favoris. C’est cette partie préparée qui permet de revenir après une pause et de continuer vite. La perdre, c’est refaire le travail, même si le graphique du poids a survécu.",
+      "Lors d’un transfert et d’une restauration, montrer de quoi sont faites les données disponibles. Il est utile d’ouvrir sa propre recette, d’en vérifier les ingrédients et de l’ajouter à une nouvelle journée. Cette vérification en dit plus qu’un message annonçant le chargement réussi d’une archive : on voit alors si ce qui a été accumulé est vraiment utilisable.",
+      "Le retour après une pause est un scénario de produit à part entière. Le journal de la veille peut être vide alors que les plats favoris restent utiles. Si la personne ouvre une recette habituelle et note son déjeuner en quelques actions, la base qu’elle a construite travaille déjà pour elle, sans exiger de rattraper tous les jours manqués."
+     ],
+     "quotes": [
+      {
+       "text": "J’en ai fini avec cette appli. Elle EST géniale, elle suit très bien mon apport en protéines et en glucides. Mais pour la troisième fois j’ai perdu tous mes anciens chiffres, mes aliments perso, toutes mes statistiques. Je sais que c’est gratuit, mais si je dois SANS ARRÊT ressaisir les informations des aliments chaque fois que ça efface mes infos au hasard, ça vaut pas le coup.",
+       "rating": 2,
+       "app": "Nutritionix Track"
+      },
+      {
+       "text": "Super quand ça marche, mais deux fois déjà ça a planté ou c’était hors ligne pendant des jours « pour des améliorations majeures » qui n’arrivent jamais. Le pire là-dedans, c’est que TOUTES tes données stockées (y compris les recettes que tu as construites et enregistrées à la sueur de ton front) sont effacées !",
+       "rating": 3,
+       "app": "Nutritionix Track"
+      },
+      {
+       "text": "Avant j’utilisais cette appli régulièrement et j’avais tous mes repas nommés avec mes objectifs de macros pour chaque repas et plein d’aliments favoris. Là je reviens sur l’appli après quelques mois sans compter et je découvre que vous avez TOUT effacé et gâché tous les efforts que j’avais mis dans cette appli avant.",
+       "rating": 1,
+       "app": "My Macros+ | Macro Tracker"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Commencer par une saisie répétable de sa propre alimentation",
+  "body": "Commencer par tester une semaine d’alimentation habituelle : si l’on retrouve ses propres aliments, si les plats se copient, si les portions sont claires et si une erreur se corrige facilement. C’est là qu’un journal économise l’effort quotidien ou continue d’exiger qu’on décrive les aliments depuis le début. Un rapport plus détaillé ne compense pas des entrées manquées ou approximatives.\n\nEnsuite, choisir pour quoi l’historique est lu. Répéter un menu habituel, passer en revue certains nutriments, tenir un journal photo et préparer un rendez-vous demandent des écrans différents et des données différentes. Ils peuvent se développer séparément. La priorité, c’est une origine claire des entrées et la possibilité de les gérer ; un changement automatique des objectifs ne doit pas être présenté comme une compréhension avérée des besoins du corps."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-entry",
+   "title": "D’abord — noter ce qu’on mange",
+   "depth": 0
+  },
+  {
+   "id": "observation-repeat",
+   "title": "Un petit-déjeuner habituel — sans nouvelle recherche",
+   "depth": 1
+  },
+  {
+   "id": "observation-scan",
+   "title": "Reconnaître, et laisser corriger",
+   "depth": 1
+  },
+  {
+   "id": "observation-database",
+   "title": "Trouver les aliments de sa propre cuisine",
+   "depth": 1
+  },
+  {
+   "id": "observation-portion",
+   "title": "Séparer ce qui a été cuisiné de ce qui a été mangé",
+   "depth": 1
+  },
+  {
+   "id": "theme-purpose",
+   "title": "Compter ce dont la personne a besoin",
+   "depth": 0
+  },
+  {
+   "id": "observation-goal",
+   "title": "Tenir compte de l’objectif, pas l’imposer",
+   "depth": 1
+  },
+  {
+   "id": "observation-nutrients",
+   "title": "Distinguer un trou dans les données d’un zéro",
+   "depth": 1
+  },
+  {
+   "id": "theme-history",
+   "title": "Revenir aux données et continuer",
+   "depth": 0
+  },
+  {
+   "id": "observation-integration",
+   "title": "Construire un historique qu’on peut vérifier à la source",
+   "depth": 1
+  },
+  {
+   "id": "observation-archive",
+   "title": "Garder les recettes et la façon habituelle de noter",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Commencer par une saisie répétable de sa propre alimentation",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

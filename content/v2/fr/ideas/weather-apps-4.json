@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-4",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "Une alerte pour l’endroit qui compte",
+ "description": "Pour les adresses enregistrées, les alertes en vigueur, leur heure et leur historique sont visibles.",
+ "cover": {
+  "src": "ideas/weather-apps-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "On peut enregistrer plusieurs adresses et attendre des alertes pour chacune. Mais l’historique dans l’app et la notification sur l’appareil sont deux façons différentes de recevoir le même message."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "jusqu’à aujourd’hui où mon secteur était sous alerte tornade et l’appli ne m’a même pas envoyé de notification. Heureusement j’étais réveillé à 1 h du matin et j’ai entendu les sirènes tornade et j’ai pu me mettre à l’abri.",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Montrer le message et son état"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Pour chaque adresse, réunir les alertes en vigueur : la zone, l’heure d’émission, la source et la période couverte. Afficher les réglages de remise séparément et proposer une notification de test qui vérifie la connexion à cet instant."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ne pas masquer la limite"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Un test réussi ne promet pas que la prochaine alerte sera remise. Quand un message est manqué, ce qui compte, c’est de le retrouver dans l’historique et de voir quand il a été publié."
+  }
+ ],
+ "rank": 45,
+ "free": false
+}

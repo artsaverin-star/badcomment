@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "personal-finance-2",
+ "category": "personal-finance",
+ "categoryName": "Personal finance",
+ "title": "How much is left for today?",
+ "description": "A daily budget with an open calculation: which income, bills and purchases went into the amount, and how it will change after a new purchase.",
+ "cover": {
+  "src": "ideas/personal-finance-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Instead of a large monthly report, a person may need a figure to go by for today. One review describes a way of calculating it: take the recurring expenses and the chosen savings into account, then spread what is left across the days."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "This app lets you input all of your recurring bills and expenses and how much you want to save and then divides the remainder up by the number of days in the month - then you get that amount each day like an allowance.",
+    "rating": 5,
+    "app": "Daily Budget Original"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it might work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Show the calculated amount together with its parts: the money accounted for, the future payments and the chosen period. Let the arithmetic be opened and the inputs changed. Planned income and money already received have to be distinguishable."
+  },
+  {
+   "id": "check",
+   "kind": "heading",
+   "text": "What to test first"
+  },
+  {
+   "id": "check-text",
+   "kind": "paragraph",
+   "text": "Ask the person to explain the amount after a new purchase, a missed entry and a change to an income date. It is a guide based on the data entered; with incomplete records it must not look like a guarantee that a purchase is affordable."
+  }
+ ],
+ "rank": 35,
+ "free": false
+}

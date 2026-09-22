@@ -1,0 +1,484 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "pet-care",
+ "name": "Soin des animaux",
+ "summary": "Qui a déjà nourri le chien, où se trouve le certificat de vaccination et quoi dire au vétérinaire : un service utile relie les soins quotidiens à l’historique de l’animal.",
+ "corpus": {
+  "reviews": 6560,
+  "apps": 27
+ },
+ "lead": "La question qui revient, « tu l’as déjà nourri ? », et la recherche d’un certificat avant un voyage ressemblent à deux petites choses différentes. Mais dans les deux cas, l’information nécessaire est chez une autre personne, sur un autre appareil ou dans un ancien dossier. Une app est utile si elle aide à poursuivre les soins au lieu de tout reconstituer.\n\nVoyons comment relier les tâches du jour à l’historique de l’animal, et les observations faites à la maison à une conversation avec un spécialiste. Une caméra, un traceur et des vidéos d’apprentissage résolvent des tâches distinctes ; il vaut la peine de les juger à ce que le propriétaire pourra faire des éléments obtenus.",
+ "cover": {
+  "src": "research/ResearchLaunch_pet-care_cover",
+  "alt": "Soin des animaux",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_pet-care_audiences",
+  "alt": "Tâches des gens : Soin des animaux",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "La famille qui partage les soins",
+   "body": "Une famille doit coordonner des tâches répétitives et voir ce qui est déjà fait. Avec plusieurs animaux s’ajoutent des plannings et des habitudes distincts. Ce qui aide, c’est une vue d’ensemble partagée avec des profils reconnaissables, plutôt que d’avoir à ouvrir chaque calendrier l’un après l’autre."
+  },
+  {
+   "title": "Le propriétaire avant une visite ou un voyage",
+   "body": "Avant une visite, un voyage ou un changement de clinique, le propriétaire a besoin d’éléments précis : un certificat, une ancienne ordonnance, la description d’un épisode récent. Il doit trouver vite ce qu’il lui faut et transmettre les éléments choisis, en gardant le reste de l’historique pour lui."
+  },
+  {
+   "title": "Le propriétaire d’un chiot ou d’un chien resté à la maison",
+   "body": "Le propriétaire d’un chiot apprend à remarquer les comportements et à agir avec son chien. Ce qui l’aide : des exercices clairs, un historique des promenades et la possibilité de voir ce qui se passe à la maison. Observer et apprendre demandent pourtant des écrans et des explications différents."
+  }
+ ],
+ "sections": [
+  {
+   "id": "routine",
+   "title": "Ne pas reconstituer ce qui a déjà été fait",
+   "intro": "Le propriétaire a besoin d’une réponse claire sur son propre animal. Pour une famille, cette réponse doit être la même sur tous les appareils.",
+   "art": null,
+   "observations": [
+    {
+     "id": "schedule",
+     "title": "Marquer ce qui a été fait pour un animal précis",
+     "passages": [
+      "Créer un rappel ne veut pas encore dire le recevoir à l’heure. Le premier avis décrit un planning qu’on peut modifier alors que les notifications ont cessé d’arriver. L’état des rappels doit être clair, et une notification envoyée ne peut pas valoir confirmation que l’action a bien été faite.",
+      "L’historique compte aussi pour les soins : quand l’événement a réellement eu lieu. Une liste des dernières tâches accomplies permet de retrouver une entrée sans parcourir les dates du calendrier. L’auteur suivant remercie précisément pour cette vue, même si le reste du tracker mis à jour reste peu pratique.",
+      "Avec plusieurs animaux, chaque élément doit se rattacher à un animal précis : des noms d’action identiques se confondent facilement. Une vue d’ensemble partagée aide à voir ce qui est à venir sans perdre les plannings différents. Si une ordonnance ou une habitude change, le nouveau plan vaut pour l’avenir, et les entrées factuelles passées restent telles quelles."
+     ],
+     "quotes": [
+      {
+       "text": "Depuis la mise à jour du 01 mai, mes notifications des rappels de prise marchent plus. Je peux créer et modifier mais je reçois plus aucune notification. Mes autres applis marchent très bien. Utilisateur iPhone et iPad",
+       "rating": 3,
+       "app": "myVCA"
+      },
+      {
+       "text": "mise à jour 1/2026 : merci d’avoir ajouté la nouvelle option liste pour le tracker de planning. C’est beaucoup plus simple de voir ma liste de tâches faites. J’aime pas le tracker mis à jour. Je m’en sers pour suivre quand mes chiens reçoivent leurs piqûres d’allergie, leurs traitements contre les vers du cœur, etc. C’est plus du tout pratique. Je dois chercher jour",
+       "rating": 5,
+       "app": "Dogo - Dog Training & Clicker"
+      },
+      {
+       "text": "vous pouvez ajouter la coupe des griffes dans le toilettage svp ! à part ça appli fantastique ! j’ai plusieurs chats âgés et c’est très pratique pour suivre leurs médicaments et leurs régimes différents. je peux aussi recevoir des rappels pour leurs vaccins et les visites de contrôle chez le véto. on peut aussi ajouter plusieurs adresses de véto, ce qui est",
+       "rating": 4,
+       "app": "The Pack by Zoetis"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_pet-care_schedule",
+      "alt": "Illustration du thème « Noter ce qui a été fait pour un animal précis ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-schedule",
+       "title": "Marquer ce qui a été fait pour un animal précis",
+       "body": "",
+       "ideas": [
+        "pet-care-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "family",
+     "title": "Se transmettre les soins",
+     "passages": [
+      "Un journal partagé est utile quand une deuxième personne peut l’ouvrir en même temps que la première. Dans l’avis ci-dessous, les conjoints s’éjectent du compte à tour de rôle. Une connexion pareille gêne l’idée même de soins partagés : chacun a besoin d’accéder au même historique depuis son propre appareil.",
+      "Ensuite, il faut distinguer un événement absent d’une mise à jour en retard. Si les marques cessent d’être enregistrées, ou d’apparaître chez la famille, on cesse de faire confiance au journal. L’auteur, l’heure et l’état de la transmission aident à comprendre ce qui est déjà fait ; une correction ne doit pas créer une copie de l’événement qui contredise l’original.",
+      "Même des entrées justes se lisent mal si un filtre resté actif par accident masque une partie de la journée. Une vue d’ensemble partagée doit donc montrer les limites de sélection en vigueur et permettre de revenir vite à tous les événements récents. C’est surtout important avant de passer les soins à quelqu’un d’autre : il lui faut une réponse claire sur la prochaine chose à faire."
+     ],
+     "quotes": [
+      {
+       "text": "Pourquoi une seule personne peut être connectée à la fois ? À chaque fois que moi ou mon mari on se connecte, ça doit déconnecter l’autre et après il faut toujours se reconnecter. Faites en sorte qu’on puisse être connecté sur plusieurs appareils. Ça devrait pas être compliqué vu que tous mes autres appareils WiFi sont configurés comme ça",
+       "rating": 3,
+       "app": "Petlibro"
+      },
+      {
+       "text": "J’avais vraiment envie d’aimer cette appli malgré son interface parfois confuse. Malheureusement, au bout de trois ou quatre jours elle a tout simplement arrêté d’enregistrer les besoins qu’on saisissait et arrêté de les synchroniser entre les membres de la famille. Ça la rend complètement inutile.",
+       "rating": 2,
+       "app": "Dogo - Dog Training & Clicker"
+      },
+      {
+       "text": "Je mets 4 étoiles parce que c’est la seule appli que j’ai trouvée qui laisse ma famille suivre facilement les besoins. Mais c’est pas parfait. C’est facile de mal lire les besoins en cliquant sur un filtre qui change ce qui s’affiche. Et ça a l’air de traîner pour la synchro avec les autres membres de la famille du coup je dois forcer la fermeture de l’",
+       "rating": 4,
+       "app": "Dogo - Dog Training & Clicker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-family",
+       "title": "Se transmettre les soins",
+       "body": "",
+       "ideas": [
+        "pet-care-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "documents",
+     "title": "Garder le certificat nécessaire à portée de main",
+     "passages": [
+      "Un certificat de vaccination est nécessaire à un moment précis, et souvent hors de l’app de la clinique. L’accès au document lui-même compte donc plus qu’un message général disant que l’historique de l’animal est dans le profil. L’auteur ci-dessous dit franchement que c’est la possibilité la plus utile.",
+      "La complétude de l’historique est une autre question. Si l’app ne montre que les dernières années, le propriétaire doit voir cette limite et pouvoir ajouter lui-même des documents plus anciens. Sinon, une entrée absente se prend facilement pour un événement absent, alors que le traitement a bien eu lieu plus tôt.",
+      "L’étape suivante, c’est d’ouvrir le fichier voulu hors de l’app : le télécharger, l’imprimer ou en envoyer une copie choisie. Pour un voyage, un seul certificat suffit ; pour une nouvelle clinique, il peut en falloir un ensemble. Le destinataire n’a pas besoin d’accéder à tout le profil familial pour ces documents."
+     ],
+     "quotes": [
+      {
+       "text": "Le truc LE PLUS utile qu’une appli pourrait faire, ce serait de donner accès au carnet de vaccination de mon loulou. On en a souvent besoin.",
+       "rating": 2,
+       "app": "myVCA"
+      },
+      {
+       "text": "Cette appli nous a été pratiquement inutile. Notre animal a eu plusieurs traitements importants chez VCA de 2013 à 2022, mais cette appli ne garde que les (2) dernières années, d’après les techniciens de l’aide en ligne de l’appli, très rapides, courtois et serviables.",
+       "rating": 3,
+       "app": "myVCA"
+      },
+      {
+       "text": "J’arrive pas à imprimer ni à télécharger les dossiers de mon animal c’est pénible",
+       "rating": 2,
+       "app": "PetDesk"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_pet-care_documents",
+      "alt": "Illustration du thème « Garder le bon certificat sous la main ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-documents",
+       "title": "Garder le certificat nécessaire à portée de main",
+       "body": "",
+       "ideas": [
+        "pet-care-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "measurements",
+     "title": "Distinguer une observation d’une erreur de capteur",
+     "passages": [
+      "Un appareil peut enregistrer un événement autrement que le propriétaire ne le comprend. Dans l’avis ci-dessous, de l’eau renversée pendant le déplacement de la gamelle a été comptée comme de l’eau bue. Une entrée pareille doit être corrigée ou écartée avec une explication, sinon l’erreur reste dans un long historique.",
+      "Une notification sur un changement brusque devrait ouvrir les valeurs elles-mêmes et la comparaison. Sans cela, elle attire l’attention mais n’aide pas à comprendre ce qui a été enregistré. Il importe de garder les observations manuelles et les relevés du capteur comme deux choses distinctes ; un chiffre inhabituel n’explique pas à lui seul l’état de l’animal.",
+      "La comparaison demande une période adaptée. Une semaine ne répond pas à la question de savoir comment le poids a évolué sur plusieurs mois. Le propriétaire doit choisir l’intervalle, voir les trous et préparer les entrées dont il a besoin pour une discussion. Un long graphique est utile comme historique d’observations, pas comme conclusion automatique."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli marche bien mais j’aime pas qu’on n’ait pas l’option de supprimer les données du journal. Je déplaçais la fontaine à eau sans fil dans une autre pièce et de l’eau s’est renversée et l’appareil a enregistré ça comme de l’eau bue. Et il n’y a aucun moyen de supprimer cette entrée erronée pour être sûr que la consommation d’eau de mon chat est correctement",
+       "rating": 4,
+       "app": "Petlibro"
+      },
+      {
+       "text": "Cette appli adore t’envoyer des notifications du genre « la consommation d’eau de ton chat a changé radicalement » et après elle dit qu’elle peut pas te dire ce que ça veut dire sans payer un abonnement. Si c’est comme ça, me le dis pas.",
+       "rating": 2,
+       "app": "Petlibro"
+      },
+      {
+       "text": "Super appli, mais j’adorerais voir comment le poids de mon chat évolue sur différentes plages (mois, année, toutes les dates). Pour l’instant ça montre juste la semaine, c’est pas hyper parlant (mon chat est au régime).",
+       "rating": 3,
+       "app": "Whisker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-measurements",
+       "title": "Distinguer une observation d’une erreur de capteur",
+       "body": "",
+       "ideas": [
+        "pet-care-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "observe",
+   "title": "Comprendre ce qui s’est passé en ton absence",
+   "intro": "Un coup d’œil rapide à la caméra et l’historique d’une promenade répondent à des questions différentes. Ce qu’ils ont en commun, c’est le contexte et l’heure de l’enregistrement.",
+   "art": null,
+   "observations": [
+    {
+     "id": "camera",
+     "title": "Voir la journée en entier",
+     "passages": [
+      "Une caméra laisse voir ce que fait le chien pendant que le propriétaire est dehors. L’auteur du premier avis décrit sa propre tranquillité et la possibilité de parler à son animal. C’est une expérience personnelle d’usage, pas une preuve que la caméra agit sur l’anxiété.",
+      "Comprendre la journée demande une autre échelle qu’une notification isolée. Dix minutes d’aboiements découpées en dizaines de marques, il faut les rassembler à la main. Regrouper les événements voisins, avec une durée et un accès à la vidéo, aiderait à distinguer un son bref d’un long épisode.",
+      "Le visionnage lui-même reste pourtant la base : le propriétaire voit ce qui se passait autour, au lieu de recevoir seulement une étiquette « bruyant ». L’avis positif ci-dessous montre la valeur d’un lien entre appareils tout au long de la journée. Plusieurs extraits choisis pourront être discutés plus tard avec un éducateur canin ; la cause du comportement ne s’établit pas sur un seul aboiement."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli m’a aidé à être tranquille quand je laisse mon chien anxieux à la maison. Elle m’a aussi fait comprendre que j’étais sorti trop longtemps et qu’il fallait rentrer, ou que j’avais pas encore besoin de rentrer. Autant elle m’a aidé moi, autant elle l’a aidé lui avec son anxiété, vu que je peux lui parler si besoin.",
+       "rating": 5,
+       "app": "Dog Monitor"
+      },
+      {
+       "text": "Dans l’ensemble j’aime bien cette appli. J’ai une petite chienne qui fait de l’anxiété de séparation, du coup ça m’aide à la surveiller quand je suis pas là. Par contre, mon plus gros reproche c’est comment la fonction « bruyant / au repos ». Si mon chien aboie pendant 10 minutes, ça dira pas « Le chien a été bruyant pendant 10 minutes. » À la place, j’ai des heures séparées pour chaque",
+       "rating": 3,
+       "app": "Dog Monitor"
+      },
+      {
+       "text": "J’utilise barkio depuis un an pour surveiller mon chien. Je me sers de mon iPad et ça se connecte à mon téléphone. Je vois où est mon chien et ce qu’il fait toute la journée pendant que je suis au travail. La fonction parole est utile quand j’ai besoin de donner un ordre ou juste de calmer le chien.",
+       "rating": 4,
+       "app": "Barkio: Dog Monitor & Pet Cam"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_pet-care_camera",
+      "alt": "Illustration du thème « Voir la journée en entier ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-camera",
+       "title": "Voir la journée en entier",
+       "body": "",
+       "ideas": [
+        "pet-care-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "location",
+     "title": "Distinguer le trajet du dernier point connu",
+     "passages": [
+      "Une promenade avec un promeneur de chiens met le traceur à l’épreuve dans une combinaison importante : le téléphone du propriétaire à la maison, l’animal avec quelqu’un d’autre. L’heure de la dernière mise à jour et l’état de la connexion doivent être visibles à côté du point. Tester le collier près du propriétaire ne confirme pas que ce scénario fonctionne.",
+      "S’il y a plusieurs animaux, il faut une carte commune où les dernières données de chacun se distinguent. Changer sans arrêt de profil rend la comparaison difficile, comme le dit l’auteur suivant. Et plusieurs points à l’écran ne doivent pas paraître également récents s’ils ont été mis à jour à des moments différents.",
+      "L’historique d’activité répond à une autre question — comment se sont passées les promenades de la journée. L’auteur ci-dessous apprécie justement cette vue et la comparaison dans le classement. Son expérience positive ne confirme pas l’exactitude de la position actuelle. L’activité globale, le trajet enregistré et le dernier emplacement connu méritent d’être montrés séparément."
+     ],
+     "quotes": [
+      {
+       "text": "Franchement très déçu du dernier collier. Tout l’intérêt d’acheter un collier GPS pour chien, c’est de suivre son chien de façon fiable quand il n’est pas avec toi, mais le suivi marche à peine si le collier n’est pas près du téléphone du propriétaire. Mon promeneur de chiens a emmené mon chien en promenade et comme il n’avait pas accès a",
+       "rating": 2,
+       "app": "Fi - GPS Dog Tracker"
+      },
+      {
+       "text": "Je viens de recevoir mes colliers et j’ai configuré les chiens dans l’appli. Deux choses qui manquent vraiment. D’abord on devrait pouvoir voir tous les traceurs sur une seule carte. Si les deux chiens s’échappent tu dois changer de profil sans arrêt. Ils te forcent à choisir quel chien tu préfères.",
+       "rating": 3,
+       "app": "Fi - GPS Dog Tracker"
+      },
+      {
+       "text": "J’adore le collier FI pour ma chienne, Lumi ! Ça me force à vérifier que Lumi bouge assez, vu qu’elle n’a que quatre ans. J’adore aussi voir où elle en est dans son classement face aux autres chiens comme elle.",
+       "rating": 5,
+       "app": "Fi - GPS Dog Tracker"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-location",
+       "title": "Distinguer le trajet du dernier point connu",
+       "body": "Pour passer une promenade à quelqu’un, un accès séparé le temps de la session est utile. Le trajet reste dans l’historique, tandis que l’observation de la position actuelle s’arrête en même temps que l’accord.",
+       "ideas": [
+        "pet-care-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "help",
+   "title": "Se préparer à une leçon ou à une consultation",
+   "intro": "Un historique rassemblé est utile quand on peut continuer à travailler dessus avec quelqu’un d’autre.",
+   "art": null,
+   "observations": [
+    {
+     "id": "training",
+     "title": "Montrer ce que fait la personne",
+     "passages": [
+      "Dans une leçon sur le travail avec un chien, c’est d’abord la personne qui apprend. Une vidéo qui ne montre que la bonne réponse de l’animal peut cacher l’essentiel : la position des mains, la distance, le mouvement et le moment de l’ordre. Un exercice clair montre la suite des gestes du maître en même temps que la réaction du chien.",
+      "Filmer le plan large et les détails qui comptent, et permettre de revenir sur une étape précise. Expliquer ce qu’il faudra répéter et où regarder pendant l’exercice. L’utilité d’une leçon se mesure à ce qu’un débutant a réussi à décrire et à exécuter les gestes ; un tour final impressionnant ne le montre pas à lui seul.",
+      "Pouvoir rejouer un court fragment compte plus qu’une longue vidéo sans faute. Il vaut aussi la peine de montrer le début de l’exercice, une tentative ratée et le retour à la position de départ. Le débutant obtient un repère pour sa propre situation, pas seulement un beau résultat d’éducateur expérimenté."
+     ],
+     "quotes": [
+      {
+       "text": "J’aime beaucoup le traceur, mais j’aimerais que les notifications soient comme une alarme, avec le volume réglable et qui continue jusqu’à ce qu’on la coupe, le petit bip discret et rapide fait qu’on rate facilement ses accidents de pipi. Consignes faciles sur les cours mais La plupart des vidéos d’exemple ne montrent pas le maître avec le chien, ce qui serait le plus utile",
+       "rating": 4,
+       "app": "Dogo - Dog Training & Clicker"
+      },
+      {
+       "text": "J’ai deux chihuahuas et j’avais une petite idée pour corriger leur réactivité en promenade. Avec le temps ça s’est vraiment amélioré mais j’avais pas les détails précis que cette appli m’a donnés. J’attendais une leçon sur les aboiements réactifs et mes attentes ont vraiment été comblées. Je ressens de la clarté et du ré",
+       "rating": 5,
+       "app": "Woofz - Puppy and Dog Training"
+      },
+      {
+       "text": "J’ai commencé à utiliser cette appli parce que je pouvais pas mettre cher dans un éducateur et les vidéos et les exemples dans cette appli rendent les consignes simples faciles à comprendre et à suivre il suffit d’un peu de patience et de beaucoup de régularité",
+       "rating": 5,
+       "app": "EveryDoggy - Dog Training App"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_pet-care_training",
+      "alt": "Illustration du thème « Montrer ce que fait la personne ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-training",
+       "title": "Montrer ce que fait la personne",
+       "body": "",
+       "ideas": [
+        "pet-care-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "consultation",
+     "title": "Rassembler l’historique pour la conversation",
+     "passages": [
+      "Dans une conversation avec un spécialiste, ce qui compte, c’est de pouvoir décrire ses observations et de revenir avec une précision. L’avis positif ci-dessous relève justement cela : passer les symptômes en revue et poser des questions supplémentaires. Un historique de l’animal préparé à l’avance aide à commencer une telle conversation par un cas concret.",
+      "Les attentes envers le service doivent être réglées avant la consultation. Dans l’avis suivant, la personne a eu une conversation alors qu’elle comptait sur une autre aide. Il est utile de montrer à l’avance le spécialiste, le format disponible et la suite prévue, pour qu’une séance payante ne se termine pas par la découverte que la tâche dont on avait besoin n’en faisait pas partie.",
+      "Du côté de l’app, le travail utile qu’elle peut faire seule, c’est de rassembler les dates, les notes, les photos et les vidéos dont le propriétaire veut discuter. Il relit l’ensemble avant de l’envoyer. Après la conversation, les explications du spécialiste sont conservées à part des observations faites à la maison : la fois suivante, on verra clairement qui a fait une entrée et sur quelle base."
+     ],
+     "quotes": [
+      {
+       "text": "Excellente évaluation et passage en revue des symptômes, des options de traitement, y compris les médicaments sans ordonnance plutôt que de pousser aux ordonnances. On peut écrire au véto pour toute question supplémentaire. Content d’avoir ça dans Healthy Paws. Merci.",
+       "rating": 4,
+       "app": "Airvet for Pet Parents"
+      },
+      {
+       "text": "Ce service est bien si ton véto est vraiment en ligne. Si ton véto n’est pas en ligne on te met avec un véto aux états-unis mais ils prescrivent pas de médicaments et c’est justement ce dont notre chien avait besoin. On a eu une consultation mais ça a pas beaucoup aidé.",
+       "rating": 3,
+       "app": "Airvet for Pet Parents"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-consultation",
+       "title": "Rassembler l’historique pour la conversation",
+       "body": "",
+       "ideas": [
+        "pet-care-5"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Un seul historique clair pour tous ceux qui s’occupent de l’animal",
+  "body": "La première chose à relier ici, ce sont les soins réels entre les personnes : quel animal, ce qui a été fait, par qui et quand. Vient ensuite l’accès aux documents nécessaires et la possibilité de transmettre un ensemble choisi. Ces tâches restent utiles sans capteurs compliqués ni explications automatiques de l’état de l’animal.\n\nUne caméra, un traceur et un journal de mesures demandent une autre vérification : voit-on clairement l’ancienneté des données, les trous et les événements erronés. Un beau graphique ou une notification alarmante ne remplace pas le contexte. Pour un nouveau produit, il est plus sensé de terminer un seul parcours — passer les soins à la famille, par exemple, ou préparer l’historique pour une consultation — que de promettre un centre unique qui surveille, enseigne et explique aussi bien tous les problèmes d’un animal."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-routine",
+   "title": "Ne pas reconstituer ce qui a déjà été fait",
+   "depth": 0
+  },
+  {
+   "id": "observation-schedule",
+   "title": "Marquer ce qui a été fait pour un animal précis",
+   "depth": 1
+  },
+  {
+   "id": "observation-family",
+   "title": "Se transmettre les soins",
+   "depth": 1
+  },
+  {
+   "id": "observation-documents",
+   "title": "Garder le certificat nécessaire à portée de main",
+   "depth": 1
+  },
+  {
+   "id": "observation-measurements",
+   "title": "Distinguer une observation d’une erreur de capteur",
+   "depth": 1
+  },
+  {
+   "id": "theme-observe",
+   "title": "Comprendre ce qui s’est passé en ton absence",
+   "depth": 0
+  },
+  {
+   "id": "observation-camera",
+   "title": "Voir la journée en entier",
+   "depth": 1
+  },
+  {
+   "id": "observation-location",
+   "title": "Distinguer le trajet du dernier point connu",
+   "depth": 1
+  },
+  {
+   "id": "theme-help",
+   "title": "Se préparer à une leçon ou à une consultation",
+   "depth": 0
+  },
+  {
+   "id": "observation-training",
+   "title": "Montrer ce que fait la personne",
+   "depth": 1
+  },
+  {
+   "id": "observation-consultation",
+   "title": "Rassembler l’historique pour la conversation",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Un seul historique clair pour tous ceux qui s’occupent de l’animal",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "weather-apps-6",
+ "category": "weather-apps",
+ "categoryName": "Weather",
+ "title": "When the precipitation picture changes",
+ "description": "The radar keeps the chosen area and tells past frames apart from the forecast.",
+ "cover": {
+  "src": "ideas/weather-apps-6",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A person opens the map again and every time has to find their own area and the moment they need."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Disappointed. This is the only radar app I’ve ever seen that doesn’t show future radar….",
+    "rating": 1,
+    "app": "Weather Underground: Local Map"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How it could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Remember the zoom level, show the time of the last observation and style the forecast continuation separately. The widget leads to the same area."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The animation must not hide how old the measurements are, or present an estimate of the future as something already observed."
+  }
+ ],
+ "rank": 37,
+ "free": false
+}

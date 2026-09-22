@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "voice-recorder",
+ "name": "Enregistrement et transcription de la parole",
+ "summary": "Conserver le son n’est qu’un début. Un enregistrement exploitable doit permettre de vérifier les mots, de retrouver le moment voulu et de transmettre le contenu.",
+ "corpus": {
+  "reviews": 12545,
+  "apps": 30
+ },
+ "lead": "Un dictaphone a plusieurs lignes d’arrivée différentes. Une interview demande la conversation entière, une réunion des accords vérifiés, le travail sur un livre la suite du chapitre. Un mois plus tard, une seule phrase exacte peut suffire.\n\nCes tâches commencent toutes par le bouton d’enregistrement, mais le travail qu’elles exigent ensuite diffère. Voyons comment ne pas perdre le son, comment le transformer en contenu vérifiable et comment retrouver ce qu’il faut dans l’archive accumulée.",
+ "cover": {
+  "src": "research/ResearchLaunch_voice-recorder_cover",
+  "alt": "Enregistrement vocal et transcription",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_voice-recorder_audiences",
+  "alt": "Différentes tâches dans la catégorie « Enregistrement vocal et transcription ».",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Enregistrer une longue réunion ou un long cours",
+   "body": "Une longue session demande une limite connue à l’avance et un état d’enregistrement visible. On peut ranger le téléphone et se concentrer sur la conversation, mais il faut savoir ce qui a été conservé une fois qu’elle est finie."
+  },
+  {
+   "title": "Préparer un texte à partir d’une conversation",
+   "body": "Le travail sur une conversation repose sur des mots et des locuteurs vérifiables. Les corrections doivent être conservées avec le lien vers le son d’origine, pour pouvoir revenir à une phrase contestée."
+  },
+  {
+   "title": "Constituer une archive vocale personnelle",
+   "body": "Les notes courtes s’accumulent en collection. Un enregistrement fait depuis la montre doit apparaître à un endroit accessible, et une vieille pensée doit se retrouver grâce à un nom parlant et se transmettre dans le format voulu."
+  }
+ ],
+ "sections": [
+  {
+   "id": "capture",
+   "title": "D’abord conserver tout le son nécessaire",
+   "intro": "Un court essai vérifie le démarrage. Un long enregistrement, une interruption et une écoute vérifient le scénario complet.",
+   "art": null,
+   "observations": [
+    {
+     "id": "continuity",
+     "title": "Savoir quelle partie de la conversation a été conservée",
+     "passages": [
+      "L’enregistrement en arrière-plan permet de ranger le téléphone écran éteint et de se concentrer sur la conversation. L’avis positif ci-dessous décrit exactement cette base commode. Mais un démarrage réussi ne signifie pas encore que le contenu survivra jusqu’au prochain besoin.",
+      "L’accès au fichier se vérifie aussi après l’arrêt : au renommage, au déplacement et à la réouverture. L’auteur de l’avis suivant loue l’enregistrement en arrière-plan, mais signale que les fichiers renommés ont disparu. Le bon travail du micro n’a pas sauvé le résultat ici ; ce qui est conservé doit rester accessible quel que soit son nom.",
+      "Un autre risque est de n’obtenir qu’une partie d’une longue conversation sans s’en apercevoir. Avant de commencer, il faut voir la limite d’un seul enregistrement ; après, la durée réelle et une éventuelle coupure. Un compte rendu des trente premières minutes peut paraître complet alors que le reste de la réunion n’y est pas entré. Le son et l’état de préparation de sa transcription méritent d’être montrés séparément."
+     ],
+     "quotes": [
+      {
+       "text": "La version gratuite a peu de fonctions, mais elles suffisent et sont bien choisies parmi toutes celles qui existent. Facile à utiliser. Ça plante pas. Très bien qu’elle marche en arrière-plan.",
+       "rating": 4,
+       "app": "Voice Recorder & Notes Pro"
+      },
+      {
+       "text": "J’avais plusieurs enregistrements dont j’avais changé le nom et ils ont tous disparu. Seuls ceux qui s’appelaient « Recorder » avec des numéros qui s’incrémentent sont restés. L’appli est bien et elle peut enregistrer même quand on change d’appli ou quand l’écran s’éteint.",
+       "rating": 3,
+       "app": "Easy Voice Recorder"
+      },
+      {
+       "text": "J’ai acheté cette appli exprès pour enregistrer des appels téléphoniques à cause d’une ordonnance restrictive dès la première tentative d’utilisation. Elle a enregistré seulement 30 minutes d’un appel d’une heure et demie, ce qui la rend complètement inutile.",
+       "rating": 2,
+       "app": "Call Recorder for iPhone."
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_voice-recorder_continuity",
+      "alt": "Illustration du thème « Savoir quelle partie de la conversation a été enregistrée ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-continuity",
+       "title": "Savoir quelle partie de la conversation a été conservée",
+       "body": "",
+       "ideas": [
+        "voice-recorder-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "phone-call",
+     "title": "Savoir à l’avance comment la conversation est enregistrée",
+     "passages": [
+      "Enregistrer le micro et enregistrer un appel sont deux actions différentes. Dans les avis cités ici, l’appel oblige à fusionner les appels pendant que l’interlocuteur attend déjà une réponse. Il est utile de montrer à l’avance toute la méthode prise en charge et de la faire essayer, plutôt que de réserver les étapes supplémentaires au moment d’une conversation importante.",
+      "Même quelques secondes de connexion changent le début d’une conversation. La personne doit comprendre à quel moment le son a réellement commencé à être conservé et quelle partie de la conversation a pu rester avant ce moment. Un état de connexion distinct est plus utile qu’une icône identique avant l’enregistrement et pendant.",
+      "Les bips deviennent eux aussi partie intégrante de la conversation : dans l’avis ci-dessous, l’interlocuteur pose la question sans détour. De telles particularités doivent être expliquées avant l’usage. Ces preuves portent sur des façons d’enregistrer précises ; on ne peut pas en conclure que toute app sur tout appareil démarre de la même manière."
+     ],
+     "quotes": [
+      {
+       "text": "Mon problème c’est les étapes et le temps qu’il faut pour commencer à enregistrer. Les 5 étapes peuvent prendre jusqu’à 10 secondes avant que ça enregistre. 1 Répondre à l’appel 2 Aller à l’écran d’accueil 3 Ouvrir l’appli 4 Appuyer sur enregistrer 5 Appuyer sur fusionner les appels. Pendant ce temps on a décroché et la personne au bout du fil attend une réponse.",
+       "rating": 3,
+       "app": "Call Recorder iCall"
+      },
+      {
+       "text": "La fusion initiale de TapeACall dans l’appel a pris plusieurs secondes et pendant ce temps, il y a eu une petite pause dans la conversation.",
+       "rating": 4,
+       "app": "TapeACall Pro: Call Recorder"
+      },
+      {
+       "text": "On dirait que toutes les applis d’enregistrement d’appels obligent à fusionner les appels, c’est pas idéal du tout.. après la fusion on entend un gros bip sur les téléphones des deux côtés, un avocat s’est littéralement arrêté pour dire « c’était quoi ça.. » mais comparée aux autres applis celle-là fait le boulot pour ce qui est d’enregistrer.",
+       "rating": 4,
+       "app": "Call Recorder for iPhone ㅤ"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-phone-call",
+       "title": "Savoir à l’avance comment la conversation est enregistrée",
+       "body": "Après l’enregistrement, une tâche à part demeure : conserver un original accessible et distinguer ses copies de travail. Elle compte quelle que soit la façon dont on s’est connecté à la conversation.",
+       "ideas": [
+        "voice-recorder-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sound-edit",
+     "title": "Vérifier la parole et corriger de façon réversible",
+     "passages": [
+      "La qualité du son se mesure à la possibilité de distinguer la parole voulue dans un cadre donné. L’auteur ci-dessous a obtenu un bon résultat en haut-parleur. Une courte écoute avant une longue session aide à savoir si la position choisie pour le téléphone et le mode conviennent.",
+      "Avec un fond sonore fort, l’enregistrement peut exister sans laisser entendre les mots importants. Le traitement est utile s’il améliore l’intelligibilité, et non s’il se contente de rendre le son agréable. Ensuite, il vaut la peine de comparer le fragment contesté avec l’original : un son lissé ne confirme pas encore l’exactitude de la parole.",
+      "Une telle vérification demande un original conservé et une correction réversible. Annuler la dernière action n’est pas la même chose que revenir tout au début : la seconde option détruit aussi le travail réussi. L’avis suivant montre pourquoi l’annulation pas à pas compte même dans le petit éditeur d’un dictaphone."
+     ],
+     "quotes": [
+      {
+       "text": "La qualité de l’enregistrement vocal était exceptionnellement bonne, et elle était bonne même si je partageais mon iPhone en haut-parleur avec une autre personne de l’appel.",
+       "rating": 4,
+       "app": "TapeACall Pro: Call Recorder"
+      },
+      {
+       "text": "Trop de grésillements en fond. Pas net, dur d’entendre les voix !",
+       "rating": 3,
+       "app": "Voice Recorder Lite: Record HD"
+      },
+      {
+       "text": "Édit : ÉNORME défaut, j’ai vraiment essayé de m’en servir. C’est extrêmement frustrant parce qu’ils ont pas d’« annuler », ils ont un « revenir à l’original » et aucun moyen d’enregistrer ce qu’on a fait. Sérieux… pourquoi vous avez pas d’annuler ?",
+       "rating": 2,
+       "app": "Voice Recorder & Notes Pro"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_voice-recorder_sound-edit",
+      "alt": "Illustration du thème « Vérifier la parole et éditer de façon réversible ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "understand",
+   "title": "Transformer la transcription en contenu vérifié",
+   "intro": "Le texte automatique est utile comme brouillon, à condition de pouvoir vérifier et corriger chaque phrase importante.",
+   "art": null,
+   "observations": [
+    {
+     "id": "transcript",
+     "title": "Corriger un mot et le nom d’un locuteur",
+     "passages": [
+      "Un texte rapide est commode pour un premier parcours de la conversation, mais une seule erreur peut changer un détail important. L’étiquetage des locuteurs ajoute une autre tâche : une même voix doit garder un nom stable, et une correction ne doit pas avoir à être ressaisie pour chaque réplique.",
+      "Il est utile de lier les mots et les étiquettes de locuteurs au son d’origine. Un passage douteux peut être écouté, un nom précisé, le résultat corrigé conservé. La transcription devient alors un contenu de travail : sa valeur tient à la facilité de vérification et de réutilisation, pas à l’obligation de faire confiance à toutes les lignes d’un coup.",
+      "Un dictionnaire de ses propres noms et termes peut réduire les corrections répétées, mais son utilité doit être vérifiée sur les enregistrements réels de l’audience. La façon d’apporter une correction compte tout autant : renommer un locuteur dans toute la conversation, corriger un terme et conserver la version confirmée séparément d’un nouveau brouillon automatique."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai trouvé les fonctions suivantes très utiles 1. Transcrit les fichiers audio m4a très précisément et très vite ! 2. Il transcrit un fichier audio de 30 min en quelques minutes 3. Il identifie très précisément les différents locuteurs & leur attribue le texte de leur parole.",
+       "rating": 5,
+       "app": "Transcribe - Speech to Text"
+      },
+      {
+       "text": "Comme presque tous les produits d’IA générative, celui-là est pas encore prêt pour le grand public. Il y a des choses qu’il fait assez bien, comme transcrire la parole en texte. Cette partie-là est peut-être à 80%. Mais les 20% où il transcrit pas correctement comptent, parce que ça veut dire qu’il faut tout revérifier en permanence.",
+       "rating": 3,
+       "app": "Minutes: AI Meeting Note Taker"
+      },
+      {
+       "text": "Pas terrible pour identifier les noms des locuteurs. J’espérais qu’il reconnaisse une voix et lui donne un numéro de locuteur, mais il faut aller étiqueter chaque locuteur même quand c’est la même personne et qu’on lui a déjà mis une étiquette.",
+       "rating": 3,
+       "app": "Otter Transcribe Voice Notes"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-transcript",
+       "title": "Corriger un mot et le nom d’un locuteur",
+       "body": "",
+       "ideas": [
+        "voice-recorder-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "summary",
+     "title": "Conserver les accords qui ont été vérifiés",
+     "passages": [
+      "Un compte rendu automatique permet de moins se laisser distraire par sa propre prise de notes pendant une réunion. Le bénéfice du premier avis est simple : on écoute la conversation et on revient aux notes ensuite. Mais le texte obtenu reste à vérifier.",
+      "Après quelques réunions, la valeur passe à la recherche : on peut se rappeler où une question a été discutée et ouvrir la conversation d’origine. En même temps, une option discutée ne peut pas être tenue automatiquement pour une décision prise. Il est utile de lier un point du compte rendu à la phrase sur laquelle il repose et de permettre d’en préciser la formulation.",
+      "Cette relecture perd son sens si les corrections disparaissent après le bouton « terminé ». La version vérifiée doit être conservée séparément d’un nouveau brouillon automatique. Avant de transmettre le document, la personne doit voir ses propres précisions, et non le texte initial discrètement rétabli."
+     ],
+     "quotes": [
+      {
+       "text": "Avant, j’étais en réunion concentré sur mes notes, sans écouter la réunion elle-même. Je fais pas deux choses à la fois. Maintenant je peux être en réunion, me concentrer sur ce qui se dit et quand c’est fini — les notes sont là.",
+       "rating": 4,
+       "app": "Minutes: AI Meeting Note Taker"
+      },
+      {
+       "text": "J’adore vraiment Otter.ai ! Ça a complètement changé ma façon de prendre des notes et de suivre les réunions. La transcription est rapide, précise, et me fait gagner énormément de temps. J’adore aussi les résumés et la facilité pour chercher dans les conversations passées.",
+       "rating": 5,
+       "app": "Otter Transcribe Voice Notes"
+      },
+      {
+       "text": "Tout est super sauf que quand je corrige le résumé de l’enregistrement (ce qui est parfois minutieux) ça enregistre pas quand je clique sur « terminé ». Très frustrant de pas pouvoir le modifier vraiment.",
+       "rating": 4,
+       "app": "Wave AI Note Taker & Recorder"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_voice-recorder_summary",
+      "alt": "Illustration du thème « Garder les accords vérifiés ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-summary",
+       "title": "Conserver les accords qui ont été vérifiés",
+       "body": "",
+       "ideas": [
+        "voice-recorder-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "time-links",
+     "title": "Revenir à une citation en un seul saut",
+     "passages": [
+      "Un repère temporel raccourcit le chemin du texte à la phrase entendue. Même une transcription imparfaite peut servir d’index : le lecteur repère un mot douteux et ouvre le son correspondant au lieu de le chercher dans tout l’enregistrement.",
+      "La relecture demande une petite marge de contexte. Reprendre la lecture quelques secondes plus tôt permet de réentendre le début d’une réplique et de vérifier la citation exacte. Ce geste simple peut être plus utile qu’un résumé automatique de plus.",
+      "Le lien avec le temps compte aussi après l’export. Si les images et le texte perdent leur place, le destinataire voit un contenu différent de celui du rédacteur. L’intervieweur a besoin d’un fragment avec le locuteur, le temps et un commentaire ; le fichier final mérite d’être vérifié sur ces liens, et pas seulement sur la présence du texte."
+     ],
+     "quotes": [
+      {
+       "text": "Pas très précis. J’aime bien les horodatages par contre.",
+       "rating": 2,
+       "app": "iRecord: Transcribe Voice Memo"
+      },
+      {
+       "text": "J’aimerais qu’il y ait une option pour reprendre la lecture 5 secondes avant quand on met en pause un enregistrement qu’on écoute. Ça aiderait vraiment quand on transcrit et qu’on doit s’assurer que la citation est exactement juste.",
+       "rating": 3,
+       "app": "Easy Voice Recorder"
+      },
+      {
+       "text": "Impossible d’exporter les images et le texte ensemble dans un seul fichier avec les images au bon horodatage et au bon endroit — comme ça apparaît dans l’appli. Ça rend l’usage très difficile pour un utilisateur sérieux : j’obtiens pas ce que je vois dans l’appli.",
+       "rating": 3,
+       "app": "Otter Transcribe Voice Notes"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-time-links",
+       "title": "Revenir à une citation en un seul saut",
+       "body": "L’auteur d’un livre a une étape suivante différente : non pas choisir une citation dans une interview, mais poursuivre un texte déjà commencé par une nouvelle dictée. Une seule transcription ne couvre pas les deux scénarios.",
+       "ideas": [
+        "voice-recorder-6",
+        "voice-recorder-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "archive",
+   "title": "Retrouver un enregistrement et le réutiliser",
+   "intro": "Avec le temps, la valeur passe à la recherche, à des noms qui tiennent et à la possibilité d’emporter sa propre archive.",
+   "art": null,
+   "observations": [
+    {
+     "id": "watch",
+     "title": "Faire passer une pensée de la montre au téléphone",
+     "passages": [
+      "Enregistrer une pensée depuis son poignet est commode quand on ne veut pas sortir le téléphone. Ensuite, la note doit arriver là où on peut l’écouter et s’en servir. Dans l’avis positif, ce chemin commence par une pensée spontanée et finit par une note ou un message audio.",
+      "Un transfert imprévisible laisse un doute : la tâche est-elle finie une fois l’enregistrement arrêté ? Il est utile de montrer séparément « enregistré sur la montre » et « copie sur le téléphone », et de garder le fichier d’origine jusqu’à la confirmation du transfert. Ces états comptent plus qu’une énième liste des notes récentes.",
+      "Si le transfert automatique ne s’est pas terminé, la personne doit comprendre comment le relancer ou récupérer le fichier à la main. Après le transfert, le nom et l’heure d’avant aident à reconnaître la note. Sinon, on cherche un son sur deux appareils en devinant laquelle de plusieurs cartes semblables contient la pensée voulue."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli est tellement pratique pour garder des notes mentales ou envoyer de longs messages audio à des amis. L’option la plus géniale c’est que je peux le faire depuis mon apple watch.",
+       "rating": 5,
+       "app": "Voice Recorder, Voice Memos ®"
+      },
+      {
+       "text": "C’est quoi ce délire avec la synchro de l’Apple Watch… Les enregistrements de la montre passent sur le téléphone quand ça leur chante… Si tant est qu’ils y passent un jour !",
+       "rating": 1,
+       "app": "Voice Record Pro"
+      },
+      {
+       "text": "C’est bien que cette appli ait une fonction pour enregistrer sur ma montre, mais j’arrive pas à comprendre comment le transférer sur mon téléphone, ce qui rend l’appli de la montre un peu inutile.",
+       "rating": 2,
+       "app": "Voice Record Pro"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_voice-recorder_watch",
+      "alt": "Illustration du thème « Faire passer une pensée de la montre au téléphone ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "library",
+     "title": "Retrouver la phrase voulue des mois plus tard",
+     "passages": [
+      "Un enregistrement isolé est utile tant qu’on peut le retrouver. À mesure que l’archive grossit, la recherche, les noms et les dossiers deviennent une partie du travail principal, et non la décoration d’une collection. Dans l’avis ci-dessous, un bon son et un partage commode voisinent avec une recherche difficile des fichiers eux-mêmes.",
+      "Le nom est l’un des moyens de se rappeler le contenu sans réécouter. S’il ne tient pas, la personne perd le résultat de son propre étiquetage. Le renommage doit tenir à la prochaine ouverture et au prochain transfert ; ce n’est qu’ensuite qu’il vaut la peine d’ajouter une recherche sur les mots reconnus avec un saut à la minute d’origine.",
+      "Il importe de pouvoir emporter l’archive accumulée en entier. L’export fichier par fichier convient à un envoi ponctuel, mais devient un travail lourd pour une collection. Pour les voix de la famille, ce sont surtout des fichiers ordinaires qu’on peut écouter, avec leurs noms et leurs dates conservés, qui ont de la valeur — même s’il existe une recherche plus sophistiquée dans l’app."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai fait beaucoup d’enregistrements avec cette appli au fil des années. La netteté et la possibilité de partager les fichiers son sont super, mais retrouver les fichiers est une tâche difficile.",
+       "rating": 3,
+       "app": "Voice Recorder - Audio Record"
+      },
+      {
+       "text": "Après l’enregistrement, j’ai changé le nom du fichier mais il est pas resté. Il a disparu et je dois refaire ce travail pour avoir le nom changé. Des fois je dois répéter ce processus ennuyeux même plusieurs fois. C’est quoi le problème ?",
+       "rating": 4,
+       "app": "TapeACall: Call Recorder"
+      },
+      {
+       "text": "Ils ont retiré la fonction pour lancer l’enregistrement avant d’appeler et pour DL tes appels tu dois passer un par un pour transférer. Pas de fonction d’exode de masse.",
+       "rating": 2,
+       "app": "TapeACall Pro: Call Recorder"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-library",
+       "title": "Retrouver la phrase voulue des mois plus tard",
+       "body": "",
+       "ideas": [
+        "voice-recorder-5",
+        "voice-recorder-3"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "D’abord conserver, réduire ensuite",
+  "body": "La première priorité ici est un son complet et accessible : une durée claire, la survie au renommage et la possibilité d’obtenir une copie séparée. Sans cela, même une transcription exacte et un compte rendu commode reposent sur un contenu qui peut disparaître ou se révéler incomplet. La priorité suivante est une correction vérifiable : passer d’un mot au son, corriger un locuteur et ne pas perdre la modification apportée.\n\nEnsuite, il vaut la peine de choisir un seul scénario complet. L’intervieweur a besoin de citations, l’auteur de la suite du chapitre, la famille d’une archive de voix intelligible. Ces tâches ne demandent pas le même jeu de fonctions. Il est plus utile de les vérifier sur un résultat fini hors de l’app que de les réunir sous un seul bouton « traiter l’enregistrement »."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-capture",
+   "title": "D’abord conserver tout le son nécessaire",
+   "depth": 0
+  },
+  {
+   "id": "observation-continuity",
+   "title": "Savoir quelle partie de la conversation a été conservée",
+   "depth": 1
+  },
+  {
+   "id": "observation-phone-call",
+   "title": "Savoir à l’avance comment la conversation est enregistrée",
+   "depth": 1
+  },
+  {
+   "id": "observation-sound-edit",
+   "title": "Vérifier la parole et corriger de façon réversible",
+   "depth": 1
+  },
+  {
+   "id": "theme-understand",
+   "title": "Transformer la transcription en contenu vérifié",
+   "depth": 0
+  },
+  {
+   "id": "observation-transcript",
+   "title": "Corriger un mot et le nom d’un locuteur",
+   "depth": 1
+  },
+  {
+   "id": "observation-summary",
+   "title": "Conserver les accords qui ont été vérifiés",
+   "depth": 1
+  },
+  {
+   "id": "observation-time-links",
+   "title": "Revenir à une citation en un seul saut",
+   "depth": 1
+  },
+  {
+   "id": "theme-archive",
+   "title": "Retrouver un enregistrement et le réutiliser",
+   "depth": 0
+  },
+  {
+   "id": "observation-watch",
+   "title": "Faire passer une pensée de la montre au téléphone",
+   "depth": 1
+  },
+  {
+   "id": "observation-library",
+   "title": "Retrouver la phrase voulue des mois plus tard",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "D’abord conserver, réduire ensuite",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

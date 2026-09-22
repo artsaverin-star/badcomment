@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 type Me = {
   user: { username: string | null; firstName: string | null; isAdmin: boolean; premiumUntil?: string | null } | null;
@@ -18,7 +19,7 @@ type Me = {
 // avatar that opens an account dropdown (name, status, admin, sign-out).
 export default function AuthButton({ compact = false, locale = "ru" }: { compact?: boolean; locale?: Locale }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const [me, setMe] = useState<Me | null>(null);
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);

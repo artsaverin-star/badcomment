@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "hiking-trails-3",
+ "category": "hiking-trails",
+ "categoryName": "ハイキングとルート",
+ "title": "選んだ範囲をダウンロードする",
+ "description": "地図の上の枠が範囲を決め、一覧がその中身と用意の状態を見せる。",
+ "cover": {
+  "src": "ideas/hiking-trails-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "画面を動かして回っていると、地図のどの部分が通信なしで使えるよう用意できているのか分かりにくい。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "うーん、オフライン地図のダウンロードが面倒、地域を枠で囲んで落とすってのができない、ズームして動かして辺りをなぞって回るっていう雑な仕組みになってる..だから特定のタイルを動かしてなぞってズームしないと保存されない。明らかにアウトドアで電波の外へ出る人じゃない。",
+    "rating": 1,
+    "app": "Topographic Maps & Trails"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "範囲を選ばせ、縮尺と容量を見せ、終わっていない部分の状態を保つ。出来上がった一式は、開いて確かめられるようにする。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "ダウンロードのアイコンは、必要な細部が実際に手に入るかどうかの確認の代わりにはならない。"
+  }
+ ],
+ "rank": 375,
+ "free": false
+}

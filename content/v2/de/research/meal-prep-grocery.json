@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "meal-prep-grocery",
+ "name": "Menüs und Einkaufslisten",
+ "summary": "Ein Menü zahlt sich aus, wenn daraus eine richtige Liste wird und das Gekaufte nicht zwischen den Handys verloren geht. Ein Blick darauf, wo dieser Weg abreißt.",
+ "corpus": {
+  "reviews": 12689,
+  "apps": 54
+ },
+ "lead": "Ein Rezept für vier Portionen, eine halbe Packung Reis zu Hause und die Liste in der Hand von jemandem, der schon im Laden steht: Ein Menüplaner muss Angaben sehr unterschiedlicher Genauigkeit zusammenbringen. Addiert er sie stillschweigend, ist eine ordentlich aussehende Summe leicht falsch.\n\nIm Folgenden gehen wir den Weg von den gewählten Gerichten bis zur Kasse. Auf ihm liegen mehrere eigenständige Aufgaben, die Grundlage ist aber dieselbe: zu verstehen, woher eine Position stammt, wer sie geändert hat und was noch zu prüfen ist.",
+ "cover": {
+  "src": "research/ResearchLaunch_meal-prep-grocery_cover",
+  "alt": "Menüs und Einkaufslisten",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_meal-prep-grocery_audiences",
+  "alt": "Verschiedene Aufgaben in der Kategorie „Menüs und Einkaufslisten“.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Den Einkauf aus dem Menü zusammenstellen",
+   "body": "Wer plant, beginnt bei den Gerichten und der Zahl der Portionen. Gebraucht wird eine zusammengefasste Liste für die gewählten Tage, bei der die Herkunft jeder Menge klar zu sehen ist, und nicht ein eigener Warenkorb je Rezept."
+  },
+  {
+   "title": "Nach einer gemeinsamen Liste einkaufen",
+   "body": "Am gemeinsamen Einkauf sind Menschen mit unterschiedlichen Tagesabläufen beteiligt. Eine Person bemerkt zu Hause, dass etwas ausgegangen ist, die andere geht schon durch den Laden: Neue Positionen und gesetzte Häkchen müssen unterscheidbar bleiben."
+  },
+  {
+   "title": "Die Vorräte zu Hause nutzen",
+   "body": "Der Vorrat zu Hause hilft nur dann bei einer Entscheidung vor dem Kauf, wenn die Angaben frisch genug sind. Man muss Zugänge und Verbrauch erfassen können, ohne erneut eine vollständige Inventur zu machen."
+  }
+ ],
+ "sections": [
+  {
+   "id": "plan",
+   "title": "Aus dem Menü die richtigen Einkäufe machen",
+   "intro": "Rezept, Portionen und die Reste zu Hause müssen in eine einzige Rechnung eingehen. Sonst muss die Liste von Grund auf geprüft werden.",
+   "art": null,
+   "observations": [
+    {
+     "id": "recipes",
+     "title": "Ein Rezept bis zur Einkaufsliste durchbringen",
+     "passages": [
+      "Der Import ist nützlich, wenn sich ein gespeichertes Rezept in Einkäufe verwandeln lässt. Im guten Fall muss man die Zutaten kein zweites Mal abschreiben: Das gewählte Gericht kennt seine Portionen bereits und gibt seine Zutaten an die Liste weiter.",
+      "Doch zuerst muss das Rezept selbst erfasst werden. Ein Link auf eine Seite, die Beschreibung unter einem Video und ein Kommentar sind verschiedene Orte, an denen der Text steht. Ist die Übernahme misslungen, kommt es darauf an, dass die Person genau sieht, was fehlt, und es von Hand ergänzen kann. Ein gespeicherter Link ohne Zutaten ist noch keine fertige Rezeptkarte.",
+      "Der nächste Schritt ist die Wahl der Tage und der Gerichte, die tatsächlich in den Einkauf eingehen. Der Austausch eines Abendessens sollte die zugehörige Liste ändern und nicht eine weitere Runde Lebensmittel obendrauf legen. Auch die eigenen Korrekturen an einem Rezept sind es wert, bewahrt zu werden: Sonst beginnt jede Planung damit, sich erneut daran zu erinnern, dass diese Familie es anders kocht."
+     ],
+     "quotes": [
+      {
+       "text": "Das ist ein Geschenk des Himmels. Ich liebe es, dass ich ein Rezept online sehen, in die App hochladen kann und die Zutaten automatisch auf meiner Einkaufsliste landen. VERÄNDERT ALLES!!",
+       "rating": 5,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "Ich mag die App wirklich, aber beim Importieren von Rezepten aus Facebook und TikTok habe ich immer noch Probleme. Wenn Rezepte in einem facebook-Kommentar stehen, kann man das Rezept nicht einfach importieren. Man muss in den Kommentar mit dem Rezept gehen, den Link zum Kommentar von Hand kopieren und dann in die App gehen und ihn importier",
+       "rating": 3,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "Ich benutze diese App seit Jahren. Sie ist so hilfreich und benutzerfreundlich. Rezepte von Websites zu kopieren ist einfach. Und wenn man dann seine Rezepte für die Woche plant, kann man diese Tage auswählen und daraus eine Einkaufsliste erzeugen.",
+       "rating": 5,
+       "app": "Plan to Eat"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_recipes",
+      "alt": "Illustration zum Thema „Ein Rezept bis zur Einkaufsliste bringen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-recipes",
+       "title": "Ein Rezept bis zur Einkaufsliste durchbringen",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "amounts",
+     "title": "Die zusammengefasste Menge erklären",
+     "passages": [
+      "Mehrere Zeilen mit „Eier“ bedeuten eine zusätzliche Prüfung am Regal, und eine falsch zusammengefasste Menge wirkt überzeugender, als sie sollte. Zuerst müssen die Portionen jedes Gerichts berücksichtigt, dann die Bezeichnungen und die Einheiten abgeglichen werden, und erst danach sollte eine Gesamtmenge angezeigt werden.",
+      "Eine nützliche Zeile legt offen, was jedes Rezept beigetragen hat: woher die Zutat und die Menge stammen. So lassen sich eine Dopplung, eine unpassende Einheit oder ein überflüssiges Rezept erkennen. Eine saubere Liste bedeutet, die Rechnung nachvollziehen zu können, und nicht einfach weniger Zeilen auf dem Bildschirm; zweifelhafte Zusammenfassungen müssen korrigierbar bleiben.",
+      "Wenn zwei Gerichte drei Eier und zwei Eier brauchen, ist die Summe leicht zu prüfen. Doch „eine Dose Tomaten“ und „vierhundert Gramm Tomaten“ verlangen bereits eine Klärung von Produkt und Verpackung. Eine gute Liste hält solche Unterschiede sichtbar und lässt die Zusammenfassung korrigieren, statt bedenkenlos eine Summe anzuzeigen, die niemand bestätigt hat."
+     ],
+     "quotes": [
+      {
+       "text": "Wir benutzen sie jeden Tag. Sie ist so einfach zu bedienen. Dass man Rezepte von überall herholen kann und die App sie ordnet, ist großartig. Wir sind nur mein Mann und ich, also passen wir die Portionen vom Originalrezept oft an, und die App macht das für einen.",
+       "rating": 5,
+       "app": "Plan to Eat"
+      },
+      {
+       "text": "Ich würde ihr sagen, welche Rezepte ich kochen will, abhaken, was ich schon habe, und sie würde daraus eine saubere Liste machen. Ich hatte smart Clean Up an und bekomme trotzdem 6 verschiedene Einträge für „Ei“. Ich versuche, sie umzubenennen, ab",
+       "rating": 2,
+       "app": "Grocery - Smart Shopping List"
+      },
+      {
+       "text": "Die App packt dutzendweise zufällige Zutaten auf die Einkaufsliste. Ich hatte 9 12-oz-Beutel Brokkoli, dabei brauchte ich 3. 9 Paprika, dabei brauchte ich 3. Und so geht das immer weiter. Es ist inzwischen völlig unbrauchbar.",
+       "rating": 1,
+       "app": "eMeals - Healthy Meal Plans"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-amounts",
+       "title": "Die zusammengefasste Menge erklären",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pantry",
+     "title": "Wissen, wie frisch die Angaben zu den Vorräten sind",
+     "passages": [
+      "Eine Liste der Vorräte zu Hause hilft bei der Entscheidung, was zu kaufen und was als Nächstes zu kochen ist. Der Autor der Rezension unten schätzt nicht den Katalog selbst, sondern die Möglichkeit, sich an den Inhalt der Vorratskammer und die Haltbarkeitsdaten zu erinnern. Ein Eintrag zu einem Produkt ist allerdings nur so lange nützlich, wie man ihm trauen kann.",
+      "Einen solchen Katalog zu füllen, kann viel Arbeit sein. Das Scannen erleichtert sie – in der nächsten Rezension beschreibt jemand Hunderte Einträge, fast ohne Tippen. Doch ein Kassenbon oder ein Barcode bestätigt den Zugang eines Produkts, nicht die Menge, die nach mehreren Abendessen übrig ist. Manchmal ist ein ehrliches „ist da, Menge prüfen“ besser als eine genaue Zahl, die lange niemand kontrolliert hat.",
+      "Selbst eine gut gefüllte Vorratskammer nützt am Regal nichts, wenn sie auf einem anderen Gerät geblieben ist. Bevor man eine aufwendige Erfassung des Verbrauchs ergänzt, lohnt es sich, das Eintragen zu Hause mit dem Nachsehen im Laden zu verbinden. Das trennt auch zwei Ideen: einen gemeinsamen Vorrat dauerhaft zu führen oder einmalig ein Abendessen aus ein paar Zutaten zu wählen, die man heute verbrauchen möchte."
+     ],
+     "quotes": [
+      {
+       "text": "Genau zu wissen, was in der Vorratskammer ist und wann es abläuft, verändert alles. Ich verstehe meine Essgewohnheiten jetzt viel besser und kann mein Budget fast perfekt planen, ohne auf den Kassenbon zu schauen.",
+       "rating": 5,
+       "app": "Pantry Check - Grocery List"
+      },
+      {
+       "text": "Ich bin behindert und habe Probleme mit dem Gedächtnis. Ich habe eure App gerade erst entdeckt und alles eingescannt, was ich hatte, und von etwa 500 Sachen musste ich nur rund 6 von Hand eintragen. Beim Essen und beim Haushalten hat mir das sehr geholfen.",
+       "rating": 5,
+       "app": "Cooklist: Pantry Meals Recipes"
+      },
+      {
+       "text": "Das könnte eine echt nützliche App sein, wenn ich mich mit meinem Konto auf mehreren Geräten anmelden könnte. Leider habe ich Sachen in meiner Vorratskammer auf dem iPad eingetragen und zu spät gemerkt, dass ich mich auf dem iPhone nicht in mein Konto einloggen konnte.",
+       "rating": 2,
+       "app": "Pantry Check - Grocery List"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_pantry",
+      "alt": "Illustration zum Thema „Wissen, wie frisch die Angaben zum Vorrat sind“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-pantry",
+       "title": "Wissen, wie frisch die Angaben zu den Vorräten sind",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-3",
+        "meal-prep-grocery-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "constraints",
+     "title": "Die Bedingungen bei der Auswahl der Gerichte nicht verlieren",
+     "passages": [
+      "Gerichte nach vorgegebenen Kennzahlen auszuwählen, nimmt einen Teil der Planungsarbeit ab. Die positive Rezension unten beschreibt genau das: Die Vorschläge passten zu dem, was ihr Autor verlangt hat. Das beweist nicht, dass eine Einstellung für alle passt, zeigt aber den Wert einer sichtbaren Verbindung zwischen den Bedingungen und dem Menü.",
+      "Die Bedingungen ändern sich im Lauf des Tages: Ein Teil des Essens ist schon gegessen, für das Abendessen bleiben andere Möglichkeiten. Ein Vorschlag ist nützlicher, wenn er erklärt, warum ein Gericht zum verbliebenen Wunsch passt, und wenn sich seine Zutaten prüfen lassen. Vorlieben, Zahlenziele und ausgeschlossene Zutaten sollte man getrennt zeigen, damit der Austausch eines Gerichts die übrigen Bedingungen nicht unbemerkt verändert.",
+      "Kann das Programm kein Menü zusammenstellen, braucht es eine konkrete Antwort: welche Bedingung nicht unterstützt wird oder welche Angaben fehlen. In der Rezension unten bleibt jemand wegen des eingestellten Bereichs ganz ohne Gerichte. Das ist ein Grund, die Grenzen der Auswahl zu erklären, statt jede beliebige Ernährungsform zu versprechen. Die App ordnet die Auswahl; sie sollte die Zutaten eines Rezepts weder erfinden noch es ohne die nötigen Angaben für passend erklären."
+     ],
+     "quotes": [
+      {
+       "text": "Endlich habe ich eine App gefunden, die alles hat, was ich gesucht habe. Die Gerichte, die sie liefern, richten sich nach meinen Makros, und ich hatte noch kein einziges enttäuschendes Essen. Ich habe sie seit fast 2 Monaten. Und wie sie alles so einfach und geordnet machen, ist großartig!",
+       "rating": 5,
+       "app": "Prospre - Meal Planner"
+      },
+      {
+       "text": "ENDLICH. Eine App, die mir HILFT, meine Ziele zu erreichen, indem sie die Makros anpasst. Und sie liefern auch Ideen für Gerichte, damit man den Rest seiner Makros zusammenbekommt. Liebe liebe liebe diese App!",
+       "rating": 5,
+       "app": "FitGenie: Macro & Food Tracker"
+      },
+      {
+       "text": "Ich habe meine Makroziele für Keto eingegeben, und dann hieß es, ich sei bei Fett außerhalb ihres „empfohlenen Bereichs“, also hat sie mir gar keine Gerichte gegeben. Ziemlich nutzlos, solange deine Makros nicht in ihren „empfohlenen Bereich“ fallen.",
+       "rating": 2,
+       "app": "Prospre - Meal Planner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-constraints",
+       "title": "Die Bedingungen bei der Auswahl der Gerichte nicht verlieren",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shop",
+   "title": "Durch den Laden kommen, ohne nachfragen zu müssen",
+   "intro": "Am Regal braucht es eine kurze Antwort: was zu nehmen ist, wie viel und ob es jemand anderes schon gekauft hat.",
+   "art": null,
+   "observations": [
+    {
+     "id": "shared",
+     "title": "Änderungen von einem anderen Handy sehen",
+     "passages": [
+      "Eine gemeinsame Liste ersetzt den weitergereichten Zettel oder eine Reihe von Nachrichten. Ihr Wert zeigt sich besonders bei unterschiedlichen Tagesabläufen: Jeder trägt zu seiner Zeit ein, was er braucht, und einkaufen geht, wem es gerade passt. Dafür brauchen alle ein und dieselbe aktuelle Fassung.",
+      "Wenn eine neue Position bei der zweiten Person nicht auftaucht, muss die Liste wieder im Chat doppelt geführt werden. Es hilft, eine gespeicherte Änderung von einer noch nicht gesendeten zu unterscheiden und die Aktualisierung wiederholen zu lassen. Bei einem vorübergehenden Netzausfall darf ein Häkchen „gekauft“ nicht stillschweigend verschwinden oder als neuer Einkauf zurückkehren.",
+      "Handy und Uhr sind ein weiteres Paar Beteiligter im selben Vorgang. Das Lob unten zeigt, wie selbstverständlich ihr abgestimmtes Zusammenspiel wirkt. Die praktische Probe ist einfach: Eine Person fügt zu Hause ein Produkt hinzu, die andere hakt auf der Uhr einen Einkauf ab; nach der Verbindung sind beide Handlungen sichtbar, und niemand muss raten, welches Gerät das maßgebliche war."
+     ],
+     "quotes": [
+      {
+       "text": "Ich wohne mit meinem Vater und meinem Bruder zusammen, und weil unsere Zeitpläne so unterschiedlich sind, ist es schwer, gleichzeitig einkaufen zu gehen. Dass wir alle die Liste aktualisieren und von unseren Handys darauf zugreifen können, hat alles verändert.",
+       "rating": 5,
+       "app": "Grocery List - Listonic"
+      },
+      {
+       "text": "Meine Frau und ich benutzen die App schon eine Weile, aber wir haben immer häufiger Probleme mit der Synchronisierung. Ich füge etwas zu unserer gemeinsamen Liste hinzu, und die Liste meiner Frau aktualisiert sich nicht. Oder umgekehrt. Und man kann die Synchronisierung nicht erzwingen.",
+       "rating": 2,
+       "app": "Grocery List with Sync"
+      },
+      {
+       "text": "Das ist eine super App für Einkaufslisten. Alles funktioniert perfekt, besonders zwischen iPhone und Apple Watch, was selten ist. Und sie ist kostenlos!",
+       "rating": 5,
+       "app": "Our Groceries Shopping List"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_shared",
+      "alt": "Illustration zum Thema „Änderungen von einem anderen Telefon sehen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-shared",
+       "title": "Änderungen von einem anderen Handy sehen",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "aisles",
+     "title": "Die Reihenfolge an den eigenen Laden anpassen",
+     "passages": [
+      "Eine Reihenfolge nach Abteilungen ist nützlich, wenn sie zu einem bestimmten Laden und zum gewohnten Weg passt. Eine automatische Kategorie ist nur ein Vorschlag: Dasselbe Produkt kann an verschiedenen Stellen stehen. Landen vertraute Einkäufe immer wieder unter „Sonstiges“, muss man die ganze Liste erneut durchgehen.",
+      "Man sollte die Reihenfolge des eigenen Ladens speichern und die Lage einer einzelnen Position korrigieren können. Eine solche Einstellung muss beim nächsten Einkauf halten, statt eine neue Sortierung zu verlangen. Für die einkaufende Person zählt die nächste benötigte Abteilung; eine ausführliche Einteilung der Produkte ist nur so weit sinnvoll, wie sie dabei hilft, dorthin zu gelangen.",
+      "Es ist nicht nötig, ein automatisches Erlernen des Wegs über mehrere Einkäufe zu versprechen. Zu Beginn genügt es, eine einmalige Umstellung der Abteilungen von Hand zu merken und vertraute Produkte beim nächsten Mal an dieselbe Stelle zu setzen. Der Nutzen ist sofort sichtbar: weniger Rückwege zu einem bereits passierten Regal und weniger Suchen in der ganzen Liste."
+     ],
+     "quotes": [
+      {
+       "text": "Die Our Grocery Shopping list App ist super. Ich kann die Läden eintragen, in denen ich einkaufe, und die Sachen in der Reihenfolge eingeben, in der ich durch den Laden gehe.",
+       "rating": 5,
+       "app": "Our Groceries Shopping List"
+      },
+      {
+       "text": "Benutze die App seit Jahren, um meine Einkäufe zu organisieren. Pro einfach zu bedienen, man kann Sachen abhaken, die im Wagen liegen. Contra die App schafft es nicht, selbst einfachste Sachen wie Äpfel oder Salat einzuordnen, obwohl ich sie bei fast jedem Einkauf kaufe.",
+       "rating": 3,
+       "app": "List Ease: Shared Grocery List"
+      },
+      {
+       "text": "Die haben irgendein bescheuertes KI-Element eingebaut, und plötzlich kriegt sie nicht mal mehr eine einfache Einordnung hin. Sie funktioniert noch, aber ich habe es fast satt, dass sie jeden Eintrag in „Sonstiges“ kippt.",
+       "rating": 2,
+       "app": "Grocery List - Listonic"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-aisles",
+       "title": "Die Reihenfolge an den eigenen Laden anpassen",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "checklist",
+     "title": "Einen Einkauf abhaken und die Vorlage für später behalten",
+     "passages": [
+      "Zuerst muss sich die Liste überhaupt öffnen lassen. In einem Laden mit schlechtem Empfang müssen die bereits vorbereiteten Einkäufe verfügbar bleiben; das Warten auf das Netz stoppt den ganzen Einkauf, bevor das erste Häkchen gesetzt ist. Danach kommt es darauf an, die ohne Verbindung ausgeführten Handlungen zu bewahren.",
+      "Ein Häkchen „gekauft“ schließt den laufenden Einkauf ab, macht das Produkt aber nicht für immer überflüssig. In der Rezension unten nutzt jemand die Liste der Vorwoche als Vorlage, und eine direkt daneben liegende Löschtaste zerstört diese Vorlage. Das sind zwei verschiedene Vorgänge: eine Position aus den heutigen Aufgaben nehmen und sie aus dem Verlauf löschen. Besonders das Zweite muss sich rückgängig machen lassen.",
+      "Die gewohnte Zusammenstellung kehrt Woche für Woche wieder, aber nicht unbedingt vollständig. Der Verlauf hilft, die wenigen Artikel für einen neuen Einkauf herauszusuchen. So muss niemand eine gelöschte Liste wieder aufbauen oder jedes Mal alle Produkte durchsehen, die die Familie je gekauft hat."
+     ],
+     "quotes": [
+      {
+       "text": "Vor ein paar Monaten hat sich an dieser App etwas geändert. Aus einer brillanten und nützlichen App fürs Einkaufen ist eine fast unbrauchbare geworden. Zu oft kann ich meine Liste nicht öffnen. Das liegt anscheinend daran, dass die App erst ins Internet will, bevor sie mir meine Liste zeigt. Das Internet ist oft nicht verfügbar in",
+       "rating": 1,
+       "app": "SIMPLE Shopping List + To Do"
+      },
+      {
+       "text": "Ich WÜNSCHTE, es käme eine Frage „willst du wirklich löschen“, bevor die abgehakten Sachen gelöscht werden!! Ich benutze diese Liste als laufende Einkaufsliste, indem ich bei den Sachen, die ich diese Woche im Laden holen muss, einfach das Häkchen wegnehme. MEHR als einmal habe ich aus Versehen den Mülleimer erwischt, weil er so nah am",
+       "rating": 1,
+       "app": "Shopping List - Grocery & Todo"
+      },
+      {
+       "text": "Die App ist einfach zu bedienen, merkt sich frühere Einträge und lässt einen mehrere Listen für verschiedene Läden anlegen.",
+       "rating": 5,
+       "app": "Grocery List with Sync"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_meal-prep-grocery_checklist",
+      "alt": "Illustration zum Thema „Einen Einkauf abhaken und die Vorlage für später behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "total",
+     "title": "Die Summe dessen zeigen, was schon im Wagen liegt",
+     "passages": [
+      "Die Kosten des ganzen Plans und die Summe der Artikel im Einkaufswagen beantworten verschiedene Fragen. Die erste hilft bei der Vorbereitung, die zweite dabei, den laufenden Einkauf vor der Kasse zu verstehen. Fällt ein Artikel nach dem Abhaken aus der Rechnung oder aktualisiert sich die Summe nicht, erklärt der Bildschirm nicht mehr, was tatsächlich gezählt wurde.",
+      "Die berücksichtigten Positionen, die Mengen und die verwendeten Preise müssen deutlich benannt sein. Die Eingabe von Hand kann nützlich sein, wenn sie sich im Laden leicht mitführen lässt. Die App sollte die Rechnung aus den vorhandenen Angaben zeigen und die Positionen, für die noch kein Preis eingetragen ist, gesondert sichtbar lassen.",
+      "Eine Summe aus eingegebenen Preisen bleibt vorläufig: Ware nach Gewicht, ein Rabatt oder eine örtliche Steuer können an der Kasse anders ausfallen. Wichtig ist, die Grundlage der Rechnung zu benennen und die Artikel ohne Preis zu zeigen. Dann versteht man die Grenzen der Zahl und kann entscheiden, was zurückgelegt oder getauscht wird, ohne eine Schätzung für einen Kassenbon zu halten."
+     ],
+     "quotes": [
+      {
+       "text": "Diese App ist eine meiner meistgenutzten. Für mich ist wichtig, dass ich weiß, wie hoch meine Summe am Ende des Einkaufs sein wird, und auch sehe, wie viel jeder Artikel nach Steuern kostet. Genau das macht diese App für mich. Liebe sie, schnell und einfach.",
+       "rating": 5,
+       "app": "Total Plus:Shopping Calculator"
+      },
+      {
+       "text": "Die App ist okay, aber warum können wir die Summe unseres Einkaufswagens nicht sehen? Ich bin bestimmt wie die meisten anderen und hake die Sachen ab, während ich sie im Laden kaufe, warum sehe ich meine Summe nicht, ohne jeden einzelnen Artikel anzutippen?",
+       "rating": 3,
+       "app": "Total Plus:Shopping Calculator"
+      },
+      {
+       "text": "Es gibt einen Fehler, bei dem sich die Summe nicht aktualisiert, egal was man auf die Liste setzt. Habe versucht, in der App ein Ticket aufzumachen.",
+       "rating": 2,
+       "app": "Grocery - Smart Shopping List"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-total",
+       "title": "Die Summe dessen zeigen, was schon im Wagen liegt",
+       "body": "",
+       "ideas": [
+        "meal-prep-grocery-5"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst – eine richtige und verfügbare Liste",
+  "body": "In dieser Kategorie lohnt es sich, zuerst den Weg vom gewählten Gericht bis zum Einkauf in Ordnung zu bringen: eine nachvollziehbare Umrechnung der Portionen, eine korrigierbare Zusammenfassung der Zutaten und eine Liste, die sich mit den gesetzten Häkchen öffnen lässt. Ein Fehler in einem dieser Schritte zwingt dazu, wieder alles von Hand zu prüfen. Neue Rezepte und eine aufwendige Auswahl des Menüs nehmen diese Arbeit nicht ab.\n\nDie nächste Entscheidung hängt von den Gewohnheiten der Familie ab. Wer seine Vorräte wirklich aktuell hält, dem nützt eine gemeinsame Vorratskammer; allen anderen genügt vielleicht die einmalige Auswahl eines Abendessens aus Resten. Deshalb lohnt es sich, vor dem Ausbau des Katalogs eine gewöhnliche Woche zu prüfen: den Austausch eines Gerichts, den gemeinsamen Einkauf und eine wiederholte Liste. Sie zeigt, welches Glied hilft und welches mehr Buchführung im Haushalt bringt."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-plan",
+   "title": "Aus dem Menü die richtigen Einkäufe machen",
+   "depth": 0
+  },
+  {
+   "id": "observation-recipes",
+   "title": "Ein Rezept bis zur Einkaufsliste durchbringen",
+   "depth": 1
+  },
+  {
+   "id": "observation-amounts",
+   "title": "Die zusammengefasste Menge erklären",
+   "depth": 1
+  },
+  {
+   "id": "observation-pantry",
+   "title": "Wissen, wie frisch die Angaben zu den Vorräten sind",
+   "depth": 1
+  },
+  {
+   "id": "observation-constraints",
+   "title": "Die Bedingungen bei der Auswahl der Gerichte nicht verlieren",
+   "depth": 1
+  },
+  {
+   "id": "theme-shop",
+   "title": "Durch den Laden kommen, ohne nachfragen zu müssen",
+   "depth": 0
+  },
+  {
+   "id": "observation-shared",
+   "title": "Änderungen von einem anderen Handy sehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-aisles",
+   "title": "Die Reihenfolge an den eigenen Laden anpassen",
+   "depth": 1
+  },
+  {
+   "id": "observation-checklist",
+   "title": "Einen Einkauf abhaken und die Vorlage für später behalten",
+   "depth": 1
+  },
+  {
+   "id": "observation-total",
+   "title": "Die Summe dessen zeigen, was schon im Wagen liegt",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst – eine richtige und verfügbare Liste",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

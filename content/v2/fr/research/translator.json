@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "translator",
+ "name": "Traducteurs",
+ "summary": "Finir sa réplique, entendre la réponse, lire un panneau et obtenir le document en entier. Comment juger un traducteur à une tâche menée jusqu’au bout.",
+ "corpus": {
+  "reviews": 13895,
+  "apps": 38
+ },
+ "lead": "Une personne essaie d’expliquer une demande à travers un téléphone, l’autre attend une réponse. Le traducteur s’interpose trop tôt — et il faut reprendre la conversation depuis le début. En voyage, un arrêt semblable arrive parce qu’un mode vocal est indisponible ; en messagerie, parce qu’un brouillon a été perdu. Même une bonne traduction d’une phrase isolée ne compense pas une telle rupture.\n\nPlusieurs produits différents se cachent donc sous le nom de « traducteur ». Une conversation en famille demande des tours de parole ; un voyage, des langues disponibles à l’avance ; un document, un original conservé et des passages non traduits visibles. Ci-dessous, on passe en revue ce qu’il faut mener jusqu’au bout dans chaque cas.",
+ "cover": {
+  "src": "research/ResearchLaunch_translator_cover",
+  "alt": "Traducteurs",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_translator_audiences",
+  "alt": "Tâches des gens : Traducteurs",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Parler avec un proche",
+   "body": "Les deux personnes utilisent un seul téléphone ou une paire d’écouteurs. Toutes deux veulent aller au bout d’une pensée et comprendre la réponse sans apprendre les réglages au milieu de la conversation."
+  },
+  {
+   "title": "S’expliquer en voyage",
+   "body": "Ce qu’il faut, c’est un panneau, une adresse ou une courte demande dans un endroit inconnu. Il importe de savoir à l’avance ce qui marchera sans connexion internet stable."
+  },
+  {
+   "title": "Envoyer un message ou lire un document",
+   "body": "L’auteur corrige un court message, le lecteur s’attaque à un long fichier. Tous deux ont besoin d’accéder au texte d’origine, mais le volume et la façon de vérifier diffèrent fortement."
+  }
+ ],
+ "sections": [
+  {
+   "id": "conversation",
+   "title": "Se comprendre dans une conversation",
+   "intro": "Il faut maîtriser l’ordre des tours de parole et savoir quels modes de saisie sont réellement disponibles pour la paire de langues choisie.",
+   "art": null,
+   "observations": [
+    {
+     "id": "turn-taking",
+     "title": "Laisser la personne finir sa pensée",
+     "passages": [
+      "Un dialogue automatique dispense d’appuyer sans arrêt, tant qu’il repère correctement les limites d’un tour de parole. Si la traduction démarre pendant que l’un parle, les deux entendent des voix superposées et doivent répéter leur pensée. Un bouton manuel donne un autre type de contrôle — la personne termine elle-même l’enregistrement.",
+      "Quand le mode automatique coupe la parole, terminer son tour à la main rend le contrôle à la personne. L’enregistrement, la traduction et la lecture audio doivent être distinguables : on doit voir si le téléphone écoute ou s’il répond déjà. Cela permet à deux personnes de se servir d’un seul appareil sans superposition des voix.",
+      "Une courte pause ne veut pas toujours dire « j’ai fini ». La parole longue demande un autre mode : continuer d’enregistrer et laisser les fragments précédents accessibles à la lecture. Cela peut aider celui qui écoute un cours, mais il faut le vérifier séparément de la conversation à tour de rôle — le retard et les erreurs s’y accumulent autrement."
+     ],
+     "quotes": [
+      {
+       "text": "LA SEULE appli que j’ai trouvée qui oblige pas à appuyer sans arrêt sur un bouton pour parler. Vrai mode conversation, je mets un écouteur et mon partenaire l’autre. S’ils ajoutent un mode hors ligne où les langues téléchargées marchent en dehors du wifi je mettrais 5 étoiles",
+       "rating": 4,
+       "app": "Live Translator - AI Translate"
+      },
+      {
+       "text": "La détection automatique en mode Conversation est trop agressive. Quand je partage un téléphone avec un ami, l’appli me coupe sans arrêt et balance les traductions alors que je suis encore en train de parler. Ça crée une superposition de sons confuse qui gâche la conversation. S’il vous plaît, remettez les commandes d’enregistrement manuelles",
+       "rating": 3,
+       "app": "Google Translate"
+      },
+      {
+       "text": "J’essaie la traduction vocale en direct et la plupart du temps j’appuie sur le bouton, il écoute genre une demi-seconde puis il s’arrête et dit « Désolé, je ne suis pas sûr de ce que vous avez dit ». J’arrive pas à lui faire traduire plus d’un ou deux mots à la fois.",
+       "rating": 1,
+       "app": "iTranslate Voice"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_translator_turn-taking",
+      "alt": "Illustration du thème « Laisser la personne finir sa pensée ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-turn-taking",
+       "title": "Laisser la personne finir sa pensée",
+       "body": "",
+       "ideas": [
+        "translator-5",
+        "translator-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "language-pair",
+     "title": "Vérifier les deux sens de la conversation",
+     "passages": [
+      "La prise en charge d’une langue doit répondre à plusieurs questions précises : le texte est-il disponible, la voix est-elle reconnue, et le sens inverse fonctionne-t-il. Pour une conversation avec son conjoint, la traduction du texte ne remplace pas la possibilité de parler qu’on attendait, même si la langue figure bien dans la liste générale.",
+      "Une langue présente dans la liste générale ne signifie pas que la conversation est prise en charge. La personne doit voir tout de suite ce que sa propre paire permet : texte, reconnaissance vocale, lecture audio et sens inverse. Si la voix est indisponible, écrire au clavier peut être un moyen de secours pour communiquer, mais pas un remplacement de la fonction promise avant l’achat.",
+      "La disponibilité technique des deux sens ne les rend pas encore également utilisables. Ici, l’utilisateur est content de la traduction dans un sens et mécontent dans l’autre. Un produit étroit destiné à une communauté doit se vérifier dans un vrai échange de répliques. Les cartes du quotidien pour l’aide à la personne sont un scénario encore plus spécialisé : des questions importantes de santé ne peuvent pas être confiées à une formulation automatique non vérifiée."
+     ],
+     "quotes": [
+      {
+       "text": "Ma femme parle cebuano donc je pensais que ça vaudrait bien les 100 $ et plus, puis je vois que ça traduit le cebuano vers l’anglais seulement en texte. La traduction vocale est pas dispo pour cette combinaison précise.",
+       "rating": 3,
+       "app": "Voice Translator: Translate AI"
+      },
+      {
+       "text": "Je cherchais à traduire l’anglais parlé vers l’ukrainien et inversement vu que l’ukrainien est annoncé comme langue prise en charge. Quand on est arrivés au mode conversation, en cliquant sur le micro un message a surgi disant que les traductions étaient pas disponibles pour cette paire de langues.",
+       "rating": 2,
+       "app": "Translate Me - Live Translator"
+      },
+      {
+       "text": "Cette appli traduit bien l’anglais vers l’espagnol mais l’espagnol vers l’anglais c’est catastrophique.",
+       "rating": 5,
+       "app": "iTranslate Voice"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-language-pair",
+       "title": "Vérifier les deux sens de la conversation",
+       "body": "",
+       "ideas": [
+        "translator-6",
+        "translator-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "voice",
+     "title": "Entendre la phrase voulue et la répéter",
+     "passages": [
+      "Une traduction, il faut encore l’entendre. Une parole trop rapide se répète difficilement, une voix désagréable rend la conversation pénible, et une lecture audio indisponible laisse sans réponse celui qui a besoin de la prononciation d’un mot. La qualité du texte et le confort du résultat sonore méritent d’être examinés séparément.",
+      "La lecture audio peut être trop rapide même quand la traduction à l’écran est claire. Une répétition et un réglage de la vitesse aident à distinguer une phrase ou à la prononcer soi-même. En voyage, ces actions doivent être accessibles juste à côté du résultat, sans passer par la liste générale des réglages.",
+      "Dans un endroit bruyant, une répétition rapide sans nouvel enregistrement rend service. La vitesse de lecture pour comprendre et la vitesse pour prononcer soi-même peuvent différer. Un réglage enregistré doit appartenir à la langue choisie, pour que chaque conversation ne commence pas par la recherche de la commande."
+     ],
+     "quotes": [
+      {
+       "text": "Je m’en sers pour le français. Très fidèle et j’adore l’option des mots et des phrases de remplacement. Mais le son de la voix qui lit est horrible et on dirait un robot. Ça paraît inacceptable à l’époque de l’IA. Les voix de Google Translate ont l’air de vrais humains et sont largement supérieures.",
+       "rating": 3,
+       "app": "DeepL Translate"
+      },
+      {
+       "text": "Je viens d’acheter cette appli parce que je pars en Corée du Sud et je veux pouvoir comprendre les panneaux à l’aéroport et aussi communiquer avec les chauffeurs de taxi, par contre la vitesse de lecture de la voix est beaucoup trop rapide et un peu buguée. S’il y a un moyen de la ralentir ça serait utile !",
+       "rating": 3,
+       "app": "Live Translator - AI Translate"
+      },
+      {
+       "text": "Quand je traduis vers le filipino j’arrive pas à avoir de son. J’ai besoin du son pour apprendre à prononcer un mot. Pourquoi il y en a pas avec le tagalog ?",
+       "rating": 2,
+       "app": "Translator with Speech"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_translator_voice",
+      "alt": "Illustration du thème « Entendre et répéter la phrase voulue ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "regional-language",
+     "title": "Conserver la variante de langue choisie",
+     "passages": [
+      "Le nom d’une langue peut cacher plusieurs variantes de prononciation et d’usage. Pour parler dans un endroit précis, ce qui compte, c’est la variante choisie, pas l’étiquette générale. Un réglage difficile d’accès oblige à démêler chaque fois ce qui aurait dû être tranché à l’avance.",
+      "Une étiquette régionale a du sens si elle change le résultat, et pas seulement le nom dans un menu. Pour quelqu’un qui se trouve dans une région précise du Mexique, ce qui compte, ce sont des mots que l’interlocuteur comprend. Un ensemble de situations du quotidien connues, jouées avec des locuteurs natifs, fera ressortir ces écarts mieux qu’un jugement général sur toute une langue.",
+      "Une préférence régionale doit rester visible dans le mode en cours d’utilisation. Si l’appareil photo ou la voix ne prend pas en charge la même variante, il faut montrer clairement la différence. Mieux vaut conserver honnêtement le choix là où c’est possible que d’étendre formellement une seule étiquette à des résultats différents."
+     ],
+     "quotes": [
+      {
+       "text": "L’appli est fiable à 100% mais pourquoi c’est si dur d’avoir les dialectes ? J’essaie de traduire des mots vers l’anglais américain et pourtant ça traduit vers la version britannique et c’est vraiment dur d’essayer de choisir le dialecte, je dois galérer pour arriver à celui que j’essaie de traduire.",
+       "rating": 4,
+       "app": "DeepL Translate"
+      },
+      {
+       "text": "La région précise du Mexique où je suis, ils comprennent pas la plupart de ce traducteur. L’espagnol au Mexique est très régional. J’ai du mal à me servir de ce traducteur là où je suis en ce moment c’est dommage j’ai payé pour une version à vie et je peux pas l’utiliser.",
+       "rating": 2,
+       "app": "Spanish Translator Offline"
+      },
+      {
+       "text": "Cette appli a le portugais du Brésil, mais le portugais du Portugal c’est du Brésil. On utilise pas les mêmes ces mots au Portugal. Ces mots se disent seulement au Brésil.",
+       "rating": 1,
+       "app": "Translator ·"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-regional-language",
+       "title": "Conserver la variante de langue choisie",
+       "body": "",
+       "ideas": [
+        "translator-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "title": "Se préparer à un endroit sans la connexion habituelle",
+   "intro": "Télécharger un pack est utile en même temps qu’un essai du mode dont on a besoin. L’appareil photo, lui aussi, demande de choisir une manière de lire adaptée.",
+   "art": null,
+   "observations": [
+    {
+     "id": "offline",
+     "title": "Vérifier la traduction sans connexion à l’avance",
+     "passages": [
+      "Une langue téléchargée et le fonctionnement sans connexion sont deux choses différentes, et il faut les vérifier ensemble. En voyage, une connexion faible peut retarder la réponse, et le mode local sur lequel on comptait peut se révéler indisponible pour l’action voulue. L’apprendre sur place n’a rien de pratique, surtout après avoir payé l’accès à part.",
+      "La préparation doit se terminer par une traduction qui fonctionne réseau coupé. Le texte, la voix et l’appareil photo se vérifient séparément : un pack téléchargé peut ne servir qu’une partie des modes. Le résultat de cet essai compte plus qu’une pastille de téléchargement, car en voyage il n’y aura peut-être plus de moyen commode de corriger le réglage.",
+      "Les conditions de l’accès hors ligne doivent être montrées avant le téléchargement et avant le paiement : quelles langues et quels modes le pack contient. Le mot « hors ligne » crée aussitôt une attente. Même une fonction qui marche techniquement décevra si la personne n’apprend la restriction payante que juste avant le voyage."
+     ],
+     "quotes": [
+      {
+       "text": "Ça met une éternité à trouver une traduction. Même si je télécharge les langues dont j’ai besoin ça essaie quand même de chercher par internet, ce qui peut être hyper lent quand on voyage à l’étranger. Maintenant je dois mettre mon iphone en mode avion pour avoir une traduction hors ligne instantanée, c’est pénible.",
+       "rating": 2,
+       "app": "Translate"
+      },
+      {
+       "text": "J’ai pris cette appli pour mon voyage à Rome et en Grèce. Je l’ai prise surtout pour la partie grecque vu qu’Apple avait bien le grec en option. J’aimais bien l’idée de pouvoir m’en servir hors ligne. Le moment venu j’ai pas pu l’utiliser. J’ai payé pour la version hors ligne et elle a jamais marché du coup j’ai fini par devoir activer mes données mobiles en voyage.",
+       "rating": 2,
+       "app": "Translator GO: AI Translate"
+      },
+      {
+       "text": "Cette appli est titrée « hors ligne » mais le hors ligne tu l’as seulement si tu fais la mise à niveau.",
+       "rating": 2,
+       "app": "Spanish Translator Offline"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_translator_offline",
+      "alt": "Illustration du thème « Vérifier à l’avance une traduction hors ligne ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-offline",
+       "title": "Vérifier la traduction sans connexion à l’avance",
+       "body": "",
+       "ideas": [
+        "translator-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "camera",
+     "title": "Relier la traduction à l’inscription d’origine",
+     "passages": [
+      "La traduction en direct aide à relier une inscription à l’endroit où elle se trouve en ce moment. C’est important au moment de choisir une option sur un autre écran : une photo à part, avec le texte déplacé, oblige à faire la correspondance à la main. Pour la lecture tranquille d’une photographie, un tel mode peut très bien suffire.",
+      "Il faut distinguer ces tâches avant de lancer l’appareil photo. Dans une vue en mouvement, ce qui compte, c’est le rafraîchissement et le maintien du lien avec l’emplacement de l’inscription ; dans une photo, un retour facile à l’original et aux lignes prises une à une. Essayer sur un écran ou un document précis montre quelle méthode aide vraiment à s’y retrouver.",
+      "Pour la lecture en mouvement, le retard devient lui-même l’obstacle : la personne a déjà déplacé l’appareil photo alors que la légende appartient encore à l’image précédente. Pour un document, on peut s’arrêter sur une photo et confronter les lignes entre elles. Le choix du mode doit dépendre de cette tâche, pas de l’effet qui paraît le plus convaincant dans une démonstration."
+     ],
+     "quotes": [
+      {
+       "text": "GT est mon outil de référence pour la traduction auto pendant que je lis du texte en japonais depuis un moment. Mais depuis peu, l’appareil photo se fige sans arrêt et t’oblige à prendre une photo. La traduction auto au fil de la lecture est essentielle, et cette mise à jour a rendu la lecture en temps réel quasiment impossible.",
+       "rating": 2,
+       "app": "Google Translate"
+      },
+      {
+       "text": "J’aurais aimé que ce soit une traduction en direct. Mais il faut prendre une photo et ensuite voir la traduction. Je m’en sers pour traduire des écrans du coup c’est difficile de voir quelles options je dois choisir vu que le texte est pas aligné avec l’emplacement à l’écran.",
+       "rating": 3,
+       "app": "Camera Translator - AI OCR +"
+      },
+      {
+       "text": "Bien meilleur en traduction que Google et presque tous les autres concurrents, par contre la vitesse de la traduction par l’appareil photo est beaucoup trop lente du coup je choisis presque toujours Google à la place. Dans la plupart des cas d’usage réels le temps est critique, et attendre/rester figé presque 5 secondes c’est pas vraiment acceptable.",
+       "rating": 2,
+       "app": "DeepL Translate"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "text",
+   "title": "Conserver tout le sens de ce qui est écrit",
+   "intro": "Un brouillon et un long document doivent tous deux rester accessibles pour la correction et pour la vérification.",
+   "art": null,
+   "observations": [
+    {
+     "id": "keyboard",
+     "title": "Conserver le message d’origine jusqu’à l’envoi",
+     "passages": [
+      "La traduction à l’intérieur d’une conversation réduit les allers-retours entre les apps. Mais elle doit conserver le contrôle habituel du message : supprimer un caractère, corriger une phrase, attendre le résultat et envoyer exactement le texte choisi. Perdre tout le brouillon pendant la correction détruit ce que le clavier intégré avait fait gagner.",
+      "Une demi-minute d’attente change le rythme même de l’échange : quand la traduction est prête, une courte réplique peut avoir perdu son actualité. Pendant le traitement, l’original doit rester accessible. La personne doit comprendre ce qui est traduit en ce moment et si elle peut continuer à corriger sans perdre ce qu’elle a tapé.",
+      "La correction ordinaire d’un message doit rester ordinaire : supprimer un caractère, récupérer ce qui a été effacé par erreur, continuer à taper. Si la traduction prend du temps, un résultat qui arrive plus tard ne doit pas écraser un brouillon déjà modifié. Conserver l’original est ici plus utile qu’un bouton de traduction rapide de plus."
+     ],
+     "quotes": [
+      {
+       "text": "J’aime vraiment bien l’appli. Ça marche bien. Je me sers surtout du clavier parce qu’il traduit vraiment bien les messages sur des applis comme Whatsapp. J’aimerais juste vraiment qu’il ait la fonction swipe.",
+       "rating": 4,
+       "app": "iTranslate Translator"
+      },
+      {
+       "text": "Le clavier traduction depuis les messages ou WhatsApp est très lent. Des fois ça met jusqu’à 30 secondes pour traduire. Les autres programmes de traduction sont beaucoup beaucoup plus rapides.",
+       "rating": 3,
+       "app": "Live Translator - AI Translate"
+      },
+      {
+       "text": "J’aime bien ce clavier. Il traduisait très bien. Seul truc, il bugue quand on essaie d’utiliser la touche retour arrière. Il réagit pas de façon fluide et quand tu appuies trop de fois ça supprime tout le message.",
+       "rating": 4,
+       "app": "Translator Guru: Voice & Text"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_translator_keyboard",
+      "alt": "Illustration du thème « Garder le message d’origine avant l’envoi ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-keyboard",
+       "title": "Conserver le message d’origine jusqu’à l’envoi",
+       "body": "",
+       "ideas": [
+        "translator-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "whole-document",
+     "title": "Voir tout le volume et les passages restés non traduits",
+     "passages": [
+      "Une courte phrase, un long message et un document scanné demandent des chemins différents. Une limite de longueur peut laisser la moitié du texte sans traitement, et l’absence d’import peut empêcher ne serait-ce que de commencer à travailler sur un PDF. En même temps, traduire un vieux document difficile peut rendre service, même si certains éléments restent dans l’original.",
+      "Ce qu’il faut, c’est une limite claire avant le lancement et un moyen de distinguer les parties terminées de celles qui ne sont pas traduites. L’original doit être conservé à côté du résultat, pour pouvoir revenir à un passage non traduit ou à un nom. Terminer, c’est comprendre l’état du document entier, pas voir apparaître le premier paragraphe traduit.",
+      "Un PDF demande une entrée dans la tâche : choisir le fichier dans le dossier habituel, voir les pages et comprendre quelles parties sont prises en charge. S’il n’y a pas d’import, la personne n’arrive même pas jusqu’à la vérification de la traduction. Après le traitement, ce même aperçu page par page aide à retrouver les scans, les tableaux et les fragments restés sans traduction."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai essayé la version gratuite et je l’aime beaucoup. J’ai essayé de traduire un SMS à un ami mais ça en a traduit seulement la moitié à peu près. Est-ce qu’il y a une limite sur le nombre de mots qu’on peut traduire, dans la version gratuite comme dans la version Pro ?",
+       "rating": 3,
+       "app": "Translate Free - Language Translator & Dictionary"
+      },
+      {
+       "text": "Le texte a dépassé la longueur maximale de 1000 caractères. Veuillez utiliser un texte plus court",
+       "rating": 1,
+       "app": "Microsoft Translator"
+      },
+      {
+       "text": "J’ai essayé d’importer un PDF depuis Fichiers. J’ai pas trouvé de moyen d’importer un document depuis où que ce soit dans l’univers connu. C’était la raison principale pour laquelle je l’ai téléchargée. Je vais la supprimer maintenant.",
+       "rating": 2,
+       "app": "Microsoft Translator"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-whole-document",
+       "title": "Voir tout le volume et les passages restés non traduits",
+       "body": "",
+       "ideas": [
+        "translator-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Une conversation, une paire de langues",
+  "body": "Pour un premier produit, je choisirais la communication quotidienne régulière entre deux personnes sur une seule paire de langues. Une tâche pareille rend tout l’échange visible : l’un a fini sa réplique, l’autre a entendu une traduction compréhensible et a répondu. Avant de construire, il faut vérifier avec des locuteurs natifs si la qualité de la reconnaissance et de la lecture audio disponibles suffit. Un ordre des tours de parole commode ne corrigera pas une mauvaise traduction.\n\nSi la qualité tient, l’avantage est à chercher dans la conduite de la conversation : le passage explicite d’un côté à l’autre, la correction de ce qui a été entendu, la répétition de la réponse et l’enregistrement des phrases dont on a besoin. Les cours, les documents et la communication dans l’aide à la personne demandent une vérification à part et d’autres limites. Il est trop tôt pour les ajouter au nom du nombre de modes — il faut d’abord une conversation que les deux personnes ont vraiment pu finir."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-conversation",
+   "title": "Se comprendre dans une conversation",
+   "depth": 0
+  },
+  {
+   "id": "observation-turn-taking",
+   "title": "Laisser la personne finir sa pensée",
+   "depth": 1
+  },
+  {
+   "id": "observation-language-pair",
+   "title": "Vérifier les deux sens de la conversation",
+   "depth": 1
+  },
+  {
+   "id": "observation-voice",
+   "title": "Entendre la phrase voulue et la répéter",
+   "depth": 1
+  },
+  {
+   "id": "observation-regional-language",
+   "title": "Conserver la variante de langue choisie",
+   "depth": 1
+  },
+  {
+   "id": "theme-travel",
+   "title": "Se préparer à un endroit sans la connexion habituelle",
+   "depth": 0
+  },
+  {
+   "id": "observation-offline",
+   "title": "Vérifier la traduction sans connexion à l’avance",
+   "depth": 1
+  },
+  {
+   "id": "observation-camera",
+   "title": "Relier la traduction à l’inscription d’origine",
+   "depth": 1
+  },
+  {
+   "id": "theme-text",
+   "title": "Conserver tout le sens de ce qui est écrit",
+   "depth": 0
+  },
+  {
+   "id": "observation-keyboard",
+   "title": "Conserver le message d’origine jusqu’à l’envoi",
+   "depth": 1
+  },
+  {
+   "id": "observation-whole-document",
+   "title": "Voir tout le volume et les passages restés non traduits",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Une conversation, une paire de langues",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

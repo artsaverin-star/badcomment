@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "astronomy-stargazing-8",
+ "category": "astronomy-stargazing",
+ "categoryName": "星空と天文",
+ "title": "選んだ時点の空",
+ "description": "過去を調べるためのモデル。計算の範囲と前提が明示されている。",
+ "cover": {
+  "src": "ideas/astronomy-stargazing-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "書き手や教師、研究者には、今夜以外の空が必要になることがある。大事なのは、その結果が自分の問いにどれだけ合うのかを理解することだ。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "新しい版だと西暦1600年までしかさかのぼれないと分かって、本当に本当にがっかり。これでは自分の仕事にはまったく使えない道具だ。",
+    "rating": 1,
+    "app": "The Sky Pro by Redshift"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "場所と日付を計算の説明に結びつけ、設定を保存して複数の案を比べられるようにする。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "千年単位で同じ精度を約束しないこと。研究での利用には、モデルと元データの別途の検証が要る。"
+  }
+ ],
+ "rank": 585,
+ "free": false
+}

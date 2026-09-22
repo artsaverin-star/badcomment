@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "voice-recorder-2",
+ "category": "voice-recorder",
+ "categoryName": "Enregistrement et transcription de la parole",
+ "title": "Une transcription avec son propre dictionnaire",
+ "description": "Ajouter ses termes de travail et ses noms, vérifier les passages douteux et conserver les corrections.",
+ "cover": {
+  "src": "ideas/voice-recorder-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Un étudiant ou un spécialiste apporte un enregistrement plein de noms et de termes récurrents. Il définit un dictionnaire, voit les passages douteux et les vérifie sur le son ; les corrections sont conservées avec la transcription."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Le problème c’est le contenu de cours complexe (étudiant en ingénierie en 4e année et plus). Les notes valent quasiment rien parce que les termes complexes sont pas transcrits correctement.",
+    "rating": 2,
+    "app": "Otter Transcribe Voice Notes"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Ne pas corriger dix fois le même terme"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "On pourrait commencer par une seule matière et les enregistrements réels de son audience. Réutiliser l’orthographe confirmée d’un nom aide, mais il ne faut pas remplacer partout des mots proches sans regarder le contexte."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Que tester sur son propre contenu"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Le résultat principal, c’est moins de relecture répétée tout en gardant la possibilité de vérifier une phrase. L’avis sur les termes techniques erronés confirme le problème ; il ne prouve pas qu’ajouter un dictionnaire supprimera automatiquement toutes les erreurs de reconnaissance."
+  }
+ ],
+ "rank": 134,
+ "free": false
+}

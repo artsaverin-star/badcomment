@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "car-maintenance",
+ "name": "Autowartung",
+ "summary": "Arbeitsfahrten, Tankstopps und Wartung: welche Einträge sich zu verknüpfen lohnen, damit man später eine Lücke findet, sich an eine Reparatur erinnert oder einen Bericht zusammenstellt.",
+ "corpus": {
+  "reviews": 13395,
+  "apps": 56
+ },
+ "lead": "Ein Fahrzeugjournal verspricht, dem Besitzer abzunehmen, sich alles merken zu müssen. Aber die Fahrleistung wird für die eine Aufgabe gebraucht, der Beleg aus der Werkstatt für eine andere und ein Fehlercode für das Gespräch über einen Defekt. Mischt man diese Daten ohne nachvollziehbare Verknüpfungen, entsteht ein weiteres Archiv, in dem die Antwort schwer zu finden ist.\n\nIn den Rezensionen zeigen sich drei verschiedene Richtungen: die Erfassung von Arbeitsfahrten, die Servicehistorie und die Arbeit mit den Daten des Scanners. Sie können im Katalog nebeneinander stehen, müssen aber nicht zu einer App werden. Im Folgenden wird verfolgt, welches Ergebnis in jedem Fall gebraucht wird und was daran hindert, es aus bereits gemachten Einträgen zu gewinnen.",
+ "cover": {
+  "src": "research/ResearchLaunch_car-maintenance_cover",
+  "alt": "Autowartung",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_car-maintenance_audiences",
+  "alt": "Aufgaben der Menschen: Autowartung",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Die Arbeitsschicht abschließen",
+   "body": "Ein Fahrer muss die Fahrten des Tages zusammentragen, die privaten Strecken abtrennen und die Summe an den Buchhalter oder den Auftraggeber weitergeben. Eine Lücke lässt sich heute leichter rekonstruieren als am Monatsende."
+  },
+  {
+   "title": "Sich an die Wartung des Autos erinnern",
+   "body": "Der Besitzer sucht das Datum einer Reparatur, einen Tachostand und einen Beleg. Diese Angaben werden bei der nächsten Wartung, beim Besuch in der Werkstatt oder beim Verkauf des Autos gebraucht."
+  },
+  {
+   "title": "Die private Garage führen",
+   "body": "Jemand hat mehrere Autos oder Geräte verschiedener Art. Er will die anstehenden Arbeiten zusammen sehen und dabei für jedes Einzelne eine eigene Historie behalten."
+  }
+ ],
+ "sections": [
+  {
+   "id": "mileage",
+   "title": "Fahrten zu einer geprüften Historie zusammenfassen",
+   "intro": "Die automatische Aufzeichnung ist zusammen mit der Möglichkeit nützlich, eine Lücke zu bemerken und sie zu korrigieren, solange der Tag noch frisch im Gedächtnis ist.",
+   "art": null,
+   "observations": [
+    {
+     "id": "record",
+     "title": "Eine fehlende Fahrt rechtzeitig bemerken",
+     "passages": [
+      "Der automatische Start macht es überflüssig, vor jeder Fahrt an eine Taste zu denken. Aber eine Lücke wird spät entdeckt, wenn die App nach einer Abmeldung oder einer Änderung der Einstellungen aufgehört hat aufzuzeichnen. Dann muss die Historie aus dem Gedächtnis rekonstruiert werden, und kurze Stopps können sie zusätzlich in überflüssige Teile zerlegen.",
+      "Bei einem Ausfall des Sensors können gleich mehrere Tage ohne Aufzeichnung bleiben. Deshalb genügt es nicht, dass das Journal still auf die nächste Fahrt wartet: Der Zustand der Verbindung und der Aufzeichnung muss sichtbar sein. Eine Warnung hilft zu bemerken, dass die Erfassung steht, aber die Strecken, die sie nie aufgezeichnet hat, erfährt die App dadurch nicht.",
+      "Ein kurzer Abgleich am Ende der Schicht erlaubt es, eine Strecke wiederherzustellen, solange man sich noch an sie erinnert. War eine Abmeldung die Ursache der Lücke, sollte das klar gesagt werden. Von Hand ergänzte Fahrten sollte man von denen unterscheiden, die der Sensor aufgezeichnet hat: Später ist dann klar, wo eine Messung steht und wo eine vom Besitzer rekonstruierte Historie."
+     ],
+     "quotes": [
+      {
+       "text": "Für jemanden, der kein Trucker ist, fahre ich VIEL. Ich bin ungefähr 70.000 Meilen gefahren, seit ich diese App geladen und danach das Bewegungsmelder-Gerät gekauft habe, das Fahrten automatisch aufzeichnet. Ich habe auf die harte Tour gelernt, dass mein iPhone, obwohl es keine 15 Zoll von der „Wanze“ entfernt ist, die Fahrten nicht immer automatisch aufzeichnet.",
+       "rating": 3,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "Die 3 Sterne insgesamt gibt es wegen der unzuverlässigen Funktion für den automatischen Fahrtstart, die mit dem USB-Bluetooth-Chip zusammenarbeiten soll, der im USB-Anschluss des Fahrzeugs steckt. Letzte Woche hat sie meinen Fahrzeug-Beacon nicht mehr erkannt und mir fehlen zwei Tage Aufzeichnung.",
+       "rating": 3,
+       "app": "Mileage Tracker App by TripLog"
+      },
+      {
+       "text": "Mindestens einmal im Monat werde ich automatisch abgemeldet und keine Benachrichtigung darüber, und ich muss Notizen und Gedächtnis durchgehen, um die Stopps einzutragen. Sinnlos, das zu benutzen, weil man trotzdem jeden Tag von Hand aufschreiben muss, wo man hinfährt.",
+       "rating": 1,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_record",
+      "alt": "Illustration zum Thema „Eine verpasste Fahrt rechtzeitig bemerken“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-record",
+       "title": "Eine fehlende Fahrt rechtzeitig bemerken",
+       "body": "",
+       "ideas": [
+        "car-maintenance-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "report",
+     "title": "Einen Bericht zur ausgewählten Arbeit bekommen",
+     "passages": [
+      "Das Trennen von privaten und geschäftlichen Fahrten ist nützlich, wenn es zu einer geprüften Summe für den benötigten Zeitraum führt. Die Massenmarkierung spart Handgriffe, wird für die Genauigkeit des Journals aber gefährlich, sobald sie weiter reicht als der gewählte Filter. Die Person ist sicher, die sichtbare Liste bearbeitet zu haben, und stattdessen ändern sich andere Einträge.",
+      "Eine Massenbearbeitung muss der Liste entsprechen, die die Person vor sich hat. Vor dem Bestätigen sind die Zahl der Fahrten und der verwendete Filter zu zeigen, danach braucht es eine Möglichkeit, die Aktion rückgängig zu machen. Sonst kann die Markierung „geschäftlich“ auf privaten Strecken landen, und ein ansehnlicher Abschlussbericht schreibt den Fehler nur fest.",
+      "Der Bericht wird für den Zeitraum gebraucht, in dem eine Person tatsächlich arbeitet: einen Monat, ein Jahr oder die Dauer eines Auftrags. Die Aufteilung in Monate sollte niemanden zwingen, ein Jahr von Hand zusammenzukleben. Für mehrere Auftraggeber lassen sich eine Markierung der Fahrt und getrennte Summen ergänzen, doch eine solche Spezialisierung verlangt herauszufinden, wie der Fahrer seine Dokumente heute vorbereitet und übergibt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich nutze MileIQ jetzt seit 8 Jahren. Es ist sehr benutzerfreundlich und ich kann meine privaten und geschäftlichen Meilen genau und einfach festhalten. Am Jahresende erstelle ich einfach meinen Bericht und schicke ihn an meinen Buchhalter. Ich kann es sehr empfehlen.",
+       "rating": 4,
+       "app": "MileIQ: Mileage Tracker & Log"
+      },
+      {
+       "text": "Wenn man beim Zuordnen mehrere Einträge auswählt, muss man sehr aufpassen beim Antippen der Fahrt, sonst öffnet sie sich. Wenn man filtert und dann alles auswählt, um es auf einmal zuzuordnen, wählt es alle Fahrten aus, die man nicht zugeordnet hat. Nicht nur die gefilterten Fahrten.",
+       "rating": 3,
+       "app": "Mileage Tracker by Everlance"
+      },
+      {
+       "text": "Ich nutze diese App jetzt seit 5 Jahren für meine Steuer. Super einfach, das an meinen Buchhalter und an meine E-Mail für den Jahressteuerbericht zu schicken. In letzter Zeit lassen sie einen aber nicht mehr den Bericht fürs ganze Jahr schicken, sondern nur Monat für Monat. Ziemlich nervig, immer wieder Monat für Monat zurückzugehen.",
+       "rating": 1,
+       "app": "Mileage Tracker App by TripLog"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-report",
+       "title": "Einen Bericht zur ausgewählten Arbeit bekommen",
+       "body": "",
+       "ideas": [
+        "car-maintenance-3",
+        "car-maintenance-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "power",
+     "title": "Die Aufzeichnung unter den Bedingungen der eigenen Schicht prüfen",
+     "passages": [
+      "Die Aufzeichnung im Hintergrund lebt in den Bedingungen einer konkreten Schicht: wie lang die Fahrten sind, der Strom im Auto und die Berechtigungen für den Standort. Für den einen Fahrer kann ein Modus, der an die Stromversorgung gekoppelt ist, ein bequemer Weg sein, die Aufzeichnung zu steuern. Für den anderen ist wichtig zu verstehen, warum bei den von ihm gewählten Berechtigungen keine Fahrten erscheinen.",
+      "Ein Modus „nur bei Stromversorgung“ passt zu jemandem, der das Telefon bei jeder Arbeitsfahrt ansteckt. Ohne diese Gewohnheit erzeugt er neue Lücken. Die Wahl des Modus sollte nachvollziehbare Folgen haben: wann die Aufzeichnung beginnt, unter welcher Bedingung sie endet und welche Berechtigungen sie braucht.",
+      "Passt der Hintergrundmodus nicht, bleibt ein manuelles Journal – mit Beginn, Ende und den Ereignissen der Schicht. Sein Nutzen muss gesondert geprüft werden: Die Person muss der regelmäßigen Eingabe zustimmen, um das Formular zu bekommen, das sie braucht. Das ist eine andere Art der Erfassung und kein Versprechen, den Akkuverbrauch mit einer neuen Oberfläche zu beheben."
+     ],
+     "quotes": [
+      {
+       "text": "Die App funktioniert gut ohne Folgen für den Akku, solange ich sie auf den Modus „Nur bei Stromversorgung“ eingestellt habe. Dann scheint sie das GPS nur zu nutzen und die Meilen nur aufzuzeichnen, solange sie im Auto am Strom hängt.",
+       "rating": 3,
+       "app": "Motus - Business Mileage Log"
+      },
+      {
+       "text": "Die App frisst wahnsinnig viel Akku, und wenn man sie nicht auf „immer“ statt „nur beim Verwenden“ stellt, zeichnet sie die Meilen und Fahrten nicht auf.",
+       "rating": 1,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "Das einzige Problem, das Motus meiner Meinung nach hat, ist, dass es den Standort ständig nutzt. Es funktioniert nicht, wenn man es auf Standort nur beim Verwenden der App stellt. Das ist eine große Sache zum Nachdenken und es killt meinen Handyakku.",
+       "rating": 4,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_power",
+      "alt": "Illustration zum Thema „Die Aufzeichnung unter den eigenen Schichtbedingungen prüfen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-power",
+       "title": "Die Aufzeichnung unter den Bedingungen der eigenen Schicht prüfen",
+       "body": "",
+       "ideas": [
+        "car-maintenance-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "service",
+   "title": "Nachvollziehen, was mit dem Auto passiert ist",
+   "intro": "Dokumente, Intervalle und Kosten beantworten verschiedene Fragen. Verbunden werden sie durch ein bestimmtes Auto und ein bestimmtes Ereignis.",
+   "art": null,
+   "observations": [
+    {
+     "id": "archive",
+     "title": "Den Beleg zusammen mit der ausgeführten Arbeit finden",
+     "passages": [
+      "Ein Beleg wird nützlich, wenn er sich neben der Arbeit und dem Tachostand finden lässt. Über diese Verbindung rekonstruiert ein Besitzer später eine Wartung. Die bloße Tatsache eines angehängten Fotos hilft wenig, wenn der Text nach dem Hochladen nicht zu lesen ist oder die Historie auf einem neuen Telefon nicht erreichbar ist.",
+      "Ein bis zur Unlesbarkeit komprimierter Beleg verliert seinen Sinn genau dann, wenn die Einzelheiten gebraucht werden: die Liste der Arbeiten, das Datum oder der Betrag. Das Archiv muss neben dem Eintrag zur Wartung einen lesbaren Nachweis bewahren. Wichtig ist, das Dokument vergrößern und später eine eigene Kopie bekommen zu können.",
+      "Eine eigene Aufgabe des Archivs ist es, einen Wechsel des Telefons zu überstehen. Ein Konto zu haben sagt noch nicht, dass die Einträge und die Anhänge zurückkommen: Das sieht man erst, wenn man auf dem neuen Gerät einen alten Wartungseintrag öffnet. Aus einem solchen Archiv lässt sich eine Historie für den Käufer zusammenstellen, indem man die Arbeiten vorab auswählt und persönliche Angaben weglässt, die nicht dazugehören."
+     ],
+     "quotes": [
+      {
+       "text": "Ich nutze diese App seit 8 Jahren, um alle Kosten rund um die Wartung an meinem privaten Fahrzeug festzuhalten. Ich liebe es, wie einfach man an jeden Eintrag ein Foto vom Beleg hängen kann. Ich hole alte Belege und Tachostände raus, um abzuschätzen, wann etwas gemacht werden muss.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Die hochgeladenen Bilder der Belege sind sehr schlecht. Sie werden nach dem Hochladen offensichtlich verkleinert. Das war ein echtes Manko.",
+       "rating": 3,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Ich habe alle meine Daten verloren. Alles seit 2019 zu meinem Auto und dazu die Einträge zu zwei anderen Autos sind komplett weg. Entweder hat ein neues Update es gelöscht oder der Wechsel auf ein neues Telefon. Ich hatte es mit meinem Gmail-Konto synchronisiert, seit ich vor vielen Jahren angefangen habe, diese App zu nutzen, und alle meine Daten sind weg.",
+       "rating": 1,
+       "app": "Auto Care Kit"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-archive",
+       "title": "Den Beleg zusammen mit der ausgeführten Arbeit finden",
+       "body": "",
+       "ideas": [
+        "car-maintenance-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "interval",
+     "title": "Eine Erinnerung für eine bestimmte Arbeit einstellen",
+     "passages": [
+      "Ein Datum und ein Tachostand beschreiben verschiedene Bedingungen für die nächste Wartung. Wenn eine App sie starr aneinanderbindet, kann eine Person das für ihren Zweck gewählte Intervall nicht verschieben. Ebenso wichtig ist die bereits ausgeführte Arbeit: Bevor man einen neuen Eintrag anlegt, hilft es zu finden, wann die Wartung zuvor stattgefunden hat.",
+      "Die Bedingung nach Zeit und die nach Strecke sollten unabhängig voneinander einstellbar sein, und es sollte zu sehen sein, auf welchem vergangenen Ereignis die Erinnerung ruht. Das Intervall selbst wählt eine Person aus den Gründen, die zu ihrem eigenen Auto passen. Aufgabe des Journals ist es, diese Bedingungen genau zu speichern und die Verbindung zur Historie sichtbar zu machen.",
+      "Die Historie wird auch schon vor dem Ansetzen der nächsten Wartung gebraucht: Die Arbeit kann der Vorbesitzer erledigt haben. Ein Eintrag mit Datum, Tachostand und Dokument hilft, der Werkstatt eine konkrete Frage zu stellen. Die in einer Rezension genannte Ersparnis ist die Erfahrung eines einzelnen Menschen; das Journal selbst entscheidet nicht, ob am Auto jetzt ein Teil gewechselt werden muss."
+     ],
+     "quotes": [
+      {
+       "text": "Nutze es seit ungefähr 8 Jahren… das Beste ist, MPG festzuhalten und Wartungen wie Ölwechsel usw. einzutragen. Weil es Zeit und Strecke hat, kann man den Ölwechsel auf 12 Monate oder 12k Meilen setzen, je nachdem, was zuerst kommt.",
+       "rating": 4,
+       "app": "Fuel Monitor Pro"
+      },
+      {
+       "text": "Toll, dass die Erfassung nach Meilen jetzt geht… Problem ist, sie ist nicht unabhängig vom Datum. Man kann kein eigenes Meilen-Intervall getrennt vom Datum wählen. Ich kann meinen Ölwechsel nicht auf 12 Monate oder 10k Meilen setzen. Jeder Monat ist an 1k Meilen gekoppelt.",
+       "rating": 2,
+       "app": "Car Cave - Car Maintenance Log"
+      },
+      {
+       "text": "Ich dachte, ich müsste mein Getriebeöl wechseln (bei einem Mercedes), weil ich den Wagen gebraucht gekauft habe. Ich habe die App geladen und sie hat mir genau gesagt, wann es gewechselt wurde, und mir 800 $ gespart.",
+       "rating": 5,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_interval",
+      "alt": "Illustration zum Thema „Eine Erinnerung für eine bestimmte Arbeit einstellen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "fuel",
+     "title": "Die Tankhistorie korrigieren, ohne sie neu aufzubauen",
+     "passages": [
+      "Einen fehlenden Tankstopp nachzutragen ist eine gewöhnliche Korrektur der Historie. Lässt er sich nicht an der richtigen Stelle einfügen, ohne die nachfolgenden Einträge zu löschen, muss eine Person zwischen einem unvollständigen Journal und der erneuten Eingabe wählen. Auch ein Wechsel der Einheiten muss den Sinn der ursprünglichen Werte bewahren.",
+      "Ein fehlender Tankstopp sollte nach Datum und Tachostand eingefügt werden, während die nachfolgenden Ereignisse an ihrem Platz bleiben. Vor dem Speichern lohnt es sich zu zeigen, welche Abschnitte der Berechnung sich ändern. Dann gibt die Korrektur dem Journal seine Vollständigkeit zurück, statt eine Person zu zwingen, richtige Historie wegen eines einzigen alten Belegs zu löschen.",
+      "Der Wechsel der Maßeinheiten sollte die gefahrene Strecke nicht verändern. Sieht die Historie nach dem Umschalten von Kilometern auf Meilen anders aus, verliert der Besitzer die Möglichkeit, Jahre zu vergleichen und die Daten mit einem Mechaniker zu teilen. Die ursprünglichen Werte und eine nachvollziehbare Korrektur wiegen schwerer als ein neues Diagramm: Das Diagramm ruht auf dieser Historie."
+     ],
+     "quotes": [
+      {
+       "text": "Ich nutze diese App seit über zehn Jahren und finde sie unheimlich hilfreich. Angefangen habe ich nur, um meine Meilen festzuhalten, aber schnell gemerkt, dass alle meine Autokosten, Erinnerungen und Notizen an einem einzigen Ort liegen können!",
+       "rating": 5,
+       "app": "Road Trip MPG"
+      },
+      {
+       "text": "Ich ändere meine Bewertung auf 1 Stern, weil man einen vergessenen Tankstopp nicht nachtragen kann, ohne alle Tankstopps danach zu löschen. Das Feld „Letzter Tachostand“ wird automatisch ausgefüllt und man kann es nicht von Hand ändern. Also wird die Berechnung der Meilen FALSCH.",
+       "rating": 1,
+       "app": "Fuelly: MPG & Service Tracker"
+      },
+      {
+       "text": "Liebe diese App, aber durch die Überarbeitung wurden meine Meilen aus den letzten 6 Jahren in Kilometer umgerechnet. Als ich zurück auf Meilen geschaltet habe, fehlten ungefähr 35.000 Meilen. Ich teile diese Daten mit meinem Mechaniker und jetzt ist alles im Eimer!",
+       "rating": 3,
+       "app": "Fuel MPG Calculator"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-fuel",
+       "title": "Die Tankhistorie korrigieren, ohne sie neu aufzubauen",
+       "body": "",
+       "ideas": [
+        "car-maintenance-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "garage",
+     "title": "Die Historie unterschiedlicher Fahrzeuge und Geräte trennen",
+     "passages": [
+      "Eine private Garage kann mehr Fahrzeuge und Geräte umfassen, als der Basistarif vorsieht, und weniger Bedürfnisse haben als ein großer Fuhrpark. Ein Besitzer will ein Auto, ein Motorrad und andere Geräte vielleicht auf genau dieselbe Weise führen. Ein plötzlicher Sprung zu einem völlig unverhältnismäßigen Tarif erklärt nicht, wie dieses einfache Szenario weitergehen soll.",
+      "Der scharfe Sprung von fünf Autos zum Flottentarif lässt die private Garage zwischen zwei Produkten zurück. In der hier angeführten Rezension nennt die Person sogar die Zahl der gewünschten Fahrzeuge und den Preis; das ist ein konkreter Anlass, mit diesem Publikum zu sprechen, aber noch kein fertiger Tarif. Gebraucht werden eine eigene Historie je Fahrzeug und ein gemeinsamer Überblick über die Arbeiten, ohne Fahrerverwaltung und Geschäftsprozesse.",
+      "Fahrleistung, Betriebsstunden und saisonale Wartung lassen sich nicht gedankenlos auf eine Skala bringen. Die Karte eines Geräts muss die Einheiten und die Erinnerungsregeln enthalten, die zu ihm passen. Der gemeinsame Überblick ist für die anstehenden Arbeiten da, während die ausführliche Historie bei jedem einzelnen Fahrzeug und Gerät bleibt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich habe drei Oldtimer-Mercedes und einen Porsche Cayenne. Ich komme aus der Luftfahrt und bin pingelig bei Wartungsnachweisen. Autoist ist der perfekte digitale Begleiter zu den Unterlagen auf Papier.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Eine schöne App, die genau das macht, was ich brauchte. Ich wünschte nur, ich könnte mehr Fahrzeuge anlegen. Ich habe Motorräder, Quads und so, die ich gern erfassen würde, und ich würde auch gern zahlen, aber es geht von 5 zu einem sehr fairen Preis auf 100 $ im Monat für einen Fuhrpark. Ähh, nein. Kann ich nicht einfach 40 $ für 10 Fahrzeuge zahlen?",
+       "rating": 4,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Ich mag wirklich sehr, wie diese App funktioniert. Mit ihr behalte ich viele Sachen im Blick, die ich früher vergessen habe. Der einzige Grund, warum ich keine fünf Sterne geben kann, ist, dass ich mir mehr Plätze wünschen würde. Ich kümmere mich um die Familienfahrzeuge meines Arbeitgebers.",
+       "rating": 4,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_garage",
+      "alt": "Illustration zum Thema „Die Historien verschiedener Fahrzeuge trennen“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-garage",
+       "title": "Die Historie unterschiedlicher Fahrzeuge und Geräte trennen",
+       "body": "",
+       "ideas": [
+        "car-maintenance-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diagnostic",
+   "title": "Die Daten für das Gespräch mit der Werkstatt vorbereiten",
+   "intro": "Ein ausgelesener Code ist der Anfang der Untersuchung des Problems. Er muss zusammen mit den Bedingungen gespeichert werden, unter denen er gewonnen wurde.",
+   "art": null,
+   "observations": [
+    {
+     "id": "codes",
+     "title": "Den Code ohne voreilige Diagnose speichern",
+     "passages": [
+      "Eine nachvollziehbare Erklärung des Codes hilft zu verstehen, welche Information der Scanner bekommen hat. Aber zuerst muss feststehen, dass das Auslesen bei dieser konkreten Kombination aus Auto und Adapter funktioniert. Eine gelungene Erfahrung mit einem Auto erklärt nicht, warum bei einem anderen die benötigten Codes nicht erreichbar sind.",
+      "Die Kompatibilität, das Ergebnis des Auslesens und den ursprünglichen Code getrennt von der Erklärung zeigen. Das erlaubt, die Daten im weiteren Gespräch über das Problem zu verwenden. Eine automatische Beschriftung sollte nicht zur endgültigen Diagnose oder zur Erlaubnis werden, weiterzufahren: Aufgabe der App ist hier, die erhaltene Information klar weiterzugeben.",
+      "Für ein weiteres Gespräch sind das Datum des Auslesens, das Modell des Adapters und die Angaben nützlich, die das Auto selbst bereitstellt. Wenn ein Teil der Daten nicht gelesen wurde, muss das sichtbar sein. Die Frage für das Produkt lautet, wie sich dem Mechaniker ein genaues Ergebnis übergeben lässt, und nicht, wie man aus einer einzigen Bezeichnung selbstsicher eine Ursache benennt."
+     ],
+     "quotes": [
+      {
+       "text": "Das Beste für mich ist, dass sie einem sagt, wie ernst ein Problem ist und ob man weiterfahren kann oder nicht. Mir gefallen auch die Live-Daten und wie sie Codes so erklärt, dass es wirklich Sinn ergibt. Dass man Codes löschen kann, ist auch schön.",
+       "rating": 4,
+       "app": "FIXD OBD2 Scanner"
+      },
+      {
+       "text": "Ich fahre einen Chrysler von 2016. Kein besonders altes Auto und keine exotische Marke. Er wirft drei Codes aus, die ein billigerer OBDII-Scanner locker findet, und die Motorkontrollleuchte ist seit Monaten an. Deren App behauptet, es gibt keine Codes und keine CEL.",
+       "rating": 2,
+       "app": "ZUS - Save Car Expenses"
+      },
+      {
+       "text": "Hat bei meinem BMW 128 funktioniert (Wechsel der 12-V-Batterie), aber bei einem Lexus LX470 funktioniert es kaum. Kauft das für nichts anderes als einen BMW. Ich kann für den Lexus nicht mal einfache OBD-Codes auslesen.",
+       "rating": 1,
+       "app": "Carly OBD2 car scanner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-codes",
+       "title": "Den Code ohne voreilige Diagnose speichern",
+       "body": "",
+       "ideas": [
+        "car-maintenance-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Zuerst die Servicehistorie",
+  "body": "Für ein erstes Produkt würde ich die Servicehistorie eines privaten Autos wählen: die Arbeit, das Datum, den Tachostand und einen lesbaren Beleg in einem Eintrag. Der Nutzen zeigt sich in einem konkreten Moment – sich an einen früheren Wechsel zu erinnern, ihn mit der Werkstatt zu besprechen oder die Historie einem Käufer zu zeigen. Beginnen kann man damit, ein paar echte Dokumente zu übertragen und einige Zeit später das benötigte Ereignis zu suchen. Wichtig ist herauszufinden, ob der Besitzer bereit ist, nach einem Werkstattbesuch regelmäßig Einträge zu ergänzen.\n\nArbeitsfahrten sind eine eigene Richtung, mit täglichem Abgleich und Anforderungen an die Berichte. Die Diagnose verlangt zusätzlich eine geprüfte Kompatibilität der Geräte. Beide Richtungen wegen einer langen Funktionsliste hinzuzunehmen ist verfrüht: Jede macht das Produkt komplizierter, und ein einfaches Archiv wird davon nicht nützlicher."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-mileage",
+   "title": "Fahrten zu einer geprüften Historie zusammenfassen",
+   "depth": 0
+  },
+  {
+   "id": "observation-record",
+   "title": "Eine fehlende Fahrt rechtzeitig bemerken",
+   "depth": 1
+  },
+  {
+   "id": "observation-report",
+   "title": "Einen Bericht zur ausgewählten Arbeit bekommen",
+   "depth": 1
+  },
+  {
+   "id": "observation-power",
+   "title": "Die Aufzeichnung unter den Bedingungen der eigenen Schicht prüfen",
+   "depth": 1
+  },
+  {
+   "id": "theme-service",
+   "title": "Nachvollziehen, was mit dem Auto passiert ist",
+   "depth": 0
+  },
+  {
+   "id": "observation-archive",
+   "title": "Den Beleg zusammen mit der ausgeführten Arbeit finden",
+   "depth": 1
+  },
+  {
+   "id": "observation-interval",
+   "title": "Eine Erinnerung für eine bestimmte Arbeit einstellen",
+   "depth": 1
+  },
+  {
+   "id": "observation-fuel",
+   "title": "Die Tankhistorie korrigieren, ohne sie neu aufzubauen",
+   "depth": 1
+  },
+  {
+   "id": "observation-garage",
+   "title": "Die Historie unterschiedlicher Fahrzeuge und Geräte trennen",
+   "depth": 1
+  },
+  {
+   "id": "theme-diagnostic",
+   "title": "Die Daten für das Gespräch mit der Werkstatt vorbereiten",
+   "depth": 0
+  },
+  {
+   "id": "observation-codes",
+   "title": "Den Code ohne voreilige Diagnose speichern",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Zuerst die Servicehistorie",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

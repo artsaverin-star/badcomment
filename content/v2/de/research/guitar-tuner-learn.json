@@ -1,0 +1,424 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "guitar-tuner-learn",
+ "name": "Gitarre: Stimmgerät und Lernen",
+ "summary": "Das Instrument stimmen, einen schwierigen Wechsel erarbeiten und zum eigenen Song zurückkehren: was einem Gitarristen hilft, weiter zu üben.",
+ "corpus": {
+  "reviews": 17982,
+  "apps": 61
+ },
+ "lead": "Vor einer Übungseinheit muss ein Gitarrist das Instrument vorbereiten und während der Einheit herausfinden, was genau zu wiederholen ist. Der Zeiger des Stimmgeräts, das Akkorddiagramm und das grüne Häkchen an einer Lektion helfen nur dann, wenn sie sich mit der eigenen Handlung und dem gehörten Klang verbinden lassen.\n\nDer folgende Text zeichnet diesen Weg vom Stimmen bis zur Probe nach. Gesondert geht es darum, was als kleines Werkzeug bleiben kann und was eine Fortsetzung braucht: der eigene Song, die gewählte Stimmung oder eine gespeicherte schwierige Stelle. Eine große Zahl an Lektionen ersetzt keinen klaren Punkt, an dem man morgen weitermacht.",
+ "cover": {
+  "src": "research/ResearchLaunch_guitar-tuner-learn_cover",
+  "alt": "Gitarre: Stimmgerät und Unterricht",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_guitar-tuner-learn_audiences",
+  "alt": "Aufgaben der Menschen: Gitarre: Stimmgerät und Unterricht",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Der Anfänger mit einem Instrument",
+   "body": "Ein Anfänger kann eine falsche Handlung nur schwer von einem unklaren Hinweis unterscheiden. Er braucht ein Ziel und ein Ergebnis, die sich auseinanderhalten lassen, eine verständliche Erklärung des Diagramms und eine Möglichkeit zu prüfen, was die App gehört hat."
+  },
+  {
+   "title": "Der Lernende, der regelmäßig übt",
+   "body": "Regelmäßiges Üben besteht aus einem Kurs, vertrauten Songs und kurzer Wiederholung zwischen den Übungseinheiten. Diese Person will ihre eigene Arbeit fortsetzen und nicht jedes Mal durch den Einstieg für Anfänger gehen."
+  },
+  {
+   "title": "Wer ein eigenes Repertoire spielt",
+   "body": "Ein eigenes Repertoire hängt von einer persönlichen Stimmung, der Reihenfolge der Songs und einer genauen Aufzeichnung einer musikalischen Idee ab. Hier wird aus einem einfachen Spickzettel nach und nach ein Arbeitswerkzeug für die Probe."
+  }
+ ],
+ "sections": [
+  {
+   "id": "understand",
+   "title": "Den Hinweis verstehen und ihn auf der Gitarre prüfen",
+   "intro": "Eine selbstsichere Anzeige hilft nur dann, wenn klar ist, was sie genau gehört hat und womit sie das vergleicht.",
+   "art": null,
+   "observations": [
+    {
+     "id": "tuner",
+     "title": "Die gewünschte Note vom gehörten Klang trennen",
+     "passages": [
+      "Ein Stimmgerät hat zwei verschiedene Größen: die gewünschte Note und den Klang, den es gerade erkannt hat. Wenn der Hinweis lange unverändert bleibt, folgt eine Person ihm vielleicht weiter, ohne den Grund zu verstehen. Die Geschichte unten zeigt den Preis dieser Unsicherheit; sie klärt nicht die technische Ursache der gerissenen Saite, verlangt aber eine deutlichere Rückmeldung.",
+      "Das Ziel sollte ausdrücklich festgehalten werden. In der nächsten Rezension wechselt die App zwischen Namen, während die Person eine einzige Saite stimmt. Die Zielnote neben der gehörten hilft, die Abweichung zu bemerken; ein unzureichendes Signal sollte wie das Fehlen einer Messung aussehen und nicht wie der gleiche selbstsichere Zeiger wie zuvor.",
+      "Ein vertrauter Song in einer nicht standardmäßigen Stimmung braucht außerdem einen gespeicherten Satz von Zielen. Jede Note auf sechs Saiten erneut zusammenzusuchen, macht aus der Vorbereitung zusätzliche Arbeit. Ein Name für den Satz ist praktisch, doch bei seiner Wahl müssen auch die Ziele selbst sichtbar sein: Die Person sieht dann, worauf das Instrument gerade gestimmt wird."
+     ],
+     "quotes": [
+      {
+       "text": "es hat mir immer wieder gesagt, ich soll meinen d Akkord hochstimmen, also hab ich ihm vertraut, weil es alles andere gut gestimmt hat, aber dann ist meine Saite nach dem vielen Stimmen gerissen und die App sagt immer noch, es wäre so eine Zahl näher, nachdem ich immer weiter gestimmt hab",
+       "rating": 2,
+       "app": "GuitarTuna: Tune & Play Guitar"
+      },
+      {
+       "text": "Wenn ich die tiefe E-Saite stimmen will, erkennt die App den Akkord als G oder B. Verbesserungen: die App so machen, dass wenn man sagen wir mal die tiefe E stimmt, das Stimmgerät bei E bleibt, statt hin und her zu springen und andere Akkorde zu erkennen.",
+       "rating": 2,
+       "app": "Fender Tune: Guitar Tuner App"
+      },
+      {
+       "text": "Diese App ist großartig, aber es fehlt eine Funktion, die sie perfekt machen würde, nämlich eigene Stimmungen anlegen zu können. Ich spiele viele Songs mit nicht standardmäßiger Stimmung, und es ist eine QUAL, durch die ganze Tonleiter zu scrollen, um jede Note für alle 6 Saiten zu finden.",
+       "rating": 4,
+       "app": "Fine Tuner - Chromatic Tuner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_tuner",
+      "alt": "Illustration zum Thema „Die Zielnote vom gehörten Ton unterscheiden“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-tuner",
+       "title": "Die gewünschte Note vom gehörten Klang trennen",
+       "body": "",
+       "ideas": [
+        "guitar-tuner-learn-1",
+        "guitar-tuner-learn-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "feedback",
+     "title": "Einen Fehler vom Ausbleiben des Klangs unterscheiden",
+     "passages": [
+      "In einer Übung wird das Mikrofon zum Vermittler zwischen Handlung und Urteil. Wenn eine Note mehrmals gespielt werden muss, bevor überhaupt etwas reagiert, bleibt unklar, was passiert ist: Der Lernende hat sich vertan, oder die App hat den Anfang verpasst. Auch die Wiederholung der Aufgabe braucht einen Start, der funktioniert und leicht zu finden ist.",
+      "Eine erkannte falsche Antwort ist etwas anderes als gar kein Signal. Wenn das Programm nur „falsch“ meldet, kann eine Person nicht prüfen, worauf das beruht. Es hilft, die erwartete Position und das gehörte Ergebnis zu zeigen und eine Wiederholung oder das Anhören des Beispiels zuzulassen. Die Behauptung des Autors, er habe richtig gespielt, bleibt seine eigene Einschätzung, doch die Undurchsichtigkeit der Prüfung ist auch zu sehen, ohne dass dieser Streit entschieden wird.",
+      "Der umgekehrte Fehler, der Erfolg in der Stille, ist ebenso rätselhaft. Ein grünes Häkchen sollte ohne passendes Signal nicht erscheinen. Vor einer bewerteten Aufgabe hilft eine Prüfung der Hörbarkeit; scheitert sie, sollte der Lernende den Zugang zum Beispiel und zur Wiederholung behalten, statt zu lernen, das Verhalten der App zu erraten."
+     ],
+     "quotes": [
+      {
+       "text": "Die App erkennt meine Anfangsnoten bei Übungen nicht, und ich muss eine Note oft vier- oder fünfmal spielen, bevor die App sie hört. Wenn man bei einer Übung auf Wiederholen drückt, sagt sie, man soll auf Play drücken, um die Übung zu starten, aber keiner der Buttons ist belegt.",
+       "rating": 2,
+       "app": "Fretello Guitar Lessons"
+      },
+      {
+       "text": "Ich war in der Lektion, und als ich die richtige Saite im richtigen Bund gespielt habe (bevor jemand sagt, das sei ein Bedienfehler – ich hab dreifach geprüft, dass ich das Richtige spiele, und das war so), hat es gesagt, es sei falsch, und als ich dann einen Haufen gespielt hab",
+       "rating": 1,
+       "app": "Fretello Guitar Lessons"
+      },
+      {
+       "text": "Ich finde, die App hat oft Aussetzer. Besonders wenn man gerade eine Note spielt und sie spinnt und denkt, man hätte die Note richtig gespielt, obwohl ich nicht mal eine der Saiten angefasst habe.",
+       "rating": 2,
+       "app": "Simply Guitar - Learn Guitar"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "chords",
+     "title": "Eine Form wählen, die bequem zu greifen ist",
+     "passages": [
+      "Ein Nachschlagewerk öffnet man wegen einer Form, die sich an einer bestimmten Stelle des Griffbretts greifen lässt. Eine große Zahl von Varianten hilft für sich genommen wenig, wenn unklar bleibt, wo das Barré liegt, welche Saiten klingen und worin sich der benachbarte Fingersatz vom gewählten unterscheidet. Eine brauchbare Bibliothek lässt mehrere passende Formen vergleichen.",
+      "Hier ist die redaktionelle Prüfung ebenso wichtig wie die Suche. Bei der Wahl eines Nachschlagewerks probiert man einen vertrauten Akkord und eine schwierigere Form am Instrument aus: Lässt sich das Diagramm lesen, und lässt sich eine passende Variante finden? Eine erwartete, aber fehlende Position sollte man als Grenze des Bestands zeigen, statt sie durch ein ähnlich aussehendes Bild zu ersetzen.",
+      "Ob eine Form passt, hängt auch von den Akkorden ringsum ab. Eine Auswahl wird deshalb nützlicher, wenn man zwei Positionen nebeneinanderlegen und den Wechsel zwischen ihnen vergleichen kann. Abgedämpfte Saiten und Barré-Varianten sollte man gesondert zeigen, damit das Diagramm keine Rätselei verlangt."
+     ],
+     "quotes": [
+      {
+       "text": "Die meisten der schwierigeren Griffformen, die die App vorschlägt, wie C9, D9 usw., sind nicht wirklich spielbar. Es fühlt sich an, als wäre das alles von einem Computer erzeugt worden und nicht von einem Gitarristen, der Griffformen angibt, die man tatsächlich spielen kann.",
+       "rating": 3,
+       "app": "GtrLib Chords"
+      },
+      {
+       "text": "Ich war schockiert, als ich gemerkt habe, dass alle üblichen Major-7-Barré-Akkorde mit Grundton auf der E-Saite fehlen (von F Major 7, F# Major 7, G Major 7, G# Major 7, A Major 7 usw. das ganze Griffbrett hinauf)! Dieser Satz von Major-7-Barré-Akkorden mit Grundton auf der E-Saite ist die grundlegende",
+       "rating": 3,
+       "app": "ChordBank: Learn Guitar Chords"
+      },
+      {
+       "text": "Ich liebe es, wie das verschiedene Variationen für Jeden Akkord zeigt.",
+       "rating": 5,
+       "app": "GtrLib Chords"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_chords",
+      "alt": "Illustration zum Thema „Eine Form wählen, die bequem zu greifen ist“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-chords",
+       "title": "Eine Form wählen, die bequem zu greifen ist",
+       "body": "Manchmal liegt das Problem in der Wahl der Form, manchmal darin, dass ein flaches Diagramm die Haltung der Hand nicht erklärt. Ein Modell, das sich drehen lässt, ergibt nur dann Sinn, wenn es hilft, genau diese Bewegung zu erarbeiten.",
+       "ideas": [
+        "guitar-tuner-learn-2",
+        "guitar-tuner-learn-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "practice",
+   "title": "Die eigene Musik üben",
+   "intro": "Ein vertrauter Song und ein bestimmter schwieriger Wechsel geben einer Übungseinheit ihr Ziel. Die App muss diese Arbeit zwischen den Versuchen bewahren.",
+   "art": null,
+   "observations": [
+    {
+     "id": "fretboard",
+     "title": "Das Griffbrett am Bildschirm mit dem Instrument verbinden",
+     "passages": [
+      "Eine Übung am Bildschirm kann helfen, den Namen einer Note mit einem Ort auf dem Griffbrett zu verbinden. Der Autor unten beschreibt den Moment, in dem die Anordnung nach dem Spielen klarer wurde. Das ist ein persönliches Ergebnis und kein Versprechen, das Instrument in zehn Minuten zu beherrschen.",
+      "Ein anderer Autor verbindet solche kurzen Aufgaben mit dem gewöhnlichen Spiel auf der Gitarre. Das ist eine wichtige Grenze: Der Bildschirm ergänzt das Üben, wenn das Instrument nicht zur Hand ist. Es hilft, eine Wiederholung mit einer kleinen Aufgabe für die echte Gitarre zu beenden, damit das Erkennen eines Bildes nicht die einzige Fähigkeit bleibt.",
+      "Dabei muss der Inhalt der Aufgaben selbst überprüfbar sein. Die falsche Position, die in der nächsten Rezension beschrieben wird, geht direkt in den Stoff ein, den jemand sich einprägt. Eine Antwort sollte man über die Saite, den Bund und die Note aufdecken, und eine fehlerhafte Aufgabe sollte leicht zu finden und zu korrigieren sein. Ein optisch sauberes Griffbrett garantiert keine richtige Erklärung."
+     ],
+     "quotes": [
+      {
+       "text": "Zwei Jahre lang das Griffbrett fast als Ganzes gesehen… 10 Minuten in dem Spiel „Finde die Note“, und endlich hat es klick gemacht. Ich verstehe das Griffbrett jetzt",
+       "rating": 5,
+       "app": "Fretonomy - Learn Fretboard"
+      },
+      {
+       "text": "Ich habe beschlossen, dass ich alle Noten auf dem ganzen Gitarren-Griffbrett lernen will. Ich übe so viel wie möglich an der Gitarre, aber über den Tag verteilt mache ich auch Kopfübungen mit dieser App (ich benutze sie ohne Gitarre). Das scheint alles zu klappen. Ich sehe das Griffbrett jetzt wirklich",
+       "rating": 5,
+       "app": "Fret Pro Guitar Notes Trainer"
+      },
+      {
+       "text": "Es zeigt für eine Note wie das hohe G eine höhere Position, und für das A über dem G zeigt es eine tiefere Position auf derselben Saite. Gerade 9 $ ausgegeben für falsche Informationen.",
+       "rating": 3,
+       "app": "Fretuoso"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-fretboard",
+       "title": "Das Griffbrett am Bildschirm mit dem Instrument verbinden",
+       "body": "Wo die Noten liegen, lässt sich gesondert lernen und danach mit einer kurzen Folge von Klängen verbinden. Eine Tonleiter anzusehen und sie selbst zu spielen, sind verschiedene Etappen dieser Arbeit.",
+       "ideas": [
+        "guitar-tuner-learn-3",
+        "guitar-tuner-learn-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "songs",
+     "title": "Die Arbeit am eigenen Song bewahren",
+     "passages": [
+      "Eine Person wählt eine Musik-App unter anderem wegen bestimmter Songs. Verschwinden sie, ändert sich der Grund, das Abo zu behalten, wie in der ersten Rezension. Die Bedingungen für den Zugang zum Katalog und die Sicherheit der persönlichen Lernmarkierungen sollte man auseinanderhalten: Das Entfernen von Material darf den Verlauf der Übungseinheiten nicht unbemerkt löschen.",
+      "Auch der Titel eines Songs allein erklärt nicht, was eine Lektion enthält. Eine vereinfachte Fassung und ein vollständiges Arrangement bedienen unterschiedliche Erwartungen. Es hilft, Niveau und Umfang des Arrangements vor dem Start zu zeigen, damit niemand erst nach mehreren Übungseinheiten von einer starken Vereinfachung erfährt.",
+      "Im günstigen Fall führt das Üben zu einem klaren Ergebnis: zu der Musik mitzuspielen, die man lernen will. Das gewählte Tempo, die schwierigen Takte und die Reihenfolge der Wiederholungen helfen, zu dieser Arbeit zurückzukehren. Neben dem Katalog braucht es deshalb einen eigenen Weg durch den Song und nicht nur eine Markierung, dass eine Lektion angesehen wurde."
+     ],
+     "quotes": [
+      {
+       "text": "Die App ist die Abo-Gebühr nicht mehr wert, nachdem sie all die großartigen Songs rausgeworfen haben, die sie früher in der Bibliothek hatten. Wie kann man sich Gitarren-App nennen, wenn man AC/DC, Jimi Hendrix, Metallica, Alice and Chains, Cream usw. aus der App entfernt?",
+       "rating": 2,
+       "app": "Gibson: Learn to Play Guitar"
+      },
+      {
+       "text": "Viele der Lektionen sind übermäßig vereinfachte Versionen von Songs, aber ich will die vollständigen, korrekten Versionen lernen.",
+       "rating": 2,
+       "app": "Fender Play: Learn Guitar"
+      },
+      {
+       "text": "Tolle Art, Songs zu lernen. So froh, eine App zu haben, mit der ich zu Songs mitspielen kann, die ich lernen will.",
+       "rating": 5,
+       "app": "Chordify: Songs, Chords, Tuner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_songs",
+      "alt": "Illustration zum Thema „Die Arbeit am eigenen Song behalten“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "progress",
+     "title": "Zu einer bestimmten Stelle zurückkehren",
+     "passages": [
+      "Nach einer Pause muss eine Person sich erinnern, woran sie gearbeitet hat. Bringt die App sie jedes Mal an den Anfang zurück, baut die Person diese Karte von Hand wieder auf. Bereits absolvierte Lektionen und der eigene Punkt zum Weitermachen sollten beim erneuten Öffnen der App weiterhin verfügbar sein.",
+      "Eine Pause innerhalb einer Lektion ist ein noch kürzerer Fall. Zu einer bestimmten Stelle zurückkehren und eine bereits vertraute Passage durchspielen zu können, macht Zeit für die eigentliche Schwierigkeit frei. Der zuletzt geöffnete Bildschirm gibt die Absicht nicht immer wieder, deshalb hilft auch eine von Hand gesetzte Markierung „hier weitermachen“.",
+      "Eine Serie kann den Wunsch zu üben wachhalten, wie in der positiven Rezension unten. Doch sie beantwortet die Frage nach der Regelmäßigkeit und nicht die danach, was die Person wiederholen wollte. Die Belohnung sollte man zusammen mit dem Inhalt der nächsten Übungseinheit zeigen, damit die Rückkehr einen Sinn über eine Zahl von Tagen hinaus behält."
+     ],
+     "quotes": [
+      {
+       "text": "die frustrierendste Macke ist, dass die App deinen Fortschritt nicht mitverfolgt. Jedes Mal, wenn du die App öffnest, denkt sie, du fängst von vorne an und hast keine abgeschlossen",
+       "rating": 1,
+       "app": "Guitar Lessons - Guitar Tricks"
+      },
+      {
+       "text": "Navigation gibt es nicht. Wenn du die Lektion für eine Pause unterbrichst, musst du beim Zurückkommen von vorne anfangen, und es lässt dich nicht an Sachen vorbeispringen, die du schon kannst.",
+       "rating": 3,
+       "app": "Tuner Pro: Guitar Tuner & Tab"
+      },
+      {
+       "text": "Das haben sie wie Duolingo gamifiziert, und das motiviert sehr, verschiedene Übungsfunktionen abzuschließen und meine Serie am Laufen zu halten.",
+       "rating": 3,
+       "app": "Ukulele Tuner & Lessons: Kala"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "play",
+   "title": "Das Material mit zur Probe nehmen",
+   "intro": "Eine musikalische Idee aufzuschreiben und sie beim Spielen zu lesen, sind zwei verschiedene Modi für dasselbe Material.",
+   "art": null,
+   "observations": [
+    {
+     "id": "tabs",
+     "title": "Beim Spielen lesen",
+     "passages": [
+      "Während des Auftritts sind die Hände beschäftigt. Funktioniert der Autoscroll nicht mehr, muss man das Spiel unterbrechen, selbst wenn die Songs selbst gut zusammengestellt sind. Ein Probenmodus ist deshalb eine eigene Aufgabe: eine lesbare Größe, die Reihenfolge der Songs und eine steuerbare Bewegung des Bildschirms, geprüft mit dem Instrument in den Händen.",
+      "Beim Aufschreiben der eigenen Musik gelten andere Anforderungen. Zeichen für Spieltechniken und Notenlängen braucht es, um die Absicht später wiederherzustellen. In der nächsten Rezension verbringt eine Person Zeit damit, einen Weg zu suchen, die allererste Bewegung in einem Song zu notieren. Fehlt das Zeichen, das man braucht, hilft eine lange Liste anderer Funktionen wenig.",
+      "Das Abhören sollte helfen, die Aufzeichnung zu prüfen, und sie nicht verwischen. Wenn Noten entgegen der Absicht übereinanderliegen, lässt sich das Riff schwer überprüfen. Eine getrennte Audionotiz kann die ursprüngliche Idee bewahren, während die Tabulatur bearbeitet wird; beides sollte man verknüpfen und vergleichen können."
+     ],
+     "quotes": [
+      {
+       "text": "Ich brauche Autoscroll, und es funktioniert nicht mehr. Ich hab’s mit Zurücksetzen versucht – nichts. Löschen und neu runterladen. Nö. Online suchen und die Firma anschreiben wegen einem Trick oder Fix. Nada.",
+       "rating": 2,
+       "app": "GuitarTapp PRO - Tabs & Chords"
+      },
+      {
+       "text": "Das Erste, was ich in diesem Song mache, ist ein Hammer-on. Ich habe sehr viel Zeit damit verbracht herauszufinden, wie ich Hammer-ons und Pull-offs notieren kann. Anscheinend geht das nicht.",
+       "rating": 2,
+       "app": "Guitar Tabs X - tabs editor"
+      },
+      {
+       "text": "Die Wiedergabe ist aber wertlos, die Noten klingen alle mit vollem Sustain, sodass das Ganze zu einem Brei aus lauter Noten zusammenläuft.",
+       "rating": 2,
+       "app": "Jam Maestro: create guitar tab"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_guitar-tuner-learn_tabs",
+      "alt": "Illustration zum Thema „Lesen während des Spielens“.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-tabs",
+       "title": "Beim Spielen lesen",
+       "body": "",
+       "ideas": [
+        "guitar-tuner-learn-4",
+        "guitar-tuner-learn-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Ein verständlicher Hinweis ist wichtiger als eine neue Lektion",
+  "body": "Zuerst sollte die Erklärung der nächsten Handlung verlässlich werden: welche Saite gerade gestimmt wird, was das Mikrofon gehört hat und wie die Griffform auf dem Bildschirm zu lesen ist. Ein Fehler oder eine Unklarheit an dieser Stelle stört das Üben selbst. Neue Songs und spielerische Belohnungen gleichen ein Urteil nicht aus, das sich am Instrument nicht prüfen lässt.\n\nDanach braucht es einen gespeicherten Weg zum Weitermachen: die eigene Stimmung, den schwierigen Wechsel, das Tempo und die Stelle in der Lektion. Unter den einzelnen Ideen sind fertige Werkzeuge für Vorbereitung und Probe am klarsten. Eine dreidimensionale Hand oder ein Spiel auf einem Griffbrett am Bildschirm helfen nur dann, wenn sie beim Spielen fern vom Bildschirm helfen. Prüfen sollte man deshalb eine kurze echte Passage vor und nach dem Hinweis und nicht nur, wie bequem sich die Diagramme ansehen lassen."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-understand",
+   "title": "Den Hinweis verstehen und ihn auf der Gitarre prüfen",
+   "depth": 0
+  },
+  {
+   "id": "observation-tuner",
+   "title": "Die gewünschte Note vom gehörten Klang trennen",
+   "depth": 1
+  },
+  {
+   "id": "observation-feedback",
+   "title": "Einen Fehler vom Ausbleiben des Klangs unterscheiden",
+   "depth": 1
+  },
+  {
+   "id": "observation-chords",
+   "title": "Eine Form wählen, die bequem zu greifen ist",
+   "depth": 1
+  },
+  {
+   "id": "theme-practice",
+   "title": "Die eigene Musik üben",
+   "depth": 0
+  },
+  {
+   "id": "observation-fretboard",
+   "title": "Das Griffbrett am Bildschirm mit dem Instrument verbinden",
+   "depth": 1
+  },
+  {
+   "id": "observation-songs",
+   "title": "Die Arbeit am eigenen Song bewahren",
+   "depth": 1
+  },
+  {
+   "id": "observation-progress",
+   "title": "Zu einer bestimmten Stelle zurückkehren",
+   "depth": 1
+  },
+  {
+   "id": "theme-play",
+   "title": "Das Material mit zur Probe nehmen",
+   "depth": 0
+  },
+  {
+   "id": "observation-tabs",
+   "title": "Beim Spielen lesen",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Ein verständlicher Hinweis ist wichtiger als eine neue Lektion",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

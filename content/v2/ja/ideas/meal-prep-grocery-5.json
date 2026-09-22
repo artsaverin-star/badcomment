@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "meal-prep-grocery-5",
+ "category": "meal-prep-grocery",
+ "categoryName": "献立と買い物リスト",
+ "title": "カートにもういくら入っているか",
+ "description": "分かっている価格で取った品物を数え、まだ数えていないものを別に見せる。",
+ "cover": {
+  "src": "ideas/meal-prep-grocery-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "人はカートに入れた品物に印を付け、分かっている価格を入力する。画面には取ったぶんの合計と、まだ数えていない品物が別々に出る。数量を変えたり購入を外したりすると、合計の変化がその場で説明される。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "買い物の終わりに合計がいくらになるか、それぞれの品物が税込みでいくらかを知ることが大事。このアプリはそれをやってくれる。",
+    "rating": 5,
+    "app": "Total Plus:Shopping Calculator"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "レジの前の合計"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "はじめは手入力の価格と簡単な数量で足りる。量り売りの商品には、見える形の見積もりが要る。割引や追加の料金は、入力された条件でだけ計算され、レシートと正確に一致するとは約束しない。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "限界の見える数字"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "棚の前で価格を入力するのが無理のない作業かどうかを確かめる必要がある。操作が多すぎれば、この計算は、買い物が終わる前に使われなくなる「あるだけの機能」にとどまる。"
+  }
+ ],
+ "rank": 194,
+ "free": false
+}

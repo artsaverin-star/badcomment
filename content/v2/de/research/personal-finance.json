@@ -1,0 +1,485 @@
+{
+ "version": 1,
+ "locale": "de",
+ "category": "personal-finance",
+ "name": "Persönliche Finanzen",
+ "summary": "Wie man herausfindet, welches Geld jetzt verfügbar ist, welches schon für Zahlungen gebraucht wird und woraus sich jeder Betrag zusammensetzt.",
+ "corpus": {
+  "reviews": 32561,
+  "apps": 99
+ },
+ "lead": "Nach einem Kauf will jemand wissen, wie viel übrig ist. Vor dem Bezahlen einer Rechnung – sich erinnern, welche Ausgaben noch bevorstehen. Ein Buchungsjournal beantwortet diese Fragen nur zum Teil: Die Summe hängt davon ab, wie vollständig die Aufzeichnungen sind, von den Zahlungsterminen und davon, ob erwartetes Geld bereits als eingegangen gezählt wurde.\n\nDer Nutzen einer Finanz-App entscheidet sich deshalb nicht an der Zahl der Berichte, sondern daran, ob sie einen Betrag erklären kann und die Ausgangsdaten ändern lässt. Im Folgenden geht es um manuelle Erfassung, ein Tagesbudget, gemeinsame Ausgaben und künftige Zahlungen als verschiedene Wege zu einer klaren Antwort über das eigene Geld.",
+ "cover": {
+  "src": "research/ResearchFinance_cover",
+  "alt": "Ein Paar am Tisch sortiert das Alltagsgeld nach Verwendungszweck.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchFinance_audiences",
+  "alt": "Ein Kassenbon mit Notizbuch, Umschläge und ein Modellhaus zeigen alltägliche Einkäufe und künftige Ausgaben.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Für alltägliche Käufe",
+   "body": "Jemand trägt seine Ausgaben ein und gleicht sie mit dem Plan ab. Gebraucht wird ein Rhythmus, den diese Person durchhalten kann: ein Eintrag nach dem Kauf, eine Prüfung am Abend oder ein Blick auf die importierten Buchungen. Manchmal zählt es mehr, es einfach zu halten, als noch einen Bericht hinzuzufügen."
+  },
+  {
+   "title": "Für kurzfristige Verpflichtungen und künftige Ziele",
+   "body": "Der aktuelle Kontostand muss den Zahlungsterminen, den erwarteten Einnahmen und künftigen Käufen gegenübergestellt werden. Tag, Woche und Monat geben unterschiedliche Ansichten desselben Budgets. Gebraucht wird hier die Möglichkeit, die Berechnung zu prüfen und den Plan zu ändern."
+  },
+  {
+   "title": "Für gemeinsames Geld und langfristige Aufzeichnungen",
+   "body": "Partner müssen das Budget gleich verstehen, auch wenn meist einer von beiden einträgt. Bei jahrelangen Aufzeichnungen kommt eine andere Sorge dazu: eine alte Buchung finden und nach einem Handywechsel weiterarbeiten. Vertraute Aufzeichnungen werden zum persönlichen Archiv."
+  }
+ ],
+ "sections": [
+  {
+   "id": "routine",
+   "title": "Zuerst – ein verständliches Bild zusammenstellen",
+   "intro": "Jede Berechnung beginnt mit Aufzeichnungen. Woher kommen die Buchungen, und wie prüft man, dass sie stimmen? Manuelle Eingabe und automatischer Import schaffen unterschiedliche Aufgaben.",
+   "art": null,
+   "observations": [
+    {
+     "id": "manual",
+     "title": "Ein Eintrag muss in einen gewöhnlichen Tag passen",
+     "passages": [
+      "Die Eingabe von Hand wird manchmal um der Handlung selbst willen gewählt. Nach dem Einkauf von Lebensmitteln oder der Bezahlung einer Fahrt schaut man sich Betrag und Zweck der Ausgabe noch einmal an. Ein Autor hat gezielt Apps mit zusätzlichen Möglichkeiten ausprobiert und ist bei der einfachen Eingabe geblieben.",
+      "Ein anderer Autor wählt ebenfalls die Eingabe von Hand, nennt sie aber ausdrücklich mühsam. Ihm hilft eine spielerische Reaktion. Der Wert der Gestaltung ist hier daran gebunden, dass man zur Eingabe zurückkehrt; aus einer solchen Erfahrung folgt nicht, dass alle ein Spielsystem brauchen.",
+      "Es kann zu viele Details geben: die Auswahl des Kontos, verschachtelte Kategorien und Pflichtnotizen machen aus dem Haushaltsbuch Buchhaltungsarbeit. Ein vernünftiges Minimum ergibt sich aus der Frage, die später an den Eintrag gestellt wird. Wofür braucht jemand dessen Kategorie oder dessen Notiz – und kehrt er überhaupt dazu zurück?",
+      "Eine eigene Schwierigkeit ist es, nach mehreren verpassten Tagen weiterzumachen. Die alte Historie lässt sich behalten, aber unvollständige Aufzeichnungen dürfen nicht als geprüfter Kontostand ausgegeben werden. Der nächste Kauf sollte helfen, zur Eingabe zurückzufinden, ohne dass zuerst der ganze Zeitraum wiederhergestellt werden muss."
+     ],
+     "quotes": [
+      {
+       "text": "Das war die erste Budget-App, die ich je runtergeladen hab. Ich hab weiter andere Apps ausprobiert, mit all den Extras wie Bank-Sync, Vorlagen, Belegablage usw. usw., und ehrlich, ich bin so dankbar, dass diese App ihren einfachen Wurzeln beim Eintragen von Hand treu geblieben ist. Das Eintragen von Hand ist ja genau der Punkt.",
+       "rating": 5,
+       "app": "Spending Tracker"
+      },
+      {
+       "text": "Entwickler, lest bitte diese Rezension von einem normalen, vernünftigen erwachsenen Nutzer. Ausgaben von Hand einzutragen ist mühsam, aber es ist wichtig, weil es einen zwingt, bewusst mit den eigenen Ausgaben umzugehen. Der Sinn der App ist, das Erfassen der Ausgaben zur Gewohnheit zu machen, und die Spielmechanik macht genau das.",
+       "rating": 4,
+       "app": "Fortune City: Expense Tracker"
+      },
+      {
+       "text": "Es war ungewöhnlich schwer, eine Budgetmethode zu finden, die kein Onlinekonto verlangt oder – am anderen Ende der Skala – von mir verlangt, im schlimmsten Sinne mein eigener Buchhalter zu sein. Das ist die beste Mischung aus Detail, Privatsphäre und Einfachheit, die ich gefunden hab.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_manual",
+      "alt": "Ein Mensch überträgt einen Kauf vom Kassenbon in sein Ausgabenheft.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "manual-archive",
+       "title": "Den Weg vom Kauf zum Eintrag verkürzen",
+       "body": "Die manuelle Erfassung passt zu Menschen, die gerade die Aufmerksamkeit für den Kauf selbst schätzen. Konten automatisch zu verknüpfen, muss nicht der nächste Schritt dieses Produkts sein.",
+       "ideas": [
+        "personal-finance-1"
+       ]
+      },
+      {
+       "directionId": "return-to-tracking",
+       "title": "Nach einem nicht erfassten Tag weitermachen",
+       "body": "Die Rückkehr zur Erfassung lässt sich vom Nachtragen der verpassten Einträge trennen, indem man die Summen als unvollständig kennzeichnet.",
+       "ideas": [
+        "personal-finance-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "overview",
+     "title": "Von der Gesamtsumme zur einzelnen Buchung",
+     "passages": [
+      "Sind die Aufzeichnungen gesammelt, lässt sich die Bewegung des Geldes als Ganzes sehen. In einem Ausschnitt erklärt ein Autor, dass er nur das Budget und die Ziele genutzt hat: Ihm genügte es zu verstehen, was auf dem Konto einging und was abging.",
+      "Der nächste Schritt ist herauszufinden, woraus sich die Summe zusammensetzt. In einem anderen Ausschnitt lobt ein Autor die Kategorisierung der Buchungen. Auch wenn die automatische Zuordnung gut funktioniert, kann jemand eine eigene Bedeutung der Kategorie brauchen: Ein Kauf im Laden kann Lebensmittel für zu Hause sein oder die Kosten eines Arbeitstreffens. Eine Korrektur muss die entsprechende Summe vorhersehbar ändern.",
+      "Manchmal ist die Frage noch konkreter: Was ist diese Abbuchung, die sich in der Historie wiederholt? Ein Nutzer beschreibt ein gefundenes Abo, dessen Herkunft er selbst nicht klären konnte. Für eine solche Suche zählen der Name, die Termine und die Verbindung zwischen wiederkehrenden Buchungen. Dieses Beispiel hilft, eine inhaltliche Analyse der Ausgaben von einer Übersicht zu unterscheiden, die nur eine bereits bekannte Gesamtsumme zeigt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab im Januar angefangen, Monarch zu benutzen. Ich hab nicht jede Funktion genutzt, aber das Budget und die Ziele-Funktion schon. Ich wollte einfach sichergehen, dass ich verstehe, was auf mein Konto reinkommt und was rausgeht. Für mich hat es super funktioniert. Es hat mir geholfen, mehr das Gefühl zu haben, dass ich die Sache im Griff hab.",
+       "rating": 1,
+       "app": "Monarch: Budget & Track Money"
+      },
+      {
+       "text": "Die CoPilot-App selbst ist solide. Die Oberfläche ist intuitiv, die Budget-Werkzeuge sind durchdacht, und die Kategorisierungs-Engine ist eine der wenigen, die das Verhalten der Nutzer wirklich lernt, statt nach jeder einzelnen Buchung ein Chaos anzurichten.",
+       "rating": 1,
+       "app": "Copilot: Track & Budget Money"
+      },
+      {
+       "text": "Mir wurde von einer Seite was abgebucht, wo ich echt keine Ahnung hab, was das war oder wie die angefangen haben, mir was abzubuchen, aber ich konnte die Seite nirgends finden. Ich hab eine Werbung für rocket money gesehen und wollte es probieren. Es hat das Abo sofort gefunden.",
+       "rating": 5,
+       "app": "Rocket Money - Bills & Budgets"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "decisions",
+   "title": "Dann – verstehen, was ein Kauf verändert",
+   "intro": "Vor einem neuen Kauf muss man wissen, welches Geld schon für Verpflichtungen vorgesehen ist und für welchen Zeitraum der Rest reichen soll. Die Historie vergangener Ausgaben genügt hier nicht.",
+   "art": null,
+   "observations": [
+    {
+     "id": "allowance",
+     "title": "Der verfügbare Betrag braucht eine Erklärung und einen Zeitraum",
+     "passages": [
+      "Eine klare Zahl für das, was heute übrig ist, erspart es, die Berechnung vor jedem Kauf zu wiederholen. Ein Autor beschreibt eine Reihenfolge, die für ihn Sinn ergibt: die regelmäßigen Ausgaben und die gewünschten Rücklagen eintragen, dann den Rest auf die Tage verteilen. Er weiß auch, was mit Geld geschieht, das er nicht ausgibt. Erst diese Regeln geben der Zahl ihren Sinn.",
+      "Einer anderen Person fällt der Blick auf eine Woche leichter. Ein solcher Zeitraum lässt sich womöglich einfacher mit den vertrauten Käufen abgleichen, als einen ganzen Monat im Kopf zu behalten. Wichtig ist, den gewählten Horizont mit dem eigenen Zeitplan verbinden zu können, statt eine Rechenweise für alle zur richtigen zu erklären.",
+      "Eine Formel, der man nicht folgen kann, zwingt umgekehrt dazu, das Ergebnis selbst nachzurechnen – diese Schwierigkeit ist in den Materialien ebenfalls beschrieben. Der Hauptbetrag sollte sich bis zu seinen Bestandteilen öffnen lassen: der Anfangsbestand, die berücksichtigten Zahlungen, der Zeitraum und die eingetragenen Käufe. Zur Prüfung fügt man eine vertraute Ausgabe hinzu und bittet die Person, die Veränderung zu erklären. Ist das Geld im Voraus auf Zwecke verteilt, stellt sich dieselbe Frage in jedem digitalen Umschlag."
+     ],
+     "quotes": [
+      {
+       "text": "In der App kann man alle wiederkehrenden Rechnungen und Ausgaben eintragen und wie viel man sparen will, und dann teilt sie den Rest durch die Anzahl der Tage im Monat – und dann kriegt man jeden Tag diesen Betrag wie Taschengeld. Wenn man ihn nicht ganz ausgibt, wandert er auf den nächsten Tag. Es ist einfach, wirksam, und es funktioniert tatsächlich.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      },
+      {
+       "text": "Ich hab immer monatlich budgetiert und dachte immer, ein Wochenbudget ergibt für mich keinen Sinn, weil ich vom Denken in Ausgaben pro Monat nicht wegkam. Aber diese App hat mich zu einem Wochen-Budgetierer gemacht! Wenn du wie ich Mathe liebst und in Echtzeit sehen willst, ob deine Ausgaben im Plan liegen, ist diese App perfekt.",
+       "rating": 5,
+       "app": "Weekly: Budget Planner & Bills"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_allowance",
+      "alt": "Getrennte Umschläge halten das Geld für Verpflichtungen; daneben liegt der verfügbare Teil des Budgets.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "available",
+       "title": "Die Arithmetik des verfügbaren Betrags öffnen",
+       "body": "Der Hauptbetrag sollte sich bis zu seiner Berechnung öffnen lassen: die Aufzeichnungen und die Regeln, aus denen er entstanden ist. Sonst muss jemand eine zweite Berechnung im Kopf anstellen.",
+       "ideas": [
+        "personal-finance-2"
+       ]
+      },
+      {
+       "directionId": "digital-envelopes",
+       "title": "Das Budget nach Zwecken aufteilen",
+       "body": "Umschläge bieten eine andere Art der Verteilung. Hier muss man nicht nur die Ausgaben verstehen, sondern auch die Bewegung des Geldes zwischen den Zwecken.",
+       "ideas": [
+        "personal-finance-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "couple",
+     "title": "Zwei Menschen müssen den Restbetrag gleich verstehen",
+     "passages": [
+      "In einem Paar wird das Budget zur Absprache. Ein Autor beschreibt die Arbeitsteilung: Er führt die Konten, seine Frau kauft meistens ein. Sie brauchen ein digitales Gegenstück zu Umschlägen, weil Bargeld für die gewöhnlichen Ausgaben nicht passt. Ein gemeinsamer Betrag hilft nur, wenn beide verstehen, für welche Käufe er vorgesehen ist.",
+      "Ein anderes Paar schätzt es, dass Käufe von verknüpften Konten in einer gemeinsamen Historie erscheinen. Das ist eine andere Art, dieselbe Absprache zu halten: Neue Informationen müssen die zweite Person rechtzeitig erreichen. Deshalb lohnt es sich, den gemeinsamen Modus auf zwei Geräten zu prüfen, samt der Korrektur eines falschen Eintrags und einer verspäteten Aktualisierung.",
+      "Zugleich muss Gemeinsamkeit nicht bedeuten, dass jedes Konto vollständig offenliegt. Ein künftiges Produkt wird helfen müssen, die gemeinsamen Kategorien, die privaten Einträge und die verfügbaren Aktionen zu wählen. Diese Einstellungen prüft man besser an einem gewöhnlichen Familienkauf: Wer trägt ihn ein, wer darf ihn korrigieren, und welchen Betrag sieht der Partner nach der Änderung?"
+     ],
+     "quotes": [
+      {
+       "text": "Meine Frau und ich haben uns jahrelang abgemüht, den besten Weg zu finden, um über unser Budget zu reden. Ich führe die Konten, sie gibt das meiste aus. Bargeld mögen wir nicht, weil so viel online ausgegeben wird, und Karten sind einfach bequemer. Ohne Bargeldumschläge brauchten wir ein digitales Gegenstück.",
+       "rating": 5,
+       "app": "Goodbudget Budget Planner"
+      },
+      {
+       "text": "Benutze Honeydue jetzt seit etwas über zwei Jahren – SO wertvoll für meine Frau und mich, um unsere Ausgaben und unser Budget zu steuern. Ich hab alle anderen Apps ausprobiert, und die hier passt für uns am besten. So nutzen wir sie: Wir haben alle unsere Konten verknüpft, und jedes Mal, wenn einer von uns was kauft, taucht es in Echtzeit auf.",
+       "rating": 5,
+       "app": "Honeydue: Couples Finance"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_couple",
+      "alt": "Zwei Menschen gleichen ein gemeinsames Budget ab, während jeder einen persönlichen Teil des Geldes behält.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "shared",
+       "title": "Abstimmen, was zwei Menschen sehen und tun können",
+       "body": "Ein gemeinsames Budget hat zwei Aufgaben: den Betrag rechtzeitig zu aktualisieren und die vereinbarten Grenzen der persönlichen Ausgaben zu wahren.",
+       "ideas": [
+        "personal-finance-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "future",
+     "title": "Der Kontostand heute und der Kontostand nach einer Zahlung sind verschiedene Zahlen",
+     "passages": [
+      "Ein positives Monatsergebnis erklärt noch nicht, was in der Mitte des Monats geschieht. Die Miete kann vor dem erwarteten Zahlungseingang fällig werden. Der Autor einer Rezension schätzt gerade den Kalender: Er kann ein künftiges Datum wählen und den errechneten Kontostand unter Berücksichtigung der eingetragenen Ereignisse sehen.",
+      "Auch die Möglichkeit, diese Ereignisse zu ändern, zählt. Ein anderer Autor hebt hervor, wie leicht sich wiederkehrende Einnahmen und Zahlungen einrichten lassen. Für ein Produkt ist der nächste Schritt, die Folgen einer Änderung zu zeigen: welche Tage sich geändert haben, nachdem ein Zahlungseingang verschoben wurde, und welche Ausgaben an ihren ursprünglichen Terminen geblieben sind. Erwartetes Geld muss sich dabei von bereits erhaltenem unterscheiden.",
+      "Der Ansatz lässt sich auf verschiedene Horizonte ausweiten. Bei schwankendem Einkommen – sehen, welche Verpflichtungen durch tatsächlich eingegangene Zahlungen gedeckt sind. Bei Schulden – errechnete Zahlungspläne zu gegebenen Bedingungen vergleichen. In beiden Fällen hilft es, den Ausgangsbetrag oder das Ausgangsdatum ändern zu lassen und das Ergebnis zu verfolgen. Die Berechnung zeigt die Folgen des eingetragenen Plans; für sich genommen bestätigt sie weder künftiges Einkommen noch die Bedingungen eines Kreditgebers."
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab Dollarbird vor ungefähr drei oder vier Jahren entdeckt. Ich schließe mich den Kommentaren eines anderen Nutzers an ich kann nicht verstehen, warum nicht mehr Leute diese App nutzen. Ich hab sie alle benutzt. Die meisten verfolgen Budgets – diese App auch –, aber die Kalenderansicht der Zahlungsströme zeigt dir, wie dein Kontostand an jedem künftigen Datum aussehen wird.",
+       "rating": 5,
+       "app": "Dollarbird - Budget Calendar"
+      },
+      {
+       "text": "Dollarbird ist meine Lieblings-App für Budgetprognosen und um meine Kontostände und Ausgaben im Blick zu behalten. Wiederkehrende Zahlungen und Einnahmen sind super leicht einzurichten und dabei auch leicht zu ändern.",
+       "rating": 4,
+       "app": "Dollarbird - Budget Calendar"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "scheduled-balance",
+       "title": "Die Folgen einer verschobenen Zahlung verfolgen",
+       "body": "Ein künftiges Datum nützt, wenn man sehen kann, woraus sich der Kontostand zusammensetzt, und ihn nach der Änderung einer einzelnen Zahlung neu berechnen kann.",
+       "ideas": [
+        "personal-finance-10"
+       ]
+      },
+      {
+       "directionId": "variable-income",
+       "title": "Eingegangenes vom Erwarteten trennen",
+       "body": "Bei schwankendem Einkommen zählt es zu sehen, welche Verpflichtungen durch bereits erhaltenes Geld gedeckt sind. Ein erwarteter Zahlungseingang bleibt eine Annahme des Plans.",
+       "ideas": [
+        "personal-finance-6"
+       ]
+      },
+      {
+       "directionId": "debt-scenarios",
+       "title": "Varianten des Zahlungsplans zu gegebenen Bedingungen vergleichen",
+       "body": "Die Berechnung der Schuldentilgung ist eine benachbarte Aufgabe mit eigenen Ausgangsbedingungen. Der Kalender zeigt das Ergebnis der eingetragenen Annahmen, kein versprochenes Enddatum.",
+       "ideas": [
+        "personal-finance-9"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Geplantes von bereits Zurückgelegtem unterscheiden",
+     "passages": [
+      "Rücklagen bekommen einen klaren Zweck, wenn einzelne Beträge an Ziele gebunden sind. Ein Autor beschreibt mehrere Ziele mit unterschiedlichen Beträgen und Einzahlungsrhythmen. Diese Ansicht hilft, zum eigenen Plan zurückzukehren: auf welchen Kauf sich jemand vorbereitet und wie weit er gekommen ist.",
+      "Eine Regel für Einzahlungen fügt diesem Plan eine Handlung hinzu. Ein anderer Nutzer schätzt es, die Bedingungen für das Verschieben von Geld festlegen zu können. Hier genügt eine wachsende Anzeige nicht mehr: Es muss klar sein, ob die jüngste Einzahlung stattgefunden hat und welche Buchungen den aktuellen Betrag ausmachen.",
+      "Ein Sparjournal und ein Werkzeug für Überweisungen haben verschiedene Pflichten. In einem Journal markiert jemand, was er selbst getan hat; in einem mit dem Konto verknüpften Dienst muss der Status einer Buchung sichtbar sein. Eine erste Version kann sich auf Ziele mit Betrag, Frist und Markierungen für Einzahlungen beschränken. Prüfen lässt sie sich an einer ausgelassenen Einzahlung: Ändert sich die Berechnung der verbleibenden Schritte, und ist klar, wie viel tatsächlich zurückgelegt ist?"
+     ],
+     "quotes": [
+      {
+       "text": "Ich hab diese App und benutze sie seit mehreren Jahren ununterbrochen. Ich nutze sie zum Sparen. Ich hab mehrere Ziele angelegt, jedes mit eigenem Sparziel und eigenem Sparrhythmus. Ich finde, diese App hat mir wirklich geholfen, beim Sparen eine Stufe zuzulegen.",
+       "rating": 5,
+       "app": "Oportun: Savings & Loans"
+      },
+      {
+       "text": "Ich hab diese App seit ungefähr einem Jahr und liebe sie so sehr, ich hab mich immer schwergetan, Geld zurückzulegen, das adhs hat dafür gesorgt, dass ich mehr Geld ausgegeben hab, wenn ich mehr verdient hab, also hab ich egal was passierte von Gehalt zu Gehalt gelebt. Ich liebe es, dass ich verschiedene Ziele und Regeln dafür festlegen kann, wie Geld verschoben wird.",
+       "rating": 4,
+       "app": "Qapital: The Money Saving App"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "dated-goals",
+       "title": "Einen Plan für ein bekanntes Datum vorbereiten",
+       "body": "Eine markierte Einzahlung und der künftige Plan müssen verschiedene Größen bleiben. Ein Aussetzer ändert den verbleibenden Weg, nicht den bereits zurückgelegten Betrag.",
+       "ideas": [
+        "personal-finance-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continuity",
+   "title": "Und die Möglichkeit erhalten, weiterzumachen",
+   "intro": "In der App sammeln sich Kategorien, Notizen und Pläne. Jetzt zählt, dass man zu einem Eintrag zurückkehren, ihn an jemand anderen weitergeben oder die Aufzeichnungen in einem anderen Werkzeug fortführen kann.",
+   "art": null,
+   "observations": [
+    {
+     "id": "archive",
+     "title": "Die Historie muss nutzbar bleiben",
+     "passages": [
+      "Jahrelange Aufzeichnungen erlauben es, Zeiträume zu vergleichen und zu früheren Entscheidungen zurückzukehren. Der Autor einer Rezension nutzt seine App seit mehr als zehn Jahren und erwähnt, dass er neben den täglichen Einträgen frühere Ausgaben durchsieht. Für dieses Szenario zählt es ebenso viel, den richtigen Monat zu finden, wie einen neuen Kauf schnell hinzuzufügen.",
+      "Die Tiefe der Aufzeichnungen ist dabei unterschiedlich. Ein anderer Autor schätzt es, die Ausführlichkeit auf die eigenen Aufgaben einstellen zu können. Geschäftliche Ausgaben brauchen womöglich Notizen und Nachweise; bei einem privaten Kauf genügen Datum und Zweck. Beim Übertragen der Daten lohnt es sich, diese Verbindungen zu erhalten, damit ein ausführliches Archiv nicht zu einer Sammlung unerklärlicher Beträge wird.",
+      "Der Verlust des Zugangs trifft bereits getane Arbeit. In einer Rezension beschreibt jemand eine frühere App, deren Support endete und deren Daten aus Jahren verschwanden. Die Prüfung eines künftigen Produkts muss den Ausstieg einschließen: einen kurzen Zeitraum exportieren, die Datei getrennt öffnen, einen bestimmten Eintrag finden und die Angaben abgleichen. Das Vorhandensein einer Schaltfläche für den Export bedeutet noch nicht, dass sich die Historie nutzen lässt."
+     ],
+     "quotes": [
+      {
+       "text": "Ich benutze diese App seit über zehn Jahren, und sie beeindruckt mich immer noch. Sie ist einfach, intuitiv und unglaublich leistungsfähig – alles, was man fürs persönliche Budget braucht, an einem Ort. Ob du tägliche Ausgaben erfasst, Monatsbudgets planst oder vergangene Ausgaben durchsiehst, sie macht alles reibungslos mit.",
+       "rating": 5,
+       "app": "Coins - Spending Tracker"
+      },
+      {
+       "text": "Ich benutze XpenseTracker mindestens seit 2013 und wahrscheinlich länger. Man kann es so anpassen, dass es so viel oder so wenig Detail liefert, wie man braucht.",
+       "rating": 5,
+       "app": "XpenseTracker"
+      },
+      {
+       "text": "Ich hab 2016 angefangen, eine App zu benutzen, um meine Finanzen im Blick zu behalten. Ich hab bei dieser anderen App für die dauerhafte Nutzung bezahlt, und dann haben sie beschlossen, auf Abo umzustellen, und den Support für ihre Kunden mit Dauerkauf eingestellt. Die App wurde entfernt, und ich hab Daten aus Jahren verloren.",
+       "rating": 5,
+       "app": "Debit & Credit"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchFinance_archive",
+      "alt": "Eine Ausgabenhistorie wandert behutsam aus einem alten Buch in ein neues.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "work-expense-records",
+       "title": "Ausgaben zusammen mit ihren Notizen weitergeben",
+       "body": "Eine geschäftliche Ausgabe muss man oft jemand anderem erklären. Beleg, Fahrt und Notiz müssen bei der Übergabe mit dem Eintrag verbunden bleiben.",
+       "ideas": [
+        "personal-finance-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "payment",
+     "title": "Auch die Zahlungsbedingungen werden Teil des Plans",
+     "passages": [
+      "Die Kosten eines Werkzeugs setzt man ins Verhältnis dazu, wie man es nutzt. Ein Autor bedankt sich ausdrücklich für einen einmaligen Kauf: Ihm ist wichtig, die nötigen Möglichkeiten ohne neue laufende Kosten zu bekommen. Das ist eine konkrete Vorliebe, die man bei der Prüfung eines Angebots berücksichtigen sollte.",
+      "In einer anderen Rezension unterstützt ein Nutzer das Recht des Entwicklers auf Bezahlung und beschreibt den Wechsel von der früheren Version. Das zeigt die Bereitschaft eines bestimmten Menschen, eine Änderung am Produkt anzunehmen, erklärt aber nicht, welches Zahlungsmodell er bevorzugt. Aus diesem Ausschnitt zu schließen, dass er Abos unterstützt, wäre verfrüht.",
+      "Eine weitere Autorin beschreibt eine lange Suche nach einer App, die sie sich im Familienbudget leisten konnte. Diese Vorlieben sind unterschiedlich, ein einheitlicher Preis lässt sich daraus nicht ableiten. Vor dem Bezahlen muss jemand eine vertraute Aufgabe zu Ende bringen und die Bedingungen für den Zugang zu den eigenen Aufzeichnungen verstehen.",
+      "Die Verlängerung sollte man an die Arbeit binden, die ein Dienst tatsächlich regelmäßig leistet. Ein einfaches Journal, der Import von Buchungen und ein gemeinsames Budget schaffen unterschiedlichen Wert. Das ist Gegenstand einer eigenen Prüfung des Angebots und kein Schluss aus einer hohen Bewertung im Store."
+     ],
+     "quotes": [
+      {
+       "text": "Was ich an dieser App LIEBE, ist, dass die bezahlte Version ein EINMALIGER Kauf ist und kein Abo. Danke danke danke.",
+       "rating": 5,
+       "app": "Daily Budget Original"
+      },
+      {
+       "text": "Erstens: Ignoriert die negativen Kommentare, vor allem die mit der „Abzocke“. Der Entwickler hat ein Recht auf faire Bezahlung für seine Arbeit. Ich hab Fudget classic über 7 Jahre gehabt und bin dann auf das hier umgestiegen.",
+       "rating": 5,
+       "app": "Fudget: Monthly Budget Planner"
+      },
+      {
+       "text": "DIESE APP IST DER WAHNSINN! Ich hab buchstäblich ACHT STUNDEN gebraucht, um eine gute Budget-App zu finden. Es gibt SO VIELE! Und alle kassieren monatlich, oder sie verlangen wahnsinnig viel Geld. Was okay ist, wenn man Börsenmakler ist, aber ich bin nur eine Mutter mit einem Einkommen.",
+       "rating": 5,
+       "app": "Monefy: Money Tracker"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Mit einem Betrag anfangen, der sich erklären lässt",
+  "body": "Der aussichtsreiche Fokus liegt hier auf einer klaren Antwort über das Geld. Zum Beispiel: wie viel bis zum nächsten Zahlungseingang verfügbar ist und welche Zahlungen schon berücksichtigt sind. Anfangen sollte man bei jemandem, der das heute in einer Notiz, einer Tabelle oder im Kopf ausrechnet. Diese Person soll ihre Buchungen eintragen, das Datum einer Zahlung ändern und den Betrag erklären, der herauskommt.\n\nBraucht die Erklärung eine zweite Berechnung, hat ein hübscher Bericht die Aufgabe noch nicht gelöst. Sind die Daten unvollständig, muss das Ergebnis diese Grenze zeigen. Gemeinsame Erfassung, Umschläge und automatischer Import können das Produkt weiterbringen, aber jede solche Ergänzung muss die Berechnung nachvollziehbar halten. Die Rezensionen bestätigen das Bedürfnis, das eigene Geld zu verstehen; die Vorliebe für ein bestimmtes Modell der Erfassung und der Bezahlung ist gesondert zu klären."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Das Wichtigste",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Welche Aufgaben Menschen lösen",
+   "depth": 0
+  },
+  {
+   "id": "theme-routine",
+   "title": "Zuerst – ein verständliches Bild zusammenstellen",
+   "depth": 0
+  },
+  {
+   "id": "observation-manual",
+   "title": "Ein Eintrag muss in einen gewöhnlichen Tag passen",
+   "depth": 1
+  },
+  {
+   "id": "observation-overview",
+   "title": "Von der Gesamtsumme zur einzelnen Buchung",
+   "depth": 1
+  },
+  {
+   "id": "theme-decisions",
+   "title": "Dann – verstehen, was ein Kauf verändert",
+   "depth": 0
+  },
+  {
+   "id": "observation-allowance",
+   "title": "Der verfügbare Betrag braucht eine Erklärung und einen Zeitraum",
+   "depth": 1
+  },
+  {
+   "id": "observation-couple",
+   "title": "Zwei Menschen müssen den Restbetrag gleich verstehen",
+   "depth": 1
+  },
+  {
+   "id": "observation-future",
+   "title": "Der Kontostand heute und der Kontostand nach einer Zahlung sind verschiedene Zahlen",
+   "depth": 1
+  },
+  {
+   "id": "observation-saving",
+   "title": "Geplantes von bereits Zurückgelegtem unterscheiden",
+   "depth": 1
+  },
+  {
+   "id": "theme-continuity",
+   "title": "Und die Möglichkeit erhalten, weiterzumachen",
+   "depth": 0
+  },
+  {
+   "id": "observation-archive",
+   "title": "Die Historie muss nutzbar bleiben",
+   "depth": 1
+  },
+  {
+   "id": "observation-payment",
+   "title": "Auch die Zahlungsbedingungen werden Teil des Plans",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Mit einem Betrag anfangen, der sich erklären lässt",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

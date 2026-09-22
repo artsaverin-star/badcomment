@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "weather-apps-8",
+ "category": "weather-apps",
+ "categoryName": "Wetter",
+ "title": "Der Verlauf einer Heimwetterstation",
+ "description": "Angaben und Einstellungen bleiben bei einem Wechsel des Netzes oder des Standorts der Station erhalten.",
+ "cover": {
+  "src": "ideas/weather-apps-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Nach dem Austausch eines Routers oder einem Umzug will ein Mensch die Beobachtungen fortsetzen und nicht das Archiv von vorn beginnen."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Wenn man den Internetanbieter wechselt, kann man das Ding genauso gut in den Müll werfen. Zweite Ambient, auf Starlink gewechselt und jetzt nichts. 2,4/5,0 getrennt wie angewiesen, nichts. Ambient hat uralten Code, seit dem Einwahlinternet nicht geändert.",
+    "rating": 1,
+    "app": "Ambient Weather Network"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Die Beobachtungen fortführen"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Das Archiv an das Gerät binden und die Verbindung gesondert ändern. Ist die Verbindung wiederhergestellt, den zuletzt empfangenen Eintrag und den ausgefallenen Zeitraum zeigen. Wird die Station versetzt, eine Notiz zum neuen Ort hinzufügen."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Wo eine gesonderte Prüfung nötig ist"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Ein Verlauf repariert kein Gerät, das mit einem neuen Netz nicht zusammenarbeitet. Zuerst die Verbindung an unterstützter Ausrüstung prüfen; danach die Übertragung des Archivs und die Unterscheidung der Zeiträume vor und nach dem Versetzen."
+  }
+ ],
+ "rank": 250,
+ "free": false
+}

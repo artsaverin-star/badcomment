@@ -1,0 +1,473 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "music-streaming",
+ "name": "Listening to music",
+ "summary": "The queue, the library and where you stopped: why a listener needs their own choices to survive, even when they change device or music service.",
+ "corpus": {
+  "reviews": 25893,
+  "apps": 95
+ },
+ "lead": "Sometimes you want to hear something new; sometimes you want exactly the album you already picked. Those intentions are easy to mix up: recommendations push into the queue, a rare version disappears from the list, a long mix starts over. The person is operating the app again instead of listening.\n\nThe reviews contain requests aimed at several different products: a player for personal files, a tool for moving a collection, and conversation around music. The shared motive is keeping your own choices. What follows looks at where they get lost, without treating every improvement as a reason to build yet another streaming service.",
+ "cover": {
+  "src": "research/ResearchLaunch_music-streaming_cover",
+  "alt": "Music listening",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_music-streaming_audiences",
+  "alt": "People’s jobs: Music listening",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Building a collection of their own",
+   "body": "This listener picks particular editions, keeps rare files and remembers the order of the albums. Losing a list means losing accumulated work, even if the songs can still be found."
+  },
+  {
+   "title": "Listening on the move",
+   "body": "The music is chosen in advance and the connection can drop. The queue has to carry on after a stop, without hunting for tracks on screen again."
+  },
+  {
+   "title": "Looking for music and people to talk to",
+   "body": "One wants new performances of a familiar work, another a station in their own language, a third an exchange of impressions with friends. These are different ways of coming back to music."
+  }
+ ],
+ "sections": [
+  {
+   "id": "selection",
+   "title": "Choose the familiar or find something new",
+   "intro": "These modes can sit side by side as long as the person understands who is choosing the next recording.",
+   "art": null,
+   "observations": [
+    {
+     "id": "queue",
+     "title": "Keep the boundaries you set for the queue",
+     "passages": [
+      "Shuffling the songs you saved and adding similar ones are two different instructions. In the first, the person has already set the boundaries of the choice. Repeats from a small part of the collection, or a sudden genre from elsewhere, make that choice pointless: you end up watching the player and skipping tracks.",
+      "Shuffle should change the order inside the list you chose. When the same sequence comes back on every start, the listener does not get the variety they expected, even though the mode is formally on. A visible queue helps you see what comes next and change the selection without rebuilding the collection.",
+      "Recommendations need consent of their own. Sometimes a person is ready to step outside the list, sometimes they want to stay inside a genre or an album. A dislike should have a clear effect on what gets picked, and turning suggestions down should leave the queue already chosen intact. This is an improvement to an existing player, not in itself a reason for a new music service."
+     ],
+     "quotes": [
+      {
+       "text": "Please for the love of god fix your SHUFFLE. It is absolutely terrible. I'm tired of hearing the same songs over and over and over with shuffle on.",
+       "rating": 2,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "I enjoy using the app. Needs some work in shuffle mode, as it plays the same songs in the same order every time I use the app.",
+       "rating": 4,
+       "app": "Plexamp"
+      },
+      {
+       "text": "I'm not sure what happened to the algorithm over the past six months to a year but it changed. Ever since then it started mixing genres and playing artists that I never listen to. Or it thinks that since I listen to some pop music on occasion that I must love all pop music even though I've disliked",
+       "rating": 1,
+       "app": "YouTube Music"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_queue",
+      "alt": "Illustration for the theme “Keeping the boundaries you set for the queue”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "discovery",
+     "title": "Give a discovery somewhere to go",
+     "passages": [
+      "A good discovery is not necessarily a song that resembles the last one. You can arrive at it through a composer you do not know, a small artist, a mood or a curated radio station. The value comes from recordings sitting next to each other in a way that is unexpected but makes sense: you start wondering where else this choice leads.",
+      "Give a discovery somewhere to go: save the track, open the artist, return to the selection. A curated station and a catalog search can coexist, because they ask for different degrees of involvement. For someone who loves rare music, the breadth within a familiar genre can matter more than the size of the catalog overall.",
+      "A curated station offers a character of selection that people want to come back to. That differs from an algorithmic search for a similar song. For some people that entrance is classical music with a choice of performance, for others a broadcast in a familiar language. Both directions need their own audience and an available source of music."
+     ],
+     "quotes": [
+      {
+       "text": "This is an amazing app for finding new music, I have found my favorite songs using this app. I think it would be a cool addition to add playlists in the saved songs.",
+       "rating": 5,
+       "app": "Discz: Discover & Share Music"
+      },
+      {
+       "text": "I've subscribed to IDAGIO for years. I love their \"mood\" feature and the broad range of music they offer. This isn't the \"top ten\" of classical. I've been introduced to composers new to me and stretched my listening range. Thank you, IDAGIO.",
+       "rating": 4,
+       "app": "IDAGIO Stream Classical Music"
+      },
+      {
+       "text": "The curated stations are simply the best. Thoughtful and entertaining stations keep me coming back! The algorithms for related songs and artists can sometimes be a bit off target, there's always room for improvement. Absolutely recommend!",
+       "rating": 5,
+       "app": "LiveOne Music"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-discovery",
+       "title": "Give a discovery somewhere to go",
+       "body": "",
+       "ideas": [
+        "music-streaming-1",
+        "music-streaming-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "title": "Understand what went into the history",
+     "passages": [
+      "Listening history helps a person see their own musical year: which songs carried a month, what they kept coming back to, what unexpectedly became a favorite. For that job a counter is a way of remembering, and sorting by play count is another way into the collection.",
+      "Explain the period and what the figure covers right next to it. A monthly total, daily activity and the full history answer different questions. Looking at one chart should not turn into a separate journey through advertising: a short return to familiar music loses its point if it takes too many steps.",
+      "Sorting by play count is another way of opening up a personal collection. At the same time the product has to explain which data went into the counter and over what period. A diary of impressions can fill out an incomplete history, but it must not pass personal marks off as exact statistics from every service."
+     ],
+     "quotes": [
+      {
+       "text": "App works great, love being able to see my top tracks and artists plus how much I have played a song",
+       "rating": 5,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "So much of the app has not only been paywalled but covered with ads. Double pop-ups with a timer before you can close them to see a single chart, then animated banner ads that slow and bloat the entire app!",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      },
+      {
+       "text": "Please, I beg you to return the function of sorting by the number of times you listened to a song, this is a unique feature that other applications do not have, please return it.",
+       "rating": 1,
+       "app": "Offline Music Player"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_history",
+      "alt": "Illustration for the theme “Knowing what went into the history”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-history",
+       "title": "Understand what went into the history",
+       "body": "",
+       "ideas": [
+        "music-streaming-3",
+        "music-streaming-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "shared",
+     "title": "Agree on who picks the next recording",
+     "passages": [
+      "Listening at the same time as someone close and meeting someone through shared taste are different social jobs. In a shared session it is already known who is taking part; what remains is agreeing on the queue and on the controls. When meeting someone, you first have to make sense of another person’s taste and decide whether you want to start talking.",
+      "In listening together it is already known who the person wants to be with. The problem is a different one: joining, seeing the shared queue and working out who controls it. A connection failure wrecks the meeting, even if matching people by taste in the same app works well.",
+      "Finding people with similar taste can be a reason to buy on its own. Removing a feature like that leaves a person without the activity they paid for, even if the player keeps playing. For a diary shared with friends you first have to understand whether people value the conversation, each other’s recommendations, or specifically meeting new people: those are different reasons to come back."
+     ],
+     "quotes": [
+      {
+       "text": "this app compiles all my music taste into one quick read, i love how it matches me with people that like the same music as me!",
+       "rating": 5,
+       "app": "makromusic Dating for Spotify"
+      },
+      {
+       "text": "So buggy, I can't hop onto a jam with my Girlfriend without it completely glitching out on me. This app used to be so good and now it's just buns!",
+       "rating": 1,
+       "app": "Spotify: Music and Podcasts"
+      },
+      {
+       "text": "Got the lifetime premium for the soulmates function so I could meet people with similar tastes and make some new friends. Feature got removed and my payment was for nothing. Bring back soulmates",
+       "rating": 1,
+       "app": "stats.fm for Spotify Music App"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "collection",
+   "title": "Keep your own music library",
+   "intro": "What a collection contains and the order it is in have value even when one track is temporarily unavailable.",
+   "art": null,
+   "observations": [
+    {
+     "id": "playlist",
+     "title": "Keep the contents even when a track disappears",
+     "passages": [
+      "A playlist holds decisions that are hard to repeat from memory: which recording to choose, what to put next to it, what to leave for later. That is why a list disappearing is not the same as one track being temporarily unavailable. The order a person assembled is lost, even though the songs themselves still exist.",
+      "Keep the contents of a collection separately from whether it can be played. An entry for an unavailable song is more useful than an empty slot: from it you can find another version or rebuild the list. Before changing device or moving between services it matters to see which selections came across in full and which need attention.",
+      "Losing a local collection after the app is offloaded is a separate case: the names, the order and the files themselves can be stored in different ways. Before freeing up space a person needs to see what will remain and how to get the rest back. Moving between services adds a check of track versions: a matching title does not yet mean the same recording."
+     ],
+     "quotes": [
+      {
+       "text": "I lost over 2000 songs because of the last update and I haven't used this app much since I can't even put into words how p!ssed I am my main playlist which was \"favorites\" was deleted gone after the update I can't remember all those songs 🤨 I've had this account for at least 15 years",
+       "rating": 2,
+       "app": "MyMixtapez: Playlists 24/7"
+      },
+      {
+       "text": "I updated Pandora and it totally wiped my account! I had to sign in and choose stations all over again. I had my \"curated list\" - YOU deleted it. Not good, Pandora.",
+       "rating": 1,
+       "app": "Pandora: Music & Podcasts"
+      },
+      {
+       "text": "This app was the best offline music app i had for years but all of my music and playlists is wiped off but my chosen background and my search history stayed and i only offloaded the app like usual",
+       "rating": 1,
+       "app": "Offline Music Player-MP3&Video"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_playlist",
+      "alt": "Illustration for the theme “Keeping the lineup even when a track disappears”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-playlist",
+       "title": "Keep the contents even when a track disappears",
+       "body": "",
+       "ideas": [
+        "music-streaming-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "files",
+     "title": "Tell your own files apart from access to them",
+     "passages": [
+      "Personal music files offer another way to assemble a library: keep your own recordings and rare versions, organize them on a computer and carry on listening from the phone. That route is especially valuable when the work you want is not in the usual catalog, or when its availability has changed.",
+      "Convenience is decided by the whole chain from storage to playback. Test the formats of your files, the order of the albums and access to the recordings you want on the phone. A stream from a home server and a local copy solve different jobs; the collection screen should help tell them apart instead of making you guess from the Play button.",
+      "A streaming catalog can change after a move to another country: the service you are used to, or a recording, turns out to be unavailable. Personal files are another way to assemble a library, provided a person has suitable recordings and the right to use them. But a new player should not promise to bring back a blocked catalog; it is responsible for the files the owner has and for the order they were kept in."
+     ],
+     "quotes": [
+      {
+       "text": "Hundreds of cd, too many steaming services, and enough technical knowledge to get me in trouble. Sent up plex media server with plex pass lifetime and I'm now able to stream my own music via plexamp anywhere. Saved me hundreds per year. Goodbye Spotify!",
+       "rating": 5,
+       "app": "Plexamp"
+      },
+      {
+       "text": "i'm a niche music freak and streaming platforms really push me away with either an overabundance of ads or a lot of the songs i like simply not being available. this app solves both of my problems AND i get to sort my music on my phone everywhere just like i do on my desktop at home!",
+       "rating": 5,
+       "app": "Evermusic: Cloud Music Player"
+      },
+      {
+       "text": "I have been a loyal user for more that 6 years where I lived in MENA countries, after immigrating to USA , I was surprised that app isn't available here. I truly love this app and I hope you consider expanding it globally so users can continue enjoying it no matter where they live.",
+       "rating": 4,
+       "app": "Anghami: Play Music & Podcasts"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-files",
+       "title": "Tell your own files apart from access to them",
+       "body": "",
+       "ideas": [
+        "music-streaming-2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "playback",
+   "title": "Carry on listening somewhere else",
+   "intro": "The road, a home system and a long recording all require the state you chose to be kept, not just a play button that works.",
+   "art": null,
+   "observations": [
+    {
+     "id": "travel",
+     "title": "Carry on listening after a stop",
+     "passages": [
+      "A download badge is only useful when the music you chose is genuinely available on the trip you need it for. What matters is what the downloaded selection contains and on what terms it is stored. A track that has appeared in the list still has to be told apart from a track ready to play with no connection.",
+      "In the car the queue carrying on is added to that: after a short stop you want to hear the next track you chose. Test a familiar trip with a stop and a return. If the controls in the car show one choice while something else is playing, large buttons do not fix the main problem, the loss of control over listening.",
+      "After a stop or a reconnection the queue should stay where it was. For a long mix the exact position is added to that: hunting for it again is awkward. This is a possible specialization for a player built around long recordings, but reviews about a car queue that vanished do not on their own prove demand for a separate app for mixes."
+     ],
+     "quotes": [
+      {
+       "text": "I broke up with Spotify and had a rebound with Tidal. I had high hopes, and have tried to stick with it, but the offline/download functionality just sucks. I have a long commute without cell service and need to reliably download music. Goodbye Tidal",
+       "rating": 2,
+       "app": "TIDAL Music: HiFi Sound"
+      },
+      {
+       "text": "First, if it wasn't for CarPlay Interface, I would give 5 stars. But, my primary use of this app is in the car, Apple CarPlay interface is important to me. CarPlay interface for this app hangs, doesn't play the right song, play song from a list instead what's chosen on the CarPlay screen.",
+       "rating": 2,
+       "app": "JioSaavn Music & Podcasts"
+      },
+      {
+       "text": "When using Apple Carplay Deezer will just suddenly stop and there will be no songs in the queue. Happens about once every four hours of driving even with full bars of 5G. Beyond that nuisance Deezer is fantastic!",
+       "rating": 4,
+       "app": "Deezer: Music Player, Podcast"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_music-streaming_travel",
+      "alt": "Illustration for the theme “Carrying on listening after a stop”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-travel",
+       "title": "Carry on listening after a stop",
+       "body": "",
+       "ideas": [
+        "music-streaming-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sound",
+     "title": "Know what a setting has been applied to",
+     "passages": [
+      "Sound settings become a personal part of the collection: the right equalizer lets someone hear music the way the owner of a particular pair of headphones likes it. But a change that helps one track can get in the way of the next. That difference shows up most with playback speed and with individual presets.",
+      "Show the scope beside the setting: the current recording, the selection you chose, or the whole player. After a preset is switched, the position of the controls should match the state that is applied. Being able to go back to the original sound quickly helps compare changes without memorizing every move of a slider.",
+      "Playback speed needs a scope that is clear: this track only, or the whole player. Otherwise a setting made for one performance changes the next by accident. A home system adds another choice, a particular speaker or room. Controlling it belongs to the hardware and calls for a check of its own, not simply one more equalizer tab."
+     ],
+     "quotes": [
+      {
+       "text": "😭 this is the BEST music player on iOS, I would pay full for the eq alone, pls give us higher and more bands 🥹",
+       "rating": 5,
+       "app": "Flacbox: Hi-Res Music Player"
+      },
+      {
+       "text": "Hey, I really like this app the sound is solid and the EQ is actually nice to use. But I noticed a bug with the bass and treble knobs. If I set bass or treble to around 50%, then switch to a different preset, the knob might show something lower like 30%, but it still sounds like it's stuck at the",
+       "rating": 4,
+       "app": "Silence Music: Equalizer, Musi"
+      },
+      {
+       "text": "I really love using the Audiomod feature to speed up or slow down tracks, but I wish the app handled it better. Right now, if I turn on a mod, it stays on for every single song I play. I want to be able to apply certain Audiomods to specific songs and have them stay saved only for those tracks.",
+       "rating": 3,
+       "app": "Audiomack - Play Music Offline"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-sound",
+       "title": "Know what a setting has been applied to",
+       "body": "",
+       "ideas": [
+        "music-streaming-8"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Keep the collection, do not build a whole streaming service",
+  "body": "For a small team I would first test backing up and transferring playlists between a specific set of supported services. The result here is clear: the person sees the order they had, the recordings that are unavailable and the matches that look doubtful. Before any development you have to be sure the services permit, and technically allow, getting the data you need. Without that a handsome transfer screen will not become a working product.\n\nThe alternative is a player for people who own their files, with one good scenario for the road and offline access. A music diary and home audio call for a different audience and different reasons to come back. It is not worth combining everything at once: the initial advantage should preserve one particular collection or habit of the listener, rather than promise to replace their whole musical life."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-selection",
+   "title": "Choose the familiar or find something new",
+   "depth": 0
+  },
+  {
+   "id": "observation-queue",
+   "title": "Keep the boundaries you set for the queue",
+   "depth": 1
+  },
+  {
+   "id": "observation-discovery",
+   "title": "Give a discovery somewhere to go",
+   "depth": 1
+  },
+  {
+   "id": "observation-history",
+   "title": "Understand what went into the history",
+   "depth": 1
+  },
+  {
+   "id": "observation-shared",
+   "title": "Agree on who picks the next recording",
+   "depth": 1
+  },
+  {
+   "id": "theme-collection",
+   "title": "Keep your own music library",
+   "depth": 0
+  },
+  {
+   "id": "observation-playlist",
+   "title": "Keep the contents even when a track disappears",
+   "depth": 1
+  },
+  {
+   "id": "observation-files",
+   "title": "Tell your own files apart from access to them",
+   "depth": 1
+  },
+  {
+   "id": "theme-playback",
+   "title": "Carry on listening somewhere else",
+   "depth": 0
+  },
+  {
+   "id": "observation-travel",
+   "title": "Carry on listening after a stop",
+   "depth": 1
+  },
+  {
+   "id": "observation-sound",
+   "title": "Know what a setting has been applied to",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Keep the collection, do not build a whole streaming service",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

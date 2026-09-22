@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "flashcards-4",
+ "category": "flashcards",
+ "categoryName": "Study flashcards",
+ "title": "Cards from notes, with a review step",
+ "description": "The questions are edited alongside the source fragment before any studying starts.",
+ "cover": {
+  "src": "ideas/flashcards-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "An automatically generated set can ask about stray details or use the wrong language."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Очень плохо формирует карточки, непонятно, по какому принципу он это делает, то у меня 10 карточек, то 64, из них, например, кто написал какую книгу, хотя эта лекция по истории, загрузила лекцию на русском языке, почему-то меня задают вопросы на английском",
+    "rating": 3,
+    "app": "Gizmo: AI Tutor"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Keep only the questions you need"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Choose the language and the goal before generating. Afterwards, show a small selection next to the places it came from, so the person can drop stray details and fix the answers. Keep checked cards separate from the ones not yet looked at."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Check what the automation costs"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Compare the time spent checking and editing with the usual way of building the same deck. If cleaning up a large set takes longer than preparing it by hand, the number of questions generated creates no value."
+  }
+ ],
+ "rank": 344,
+ "free": false
+}

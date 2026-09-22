@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "de",
+ "slug": "notes-pkm-5",
+ "category": "notes-pkm",
+ "categoryName": "Notizen und Wissensdatenbank",
+ "title": "Suche in einem handschriftlichen Notizbuch",
+ "description": "Handschrift, Diagramme und Markierungen auf Dokumenten bleiben zusammen. Ein gefundenes Wort führt zu einer bestimmten Stelle auf der Seite.",
+ "cover": {
+  "src": "ideas/notes-pkm-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Der Besitzer eines handschriftlichen Notizbuchs hat ein direktes Anliegen: ein Wort zwischen den Seiten finden, ohne das ganze Archiv durchzublättern. Dabei bleiben die Zeichnungen und die Anordnung des Textes Teil des Eintrags."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ein Stern für diese App, weil sie die grundlegendste Funktion nicht unterstützt, die ich für meine tägliche Produktivität brauche. Bitte macht die Suche in handschriftlichen Notizen möglich, die ich auf dem iPad schreibe.",
+    "rating": 1,
+    "app": "Microsoft OneNote"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Wie das funktionieren könnte"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Die Suche zeigt eine Miniaturansicht der Seite und die gefundene Stelle. Das Ergebnis der Erkennung lässt sich mit der Handschrift abgleichen; das Blatt selbst wird nicht durch automatisch gesetzten Text ersetzt."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Worauf zu achten ist"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Zu prüfen sind verschiedene Handschriften und die Sprache des Nutzers. Eine unsichere Erkennung darf die ursprüngliche Seite nicht verdecken. Diagramme, Formeln und freie Markierungen verlangen womöglich zusätzliche Lesezeichen statt des Versprechens, alles zu finden."
+  }
+ ],
+ "rank": 62,
+ "free": false
+}

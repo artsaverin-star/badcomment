@@ -1,0 +1,465 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "ai-writing",
+ "name": "AI writing assistants",
+ "summary": "Help with writing, with correspondence and with a manuscript: where an edit removes a difficulty, and where it gives the author more work restoring the meaning.",
+ "corpus": {
+  "reviews": 21356,
+  "apps": 91
+ },
+ "lead": "There is a simple test for help with text: is the author willing to send the result out under their own name. A grammatically smooth paragraph can fail it if it changes the intent, adds promises that were not there or speaks in someone else’s voice. The longer the work, the more such an unnoticed edit costs.\n\nSo the value of an editor does not end with the version it proposes. The person has to see the change, accept the part they want and put the previous text back. For a short email that means comparing phrasings; for a novel it also means holding on to the events and decisions of earlier chapters.",
+ "cover": {
+  "src": "research/ResearchLaunch_ai-writing_cover",
+  "alt": "AI writing assistants",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_ai-writing_audiences",
+  "alt": "People’s jobs: AI writing assistants",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Writing a difficult email",
+   "body": "Replying to a client, turning down a request or explaining an idea in a language that is not your own. The author knows the intent but is choosing how to express it."
+  },
+  {
+   "title": "Writing a message in an accessible way",
+   "body": "The person uses a screen reader or finds it hard to assemble a sentence out of separate thoughts. They need to read, correct and accept the suggestion themselves."
+  },
+  {
+   "title": "Continuing a manuscript",
+   "body": "The author comes back to the characters and events of chapters already written. The assistant needs reference facts that can be checked, and the person needs to be able to tell a decision that has been made from a rough idea."
+  }
+ ],
+ "sections": [
+  {
+   "id": "meaning",
+   "title": "Saying what the author meant",
+   "intro": "Good wording keeps the intent. For that, you have to be able to compare changes and turn them down.",
+   "art": null,
+   "observations": [
+    {
+     "id": "rewrite",
+     "title": "Correcting the text without losing the intent",
+     "passages": [
+      "Fixing a typo, changing the tone and rewriting a thought are different actions. When they are quietly merged, a tidy sentence can end up expressing a different intent. Unnecessary additions and formulaic detail add bulk that the person then has to reread and correct.",
+      "A grammar rule and an author’s manner can diverge. An editor has to tell a mistake from a preference: short sentences, punctuation, the degree of formality. If everything is corrected in one action, the author has to give the text their voice back all over again.",
+      "Shortening a paragraph and making it more polite are different instructions. The author should choose the one they want rather than receive a compulsory mix of edits. In an email this can be tested on one important qualification: did it survive the shortening. In an essay the next step may be a question about an argument, but that is separate help with thinking, not an automatic replacement of the text."
+     ],
+     "quotes": [
+      {
+       "text": "I do not wish for Grammarly AI to assist with my writing because of the many errors it makes by adding a word twice, changing the spelling of a word, and altering the intended meaning of the message. If AI is forced on me to use, I will close my account.",
+       "rating": 2,
+       "app": "Grammarly: AI Keyboard & Notes"
+      },
+      {
+       "text": "During my trial of the Pro version, I tried it on some creative writing I've been working on. Wow! To be sure, it found some useful things and I appreciate that. The problem is that there are no settings to tell it what style you're trying to adhere to. You don't use the serial comma? Too bad!",
+       "rating": 2,
+       "app": "Proofreader AI Grammar Checker"
+      },
+      {
+       "text": "Please for the love of god stop using em dashes and making the paragraph unnecessarily longer making me regret paying money for this",
+       "rating": 3,
+       "app": "Humanize AI: Paraphrase Tools"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_rewrite",
+      "alt": "Illustration for the theme “Fixing the text while keeping the intent”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-rewrite",
+       "title": "Correcting the text without losing the intent",
+       "body": "",
+       "ideas": [
+        "ai-writing-4",
+        "ai-writing-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "letters",
+     "title": "Fitting the phrasing to the recipient",
+     "passages": [
+      "A particular email has a recipient and an intent, so the value of the help is easy to judge by the finished message. A complicated thought can be hard to express even when you know the subject well; in a language that is not your own you also need a choice of suitable wordings. Several options make visible the difference that a single ready-made answer hides.",
+      "Here it makes sense to ask first what the person wants to say and how formal they want to be. A more professional tone does not always mean a more official one. Comparing options should help someone pick their own phrasing, not force them to strip out a textbook manner and extra length all over again.",
+      "“Professional” does not always mean “official and long”. A reply to a client you know can be short and direct. Useful options should show the difference in how the recipient is treated: where a request has been softened, where a deadline has been made specific, and where words have appeared that the author never meant to say."
+     ],
+     "quotes": [
+      {
+       "text": "I've been using this application for 2 years now, and greatly appreciate the assistance I get. For only $40 annually, I revert to this app often when needing assistance with tough professional communications.",
+       "rating": 5,
+       "app": "AI Chatbot & Writer: KnowIt"
+      },
+      {
+       "text": "Not being a native speaker, and consequently, English is not my first spoken language, I have learned so much with QuillBot and the ways I could express myself.",
+       "rating": 5,
+       "app": "Quillbot-AI Writing & Keyboard"
+      },
+      {
+       "text": "This app is very useful in so many different ways. The only thing that's holding back the 5th star is sometimes it sounds to textbook, however is that's something your aiming for that's right up your alley.",
+       "rating": 4,
+       "app": "Paraphrase: Rewording Tool"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-letters",
+       "title": "Fitting the phrasing to the recipient",
+       "body": "",
+       "ideas": [
+        "ai-writing-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "accessibility",
+     "title": "Choosing and accepting an edit on your own",
+     "passages": [
+      "Help expressing your own thoughts can be an important part of everyday writing. But a useful option stays out of reach if the reading focus jumps around the conversation or the slider cannot be moved with the control method being used. The problem arises between receiving the text and having the right to accept it yourself.",
+      "So the whole path has to be tested: enter the thought, read the suggestion, change a setting, compare and confirm the result. Element labels and reading order affect the quality of the service itself here. A good tool helps a person stay the author, including the ability to refuse an edit that does not fit.",
+      "Even one inaccessible setting can take away a person’s control over the result. If the tone is changed with a slider, its value has to be readable and adjustable with assistive technology. The same principle applies to assembling a sentence from short notes: the original words stay available, so the person can point out what was understood wrongly."
+     ],
+     "quotes": [
+      {
+       "text": "Since I had my aneurysm and two strokes my communication has been texting and I lost my ability to write and put sentences together so yes this app is very important to me",
+       "rating": 5,
+       "app": "Grammarly: AI Keyboard & Notes"
+      },
+      {
+       "text": "Claude is a genuinely cool AI, and the app allows for a lot. However, as a blind person using Voiceover, it takes a lot of effort to navigate. The Voiceover focus when reading back the chats is atrociouss. I have to swipe back and fourth just to read a response.",
+       "rating": 2,
+       "app": "Claude by Anthropic"
+      },
+      {
+       "text": "First f all i am loving the app but i am blind and unable to adjust the sliders to affect the output. The rest of the app works great with voiceover except for the sliders I am unable to change the values at all.",
+       "rating": 4,
+       "app": "ParagraphAI: Writer & Keyboard"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_accessibility",
+      "alt": "Illustration for the theme “Choosing and accepting an edit on your own”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-accessibility",
+       "title": "Choosing and accepting an edit on your own",
+       "body": "",
+       "ideas": [
+        "ai-writing-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "workflow",
+   "title": "Working where you already are",
+   "intro": "A keyboard and a full editor are useful in different ways. Both have to treat what is already written with care.",
+   "art": null,
+   "observations": [
+    {
+     "id": "keyboard",
+     "title": "Helping inside ordinary messaging",
+     "passages": [
+      "Help right in the keyboard cuts down on switching between apps. But it should not cost the person their usual way of typing: swipe, autocorrect they understand, or control over the original message. If the context has to be carried over by hand for every reply, part of the convenience of the integration disappears.",
+      "A request for broad permissions can stop a person before the first edit. This review describes a user’s fear, not confirmed reading of passwords. The app needs to explain what it actually does: which text it receives, what it sends off for processing and which actions are available without the extra permission.",
+      "Built-in help has to leave ordinary typing comfortable. Someone can value the translation or the correction and still refuse a keyboard without the swipe they are used to. The original message and undo matter just as much here: the help is wanted inside the conversation, not at the cost of the usual control over it."
+     ],
+     "quotes": [
+      {
+       "text": "This app is good since it integrates directly into the keyboard, allowing me to use it across all the apps I need.",
+       "rating": 4,
+       "app": "CharmKey: AI Rizz Keyboard"
+      },
+      {
+       "text": "Your app is great when it works on my phone - however, I am not sure if its a bug or do I have to give up my privacy and grant you a full access to my keyboard History and full access to my passwords and every single word ever written!!!! This is an invasion of privacy.",
+       "rating": 3,
+       "app": "Quillbot-AI Writing & Keyboard"
+      },
+      {
+       "text": "If this keyboard had swiping functionality, it would be my favorite keyboard to use. I prefer to swipe on the keyboard instead of having to touch every key.",
+       "rating": 2,
+       "app": "Writely - AI Keyboard & Writer"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "long-project",
+     "title": "Holding on to the facts of a long story",
+     "passages": [
+      "In a long story, searching out the plot together and preparing the next episode are both useful. But unrequested additions, forgotten events and repeated phrasings make the author spend effort reconciling the parts. A promise of finished text gives nothing either if the result cannot be opened.",
+      "A long project needs an overview of the chapters and of the facts that have been accepted: who is involved, what has already happened and where it is written. But organized memory is only part of the job. Repetition between chapters and an export that is not available make the author finish the text by hand, even when individual continuations come out well.",
+      "A promise that “the text is ready and sent” has to be told apart from a file that was actually created. The author needs a result they can open and go on editing. In a roleplay story there is one more boundary: a suggestion from the assistant does not become the hero’s action until the player has accepted it. A map of chapters, a world index and roleplay memory therefore need different rules, even though they rest on the same material."
+     ],
+     "quotes": [
+      {
+       "text": "The app tries to change you story or add extra stuff that isn't wanted. If you make a book more than ten chapters it will forget events that have already happened",
+       "rating": 4,
+       "app": "Author AI: Book Creator"
+      },
+      {
+       "text": "It repeats the same wording in several chapters. Doesn't appear to be able to export the book for publication.",
+       "rating": 2,
+       "app": "Author AI: Book Creator"
+      },
+      {
+       "text": "I enjoy stories and directing the AI to write stories. It will work with me to outline a plot and characters along with themes. When I ask it to write something longer than 2500 words it says it completed the writing and emailed it to me… But that's not true.",
+       "rating": 2,
+       "app": "Write This - AI Text Generator"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_long-project",
+      "alt": "Illustration for the theme “Holding the facts of a long story”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-long-project",
+       "title": "Holding on to the facts of a long story",
+       "body": "",
+       "ideas": [
+        "ai-writing-3",
+        "ai-writing-5",
+        "ai-writing-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Keeping what was written before any processing",
+     "passages": [
+      "A person’s own text is the result of work, and it has to survive an individual edit and a change in the terms of access. Losing it after cutting out a fragment or switching accounts hurts especially: someone came to improve what they had written and got the job of restoring it instead. A successful generation of some other text does not make up for that loss.",
+      "Switching accounts should not look like an empty library with no explanation. Before moving, the author needs a clear way to get their drafts and check that they open outside the app. Otherwise years of writing end up tied to one account, even when the person is ready to carry on somewhere else.",
+      "The survival of the text is tested in the most ordinary edit too: cut a paragraph, paste it somewhere else, undo. Losing a page at that step cancels out any help with wording. Regular writing can be supported with a prompt to start from and a way back to the last draft, but first there has to be somewhere to come back to."
+     ],
+     "quotes": [
+      {
+       "text": "I've had books in here that I've kept over the span of 7 years, all for them to get completed deleted. Who do you think you are? Deleting my memories and childhood memories, I will never forget this.",
+       "rating": 1,
+       "app": "MyStory.today"
+      },
+      {
+       "text": "This app so desperately needs a sign in option besides the iCloud because I had to get a new iCloud and I lost all of my writing, I am so devastated.",
+       "rating": 2,
+       "app": "Just Write - App For Writer"
+      },
+      {
+       "text": "Just when I was about to feel satisfied with this app, I did a \"cut\" to rearrange my own words and when I did paste to where I wanted to insert text, the whole writing page disappeared! There is no undo to bring back the 1000+ words I have typed. SO FRUSTRATING!!!",
+       "rating": 2,
+       "app": "Grammar AI Checker & Corrector"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-saving",
+       "title": "Keeping what was written before any processing",
+       "body": "",
+       "ideas": [
+        "ai-writing-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "expectations",
+   "title": "Understanding what the assistant can do",
+   "intro": "The terms of access, the editing and the adding of facts each need their own clear explanation.",
+   "art": null,
+   "observations": [
+    {
+     "id": "service",
+     "title": "Paying for an editor whose work you understand",
+     "passages": [
+      "A familiar name can create the expectation that a purchase and an account someone already has will work in the new app. If it is a separate product, the person finds out the difference too late — when they try to get the access they paid for. What matters for the choice is the developer, the sign-in terms and the specific benefit of the interface on offer.",
+      "Show that information before the purchase and let people test it on their own job. A specialized app can be convenient because of its editor, its keyboard or the way it organizes a project. That finished piece of work is what is worth demonstrating, so the person understands what they are taking out separate access for.",
+      "A standalone editor should name itself clearly and show what it is good for: comparing edits in an email, say, or working with chapters. Someone else’s recognizable name substitutes itself for that choice. Before buying, a person needs a finished example on their own text and limits they can understand, not the impression that they are paying for some other well-known service."
+     ],
+     "quotes": [
+      {
+       "text": "Bought subscription on website thinking it was ChatGPT(my fault) but I figured since I did it I'd download the app, can't connect my account to the app so I don't have my one hundred dollar purchase.",
+       "rating": 1,
+       "app": "AI Chatbot with Сhat - Chatrun"
+      },
+      {
+       "text": "Misleading name not affiliated with Jasper AI",
+       "rating": 1,
+       "app": "Japer AI- Writer AI & Chatbot"
+      },
+      {
+       "text": "Advertised on instagram as chat GPT, it is definitely not.",
+       "rating": 1,
+       "app": "AI Chat Assistant - ChatAI Bot"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_ai-writing_service",
+      "alt": "Illustration for the theme “Paying for editing work you can understand”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "current-info",
+     "title": "Separating editing from new information",
+     "passages": [
+      "Editing a finished thought and looking up current information rest on different grounds. An assistant can rewrite an email well and still have no material for a question about the present. The date of the app version does not explain where the facts in a particular answer come from.",
+      "So it helps to separate editing the text from adding information. If new facts are needed, show the material used and when it dates from; if the job is only the wording, keep the author’s own data. That separation makes it possible to notice the moment when the editor stopped changing the form and started adding content.",
+      "Even one added date or job title changes the content. Insertions like that have to be marked separately and left for the author to check. If the job is only to shorten an email, there is no reason for the editor to pad it with guesses about the person or the organization it is addressed to."
+     ],
+     "quotes": [
+      {
+       "text": "I bought the lifetime package and just found out today that the ai knowledge/ training stopped in October 2023… not good for a lifetime purchase!",
+       "rating": 2,
+       "app": "TypeAI: AI Keyboard & Writer"
+      },
+      {
+       "text": "Seems like a decent AI model however it hasn't been updated since 2023 and therefore has no knowledge of current events or anything that is relevant past 2023…. Not worth $99",
+       "rating": 2,
+       "app": "Ask Assist - AI Chat Bot"
+      },
+      {
+       "text": "When has the last time the information been updated? I want to renew, but it could not give answers for the 2026 time line. It couldn't tell me who won the presidential election in 2024.",
+       "rating": 3,
+       "app": "AI Chatbot - Nova"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First, an edit you can answer for",
+  "body": "The clearest starting job here is to help someone send a difficult email with the intent intact. You could begin with one audience, people who handle work correspondence in a language that is not their own: the original, several noticeably different versions and a short explanation of the edits. What is worth testing is whether the time to a finished email went down and whether conditions, deadlines and shades of a request had to be put back after being lost.\n\nA novel, a school essay and a roleplay story call for different rules of work. It is too early to bundle them under the promise of a universal writer. Saved drafts, undo and an accessible comparison are the foundation of any direction. They make it possible to judge an editor by the text the author accepted rather than by the volume it generated."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-meaning",
+   "title": "Saying what the author meant",
+   "depth": 0
+  },
+  {
+   "id": "observation-rewrite",
+   "title": "Correcting the text without losing the intent",
+   "depth": 1
+  },
+  {
+   "id": "observation-letters",
+   "title": "Fitting the phrasing to the recipient",
+   "depth": 1
+  },
+  {
+   "id": "observation-accessibility",
+   "title": "Choosing and accepting an edit on your own",
+   "depth": 1
+  },
+  {
+   "id": "theme-workflow",
+   "title": "Working where you already are",
+   "depth": 0
+  },
+  {
+   "id": "observation-keyboard",
+   "title": "Helping inside ordinary messaging",
+   "depth": 1
+  },
+  {
+   "id": "observation-long-project",
+   "title": "Holding on to the facts of a long story",
+   "depth": 1
+  },
+  {
+   "id": "observation-saving",
+   "title": "Keeping what was written before any processing",
+   "depth": 1
+  },
+  {
+   "id": "theme-expectations",
+   "title": "Understanding what the assistant can do",
+   "depth": 0
+  },
+  {
+   "id": "observation-service",
+   "title": "Paying for an editor whose work you understand",
+   "depth": 1
+  },
+  {
+   "id": "observation-current-info",
+   "title": "Separating editing from new information",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First, an edit you can answer for",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

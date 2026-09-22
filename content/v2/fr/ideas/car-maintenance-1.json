@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "car-maintenance-1",
+ "category": "car-maintenance",
+ "categoryName": "Entretien de la voiture",
+ "title": "Journal de la journée du chauffeur",
+ "description": "On voit quels trajets ont été enregistrés et où une précision est nécessaire avant de faire les totaux.",
+ "cover": {
+  "src": "ideas/car-maintenance-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une lacune de l’enregistrement en arrière-plan se découvre souvent à la fin du mois. À ce moment-là, certains itinéraires sont difficiles à reconstituer."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "J’utilise Stride depuis un an c’est déjà arrivé avant mais cette semaine c’est arrivé deux fois où ça a pas enregistré mon kilométrage de toute la journée et c’est très important pour moi parce que je suis chauffeur Uber et Lyft et ces journées perdues peuvent me coûter des centaines de dollars",
+    "rating": 2,
+    "app": "Stride: Mileage & Tax Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Montrer l’état de l’enregistrement et proposer une courte vérification en fin de journée. Garder à part les segments enregistrés et ceux rétablis à la main."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Différentes sources de kilométrage peuvent compter différemment. Une comparaison doit expliquer l’écart plutôt que déclarer automatiquement qu’un total est le bon."
+  }
+ ],
+ "rank": 207,
+ "free": false
+}

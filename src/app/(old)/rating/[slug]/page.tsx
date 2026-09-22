@@ -11,6 +11,7 @@ import RatingShots from "@/components/RatingShots";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { appSlugify } from "@/lib/ratingAppSlug";
 import { hasReviewCorpus } from "@/lib/reviews";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -98,7 +99,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <BackLink fallback="/rating" className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <BackLink fallback={oldHref(locale, "/rating")} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Назад" : "Back"}
       </BackLink>
@@ -150,7 +151,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                   : <span className="size-14 shrink-0 rounded-[14px] bg-[var(--color-bg-muted)]" />}
                 <div className="min-w-0 flex-1">
                   <h2 className="text-headline text-[var(--color-text-primary)]">
-                    <Link href={`/${ru ? "ru" : "en"}/rating/${slug}/${appSlugify(a.title)}`} className="transition-colors hover:text-[var(--color-text-brand)]">{a.title}</Link>
+                    <Link href={oldHref(locale, `/rating/${slug}/${appSlugify(a.title)}`)} className="transition-colors hover:text-[var(--color-text-brand)]">{a.title}</Link>
                   </h2>
                   <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">
                     <span className="tabular-nums">№{i + 1}</span>
@@ -173,7 +174,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                 <Field label={ru ? "Сильное" : "Strong"}>{tg(tx("loved"))}</Field>
                 <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
                 {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
-                <Link href={`/${ru ? "ru" : "en"}/reviews/${slug}/${a.id}`} className="text-footnote font-medium text-[var(--color-text-primary)] underline decoration-[var(--color-border-strong)] underline-offset-2 hover:decoration-[var(--color-text-primary)]">
+                <Link href={oldHref(locale, `/reviews/${slug}/${a.id}`)} className="text-footnote font-medium text-[var(--color-text-primary)] underline decoration-[var(--color-border-strong)] underline-offset-2 hover:decoration-[var(--color-text-primary)]">
                   {ru ? "Открыть исходные отзывы и темы →" : "Open source reviews and topics →"}
                 </Link>
               </div>
@@ -182,7 +183,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         })}
       </ol>
 
-      <Link href={`/${ru ? "ru" : "en"}/segment/${slug}`} className="card-min group mt-6 block rounded-[22px] p-6 sm:p-7">
+      <Link href={oldHref(locale, `/segment/${slug}`)} className="card-min group mt-6 block rounded-[22px] p-6 sm:p-7">
         <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
         <p className="mt-2 max-w-[40ch] text-title3 text-[var(--color-text-primary)]">
           {ru ? <>Разбор категории и идеи под подтверждённый спрос <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></> : <>The category breakdown and ideas backed by proven demand <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></>}

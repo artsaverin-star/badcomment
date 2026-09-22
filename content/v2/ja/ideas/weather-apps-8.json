@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "weather-apps-8",
+ "category": "weather-apps",
+ "categoryName": "天気",
+ "title": "家庭用気象ステーションの履歴",
+ "description": "ネットワークや設置場所が変わっても、情報と設定は残る。",
+ "cover": {
+  "src": "ideas/weather-apps-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "ルーターを替えたり引っ越したりしたあと、人は観測を続けたいのであって、記録をまた一から始めたいのではない。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "インターネットの回線を替えるなら、こいつはゴミ箱に放り込んだほうがいい。Ambientはこれで二台目、Starlinkに替えたらもう何も来ない。言われたとおり2.4/5.0を分けても、何も。Ambientのコードは大昔のもので、ダイヤルアップのころから変わってない。",
+    "rating": 1,
+    "app": "Ambient Weather Network"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "観測を続けられるようにする"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "記録は機器に結びつけ、接続は別に変える。つながりが戻ったら、最後に受け取った記録と、抜けていた期間を示す。ステーションを移したときは、新しい場所についてのメモを足す。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "別の確認が要るところ"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "新しいネットワークに合わない機器を、履歴が直してくれるわけではない。まず対応する機材で接続を確かめる。そのうえで、記録の引き継ぎと、移動の前と後の期間の見分けを確かめる。"
+  }
+ ],
+ "rank": 250,
+ "free": false
+}

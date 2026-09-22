@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "car-maintenance-4",
+ "category": "car-maintenance",
+ "categoryName": "車のメンテナンス",
+ "title": "整備士との会話のための車のコード",
+ "description": "読み取りの元の結果と、分かる形の説明が隣り合って保たれる。",
+ "cover": {
+  "src": "ideas/car-maintenance-4",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "警告を見た所有者は、どんなデータが手に入るのかを知ろうとする。接続の失敗や読み取りの不完全さは、不具合がないこととは区別しなければならない。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "自分にとっていちばんいいのは、問題がどれくらい深刻か、走り続けて大丈夫かを教えてくれるところです。ライブデータの機能や、コードを本当に腑に落ちる形で説明してくれるところも気に入っています。",
+    "rating": 4,
+    "app": "FIXD OBD2 Scanner"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "対応している車とアダプターの組み合わせを確かめる。コード、時刻、取得できた値を、そのあとの会話のためのレポートに保存する。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "コード一つで不具合の原因は定まらない。すべてのアダプターへの対応、修理の費用、走り続けてよいという許可を約束してはいけない。"
+  }
+ ],
+ "rank": 236,
+ "free": false
+}

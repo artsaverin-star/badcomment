@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "translator-5",
+ "category": "translator",
+ "categoryName": "翻訳アプリ",
+ "title": "順番がはっきりした会話",
+ "description": "話し手が自分で文を終え、そのあと翻訳と答えを聞く。",
+ "cover": {
+  "src": "ideas/translator-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "間を自動で見つける仕組みは、話し手を遮ることがある。単純なボタンは、会話に予想できるリズムを与えうる。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "会話モードの自動検出が過剰すぎる。友だちと一台の電話を分け合っていると、まだ話しているのにアプリが何度も割り込んで翻訳を大音量で流す。音が重なってわけが分からなくなり、会話が台なしになる。手動の録音操作を戻してください、あと",
+    "rating": 3,
+    "app": "Google Translate"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "録音、翻訳、読み上げの状態を分かるようにする。読み上げの前に、認識された内容を直せるようにする。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "二人で一台の電話を操る場面を試す。ボタンは、小さな文字をずっと見ていることや、複雑な側の切り替えを求めてはならない。"
+  }
+ ],
+ "rank": 473,
+ "free": false
+}

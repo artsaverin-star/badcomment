@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "ai-writing-8",
+ "category": "ai-writing",
+ "categoryName": "AI writing assistants",
+ "title": "A story the player controls",
+ "description": "The user’s character, the accepted events and the rough versions are kept separately.",
+ "cover": {
+  "src": "ideas/ai-writing-8",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "In a roleplay dialogue, an unwanted action taken on the hero’s behalf changes the game itself. Pinned decisions help keep what was agreed."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "stop making the bots talk for me and actually let me do my own storyline and actions instead of the bot controlling my speech and what im doing because that ruins the purpose of talking to the bot",
+    "rating": 2,
+    "app": "Character AI: Chat, Talk, Text"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Let the user control the facts of the world and forbid decisions being quietly taken for their character. Keep the versions and an export of the story."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Test the rollback after a continuation goes wrong. Correcting one episode should revisit the assumptions connected to it rather than leaving them in hidden memory."
+  }
+ ],
+ "rank": 380,
+ "free": false
+}

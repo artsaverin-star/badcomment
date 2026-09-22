@@ -1,0 +1,472 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "weather-apps",
+ "name": "Weather",
+ "summary": "People check the weather for a decision: whether to go for a walk, whether to move work, what to expect on the water. A useful summary starts with a place, a time and a clear question.",
+ "corpus": {
+  "reviews": 24792,
+  "apps": 92
+ },
+ "lead": "It can be sunny in the city while rain is already falling at the address that matters. The precipitation map looks live, but the last frame came in long ago. A beautiful, detailed summary is no help until a person knows which place and which time it refers to.\n\nWe will take these foundations first, then the specialized jobs: the plot of land, the water, outdoor work. We will finish with the quick everyday glance. The opening for a new product here is often tied to the right set of information rather than to one more general forecast.",
+ "cover": {
+  "src": "research/ResearchLaunch_weather-apps_cover",
+  "alt": "Weather",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_weather-apps_audiences",
+  "alt": "People’s jobs: Weather",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Planning the next thing to do outdoors",
+   "body": "The next thing you do needs a chosen area and a clear sense of where the data sits in time. Past precipitation frames have to be distinguishable from the forecast ahead, without reconstructing that from the way the map moves."
+  },
+  {
+   "title": "Keeping an eye on several areas",
+   "body": "The places where family lives or where work happens should stay a list that is easy to use. A message is useful when it is immediately clear which area and which period it refers to."
+  },
+  {
+   "title": "Checking specialized conditions",
+   "body": "On the water, on a plot of land and in a professional scenario, different parameters matter. What is needed is a suitable period, familiar units and a way to see where the information a person is looking at came from."
+  }
+ ],
+ "sections": [
+  {
+   "id": "place-time",
+   "title": "Place and time first",
+   "intro": "Some information describes an observation, other information the expected continuation. That difference should be easy to spot on screen.",
+   "art": null,
+   "observations": [
+    {
+     "id": "radar",
+     "title": "Seeing where the observation ends",
+     "passages": [
+      "A user opens the radar for the movement of precipitation nearby. In a positive review the value is tied to a frequent local question: how the rain develops over the course of the day. That is a reason to come back to the map, not just to watch the animation.",
+      "If the map shows the whole state every time it opens, you first have to find your own area again. Remembering the area and the zoom level removes that repeated work. The time of the selected frame should stay visible while the animation plays, too.",
+      "The other problem is data lag. The last available frame does not necessarily describe the present moment. The interface should separate the time of the observation from the time of opening, and the forecast continuation from the frames already received. Otherwise a smooth animation creates the impression of fresher information than there actually is."
+     ],
+     "quotes": [
+      {
+       "text": "Having Doppler radar at my fingertips has kept me dry for the last 10yrs. Not a single drop of rain has hit my body. Ok this may be a little exaggerated. But seriously I love this app I use is almost everyday. Especially living in Miami where we get summer afternoon rain almost daily. I can away sta",
+       "rating": 5,
+       "app": "MyRadar Accurate Weather Radar"
+      },
+      {
+       "text": "Every time you look at the radar, you're looking at the whole state you're not looking at your area for the radar. You have to zoom in every single time on this last update it sucks.",
+       "rating": 1,
+       "app": "KAIT Region 8 Weather"
+      },
+      {
+       "text": "Used to love this app. Now it is well behind live radar. Most recent I have seen it is 9min, but is usually at 15 min or more behind live.",
+       "rating": 1,
+       "app": "Weather Hi-Def Radar Forecast"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_radar",
+      "alt": "Illustration for the theme “Seeing where the observation ends”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-radar",
+       "title": "Seeing where the observation ends",
+       "body": "",
+       "ideas": [
+        "weather-apps-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "local",
+     "title": "Keeping the point your decision is about",
+     "passages": [
+      "A forecast gets checked in a specific place and through a specific event: did the meeting outdoors happen, did the rain start in the hour you picked. A general city name can hide an area that differs from the point you need. After a move, the questions you put to a familiar summary change as well.",
+      "It helps to save the exact place, the period and the source available. That makes it possible to compare what was expected with what was observed and to see what information is open. Choosing a tool becomes concrete: you can check the location you need and your own scenario instead of going by the general look of the forecast alone.",
+      "For an event, a place can be tied to an interval: an address and the hours of an evening meeting, for example. That makes it possible to come back to the same question later. An updated summary should show what changed, without having to choose the area and the time all over again."
+     ],
+     "quotes": [
+      {
+       "text": "After planning a party on two separate occasions because the app said it would be \"sunny,\" and soon realizing the party needed to be cancelled because it was POURING RAIN! I decided to switch weather app…very happy I did.",
+       "rating": 2,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "This is the only weather app that you're able to pinpoint exactly where the weather is. In most apps you might be getting weather 15 or 20 miles away because the app is set for the general city and in parts of the country like Chicago the weather can change dramatically when you're only five or 6 mi",
+       "rating": 5,
+       "app": "Tomorrow.io: Weather Forecast"
+      },
+      {
+       "text": "I love this app! I've been using it forever! I can't remember the first time I downloaded it. At least a decade ago? Thank you for the graphs and everything! I just moved up north, 2.5 hours north of Saint Paul, to Duluth, and your app has helped me navigate my new life with VERY different weather.",
+       "rating": 5,
+       "app": "Weather Underground: Local Map"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "places",
+     "title": "Maintaining your own list of places",
+     "passages": [
+      "Saved places reflect a person’s life: a trip, work, the cities where family lives. Over time some of them stop being needed. If an old point cannot be deleted, a quick look means scrolling past unwanted cities again.",
+      "Here the reviews describe a simple action failing, not the absence of a new way of forecasting. Adding, renaming, reordering and deleting a place deserves testing on a list that is already full.",
+      "The current location and the points saved by hand should be distinguishable. Pins that make no sense leave a person guessing where they came from and what deleting them will do. A clear explanation of that state is more useful than new settings layered on top of an already confusing list."
+     ],
+     "quotes": [
+      {
+       "text": "This has always been my go to app for weather but the last couple of months I am unable to delete saved locations. It say I must have one. I don't need to scroll through stuff I saved 2 years ago.",
+       "rating": 3,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "I saw someone else mention that they can't delete saved locations so it must be a bug and not just something on my end. It used to work better, but somewhere along the way I guess an update made it work worse.",
+       "rating": 1,
+       "app": "WeatherBug: Weather Forecast"
+      },
+      {
+       "text": "I like the radar and temperature features as well as storm warnings. But other places show up as pinned I don't care about. I don't know how they got pinned or how to get rid of them. I'm sure every time I delete it and start over I'm charged for it.",
+       "rating": 3,
+       "app": "Storm Shield"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_places",
+      "alt": "Illustration for the theme “Keeping your own list of places”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  },
+  {
+   "id": "decision",
+   "title": "Showing the data for a specific job",
+   "intro": "A walk, the watering and heading out on the water each need a different combination of conditions.",
+   "art": null,
+   "observations": [
+    {
+     "id": "alerts",
+     "title": "Understanding a warning and its delivery",
+     "passages": [
+      "An alert consists of the message itself and its delivery to the device. The history of warnings may be available in the app while the signal someone expected never arrives. With several cities there is one more job: seeing at once which place is meant.",
+      "It helps to show the area, the time, the source of the message and the state of the chosen settings. A test of delivery helps a person work out their own configuration. Reading the message aloud can make its content easier to take in, if it keeps that context. That way a message stays concrete information that can be opened and looked into, not only an alarming sound.",
+      "A single signal cannot guarantee that a person learned about the danger. That is why the history of messages, the time of publication and clear delivery settings matter. When there is a delay or no connection, the app should show the state of the information rather than create a sense of continuous watching."
+     ],
+     "quotes": [
+      {
+       "text": "This is the weather answer, I have all our children's towns in there. I open up this app and know what it happening all over! The best!",
+       "rating": 5,
+       "app": "Storm Shield"
+      },
+      {
+       "text": "Have it set to alert for tornado warnings and the last 3 times there's been active tornado warnings in my area my app hasn't gone off. Luckily I had my tv on, or I wouldn't have known. One was close enough that I could hear the train sound from the wind, no thunder just rain and a tornado. No warnin",
+       "rating": 1,
+       "app": "WSB-TV Weather"
+      },
+      {
+       "text": "Active weather notifications have stopped working. My husband and I rely on storm and lightning notifications for our business. Neither of us get notified any more unless we open the app, even with everything turned on. Please fix this as we rely on it for our personal and equipment safety!",
+       "rating": 2,
+       "app": "WeatherBug: Weather Forecast"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-alerts",
+       "title": "Understanding a warning and its delivery",
+       "body": "",
+       "ideas": [
+        "weather-apps-4",
+        "weather-apps-7"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "water",
+     "title": "Comparing conditions on the water",
+     "passages": [
+      "On the water what matters is the combination of wind and waves in the chosen stretch of water. A positive review describes a specific use: comparing days for fishing on a large lake. That is different from the everyday question of the temperature in town.",
+      "So a profile for the water is worth building around the place and the period of the outing. Wind speed and direction and whatever wave information is available need to be side by side and in familiar units. Which parameters belong there depends on the water; adding everything possible to every screen is not required.",
+      "A forecast diverging from experience on the spot is not fixed by more detailed graphics. A person’s own observation can be shown alongside, with its time and place noted, but it does not confirm the whole forecast. The job of the interface is to help compare the pieces of information while keeping the differences between them clear."
+     ],
+     "quotes": [
+      {
+       "text": "I have used app for a couple years to pick fishing days. I fish a large lake that gets scary with high winds. I have found forecast sustained winds to be fairly accurate, but maybe a couple hours off. Honestly, much better than my other apps both on speed and direction.",
+       "rating": 5,
+       "app": "WillyWeather"
+      },
+      {
+       "text": "Windfinder says delta is 8 mph , it was 24 mph, ocean said 5 ft by 20 seconds swell, it was 7 ft by 7 seconds… SUCKS",
+       "rating": 1,
+       "app": "Windfinder: Wind & Weather map"
+      },
+      {
+       "text": "The app is wrong about the wave height and and MPH the wind is blowing about 40% of the time. When I use this app I will also try and talk to people that have been hitting the lake recently for love updates.",
+       "rating": 3,
+       "app": "Windfinder: Wind & Weather map"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_water",
+      "alt": "Illustration for the theme “Matching up conditions on the water”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-water",
+       "title": "Comparing conditions on the water",
+       "body": "",
+       "ideas": [
+        "weather-apps-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rain-history",
+     "title": "Choosing the period the land needs",
+     "passages": [
+      "For a plot of land what matters is the accumulated precipitation history over a suitable period. The last twenty-four hours and the month to date do not replace a week or several weeks, if that is how a person follows their watering. So the length of the window is part of the job, not a presentation setting.",
+      "The app’s estimate and the reading from a person’s own rain gauge should be distinguishable as well. It helps to keep the source and the bounds of the period next to the amount. Then the records can be compared and the discrepancy understood, without mixing a local measurement and calculated information into one unlabeled total.",
+      "An owner may compare the two weeks before and after a change to the watering. An arbitrary range and notes about one’s own actions make that history more useful than a fixed total for a calendar month. A manual measurement has to be stored separately from a service’s estimate."
+     ],
+     "quotes": [
+      {
+       "text": "Use it everyday as a farmer and an agronomist. Very accurate.",
+       "rating": 5,
+       "app": "RainDrop - Rain Totals & Radar"
+      },
+      {
+       "text": "When I purchased Raindrop it showed how much rain I had gotten in past week, or 3-week period. This is how I could tell when I needed to water lawn. Now all the app provides is last day, 2 days, 3 days, and Month-to-Date. No longer usable to control watering for my lawn.",
+       "rating": 4,
+       "app": "RainDrop - Rain Totals & Radar"
+      },
+      {
+       "text": "I really like the app. But the rain fall measurements sometimes they're correct other times they're incorrect a lot. Here at the ranch we got over 3\" of rain. That is what's in the rain gauge. The app said the ranch got 1.85\" of rain.",
+       "rating": 3,
+       "app": "RainDrop - Rain Totals & Radar"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-rain-history",
+       "title": "Choosing the period the land needs",
+       "body": "",
+       "ideas": [
+        "weather-apps-3"
+       ]
+      },
+      {
+       "directionId": "launch-places",
+       "title": "Maintaining your own list of places",
+       "body": "If a person takes their own measurements, one more job appears: keeping the device’s history after a change of network or of where it is installed.",
+       "ideas": [
+        "weather-apps-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "special",
+     "title": "Not mixing professional scenarios",
+     "passages": [
+      "A specialized job requires its own set of data. An aviation view, working with a plot of land and professional operations ask different questions; adding every parameter to one screen does not make it equally useful. Even the units chosen have to survive into the widget, where a person reads a short summary.",
+      "So an extension is worth building around a specific context and a familiar presentation. First find out which information is needed together and where it is available. A useful result is a coherent summary in which the parameters and the units match the work chosen, and the details can be opened separately.",
+      "For a narrow working job, completeness of the data, the units and the update time all matter. A summary for a crew on site and an aviation view call for different checking rules. A product like that is worth starting from a specific audience and specific sources rather than adding a professional label to a general weather card."
+     ],
+     "quotes": [
+      {
+       "text": "I have been a long time premium user and it is the best weather app around for aviation. However, one thing that needs to be fixed is the METAR Widget which doesn't use the units in the app settings for pressure and distance. It always displays hPa and KM instead of inHg and SM that a user selects",
+       "rating": 3,
+       "app": "Windy.com"
+      },
+      {
+       "text": "It is better than the competitors so far, but I have only used it during preflight planning a few times.",
+       "rating": 5,
+       "app": "Ventusky: Weather Forecast"
+      },
+      {
+       "text": "As a prescribed fire practitioner I would like parameters like mixing height, 20ft wind, transport wind, vent rate. I think many of my colleagues would pay for PRO if these were options. It would be a game changer for our operations.",
+       "rating": 4,
+       "app": "Windy.app Wind, Tides, Radar"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_weather-apps_special",
+      "alt": "Illustration for the theme “Keeping professional use cases apart”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-special",
+       "title": "Not mixing professional scenarios",
+       "body": "",
+       "ideas": [
+        "weather-apps-2",
+        "weather-apps-5"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "title": "Reading what you need at a glance",
+   "intro": "The familiar short glance should survive the addition of new capabilities.",
+   "art": null,
+   "observations": [
+    {
+     "id": "presentation",
+     "title": "Keeping the familiar quick view",
+     "passages": [
+      "A pleasant presentation can be a reason to open the weather one more time. Dogs on the screen make the familiar check of the cities where family lives more pleasant — that is exactly what the next review values. It is a value in its own right, and it does not need justifying by forecast accuracy.",
+      "Widgets solve a different job — quick access to the information a person has chosen. Being able to set the radar’s zoom and switch between views makes it possible to keep on a small screen what gets checked most often.",
+      "A redesign can make that familiar view worse, even if there is more data. It is worth testing on the old actions: find the hourly forecast, open the radar, look at the day you need. Illustrations and new capabilities can change, but the core information should stay easy to recognize."
+     ],
+     "quotes": [
+      {
+       "text": "So fun to see all the dogs! Just makes for a happy day when I check the weather where my loved ones live.",
+       "rating": 5,
+       "app": "Weather Puppy Forecast + Radar"
+      },
+      {
+       "text": "They are really doing a nice job with how they design their widgets. The amount of options to customize each widget is excellent. Like the variable zoom levels for the radar widget. I also really appreciate being able to toggle through essentially what is multiple widgets all in one. Brilliant!",
+       "rating": 4,
+       "app": "RainViewer: Live Weather Radar"
+      },
+      {
+       "text": "Why 4 WARN?…do we need a warning for warm, beautiful weather? Please return to last version. Too busy, too much to navigate, bad radar track. Hourly and Daily aren't easy to see. Make the graphics easier to read at a glance. Loved the old version. Now we use the other apps and miss your last design",
+       "rating": 1,
+       "app": "WDIV 4Warn Weather"
+      }
+     ],
+     "art": null,
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "Choose one weather question",
+  "body": "For a new product it is more useful to choose one recurring question: how much precipitation fell on the land, how conditions change at a work address, or what the radar shows near home. Then check whether a person can quickly compare the information for the period they need. In this selection the losses on choosing a place, reading the time and keeping familiar settings are clearly visible.\n\nA more accurate forecast does not follow from that automatically. If the improvement is about presentation, that is how it should be judged: fewer repeated actions, clearer discrepancies, easier access to the original message. Water, aviation and warning scenarios each require separate work with specialist users; combining them on one screen does not produce a ready universal solution."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-place-time",
+   "title": "Place and time first",
+   "depth": 0
+  },
+  {
+   "id": "observation-radar",
+   "title": "Seeing where the observation ends",
+   "depth": 1
+  },
+  {
+   "id": "observation-local",
+   "title": "Keeping the point your decision is about",
+   "depth": 1
+  },
+  {
+   "id": "observation-places",
+   "title": "Maintaining your own list of places",
+   "depth": 1
+  },
+  {
+   "id": "theme-decision",
+   "title": "Showing the data for a specific job",
+   "depth": 0
+  },
+  {
+   "id": "observation-alerts",
+   "title": "Understanding a warning and its delivery",
+   "depth": 1
+  },
+  {
+   "id": "observation-water",
+   "title": "Comparing conditions on the water",
+   "depth": 1
+  },
+  {
+   "id": "observation-rain-history",
+   "title": "Choosing the period the land needs",
+   "depth": 1
+  },
+  {
+   "id": "observation-special",
+   "title": "Not mixing professional scenarios",
+   "depth": 1
+  },
+  {
+   "id": "theme-reading",
+   "title": "Reading what you need at a glance",
+   "depth": 0
+  },
+  {
+   "id": "observation-presentation",
+   "title": "Keeping the familiar quick view",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "Choose one weather question",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

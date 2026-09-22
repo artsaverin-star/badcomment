@@ -8,6 +8,7 @@ import BuyButton from "./BuyButton";
 import { nb } from "@/lib/nbsp";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 function wordObs(n: number) {
   const d = n % 10, dd = n % 100;
@@ -39,7 +40,7 @@ export default function IdeaGrid({
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
 }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [modalSlug, setModalSlug] = useState<string | null>(null);
   const [auth, setAuth] = useState(false);

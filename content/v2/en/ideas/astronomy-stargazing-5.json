@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "astronomy-stargazing-5",
+ "category": "astronomy-stargazing",
+ "categoryName": "Night sky and astronomy",
+ "title": "A target list for your own telescope",
+ "description": "Objects from the catalog and coordinates of your own are gathered into a plan for supported equipment.",
+ "cover": {
+  "src": "ideas/astronomy-stargazing-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "An experienced observer may need objects that are not in a ready-made atlas. In one review that request comes from photometry: the person wants to enter coordinates and aim the telescope. That is a narrower job than a general screen for preparing equipment."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "The telescope itself is fun to use. I am starting to use it to do photometry of variable stars and AGN. These objects usually aren’t in the app’s sky atlas. It would make life so much easier if I could input RA and Dec, then GoTo.",
+    "rating": 3,
+    "app": "Seestar"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Let a target be added by name or by coordinates and saved into the plan. For the particular models that are supported, show whether slewing and the operating modes needed are available."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Compatibility has to be confirmed for particular models. A successful connection does not yet mean that every slewing and imaging mode is supported."
+  }
+ ],
+ "rank": 536,
+ "free": false
+}

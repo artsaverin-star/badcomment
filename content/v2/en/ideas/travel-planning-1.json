@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "travel-planning-1",
+ "category": "travel-planning",
+ "categoryName": "Travel planning",
+ "title": "Flight load information with context",
+ "description": "For travel on non-rev tickets: see the time, the origin and the conditions behind user reports of free seats.",
+ "cover": {
+  "src": "ideas/travel-planning-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Traveling on a non-rev ticket, a person looks at the reports of a flight’s load. Two figures posted almost at the same time can contradict each other, and a confident color indicator hides that uncertainty."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Literally received loads for 2 different airlines showing +1 and +7. Less than 10 seconds later new loads were entered showing 0 and -1. The loads are unreliable 90% of the time.",
+    "rating": 1,
+    "app": "StaffTraveler"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "The action to make simpler"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Next to each piece of information there should be a time, a source and the conditions it was observed in. A new entry doesn’t destroy the previous one: you can see what changed and how fresh the data is."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What decides whether it is useful"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "The place to start is the availability and quality of the sources, not a map of flights. User reports do not guarantee a seat on board. Without a dependable way to obtain and check fresh information, a separate product is not yet justified."
+  }
+ ],
+ "rank": 100,
+ "free": false
+}

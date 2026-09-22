@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "ja",
+ "slug": "scanner-pdf-2",
+ "category": "scanner-pdf",
+ "categoryName": "ドキュメントスキャナー",
+ "title": "手書きと、その書き起こしを並べて",
+ "description": "あやしい語を確かめると、画像の該当する行が開く。",
+ "cover": {
+  "src": "ideas/scanner-pdf-2",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "手紙が認識されたあと、人は別の窓で誤りの場所を探すのに時間を使う。"
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "母が手で書いた手紙が2通あった。それを活字の手紙にする必要があった。どっちの手紙もちゃんとスキャンできた。でも文字への変換は完全に失敗！！　一行に1〜3語（パソコンに送ったとき）、語はごちゃ混ぜだし、語の切れ端にばらばらにされてた。",
+    "rating": 2,
+    "app": "ScanGuru: PDF Scanner App"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "どう動きうるか"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "文字を原本の行と結びつけ、語をすばやく直せるようにし、両方の版を残す。選んだ文字は、目を通してから書き出す。"
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "何に目を向けるか"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "読み取れなかった箇所は、それらしい語句でそっと埋めるより、印を付けたまま残すほうがよい。"
+  }
+ ],
+ "rank": 413,
+ "free": false
+}

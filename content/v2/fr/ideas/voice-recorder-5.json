@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "voice-recorder-5",
+ "category": "voice-recorder",
+ "categoryName": "Enregistrement et transcription de la parole",
+ "title": "Retrouver ce qui a été dit dans un vieil enregistrement",
+ "description": "Chercher dans l’archive et ouvrir les fragments précis sur lesquels repose le résultat de la recherche.",
+ "cover": {
+  "src": "ideas/voice-recorder-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "La personne se souvient du sujet d’une conversation, mais pas de la date ni du nom du fichier. La recherche propose les fragments correspondants, montre le texte autour et ouvre le son au bon endroit. Une réponse courte tirée de l’archive reste un index, pas un remplacement de la source."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "sa gestion des fichiers est catastrophique. Si tu as beaucoup de notes et d’enregistrements ça commence à buguer et la fonction de recherche est bancale.",
+    "rating": 3,
+    "app": "Wave AI Note Taker & Recorder"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Une réponse qui mène à l’enregistrement"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "On pourrait commencer par une recherche sur les noms et sur une transcription vérifiée à l’intérieur d’une seule collection. Il faut tenir compte d’une reconnaissance ratée : l’absence de correspondance ne prouve pas que le sujet n’a jamais été abordé."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Une recherche dont on peut vérifier la base"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "L’idée mérite d’être vérifiée sur une archive déjà constituée, où la recherche prend réellement du temps. Sur quelques notes récentes, un dialogue élaboré avec l’archive peut n’apporter aucun avantage face à une liste claire et à une recherche ordinaire."
+  }
+ ],
+ "rank": 186,
+ "free": false
+}

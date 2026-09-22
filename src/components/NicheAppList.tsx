@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { oldLp } from "@/lib/oldHref";
 
 type Theme = { name: string; nameEn: string; count: number; fallback?: boolean };
 type App = { id: string; title: string; total: number; icon?: string; themes: Theme[] };
@@ -9,7 +10,7 @@ type App = { id: string; title: string; total: number; icon?: string; themes: Th
 export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: App[]; ru: boolean }) {
   const [query, setQuery] = useState("");
   const locale = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
     return apps.filter((app) => !needle || app.title.toLocaleLowerCase().includes(needle) || app.themes.some((theme) => (ru ? theme.name : theme.nameEn).toLocaleLowerCase().includes(needle)));

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getLegal, legalValue } from "@/lib/legal";
 import { getLocale } from "@/lib/i18n.server";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +9,7 @@ export const dynamic = "force-dynamic";
 // src/data/legal.json.
 export default async function ContactsPage() {
   const locale = await getLocale();
-  const lp = locale === "en" ? "/en" : "/ru";
+  const lp = oldLp(locale);
   const l = getLegal();
   const rows: Array<[string, string]> = [
     ["Исполнитель", l.selfEmployed ? `${legalValue(l.fullName)} (самозанятый, НПД)` : legalValue(l.fullName)],

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 export type SortKey = "founder" | "hot" | "balance" | "money" | "simplicity" | "demand";
 
@@ -19,7 +20,7 @@ const OPTIONS: { key: SortKey; ru: string; en: string }[] = [
 // Changing it navigates to ?sort=<key>, keeping the ranking server-side.
 export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current: SortKey; cat?: string; locale?: Locale }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const router = useRouter();
   const href = (key: SortKey) => {
     const p = new URLSearchParams();

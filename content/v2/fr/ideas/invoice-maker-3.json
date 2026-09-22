@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "invoice-maker-3",
+ "category": "invoice-maker",
+ "categoryName": "Factures pour les clients",
+ "title": "Le statut de la facture sans devinettes",
+ "description": "L’envoi, l’événement d’ouverture lorsqu’il est disponible et le paiement sont affichés séparément.",
+ "cover": {
+  "src": "ideas/invoice-maker-3",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Le prestataire doit savoir s’il faut demander si le document est bien arrivé ou discuter de la date de paiement."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ma raison principale d’utiliser tout ça c’est que ça vous prévenait quand les clients ouvraient vos devis et vos factures. Maintenant ça a arrêté de marcher donc pour moi ça ne vaut plus le coup",
+    "rating": 2,
+    "app": "Wave: Small Business Software"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Montrer uniquement les événements connus"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Conserver l’envoi, l’événement d’ouverture lorsqu’il est disponible et le paiement, chacun avec sa propre heure. Permettre de saisir à la main un paiement arrivé par un autre moyen et d’arrêter la relance."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ce qu’il faut préciser ensuite"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Quand l’ouverture n’est pas connue, on peut demander si le document est bien arrivé. Quand un paiement partiel est connu, discuter du solde. Il ne vaut pas la peine de transformer une marque absente en accusation contre le client, ni de promettre de surveiller toutes les façons possibles de lire le document."
+  }
+ ],
+ "rank": 510,
+ "free": false
+}

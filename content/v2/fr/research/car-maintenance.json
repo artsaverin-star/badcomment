@@ -1,0 +1,481 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "category": "car-maintenance",
+ "name": "Entretien de la voiture",
+ "summary": "Trajets professionnels, pleins et entretien : quels enregistrements il vaut la peine de relier pour retrouver plus tard une lacune, se rappeler une réparation ou préparer un rapport.",
+ "corpus": {
+  "reviews": 13395,
+  "apps": 56
+ },
+ "lead": "Un journal automobile promet de dispenser le propriétaire de tout retenir. Mais le kilométrage sert à une tâche, le reçu du garage à une autre, et un code défaut à la conversation sur une panne. Si l’on mélange ces données sans liens qu’on puisse suivre, on obtient une archive de plus où la réponse est difficile à trouver.\n\nLes avis font apparaître trois directions différentes : le suivi des trajets professionnels, l’historique d’entretien et le travail avec les données du scanner. Elles peuvent voisiner dans la boutique, mais ne sont pas obligées de devenir une seule app. On suit ici le résultat attendu dans chaque cas, et ce qui empêche de le tirer d’enregistrements déjà faits.",
+ "cover": {
+  "src": "research/ResearchLaunch_car-maintenance_cover",
+  "alt": "Entretien de la voiture",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_car-maintenance_audiences",
+  "alt": "Tâches des gens : Entretien de la voiture",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Clore la journée de travail",
+   "body": "Un chauffeur doit rassembler les trajets de la journée, mettre à part les itinéraires personnels et transmettre le total au comptable ou au client. Une lacune se comble plus facilement aujourd’hui qu’à la fin du mois."
+  },
+  {
+   "title": "Se rappeler l’entretien de la voiture",
+   "body": "Le propriétaire cherche la date d’une réparation, un relevé du compteur et un reçu. Ces informations serviront au prochain entretien, lors d’un passage au garage ou à la vente de la voiture."
+  },
+  {
+   "title": "Tenir un garage personnel",
+   "body": "Une personne a plusieurs voitures ou des engins de types différents. Elle veut voir ensemble les travaux à venir tout en gardant un historique distinct pour chacun."
+  }
+ ],
+ "sections": [
+  {
+   "id": "mileage",
+   "title": "Rassembler les trajets en un historique vérifié",
+   "intro": "L’enregistrement automatique est utile avec la possibilité de repérer une lacune et de la corriger tant que la journée est encore présente à l’esprit.",
+   "art": null,
+   "observations": [
+    {
+     "id": "record",
+     "title": "Repérer à temps un trajet manquant",
+     "passages": [
+      "Le démarrage automatique dispense de penser à un bouton avant chaque trajet. Mais une lacune se découvre tard si l’app a cessé d’enregistrer après une déconnexion ou un changement de réglages. Il faut alors reconstituer l’historique de mémoire, et de courts arrêts peuvent en plus le découper en morceaux superflus.",
+      "Une panne de capteur peut laisser plusieurs jours d’un coup sans enregistrement. Il ne suffit donc pas que le journal attende en silence le trajet suivant : l’état de la connexion et de l’enregistrement doit être visible. Un avertissement aide à remarquer l’arrêt du suivi, mais il ne permet pas à l’app de connaître les itinéraires qu’elle n’a pas enregistrés.",
+      "Une courte vérification en fin de journée permet de rétablir un itinéraire tant qu’on s’en souvient encore. Si la lacune vient d’une déconnexion, il faut le dire clairement. Les trajets ajoutés à la main gagnent à être distingués de ceux enregistrés par le capteur : on saura plus tard ce qui relève de la mesure et ce qui relève d’un historique reconstitué par le propriétaire."
+     ],
+     "quotes": [
+      {
+       "text": "Je conduis ÉNORMÉMENT pour quelqu’un qui n’est pas routier. J’ai fait environ 70 000 miles depuis que j’ai téléchargé cette appli, puis acheté le boîtier à capteur de mouvement qui suit les trajets tout seul. J’ai appris à mes dépens que, même si mon iPhone est à moins de 15\" du « mouchard », il suit pas toujours les trajets automatiquement.",
+       "rating": 3,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "Les 3 étoiles en général c’est à cause de la fonction de démarrage automatique des trajets qui marche pas régulièrement et qui est censée se connecter à la puce Bluetooth USB branchée sur le port USB de ton véhicule. Cette semaine elle a arrêté de reconnaître la balise de mon véhicule et j’ai perdu deux jours de suivi.",
+       "rating": 3,
+       "app": "Mileage Tracker App by TripLog"
+      },
+      {
+       "text": "Au moins une fois par mois je me fais déconnecter automatiquement et aucune notification là-dessus et je dois reprendre mes notes et ma mémoire pour saisir les arrêts. Ça sert à rien de l’utiliser vu que tu devras quand même tenir un journal écrit de tes déplacements tous les jours.",
+       "rating": 1,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_record",
+      "alt": "Illustration du thème « Repérer à temps un trajet manqué ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-record",
+       "title": "Repérer à temps un trajet manquant",
+       "body": "",
+       "ideas": [
+        "car-maintenance-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "report",
+     "title": "Obtenir un rapport sur le travail choisi",
+     "passages": [
+      "Séparer les trajets personnels et professionnels est utile quand cela mène à un total vérifié pour la période voulue. L’étiquetage en lot économise des gestes, mais il devient dangereux pour l’exactitude du journal dès qu’il va au-delà du filtre choisi. La personne est sûre d’avoir traité la liste qu’elle voyait, et ce sont d’autres enregistrements qui changent.",
+      "Une modification en lot doit correspondre à la liste que la personne a sous les yeux. Avant de la confirmer, montrer le nombre de trajets et le filtre appliqué ; ensuite, proposer un moyen d’annuler l’action. Sinon l’étiquette « professionnel » peut se poser sur des itinéraires personnels, et un beau rapport final ne fait qu’y fixer l’erreur.",
+      "Le rapport est nécessaire pour la période dans laquelle la personne travaille vraiment : un mois, une année ou la durée d’une mission. Un découpage en mois ne doit obliger personne à recoller une année à la main. Pour plusieurs clients, on peut ajouter une étiquette de trajet et des totaux séparés, mais une telle spécialisation exige de savoir comment le chauffeur prépare et transmet ses documents aujourd’hui."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise MileIQ depuis 8 ans maintenant. C’est très facile à prendre en main et j’arrive à suivre précisément et sans effort mes miles personnels et professionnels. À la fin de l’année je crée simplement mon rapport et je l’envoie à mon comptable. Je le recommande vivement.",
+       "rating": 4,
+       "app": "MileIQ: Mileage Tracker & Log"
+      },
+      {
+       "text": "Quand tu sélectionnes plusieurs éléments pour les classer tu dois faire très attention en sélectionnant le trajet sinon ça ouvre le trajet. Quand tu filtres et que tu fais tout sélectionner pour classer en masse, ça sélectionne tous les trajets que tu n’as pas classés. Pas seulement les trajets filtrés.",
+       "rating": 3,
+       "app": "Mileage Tracker by Everlance"
+      },
+      {
+       "text": "J’utilise cette appli depuis 5 ans maintenant pour mes impôts. Super simple à utiliser pour envoyer à mon comptable et à mon mail le rapport fiscal de fin d’année. Par contre, ces derniers temps, ils te laissent pas envoyer le rapport de toute l’année, mais mois par mois. Un peu pénible de devoir revenir sur chaque mois.",
+       "rating": 1,
+       "app": "Mileage Tracker App by TripLog"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-report",
+       "title": "Obtenir un rapport sur le travail choisi",
+       "body": "",
+       "ideas": [
+        "car-maintenance-3",
+        "car-maintenance-8"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "power",
+     "title": "Tester l’enregistrement dans les conditions de sa propre journée de travail",
+     "passages": [
+      "L’enregistrement en arrière-plan vit dans les conditions d’une journée de travail précise : la durée des trajets, l’alimentation dans la voiture et les autorisations de localisation. Pour un chauffeur, un mode lié au branchement sur l’alimentation peut être un moyen commode de gérer l’enregistrement. Pour un autre, l’important est de comprendre pourquoi les trajets n’apparaissent pas avec les autorisations qu’il a choisies.",
+      "Un mode « alimentation uniquement » convient à celui qui branche son téléphone à chaque trajet professionnel. Sans cette habitude, il créera de nouvelles lacunes. Le choix d’un mode doit avoir des conséquences qu’on puisse suivre : quand l’enregistrement démarre, à quelle condition il s’arrête et quelles autorisations il demande.",
+      "Si le mode arrière-plan ne convient pas, il reste le journal manuel — avec le début, la fin et les événements de la journée. Sa valeur doit être vérifiée à part : la personne doit accepter une saisie régulière pour obtenir le formulaire dont elle a besoin. C’est une autre façon de tenir des registres, et non la promesse de corriger la consommation de batterie par une nouvelle interface."
+     ],
+     "quotes": [
+      {
+       "text": "Cette appli marche bien sans conséquence sur la batterie tant que je la règle pour suivre en mode « Alimentation uniquement ». Là on dirait qu’elle lance le GPS et essaie de suivre le kilométrage seulement quand c’est branché sur l’alimentation dans la voiture.",
+       "rating": 3,
+       "app": "Motus - Business Mileage Log"
+      },
+      {
+       "text": "L’appli consomme une quantité énorme de batterie et à moins de la laisser en « toujours activé » au lieu de « seulement pendant l’utilisation », elle suivra pas ton kilométrage ni tes trajets.",
+       "rating": 1,
+       "app": "Mileage Tracker by Driversnote"
+      },
+      {
+       "text": "Le seul problème que Motus a à mon avis c’est d’utiliser la localisation tout le temps. Ça marche pas quand tu le mets sur utiliser la localisation seulement pendant l’utilisation de l’appli. C’est un gros souci à considérer et ça tue la batterie de mon téléphone.",
+       "rating": 4,
+       "app": "Motus - Business Mileage Log"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_power",
+      "alt": "Illustration du thème « Vérifier l’enregistrement dans les conditions de ton poste ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-power",
+       "title": "Tester l’enregistrement dans les conditions de sa propre journée de travail",
+       "body": "",
+       "ideas": [
+        "car-maintenance-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "service",
+   "title": "Comprendre ce qui est arrivé à la voiture",
+   "intro": "Documents, intervalles et dépenses répondent à des questions différentes. Ce qui les relie, c’est une voiture précise et un événement précis.",
+   "art": null,
+   "observations": [
+    {
+     "id": "archive",
+     "title": "Retrouver le reçu avec le travail effectué",
+     "passages": [
+      "Un reçu devient utile quand on peut le retrouver à côté du travail et du relevé du compteur. C’est par ce lien qu’un propriétaire reconstitue un entretien plus tard. Le simple fait qu’une photo soit jointe aide peu si le texte ne peut plus être lu après l’envoi, ou si l’historique est hors d’atteinte sur un nouveau téléphone.",
+      "Un reçu compressé jusqu’à devenir illisible perd son sens précisément au moment où les détails sont nécessaires : la liste des travaux, la date ou le montant. L’archive doit conserver une preuve lisible à côté de l’enregistrement d’entretien. Il importe de pouvoir agrandir le document et d’en obtenir une copie séparée plus tard.",
+      "Une tâche à part pour l’archive : survivre à un changement de téléphone. L’existence d’un compte ne dit pas à elle seule que les enregistrements et les pièces jointes reviendront : on ne le voit qu’après avoir ouvert une ancienne entrée d’entretien sur le nouvel appareil. À partir d’une telle archive, on peut composer un historique pour l’acheteur, en choisissant les travaux à l’avance et en laissant de côté les données personnelles qui n’ont rien à y faire."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise cette appli depuis 8 ans pour suivre toutes les dépenses liées à l’entretien de mon véhicule personnel. J’adore la simplicité d’attacher une photo du reçu à chaque entrée que je fais. Je ressors les anciens reçus et les relevés du compteur pour estimer quand quelque chose doit être fait.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "Les images de reçus envoyées sont très mauvaises. Elles sont clairement réduites une fois l’envoi terminé. C’était un gros point faible.",
+       "rating": 3,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "J’ai perdu toutes mes données. Tout ce qui remonte à 2019 sur ma voiture ainsi que les enregistrements sur deux autres voitures ont complètement disparu. Soit une mise à jour récente a tout effacé, soit le passage à un nouveau téléphone. Je l’avais synchronisé avec mon compte Gmail depuis que j’ai commencé à utiliser cette appli il y a des années et toutes mes données ont disparu.",
+       "rating": 1,
+       "app": "Auto Care Kit"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-archive",
+       "title": "Retrouver le reçu avec le travail effectué",
+       "body": "",
+       "ideas": [
+        "car-maintenance-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "interval",
+     "title": "Régler un rappel pour un travail précis",
+     "passages": [
+      "Une date et un relevé de kilométrage décrivent des conditions différentes pour le prochain entretien. Quand une app les lie rigidement, la personne ne peut pas déplacer l’intervalle qu’elle a choisi pour sa propre tâche. Le travail déjà effectué compte tout autant : avant de créer un nouvel enregistrement, il est utile de retrouver quand l’entretien a eu lieu la fois précédente.",
+      "Laisser régler indépendamment la condition de temps et la condition de distance, et montrer sur quel événement passé le rappel s’appuie. L’intervalle lui-même, la personne le choisit selon les raisons qui conviennent à sa propre voiture. Le rôle du journal est de conserver ces conditions exactement et de rendre visible le lien avec l’historique.",
+      "L’historique est aussi nécessaire avant de fixer le prochain entretien : le travail a pu être fait par le propriétaire précédent. Un enregistrement avec une date, un relevé de kilométrage et un document aide à poser au garage une question précise. L’économie citée dans un avis est l’expérience d’une seule personne ; le journal lui-même ne détermine pas si la voiture a besoin du remplacement d’une pièce maintenant."
+     ],
+     "quotes": [
+      {
+       "text": "Je l’utilise depuis 8 ans à peu près… le mieux c’est de suivre le MPG et de saisir les entretiens comme les vidanges, etc. Comme il y a le temps et la distance, on peut régler la vidange sur 12 mois ou 12k miles, au premier des deux.",
+       "rating": 4,
+       "app": "Fuel Monitor Pro"
+      },
+      {
+       "text": "Super que le suivi au kilométrage soit maintenant une option… le problème c’est que c’est pas indépendant de la date. Tu peux pas choisir un intervalle de kilométrage personnalisé séparé de la date. Je peux pas régler ma vidange sur 12 mois ou 10k miles. Chaque mois est lié à 1k miles.",
+       "rating": 2,
+       "app": "Car Cave - Car Maintenance Log"
+      },
+      {
+       "text": "Je pensais devoir changer l’huile de boîte (sur une Mercedes) parce que j’avais acheté la voiture d’occasion. J’ai téléchargé l’appli et elle m’a dit exactement quand ça avait été changé et m’a fait économiser 800 $.",
+       "rating": 5,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_interval",
+      "alt": "Illustration du thème « Régler un rappel pour une tâche précise ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "fuel",
+     "title": "Corriger l’historique des pleins sans le refaire",
+     "passages": [
+      "Un plein oublié est un cas ordinaire de correction de l’historique. S’il est impossible de l’insérer au bon endroit sans supprimer les enregistrements qui suivent, la personne doit choisir entre un journal incomplet et une ressaisie complète. Un changement d’unités doit lui aussi préserver le sens des relevés d’origine.",
+      "Un plein oublié doit s’insérer d’après sa date et son relevé du compteur, en laissant en place les événements qui suivent. Avant l’enregistrement, il vaut la peine de montrer quels segments du calcul vont changer. La correction rend alors au journal sa complétude au lieu d’obliger la personne à supprimer un historique correct pour un seul vieux reçu.",
+      "Changer d’unité de mesure ne doit pas changer la distance parcourue. Si l’historique paraît différent après le passage des kilomètres aux miles, le propriétaire perd la possibilité de comparer les années et de partager les données avec un mécanicien. Les relevés d’origine et une correction qu’on peut suivre comptent plus qu’un nouveau graphique : le graphique s’appuie sur cet historique."
+     ],
+     "quotes": [
+      {
+       "text": "J’utilise cette appli depuis plus de dix ans et je la trouve tellement pratique. J’ai commencé à l’utiliser juste pour suivre mon kilométrage, mais j’ai vite compris que toutes mes dépenses auto, mes rappels et mes notes pouvaient avoir un seul endroit où vivre !",
+       "rating": 5,
+       "app": "Road Trip MPG"
+      },
+      {
+       "text": "Je passe ma note à 1 étoile parce que tu peux pas ajouter un plein oublié sans supprimer tous les pleins qui viennent après. Le champ « Dernier compteur » se remplit tout seul et tu peux pas le changer à la main. Du coup le calcul du kilométrage sera FAUX.",
+       "rating": 1,
+       "app": "Fuelly: MPG & Service Tracker"
+      },
+      {
+       "text": "J’adore cette appli, mais la refonte a converti en kilomètres mon kilométrage des 6 dernières années. Quand je suis repassé aux miles, il manquait environ 35 000 miles. Je partage ces données avec mon mécanicien et maintenant tout est foutu !",
+       "rating": 3,
+       "app": "Fuel MPG Calculator"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-fuel",
+       "title": "Corriger l’historique des pleins sans le refaire",
+       "body": "",
+       "ideas": [
+        "car-maintenance-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "garage",
+     "title": "Séparer l’historique des différents engins",
+     "passages": [
+      "Un garage personnel peut contenir plus d’engins que n’en prévoit la formule de base, tout en ayant moins de besoins qu’une grande flotte. Un propriétaire peut vouloir suivre exactement de la même façon une voiture, une moto et d’autres engins. Un saut brutal vers une formule hors de proportion n’explique pas comment poursuivre ce scénario simple.",
+      "Le saut brusque de cinq voitures au tarif d’une flotte laisse le garage personnel entre deux produits. Dans l’avis cité ici, la personne nomme même le nombre d’engins qu’elle veut et le prix ; c’est une raison concrète de parler à ce public, mais pas encore une formule aboutie. Ce qu’il lui faut, c’est un historique distinct par engin et un aperçu commun des travaux, sans gestion des chauffeurs ni processus d’entreprise.",
+      "Le kilométrage, les heures moteur et l’entretien saisonnier ne peuvent pas être ramenés à une seule échelle sans réfléchir. La fiche d’un engin doit contenir les unités et les règles de rappel qui lui conviennent. L’aperçu commun sert aux travaux à venir, tandis que l’historique détaillé reste attaché à chaque engin."
+     ],
+     "quotes": [
+      {
+       "text": "J’ai trois Mercedes de collection et un Porsche Cayenne. Venant du monde aérien, je suis maniaque des carnets d’entretien. Autoist est le compagnon numérique parfait des documents papier.",
+       "rating": 5,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "C’est une appli sympa qui fait exactement ce dont j’avais besoin. Je voudrais juste pouvoir ajouter plus de véhicules. J’ai des motos, des quads et d’autres trucs que j’aimerais suivre et je paierais volontiers, mais on a 5 véhicules à un prix très raisonnable, et ensuite c’est 100 $ par mois pour suivre une flotte. Euh, non. Je peux pas juste payer 40 $ pour 10 véhicules ?",
+       "rating": 4,
+       "app": "AUTOsist Fleet Management App"
+      },
+      {
+       "text": "J’aime vraiment la façon dont cette appli fonctionne. Elle m’a permis de suivre plein de choses que j’oubliais avant. La seule raison pour laquelle je peux pas lui mettre cinq étoiles c’est que j’aimerais qu’il y ait un moyen d’ajouter plus d’emplacements. Je gère les véhicules de la famille de mon employeur.",
+       "rating": 4,
+       "app": "CARFAX Car Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_car-maintenance_garage",
+      "alt": "Illustration du thème « Séparer l’historique de différents véhicules ».",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-garage",
+       "title": "Séparer l’historique des différents engins",
+       "body": "",
+       "ideas": [
+        "car-maintenance-6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diagnostic",
+   "title": "Préparer les données pour la conversation avec le garage",
+   "intro": "Un code lu est le début de l’examen du problème. Il doit être enregistré avec les conditions dans lesquelles il a été relevé.",
+   "art": null,
+   "observations": [
+    {
+     "id": "codes",
+     "title": "Enregistrer le code sans diagnostic hâtif",
+     "passages": [
+      "Une explication du code qu’on peut suivre aide à comprendre ce que le scanner a relevé. Mais il faut d’abord établir que la lecture fonctionne sur ce couple précis de voiture et d’adaptateur. Une bonne expérience sur une voiture n’explique pas pourquoi, sur une autre, les codes dont on a besoin restent inaccessibles.",
+      "Montrer la compatibilité, le résultat de la lecture et le code brut séparément de l’explication. Cela permet d’utiliser ces données dans la suite de la conversation sur le problème. Une légende automatique ne doit pas être transformée en diagnostic définitif ni en autorisation de continuer à rouler : le rôle de l’app est ici de transmettre clairement l’information obtenue.",
+      "Pour une seconde conversation, la date de la lecture, le modèle de l’adaptateur et ce que la voiture elle-même met à disposition sont utiles. Si une partie des données n’a pas été lue, cela doit se voir. La question pour le produit est de savoir comment remettre au mécanicien un résultat exact, et non comment nommer une cause avec assurance à partir d’une seule étiquette."
+     ],
+     "quotes": [
+      {
+       "text": "Le mieux pour moi c’est qu’elle te dit à quel point un problème est grave et si c’est bon de continuer à rouler ou pas. J’aime bien aussi le truc des données en direct et la façon dont elle explique les codes de manière vraiment compréhensible. Pouvoir effacer les codes c’est bien aussi.",
+       "rating": 4,
+       "app": "FIXD OBD2 Scanner"
+      },
+      {
+       "text": "Je roule en Chrysler de 2016. Pas une voiture très vieille et pas une marque obscure. Elle sort trois codes qu’un scanner OBDII moins cher détecte facilement et le voyant moteur est allumé depuis des mois. Leur appli prétend qu’il n’y a aucun code et que le voyant moteur n’est pas allumé.",
+       "rating": 2,
+       "app": "ZUS - Save Car Expenses"
+      },
+      {
+       "text": "Ça a marché pour ma BMW 128 (changement de batterie 12 V) mais ça marche à peine pour un Lexus LX470. Achète pas pour autre chose qu’une BMW. J’arrive même pas à lire les codes OBD de base pour le Lexus.",
+       "rating": 1,
+       "app": "Carly OBD2 car scanner"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-codes",
+       "title": "Enregistrer le code sans diagnostic hâtif",
+       "body": "",
+       "ideas": [
+        "car-maintenance-4"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "L’historique d’entretien d’abord",
+  "body": "Pour un premier produit, je choisirais l’historique d’entretien d’une voiture personnelle : le travail, la date, le compteur et un reçu lisible dans un seul enregistrement. L’utilité apparaît à un moment précis — se rappeler un remplacement passé, en discuter avec le garage ou montrer l’historique à un acheteur. On peut commencer par transférer quelques documents réels, puis chercher l’événement voulu quelque temps plus tard. L’important est de savoir si le propriétaire est prêt à ajouter des enregistrements régulièrement après un passage au garage.\n\nLes trajets professionnels sont une direction à part, avec une vérification quotidienne et des exigences sur les rapports. Le diagnostic demande en plus une compatibilité matérielle éprouvée. Il est trop tôt pour ajouter les deux directions au nom d’une longue liste de fonctions : chacune complique le produit, et une archive simple n’en devient pas plus utile."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "L’essentiel",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "Les tâches des gens",
+   "depth": 0
+  },
+  {
+   "id": "theme-mileage",
+   "title": "Rassembler les trajets en un historique vérifié",
+   "depth": 0
+  },
+  {
+   "id": "observation-record",
+   "title": "Repérer à temps un trajet manquant",
+   "depth": 1
+  },
+  {
+   "id": "observation-report",
+   "title": "Obtenir un rapport sur le travail choisi",
+   "depth": 1
+  },
+  {
+   "id": "observation-power",
+   "title": "Tester l’enregistrement dans les conditions de sa propre journée de travail",
+   "depth": 1
+  },
+  {
+   "id": "theme-service",
+   "title": "Comprendre ce qui est arrivé à la voiture",
+   "depth": 0
+  },
+  {
+   "id": "observation-archive",
+   "title": "Retrouver le reçu avec le travail effectué",
+   "depth": 1
+  },
+  {
+   "id": "observation-interval",
+   "title": "Régler un rappel pour un travail précis",
+   "depth": 1
+  },
+  {
+   "id": "observation-fuel",
+   "title": "Corriger l’historique des pleins sans le refaire",
+   "depth": 1
+  },
+  {
+   "id": "observation-garage",
+   "title": "Séparer l’historique des différents engins",
+   "depth": 1
+  },
+  {
+   "id": "theme-diagnostic",
+   "title": "Préparer les données pour la conversation avec le garage",
+   "depth": 0
+  },
+  {
+   "id": "observation-codes",
+   "title": "Enregistrer le code sans diagnostic hâtif",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "L’historique d’entretien d’abord",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

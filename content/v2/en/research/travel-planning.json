@@ -1,0 +1,432 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "travel-planning",
+ "name": "Travel planning",
+ "summary": "A trip plan is useful when you can act on it: find a confirmation, notice something missing and work out a change to the itinerary.",
+ "corpus": {
+  "reviews": 25175,
+  "apps": 90
+ },
+ "lead": "At the entrance it turns out the inbox holds the purchase confirmation but not the voucher. After a flight is canceled, the rebooking link leads back to the same cancellation. In both cases the information about the trip has been gathered, and the next step is still unclear.\n\nLet’s look at how to avoid that break: check that a booking transferred, settle things with your travel companions and get the documents ready before leaving. Hunting for good deals and keeping a travel diary solve other jobs — they are no substitute for dependable work with decisions already made.",
+ "cover": {
+  "src": "research/ResearchLaunch_travel-planning_cover",
+  "alt": "Travel planning",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_travel-planning_audiences",
+  "alt": "Different jobs in the “Travel planning” category.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Gathering confirmations from different services",
+   "body": "Bookings from different services have to add up to a single plan with the right dates, places and participants. What matters is seeing the result of the transfer and noticing the missing parts before the trip."
+  },
+  {
+   "title": "Organizing a trip for a group",
+   "body": "Every travel companion needs the shared itinerary, but the right to change it and access to the documents may differ. Expenses have to be tied to the participants and to a basis for the calculation people can follow."
+  },
+  {
+   "title": "Finding your way during the trip",
+   "body": "On the road you need fast access to the ticket, the address and the trip in progress. When a booking changes, what matters is finding not only the message about the problem but an action you can take on it."
+  }
+ ],
+ "sections": [
+  {
+   "id": "assemble",
+   "title": "Assemble the trip from confirmed parts",
+   "intro": "An attractive offer, a purchased ticket and a parsed email are different states. Telling them apart matters.",
+   "art": null,
+   "observations": [
+    {
+     "id": "bookings",
+     "title": "Notice what didn’t make it out of the email",
+     "passages": [
+      "A single itinerary removes the question of which service the hotel or the car was booked through. Parts that are linked also let you see an absence: between a flight and the next day the confirmation you need may simply not be there. It is that wholeness that makes the assembly more useful than a folder of forwarded emails.",
+      "The import has to show what was extracted from each source: dates, segments, participants and the fields that didn’t carry over. An accepted email still has to be turned into an entry you can check. Convenient manual correction helps finish the assembly while keeping the original confirmation next to the result.",
+      "If a forwarded email is rejected, the person has to see the reason and a way to add the booking by hand. Forwarding it again with no explanation is pointless. It helps to keep the link to the original email, so the dates and segments entered can be checked. For a travel agent it is also a way to check the itinerary before handing it to the client."
+     ],
+     "quotes": [
+      {
+       "text": "This automatically pulls my flight, hotel and rental car info and puts it into an easy to read itinerary. I travel so much for work so I have forgotten to book a hotel or rental car before and I was able to notice it last minute because TripIt noticed that something was missing. Thank you!",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "I have been using this app for more than 10 years. Love how it keeps all your travel data in one place. I can no longer remember which portal I booked which segment at, but tripit keeps it all in one place for me. Simply forward the reservation email",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "I use this app quite a bit. It helps me in all my vacation planning for all my future trips. Lately though I keep getting rejections from email flight reservations. If I just forward the booking email from an airline it will bounce back many times. I'm not sure why and sometimes I have to go in to t",
+       "rating": 3,
+       "app": "TripIt: Travel Planner"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_bookings",
+      "alt": "Illustration for the theme “Notice what didn’t make it out of the email”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-bookings",
+       "title": "Notice what didn’t make it out of the email",
+       "body": "",
+       "ideas": [
+        "travel-planning-6",
+        "travel-planning-2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "constraints",
+     "title": "Search inside the real constraints",
+     "passages": [
+      "On a trip with several stops, what matters is comparing the whole path. Individual good fares still have to be joined up by dates and times. A positive review shows interest in exactly that: searching for options across several segments.",
+      "A limit on the number of segments breaks that scenario before any comparison begins. An author tries to enter three flights, but the mobile interface allows only two. So the first thing to allow is describing the real trip; suitable combinations come after that.",
+      "Flexible dates also have to stay inside the person’s own conditions. A trip from Friday to Monday doesn’t become a fit because the service called Thursday and Saturday the weekend. The boundaries that cannot move should be set before the search and kept for every new option."
+     ],
+     "quotes": [
+      {
+       "text": "I was able to find the the multiple stops for my vacation with plenty of options",
+       "rating": 4,
+       "app": "KAYAK: Flights, Hotels & Cars"
+      },
+      {
+       "text": "I'm trying to book a 3 segment trip. The webpage for PC is crashing, and the app does not offer the option to add another flight beyond the 2 existing slots :(",
+       "rating": 2,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "It would be super great if you could choose the amount of time that you want to go before checking the place with flexible dates I just want to travel between Friday and Monday and every time I hit weekend trips it gives me flight from Thursday to Saturday that's not a weekend trip on Thursday and F",
+       "rating": 4,
+       "app": "Skyscanner Flights & Travel"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-constraints",
+       "title": "Search inside the real constraints",
+       "body": "On a road trip the same job comes up when stops are added: a new point shouldn’t send the person back over ground already covered. But whether a road suits a particular vehicle takes a separate check.",
+       "ideas": [
+        "travel-planning-4"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "price",
+     "title": "Compare the same terms",
+     "passages": [
+      "A drop alert answers a clear question: what has changed in the offer being watched. It is useful if the person recognizes the same route and the same terms. A price without the contents of the offer is not yet a basis for comparing options.",
+      "Advice to wait is already a forecast. An author describes following it and watching the price go up. That experience is no basis for judging any forecasting system, but it does show why waiting cannot be presented with the confidence of an offer already in hand.",
+      "Even the current price has to be checked again at the handoff to the seller. If the amount there is different, it has to be clear whether the baggage, the fare, the dates or the offer itself has changed. The service should keep the parameters of the comparison and show when the price was observed, not only an attractive figure."
+     ],
+     "quotes": [
+      {
+       "text": "Tells you automatically price decreases",
+       "rating": 4,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "TLDR: It cost me over 300+ dollars telling me the flight would go down when in reality it skyrocketed to almost 1000/pp It seemed like hopper was perfect to view multiple flights across multiple airlines,\nCompare prices, and even have the option to watch flights and Hopper would notify you when the",
+       "rating": 3,
+       "app": "Hopper: Flights, Hotels & Cars"
+      },
+      {
+       "text": "Lately I have started noticing the advertised price is generally not available once you are redirected to the actual provider site. Just fly being particularly dishonest about the price advertised vs the price that pops up just as you're to hit submit. I do like the flexibility of search in momondo",
+       "rating": 3,
+       "app": "momondo: Flights, Hotels, Cars"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_price",
+      "alt": "Illustration for the theme “Compare the same terms”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-price",
+       "title": "Compare the same terms",
+       "body": "Information about free seats and mobile coverage also goes out of date fast. The ideas that follow are best treated as work on the quality of the observations: without data that is fresh enough, a new interface won’t make them dependable.",
+       "ideas": [
+        "travel-planning-1",
+        "travel-planning-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coordinate",
+   "title": "Agree on a shared plan",
+   "intro": "Participants have to understand the itinerary, their own expenses and what is still to be decided in the same way.",
+   "art": null,
+   "observations": [
+    {
+     "id": "group",
+     "title": "Separate a proposal from an agreement",
+     "passages": [
+      "A shared plan cuts down on repeated explanations when everyone has the same information about the trip. But the organizer’s link doesn’t always give a companion the full booking or a way to see the documents they need. It matters to tell apart taking part in the itinerary, the right to change it, and access to specific confirmations.",
+      "The expense calculation adds a question of its own: who is included in each amount and why a share came out the way it did. Combining logistics and money is convenient as long as the reasoning stays readable. What is worth testing is a change in the makeup of the group and a change to a single expense, not only the first time the plan is published.",
+      "In a group it matters to tell a place someone suggested from a ticket already bought. A vote helps make the choice, but the outcome has to move into the shared plan with a status people can follow. Expenses benefit from the same transition: record the amount, pick the participants and explain the calculation, including the case where one person joined later."
+     ],
+     "quotes": [
+      {
+       "text": "Love this as I can share with the other travelers in my party. There are no miscommunications!",
+       "rating": 5,
+       "app": "TripIt: Travel Planner"
+      },
+      {
+       "text": "As many know trip planning and organizing can be stressful and it's hard getting everyone on the same page. This app made planning my trip and logistics soooo much better! I love the layout and i love how it includes splitting costs and budgets because it avoids all unnecessary drama so everyone can",
+       "rating": 5,
+       "app": "Batch: Let's Party"
+      },
+      {
+       "text": "My only gripe is how money is calculated it makes it a little complicated",
+       "rating": 4,
+       "app": "Batch: Let's Party"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-group",
+       "title": "Separate a proposal from an agreement",
+       "body": "",
+       "ideas": [
+        "travel-planning-5",
+        "travel-planning-3"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "day",
+     "title": "Build the day from your own address",
+     "passages": [
+      "In an unfamiliar city a map helps group nearby places together and avoid covering the same ground several times. An author values the combination of location and time: it gives the basis for a day rather than just a selection of sights.",
+      "But proximity is only part of planning. A timed-ticket visit, lunch or the need to pick up your bags can change what order is convenient. So places have to stay rearrangeable, and the consequences of a change have to be visible in the plan for the day.",
+      "The route starts from the person’s real address. If their accommodation isn’t in the hotel catalog, the point has to be enterable by hand. Otherwise the optimization runs from somebody else’s starting point, and the traveler has to rebuild the day themselves."
+     ],
+     "quotes": [
+      {
+       "text": "Love this app! Frequently use it to organize our vacation sightseeing adventures. Great suggestions of things to do and attractions near by. The time and map features help us see more without backtracking. Lots of hidden gems.",
+       "rating": 5,
+       "app": "Visit A City"
+      },
+      {
+       "text": "I am a huge planner, being able to see and plan based on proximity in big cities, making the most of your time so you aren't zig zagging is huge. This app is great and so helpful",
+       "rating": 5,
+       "app": "Wanderlog - Travel Planner"
+      },
+      {
+       "text": "If it doesn't know your hotel, you don't have a starting point! You need to be allowed to enter an address because maybe my \"hotel\" point is an Airbnb. It's kinda useless!",
+       "rating": 1,
+       "app": "Visit A City"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_day",
+      "alt": "Illustration for the theme “Build the day from your own address”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-day",
+       "title": "Build the day from your own address",
+       "body": "",
+       "ideas": [
+        "travel-planning-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "title": "Use the plan on the road",
+   "intro": "At the departure gate or the museum door, what matters is the next step. Getting to it shouldn’t require reassembling the whole trip.",
+   "art": null,
+   "observations": [
+    {
+     "id": "documents",
+     "title": "Open the ticket you need without hunting for it",
+     "passages": [
+      "A payment confirmation and a document that gets you in are different results. At the door a specific voucher or code may be required, while the email only reports the purchase. Even a ticket you prepared loses its use if reaching it depends on an app that is unavailable at that moment.",
+      "Before setting out it is worth checking which document will be needed and whether the prepared copy opens. Information that needs a refresh over the network should be visible separately. That approach keeps access to what you already have and makes it clear which current details you will have to go back to the source for.",
+      "Before departure it helps to show which documents are already saved on the device and which are still available only through a link. A static copy and changeable flight information are current to different degrees. The person has to understand what they will be able to open without a network and what will have to be checked again."
+     ],
+     "quotes": [
+      {
+       "text": "Prices competitive, vouchers all worked well, app had easy interface and I appreciated the reminders.",
+       "rating": 5,
+       "app": "GetYourGuide: Plan & Book"
+      },
+      {
+       "text": "I booked universal studio Singapore through MMT app\nAnd they only sent me the confirmation Mai but without the voucher (QR code).\nNow at 1:10pm I'm standing outside universal and trying to contact them but everyone says it's not their department Never book anything through them",
+       "rating": 1,
+       "app": "MakeMyTrip Flight, Hotel, Bus"
+      },
+      {
+       "text": "I like CityPASS. It offered a good value. But, when I needed to use the pass, the app was unavailable for 2 hours. The screen was just white. I reset my phone. Connected to wifi. Nothing seemed to work. You should take screenshots of your tickets to ensure you can use them in case the app is down li",
+       "rating": 3,
+       "app": "My CityPASS"
+      }
+     ],
+     "art": null,
+     "placements": []
+    },
+    {
+     "id": "change",
+     "title": "See the next step after a change",
+     "passages": [
+      "During the trip, information about your own booking and your connection is especially valuable. A positive review describes exactly that experience: the person knows what will happen to their bag on the next leg. Convenient access to one specific trip matters more than a general showcase of destinations.",
+      "After a delay that access becomes critical. When the app is slow and managing the booking is hard to find, a person cannot move from the message to an action. The current itinerary, the original confirmation and the possible ways of changing it have to be next to each other.",
+      "A replacement that has been offered and one that has been accepted have to be told apart. Automatic rebooking doesn’t suit the author, and the link gives no way to choose a different option. An assistant can show the connected transfer and overnight stay, but it should not treat them as automatically changed along with the flight."
+     ],
+     "quotes": [
+      {
+       "text": "Helped a lot from reservation to reaching your destination. App sends excellent information that even an agent was not able to assure during check in. Specifically that my bag will be transferred by Air Canada to my second transfer flight. Managing your booking at the App is awesome. A 5 star App.",
+       "rating": 5,
+       "app": "Air Canada + Aeroplan"
+      },
+      {
+       "text": "The app is really slow and lags, especially when trying to make changes to flight plan after delay or cancellations of flights. Very difficult to navigate. Should have a search very easy to access at home page, and each feature should be easy to access via each tab.",
+       "rating": 2,
+       "app": "United Airlines"
+      },
+      {
+       "text": "I have a flight a full month from now that was canceled. The alternative route KLM rebooked me on automatically does not work for me. It says in my booking that I can rebook on my own using my manage booking link, but that is a loop to the message that my original flight is canceled and does not all",
+       "rating": 1,
+       "app": "KLM - Book a flight"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_travel-planning_change",
+      "alt": "Illustration for the theme “See the next step after a change”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First — a booking you can check and the next step",
+  "body": "The most convincing direction is carrying a trip already bought through to use: check the import, find the actual ticket and work out what to do after a flight changes. These difficulties arise at the moment when a person already has commitments and little time to reassemble the information. For a first version it is worth picking one such transition and testing it on an incomplete email or a booking that has changed.\n\nA shared group plan can strengthen that solution. A travel diary is a separate product with a different purpose. And reference tools for flight loads and eSIMs still depend above all on the quality and freshness of the data: a new presentation on its own does not remove their weak point."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-assemble",
+   "title": "Assemble the trip from confirmed parts",
+   "depth": 0
+  },
+  {
+   "id": "observation-bookings",
+   "title": "Notice what didn’t make it out of the email",
+   "depth": 1
+  },
+  {
+   "id": "observation-constraints",
+   "title": "Search inside the real constraints",
+   "depth": 1
+  },
+  {
+   "id": "observation-price",
+   "title": "Compare the same terms",
+   "depth": 1
+  },
+  {
+   "id": "theme-coordinate",
+   "title": "Agree on a shared plan",
+   "depth": 0
+  },
+  {
+   "id": "observation-group",
+   "title": "Separate a proposal from an agreement",
+   "depth": 1
+  },
+  {
+   "id": "observation-day",
+   "title": "Build the day from your own address",
+   "depth": 1
+  },
+  {
+   "id": "theme-travel",
+   "title": "Use the plan on the road",
+   "depth": 0
+  },
+  {
+   "id": "observation-documents",
+   "title": "Open the ticket you need without hunting for it",
+   "depth": 1
+  },
+  {
+   "id": "observation-change",
+   "title": "See the next step after a change",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First — a booking you can check and the next step",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

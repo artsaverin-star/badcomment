@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "translator-5",
+ "category": "translator",
+ "categoryName": "Traducteurs",
+ "title": "Une conversation avec des tours de parole explicites",
+ "description": "Chacun termine lui-même sa phrase, puis écoute la traduction et la réponse.",
+ "cover": {
+  "src": "ideas/translator-5",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "La détection automatique des pauses coupe parfois la parole à celui qui parle. Un simple bouton peut donner à la conversation un rythme prévisible."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "La détection automatique en mode Conversation est trop agressive. Quand je partage un téléphone avec un ami, l’appli me coupe sans arrêt et balance les traductions alors que je suis encore en train de parler. Ça crée une superposition de sons confuse qui gâche la conversation. S’il vous plaît, remettez les commandes d’enregistrement manuelles et",
+    "rating": 3,
+    "app": "Google Translate"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment cela pourrait fonctionner"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Rendre clairs les états d’enregistrement, de traduction et de lecture audio. Permettre de corriger ce qui a été reconnu avant que ce soit prononcé."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Vérifier l’usage d’un seul téléphone à deux. Le bouton ne doit pas obliger à surveiller sans cesse de petites étiquettes ni à passer d’un côté à l’autre de façon compliquée."
+  }
+ ],
+ "rank": 473,
+ "free": false
+}

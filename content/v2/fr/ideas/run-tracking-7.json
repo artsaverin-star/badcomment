@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "run-tracking-7",
+ "category": "run-tracking",
+ "categoryName": "Course à pied",
+ "title": "Des indications sur la zone de fréquence cardiaque choisie",
+ "description": "Le changement de zone s’entend sans regarder la montre en permanence.",
+ "cover": {
+  "src": "ideas/run-tracking-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "L’utilisateur veut être informé de la zone de fréquence cardiaque qu’il a choisie sans regarder la montre en permanence. L’avis demande directement des notifications ; c’est plus précis qu’une supposition selon laquelle les signaux existants seraient déjà trop fréquents."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Ce que j’aimerais vraiment, c’est pouvoir activer les notifications de zone de fréquence cardiaque pour savoir dans quelle zone je suis, si je dois ralentir ou accélérer.",
+    "rating": 3,
+    "app": "Nike Run Club: Running Coach"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Signaler le changement demandé"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Permettre de définir la plage et les conditions d’un message : uniquement à la sortie de celle-ci, par exemple. Montrer l’ancienneté de la mesure et permettre de couper les signaux répétés pendant la séance."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "Ce qui reste ici la décision de la personne"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "L’app indique la valeur mesurée et son rapport à la plage choisie. Elle ne doit pas faire passer la notification elle-même pour une raison d’augmenter la charge, ni promettre une meilleure forme."
+  }
+ ],
+ "rank": 256,
+ "free": false
+}

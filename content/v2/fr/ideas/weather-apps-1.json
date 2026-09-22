@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-1",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "Les conditions sur un plan d’eau choisi",
+ "description": "Le vent, la houle et les marées à côté de l’heure et du lieu de la prévision.",
+ "cover": {
+  "src": "ideas/weather-apps-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Sur l’eau, on a besoin de comparer plusieurs conditions qu’une fiche météo générale montre séparément."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Je suis capitaine de sorties de pêche à Ocean Isle Beach, NC et j’utilise l’appli Windy tous les jours pour préparer les sorties. Super simple, fiable et précis.",
+    "rating": 5,
+    "app": "Windy.com"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment ça pourrait marcher"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Enregistrer le plan d’eau et l’intervalle, et comparer les paramètres disponibles avec les observations faites sur place. Afficher pour chacun son ancienneté et ses unités."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Un tel bulletin aide à comprendre les données et ne garantit pas une sortie sans danger."
+  }
+ ],
+ "rank": 12,
+ "free": false
+}

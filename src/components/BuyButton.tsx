@@ -16,6 +16,7 @@ import {
   trackPaywallView,
 } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
+import { oldLp } from "@/lib/oldHref";
 
 // One honest offer everywhere: the whole product forever for one payment. Old
 // SKU-shaped props remain accepted while historical call sites are retired,
@@ -50,7 +51,7 @@ export default function BuyButton({
   lifetimeStarsHref?: string;
 }) {
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const pathname = usePathname() || lp;
   const eventSource = source || pathname;
   const item = { id: "lifetime", name: "inApp — полный доступ навсегда", price: ACCESS_PRICE_RUB };

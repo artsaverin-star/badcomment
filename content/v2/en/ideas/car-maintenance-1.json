@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "en",
+ "slug": "car-maintenance-1",
+ "category": "car-maintenance",
+ "categoryName": "Car maintenance",
+ "title": "A driver’s shift log",
+ "description": "You can see which trips were recorded and where something needs checking before the totals are drawn.",
+ "cover": {
+  "src": "ideas/car-maintenance-1",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "A gap in background recording is often discovered at the end of the month. By then individual routes are hard to reconstruct."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "I’ve been using Stride for a year this has happened before but this week it happened twice where it did not record my mileage for the entire day and it’s very important for me because I’m an Uber and Lyft Driver and these lost days can cost me hundreds of dollars",
+    "rating": 2,
+    "app": "Stride: Mileage & Tax Tracker"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "How this could work"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Show the state of the recording and offer a short check at the end of the shift. Keep recorded stretches and manually restored ones apart."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "What to watch for"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Different sources of mileage can count differently. A comparison should explain the discrepancy rather than automatically declare one total correct."
+  }
+ ],
+ "rank": 207,
+ "free": false
+}

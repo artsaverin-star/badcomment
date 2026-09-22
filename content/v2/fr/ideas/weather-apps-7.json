@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "locale": "fr",
+ "slug": "weather-apps-7",
+ "category": "weather-apps",
+ "categoryName": "Météo",
+ "title": "Suivre l’évolution d’une tempête",
+ "description": "Le lieu choisi, les changements de la prévision et les alertes disponibles, réunis.",
+ "cover": {
+  "src": "ideas/weather-apps-7",
+  "alt": "",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "blocks": [
+  {
+   "id": "context",
+   "kind": "paragraph",
+   "text": "Une carte générale avec une ligne de trajectoire n’explique pas à quelle heure se rapporte la dernière mise à jour."
+  },
+  {
+   "id": "example",
+   "kind": "quote",
+   "quote": {
+    "text": "Pendant l’ouragan Milton j’ai utilisé cette appli pour suivre de près la trajectoire jusqu’à la côte et décider quand et où évacuer. Très utile et facile à utiliser.",
+    "rating": 5,
+    "app": "Zoom Earth - Weather Forecast"
+   }
+  },
+  {
+   "id": "approach",
+   "kind": "heading",
+   "text": "Comment ça pourrait marcher"
+  },
+  {
+   "id": "approach-text",
+   "kind": "paragraph",
+   "text": "Afficher l’heure d’émission, la zone prévue et ses changements, et garder un accès aux messages officiels. Permettre de suivre plusieurs adresses."
+  },
+  {
+   "id": "detail",
+   "kind": "heading",
+   "text": "À quoi faire attention"
+  },
+  {
+   "id": "detail-text",
+   "kind": "paragraph",
+   "text": "Une prévision comporte de l’incertitude. Une seule ligne fine ne doit pas donner l’apparence d’une trajectoire future exacte."
+  }
+ ],
+ "rank": 58,
+ "free": false
+}

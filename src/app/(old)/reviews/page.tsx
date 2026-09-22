@@ -4,6 +4,7 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { listReviewCatalogue, totals } from "@/lib/reviews";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +30,9 @@ export default async function ReviewsHome() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
+  // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
+  const seoLoc = ru ? "ru" : "en";
   const niches = listReviewCatalogue(locale);
   const summary = totals();
   const access = await getAccess();
@@ -48,7 +51,7 @@ export default async function ReviewsHome() {
     description: ru
       ? `${summary.sourceReviews} полных отзывов о ${summary.sourceApps} приложениях с поштучной многотемной разметкой.`
       : `${summary.sourceReviews} complete reviews across ${summary.sourceApps} apps with per-review multi-topic labels.`,
-    url: `https://inapp.pro${lp}/reviews`,
+    url: `https://inapp.pro/${seoLoc}/reviews`,
     creator: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
     variableMeasured: ["review text", "star rating", "topics"],
   };

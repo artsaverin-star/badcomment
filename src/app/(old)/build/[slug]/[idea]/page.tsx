@@ -21,6 +21,7 @@ import personaCovers from "@/data/personaCovers.json";
 import ideaCovers from "@/data/ideaCovers.json";
 import channelsEn from "@/data/channels.en.json";
 import BuildWizard, { type BuildData } from "@/components/BuildWizard";
+import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +44,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = ru ? "/ru" : "/en";
+  const lp = oldLp(ru);
   const niche = getNicheName(slug, locale);
   const idea = getIdea(ideaSlug);
   if (!niche || !idea || idea.category !== slug) notFound();

@@ -1,0 +1,427 @@
+{
+ "version": 1,
+ "locale": "en",
+ "category": "plant-care",
+ "name": "Plant care",
+ "summary": "Recognizing a plant, remembering its care and working out what a changed leaf means are different jobs, held together by the history of one particular specimen.",
+ "corpus": {
+  "reviews": 14107,
+  "apps": 64
+ },
+ "lead": "When the leaves change, the name of the species is not enough: you have to remember what has been happening to that one plant. When there are several similar pots at home, the date of the last watering matters more than recognizing every snapshot again.\n\nSo we will start with the personal journal, which works even without an exact name. Then we will look at how to connect it to reminders and to examining an unusual condition. That order makes it possible to tell useful help from a catalog that starts getting to know the plant from scratch every time.",
+ "cover": {
+  "src": "research/ResearchLaunch_plant-care_cover",
+  "alt": "Plant care",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiencesArt": {
+  "src": "research/ResearchLaunch_plant-care_audiences",
+  "alt": "Different jobs in the “Plant care” category.",
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ "audiences": [
+  {
+   "title": "Keeping a collection of houseplants",
+   "body": "An experienced owner needs a journal of their own: photographs, the names of individual specimens and the most recent actions. A rare variety or a recognition error should not stand in the way of adding a new pot."
+  },
+  {
+   "title": "Fitting watering to real conditions",
+   "body": "Everyday care means matching the reminder against what is happening at home or in the garden. The owner sees the soil and the weather and knows how they water. Their observation should shape the record and the next step, rather than count as an error in the schedule."
+  },
+  {
+   "title": "Working out a new symptom",
+   "body": "With a new symptom, a person wants to understand what to check and how to keep watching. They need clear clarifications and a link between the answer, the photograph and the conditions. The name of a suspected problem makes sense inside that examination, not instead of it."
+  }
+ ],
+ "sections": [
+  {
+   "id": "collection",
+   "title": "Keeping your plant and its history",
+   "intro": "A card for a specimen should exist even when the exact name is not yet known.",
+   "art": null,
+   "observations": [
+    {
+     "id": "identity",
+     "title": "Create a card before the exact identification",
+     "passages": [
+      "Recognition helps you start getting to know a plant, but the camera’s answer can change. In the first review a person compares the names offered with the order they know they placed. What they need is a way to keep their own name and refine the identification, not to accept one of the options again.",
+      "Sending the same image a second time should not turn into guesswork either. It helps to separate the specimen’s own name from the guess at the species. The photograph, the location and the care history are saved straight away; the reference part can be corrected later without creating a new plant.",
+      "Even an experienced owner may want exactly a journal rather than an identifier. The author of the next review keeps an orchid diary even though the catalog and the recognition do not satisfy them. So adding by hand is a way of using the app in its own right, not a fallback screen for when the camera fails."
+     ],
+     "quotes": [
+      {
+       "text": "Three days in a row, I took a picture of this plant and it gave me three different strains of what this plant is…\nI know I ordered the Purple Firespike … but the app keeps telling me it's a Mexican honeysuckle or two other varieties, I can't remember.",
+       "rating": 3,
+       "app": "PictureThis - Plant Identifier"
+      },
+      {
+       "text": "Took the same picture and resubmitted it several times & each time it came back with a different identification , all completely wrong.",
+       "rating": 1,
+       "app": "Plant Identifier: ChatPlant AI"
+      },
+      {
+       "text": "Overall, the app is great! I use it as my orchid journal. However, it lacks the intelligence to accurately identify my orchids, and the database for manual searches is quite limited in terms of orchid species.",
+       "rating": 3,
+       "app": "Plantum - AI Plant Identifier"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_identity",
+      "alt": "Illustration for the theme “Starting a card before the exact identification”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    },
+    {
+     "id": "history",
+     "title": "Remember what has been done to each specimen",
+     "passages": [
+      "A personal collection holds more than a list of species. Photographs tell similar specimens apart, and the date of the last watering answers a common practical question. The author below has been using a history like that for years and no longer needs elaborate teaching of the basics of care.",
+      "That work has to survive a change of phone. Matching the number of cards is not enough: it is worth checking the photographs, the recent events and the reminder settings. Otherwise the owner gets empty names instead of their collection and fills in all over again what they once entered.",
+      "An app update should not start the journal from scratch either. The loss of accumulated plants and actions described below cancels out the earlier benefit. Before extending the catalog or adding new advice, it matters more to make what has already been saved available. For a shared collection the next step is seeing who did the care and when, so that the action is not repeated."
+     ],
+     "quotes": [
+      {
+       "text": "I have used this app for 5 years now or more. I am very experienced with my plants, so I prefer the free version. I use it to organize my plants with pictures. But mainly to keep track of the last time it was watered.",
+       "rating": 5,
+       "app": "Planta: Plant & Garden Care"
+      },
+      {
+       "text": "I took a lot of time to set up all of my gardens on here, including care and notifications. When I bought a new phone, nothing transferred over. So disappointing. Loved it until then.",
+       "rating": 2,
+       "app": "Plant Identifier: LeafSnap"
+      },
+      {
+       "text": "I understand this has conveyed to a paid app with a three day trial. What I don't understand is an update deleting all of my plants and progress. Deleted the app. Used it for a long time only to lose everything.",
+       "rating": 2,
+       "app": "Flora - Plant ID & Diagnosis"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-history",
+       "title": "Remember what has been done to each specimen",
+       "body": "",
+       "ideas": [
+        "plant-care-3",
+        "plant-care-8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "care",
+   "title": "Matching the reminder against the real state",
+   "intro": "A schedule helps you not to forget a check. The action is chosen in the light of observations and specific conditions.",
+   "art": null,
+   "observations": [
+    {
+     "id": "watering",
+     "title": "Tell “checked” apart from “watered”",
+     "passages": [
+      "A reminder sets an occasion to check the plant, but it does not replace the owner’s observation. If the soil is still damp, what is needed is a mark saying “checked, watering not required.” An ordinary “done” checkmark creates a false history: later it is no longer clear when the plant was actually watered.",
+      "The way someone waters may also differ from what the program assumes. In the review below a person cannot describe their drip system and gets daily reminders that do not fit. What is needed is visible settings and a correction by hand that keeps the fact of the action separate from the planned date.",
+      "Local conditions set another limit on the schedule. The author from Arizona has to change the calculation because their temperature falls outside the available range. The app should mark a gap like that rather than hand out a schedule with the same confidence as before. For seasonal planting, for the same reason, it matters to separate the dates suggested, the plan chosen and the actual date of the event."
+     ],
+     "quotes": [
+      {
+       "text": "I love this app. Been using it for a little over a year. I do wish it had the ability to tell it when I plant 2 different plants together in 1 pot and most importantly that my plant is still wet when it recommends watering.",
+       "rating": 4,
+       "app": "Greg: Plant Identifier & Care"
+      },
+      {
+       "text": "The watering schedule is problematic as I don't know how to represent a drip system that does a deep soak. The result is I get reminders every day to water plants that should be 1-2 per week.",
+       "rating": 3,
+       "app": "Planta: Plant & Garden Care"
+      },
+      {
+       "text": "I love this app, all except one major gap. I live in Arizona and the temperatures during much of the year are much higher than the top range in the app. Therefore the schedule for watering isn't accurate as calculated by the app. Everything has to be manually adjusted. Also many desert plants are not even in the database.",
+       "rating": 3,
+       "app": "Blossom - Plant Care Guide"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_watering",
+      "alt": "Illustration for the theme “Telling ‘checked’ from ‘watered’”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-watering",
+       "title": "Tell “checked” apart from “watered”",
+       "body": "The same distinction between the plan and the fact is needed in narrower jobs: watching a cutting develop or keeping seasonal plantings. They should not be reduced to one more watering interval.",
+       "ideas": [
+        "plant-care-2",
+        "plant-care-4",
+        "plant-care-5"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "symptoms",
+     "title": "Start from what has changed",
+     "passages": [
+      "A person photographs a changed leaf with a concrete question already in mind. A general verdict of “healthy” does not help when they can see damage, and a list of opposing versions does not explain how to tell them apart. The first useful step is to name the sign they have noticed and to say what the snapshot does not show.",
+      "Tie the questions to that sign: ask for the angle you need or for details of the conditions and the history of the changes. The answer should show which part of the examination rests on the image and which on what the owner has reported. Then carrying on means refining the case rather than sending the same photograph over and over.",
+      "Instead of a confident name for a disease from a single shot, it helps to assemble a sequence: when the sign appeared, how it changed, what was happening with the care. Another angle or a photograph of the whole plant may clear the case up. Product quality shows here in how precise the clarifying questions are and in whether photographs can be compared."
+     ],
+     "quotes": [
+      {
+       "text": "Kept seeing the ad for the app, scanning grass in the yard and identifying issues. Set up the trial, took several pictures of my dying struggling lawn that the lawn guys haven't fixed yet. Close up, far away, etc. Every picture says it's healthy.",
+       "rating": 2,
+       "app": "Plantion - Plant Identifier"
+      },
+      {
+       "text": "This app you have to pay nearly $50 a month to use the diagnose feature by taking a picture. Half the time it says the plant is healthy even when the leaves are yellow and half missing from being eaten by pests.",
+       "rating": 3,
+       "app": "Plantfie・Plant Care Identifier"
+      },
+      {
+       "text": "I've purchased the subscription based on an advert I saw on Instagram. It was quite straightforward video how this app would recognize the plant and would give very specific advice. Instead it gave very generic advice like 'it's either overwatering or under watering' without any real specific input.",
+       "rating": 2,
+       "app": "Plantion - Plant Identifier"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-symptoms",
+       "title": "Start from what has changed",
+       "body": "",
+       "ideas": [
+        "plant-care-1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "action",
+     "title": "Save the action and look at what happened",
+     "passages": [
+      "Help with a problem is not the same as an ordinary species card. The person already knows the name of the plant but does not understand what has changed and what to do next. In the review below a photo album is seen as useless precisely because it does not answer that question.",
+      "A positive story shows a different outcome: the author got an explanation and a clear way to carry on with the care. That is evidence of one case, not a test of how accurate the method is. It helps to save the action chosen alongside the date and the original photograph, so that the next answer takes account of what has already been done.",
+      "Sometimes the continuation happens outside the app. The author below mentions further questions at the nursery outright. A short history of photographs, conditions and actions helps to hand the case to a person and to come back with a new observation. It is worth more than yet another independent answer about the same plant with no memory of the previous attempt."
+     ],
+     "quotes": [
+      {
+       "text": "I know what my plants are, I need to know what problems exist and what can be done. I do not need a photographic album of them. H E L P me save my plants.",
+       "rating": 1,
+       "app": "PlantAI: Identifier & Diagnose"
+      },
+      {
+       "text": "Saved my favorite plant. It correctly diagnosed an overwatering issue and gave a solid care schedule. Taking off one star because the photo scanner can be a bit picky if the lighting isn't perfect, but otherwise great.",
+       "rating": 4,
+       "app": "Plant Identifier & Care App"
+      },
+      {
+       "text": "I downloaded this a while back, not thinking it would actually be of some good BUT I was totally wrong. Because of this app (and further research at a nursery), I have about 10 thriving plants and I knew nothing of gardening firsthand! This app makes me proud to be a learning gardener.",
+       "rating": 5,
+       "app": "Planta: Plant & Garden Care"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_action",
+      "alt": "Illustration for the theme “Saving an action and seeing what happened”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": [
+      {
+       "directionId": "launch-action",
+       "title": "Save the action and look at what happened",
+       "body": "",
+       "ideas": [
+        "plant-care-6"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pet",
+     "title": "Pin down the plant, the animal and the basis of the information",
+     "passages": [
+      "A question about a plant near a pet calls for specifics: which plant and which animal are we talking about. A general “pet friendly” label hides those differences, and opposite captions in the search and on the saved card make the information unusable for a choice.",
+      "Use a consistent name and show a verifiable source for the information, with the animal named. The camera’s guess has to stay distinguishable from a confirmed species. If the information needed is not there, mark the gap; the absence of an entry in a reference book should not be turned into a positive mark of permission for contact.",
+      "Information like this calls for separate editorial work: consistent names, checked facts and a review date. A recognition error must not quietly turn into a positive recommendation. In a first version it is better to leave the unknown explicitly unknown than to fill the gaps with a general reassuring label."
+     ],
+     "quotes": [
+      {
+       "text": "I wish the app would tell me specifically who the plant is toxic to. Is it people, cats, dogs, rabbits, ferrits, hedgehogs, bearded dragons, sugar gliders, etc. This would greatly help pet parents make good plant choices. I would purchase the app for that because I love plants, but also have pets.",
+       "rating": 3,
+       "app": "Plantfie・Plant Care Identifier"
+      },
+      {
+       "text": "I have a Madagascar Tree (Dracaena Marginata) and in the search it says it's pet friendly but once I add it to my plants it says it's toxic to pets so which is it?",
+       "rating": 3,
+       "app": "Flora - Plant ID & Diagnosis"
+      }
+     ],
+     "art": null,
+     "placements": [
+      {
+       "directionId": "launch-pet",
+       "title": "Pin down the plant, the animal and the basis of the information",
+       "body": "",
+       "ideas": [
+        "plant-care-7"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "help",
+   "title": "Getting help you can carry on with",
+   "intro": "A useful examination of a case keeps the information already gathered and lets you come back with a new observation.",
+   "art": null,
+   "observations": [
+    {
+     "id": "expert",
+     "title": "Understand who is answering and how to carry on",
+     "passages": [
+      "A fast automatic answer and turning to a specialist create different expectations. In the first case what is valued is getting information at once and being able to ask a follow-up. The positive review below also acknowledges mistakes — a convenient chat is not the same as a faultless examination.",
+      "The helper’s name does not by itself explain the format. The next author does not understand who looked at their case: a person or an automated system. Before the question is sent and paid for, it has to be clear what help is on offer and what information it takes into account.",
+      "If what was paid for is contact with a person, waiting for the answer becomes part of the service. What is needed is a clear status for the request and a clear way to carry on; the weeks of not knowing described below cannot be fixed with new photographs on the card. The material gathered is worth keeping in one case, so that when the answer comes the whole description does not have to start again."
+     ],
+     "quotes": [
+      {
+       "text": "This app is very helpful for diagnosing diseases and curing plants. I like the variety of different tools that you can use, and the AI chat to get quick info about them. Though there have been a few times that the app has given inaccurate information, it is good for the most part.",
+       "rating": 4,
+       "app": "PlantAI: Identifier & Diagnose"
+      },
+      {
+       "text": "I remember when this app had a human review plant questions, and issues when submitted. Now it's AI only. Even when you submit something using the plant health feature it's strangely tells you it's reviewed by 'Kate.' I'm guessing Kate is AI generated? A bit confusing to mislead people that a human is behind it.",
+       "rating": 4,
+       "app": "Blossom - Plant Care Guide"
+      },
+      {
+       "text": "Hi there well I think it's very helpful because I can identify plants. It doesn't always work so well with deciding whether a plant is healthy or not. Sometimes I disagree however what really irritated me is that I paid $20 to have a Plant expert help me with a plant and that was weeks and weeks ago.",
+       "rating": 3,
+       "app": "Plantum - AI Plant Identifier"
+      }
+     ],
+     "art": {
+      "src": "research/ResearchLaunch_plant-care_expert",
+      "alt": "Illustration for the theme “Knowing who answers and how to go on”.",
+      "widths": [
+       480,
+       800,
+       1200
+      ],
+      "width": 1200,
+      "height": 800
+     },
+     "placements": []
+    }
+   ]
+  }
+ ],
+ "remainingDirections": [],
+ "remainingIdeas": [],
+ "conclusion": {
+  "title": "First, a history you can trust",
+  "body": "The most convincing foundation here is the journal of one particular plant: your own name for it, photographs, real actions and survival through a change of phone. It is useful both to the experienced owner who does not need an identifier and to the beginner who will ask for help later. The next improvement is a reminder that allows the honest answer “checked, did not water yet.”\n\nExamining symptoms, a seasonal calendar and information for pet owners each call for a separate quality of content. They should not be added as confident answers on top of imprecise recognition. First it is necessary to understand which observations the program can connect and explain, and where it should leave the question open. The history of a case gives you something useful to carry on with even when one snapshot is not enough for an answer."
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Key points",
+   "depth": 0
+  },
+  {
+   "id": "audience",
+   "title": "The jobs people do",
+   "depth": 0
+  },
+  {
+   "id": "theme-collection",
+   "title": "Keeping your plant and its history",
+   "depth": 0
+  },
+  {
+   "id": "observation-identity",
+   "title": "Create a card before the exact identification",
+   "depth": 1
+  },
+  {
+   "id": "observation-history",
+   "title": "Remember what has been done to each specimen",
+   "depth": 1
+  },
+  {
+   "id": "theme-care",
+   "title": "Matching the reminder against the real state",
+   "depth": 0
+  },
+  {
+   "id": "observation-watering",
+   "title": "Tell “checked” apart from “watered”",
+   "depth": 1
+  },
+  {
+   "id": "observation-symptoms",
+   "title": "Start from what has changed",
+   "depth": 1
+  },
+  {
+   "id": "observation-action",
+   "title": "Save the action and look at what happened",
+   "depth": 1
+  },
+  {
+   "id": "observation-pet",
+   "title": "Pin down the plant, the animal and the basis of the information",
+   "depth": 1
+  },
+  {
+   "id": "theme-help",
+   "title": "Getting help you can carry on with",
+   "depth": 0
+  },
+  {
+   "id": "observation-expert",
+   "title": "Understand who is answering and how to carry on",
+   "depth": 1
+  },
+  {
+   "id": "conclusion",
+   "title": "First, a history you can trust",
+   "depth": 0
+  }
+ ],
+ "free": false
+}

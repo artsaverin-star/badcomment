@@ -44,9 +44,14 @@ jobs:
       - run: npx prisma generate
       - run: npx tsc --noEmit
       - run: npm run lint
+      # Old-site navigation must stay under /<L>/old (docs/site-v2/ARCHITECTURE.md §5.2).
+      - run: node scripts/check-old-links.mjs
       - run: npm run test:mcp
       - run: npm run test:monetization
       - run: npm run test:market-players
+      # Site v2: public URL routing (src/site/routing/decide.ts) and the generated app content.
+      - run: npm run test:v2-routing
+      - run: node --import tsx scripts/v2/check-content.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
         env:
@@ -114,6 +119,8 @@ jobs:
       - name: Smoke-test production
         run: |
           set -euo pipefail
+          # Site v2 routing (docs/site-v2/ARCHITECTURE.md §1, §5.4): /<L>/mcp and /<L>/tokens are
+          # old pages the new site does not own, so the proxy still serves them IN PLACE.
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/mcp-page.html https://inapp.pro/ru/mcp
           grep -q 'list_niche_themes' /tmp/mcp-page.html
@@ -130,12 +137,14 @@ jobs:
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/access-page.html https://inapp.pro/ru/tokens
           grep -q '990' /tmp/access-page.html
-          # Retired experiments must stay unavailable in both locales.
+          # Retired experiments must stay unavailable in both locales, in place and inside /old.
           for locale in ru en; do
             for path in aso workspace workspace/habit-tracking; do
-              retired_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
-                -o /dev/null -w '%{http_code}' "https://inapp.pro/$locale/$path")"
-              test "$retired_status" = "404"
+              for prefix in "$locale" "$locale/old"; do
+                retired_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+                  -o /dev/null -w '%{http_code}' "https://inapp.pro/$prefix/$path")"
+                test "$retired_status" = "404"
+              done
             done
           done
           pay_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
@@ -143,6 +152,9 @@ jobs:
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"
           test "${pay_status}" = "401"
           # The shared market-player block must render beyond the original pilot.
+          # language-learning, workout-fitness, habit-tracking are launch topics: NEW topic pages
+          # (they show market players with store badges). ai-avatars-headshots and
+          # cosmetics-ingredient-checker are not launch topics: the OLD page served in place.
           for locale in ru en; do
             for niche in language-learning workout-fitness habit-tracking ai-avatars-headshots cosmetics-ingredient-checker; do
               curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
@@ -151,3 +163,18 @@ jobs:
               grep -q '/badges/app-store.svg' /tmp/market-players.html
             done
           done
+          # Site v2: the new site answers on its own URLs (no redirect), and the previous site
+          # stays reachable, noindexed, under /<L>/old with its banner.
+          expect_200() {
+            code="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+              -D /tmp/smoke-headers.txt -o /tmp/smoke-body.html -w '%{http_code}' "$1")"
+            if [ "$code" != "200" ]; then echo "Expected 200 from $1, got $code"; exit 1; fi
+          }
+          expect_200 https://inapp.pro/en
+          expect_200 https://inapp.pro/en/contacts
+          expect_200 https://inapp.pro/ru/segment/interior-design
+          expect_200 https://inapp.pro/ru/old
+          grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt
+          grep -q 'data-old-site-banner="old"' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/ru/old/segment/habit-tracking
+          grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt
