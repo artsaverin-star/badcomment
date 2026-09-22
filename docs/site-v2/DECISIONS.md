@@ -33,7 +33,9 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
 8. **Old site is hidden, not deleted.** No navigation links to it from the new site except: the
    footer/settings link «Старая версия сайта», and «прежняя версия» links on pages that have one.
    Every old page shows a thin banner «Это прежняя версия сайта · Перейти на новую».
-   Inside the old site, navigation stays in `/<loc>/old/...`.
+   Inside the old site, links to pages that have a NEW version stay in `/<loc>/old/...`; links to
+   old-only pages (apps, reviews, rating, …) use their original public URL, where the same old page
+   is served in place (AUDIT-PHASE-A A4 — keeps ~2 700 indexed pages linked to each other).
 
 ## Landing and access
 

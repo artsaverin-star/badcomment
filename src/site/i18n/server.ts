@@ -2,6 +2,7 @@ import "server-only";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
+import { CONTENT_ROOT } from "../content/root";
 import type { Locale } from "./locales";
 import { makeT, type T, type UIPack } from "./translate";
 
@@ -17,7 +18,6 @@ import { makeT, type T, type UIPack } from "./translate";
 // A missing file (dev before the content import) degrades to the built-in shell strings and
 // then the Russian key, with one warning per locale — it never throws.
 
-const CONTENT_ROOT = path.join(process.cwd(), "content", "v2");
 const RETRY_MISSING_MS = 10_000;
 
 type Entry = { at: number; pack: Promise<UIPack | null> };

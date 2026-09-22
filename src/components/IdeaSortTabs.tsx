@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export type SortKey = "founder" | "hot" | "balance" | "money" | "simplicity" | "demand";
 
@@ -20,14 +20,13 @@ const OPTIONS: { key: SortKey; ru: string; en: string }[] = [
 // Changing it navigates to ?sort=<key>, keeping the ranking server-side.
 export default function IdeaSortTabs({ current, cat, locale = "ru" }: { current: SortKey; cat?: string; locale?: Locale }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const router = useRouter();
   const href = (key: SortKey) => {
     const p = new URLSearchParams();
     if (key !== "hot") p.set("sort", key);
     if (cat) p.set("cat", cat);
     const q = p.toString();
-    return q ? `${lp}/ideas?${q}` : `${lp}/ideas`;
+    return q ? oldHref(ru, `/ideas?${q}`) : oldHref(ru, "/ideas");
   };
   // One centred pill showing the current order; the native select sits
   // invisible on top so the pill hugs its label and the dropdown stays native.

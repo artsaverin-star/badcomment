@@ -7,11 +7,19 @@
 //                        equivalent (per-app pages, /reviews/**, /rating/**, /mcp, …),
 //                        or the NEW site when it owns the URL.
 //
-// Navigation inside the old site always stays under /<L>/old/… (DECISIONS §8), so every
-// link, redirect and client navigation in old code goes through oldHref()/oldLp().
+// Links in old code point at the URL that is canonical for the content (owner decision,
+// audit A4 option A): a page served IN PLACE is linked at its original public URL, so the
+// in-place pages keep their internal links and stay indexed; a page whose public URL the
+// NEW site took over is linked as its /<L>/old/… copy, so the old site never links into the
+// new one. oldHref() asks the proxy's own decision (src/site/routing/decide.ts — pure, tiny)
+// which case a path is, so every link, redirect and client navigation in old code goes
+// through oldHref() (or oldNavHref() for redirects). Never build "/<L>/…" or "/<L>/old/…"
+// by hand: scripts/check-old-links.mjs rejects locale literals, `${lp}` templates and
+// oldLp() prefixes, because they cannot see the path.
 // Canonicals, hreflang, og:url, JSON-LD, sitemap, feed, llms, emails, OAuth, webhooks
 // and MCP absolute URLs keep the original public URLs and do NOT use these helpers.
-// scripts/check-old-links.mjs guards this.
+
+import { decideRoute } from "@/site/routing/decide";
 
 export const OLD_SEGMENT = "old";
 
@@ -26,22 +34,58 @@ export function oldLocale(l: LocaleLike): OldLocale {
   return l === "en" || l === false ? "en" : "ru";
 }
 
-/** Old-site locale prefix: "/ru/old" | "/en/old". Replaces the old `ru ? "/ru" : "/en"`. */
+/**
+ * The archive prefix "/ru/old" | "/en/old". Only for code that needs the prefix itself (the
+ * helpers below, tests). Never build links from it — use oldHref(), which sees the path.
+ */
 export function oldLp(l: LocaleLike): string {
   return `/${oldLocale(l)}/${OLD_SEGMENT}`;
 }
 
+/** Splits "/x?q#h" into the pathname and the "?…#…" suffix; "", "?q", "x" and "/?q" all work. */
+function splitPath(path: string): { pathname: string; suffix: string } {
+  let p = path || "/";
+  if (p.startsWith("/?") || p.startsWith("/#")) p = p.slice(1);
+  if (p[0] !== "/" && p[0] !== "?" && p[0] !== "#") p = `/${p}`;
+  const cut = p.search(/[?#]/);
+  return cut === -1 ? { pathname: p, suffix: "" } : { pathname: p.slice(0, cut), suffix: p.slice(cut) };
+}
+
+/** True when the proxy serves `/<L><pathname>` as an old page at that URL (not the new site, no redirect). */
+export function isServedInPlace(l: LocaleLike, pathname: string): boolean {
+  if (!pathname || pathname === "/") return false;
+  const d = decideRoute({ pathname: `/${oldLocale(l)}${pathname}` });
+  return d.type === "rewrite" && d.site === "inplace";
+}
+
 /**
- * Public URL of an old page: oldHref("ru", "/segment/x") → "/ru/old/segment/x".
+ * Public URL of an old page, as a link from old code:
+ *   oldHref("ru", "/reviews/x/1")   → "/ru/reviews/x/1"        (served in place: its own URL)
+ *   oldHref("ru", "/segment/qr-scanner") → "/ru/segment/qr-scanner" (old topic, in place)
+ *   oldHref("ru", "/segment/habit-tracking") → "/ru/old/segment/habit-tracking" (new site owns it)
+ *   oldHref("en", "/"), oldHref("en", "/ideas?cat=x") → "/en/old", "/en/old/ideas?cat=x"
  * `path` is the internal old path ("/", "/ideas?cat=x", "segment/x", "?q=1" all work).
  */
 export function oldHref(l: LocaleLike, path: string = "/"): string {
   const base = oldLp(l);
-  let p = path || "/";
-  if (p.startsWith("/?") || p.startsWith("/#")) p = p.slice(1);
-  if (p === "/") return base;
-  if (p[0] === "?" || p[0] === "#") return base + p;
-  return base + (p[0] === "/" ? p : `/${p}`);
+  const { pathname, suffix } = splitPath(path);
+  if (pathname === "/") return base + suffix;
+  if (isServedInPlace(l, pathname)) return `/${oldLocale(l)}${pathname}${suffix}`;
+  return base + pathname + suffix;
+}
+
+/**
+ * Redirect target for an old page (catalog/categories/premium/v2 stubs, access gates, …).
+ * `mode` is x-ia-site of the current request (getOldSiteMode() in src/lib/oldSite.server.ts):
+ *   "old"  (inside the archive)   → oldHref(): stays in /<L>/old unless the target is in place;
+ *   else   (served in place)      → the public URL, so a visitor who arrived at an indexed
+ *                                   URL is never sent into the noindexed archive (the new
+ *                                   site serves it when it owns the path).
+ */
+export function oldNavHref(mode: string | null | undefined, l: LocaleLike, path: string = "/"): string {
+  if (mode === "old") return oldHref(l, path);
+  const { pathname, suffix } = splitPath(path);
+  return publicHref(l, pathname) + suffix;
 }
 
 export type OldPathParts = {
@@ -82,21 +126,22 @@ export function isOldPublicPath(pathname: string | null | undefined): boolean {
 
 /**
  * The same old page in another locale, for the language switchers:
- *   /ru/old/x → /en/old/x;  in-place /ru/reviews/x → /en/reviews/x;  internal "/x" → /en/old/x.
+ *   /ru/old/x → /en/old/x;  in-place /ru/reviews/x → /en/reviews/x;  internal "/x" → oldHref("en", "/x").
  * Query and hash are not carried over (same as before the move).
  */
 export function switchOldLocale(pathname: string | null | undefined, next: LocaleLike): string {
   const { locale, old, rest } = splitOldPath(pathname);
   if (locale && !old) return `/${oldLocale(next)}${rest === "/" ? "" : rest}`;
+  if (old) return rest === "/" ? oldLp(next) : `${oldLp(next)}${rest}`;
   return oldHref(next, rest);
 }
 
 /**
  * A public URL OUTSIDE /old: publicHref("ru") → "/ru", publicHref("en", "/segment") → "/en/segment".
  * The proxy serves it from the NEW site when the new site owns the path, else the old page in place.
- * Only for deliberate exits from the old site (header logo, OldSiteBanner) and for permanent
- * redirects issued by in-place pages. Links to NEW pages cross root layouts, so render them as
- * plain <a>, not <Link>.
+ * Only for deliberate exits from the old site (header logo, OldSiteBanner) and, through
+ * oldNavHref(), for redirects issued by in-place pages. Links to NEW pages cross root layouts,
+ * so render them as plain <a>, not <Link>.
  */
 export function publicHref(l: LocaleLike, path: string = "/"): string {
   const p = !path || path === "/" ? "" : path[0] === "/" ? path : `/${path}`;

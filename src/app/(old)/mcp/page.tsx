@@ -10,7 +10,7 @@ import InstallPicker from "./InstallPicker";
 import McpConnections, { type McpConnectionView } from "./McpConnections";
 import { plural } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -25,7 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: "/mcp",
+      // Absolute and localized: a bare /mcp canonical answers 307 → /en/…, so ru pages
+      // would declare the en page canonical (audit A9).
+      canonical: `https://inapp.pro/${ru ? "ru" : "en"}/mcp`,
       languages: { ru: "https://inapp.pro/ru/mcp", en: "https://inapp.pro/en/mcp", "x-default": "https://inapp.pro/en/mcp" },
     },
     openGraph: { title, description, type: "website", siteName: "inApp" },
@@ -46,7 +48,6 @@ export default async function McpPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   const access = await getAccess();
   const user = access.user;
   const paid = access.unlimited;
@@ -285,7 +286,7 @@ export default async function McpPage() {
               </li>
             ))}
           </ul>
-          <Link href={`${lp}/reviews/${example.slug}`} className="mt-5 inline-flex text-footnote font-semibold text-[var(--color-text-secondary)] underline underline-offset-3 transition-colors hover:text-[var(--color-text-primary)]">
+          <Link href={oldHref(ru, `/reviews/${example.slug}`)} className="mt-5 inline-flex text-footnote font-semibold text-[var(--color-text-secondary)] underline underline-offset-3 transition-colors hover:text-[var(--color-text-primary)]">
             {ru ? "Открыть все темы и исходные отзывы →" : "Browse every theme and source review →"}
           </Link>
         </Section>
@@ -360,10 +361,10 @@ export default async function McpPage() {
       </Section>
 
       <nav className="mt-12 flex flex-wrap gap-2">
-        <Link href={`${lp}/reviews`} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+        <Link href={oldHref(ru, "/reviews")} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
           {ru ? "Посмотреть отзывы" : "Browse the reviews"}
         </Link>
-        <Link href={`${lp}/rating`} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+        <Link href={oldHref(ru, "/rating")} className="rounded-full border border-[var(--color-border-subtle)] px-3.5 py-1.5 text-footnote text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
           {ru ? "Народный рейтинг" : "People's rating"}
         </Link>
       </nav>

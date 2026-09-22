@@ -1,0 +1,309 @@
+/* Legal pages (Terms of Use, Support, payment offer, website privacy) in the new design:
+   the Settings column (660) on paper, ClarityHeading title, grouped surface cards.
+   Unlayered; every selector is prefixed ia-legal-. Tokens only (tokens.css). */
+
+.ia-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 8px;
+  padding-bottom: 48px;
+}
+
+.ia-legal-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-legal-meta {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-legal-lead {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-synthesis: none;
+  font-size: var(--ia-fs-subtitle);
+  line-height: 1.5;
+  color: var(--ia-secondary);
+  text-wrap: pretty;
+}
+.ia-legal-note {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: var(--ia-radius-group-sm);
+  background: var(--ia-accent-soft);
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+
+/* Contents card */
+.ia-legal-toc {
+  padding: 18px 20px;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-surface);
+}
+.ia-legal-toc__label {
+  margin: 0 0 8px;
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-legal-toc ol {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+.ia-legal-toc li::marker {
+  color: var(--ia-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.ia-legal-toc a {
+  color: var(--ia-accent);
+}
+@media (hover: hover) {
+  .ia-legal-toc a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* Sections */
+.ia-legal-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.ia-legal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-margin-top: 88px;
+}
+.ia-legal-section__title {
+  margin: 0;
+  font: 600 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  letter-spacing: -0.012em;
+  color: var(--ia-ink);
+  text-wrap: balance;
+}
+.ia-legal-section__title--sm {
+  font-size: var(--ia-fs-headline);
+  line-height: var(--ia-lh-headline);
+  letter-spacing: -0.02em;
+}
+.ia-legal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font: 400 var(--ia-fs-body) / 1.6 var(--ia-font-sans);
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-legal-body p {
+  margin: 0;
+  text-wrap: pretty;
+}
+.ia-legal-body ul {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ia-legal-body li::marker {
+  color: var(--ia-secondary);
+}
+.ia-legal-body b {
+  font-weight: 600;
+}
+.ia-legal-link {
+  color: var(--ia-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--ia-accent) 40%, transparent);
+  overflow-wrap: anywhere;
+}
+@media (hover: hover) {
+  .ia-legal-link:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* FAQ / grouped cards */
+.ia-legal-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-legal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: var(--ia-radius-idea-card);
+  background: var(--ia-surface);
+  scroll-margin-top: 88px;
+}
+.ia-legal-card .ia-legal-body {
+  color: var(--ia-secondary);
+  font-size: var(--ia-fs-body);
+  line-height: 1.55;
+}
+
+/* Requisites / developer block */
+.ia-legal-dl {
+  margin: 0;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-surface);
+  overflow: hidden;
+}
+.ia-legal-dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+}
+.ia-legal-dl > div + div {
+  border-top: 0.5px solid var(--ia-line-65);
+}
+@media (min-width: 560px) {
+  .ia-legal-dl > div {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+  }
+}
+.ia-legal-dl dt {
+  flex: none;
+  width: 9.5rem;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-legal-dl dd {
+  margin: 0;
+  font: 400 var(--ia-fs-body) / 1.45 var(--ia-font-sans);
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+
+/* Contact card on /contacts */
+.ia-legal-mailcard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: var(--ia-radius-idea-card);
+  background: var(--ia-accent-soft);
+}
+.ia-legal-mailcard__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 8px;
+  margin: 0;
+  min-height: var(--ia-hit);
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  color: var(--ia-ink);
+}
+.ia-legal-mailcard__icon {
+  color: var(--ia-accent);
+}
+.ia-legal-mailcard__mail {
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  color: var(--ia-accent);
+  overflow-wrap: anywhere;
+}
+
+/* ---- Website privacy (spec 09 G4: the app's privacy sheet layout) ---- */
+.ia-privacy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 620px;
+  margin-inline: auto;
+  width: 100%;
+}
+.ia-privacy-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--ia-radius-modal);
+  background: var(--ia-accent-soft);
+}
+.ia-privacy-hero__art {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  animation: ia-privacy-wobble var(--ia-dur-ambient) ease-in-out infinite;
+}
+.ia-privacy-hero__title {
+  margin: 0;
+  font: 700 var(--ia-fs-large-title) / var(--ia-lh-large-title) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  white-space: pre-line;
+  color: var(--ia-ink);
+}
+.ia-privacy-hero__sub {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-privacy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-radius: var(--ia-radius-idea-card);
+  background: var(--ia-surface);
+}
+.ia-privacy-card .ia-legal-body {
+  gap: 10px;
+  color: var(--ia-secondary);
+  font-size: var(--ia-fs-body);
+  line-height: 1.5;
+}
+.ia-privacy-card code {
+  font: 500 0.92em / 1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-privacy-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.ia-privacy-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--ia-hit);
+  font: 600 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  color: var(--ia-accent);
+}
+.ia-privacy-updated {
+  margin: 0;
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+
+@keyframes ia-privacy-wobble {
+  0%,
+  100% {
+    transform: rotate(-1.4deg) translateY(-2.5px);
+  }
+  50% {
+    transform: rotate(1.4deg) translateY(2.5px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ia-privacy-hero__art {
+    animation: none;
+  }
+}

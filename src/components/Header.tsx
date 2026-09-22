@@ -10,7 +10,7 @@ import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
 import ThemeSwitch from "./ThemeSwitch";
 import { type Locale } from "@/lib/i18n";
-import { oldLp, oldRestPath, publicHref } from "@/lib/oldHref";
+import { oldHref, oldRestPath, publicHref } from "@/lib/oldHref";
 
 // Center nav items: icon + label, active state driven by the current path.
 const NAV: { key: string; path: string; ru: string; en: string; icon: React.ReactNode }[] = [
@@ -58,10 +58,10 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname() || "/";
   const ru = locale !== "en";
-  // Prefix nav links with the active locale so navigation never falls back to
-  // the cookie's language (which caused sections to flip to Russian on click).
-  // The old site lives under /<L>/old, so its nav stays there.
-  const lp = oldLp(locale);
+  // Nav links carry the active locale so navigation never falls back to the
+  // cookie's language (which caused sections to flip to Russian on click).
+  // oldHref(): sections served in place (/rating, /reviews, /mcp, /build) keep
+  // their public URL; the ones the new site took over stay under /<L>/old.
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -119,7 +119,7 @@ export default function Header({
             return (
               <Link
                 key={n.key}
-                href={`${lp}${n.path === "/" ? "" : n.path}`}
+                href={oldHref(locale, n.path)}
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex shrink-0 items-center rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
                   active
@@ -173,7 +173,7 @@ export default function Header({
                 return (
                   <Link
                     key={n.key}
-                    href={`${lp}${n.path === "/" ? "" : n.path}`}
+                    href={oldHref(locale, n.path)}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? "page" : undefined}
                     className={`flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-headline transition-colors ${

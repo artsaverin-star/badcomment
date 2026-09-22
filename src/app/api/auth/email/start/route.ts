@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { mailEnabled, sendMagicLink } from "@/lib/mail";
+import { mailEnabled, sendMagicLink, type MailLocale } from "@/lib/mail";
 import { signEmailToken, isValidEmail, isDisposable } from "@/lib/emailAuth";
 import { appOrigin } from "@/lib/googleAuth";
 
@@ -8,6 +8,8 @@ export const dynamic = "force-dynamic";
 
 const RL_COOKIE = "el_rl"; // soft per-browser cap on how many links we'll send/day
 const RL_MAX = 5;
+// Anything else (including a missing locale) keeps the historical Russian e-mail.
+const OTHER_LOCALES: readonly MailLocale[] = ["en", "de", "fr", "ja"];
 
 // Step 1 of email sign-in: validate the address and send a magic link.
 export async function POST(req: Request) {
@@ -17,7 +19,7 @@ export async function POST(req: Request) {
   const email = typeof body?.email === "string" ? body.email.trim() : "";
   const rawReturn = typeof body?.return_to === "string" ? body.return_to : "";
   const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/cards";
-  const locale = body?.locale === "en" ? "en" : "ru";
+  const locale: MailLocale = OTHER_LOCALES.includes(body?.locale) ? body.locale : "ru";
 
   if (!isValidEmail(email)) return NextResponse.json({ error: "bad_email" }, { status: 400 });
   if (isDisposable(email)) return NextResponse.json({ error: "disposable" }, { status: 400 });

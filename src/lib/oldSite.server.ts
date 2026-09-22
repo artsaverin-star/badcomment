@@ -7,6 +7,8 @@ import { headers } from "next/headers";
 //   x-ia-new-path     public URL of the new-site equivalent, else /<L>
 //   x-ia-soon         "1" for an in-place /segment/<slug> of a topic not yet in the new format
 // Missing headers (local dev without the new proxy) → site null: render nothing extra.
+// Redirects in old pages: redirect(oldNavHref(await getOldSiteMode(), locale, path)) — see
+// src/lib/oldHref.ts (public URL when served in place, the archive inside /<L>/old).
 
 export type OldSiteMode = "old" | "inplace";
 

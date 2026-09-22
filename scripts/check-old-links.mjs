@@ -2,13 +2,23 @@
 // Static gate for the old-site relocation (docs/site-v2/spec/07-old-relocation-audit.md §10.4,
 // adapted to the owner's URL decisions in docs/site-v2/DECISIONS.md §6–8 and ARCHITECTURE.md §5).
 //
-// The old site now lives at /<ru|en>/old/<path>, and navigation inside it must stay there.
-// This gate fails when OLD code (src/app/(old), src/components, src/lib) still produces a
-// navigation URL that would leave the old site:
+// The link rule (owner decision, docs/site-v2/AUDIT-PHASE-A.md A4 option A): a link from old code
+// to a page that is served IN PLACE at its original public URL (/<L>/reviews/…, /<L>/rating/…,
+// per-app pages, old topics, /mcp, /tokens, …) uses that public URL; a link to a page whose URL
+// the NEW site took over (/, /ideas, /segment/<launch topic>, /saved, /library, /offer, …) goes
+// to its /<L>/old/… copy, so the old site never links into the new one. Only oldHref() (and
+// oldNavHref() for redirects) in src/lib/oldHref.ts can tell the two apart — it asks the proxy's
+// decideRoute() — so every navigation URL in OLD code (src/app/(old), src/components, src/lib)
+// must come from it. This gate fails on anything that builds the URL by hand:
 //   locale-literal    a string that starts with "/ru" or "/en" but not "/ru/old" / "/en/old"
 //                     (e.g. `const lp = ru ? "/ru" : "/en"`, redirect("/ru"))
+//   old-literal       a hard-coded archive path "/ru/old…" / "/en/old…" (it would send an in-place
+//                     target into the noindexed archive)
 //   locale-template   a template that starts with a locale expression: `/${lp}/…`, `/${locale}/…`,
 //                     `/${ru ? "ru" : "en"}/…`
+//   lp-template       a `${lp}…` template (the old `lp` prefix cannot see the path; absolute
+//                     https://inapp.pro/${lp}/… canonicals, where lp = "ru" | "en", are fine)
+//   old-prefix        oldLp() — the bare archive prefix; use oldHref(locale, path)
 //   strip-regex       the legacy pathname strip `.replace(/^\/(ru|en)…/` (use splitOldPath/oldRestPath)
 //   bare-nav          a bare internal path handed to a navigation sink: href / fallback / backHref /
 //                     moreHref / reviewHref / hrefBack / hrefNiches, router.push/replace/prefetch,
@@ -18,13 +28,16 @@
 //                     reviewed places listed in PUBLIC_EXIT_FILES.
 //   canonical-old     the reverse mistake: an absolute https://inapp.pro URL built from the old-site
 //                     prefix (`${lp}`, oldLp(), oldHref(), "/ru/old") — canonicals must stay public.
+// Plus one contract check on the helper itself: src/lib/oldHref.ts must route through the proxy's
+// decideRoute() (scripts/v2/test-routing.ts covers its behaviour).
 //
 // Allow-list (deliberately NOT checked):
 //   • Absolute https://inapp.pro/… URLs: canonicals, hreflang, og:url, JSON-LD, SearchAction, MCP tool
 //     texts. The owner decided they keep the ORIGINAL public URLs so in-place pages stay indexed
 //     (ARCHITECTURE.md §5.2). None of the rules above can match an absolute URL, because every rule
 //     requires the path to start right after the opening quote. Run with --list-absolute to review them.
-//   • src/lib/oldHref.ts (the helpers themselves) and anything under src/app/api (shared APIs).
+//   • src/lib/oldHref.ts (the helpers themselves), src/lib/safeReturn.ts (the shared return-path
+//     validator of the sign-in routes, not navigation) and anything under src/app/api (shared APIs).
 //   • Comment lines, and any line carrying the marker `old-links: allow` (on it or on the line above).
 //
 // Usage:
@@ -42,15 +55,16 @@ const ROOT = rootArg >= 0 ? args[rootArg + 1] : fileURLToPath(new URL("..", impo
 const LIST_ABSOLUTE = args.includes("--list-absolute");
 
 const SCAN = ["src/app/(old)", "src/components", "src/lib"];
-const SKIP_FILES = new Set(["src/lib/oldHref.ts"]);
+const SKIP_FILES = new Set(["src/lib/oldHref.ts", "src/lib/safeReturn.ts"]);
 const SKIP_DIRS = ["src/app/api/"];
 const EXT = /\.(tsx?|jsx?|mjs)$/;
 // Reviewed exits from the old site to public (new or in-place) URLs.
 const PUBLIC_EXIT_FILES = new Set([
   "src/components/Header.tsx", // logo → new home
   "src/components/OldSiteBanner.tsx", // banner links to the new site
-  "src/app/(old)/ideas/[slug]/page.tsx", // in-place 308 must target an indexable public URL
 ]);
+// Redirects issued by old pages use oldNavHref(): the public URL when served in place, the
+// archive inside /<L>/old (it calls publicHref() inside the skipped helper file).
 
 const Q = "[\"'`]";
 const RULES = [
@@ -58,10 +72,14 @@ const RULES = [
     id: "locale-literal",
     re: new RegExp(`${Q}/(?:ru|en)(?=[/"'\`?#])(?!/old(?:[/"'\`?#]))`),
   },
+  { id: "old-literal", re: new RegExp(`${Q}/(?:ru|en)/old(?=[/"'\`?#])`) },
   {
     id: "locale-template",
     re: /`\/\$\{[^}]*(?:\b(?:lp|locale|localePrefix|lang|loc|next|ru)\b|"(?:ru|en)")[^}]*\}/,
   },
+  // `${lp}…` except in an absolute canonical (`https://inapp.pro/${lp}/…`, lp = "ru" | "en").
+  { id: "lp-template", re: /(?<!inapp\.pro\/)\$\{\s*lp\s*\}/ },
+  { id: "old-prefix", re: /\boldLp\(/ },
   { id: "strip-regex", re: /\.replace\(\s*\/\^\\\/\(ru\|en\)/ },
   {
     id: "bare-nav",
@@ -124,14 +142,26 @@ for (const base of SCAN) {
   }
 }
 
+// The helper must keep asking the proxy's decision, or in-place pages lose their public links.
+const HELPER = "src/lib/oldHref.ts";
+let helper = "";
+try {
+  helper = readFileSync(join(ROOT, HELPER), "utf8");
+} catch {
+  // reported below
+}
+if (!/from\s+["'][^"']*site\/routing\/decide["']/.test(helper) || !/\bdecideRoute\(/.test(helper)) {
+  violations.push(`${HELPER}  [helper-contract]  oldHref() must use decideRoute() so in-place targets keep their public URL`);
+}
+
 if (LIST_ABSOLUTE) {
   console.log(`Allow-listed absolute same-site URLs (canonical/JSON-LD/MCP, unchanged by design): ${absolute.length}`);
   for (const a of absolute) console.log(`  ${a}`);
 }
 if (violations.length) {
-  console.error(`check-old-links: ${violations.length} navigation URL(s) in old code leave /<L>/old:`);
+  console.error(`check-old-links: ${violations.length} navigation URL(s) in old code bypass oldHref():`);
   for (const v of violations) console.error(`  ${v}`);
-  console.error("Use oldLp()/oldHref() from src/lib/oldHref.ts (or mark a reviewed exception with `// old-links: allow`).");
+  console.error("Use oldHref()/oldNavHref() from src/lib/oldHref.ts (or mark a reviewed exception with `// old-links: allow`).");
   process.exit(1);
 }
 console.log(

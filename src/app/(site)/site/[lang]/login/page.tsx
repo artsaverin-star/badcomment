@@ -1,35 +1,66 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { isLocale } from "@/site/i18n/locales";
-import { isSafeReturnPath } from "@/site/routing";
-import { Badge } from "@/site/ui/Badge";
-import { Heading } from "@/site/ui/Heading";
+import { notFound, redirect } from "next/navigation";
+import { getViewer } from "@/site/access";
+import { SITE_URL } from "@/site/config";
+import { LoginScreen } from "@/site/features/auth/LoginScreen";
+import { authStrings, noticeFor } from "@/site/features/auth/strings";
+import { PLUS_UI_KEYS } from "@/site/features/plus/server";
+import { I18nProvider } from "@/site/i18n/client";
+import { isLocale, LOCALES, type Locale } from "@/site/i18n/locales";
+import { getT } from "@/site/i18n/server";
+import { isSafeReturnPath, parsePublicPath, routes } from "@/site/routing";
 
-// TODO(auth): PLACEHOLDER for the sign-in page (ARCHITECTURE §4, spec 06 §3.6): Telegram,
-// Google (return_to), email magic link, in the app's «ты» voice. The same UI opens as a
-// dialog anywhere via openSignIn() once the auth feature calls registerSignInHandler().
+// /<L>/login (?return_to=&reason=): the sign-in page (ARCHITECTURE §4, spec 06 §3.6).
+// The same panel opens as a dialog anywhere via openSignIn(). Signed-in visitors go straight
+// to return_to. noindex (spec 09 §2.1).
 
-export const metadata: Metadata = { robots: { index: false, follow: true } };
+type Params = { lang: string };
+type Search = { return_to?: string | string[]; reason?: string | string[]; auth?: string | string[]; login?: string | string[] };
 
-export default async function LoginPlaceholder({
+const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const s = authStrings[lang];
+  const url = (l: Locale) => `${SITE_URL}${routes.login(l)}`;
+  return {
+    title: s.pageTitle,
+    description: s.pageDescription,
+    alternates: {
+      canonical: url(lang),
+      languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
+    },
+    robots: { index: false, follow: true },
+  };
+}
+
+export default async function LoginPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ lang: string }>;
-  searchParams: Promise<{ return_to?: string; reason?: string }>;
+  params: Promise<Params>;
+  searchParams: Promise<Search>;
 }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const { return_to, reason } = await searchParams;
-  const returnTo = isSafeReturnPath(return_to) ? return_to : `/${lang}`;
+  const sp = await searchParams;
+  const raw = one(sp.return_to);
+  // Only a public path of this site, and never the login page itself (no loop).
+  const returnTo =
+    isSafeReturnPath(raw) && parsePublicPath(raw.split(/[?#]/)[0]).segments[0] !== "login" ? raw : routes.research(lang);
+
+  const [t, viewer] = await Promise.all([getT(lang), getViewer()]);
+  if (viewer.loggedIn) redirect(returnTo);
+
+  const reason = one(sp.reason) ?? null;
+  const notice = noticeFor(authStrings[lang], one(sp.auth), one(sp.login));
 
   return (
-    <div className="ia-page ia-page--welcome flex flex-col gap-6 pt-12">
-      <Heading title="inApp" />
-      <Badge tone="neutral">
-        TODO · sign-in placeholder · return_to={returnTo}
-        {reason ? ` · reason=${reason}` : ""}
-      </Badge>
+    <div className="ia-page ia-page--welcome">
+      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)}>
+        <LoginScreen returnTo={returnTo} reason={reason} notice={notice} />
+      </I18nProvider>
     </div>
   );
 }

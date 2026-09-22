@@ -21,7 +21,8 @@ import personaCovers from "@/data/personaCovers.json";
 import ideaCovers from "@/data/ideaCovers.json";
 import channelsEn from "@/data/channels.en.json";
 import BuildWizard, { type BuildData } from "@/components/BuildWizard";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref, oldNavHref } from "@/lib/oldHref";
+import { getOldSiteMode } from "@/lib/oldSite.server";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +45,6 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const niche = getNicheName(slug, locale);
   const idea = getIdea(ideaSlug);
   if (!niche || !idea || idea.category !== slug) notFound();
@@ -52,7 +52,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
   // The wizard is the paid payload — a crafted URL must not walk around the
   // pain-picker locks. Locked ideas bounce back to the picker's gate.
   const access = await getAccess();
-  if (!canBuild(access, slug, ideaSlug)) redirect(`${lp}/build/${slug}`);
+  if (!canBuild(access, slug, ideaSlug)) redirect(oldNavHref(await getOldSiteMode(), ru, `/build/${slug}`));
 
   const en = !ru ? ideaContentEn(ideaSlug, locale) : null;
   const s = scoreFor(ideaSlug, locale);
@@ -79,7 +79,7 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     verdict: (ru ? a.verdict : a.en?.verdict || a.verdict) || "",
     loved: (ru ? a.loved : a.en?.loved || a.loved) || "",
     shots: (a.shots ?? []).slice(0, 4),
-    href: `${lp}/rating/${slug}/${appSlugify(a.title)}`,
+    href: oldHref(ru, `/rating/${slug}/${appSlugify(a.title)}`),
   }));
 
   // ASO: baked niche terms + live App Store signals (autocomplete rank and
@@ -129,8 +129,8 @@ export default async function BuildWizardPage({ params }: { params: Promise<{ sl
     oneLiner: (en?.oneLiner || idea.oneLiner) as string,
     nicheName: niche,
     nicheSlug: slug,
-    hrefBack: `${lp}/build/${slug}`,
-    hrefNiches: `${lp}/build`,
+    hrefBack: oldHref(ru, `/build/${slug}`),
+    hrefNiches: oldHref(ru, "/build"),
     painLine,
     painTitle: (ru ? copy?.painTitle : copy?.painTitleEn) || undefined,
     painQuote,

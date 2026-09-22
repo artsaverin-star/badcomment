@@ -211,11 +211,19 @@
   --ia-shadow-device: 0 24px 48px rgb(0 0 0 / 0.2);
   --ia-shadow-menu: 0 12px 40px rgb(0 0 0 / 0.14);
 
+  /* ---- Strokes (spec 05 §3.5). The app draws 0.5 pt hairlines (clarityCard, tab bar,
+     gear, glass) and 0.7 pt card strokes (research + idea cards). On a Retina screen the
+     same CSS px values render 1:1 with the app; a 1x screen gets a crisp 1 px instead. ---- */
+  --ia-hairline: 1px;
+  --ia-stroke-card: 1px;
+
   /* ---- Sizes ---- */
   --ia-hit: 44px;
   --ia-search-h: 56px;
   --ia-tab-item-h: 50px;
   --ia-toolbar-h: 60px;
+  --ia-btn-primary-h: 60px; /* ClarityButton: minHeight 24 + 18 × 2 */
+  --ia-btn-welcome-h: 58px; /* ClarityWelcomeButton: minHeight 24 + 17 × 2 */
   --ia-tabbar-reserve: calc(50px + 12px + 18px + env(safe-area-inset-bottom));
 
   /* ---- Motion ---- */
@@ -318,10 +326,19 @@
   --ia-z-sheet: 100;
 }
 
+@media (min-resolution: 2dppx) {
+  :root,
+  [data-theme] {
+    --ia-hairline: 0.5px; /* ClarityStyle.swift:109, ClarityFloatingTabBar.swift:27, ClarityMy.swift:94 */
+    --ia-stroke-card: 0.7px; /* ClarityCatalogs.swift:148, ClarityIdeaCard.swift:63 */
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root,
   [data-theme] {
     --ia-dur-press: 0ms;
+    --ia-dur-press-welcome: 0ms;
     --ia-dur-tab: 0ms;
     --ia-dur-step: 0ms;
     --ia-dur-reveal: 0ms;

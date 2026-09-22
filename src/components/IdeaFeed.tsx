@@ -8,7 +8,7 @@ import BuyButton from "./BuyButton";
 import { nb } from "@/lib/nbsp";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 function wordObs(n: number) {
   const d = n % 10, dd = n % 100;
@@ -40,7 +40,6 @@ export default function IdeaFeed({
   compact?: boolean;
 }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const CARD_H = compact ? "h-[clamp(330px,38dvh,392px)]" : "h-[clamp(400px,52dvh,452px)]";
   const VIEWPORT_H = compact ? "h-[clamp(380px,45dvh,448px)]" : "h-[clamp(480px,64dvh,544px)]";
 
@@ -316,7 +315,7 @@ export default function IdeaFeed({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`${lp}/segment/${curIdea.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
+                <Link href={oldHref(ru, `/segment/${curIdea.category}`)} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

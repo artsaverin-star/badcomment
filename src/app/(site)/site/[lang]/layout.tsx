@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import "@/site/styles/site.css";
 import { onest } from "@/site/fonts";
+import { AccountHosts } from "@/site/features/plus/AccountHosts";
 import { getViewer, summarizeViewer } from "@/site/access";
 import { APP_STORE_APP_ID, APP_STORE_URL, SITE_URL } from "@/site/config";
 import { SHELL_UI_KEYS } from "@/site/i18n/builtin";
@@ -127,6 +128,8 @@ gtag('js',new Date());gtag('set',{site:"v2"});gtag('config','G-G3J6K8VBD6',{send
             footer={<Footer locale={lang} />}
           >
             {children}
+            {/* Global hosts: sign-in dialog, Plus paywall sheet, saved/notes account sync. */}
+            <AccountHosts locale={lang} />
           </ChromeFrame>
         </I18nProvider>
         {/* DataFast privacy-friendly analytics */}

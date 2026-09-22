@@ -12,7 +12,11 @@ Environment=DATABASE_URL=file:/opt/badcomment/data/prod.db
 # Secrets (YOOKASSA_SHOP_ID/SECRET, SESSION_SECRET, Google client secret, etc.)
 # live only in this gitignored file (chmod 600). Leading "-" makes it optional.
 EnvironmentFile=-/opt/badcomment/.env
-ExecStart=/usr/bin/npm run start
+# Run next directly (same as `npm run start`) so no idle npm process sits in the 2GB box's
+# RAM. setup.sh installs this unit once; deploy.sh never does. To apply on the box, put the
+# same ExecStart into the live unit (`sudo systemctl edit --full badcomment`), then
+# `sudo systemctl restart badcomment`.
+ExecStart=/usr/bin/node /opt/badcomment/node_modules/next/dist/bin/next start
 Restart=always
 RestartSec=5
 

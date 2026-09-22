@@ -7,7 +7,7 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { getNiche, listSourceApps, nicheName } from "@/lib/reviews";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +27,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: {
-      canonical: `/reviews/${slug}`,
+      // Absolute and localized: a bare /reviews/… canonical answers 307 → /en/…, so ru pages
+      // would declare the en page canonical (audit A9).
+      canonical: `https://inapp.pro/${ru ? "ru" : "en"}/reviews/${slug}`,
       languages: {
         ru: `https://inapp.pro/ru/reviews/${slug}`,
         en: `https://inapp.pro/en/reviews/${slug}`,
@@ -45,7 +47,6 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
   const seoLoc = ru ? "ru" : "en";
   const name = nicheName(niche, locale);
@@ -67,7 +68,7 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
   return (
     <main className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <BackLink fallback={`${lp}/reviews`}>{ru ? "Категории" : "Categories"}</BackLink>
+      <BackLink fallback={oldHref(ru, "/reviews")}>{ru ? "Категории" : "Categories"}</BackLink>
       <header className="mt-4">
         <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{name}</h1>
         <p className="mt-2 text-footnote tabular-nums text-[var(--color-text-tertiary)]">

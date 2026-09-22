@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
-import { oldLp, oldRestPath } from "@/lib/oldHref";
+import { oldHref, oldRestPath } from "@/lib/oldHref";
 
 const linkCls = "text-footnote text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]";
 
@@ -11,7 +11,6 @@ const linkCls = "text-footnote text-[var(--color-text-secondary)] transition-col
 // тарифы) reachable from every page, which payment providers (ЮKassa) check for.
 export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const ru = locale !== "en";
-  const lp = oldLp(locale);
   // The idea feed is a full-screen swipe surface — no footer there. Match the
   // internal path so SSR ("/cards") and the client ("/ru/old/cards") agree.
   const pathname = usePathname();
@@ -39,7 +38,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
         <span className="text-caption text-[var(--color-text-tertiary)]"><span className="font-bold text-[var(--color-text-secondary)]">inApp</span> · © 2026</span>
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {links.map((l) => (
-            <Link key={l.path} href={`${lp}${l.path === "/" ? "" : l.path}`} className={linkCls}>
+            <Link key={l.path} href={oldHref(locale, l.path)} className={linkCls}>
               {l.label}
             </Link>
           ))}

@@ -1,0 +1,274 @@
+import { defineStrings } from "../../i18n/strings";
+
+// Web-only strings of sign-in (the dialog and /<L>/login). The old site's modal used the
+// formal «вы» (spec 06 §3.3); the new site speaks in the app's informal «ты» voice
+// (spec 09 G11): du / tu in de/fr, です・ます in Japanese like ui.ja.json.
+
+export const authStrings = defineStrings({
+  ru: {
+    title: "Вход в inApp",
+    leadDefault: "Войди, чтобы открыть Plus на сайте и хранить закладки и заметки в аккаунте.",
+    leadPlus: "Войди, чтобы оформить Plus: доступ привяжется к твоему аккаунту.",
+    leadSaved: "Войди, чтобы закладки и заметки хранились в аккаунте и были на любом устройстве.",
+    leadCheckout: "Войди в тот же аккаунт, что и при оплате, — проверим платёж.",
+    leadRestore: "Войди в аккаунт, где уже открыт Plus, — доступ вернётся сам.",
+    readWithoutAccount: "Читать бесплатные материалы можно и без аккаунта.",
+    telegram: "Войти через Telegram",
+    google: "Продолжить с Google",
+    orEmail: "или по почте",
+    emailLabel: "Почта",
+    emailPlaceholder: "Твоя почта",
+    emailSubmit: "Получить ссылку для входа",
+    emailBusy: "Отправляем…",
+    webviewWithEmail:
+      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди по почте или через Telegram либо открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
+    webviewNoEmail:
+      "Ты во встроенном браузере (Threads, Instagram и т. п.) — вход через Google здесь не работает. Войди через Telegram или открой сайт в Safari или Chrome (меню ⋯ → «Открыть в браузере»).",
+    copyLink: "Скопировать ссылку",
+    linkCopied: "Ссылка скопирована",
+    tgTitle: "Вход через Telegram",
+    tgIntro: "Сейчас откроем бота. Нажми Start в Telegram и вернись на эту вкладку.",
+    tgOpen: "Открыть Telegram",
+    tgWaiting: "Нажми Start в Telegram и вернись на эту вкладку.",
+    tgWaitingStatus: "Ждём подтверждения…",
+    tgValidUntil: "Ссылка действует до {time}",
+    tgReopen: "Telegram не открылся? Открыть бота",
+    emailSentTitle: "Проверь почту",
+    emailSentBody: "Отправили ссылку для входа на {email}. Открой её на этом устройстве — ссылка действует 15 минут.",
+    emailSpam: "Не пришло? Загляни в «Спам».",
+    emailOther: "Указать другую почту",
+    errTgStart: "Не получилось начать вход через Telegram. Попробуй ещё раз.",
+    errTgExpired: "Время вышло. Попробуй ещё раз.",
+    errBadEmail: "Проверь адрес почты.",
+    errDisposable: "Временные адреса не подходят — укажи постоянную почту.",
+    errRate: "Слишком много попыток. Попробуй позже.",
+    errSendFailed: "Не удалось отправить письмо. Попробуй ещё раз.",
+    errDisabled: "Вход по почте сейчас недоступен.",
+    errGeneric: "Что-то пошло не так. Попробуй ещё раз.",
+    noticeGoogleError: "Не получилось войти через Google. Попробуй ещё раз или выбери другой способ.",
+    noticeGoogleUnconfigured: "Вход через Google сейчас недоступен. Выбери другой способ.",
+    noticeLoginExpired: "Ссылка для входа устарела. Запроси новую — она действует 15 минут.",
+    signedIn: "Вход выполнен",
+    pageTitle: "Вход",
+    pageDescription: "Войди в inApp через Telegram, Google или по почте.",
+  },
+  en: {
+    title: "Sign in to inApp",
+    leadDefault: "Sign in to get Plus on the web and keep your bookmarks and notes in your account.",
+    leadPlus: "Sign in to get Plus: access will be linked to your account.",
+    leadSaved: "Sign in to keep your bookmarks and notes in your account, on any device.",
+    leadCheckout: "Sign in with the account you paid from, and we’ll check the payment.",
+    leadRestore: "Sign in to the account that already has Plus, and your access comes back.",
+    readWithoutAccount: "You can read the free materials without an account.",
+    telegram: "Sign in with Telegram",
+    google: "Continue with Google",
+    orEmail: "or by email",
+    emailLabel: "Email",
+    emailPlaceholder: "Your email",
+    emailSubmit: "Get a sign-in link",
+    emailBusy: "Sending…",
+    webviewWithEmail:
+      "You’re in an in-app browser (Threads, Instagram, etc.), and Google sign-in doesn’t work here. Use email or Telegram, or open the site in Safari or Chrome (⋯ menu → “Open in browser”).",
+    webviewNoEmail:
+      "You’re in an in-app browser (Threads, Instagram, etc.), and Google sign-in doesn’t work here. Use Telegram, or open the site in Safari or Chrome (⋯ menu → “Open in browser”).",
+    copyLink: "Copy link",
+    linkCopied: "Link copied",
+    tgTitle: "Sign in with Telegram",
+    tgIntro: "We’ll open the bot. Tap Start in Telegram, then come back to this tab.",
+    tgOpen: "Open Telegram",
+    tgWaiting: "Tap Start in Telegram, then come back to this tab.",
+    tgWaitingStatus: "Waiting for confirmation…",
+    tgValidUntil: "Link valid until {time}",
+    tgReopen: "Telegram didn’t open? Open the bot",
+    emailSentTitle: "Check your email",
+    emailSentBody: "We sent a sign-in link to {email}. Open it on this device — the link is valid for 15 minutes.",
+    emailSpam: "Not there? Check your spam folder.",
+    emailOther: "Use a different email",
+    errTgStart: "Couldn’t start Telegram sign-in. Try again.",
+    errTgExpired: "Time’s up. Try again.",
+    errBadEmail: "Check the email address.",
+    errDisposable: "Disposable addresses don’t work here — use a permanent one.",
+    errRate: "Too many attempts. Try again later.",
+    errSendFailed: "Couldn’t send the email. Try again.",
+    errDisabled: "Email sign-in isn’t available right now.",
+    errGeneric: "Something went wrong. Try again.",
+    noticeGoogleError: "Google sign-in didn’t work. Try again or pick another way.",
+    noticeGoogleUnconfigured: "Google sign-in isn’t available right now. Pick another way.",
+    noticeLoginExpired: "That sign-in link has expired. Ask for a new one — it’s valid for 15 minutes.",
+    signedIn: "You’re signed in",
+    pageTitle: "Sign in",
+    pageDescription: "Sign in to inApp with Telegram, Google or email.",
+  },
+  de: {
+    title: "Bei inApp anmelden",
+    leadDefault: "Melde dich an, um Plus im Web zu holen und Lesezeichen und Notizen in deinem Konto zu behalten.",
+    leadPlus: "Melde dich an, um Plus zu holen: Der Zugang wird mit deinem Konto verknüpft.",
+    leadSaved: "Melde dich an, damit deine Lesezeichen und Notizen in deinem Konto liegen – auf jedem Gerät.",
+    leadCheckout: "Melde dich mit dem Konto an, mit dem du bezahlt hast – dann prüfen wir die Zahlung.",
+    leadRestore: "Melde dich mit dem Konto an, in dem Plus schon aktiv ist – dann ist dein Zugang wieder da.",
+    readWithoutAccount: "Die kostenlosen Materialien kannst du auch ohne Konto lesen.",
+    telegram: "Mit Telegram anmelden",
+    google: "Weiter mit Google",
+    orEmail: "oder per E-Mail",
+    emailLabel: "E-Mail",
+    emailPlaceholder: "Deine E-Mail",
+    emailSubmit: "Anmeldelink senden",
+    emailBusy: "Wird gesendet…",
+    webviewWithEmail:
+      "Du bist in einem In-App-Browser (Threads, Instagram usw.), hier klappt die Anmeldung mit Google nicht. Melde dich per E-Mail oder mit Telegram an oder öffne die Seite in Safari oder Chrome (Menü ⋯ → „Im Browser öffnen“).",
+    webviewNoEmail:
+      "Du bist in einem In-App-Browser (Threads, Instagram usw.), hier klappt die Anmeldung mit Google nicht. Melde dich mit Telegram an oder öffne die Seite in Safari oder Chrome (Menü ⋯ → „Im Browser öffnen“).",
+    copyLink: "Link kopieren",
+    linkCopied: "Link kopiert",
+    tgTitle: "Mit Telegram anmelden",
+    tgIntro: "Wir öffnen jetzt den Bot. Tipp in Telegram auf Start und komm dann zu diesem Tab zurück.",
+    tgOpen: "Telegram öffnen",
+    tgWaiting: "Tipp in Telegram auf Start und komm dann zu diesem Tab zurück.",
+    tgWaitingStatus: "Warten auf Bestätigung…",
+    tgValidUntil: "Link gültig bis {time}",
+    tgReopen: "Telegram hat sich nicht geöffnet? Bot öffnen",
+    emailSentTitle: "Schau in dein Postfach",
+    emailSentBody: "Wir haben einen Anmeldelink an {email} geschickt. Öffne ihn auf diesem Gerät – der Link ist 15 Minuten gültig.",
+    emailSpam: "Nichts angekommen? Schau im Spam-Ordner nach.",
+    emailOther: "Andere E-Mail verwenden",
+    errTgStart: "Die Anmeldung mit Telegram konnte nicht starten. Versuch es noch einmal.",
+    errTgExpired: "Die Zeit ist abgelaufen. Versuch es noch einmal.",
+    errBadEmail: "Prüf die E-Mail-Adresse.",
+    errDisposable: "Wegwerfadressen gehen nicht – nimm bitte eine dauerhafte Adresse.",
+    errRate: "Zu viele Versuche. Versuch es später noch einmal.",
+    errSendFailed: "Die E-Mail konnte nicht gesendet werden. Versuch es noch einmal.",
+    errDisabled: "Die Anmeldung per E-Mail ist gerade nicht verfügbar.",
+    errGeneric: "Da ist etwas schiefgelaufen. Versuch es noch einmal.",
+    noticeGoogleError: "Die Anmeldung mit Google hat nicht geklappt. Versuch es noch einmal oder wähl einen anderen Weg.",
+    noticeGoogleUnconfigured: "Die Anmeldung mit Google ist gerade nicht verfügbar. Wähl einen anderen Weg.",
+    noticeLoginExpired: "Dieser Anmeldelink ist abgelaufen. Fordere einen neuen an – er ist 15 Minuten gültig.",
+    signedIn: "Du bist angemeldet",
+    pageTitle: "Anmelden",
+    pageDescription: "Melde dich bei inApp mit Telegram, Google oder per E-Mail an.",
+  },
+  fr: {
+    title: "Se connecter à inApp",
+    leadDefault: "Connecte-toi pour obtenir Plus sur le site et garder tes signets et tes notes dans ton compte.",
+    leadPlus: "Connecte-toi pour obtenir Plus : l’accès sera lié à ton compte.",
+    leadSaved: "Connecte-toi pour garder tes signets et tes notes dans ton compte, sur tous tes appareils.",
+    leadCheckout: "Connecte-toi avec le compte utilisé pour payer, et on vérifie le paiement.",
+    leadRestore: "Connecte-toi au compte où Plus est déjà actif, et ton accès revient.",
+    readWithoutAccount: "Tu peux lire les contenus gratuits sans compte.",
+    telegram: "Se connecter avec Telegram",
+    google: "Continuer avec Google",
+    orEmail: "ou par e-mail",
+    emailLabel: "E-mail",
+    emailPlaceholder: "Ton e-mail",
+    emailSubmit: "Recevoir un lien de connexion",
+    emailBusy: "Envoi…",
+    webviewWithEmail:
+      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi par e-mail ou avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
+    webviewNoEmail:
+      "Tu es dans un navigateur intégré (Threads, Instagram, etc.) : la connexion avec Google n’y fonctionne pas. Connecte-toi avec Telegram, ou ouvre le site dans Safari ou Chrome (menu ⋯ → « Ouvrir dans le navigateur »).",
+    copyLink: "Copier le lien",
+    linkCopied: "Lien copié",
+    tgTitle: "Connexion avec Telegram",
+    tgIntro: "On ouvre le bot. Appuie sur Start dans Telegram, puis reviens sur cet onglet.",
+    tgOpen: "Ouvrir Telegram",
+    tgWaiting: "Appuie sur Start dans Telegram, puis reviens sur cet onglet.",
+    tgWaitingStatus: "En attente de confirmation…",
+    tgValidUntil: "Lien valable jusqu’à {time}",
+    tgReopen: "Telegram ne s’est pas ouvert ? Ouvrir le bot",
+    emailSentTitle: "Regarde tes e-mails",
+    emailSentBody: "On a envoyé un lien de connexion à {email}. Ouvre-le sur cet appareil — il est valable 15 minutes.",
+    emailSpam: "Rien reçu ? Regarde dans les spams.",
+    emailOther: "Utiliser une autre adresse",
+    errTgStart: "Impossible de lancer la connexion avec Telegram. Réessaie.",
+    errTgExpired: "Le temps est écoulé. Réessaie.",
+    errBadEmail: "Vérifie l’adresse e-mail.",
+    errDisposable: "Les adresses jetables ne marchent pas ici — indique une adresse permanente.",
+    errRate: "Trop de tentatives. Réessaie plus tard.",
+    errSendFailed: "Impossible d’envoyer l’e-mail. Réessaie.",
+    errDisabled: "La connexion par e-mail n’est pas disponible pour le moment.",
+    errGeneric: "Quelque chose n’a pas marché. Réessaie.",
+    noticeGoogleError: "La connexion avec Google n’a pas marché. Réessaie ou choisis un autre moyen.",
+    noticeGoogleUnconfigured: "La connexion avec Google n’est pas disponible pour le moment. Choisis un autre moyen.",
+    noticeLoginExpired: "Ce lien de connexion a expiré. Demandes-en un nouveau — il est valable 15 minutes.",
+    signedIn: "Connexion réussie",
+    pageTitle: "Connexion",
+    pageDescription: "Connecte-toi à inApp avec Telegram, Google ou par e-mail.",
+  },
+  ja: {
+    title: "inAppにログイン",
+    leadDefault: "ログインすると、サイトでPlusを利用でき、ブックマークとメモをアカウントに保存できます。",
+    leadPlus: "Plusを利用するにはログインしてください。アクセスはあなたのアカウントに紐づきます。",
+    leadSaved: "ログインすると、ブックマークとメモがアカウントに保存され、どのデバイスからでも使えます。",
+    leadCheckout: "お支払いに使ったアカウントでログインしてください。支払いを確認します。",
+    leadRestore: "Plusが有効なアカウントでログインすると、アクセスが戻ります。",
+    readWithoutAccount: "無料の資料はアカウントなしでも読めます。",
+    telegram: "Telegramでログイン",
+    google: "Googleで続ける",
+    orEmail: "またはメールで",
+    emailLabel: "メールアドレス",
+    emailPlaceholder: "メールアドレス",
+    emailSubmit: "ログイン用リンクを受け取る",
+    emailBusy: "送信しています…",
+    webviewWithEmail:
+      "アプリ内ブラウザ（Threads、Instagramなど）ではGoogleでログインできません。メールかTelegramでログインするか、SafariまたはChromeでサイトを開いてください（⋯メニュー →「ブラウザで開く」）。",
+    webviewNoEmail:
+      "アプリ内ブラウザ（Threads、Instagramなど）ではGoogleでログインできません。Telegramでログインするか、SafariまたはChromeでサイトを開いてください（⋯メニュー →「ブラウザで開く」）。",
+    copyLink: "リンクをコピー",
+    linkCopied: "リンクをコピーしました",
+    tgTitle: "Telegramでログイン",
+    tgIntro: "ボットを開きます。TelegramでStartをタップして、このタブに戻ってください。",
+    tgOpen: "Telegramを開く",
+    tgWaiting: "TelegramでStartをタップして、このタブに戻ってください。",
+    tgWaitingStatus: "確認を待っています…",
+    tgValidUntil: "リンクの有効期限：{time}",
+    tgReopen: "Telegramが開かない場合はボットを開く",
+    emailSentTitle: "メールを確認してください",
+    emailSentBody: "{email} にログイン用リンクを送りました。このデバイスで開いてください。リンクの有効期限は15分です。",
+    emailSpam: "届かない場合は迷惑メールフォルダを確認してください。",
+    emailOther: "別のメールアドレスを使う",
+    errTgStart: "Telegramでのログインを開始できませんでした。もう一度お試しください。",
+    errTgExpired: "時間切れです。もう一度お試しください。",
+    errBadEmail: "メールアドレスを確認してください。",
+    errDisposable: "使い捨てのメールアドレスは使えません。普段のアドレスを入力してください。",
+    errRate: "試行回数が多すぎます。しばらくしてからお試しください。",
+    errSendFailed: "メールを送信できませんでした。もう一度お試しください。",
+    errDisabled: "現在、メールでのログインはご利用いただけません。",
+    errGeneric: "問題が発生しました。もう一度お試しください。",
+    noticeGoogleError: "Googleでログインできませんでした。もう一度試すか、別の方法を選んでください。",
+    noticeGoogleUnconfigured: "現在、Googleでのログインはご利用いただけません。別の方法を選んでください。",
+    noticeLoginExpired: "ログイン用リンクの有効期限が切れています。新しいリンクをリクエストしてください（有効期限は15分です）。",
+    signedIn: "ログインしました",
+    pageTitle: "ログイン",
+    pageDescription: "Telegram、Google、またはメールでinAppにログインできます。",
+  },
+});
+
+export type AuthStrings = (typeof authStrings)["ru"];
+
+/** Why the dialog was opened → its lead line. */
+export function leadFor(s: AuthStrings, reason: string | null | undefined): string {
+  switch (reason) {
+    case "plus":
+    case "buy":
+      return s.leadPlus;
+    case "saved":
+    case "sync":
+    case "save":
+    case "note":
+      return s.leadSaved;
+    case "checkout":
+      return s.leadCheckout;
+    case "restore":
+      return s.leadRestore;
+    default:
+      return s.leadDefault;
+  }
+}
+
+/** ?auth=… / ?login=… values that the auth endpoints redirect with (spec 06 §3.2). */
+export function noticeFor(s: AuthStrings, auth: string | null | undefined, login: string | null | undefined): string | null {
+  if (auth === "google_error") return s.noticeGoogleError;
+  if (auth === "google_unconfigured") return s.noticeGoogleUnconfigured;
+  if (auth === "vk_failed" || auth === "vk_unconfigured") return s.errGeneric;
+  if (login === "expired") return s.noticeLoginExpired;
+  return null;
+}

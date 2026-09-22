@@ -9,11 +9,18 @@
 
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { NextRequest } from "next/server";
 import { unstable_doesMiddlewareMatch } from "next/experimental/testing/server";
-import { decideRoute, type RoutingDecision, type RewriteDecision, type RedirectDecision } from "../../src/site/routing/decide";
+import {
+  decideRoute,
+  notFoundLocale,
+  type RoutingDecision,
+  type RewriteDecision,
+  type RedirectDecision,
+} from "../../src/site/routing/decide";
 import { negotiateLocale, parseAcceptLanguage } from "../../src/site/i18n/locales";
+import { isServedInPlace, oldHref, oldNavHref, switchOldLocale } from "../../src/lib/oldHref";
 import { proxy, config } from "../../src/proxy";
 
 type Input = Parameters<typeof decideRoute>[0];
@@ -69,9 +76,25 @@ describe("root and bare paths", () => {
   });
   test("bare /segment/x → /<loc>/segment/x (query kept)", () => {
     expectRedirect(decide("/segment/x", { acceptLanguage: "ru" }), 307, "/ru/segment/x");
-    expectRedirect(decide("/segment/x?q=1", { cookies: { locale: "de" } }), 307, "/de/segment/x?q=1");
+    expectRedirect(decide("/segment/interior-design?q=1", { cookies: { locale: "de" } }), 307, "/de/segment/interior-design?q=1");
     expectRedirect(decide("/offer", { acceptLanguage: "en-US" }), 307, "/en/offer");
     expectRedirect(decide("/library?checkout=abc", { acceptLanguage: "ru" }), 307, "/ru/library?checkout=abc");
+  });
+  test("bare links reach their final URL in ONE redirect (A16), always 307", () => {
+    // de/fr/ja have no old pages: straight to the English one, not /de/… → /en/…
+    expectRedirect(decide("/segment/x?q=1", { cookies: { locale: "de" } }), 307, "/en/segment/x?q=1");
+    expectRedirect(decide("/segment/sobriety", { acceptLanguage: "de-DE,de;q=0.9,en;q=0.8" }), 307, "/en/segment/sobriety");
+    expectRedirect(decide("/rating/habit-tracking", { cookies: { locale: "ja" } }), 307, "/en/rating/habit-tracking");
+    expectRedirect(decide("/reviews/habit-tracking/1394150432", { acceptLanguage: "fr" }), 307, "/en/reviews/habit-tracking/1394150432");
+    expectRedirect(decide("/ideas/top", { cookies: { locale: "fr" } }), 307, "/en/ideas/top");
+    // aliases fold in too, but stay temporary: the target depends on the visitor
+    expectRedirect(decide("/research/x", { acceptLanguage: "ru" }), 307, "/ru/segment/x");
+    expectRedirect(decide("/search?q=a", { cookies: { locale: "ja" } }), 307, "/ja/segment?q=a");
+    expectRedirect(decide("/segment/habit-tracking/v2", { acceptLanguage: "ru" }), 307, "/ru/segment/habit-tracking");
+    // pages that exist in the negotiated locale keep the plain one-hop form
+    expectRedirect(decide("/rating/habit-tracking", { acceptLanguage: "ru" }), 307, "/ru/rating/habit-tracking");
+    expectRedirect(decide("/segment/habit-tracking", { cookies: { locale: "de" } }), 307, "/de/segment/habit-tracking");
+    expectRedirect(decide("/spotify", { cookies: { locale: "de" } }), 307, "/en/spotify");
   });
   test("bare /site/… is locale-prefixed like any other path (never the internal tree)", () => {
     expectRedirect(decide("/site/ru/segment", { acceptLanguage: "en" }), 307, "/en/site/ru/segment");
@@ -141,6 +164,16 @@ describe("aliases", () => {
     expectRedirect(decide("/ru/search?q=a"), 308, "/ru/segment?q=a");
     expectRedirect(decide("/en/search"), 308, "/en/segment");
   });
+  test("/<L>/segment/<launch topic>/v2 → 308 the new topic page (A10)", () => {
+    expectRedirect(decide("/ru/segment/habit-tracking/v2?x=1"), 308, "/ru/segment/habit-tracking?x=1");
+    expectRedirect(decide("/de/segment/interior-design/v2"), 308, "/de/segment/interior-design");
+    // other topics keep the old v2 stub in place (it redirects to the old topic page)
+    expectRewrite(decide("/ru/segment/sobriety/v2"), "inplace", "/segment/sobriety/v2");
+    // the archive keeps its own copy of the stub
+    expectRewrite(decide("/ru/old/segment/habit-tracking/v2"), "old", "/segment/habit-tracking/v2");
+    // anything deeper under a launch topic is the new site's 404
+    expectRewrite(decide("/ru/segment/habit-tracking/v3"), "new", "/site/ru/segment/habit-tracking/v3");
+  });
 });
 
 describe("old pages in place", () => {
@@ -174,6 +207,19 @@ describe("old pages in place", () => {
   test("retired paths fall through to the old site (which 404s them)", () => {
     expectRewrite(decide("/ru/aso"), "inplace", "/aso");
     expectRewrite(decide("/ru/workspace/habit-tracking"), "inplace", "/workspace/habit-tracking");
+  });
+  test("in-place pages never overwrite a de/fr/ja locale cookie (A11)", () => {
+    for (const l of ["de", "fr", "ja"]) {
+      const r = expectRewrite(decide("/en/spotify", { cookies: { locale: l } }), "inplace", "/spotify");
+      assert.equal(r.cookies.length, 0, `cookie ${l} must survive /en/spotify`);
+      assert.equal(expectRewrite(decide("/en/segment/qr-scanner", { cookies: { locale: l } }), "inplace", "/segment/qr-scanner").cookies.length, 0);
+    }
+    assert.equal(cookieValue(expectRewrite(decide("/en/spotify", { cookies: { locale: "ru" } }), "inplace", "/spotify")), "en");
+    assert.equal(cookieValue(expectRewrite(decide("/en/spotify"), "inplace", "/spotify")), "en");
+    assert.equal(cookieValue(expectRewrite(decide("/ru/spotify", { cookies: { locale: "xx" } }), "inplace", "/spotify")), "ru");
+    assert.equal(expectRewrite(decide("/ru/spotify", { cookies: { locale: "ru" } }), "inplace", "/spotify").cookies.length, 0);
+    // new pages still write the locale of the URL
+    assert.equal(cookieValue(expectRewrite(decide("/en/segment", { cookies: { locale: "de" } }), "new", "/site/en/segment")), "en");
   });
 });
 
@@ -216,6 +262,93 @@ describe("hidden old site", () => {
     expectRedirect(decide("/old/en"), 307, "/en/old");
     expectRedirect(decide("/old/fr/x"), 307, "/en/old/x");
     expectRedirect(decide("/old/segment/x?q=1", { acceptLanguage: "ru" }), 307, "/ru/old/segment/x?q=1");
+  });
+});
+
+describe("old-site links (src/lib/oldHref.ts, A4 option A)", () => {
+  test("a page served in place is linked at its public URL", () => {
+    assert.equal(oldHref("ru", "/reviews/habit-tracking/1394150432"), "/ru/reviews/habit-tracking/1394150432");
+    assert.equal(oldHref("en", "/reviews"), "/en/reviews");
+    assert.equal(oldHref(true, "/rating/habit-tracking"), "/ru/rating/habit-tracking");
+    assert.equal(oldHref(false, "/rating"), "/en/rating");
+    assert.equal(oldHref("ru", "/segment/qr-scanner"), "/ru/segment/qr-scanner", "old topic stays in place");
+    assert.equal(oldHref("en", "/ideas/top"), "/en/ideas/top");
+    assert.equal(oldHref("ru", "/ideas/food-delivery-5"), "/ru/ideas/food-delivery-5", "non-launch idea id");
+    for (const p of ["/tokens", "/mcp", "/mcp/connect", "/build", "/build/x/x-1", "/apps", "/cards", "/admin", "/spotify", "/best/x", "/most-wanted"]) {
+      assert.equal(oldHref("ru", p), `/ru${p}`, p);
+    }
+  });
+  test("a page whose URL the new site took over is linked as its /<L>/old copy", () => {
+    assert.equal(oldHref("ru", "/"), "/ru/old");
+    assert.equal(oldHref("en"), "/en/old");
+    assert.equal(oldHref("ru", "/segment/habit-tracking"), "/ru/old/segment/habit-tracking");
+    assert.equal(oldHref("en", "/ideas/habit-tracking-1"), "/en/old/ideas/habit-tracking-1");
+    for (const p of ["/ideas", "/saved", "/library", "/contacts", "/offer", "/offer/payment", "/settings", "/login", "/plus"]) {
+      assert.equal(oldHref("ru", p), `/ru/old${p}`, p);
+    }
+    // aliases the proxy redirects never leave the archive either
+    assert.equal(oldHref("ru", "/search"), "/ru/old/search");
+    assert.equal(oldHref("ru", "/research/x"), "/ru/old/research/x");
+  });
+  test("query, hash and relative forms", () => {
+    assert.equal(oldHref("ru", "/ideas?cat=x"), "/ru/old/ideas?cat=x");
+    assert.equal(oldHref("ru", "?q=1"), "/ru/old?q=1");
+    assert.equal(oldHref("ru", "/?q=1"), "/ru/old?q=1");
+    assert.equal(oldHref("en", "#top"), "/en/old#top");
+    assert.equal(oldHref("en", "reviews/x"), "/en/reviews/x");
+    assert.equal(oldHref("en", "/reviews/x/1?q=a%20b#r"), "/en/reviews/x/1?q=a%20b#r");
+    assert.equal(oldHref("ru", "/segment/habit-tracking#apps"), "/ru/old/segment/habit-tracking#apps");
+  });
+  test("de/fr/ja and unknown values read the old convention (only en is English)", () => {
+    assert.equal(oldHref("de", "/reviews"), "/ru/reviews");
+    assert.equal(oldHref(undefined, "/"), "/ru/old");
+    assert.equal(isServedInPlace("en", "/"), false);
+    assert.equal(isServedInPlace("en", "/rating"), true);
+  });
+  test("oldNavHref: redirects of old pages (A10)", () => {
+    // served in place → the public URL (new home, in-place page or new topic)
+    assert.equal(oldNavHref("inplace", "ru", "/"), "/ru");
+    assert.equal(oldNavHref("inplace", "en", "/tokens"), "/en/tokens");
+    assert.equal(oldNavHref("inplace", "ru", "/segment/sobriety"), "/ru/segment/sobriety");
+    assert.equal(oldNavHref("inplace", "ru", "/segment/habit-tracking"), "/ru/segment/habit-tracking");
+    assert.equal(oldNavHref(null, "en", "/mcp?x=1"), "/en/mcp?x=1");
+    // inside the archive → oldHref (stays unless the target is served in place)
+    assert.equal(oldNavHref("old", "ru", "/"), "/ru/old");
+    assert.equal(oldNavHref("old", "ru", "/segment/habit-tracking"), "/ru/old/segment/habit-tracking");
+    assert.equal(oldNavHref("old", "en", "/tokens"), "/en/tokens");
+  });
+  test("language switch keeps the page and its form", () => {
+    assert.equal(switchOldLocale("/ru/old/segment/habit-tracking", "en"), "/en/old/segment/habit-tracking");
+    assert.equal(switchOldLocale("/ru/old", "en"), "/en/old");
+    assert.equal(switchOldLocale("/ru/reviews/x", "en"), "/en/reviews/x");
+    assert.equal(switchOldLocale("/en", "ru"), "/ru");
+    assert.equal(switchOldLocale("/reviews/x", "en"), "/en/reviews/x");
+    assert.equal(switchOldLocale("/ideas", "ru"), "/ru/old/ideas");
+  });
+});
+
+describe("global 404 (src/app/global-not-found.tsx, A12)", () => {
+  test("enabled in next.config.ts and present", () => {
+    const cfg = readFileSync(new URL("../../next.config.ts", import.meta.url), "utf8");
+    assert.match(cfg, /experimental\s*:\s*\{[^}]*globalNotFound\s*:\s*true/);
+    const page = new URL("../../src/app/global-not-found.tsx", import.meta.url);
+    assert.ok(existsSync(page), "src/app/global-not-found.tsx");
+    const src = readFileSync(page, "utf8");
+    assert.match(src, /<html lang=\{locale\}/, "a full document with the resolved lang");
+    assert.match(src, /notFoundLocale\(/);
+    assert.match(src, /@\/site\/styles\/site\.css/, "new design");
+    for (const l of ["ru", "en", "de", "fr", "ja"]) assert.match(src, new RegExp(`\\n  ${l}: \\{`), `copy for ${l}`);
+  });
+  test("locale: the URL's, a de/fr/ja cookie over en, else negotiated", () => {
+    assert.equal(notFoundLocale({ publicPath: "/ru/foo/bar/baz", cookie: "de" }), "ru");
+    assert.equal(notFoundLocale({ publicPath: "/ru/old/x/y/z", acceptLanguage: "fr" }), "ru");
+    assert.equal(notFoundLocale({ publicPath: "/en/foo/bar/baz" }), "en");
+    assert.equal(notFoundLocale({ publicPath: "/en/foo/bar/baz", cookie: "ru" }), "en");
+    assert.equal(notFoundLocale({ publicPath: "/en/foo/bar/baz", cookie: "de" }), "de");
+    assert.equal(notFoundLocale({ publicPath: "/ja/site/x", cookie: "fr" }), "ja");
+    assert.equal(notFoundLocale({ publicPath: null, acceptLanguage: "fr-FR,fr;q=0.9" }), "fr");
+    assert.equal(notFoundLocale({ publicPath: "/foo.php", cookie: "ja", acceptLanguage: "ru" }), "ja");
+    assert.equal(notFoundLocale({}), "en");
   });
 });
 
@@ -267,6 +400,22 @@ describe("src/proxy.ts", () => {
     assert.match(res.headers.get("set-cookie") ?? "", /locale=ru/);
     assert.equal(res.headers.get("x-middleware-request-x-ia-site"), "new");
     assert.equal(res.headers.get("x-middleware-request-x-ia-soon"), null);
+  });
+  test("bare link for a German visitor: one 307 to the English old page (A16)", () => {
+    const res = proxy(req("/segment/sobriety?x=1", { "accept-language": "de-DE,de;q=0.9" }));
+    assert.equal(res.status, 307);
+    assert.equal(res.headers.get("location"), "https://inapp.pro/en/segment/sobriety?x=1");
+  });
+  test("in-place rewrite keeps a de locale cookie (A11)", () => {
+    const res = proxy(req("/en/spotify", { cookie: "locale=de" }));
+    assert.equal(res.headers.get("x-middleware-rewrite"), "https://inapp.pro/spotify");
+    assert.equal(res.headers.get("set-cookie"), null);
+    assert.match(proxy(req("/en/spotify", { cookie: "locale=ru" })).headers.get("set-cookie") ?? "", /locale=en/);
+  });
+  test("launch topic v2 → 308 (A10)", () => {
+    const res = proxy(req("/ru/segment/habit-tracking/v2"));
+    assert.equal(res.status, 308);
+    assert.equal(res.headers.get("location"), "https://inapp.pro/ru/segment/habit-tracking");
   });
   test("archive rewrite: noindex, headers for the old layout, no cookie", () => {
     const res = proxy(req("/ru/old/segment/habit-tracking"));

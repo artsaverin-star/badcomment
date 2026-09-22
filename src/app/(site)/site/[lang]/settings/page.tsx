@@ -1,40 +1,49 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
-import { isLocale, LOCALE_NAMES, LOCALES } from "@/site/i18n/locales";
+import { getViewer } from "@/site/access";
+import { getManifest } from "@/site/content";
+import { mediaSrc, mediaSrcSet } from "@/site/content/media";
+import { pageMetadata } from "@/site/features/legal/meta";
+import { SettingsScreen } from "@/site/features/settings/SettingsScreen";
+import { settingsStrings } from "@/site/features/settings/strings";
+import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
-import { routes, switchLocaleHref } from "@/site/routing";
-import { Badge } from "@/site/ui/Badge";
-import { Card } from "@/site/ui/Card";
-import { Heading } from "@/site/ui/Heading";
+import { routes } from "@/site/routing";
+import { THEME_COOKIE, toTheme } from "@/site/theme";
 
-// TODO(settings): PLACEHOLDER for Settings (spec 02 §8): Plus card, appearance (ia_theme),
-// language, «Знакомство с приложением», about, contact/terms/privacy, old site link.
+// Settings (spec 02 §8; a page on the web — the app shows it as a sheet over «Сохранённое»).
+// noindex (spec 09 §2.1, G9).
 
-export const metadata: Metadata = { robots: { index: false, follow: true } };
+type Params = { lang: string };
 
-export default async function SettingsPlaceholder({ params }: { params: Promise<{ lang: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const t = await getT(lang);
+  return pageMetadata({
+    locale: lang,
+    path: (l) => routes.settings(l),
+    title: t("Настройки"),
+    description: settingsStrings[lang].description,
+    index: false,
+  });
+}
+
+export default async function SettingsPage({ params }: { params: Promise<Params> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const t = await getT(lang);
+  const [t, viewer, manifest, jar] = await Promise.all([getT(lang), getViewer(), getManifest(), cookies()]);
+  const art = manifest.art.WelcomeLibrary_v7;
 
   return (
-    <div className="ia-page ia-page--library flex flex-col gap-6">
-      <Heading variant="large" title={t("Настройки")} />
-      <Badge tone="neutral">TODO · settings placeholder</Badge>
-      <Card variant="group" className="flex flex-col">
-        {LOCALES.map((l) => (
-          <a key={l} href={switchLocaleHref(routes.settings(lang), l)} lang={l} className="px-4 py-4">
-            {LOCALE_NAMES[l]} {l === lang ? "✓" : ""}
-          </a>
-        ))}
-      </Card>
-      <Link href={routes.settingsAbout(lang)} className="text-ia-accent">
-        {t("О материалах")}
-      </Link>
-      <Link href={routes.welcome(lang)} className="text-ia-accent">
-        {t("Знакомство с приложением")}
-      </Link>
-    </div>
+    <SettingsScreen
+      locale={lang}
+      t={t}
+      viewer={viewer}
+      theme={toTheme(jar.get(THEME_COOKIE)?.value)}
+      collectionDate={manifest.collectionDate}
+      plusArt={art ? { src: mediaSrc(art, 224), srcSet: mediaSrcSet(art) } : null}
+    />
   );
 }

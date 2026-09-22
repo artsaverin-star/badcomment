@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { loginWithGoogle, verifyGoogleIdToken, appOrigin } from "@/lib/googleAuth";
+import { safeLocalPath } from "@/lib/safeReturn";
 
 export const dynamic = "force-dynamic";
 
@@ -47,9 +48,9 @@ export async function GET(req: Request) {
   await loginWithGoogle(profile.sub, profile.email, profile.name);
 
   // Bounce back to where the user started the sign-in (e.g. the gated page they
-  // were unlocking), not the homepage. Validated to be a local path in `start`.
-  const rawReturn = (await cookies()).get("g_oauth_return")?.value || "/";
-  const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/";
+  // were unlocking), not the homepage. Validated in `start` and again here: the cookie
+  // may predate the fix or have been set by something else.
+  const returnTo = safeLocalPath((await cookies()).get("g_oauth_return")?.value);
   const res = NextResponse.redirect(new URL(returnTo, origin));
   res.cookies.set("g_oauth_state", "", { path: "/", maxAge: 0 });
   res.cookies.set("g_oauth_return", "", { path: "/", maxAge: 0 });

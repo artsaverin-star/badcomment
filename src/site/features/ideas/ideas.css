@@ -1,0 +1,630 @@
+/* ==========================================================================
+   Ideas feature: idea card, «Идеи» catalog, idea reader, locked preview,
+   export sheet, App Store promo (spec 02 §2–§3, §7; spec 05 §3.6 D, E, M, N, O).
+   Tokens only (--ia-*); no new tokens.
+   ========================================================================== */
+
+/* ---- Idea card (ClarityIdeaCard, spec 05 §3.6 D) ---- */
+.ia-idea-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--ia-surface);
+  color: var(--ia-ink);
+  text-align: start;
+  font: inherit;
+  border-radius: var(--ia-radius-idea-card);
+  box-shadow:
+    var(--ia-shadow-idea-card),
+    inset 0 0 0 1px var(--ia-line-65);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity var(--ia-dur-press) var(--ia-ease-press),
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+.ia-idea-card:active {
+  opacity: 0.85;
+}
+.ia-idea-card:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .ia-idea-card:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 8px 32px rgb(0 0 0 / 0.08),
+      inset 0 0 0 1px var(--ia-line-65);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ia-idea-card {
+    transition: none;
+  }
+  .ia-idea-card:hover {
+    transform: none;
+  }
+}
+.ia-idea-card__art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--ia-radius-art);
+  background: var(--ia-soft);
+}
+.ia-idea-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+.ia-idea-card__title {
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-card-title);
+  line-height: var(--ia-lh-card-title);
+  color: var(--ia-ink);
+}
+.ia-idea-card__desc {
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-subtitle);
+  line-height: var(--ia-lh-subtitle);
+  color: var(--ia-secondary);
+}
+.ia-idea-card__cat {
+  margin-top: 7px;
+  font-size: var(--ia-fs-footnote);
+  line-height: var(--ia-lh-footnote);
+  color: var(--ia-secondary);
+}
+.ia-idea-card--locked .ia-lock-disc {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+/* In a grid row the cards share one height; a locked card lets its art fill it. */
+.ia-ideas-grid > li {
+  display: flex;
+}
+.ia-ideas-grid .ia-idea-card {
+  flex: 1;
+  margin: 0;
+}
+.ia-ideas-grid .ia-idea-card--locked .ia-idea-card__art {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---- «Идеи» catalog (spec 02 §2.6) ---- */
+.ia-ideas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ia-ideas__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.ia-ideas__controls .ia-search {
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 760px) {
+  .ia-ideas__controls {
+    flex-direction: row;
+    align-items: center;
+  }
+  .ia-ideas__controls .ia-search {
+    flex: 0 1 560px;
+  }
+}
+.ia-ideas__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 13px 17px;
+  border: 0;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-surface);
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity var(--ia-dur-press) var(--ia-ease-press);
+}
+.ia-ideas__pill:active {
+  opacity: 0.8;
+}
+.ia-ideas__pill > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ia-ideas__pill svg {
+  flex: none;
+}
+@media (hover: hover) {
+  .ia-ideas__pill:hover {
+    background: color-mix(in srgb, var(--ia-surface) 92%, var(--ia-ink));
+  }
+}
+.ia-ideas__grid {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-ideas__empty {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ia-ideas__empty-title {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-ideas__empty-body {
+  margin: 0;
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+  color: var(--ia-secondary);
+}
+.ia-ideas__promo {
+  margin-top: 18px;
+}
+
+/* ---- Category picker (ClarityTopicPicker, spec 02 §2.5, 09 G5) ---- */
+.ia-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-picker__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-surface);
+  overflow: hidden;
+}
+.ia-picker__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 11px 18px;
+  border: 0;
+  background: transparent;
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  text-align: start;
+  cursor: pointer;
+}
+.ia-picker__list > li + li .ia-picker__row {
+  box-shadow: inset 0 1px 0 var(--ia-line-65);
+}
+.ia-picker__row > span {
+  flex: 1;
+}
+.ia-picker__row:focus-visible {
+  outline-offset: -2px;
+}
+@media (hover: hover) {
+  .ia-picker__row:hover {
+    background: var(--ia-ink-045);
+  }
+}
+
+/* ---- Idea reader (spec 02 §3.4, spec 05 §3.6 M) ---- */
+.ia-idea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ia-gap-article);
+  padding-bottom: 56px;
+}
+.ia-idea__cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--ia-radius-art);
+  background: var(--ia-soft);
+}
+.ia-idea__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.ia-idea__title {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-weight: 400;
+  font-size: var(--ia-fs-title);
+  line-height: var(--ia-lh-title);
+  color: var(--ia-ink);
+  text-wrap: balance;
+}
+@media (min-width: 1024px) {
+  .ia-idea__title {
+    font-size: clamp(1.875rem, 1.2rem + 1.6vw, 2.5rem);
+  }
+}
+.ia-idea__lead {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-lead);
+  line-height: var(--ia-lh-lead);
+  color: var(--ia-secondary);
+}
+.ia-idea__category {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 6px 14px;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-accent-soft);
+  color: var(--ia-accent);
+  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+@media (hover: hover) {
+  .ia-idea__category:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+.ia-idea__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ia-idea__p {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-body-serif);
+  line-height: var(--ia-lh-body-serif);
+  color: var(--ia-ink);
+}
+.ia-idea__paras {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ia-gap-paragraph);
+}
+.ia-idea__h2 {
+  margin: 16px 0 0;
+  font: 600 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  color: var(--ia-ink);
+}
+.ia-idea__quote {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 0 8px 18px;
+  box-shadow: inset 2px 0 0 var(--ia-line);
+}
+.ia-idea__quote-mark {
+  color: var(--ia-secondary);
+}
+.ia-idea__quote-text {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-quote);
+  line-height: var(--ia-lh-quote);
+  color: var(--ia-ink);
+}
+.ia-idea__quote-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: var(--ia-fs-footnote);
+  line-height: var(--ia-lh-footnote);
+  color: var(--ia-secondary);
+}
+.ia-idea__stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--ia-accent);
+}
+.ia-idea__stars .is-off {
+  color: var(--ia-line);
+}
+.ia-idea__inset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 4px 0;
+  padding: 20px;
+  border-radius: var(--ia-radius-thumb);
+  background: var(--ia-accent-soft);
+}
+.ia-idea__inset::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 3px;
+  border-radius: 1px;
+  background: var(--ia-accent);
+}
+.ia-idea__inset-title {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-weight: 400;
+  font-size: var(--ia-fs-card-title);
+  line-height: var(--ia-lh-card-title);
+}
+
+/* Footer actions (spec 02 §3.6) */
+.ia-idea__actions {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  border-top: 1px solid var(--ia-line);
+}
+.ia-idea__action {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 11px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ia-ink);
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  text-align: start;
+  cursor: pointer;
+}
+.ia-idea__action svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--ia-accent);
+}
+.ia-idea__action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ia-idea__action-sub {
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+@media (hover: hover) {
+  .ia-idea__action:hover .ia-idea__action-label {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* ---- Locked idea preview (spec 03 §3.4) ---- */
+.ia-idea-gate {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 56px;
+}
+.ia-idea-gate__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ia-idea-gate__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-idea-gate__label svg {
+  color: var(--ia-accent);
+}
+.ia-idea-gate__body {
+  margin: 0;
+  font-size: var(--ia-fs-body);
+  line-height: var(--ia-lh-body-relaxed);
+  color: var(--ia-secondary);
+}
+.ia-idea-gate__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  color: var(--ia-accent);
+  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+@media (hover: hover) {
+  .ia-idea-gate__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+.ia-idea-gate__note {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ia-accent);
+  font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  cursor: pointer;
+}
+
+/* ---- Export sheet (spec 02 §7.2, spec 05 §3.6 N) ---- */
+.ia-export {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: var(--ia-w-reading);
+  margin-inline: auto;
+  padding-top: 4px;
+}
+.ia-export__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-export__title {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-weight: 400;
+  font-size: var(--ia-fs-title);
+  line-height: var(--ia-lh-title);
+  white-space: pre-line;
+}
+.ia-export__subtitle {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-subtitle);
+  line-height: var(--ia-lh-subtitle);
+  color: var(--ia-secondary);
+}
+.ia-export__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-export__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.ia-export__num {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ia-accent-soft);
+  color: var(--ia-accent);
+  font: 700 var(--ia-fs-subheadline) / 1 var(--ia-font-sans);
+}
+.ia-export__item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 5px;
+}
+.ia-export__item-title {
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-export__item-detail,
+.ia-export__info {
+  margin: 0;
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+  color: var(--ia-secondary);
+}
+.ia-export__preview-title {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-export__preview {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-size: var(--ia-fs-body-serif);
+  line-height: var(--ia-lh-body-serif);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+.ia-export__status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ia-secondary);
+}
+.ia-export__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: var(--ia-w-reading);
+  margin-inline: auto;
+}
+.ia-export__row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.ia-export__done {
+  margin: 0;
+  text-align: center;
+  font-size: var(--ia-fs-footnote);
+  line-height: var(--ia-lh-footnote);
+  color: var(--ia-secondary);
+}
+.ia-export__alert {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 6px;
+  text-align: center;
+}
+.ia-export__alert p {
+  margin: 0;
+  color: var(--ia-secondary);
+}
+
+/* ---- App Store promo (DECISIONS §12) ---- */
+.ia-app-promo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 760px) {
+  .ia-app-promo {
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+  }
+}
+.ia-app-promo__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+.ia-app-promo__title {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-weight: 400;
+  font-size: var(--ia-fs-card-title);
+  line-height: var(--ia-lh-card-title);
+}
+.ia-app-promo__body {
+  margin: 0;
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+  color: var(--ia-secondary);
+}

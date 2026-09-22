@@ -9,6 +9,7 @@
 // Links between new pages: next/link. Links to the old site (/<L>/old/…) and language
 // switches cross a root layout / reload the document: use a plain <a>.
 
+import { isSafeLocalPath } from "@/lib/safeReturn";
 import { isLocale, toOldLocale, type Locale } from "./i18n/locales";
 
 type Query = Record<string, string | number | boolean | null | undefined>;
@@ -119,7 +120,11 @@ export function switchLocaleHref(pathWithQuery: string, next: Locale): string {
   return `/${next}${segments.length ? `/${segments.join("/")}` : ""}${rest}`;
 }
 
-/** A local return path is safe only when it is a same-origin absolute path. */
+/**
+ * A return path (sign-in `return_to`) is safe only when it is a same-site path that cannot
+ * become another origin: delegates to the shared validator the sign-in API routes use
+ * (src/lib/safeReturn.ts — rejects "//x", "/\x", "/\t/x", encoded "//", dot segments, /api…).
+ */
 export function isSafeReturnPath(p: string | null | undefined): p is string {
-  return !!p && p.startsWith("/") && !p.startsWith("//") && !p.startsWith("/\\");
+  return isSafeLocalPath(p);
 }

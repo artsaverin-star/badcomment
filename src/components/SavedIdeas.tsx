@@ -4,7 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { IdeaCards, favSubscribe, favSnapshot } from "./TestCards";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 type Score = { money: number; simplicity: number; demand: number; composite: number; whyPay?: string; pricePoint?: string };
 export type SavedPreview = {
@@ -21,7 +21,6 @@ export type SavedPreview = {
 // old feed (feed:saved) are merged in once, so nothing saved before is lost.
 export default function SavedIdeas({ items, locale = "ru", loggedIn = false }: { items: Record<string, SavedPreview>; locale?: Locale; loggedIn?: boolean }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
 
   // One-time migration of legacy hearts into favIdeas.
   const [migrated, setMigrated] = useState(false);
@@ -53,7 +52,7 @@ export default function SavedIdeas({ items, locale = "ru", loggedIn = false }: {
           <path d="M6 4.9c0-.5.4-.9.9-.9h10.2c.5 0 .9.4.9.9v14.6c0 .34-.39.53-.65.32L12 16.2l-5.35 3.62c-.26.21-.65.02-.65-.32V4.9z" />
         </svg>
         <p className="mx-auto mt-4 max-w-[36ch] text-callout text-[var(--color-text-secondary)]">{ru ? "Пока пусто. Жми закладку на карточках идей, и они соберутся здесь." : "Empty for now. Tap the bookmark on idea cards and they will collect here."}</p>
-        <Link href={`${lp}/ideas`} className="mt-6 inline-flex rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">{ru ? "К идеям" : "To the ideas"}</Link>
+        <Link href={oldHref(ru, "/ideas")} className="mt-6 inline-flex rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">{ru ? "К идеям" : "To the ideas"}</Link>
       </div>
     );
   }

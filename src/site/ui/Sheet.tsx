@@ -203,18 +203,32 @@ export function Sheet({
   );
 }
 
-/** Text action in a sheet's nav bar («Готово», «Отмена», «Сохранить»): glass pill, 17/600. */
+/**
+ * Text action in a sheet's nav bar: glass pill, 17 pt, ink (sheets tint ink,
+ * ClarityReader.swift:225,892,938). `emphasis`: "strong" (default, 600) for confirmation
+ * actions «Готово» / «Сохранить» (`.confirmationAction`, `.fontWeight(.semibold)`),
+ * "regular" (400) for the cancellation action «Отмена» (`.cancellationAction`, :925).
+ */
 export function SheetAction({
   className,
   tone = "ink",
+  emphasis = "strong",
   children,
   ...rest
-}: { tone?: "ink" | "accent"; children: ReactNode } & ButtonHTMLAttributes<HTMLButtonElement>) {
+}: {
+  tone?: "ink" | "accent";
+  emphasis?: "strong" | "regular";
+  children: ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       type="button"
-      className={cx("ia-glass-pill", className)}
-      style={{ fontWeight: 600, color: tone === "accent" ? "var(--ia-accent)" : undefined }}
+      className={cx(
+        "ia-glass-pill",
+        emphasis === "regular" ? "ia-glass-pill--regular" : "ia-glass-pill--strong",
+        tone === "accent" && "ia-glass-pill--accent",
+        className,
+      )}
       {...rest}
     >
       {children}

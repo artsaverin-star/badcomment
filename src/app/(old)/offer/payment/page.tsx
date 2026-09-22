@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 import { getLegal, legalValue } from "@/lib/legal";
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import { getLocale } from "@/lib/i18n.server";
@@ -13,7 +13,6 @@ export const dynamic = "force-dynamic";
 // /offer is the Terms of Use (linked from the iOS app), not this page.
 export default async function PaymentOfferPage() {
   const locale = await getLocale();
-  const lp = oldLp(locale);
   const l = getLegal();
   const seller = `${legalValue(l.fullName)}${l.selfEmployed ? ", самозанятый (плательщик НПД)" : ""}, ИНН ${legalValue(l.inn)}`;
 
@@ -38,7 +37,7 @@ export default async function PaymentOfferPage() {
       "3. Стоимость и порядок оплаты",
       <>
         Доступ предоставляется за разовый платёж. Актуальная стоимость указана на странице{" "}
-        <Link href={`${lp}/tokens`} className="text-[var(--color-text-brand)] hover:underline">«Доступ»</Link> и на момент
+        <Link href={oldHref(locale, "/tokens")} className="text-[var(--color-text-brand)] hover:underline">«Доступ»</Link> и на момент
         оплаты: {ACCESS_PRICE_RUB} ₽ за бессрочный доступ ко всем материалам сервиса. Оплата производится онлайн банковской картой или через СБП через платёжный
         сервис ЮKassa (ООО НКО «ЮМани») либо через Telegram Stars. Цены указаны в рублях РФ.
       </>,
@@ -65,7 +64,7 @@ export default async function PaymentOfferPage() {
         {legalValue(l.fullName)}
         {l.selfEmployed ? " (самозанятый, НПД)" : ""}, ИНН {legalValue(l.inn)}. E-mail: {legalValue(l.email)}
         {l.phone ? `, телефон: ${l.phone}` : ""}. Полные контакты — на странице{" "}
-        <Link href={`${lp}/contacts`} className="text-[var(--color-text-brand)] hover:underline">«Контакты»</Link>.
+        <Link href={oldHref(locale, "/contacts")} className="text-[var(--color-text-brand)] hover:underline">«Контакты»</Link>.
       </>,
     ],
   ];

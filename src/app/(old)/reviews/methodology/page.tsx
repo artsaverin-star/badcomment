@@ -3,7 +3,7 @@ import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import { getLocale } from "@/lib/i18n.server";
 import { progress, totals } from "@/lib/reviews";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: "/reviews/methodology",
+      // Absolute and localized: a bare /reviews/… canonical answers 307 → /en/…, so ru pages
+      // would declare the en page canonical (audit A9).
+      canonical: `https://inapp.pro/${ru ? "ru" : "en"}/reviews/methodology`,
       languages: {
         ru: "https://inapp.pro/ru/reviews/methodology",
         en: "https://inapp.pro/en/reviews/methodology",
@@ -41,7 +43,6 @@ export default async function ReviewMethodology() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
   const seoLoc = ru ? "ru" : "en";
   const t = totals();
@@ -60,7 +61,7 @@ export default async function ReviewMethodology() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <BackLink fallback={`${lp}/reviews`}>{ru ? "Отзывы" : "Reviews"}</BackLink>
+      <BackLink fallback={oldHref(ru, "/reviews")}>{ru ? "Отзывы" : "Reviews"}</BackLink>
 
       <header className="mt-4 max-w-[66ch]">
         <p className="text-caption font-semibold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? "Методика" : "Methodology"}</p>
@@ -170,7 +171,7 @@ export default async function ReviewMethodology() {
         <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
           {ru ? "Открой категорию и конкретное приложение, выбери тему и прочитай все исходные тексты под ней. Любую метку можно проверить по звёздам и точным словам — разметка не прячет корпус за пересказом." : "Open a category and app, choose a topic, and read every source text assigned to it. Any label can be checked against ratings and exact wording; the labelling never hides the corpus behind a summary."}
         </p>
-        <Link href={`${lp}/reviews`} className="mt-4 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
+        <Link href={oldHref(ru, "/reviews")} className="mt-4 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] transition-opacity hover:opacity-60">
           {ru ? "Перейти к корпусу →" : "Explore the corpus →"}
         </Link>
       </aside>

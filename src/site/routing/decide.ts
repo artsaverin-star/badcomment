@@ -8,13 +8,17 @@
 //   /                              307 → /<negotiated>
 //   /<L>                           NEW home                         (rewrite /site/<L>)
 //   /<L>/segment[/<launch slug>]   NEW; other slugs → OLD in place (+ x-ia-soon), de/fr/ja → 307 /en/…
+//   /<L>/segment/<launch slug>/v2  308 → /<L>/segment/<launch slug> (retired experiment URL)
 //   /<L>/research[/…], /<L>/search 308 → /<L>/segment[/…] (query kept)
 //   /<L>/ideas[/<launch id>]       NEW; other ids and /ideas/top → OLD in place
 //   /<L>/{saved,settings,plus,welcome,login,library,contacts,offer,privacy,site}/…  NEW
 //   /<L>/old[/<rest>]              OLD (internal /<rest>), noindex; de/fr/ja → 307 /en/old/…
 //   /old[/<rest>], /old/<ru|en>/…  307 → /<ru|en>/old/<rest>
 //   /<L>/<anything else>           OLD in place (internal /<rest>); de/fr/ja → 307 /en/<rest>
-//   /<bare path>                   307 → /<negotiated>/<path>, then evaluated again
+//   /<bare path>                   307 → /<negotiated>/<path>, or straight to where that URL
+//                                  redirects (one hop, e.g. /segment/<old topic> for de → /en/…)
+// The locale cookie: NEW pages write <L>; in-place OLD pages write ru/en unless the cookie
+// already holds de/fr/ja; /<L>/old/** and redirects never write it.
 // `site` is owned by the new site so no public URL can reach the internal /site/<L>/… tree
 // through an old rewrite: /<L>/site/… and /<L>/old/site/… land on the new site's 404.
 
@@ -146,6 +150,18 @@ function localeCookie(ctx: Ctx, l: Locale): CookieToSet[] {
   return [{ name: LOCALE_COOKIE, value: l, path: "/", maxAge: LOCALE_COOKIE_MAX_AGE, sameSite: "lax" }];
 }
 
+/**
+ * The cookie an in-place old page may write: ru/en like the old proxy did, but never over a
+ * de/fr/ja choice. Those visitors only land on /en/<old page> because the old site has no
+ * German/French/Japanese version (new topic pages link to per-app pages), and "/" must keep
+ * sending them to their own locale.
+ */
+function inPlaceCookie(ctx: Ctx, l: OldLocale): CookieToSet[] {
+  const c = ctx.cookieLocale;
+  if (isLocale(c) && !isOldLocale(c)) return [];
+  return localeCookie(ctx, l);
+}
+
 function rewriteNew(ctx: Ctx, l: Locale, tail: readonly string[], opts: { setCookie?: boolean; noindex?: boolean } = {}): RewriteDecision {
   const setCookie = opts.setCookie ?? true;
   return {
@@ -182,8 +198,8 @@ function rewriteOld(ctx: Ctx, l: OldLocale, rest: readonly string[], site: "old"
     // The archive is hidden from search engines; in-place pages keep their indexing.
     responseHeaders: site === "old" ? { "X-Robots-Tag": "noindex, follow" } : {},
     // /<L>/old/** never writes the cookie (it would overwrite a de/fr/ja choice made on the
-    // new site); in-place pages do, like the old proxy did.
-    cookies: site === "inplace" ? localeCookie(ctx, l) : [],
+    // new site); in-place pages write ru/en like the old proxy did, except over de/fr/ja.
+    cookies: site === "inplace" ? inPlaceCookie(ctx, l) : [],
   };
 }
 
@@ -213,6 +229,12 @@ function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingD
   if (a === "search") return redirect(308, path(l, "segment"), ctx.search);
 
   if (a === "segment") {
+    // The old "/segment/<slug>/v2" experiment URL: its design became the topic page. A launch
+    // topic's v2 has no page on the new site, so it goes straight to the topic (other topics
+    // reach the old v2 stub in place, which redirects to the old topic page).
+    if (b !== undefined && tail.length === 3 && tail[2] === "v2" && isLaunchCategory(b)) {
+      return redirect(308, path(l, "segment", b), ctx.search);
+    }
     if (b === undefined || isLaunchCategory(b)) return rewriteNew(ctx, l, tail);
     // A topic that is not in the launch edition keeps its previous analysis in place.
     return inPlace(ctx, l, tail, tail.length === 2);
@@ -226,6 +248,26 @@ function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingD
   if (NEW_TOP_STATIC.has(a)) return rewriteNew(ctx, l, tail);
 
   return inPlace(ctx, l, tail);
+}
+
+/**
+ * Locale of the global 404 (src/app/global-not-found.tsx) for a URL no route matched.
+ * `publicPath` is x-ia-public-path from the proxy: its locale wins (spec 09 §2.2), except that
+ * a de/fr/ja `locale` cookie beats "en" — the old site has no de/fr/ja pages, so those visitors
+ * were redirected to /en/… before the path turned out not to exist. Requests the proxy never
+ * sees (paths with a dot, /api/…) have no public path: negotiated like "/".
+ */
+export function notFoundLocale(input: {
+  publicPath?: string | null;
+  cookie?: string | null;
+  acceptLanguage?: string | null;
+}): Locale {
+  const first = (input.publicPath ?? "").split("/").filter(Boolean)[0];
+  if (isLocale(first)) {
+    if (first === "en" && isLocale(input.cookie) && !isOldLocale(input.cookie)) return input.cookie;
+    return first;
+  }
+  return negotiateLocale({ cookie: input.cookie, acceptLanguage: input.acceptLanguage });
 }
 
 /** The single routing decision for a public request. */
@@ -251,8 +293,14 @@ export function decideRoute(input: RoutingInput): RoutingDecision {
     return redirect(307, path(toOldLocale(negotiated()), OLD_SEGMENT, ...segs.slice(1)), ctx.search);
   }
 
-  // Bare path: add a locale, then the next request is evaluated again.
-  if (!isLocale(first)) return redirect(307, path(negotiated(), ...segs), ctx.search);
+  // Bare path: add the negotiated locale. When the localized URL would redirect again
+  // (/segment/<old topic> for de/fr/ja → /en/…, aliases, …) go to that final target in one
+  // hop. Always 307: the target depends on the visitor's cookie / Accept-Language.
+  if (!isLocale(first)) {
+    const l = negotiated();
+    const next = decideLocalized(ctx, l, segs);
+    return next.type === "redirect" ? { ...next, status: 307 } : redirect(307, path(l, ...segs), ctx.search);
+  }
 
   return decideLocalized(ctx, first, segs.slice(1));
 }

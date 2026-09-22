@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export type Chip = { slug: string; name: string; icon?: string | null; hue?: number };
 
@@ -16,13 +16,12 @@ const Lock = () => (
 // is premium — for non-owners tiles show a lock and scroll to the unlock gate.
 export default function CategoryChips({ chips, current, sort, locale = "ru", locked = false }: { chips: Chip[]; current?: string; sort?: string; locale?: Locale; locked?: boolean }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const href = (cat?: string) => {
     const p = new URLSearchParams();
     if (cat) p.set("cat", cat);
     if (sort && sort !== "hot") p.set("sort", sort);
     const q = p.toString();
-    return q ? `${lp}/ideas?${q}` : `${lp}/ideas`;
+    return q ? oldHref(ru, `/ideas?${q}`) : oldHref(ru, "/ideas");
   };
   const toGate = () => document.getElementById("idea-gate")?.scrollIntoView({ behavior: "smooth", block: "center" });
 

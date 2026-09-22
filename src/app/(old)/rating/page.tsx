@@ -5,7 +5,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { reviewCorpusSlugs } from "@/lib/reviews";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 type RApp = { icon: string | null; ratings: number };
 type RFile = { count?: number; apps?: RApp[] };
@@ -146,7 +146,6 @@ function cleanBlurb(value: string, locale: "ru" | "en"): string {
 export default async function RatingIndexPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
   const seoLoc = ru ? "ru" : "en";
   const jsonLd = {
@@ -180,7 +179,7 @@ export default async function RatingIndexPage() {
           const icons = iconsFor(n.slug);
           const count = RATING[n.slug]?.count ?? 0;
           return (
-            <Link key={n.slug} href={`${lp}/rating/${n.slug}`} className="card-min group flex h-full flex-col rounded-[22px] p-6">
+            <Link key={n.slug} href={oldHref(ru, `/rating/${n.slug}`)} className="card-min group flex h-full flex-col rounded-[22px] p-6">
               <div className="flex items-start justify-between gap-3">
                 <h2 className="text-headline text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
                 {NEW_NICHES.has(n.slug) && (

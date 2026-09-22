@@ -31,7 +31,7 @@ import { neutralizeTrustLanguage } from "@/lib/trustCopy";
 
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 // The unified niche dossier: market overview, audience, honest rating (sentiment
 // vs store), breakdown by thesis pillars, and idea cards. Server component,
@@ -105,8 +105,7 @@ export default async function NicheDossier({
   backHref?: string;
 }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
-  const backFallback = backHref ?? lp;
+  const backFallback = backHref ?? oldHref(ru, "/");
   const NF = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const r = RATING[slug];
   // Dossier (market + audience) and thesis are localized; rating verdicts overlay
@@ -195,7 +194,7 @@ export default async function NicheDossier({
       id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
       authenticity: a.authenticity, verdict: cap(tg((e?.verdict ?? a.verdict) || "")), loved: cap(tg((e?.loved ?? a.loved) || "")), weak: cap(tg((e?.weak ?? a.weak) || "")), whoFor: (e?.whoFor ?? a.whoFor) ? cap(tg((e?.whoFor ?? a.whoFor) as string)) : null,
       shots: a.shots ?? [],
-      reviewHref: `${lp}/reviews/${slug}/${a.id}`,
+      reviewHref: oldHref(ru, `/reviews/${slug}/${a.id}`),
     };
   });
   const normalizeAppName = (value: string) => value.toLocaleLowerCase().replace(/[^a-zа-яё0-9]+/gi, " ").trim();
@@ -205,9 +204,9 @@ export default async function NicheDossier({
       const title = normalizeAppName(app.title);
       return title === needle || title.startsWith(`${needle} `) || needle.startsWith(`${title} `);
     });
-    if (!matched) return `${lp}/reviews/${slug}`;
+    if (!matched) return oldHref(ru, `/reviews/${slug}`);
     const query = quote.replace(/\s+/g, " ").trim().slice(0, 120);
-    return `${lp}/reviews/${slug}/${matched.id}${query ? `?q=${encodeURIComponent(query)}` : ""}`;
+    return oldHref(ru, `/reviews/${slug}/${matched.id}${query ? `?q=${encodeURIComponent(query)}` : ""}`);
   };
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
   const leaders = byRatings.slice(0, 3);
@@ -296,7 +295,7 @@ export default async function NicheDossier({
             </div>
           ))}
         </div>
-        <Link href={`${lp}/reviews/${slug}`} className="mt-8 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2.5 text-footnote font-medium text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)]">
+        <Link href={oldHref(ru, `/reviews/${slug}`)} className="mt-8 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2.5 text-footnote font-medium text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)]">
           {ru ? `Открыть ${NF(corpus.reviews)} исходных отзывов` : `Open ${NF(corpus.reviews)} source reviews`}
           <span aria-hidden="true">→</span>
         </Link>
@@ -446,7 +445,7 @@ export default async function NicheDossier({
       )}
 
       <Block title={ru ? "Рейтинг по отзывам" : "Review-based rating"} lead={ru ? `Одна и та же выборка из ${r.count} приложений в двух системах оценки. Переключи и смотри, как витринная звезда согласуется с тем, что люди пишут в отзывах.` : `The same sample of ${r.count} apps in two scoring systems. Switch to see how the storefront star aligns with what people write in reviews.`}>
-        <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`${lp}/rating/${slug}`} locale={locale} />
+        <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={oldHref(ru, `/rating/${slug}`)} locale={locale} />
       </Block>
 
       {/* The ladder, honest at every rung: rating free, the FIRST finding for a
@@ -594,7 +593,7 @@ export default async function NicheDossier({
         <Block title={ru ? "Соседние ниши" : "Nearby niches"} lead={ru ? "Разборы рядом: та же аудитория, соседние работы." : "Breakdowns next door: same audience, adjacent jobs."}>
           <div className="mt-6 flex flex-wrap gap-2.5">
             {related.map((n) => (
-              <Link key={n.slug} href={`${lp}/segment/${n.slug}`} className="card-min inline-flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+              <Link key={n.slug} href={oldHref(ru, `/segment/${n.slug}`)} className="card-min inline-flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
                 {n.icon
                   // eslint-disable-next-line @next/next/no-img-element
                   ? <img src={n.icon} alt="" loading="lazy" decoding="async" className="size-7 rounded-[8px] object-cover ring-1 ring-[var(--color-border-subtle)]" />

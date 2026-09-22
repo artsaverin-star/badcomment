@@ -285,13 +285,40 @@ export function normalizeForSearch(text: string, locale: LocaleCode | string): s
     .normalize("NFC");
 }
 
-/** Query tokens (split on whitespace), normalized. */
+/**
+ * Search cost guards (defence in depth; the pages also cap `?q=` at 200 chars).
+ * Only the first MAX_QUERY_CHARS UTF-16 units of a query are searched, and only its first
+ * MAX_QUERY_TOKENS distinct tokens are matched (a longer query can only match more).
+ */
+export const MAX_QUERY_CHARS = 200;
+export const MAX_QUERY_TOKENS = 12;
+
+/** `query` cut to MAX_QUERY_CHARS UTF-16 units, never leaving half of a surrogate pair. */
+export function capQuery(query: string): string {
+  if (query.length <= MAX_QUERY_CHARS) return query;
+  const head = query.slice(0, MAX_QUERY_CHARS);
+  return /[\uD800-\uDBFF]$/.test(head) ? head.slice(0, -1) : head;
+}
+
+/** Query tokens (split on whitespace), normalized, de-duplicated and capped (see MAX_QUERY_*). */
 export function queryTokens(query: string, locale: LocaleCode | string): string[] {
-  return query
-    .split(/\s+/u)
-    .filter(Boolean)
-    .map((t) => normalizeForSearch(t, locale))
-    .filter(Boolean);
+  const tokens = new Set<string>();
+  for (const raw of capQuery(query).split(/\s+/u)) {
+    if (!raw) continue;
+    const token = normalizeForSearch(raw, locale);
+    if (!token) continue;
+    tokens.add(token);
+    if (tokens.size >= MAX_QUERY_TOKENS) break;
+  }
+  return [...tokens];
+}
+
+/**
+ * Every token (from queryTokens) is contained in some field; `fields` must already be
+ * normalized. No tokens → true. Lets a caller tokenize once and test many haystacks.
+ */
+export function matchesTokens(tokens: readonly string[], fields: readonly string[]): boolean {
+  return tokens.every((token) => fields.some((field) => field.includes(token)));
 }
 
 /**
@@ -307,8 +334,7 @@ export function matchesQuery(
 ): boolean {
   const tokens = queryTokens(query, locale);
   if (tokens.length === 0) return true;
-  const haystack = normalizeFields ? fields.map((f) => normalizeForSearch(f, locale)) : fields;
-  return tokens.every((token) => haystack.some((field) => field.includes(token)));
+  return matchesTokens(tokens, normalizeFields ? fields.map((f) => normalizeForSearch(f, locale)) : fields);
 }
 
 const collators = new Map<string, Intl.Collator>();

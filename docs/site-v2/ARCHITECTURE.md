@@ -121,7 +121,8 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
 
 1. Done: `git mv` of old pages/layout/CSS into `src/app/(old)/`; `scripts/test-monetization.ts`
    reads `src/app/(old)/layout.tsx`.
-2. Navigation links inside old code stay inside the old site: a helper `src/lib/oldHref.ts`
+2. Navigation links inside old code: `oldHref()` returns the public URL when that URL is served in place
+   (old-only route) and `/<L>/old/…` when the new site owns the public URL (AUDIT-PHASE-A A4). Originally: a helper `src/lib/oldHref.ts`
    (`oldLp(locale) → "/ru/old" | "/en/old"`) replaces the `lp` constants and per-line locale
    templates, bare paths, client navigations and language switchers (spec 07 §5 M1–M6, M10 where
    it builds navigation links). **Do not change** metadata canonicals/hreflang/JSON-LD/sitemap/feed/

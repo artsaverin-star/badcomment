@@ -4,7 +4,6 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { listReviewCatalogue, totals } from "@/lib/reviews";
-import { oldLp } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: "/reviews",
+      // Absolute and localized: a bare /reviews/… canonical answers 307 → /en/…, so ru pages
+      // would declare the en page canonical (audit A9).
+      canonical: `https://inapp.pro/${ru ? "ru" : "en"}/reviews`,
       languages: { ru: "https://inapp.pro/ru/reviews", en: "https://inapp.pro/en/reviews", "x-default": "https://inapp.pro/en/reviews" },
     },
     openGraph: { title, description, type: "website", siteName: "inApp" },
@@ -30,7 +31,6 @@ export default async function ReviewsHome() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   // JSON-LD keeps the original public URLs (not /old): in-place pages stay indexed.
   const seoLoc = ru ? "ru" : "en";
   const niches = listReviewCatalogue(locale);
@@ -71,7 +71,7 @@ export default async function ReviewsHome() {
         </p>
       </header>
 
-      <ReviewNicheCatalogue niches={catalogue} ru={ru} lp={lp} />
+      <ReviewNicheCatalogue niches={catalogue} ru={ru} />
     </main>
   );
 }

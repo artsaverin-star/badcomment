@@ -8,7 +8,7 @@ import BuyButton from "./BuyButton";
 import { nb } from "@/lib/nbsp";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 function wordObs(n: number) {
   const d = n % 10, dd = n % 100;
@@ -40,7 +40,6 @@ export default function IdeaGrid({
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
 }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [modalSlug, setModalSlug] = useState<string | null>(null);
   const [auth, setAuth] = useState(false);
@@ -177,7 +176,7 @@ export default function IdeaGrid({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`${lp}/segment/${cur.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
+                <Link href={oldHref(ru, `/segment/${cur.category}`)} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

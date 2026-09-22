@@ -1,0 +1,322 @@
+/* «Сохранённое», note editor, bookmark — styles of the library feature (spec 02 §5–§6,
+   spec 05 §3.6 F/K/N/O). Unlayered on purpose (loaded after site.css or not, it must not
+   reorder the @layer stack); every selector is prefixed ia-lib-. Tokens only (tokens.css). */
+
+/* ---- Saved screen ---- */
+.ia-lib {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.ia-lib__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ia-lib__subtitle-placeholder {
+  visibility: hidden;
+}
+
+/* Section: heading outside the group box (17/600 + count 15 tabular secondary, 2 px inset). */
+.ia-lib-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ia-lib-section__title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  padding-inline: 2px;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  color: var(--ia-ink);
+}
+.ia-lib-section__count {
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--ia-secondary);
+}
+
+/* Group box: surface, radius 18, no stroke/shadow; hairline dividers inset 58. */
+.ia-lib-group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: var(--ia-radius-group-sm);
+  background: var(--ia-surface);
+}
+.ia-lib-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+.ia-lib-row + .ia-lib-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 58px;
+  right: 0;
+  height: 0.5px;
+  background: var(--ia-line-65);
+}
+.ia-lib-row:first-child .ia-lib-row__main {
+  border-top-left-radius: var(--ia-radius-group-sm);
+  border-top-right-radius: var(--ia-radius-group-sm);
+}
+.ia-lib-row:last-child .ia-lib-row__main {
+  border-bottom-left-radius: var(--ia-radius-group-sm);
+  border-bottom-right-radius: var(--ia-radius-group-sm);
+}
+.ia-lib-row--menu .ia-lib-row__main {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* The row body: link to the material, or (notes) a button that opens the editor. */
+.ia-lib-row__main {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-lib-row--menu .ia-lib-row__main {
+  padding-right: 4px;
+}
+.ia-lib-row__main:focus-visible {
+  outline-offset: -3px;
+}
+.ia-lib-row__main:active {
+  background: var(--ia-ink-045);
+}
+@media (hover: hover) {
+  .ia-lib-row__main:hover {
+    background: var(--ia-ink-045);
+  }
+}
+
+/* Leading visual: 88×66 art (radius 12), or the kind glyph (accent, 26×28). */
+.ia-lib-row__thumb {
+  flex: none;
+  width: 88px;
+  height: 66px;
+  border-radius: var(--ia-radius-thumb);
+  object-fit: cover;
+  background: var(--ia-soft);
+}
+.ia-lib-row__glyph {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 28px;
+  color: var(--ia-accent);
+}
+.ia-lib-row__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.ia-lib-row__title {
+  font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-lib-row__detail {
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-lib-row__note {
+  display: -webkit-box;
+  padding-top: 3px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.ia-lib-row__chevron {
+  flex: none;
+  align-self: center;
+  color: var(--ia-secondary);
+  opacity: 0.7;
+}
+/* Trailing «⋯»: 44×48, secondary. */
+.ia-lib-row__more {
+  flex: none;
+  padding: 9px 6px 0 0;
+}
+.ia-lib-row__more-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--ia-secondary);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .ia-lib-row__more-btn:hover {
+    background: var(--ia-ink-045);
+    color: var(--ia-ink);
+  }
+}
+.ia-lib-row__more-btn[aria-expanded="true"] {
+  color: var(--ia-ink);
+}
+
+/* No-results block. */
+.ia-lib-noresults {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 8px 2px 0;
+}
+.ia-lib-noresults__title {
+  margin: 0;
+  font: 600 1.25rem / 1.25 var(--ia-font-sans); /* title3 20/25 */
+  letter-spacing: -0.02em;
+}
+.ia-lib-noresults__body {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-lib-noresults .ia-btn--text {
+  min-height: var(--ia-hit);
+  font-weight: 600;
+}
+
+/* Footer: where the library is kept (+ sign-in for guests), sync errors. */
+.ia-lib-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-lib-footer p {
+  margin: 0;
+}
+.ia-lib-footer .ia-btn--text {
+  min-height: var(--ia-hit);
+  font-weight: 600;
+}
+.ia-lib-error {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-danger);
+  text-align: left;
+}
+.ia-lib-error svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+/* Loading rows. */
+.ia-lib-skeleton-row {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+}
+
+/* ---- Note editor (ClarityMaterialNote, spec 02 §5.2) ---- */
+.ia-lib-note {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  max-width: var(--ia-w-reading);
+  margin-inline: auto;
+  padding-top: 8px;
+}
+.ia-lib-note__title {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: var(--ia-fs-title);
+  line-height: var(--ia-lh-title);
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-lib-note__field {
+  display: block;
+  width: 100%;
+  min-height: calc(9lh + 40px);
+  max-height: calc(24lh + 40px);
+  padding: 20px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: var(--ia-radius-note);
+  background: var(--ia-surface);
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  resize: none;
+  overflow-y: auto;
+  field-sizing: content;
+}
+.ia-lib-note__field::placeholder {
+  color: var(--ia-secondary);
+  opacity: 1;
+}
+.ia-lib-note__field:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+.ia-lib-note__error {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-danger);
+}
+.ia-lib-note__footnote {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-lib-save {
+  font-weight: 600;
+}
+.ia-lib-save:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Discard confirmation. */
+.ia-lib-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+}
+.ia-lib-confirm__discard {
+  color: var(--ia-danger) !important;
+}

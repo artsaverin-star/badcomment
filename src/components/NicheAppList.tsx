@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 type Theme = { name: string; nameEn: string; count: number; fallback?: boolean };
 type App = { id: string; title: string; total: number; icon?: string; themes: Theme[] };
@@ -10,7 +10,6 @@ type App = { id: string; title: string; total: number; icon?: string; themes: Th
 export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: App[]; ru: boolean }) {
   const [query, setQuery] = useState("");
   const locale = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
     return apps.filter((app) => !needle || app.title.toLocaleLowerCase().includes(needle) || app.themes.some((theme) => (ru ? theme.name : theme.nameEn).toLocaleLowerCase().includes(needle)));
@@ -36,7 +35,7 @@ export default function NicheAppList({ slug, apps, ru }: { slug: string; apps: A
             const topicCount = app.themes.filter((theme) => !theme.fallback).length;
             return (
               <li key={app.id} className="border-b border-[var(--color-border-subtle)]">
-                <Link href={`${lp}/reviews/${slug}/${app.id}`} className="group flex items-center gap-3.5 py-3.5">
+                <Link href={oldHref(ru, `/reviews/${slug}/${app.id}`)} className="group flex items-center gap-3.5 py-3.5">
                   {app.icon ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={app.icon} alt="" width={44} height={44} loading="lazy" className="size-11 shrink-0 rounded-[11px] border border-[var(--color-border-subtle)]" />

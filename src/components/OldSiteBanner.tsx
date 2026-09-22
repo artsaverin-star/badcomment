@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
-import { publicHref, splitOldPath } from "@/lib/oldHref";
+import { publicHref } from "@/lib/oldHref";
 import type { OldSiteContext } from "@/lib/oldSite.server";
+import { decideRoute } from "@/site/routing/decide";
 
 // Thin strip above the old header telling visitors they are on the previous
 // version of inApp (docs/site-v2/DECISIONS.md §4, §8; ARCHITECTURE.md §5.3).
@@ -34,25 +35,20 @@ const COPY = {
   },
 } as const;
 
-// Old routes whose public URL the new site owns (ARCHITECTURE.md §1).
-const NEW_OWNED = new Set(["/ideas", "/saved", "/library", "/contacts", "/offer"]);
+type Props = Pick<OldSiteContext, "site" | "publicPath" | "newPath" | "soon"> & { locale: Locale };
 
 /**
  * The root layout is not re-rendered on client navigations, so after a soft
- * navigation the server headers describe the FIRST page only. Inside /<L>/old
- * every link stays in the old site, so later pages are "old"; their new-site
- * target is approximated without the routing manifest (the proxy's exact
- * x-ia-new-path applies again on the next full load): a topic or idea leads
- * to the new catalog, everything else without an obvious twin to the new home.
+ * navigation the server headers describe the FIRST page only. Old-site links move
+ * between /<L>/old/… and in-place URLs (src/lib/oldHref.ts), so the banner derives
+ * the same x-ia-* values for the browser path from the proxy's own pure decision.
  */
-function clientNewPath(locale: Locale, rest: string): string {
-  if (rest === "/" || NEW_OWNED.has(rest)) return publicHref(locale, rest);
-  if (rest === "/search" || rest.startsWith("/segment/")) return publicHref(locale, "/segment");
-  if (rest.startsWith("/ideas/")) return publicHref(locale, "/ideas");
-  return publicHref(locale);
+function clientContext(pathname: string | null): Pick<Props, "site" | "newPath" | "soon"> | null {
+  if (!pathname) return null;
+  const d = decideRoute({ pathname });
+  if (d.type !== "rewrite" || d.site === "new") return null;
+  return { site: d.site, newPath: d.requestHeaders["x-ia-new-path"] ?? null, soon: d.requestHeaders["x-ia-soon"] === "1" };
 }
-
-type Props = Pick<OldSiteContext, "site" | "publicPath" | "newPath" | "soon"> & { locale: Locale };
 
 export default function OldSiteBanner({ locale, site, publicPath, newPath, soon }: Props) {
   const pathname = usePathname();
@@ -61,10 +57,10 @@ export default function OldSiteBanner({ locale, site, publicPath, newPath, soon 
   if (!site) return null;
 
   const fresh = pathname === firstPath || pathname === publicPath;
-  const current = splitOldPath(pathname);
-  const mode = fresh ? site : current.old ? "old" : site;
-  const isSoon = fresh ? soon : false;
-  const target = fresh ? newPath : current.old ? clientNewPath(locale, current.rest) : null;
+  const live = fresh ? null : clientContext(pathname);
+  const mode = live?.site ?? site;
+  const isSoon = live ? live.soon : fresh && soon;
+  const target = live ? live.newPath : fresh ? newPath : null;
 
   const t = COPY[locale === "en" ? "en" : "ru"];
   const quiet = mode === "inplace" && !isSoon;

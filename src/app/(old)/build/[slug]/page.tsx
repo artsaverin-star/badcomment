@@ -16,7 +16,7 @@ import { FlameIcon } from "@/components/BuildIcons";
 import { getAccess } from "@/lib/access";
 import { canBuild, REGA_BUILD_IDEA } from "@/lib/buildAccess";
 import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +31,6 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const niche = getNicheName(slug, locale);
   if (!niche) notFound();
 
@@ -110,7 +109,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
             </>
           );
           return p.open ? (
-            <Link key={p.idea} href={`${lp}/build/${slug}/${p.idea}`} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
+            <Link key={p.idea} href={oldHref(ru, `/build/${slug}/${p.idea}`)} className="card-min group flex items-start gap-4 rounded-[20px] p-5 transition-colors hover:border-[var(--color-border-strong)]">
               {body}
               <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
@@ -134,7 +133,7 @@ export default async function BuildPainPicker({ params }: { params: Promise<{ sl
       {/* Floating glass control bar, same idiom as the site header. */}
       <FloatingBar>
         <div className="pointer-events-auto flex items-center rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-1.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-          <Link href={`${lp}/build`} className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+          <Link href={oldHref(ru, "/build")} className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
             <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4 6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             {ru ? "Назад" : "Back"}
           </Link>

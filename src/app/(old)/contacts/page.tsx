@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 import { getLegal } from "@/lib/legal";
 import { getLocale } from "@/lib/i18n.server";
 import { APPLE_REFUND_URL, IOS_PRIVACY_URL } from "@/lib/legalPages";
@@ -49,7 +49,6 @@ function SectionBlock({ id, title, children }: { id: string; title: string; chil
 export default async function SupportPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(locale);
   const l = getLegal();
   const dev = l.appDeveloper;
   const email = dev.email;
@@ -198,7 +197,7 @@ export default async function SupportPage() {
       <SectionBlock id="legal" title={ru ? "Документы" : "Legal"}>
         <ul className="flex list-disc flex-col gap-1.5 pl-5 marker:text-[var(--color-text-tertiary)]">
           <li>
-            <Link href={`${lp}/offer`} className={linkCls}>
+            <Link href={oldHref(locale, "/offer")} className={linkCls}>
               {ru ? "Условия использования" : "Terms of Use"}
             </Link>
           </li>

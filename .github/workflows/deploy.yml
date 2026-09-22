@@ -51,6 +51,8 @@ jobs:
       - run: npm run test:market-players
       # Site v2: public URL routing (src/site/routing/decide.ts) and the generated app content.
       - run: npm run test:v2-routing
+      # Sign-in return_to validation (src/lib/safeReturn.ts; open-redirect guard).
+      - run: npm run test:safe-return
       - run: node --import tsx scripts/v2/check-content.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
@@ -67,7 +69,12 @@ jobs:
           # server returns "disabled"). Empty = form hidden, other logins work.
           NEXT_PUBLIC_EMAIL_LOGIN: ${{ vars.EMAIL_LOGIN_ENABLED }}
       - name: Package the build for the box
-        run: tar -czf next-build.tgz --exclude='.next/cache' .next
+        # DEPLOY_COMMIT lets deploy.sh refuse a build that doesn't match the commit it checks out.
+        # Server source maps (~290 of ~550 MB) stay out: `next start` never loads them (only
+        # `next dev` enables Node source maps), so the only cost is unmapped stack traces.
+        run: |
+          printf '%s\n' "${GITHUB_SHA}" > .next/DEPLOY_COMMIT
+          tar -czf next-build.tgz --exclude='.next/cache' --exclude='*.js.map' --exclude='*.css.map' .next
       - uses: actions/upload-artifact@v4
         with:
           name: next-build
@@ -107,10 +114,22 @@ jobs:
                   printf 'YC_SMTP_USER=%s\n' '${{ secrets.YC_SMTP_USER }}'; \
                   printf 'YC_SMTP_PASS=%s\n' '${{ secrets.YC_SMTP_PASS }}'; } | sudo tee -a /opt/badcomment/.env > /dev/null"
       - name: Swap in the build and restart (no build on the box)
+        # Deploys exactly github.sha (the commit the ci job built), not the tip of main. The
+        # box runs deploy.sh as it is in that commit: its own checkout still holds the previous
+        # deploy's copy. `< /dev/null` keeps deploy.sh from reading the rest of this script.
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
-            'cd /opt/badcomment && bash deploy/deploy.sh'
+            bash -s -- "${{ github.sha }}" <<'REMOTE'
+          set -euo pipefail
+          sha="${1:?missing commit sha}"
+          cd /opt/badcomment
+          git fetch --quiet origin +refs/heads/main:refs/remotes/origin/main
+          script="$(mktemp)"
+          trap 'rm -f "$script"' EXIT
+          git show "${sha}:deploy/deploy.sh" > "$script"
+          bash "$script" "$sha" < /dev/null
+          REMOTE
       - name: Ping IndexNow (Bing / Yandex)
         run: |
           sleep 60
@@ -171,7 +190,14 @@ jobs:
             if [ "$code" != "200" ]; then echo "Expected 200 from $1, got $code"; exit 1; fi
           }
           expect_200 https://inapp.pro/en
+          # Apple-facing legal pages (DECISIONS "Legal pages"): /en/contacts is the App Store
+          # support URL, /en/offer the Terms of Use; neither may show the web price.
           expect_200 https://inapp.pro/en/contacts
+          grep -q 'inApp Support' /tmp/smoke-body.html
+          if grep -q '990' /tmp/smoke-body.html; then echo "/en/contacts mentions 990"; exit 1; fi
+          expect_200 https://inapp.pro/en/offer
+          grep -q 'Terms of Use' /tmp/smoke-body.html
+          if grep -q '990' /tmp/smoke-body.html; then echo "/en/offer mentions 990"; exit 1; fi
           expect_200 https://inapp.pro/ru/segment/interior-design
           expect_200 https://inapp.pro/ru/old
           grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt

@@ -16,7 +16,7 @@ import {
   trackPaywallView,
 } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 // One honest offer everywhere: the whole product forever for one payment. Old
 // SKU-shaped props remain accepted while historical call sites are retired,
@@ -51,8 +51,7 @@ export default function BuyButton({
   lifetimeStarsHref?: string;
 }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
-  const pathname = usePathname() || lp;
+  const pathname = usePathname() || oldHref(ru, "/");
   const eventSource = source || pathname;
   const item = { id: "lifetime", name: "inApp — полный доступ навсегда", price: ACCESS_PRICE_RUB };
   const [signedIn, setSignedIn] = useState(loggedIn);
@@ -186,9 +185,9 @@ export default function BuyButton({
       )}
       <p className="text-center text-caption text-[var(--color-text-tertiary)]">
         {ru ? "Доступ включается автоматически после подтверждения ЮKassa. " : "Access starts automatically after YooKassa confirms the payment. "}
-        <Link href={`${lp}/offer/payment`} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Оферта" : "Payment offer"}</Link>
+        <Link href={oldHref(ru, "/offer/payment")} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Оферта" : "Payment offer"}</Link>
         {" · "}
-        <Link href={`${lp}/contacts`} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Поддержка" : "Support"}</Link>
+        <Link href={oldHref(ru, "/contacts")} className="underline underline-offset-2 hover:text-[var(--color-text-primary)]">{ru ? "Поддержка" : "Support"}</Link>
       </p>
       {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
     </div>

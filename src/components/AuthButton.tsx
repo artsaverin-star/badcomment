@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 type Me = {
   user: { username: string | null; firstName: string | null; isAdmin: boolean; premiumUntil?: string | null } | null;
@@ -19,7 +19,6 @@ type Me = {
 // avatar that opens an account dropdown (name, status, admin, sign-out).
 export default function AuthButton({ compact = false, locale = "ru" }: { compact?: boolean; locale?: Locale }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const [me, setMe] = useState<Me | null>(null);
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -108,17 +107,17 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           {name}
         </span>
         <span className="flex items-center gap-2.5">
-          <Link href={`${lp}/library`} className="text-caption font-medium text-[var(--color-text-secondary)]">
+          <Link href={oldHref(ru, "/library")} className="text-caption font-medium text-[var(--color-text-secondary)]">
             {ru ? "Купленное" : "Library"}
           </Link>
-          <Link href={`${lp}/saved`} className="text-caption font-medium text-[var(--color-text-secondary)]">
+          <Link href={oldHref(ru, "/saved")} className="text-caption font-medium text-[var(--color-text-secondary)]">
             {ru ? "Избранное" : "Saved"}
           </Link>
-          <Link href={`${lp}/tokens`} className="text-caption font-medium text-[var(--color-text-brand)]">
+          <Link href={oldHref(ru, "/tokens")} className="text-caption font-medium text-[var(--color-text-brand)]">
             {ru ? "Доступ" : "Access"}
           </Link>
           {me.user.isAdmin && (
-            <Link href={`${lp}/admin`} className="text-caption font-medium text-[var(--color-text-brand)]">
+            <Link href={oldHref(ru, "/admin")} className="text-caption font-medium text-[var(--color-text-brand)]">
               {ru ? "Админка" : "Admin"}
             </Link>
           )}
@@ -161,7 +160,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           </div>
           <div className="border-t border-[var(--color-border-subtle)] p-2">
             <Link
-              href={`${lp}/tokens`}
+              href={oldHref(ru, "/tokens")}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -178,7 +177,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               </span>
             </Link>
             <Link
-              href={`${lp}/library`}
+              href={oldHref(ru, "/library")}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -188,7 +187,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               {ru ? "Купленное" : "Library"}
             </Link>
             <Link
-              href={`${lp}/saved`}
+              href={oldHref(ru, "/saved")}
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
@@ -199,7 +198,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             </Link>
             {me.user.isAdmin && (
               <Link
-                href={`${lp}/admin`}
+                href={oldHref(ru, "/admin")}
                 onClick={() => setMenu(false)}
                 className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
               >

@@ -1,47 +1,34 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { getViewer } from "@/site/access";
-import { isLocale, type Locale } from "@/site/i18n/locales";
-import { getT } from "@/site/i18n/server";
+import { getCatalog } from "@/site/content";
+import { getLandingData } from "@/site/features/landing/data";
+import { LandingPage } from "@/site/features/landing/LandingPage";
+import { landingMetadata } from "@/site/features/landing/seo";
+import { isLocale } from "@/site/i18n/locales";
+import { FREE_CATEGORY } from "@/site/manifest.generated";
 import { routes } from "@/site/routing";
-import { AppStoreBadge } from "@/site/ui/AppStore";
-import { Badge } from "@/site/ui/Badge";
-import { Button } from "@/site/ui/Button";
 
-// TODO(landing): PLACEHOLDER. Replace with the landing (spec 08) for signed-out visitors.
-// Front door rule (DECISIONS §9): signed in → 307 /<L>/segment.
+// /<L> — the front door (DECISIONS §9, spec 09 §2.6): signed-out visitors (and crawlers) get
+// the landing (spec 08); signed-in visitors go straight to the app home, the research catalog
+// (307 /<L>/segment). The landing is also the App Store marketing URL: no website prices,
+// payment methods or buy buttons (DECISIONS «Legal pages»).
 
-export const metadata: Metadata = { robots: { index: false, follow: true } };
+type Params = { lang: string };
 
-const HEADLINE: Record<Locale, string> = {
-  ru: "Найди идею для приложения",
-  en: "Find your next app idea",
-  de: "Finde deine nächste App-Idee",
-  fr: "Trouve ta prochaine idée d’application",
-  ja: "次のアプリのアイデアを見つけよう",
-};
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const catalog = await getCatalog(lang);
+  const cover = catalog.categories.find((c) => c.slug === FREE_CATEGORY)?.cover ?? null;
+  return landingMetadata(lang, cover);
+}
 
-export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function HomePage({ params }: { params: Promise<Params> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const viewer = await getViewer();
   if (viewer.loggedIn) redirect(routes.research(lang));
-  const t = await getT(lang);
-
-  return (
-    <div className="ia-page ia-page--wide flex flex-col items-start gap-6 pt-12">
-      <Badge tone="neutral">TODO · landing placeholder</Badge>
-      <h1 className="ia-display m-0 max-w-[16ch]">{HEADLINE[lang]}</h1>
-      <p className="ia-heading__subtitle max-w-[40ch]">{t("Что людям важно в приложениях и чего им не хватает.")}</p>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button href={routes.research(lang)} variant="welcome">
-          {t("Разборы")}
-        </Button>
-        <Button href={routes.ideas(lang)} variant="secondary">
-          {t("Идеи")}
-        </Button>
-        <AppStoreBadge size="lg" />
-      </div>
-    </div>
-  );
+  const data = await getLandingData(lang);
+  return <LandingPage locale={lang} data={data} />;
 }

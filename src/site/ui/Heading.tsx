@@ -33,8 +33,9 @@ export function Heading({
     </div>
   );
   if (!trailing) return text;
+  // Saved header row: HStack(alignment: .top, spacing: 12) (ClarityMy.swift:87).
   return (
-    <div className={cx("flex items-start justify-between gap-4", className)}>
+    <div className={cx("flex items-start justify-between gap-3", className)}>
       {text}
       <div className="flex-none">{trailing}</div>
     </div>

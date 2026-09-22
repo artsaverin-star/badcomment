@@ -15,6 +15,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 import { isLaunchCategory, isLaunchIdea } from "../manifest.generated";
+import { CONTENT_ROOT } from "./root";
 import type {
   CardsFile,
   CatalogFile,
@@ -53,10 +54,11 @@ export type {
 } from "./types";
 export { LOCALE_CODES, isLocaleCode } from "./types";
 
-const CONTENT_ROOT = process.env.CONTENT_V2_DIR
-  ? path.resolve(process.env.CONTENT_V2_DIR)
-  : path.join(process.cwd(), "content", "v2");
-const MAX_ENTRIES = 200;
+// Sized to hold the whole corpus: 5 locales × (35 research + 293 ideas + 5 shared files) + the
+// manifest = 1,666 files, about 12 MB on disk and 15 MB of retained heap
+// (scripts/v2/audit/measure-content-memory.mjs). At 200 a crawl of every article page churned
+// the cache; the cap now only guards against unexpected corpus growth.
+const MAX_ENTRIES = 2000;
 const WATCH_MTIME = process.env.NODE_ENV !== "production";
 const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

@@ -11,6 +11,7 @@
     "test:monetization": "node --import tsx scripts/test-monetization.ts",
     "test:market-players": "node --import tsx scripts/test-market-players.ts",
     "test:v2-routing": "node --import tsx scripts/v2/test-routing.ts",
+    "test:safe-return": "node --import tsx scripts/v2/test-safe-return.ts",
     "market-players:collect": "node scripts/collect-market-players.mjs",
     "vendor:ds": "bash scripts/vendor-ds.sh",
     "ds:link": "npm install --no-save ../portfolio/packages/tokens ../portfolio/packages/ui-web",

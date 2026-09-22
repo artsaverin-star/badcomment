@@ -1,7 +1,7 @@
 import BuyButton from "@/components/BuyButton";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export default function ReviewAccessGate({
   locale,
@@ -15,7 +15,6 @@ export default function ReviewAccessGate({
   reviews: number;
 }) {
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const nf = (value: number) => value.toLocaleString(ru ? "ru-RU" : "en-US");
   const pluralRu = (value: number, one: string, few: string, many: string) => {
     const mod100 = value % 100;
@@ -49,7 +48,7 @@ export default function ReviewAccessGate({
       </div>
       <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
         {ru ? "Сначала можно проверить качество на категории «Знакомства» — она открыта полностью." : "First, verify the quality in Dating — that category is completely open."}{" "}
-        <Link href={`${lp}/reviews/dating-apps`} className="font-medium text-[var(--color-text-brand)] hover:underline">
+        <Link href={oldHref(ru, "/reviews/dating-apps")} className="font-medium text-[var(--color-text-brand)] hover:underline">
           {ru ? "Открыть пример →" : "Open sample →"}
         </Link>
       </p>

@@ -146,6 +146,40 @@ model User {
   mcpAuthCodes    McpAuthCode[]
   mcpEvents       McpEvent[]
   paymentAttempts PaymentAttempt[]
+  siteSaved       SiteSaved[]
+  siteNotes       SiteNote[]
+}
+
+// ── New site (site-v2): «Сохранённое» and notes, synced to the account ──────
+// Local-first in the browser (localStorage ia2:*); these tables are the account copy
+// (src/app/api/site/library, docs/site-v2 DECISIONS §11, spec 02 §5–§6). Only the app's
+// launch slugs are stored (35 topics, 293 ideas). Separate from the old site's Favorite.
+
+// A bookmark: kind "research" (topic slug) | "idea" (idea id). Newest first = createdAt DESC.
+model SiteSaved {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  kind      String // "research" | "idea"
+  slug      String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, kind, slug])
+  @@index([userId])
+}
+
+// One plain-text note per material ("<kind>:<slug>"); an empty note deletes the row.
+model SiteNote {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  kind      String // "research" | "idea"
+  slug      String
+  text      String // ≤ 20 000 characters
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, kind, slug])
+  @@index([userId])
 }
 
 // An idea a user bookmarked. Server-side so it survives across devices and cache

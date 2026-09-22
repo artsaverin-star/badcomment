@@ -3,7 +3,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,6 @@ export default async function TokensPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
 
-  const lp = oldLp(ru);
   return (
     <main className="mx-auto w-full max-w-[860px] px-4 pb-24 pt-12 sm:px-6 sm:pt-20">
       <header className="text-center">
@@ -36,7 +35,7 @@ export default async function TokensPage() {
               : ["The full Dating category", "Reviews, apps and topics inside the sample", "Niche list and a sample MCP research result"]
             ).map((item) => <li key={item}>— {item}</li>)}
           </ul>
-          <Link href={`${lp}/reviews/dating-apps`} className="mt-6 inline-flex text-callout font-semibold text-[var(--color-text-brand)] hover:underline">
+          <Link href={oldHref(ru, "/reviews/dating-apps")} className="mt-6 inline-flex text-callout font-semibold text-[var(--color-text-brand)] hover:underline">
             {ru ? "Посмотреть полный пример →" : "View the complete sample →"}
           </Link>
         </section>

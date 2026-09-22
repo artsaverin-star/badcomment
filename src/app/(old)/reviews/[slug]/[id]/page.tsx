@@ -7,7 +7,7 @@ import { getAccess } from "@/lib/access";
 import { getLocale } from "@/lib/i18n.server";
 import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { getApp, getNiche, nicheName, readReviews } from "@/lib/reviews";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 const FIRST = 40;
@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: {
-      canonical: `/reviews/${slug}/${id}`,
+      // Absolute and localized: a bare /reviews/… canonical answers 307 → /en/…, so ru pages
+      // would declare the en page canonical (audit A9).
+      canonical: `https://inapp.pro/${ru ? "ru" : "en"}/reviews/${slug}/${id}`,
       languages: {
         ru: `https://inapp.pro/ru/reviews/${slug}/${id}`,
         en: `https://inapp.pro/en/reviews/${slug}/${id}`,
@@ -51,13 +53,12 @@ export default async function AppReviews({
   const locale = await getLocale();
   const ru = locale !== "en";
   const lc = ru ? "ru-RU" : "en-US";
-  const lp = oldLp(ru);
   const access = await getAccess();
   const unlocked = canAccessReviewCategory(access, slug);
   if (!unlocked) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
-        <BackLink fallback={`${lp}/reviews/${slug}`}>{nicheName(niche, locale)}</BackLink>
+        <BackLink fallback={oldHref(ru, `/reviews/${slug}`)}>{nicheName(niche, locale)}</BackLink>
         <header className="mt-4">
           <h1 className="text-title1 text-balance text-[var(--color-text-primary)]">{app.title}</h1>
           <p className="mt-2 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{app.total.toLocaleString(lc)} {ru ? "отзывов" : "reviews"}</p>
@@ -76,7 +77,7 @@ export default async function AppReviews({
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
-      <BackLink fallback={`${lp}/reviews/${slug}`}>{nicheName(niche, locale)}</BackLink>
+      <BackLink fallback={oldHref(ru, `/reviews/${slug}`)}>{nicheName(niche, locale)}</BackLink>
       <header className="mt-4 flex items-start gap-4">
         {app.icon ? (
           // eslint-disable-next-line @next/next/no-img-element

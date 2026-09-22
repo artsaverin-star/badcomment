@@ -4,7 +4,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { appSlugify } from "@/lib/ratingAppSlug";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -35,7 +35,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AppsDirectory() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
 
   // Built straight from the people's-rating catalog so every active niche and
   // its analyzed apps are here — the authoritative, current source. Each app
@@ -69,12 +68,12 @@ export default async function AppsDirectory() {
       <div className="mt-10 flex flex-col gap-9">
         {groups.map((g) => (
           <section key={g.slug}>
-            <Link href={`${lp}/rating/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
+            <Link href={oldHref(ru, `/rating/${g.slug}`)} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
               {g.name}
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
               {g.apps.map((a) => (
-                <Link key={a.app} href={`${lp}/rating/${g.slug}/${a.app}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
+                <Link key={a.app} href={oldHref(ru, `/rating/${g.slug}/${a.app}`)} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
                   {a.title}
                 </Link>
               ))}

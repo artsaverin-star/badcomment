@@ -10,7 +10,7 @@ import { CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
 import ideasData from "@/data/ideas.json";
 import BuildProgress from "@/components/BuildProgress";
 import BuyButton from "@/components/BuyButton";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -47,7 +47,6 @@ type RSet = { name: string; nameEn?: string; apps?: RApp[]; totalReviews?: numbe
 export default async function BuildHome() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const ideas = ideasData as { category: string }[];
 
   const all = Object.entries(RATING_BY_SLUG as Record<string, RSet>).filter(([slug]) => isActiveCategory(slug) && ideas.some((i) => i.category === slug));
@@ -152,7 +151,7 @@ export default async function BuildHome() {
             // (для гостя сначала вход). Ниши четвёрки «за регистрацию» тоже
             // зовут вход — после него строка становится бесплатной.
             return n.owned || n.free ? (
-              <Link key={n.slug} href={`${lp}/build/${n.slug}`} className={rowClass}>{body}</Link>
+              <Link key={n.slug} href={oldHref(ru, `/build/${n.slug}`)} className={rowClass}>{body}</Link>
             ) : (
               <BuyButton
                 key={n.slug}

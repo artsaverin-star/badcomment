@@ -14,7 +14,9 @@ import { cx } from "./cx";
 //     leading={<BackButton fallbackHref={routes.research(L)} label={t("Назад")} />}
 //     title={t("Идея")}
 //     trailing={<ToolbarPill icons>
-//       <IconButton label={t("Сохранить")} pressed={saved} onClick={toggle}><BookmarkIcon size={17} /></IconButton>
+//       <IconButton label={t("Сохранить")} pressed={saved} onClick={toggle}>
+//         {saved ? <BookmarkFilledIcon size={17} /> : <BookmarkIcon size={17} />}
+//       </IconButton>
 //       <Menu label={t("Ещё")} items={…} />
 //     </ToolbarPill>}
 //   />
@@ -57,7 +59,9 @@ export function ToolbarPill({
  *   default  38×44 (inside a ToolbarPill)
  *   circle   46×46 surface circle with hairline (Saved gear)
  *   plain    44×44 transparent
- * `pressed` renders aria-pressed (bookmark toggle) and tints accent.
+ * `pressed` renders aria-pressed (bookmark toggle). The color stays the reader chrome's ink
+ * (ClarityReader.swift:805: `bookmark` ↔ `bookmark.fill`) — pass <BookmarkFilledIcon/> when
+ * pressed instead of relying on a tint.
  */
 export const IconButton = forwardRef<
   HTMLButtonElement,

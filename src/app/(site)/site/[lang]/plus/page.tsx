@@ -1,33 +1,55 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getViewer } from "@/site/access";
-import { isLocale } from "@/site/i18n/locales";
+import { SITE_URL } from "@/site/config";
+import { PlusOffer } from "@/site/features/plus/PlusOffer";
+import { PLUS_UI_KEYS, plusOfferData } from "@/site/features/plus/server";
+import { plusStrings } from "@/site/features/plus/strings";
+import { I18nProvider } from "@/site/i18n/client";
+import { isLocale, LOCALES, type Locale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
-import { Badge, Eyebrow } from "@/site/ui/Badge";
+import { routes } from "@/site/routing";
 
-// TODO(plus): PLACEHOLDER for the paywall page (spec 03 §2): YooKassa lifetime SKU presented
-// as Plus (990 ₽, prices frozen — DECISIONS §10), source = ?source=.
+// /<L>/plus (?source=): the Plus paywall as a page (spec 03 §2, web adaptation §2.7;
+// spec 09 §2.1: page on direct load, noindex). The same UI opens as a sheet anywhere via
+// openPaywall(). The web sells only the YooKassa lifetime SKU at ACCESS_PRICE_RUB, presented
+// as «Plus навсегда» (DECISIONS §10); the viewer state comes from the shell's ViewerContext.
 
-export const metadata: Metadata = { robots: { index: false, follow: true } };
+type Params = { lang: string };
+type Search = { source?: string | string[] };
 
-export default async function PlusPlaceholder({
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const url = (l: Locale) => `${SITE_URL}${routes.plus(l)}`;
+  return {
+    title: { absolute: "inApp Plus" },
+    description: plusStrings[lang].pageDescription,
+    alternates: {
+      canonical: url(lang),
+      languages: { ...Object.fromEntries(LOCALES.map((l) => [l, url(l)])), "x-default": url("en") },
+    },
+    robots: { index: false, follow: true },
+  };
+}
+
+export default async function PlusPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ lang: string }>;
-  searchParams: Promise<{ source?: string }>;
+  params: Promise<Params>;
+  searchParams: Promise<Search>;
 }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const [{ source }, t, viewer] = await Promise.all([searchParams, getT(lang), getViewer()]);
+  const [sp, t] = await Promise.all([searchParams, getT(lang)]);
+  const rawSource = Array.isArray(sp.source) ? sp.source[0] : sp.source;
+  const source = rawSource && /^[a-zA-Z0-9_.:-]{1,60}$/.test(rawSource) ? rawSource : "plus_page";
 
   return (
-    <div className="ia-page ia-page--welcome flex flex-col items-center gap-5 pt-12 text-center">
-      <Eyebrow>inApp PLUS</Eyebrow>
-      <h1 className="ia-display m-0">{t("Полный доступ")}</h1>
-      <Badge tone="neutral">
-        TODO · paywall placeholder{source ? ` · source=${source}` : ""} · plus={String(viewer.plus)}
-      </Badge>
+    <div className="ia-page ia-page--welcome">
+      <I18nProvider locale={lang} strings={t.pick(PLUS_UI_KEYS)}>
+        <PlusOffer offer={plusOfferData(lang, t)} source={source} variant="page" />
+      </I18nProvider>
     </div>
   );
 }

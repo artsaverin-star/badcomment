@@ -7,6 +7,7 @@ import { routes } from "../routing";
 import { AppStoreBadge } from "../ui/AppStore";
 import { AppMark } from "../ui/icons";
 import { FooterLanguages } from "./FooterLanguages";
+import { FooterPlusLink } from "./FooterPlusLink";
 import { shellStrings } from "./strings";
 
 // Footer on every page (DECISIONS §8, spec 08 S13): sections, contacts, terms, privacy,
@@ -38,9 +39,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             <li>
               <Link href={routes.ideas(locale)}>{t("Идеи")}</Link>
             </li>
-            <li>
-              <Link href={routes.plus(locale, { source: "footer" })}>inApp Plus</Link>
-            </li>
+            <FooterPlusLink locale={locale} />
           </ul>
         </nav>
 

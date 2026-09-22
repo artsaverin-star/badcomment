@@ -7,18 +7,21 @@ import { useLocale, useT, useWebStrings } from "../i18n/client";
 import type { Locale } from "../i18n/locales";
 import { parsePublicPath, tabOf, tabRoot, TABS, type Tab } from "../routing";
 import { cx } from "../ui/cx";
-import { BookmarkIcon, IdeasIcon, ResearchIcon } from "../ui/icons";
+import { BookmarkFilledIcon, IdeasFilledIcon, ResearchFilledIcon } from "../ui/icons";
 import { rememberedTabLocation, subscribeTabMemory } from "./navigation";
 import { shellStrings } from "./strings";
 
 // The three tabs of the app (spec 01 §1.2, spec 05 §3.6 I): «Разборы», «Идеи», «Сохранённое».
 //   variant="floating"  mobile capsule at the bottom, tab roots only; idle items = glyph only
+//                       (the label folds away but stays the accessible name)
 //   variant="top"       desktop capsule in the sticky top bar; all labels visible
+// Glyphs are the app's filled symbols (ClarityFloatingTabBar.swift:11-15): text.book.closed.fill,
+// lightbulb.fill, bookmark.fill — 19 pt medium in a 23-wide box.
 // Each tab remembers its last URL in this browser tab (switching tabs restores it); the
 // current tab always links to its root.
 
 const TAB_TITLE: Record<Tab, string> = { research: "Разборы", ideas: "Идеи", saved: "Сохранённое" };
-const TAB_ICON = { research: ResearchIcon, ideas: IdeasIcon, saved: BookmarkIcon } as const;
+const TAB_ICON = { research: ResearchFilledIcon, ideas: IdeasFilledIcon, saved: BookmarkFilledIcon } as const;
 
 function useTabHref(locale: Locale, tab: Tab, current: Tab | null): string {
   const remembered = useSyncExternalStore(
@@ -45,9 +48,11 @@ function TabItem({ tab, current, atRoot }: { tab: Tab; current: Tab | null; atRo
       data-tab={tab}
     >
       <span className="ia-tab__icon" aria-hidden="true">
-        <Icon size={19} strokeWidth={2.1} />
+        <Icon size={19} strokeWidth={2} />
       </span>
-      <span className="ia-tab__label">{t(TAB_TITLE[tab])}</span>
+      <span className="ia-tab__label">
+        <span className="ia-tab__text">{t(TAB_TITLE[tab])}</span>
+      </span>
     </Link>
   );
 }

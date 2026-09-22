@@ -115,7 +115,9 @@
     color: inherit;
     text-decoration: none;
   }
-  /* A page that reads long-form text switches the whole canvas to reading paper. */
+  /* A page that reads long-form text switches the whole canvas to reading paper
+     (ClarityReadingStyle.paper, .ignoresSafeArea) — html too, so overscroll matches. */
+  html:has(.ia-reading-page),
   body:has(.ia-reading-page) {
     background: var(--ia-paper-reading);
   }
@@ -181,22 +183,40 @@
       max-width: calc(var(--ia-w-grid-xl) + 2 * var(--ia-gutter-catalog));
     }
   }
-  /* 1 column < 760, 2 columns ≥ 760, 3 columns ≥ 1280 (ARCHITECTURE §7). */
+  /* 1 column < 760, 2 columns ≥ 760, 3 columns ≥ 1280 (ARCHITECTURE §7).
+     Gaps follow the app lists: ideas = LazyVStack spacing 14 + the card's 6 pt bottom
+     padding = 20 (ClarityCatalogs.swift:189, ClarityIdeaCard.swift:67; a grid zeroes the
+     card margin); research = spacing 24 (ClarityCatalogs.swift:42). Spec 05 §3.2: md 24 /
+     20, xl 28. A grid of shared research cards picks the research rhythm by itself;
+     `ia-grid--research` / `ia-grid--ideas` force one explicitly. */
   .ia-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    gap: 20px;
     align-items: stretch;
+  }
+  .ia-grid--research {
+    gap: 24px;
+  }
+  .ia-grid:has(> .ia-card--research, > * > .ia-card--research) {
+    gap: 24px;
+  }
+  .ia-grid--ideas {
+    gap: 20px;
   }
   @media (min-width: 760px) {
     .ia-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px 20px;
     }
   }
   @media (min-width: 1280px) {
-    .ia-grid {
+    .ia-grid,
+    .ia-grid--research,
+    .ia-grid--ideas {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .ia-grid:has(> .ia-card--research, > * > .ia-card--research) {
       gap: 28px;
     }
   }
@@ -223,12 +243,17 @@
   }
   .ia-heading__subtitle {
     margin: 0;
+    /* The app's catalog column is 680 wide; keep that measure on the wide desktop grid. */
+    max-width: var(--ia-w-catalog);
     font-family: var(--ia-font-serif);
+    font-weight: 400;
     font-synthesis: none;
     font-size: var(--ia-fs-subtitle);
     line-height: var(--ia-lh-subtitle);
     color: var(--ia-secondary);
   }
+  /* Saved header (ClarityMy.swift:86-91): largeTitle bold, tracking −1; subheadline;
+     VStack spacing 8. */
   .ia-heading--large .ia-heading__title {
     font-family: var(--ia-font-sans);
     font-weight: 700;
@@ -240,9 +265,10 @@
     font-family: var(--ia-font-sans);
     font-size: var(--ia-fs-subheadline);
     line-height: var(--ia-lh-subheadline);
+    letter-spacing: -0.015em;
   }
   .ia-heading--large {
-    gap: 4px;
+    gap: 8px;
   }
   .ia-section-title {
     margin: 0;
@@ -284,8 +310,10 @@
     cursor: default;
     pointer-events: none;
   }
+  /* ClarityButton (ClarityStyle.swift:90-103): full width, minHeight 24 + 18 × 2 = 60. */
   .ia-btn--primary {
     width: 100%;
+    min-height: var(--ia-btn-primary-h);
     padding: 18px 20px;
     border-radius: var(--ia-radius-pill);
     background: var(--ia-action);
@@ -296,8 +324,10 @@
     transform: scale(0.97);
     opacity: 0.88;
   }
+  /* ClarityWelcomeButton (ClarityWelcomeComponents.swift:15-42): minHeight 24 + 17 × 2. */
   .ia-btn--welcome {
     gap: 10px;
+    min-height: var(--ia-btn-welcome-h);
     padding: 17px 27px;
     border-radius: var(--ia-radius-pill);
     background: var(--ia-action);
@@ -319,12 +349,14 @@
     background: var(--ia-action);
     color: var(--ia-on-action);
   }
+  /* Surface pill «Готово» (ClaritySettings.swift:187-190). The app's pill sits on paper with
+     no stroke; the web also places it on surface cards, so it keeps a hairline. */
   .ia-btn--secondary {
     padding: 0 16px;
     border-radius: var(--ia-radius-pill);
     background: var(--ia-surface);
     color: var(--ia-accent);
-    box-shadow: inset 0 0 0 0.5px var(--ia-line-65);
+    box-shadow: inset 0 0 0 var(--ia-hairline) var(--ia-line-65);
   }
   .ia-btn--text {
     padding: 0 4px;
@@ -372,25 +404,37 @@
     background: var(--ia-surface);
     color: var(--ia-ink);
   }
+  /* clarityCard (ClarityStyle.swift:105-112): padding 22, radius 20, line @55 % 0.5 pt. */
   .ia-card--utility {
     padding: 22px;
     border-radius: var(--ia-radius-card);
-    box-shadow: inset 0 0 0 0.5px var(--ia-line-card);
+    box-shadow: inset 0 0 0 var(--ia-hairline) var(--ia-line-card);
+  }
+  /* Research card (ClarityCatalogs.swift:146-149) and idea card (ClarityIdeaCard.swift:58-67):
+     the stroke is an .overlay in SwiftUI, i.e. drawn OVER the full-bleed artwork. An inset
+     box-shadow would paint under the <img>, so the stroke lives on ::after instead. */
+  .ia-card--research,
+  .ia-card--idea {
+    position: relative;
+    overflow: hidden;
+  }
+  .ia-card--research::after,
+  .ia-card--idea::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 var(--ia-stroke-card) var(--ia-line-65);
+    pointer-events: none;
   }
   .ia-card--research {
-    overflow: hidden;
     border-radius: var(--ia-radius-research-card);
-    box-shadow:
-      var(--ia-shadow-research-card),
-      inset 0 0 0 1px var(--ia-line-65);
+    box-shadow: var(--ia-shadow-research-card);
   }
   .ia-card--idea {
-    overflow: hidden;
     border-radius: var(--ia-radius-idea-card);
     margin-bottom: 6px;
-    box-shadow:
-      var(--ia-shadow-idea-card),
-      inset 0 0 0 1px var(--ia-line-65);
+    box-shadow: var(--ia-shadow-idea-card);
   }
   .ia-card--group {
     overflow: hidden;
@@ -410,23 +454,20 @@
     transform: scale(0.97);
     opacity: 0.88;
   }
+  /* Web-only hover (spec 05 §6.2 "States"): shadow alpha +0.03, lift 1 px. */
   @media (hover: hover) {
     .ia-card--interactive.ia-card--research:hover {
       transform: translateY(-1px);
-      box-shadow:
-        0 8px 36px rgb(0 0 0 / 0.085),
-        inset 0 0 0 1px var(--ia-line-65);
+      box-shadow: 0 8px 36px rgb(0 0 0 / 0.085);
     }
     .ia-card--interactive.ia-card--idea:hover {
       transform: translateY(-1px);
-      box-shadow:
-        0 8px 32px rgb(0 0 0 / 0.08),
-        inset 0 0 0 1px var(--ia-line-65);
+      box-shadow: 0 8px 32px rgb(0 0 0 / 0.08);
     }
-  }
-  @media (min-resolution: 2dppx) {
-    .ia-card--utility {
-      box-shadow: inset 0 0 0 0.5px var(--ia-line-card);
+    /* Keep the app's press (StudioPressStyle) under the mouse too. */
+    .ia-card--interactive.ia-card--research:active,
+    .ia-card--interactive.ia-card--idea:active {
+      transform: scale(0.97);
     }
   }
 
@@ -436,7 +477,7 @@
     align-items: center;
     gap: 12px;
     min-height: var(--ia-search-h);
-    padding: 0 8px 0 18px;
+    padding: 0 18px;
     box-sizing: border-box;
     background: var(--ia-surface);
     border-radius: var(--ia-radius-field);
@@ -462,20 +503,26 @@
     color: var(--ia-secondary);
     opacity: 1;
   }
-  .ia-search__input::-webkit-search-cancel-button {
+  .ia-search__input::-webkit-search-cancel-button,
+  .ia-search__input::-webkit-search-decoration {
     display: none;
+    -webkit-appearance: none;
   }
+  /* xmark.circle.fill 18 in a 32×32 button; the row's foregroundStyle is ink
+     (ClarityStyle.swift:139-144), so the glyph is ink, not secondary. */
   .ia-search__clear {
     flex: none;
     display: grid;
     place-items: center;
     width: 32px;
     height: 32px;
+    padding: 0;
     border: 0;
     border-radius: 50%;
     background: none;
-    color: var(--ia-secondary);
+    color: var(--ia-ink);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
   .ia-search__clear:focus-visible {
     outline-offset: 0;
@@ -532,11 +579,13 @@
     background: var(--ia-accent-soft);
     color: var(--ia-accent);
   }
+  /* Category pill «Все категории» (ClarityCatalogs.swift:206-211): 13 × 17, gap 8, 15/500. */
   .ia-chip--surface {
+    gap: 8px;
+    padding: 13px 17px;
     background: var(--ia-surface);
     color: var(--ia-ink);
     font-weight: 500;
-    padding: 0 17px;
   }
   @media (hover: hover) {
     .ia-chip:not([aria-pressed="true"]):not([aria-checked="true"]):not([aria-current]):hover {
@@ -613,11 +662,23 @@
     backdrop-filter: blur(20px) saturate(1.6);
     box-shadow:
       var(--ia-shadow-glass),
-      inset 0 0 0 0.5px var(--ia-glass-border);
+      inset 0 0 0 var(--ia-hairline) var(--ia-glass-border);
     font: 500 var(--ia-fs-body) / 1 var(--ia-font-sans);
     letter-spacing: -0.025em;
     text-decoration: none;
+    white-space: nowrap;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Sheet confirmation («Готово», «Сохранить»): semibold; cancellation («Отмена»): regular. */
+  .ia-glass-pill--strong {
+    font-weight: 600;
+  }
+  .ia-glass-pill--regular {
+    font-weight: 400;
+  }
+  .ia-glass-pill--accent {
+    color: var(--ia-accent);
   }
   .ia-glass-pill--icons {
     gap: 0;
@@ -637,22 +698,25 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
+  /* Saved gear (ClarityMy.swift:92-95): 46 circle, surface, line 0.5 pt. */
   .ia-icon-btn--circle {
     width: 46px;
     height: 46px;
     border-radius: 50%;
     background: var(--ia-surface);
     color: var(--ia-ink);
-    box-shadow: inset 0 0 0 0.5px var(--ia-line);
+    box-shadow: inset 0 0 0 var(--ia-hairline) var(--ia-line);
   }
   .ia-icon-btn--plain {
     width: var(--ia-hit);
   }
-  .ia-icon-btn[aria-pressed="true"] {
-    color: var(--ia-accent);
-  }
+  /* A pressed toggle (bookmark) keeps the reader chrome's ink tint (ClarityReader.swift:231,
+     583, 805): the glyph switches to the filled one, the color does not change. */
   @media (hover: hover) {
-    .ia-glass-pill:not(.ia-glass-pill--icons):hover,
+    /* Tint the glass instead of replacing it (background-color alone would drop the fill). */
+    .ia-glass-pill:not(.ia-glass-pill--icons):hover {
+      background-image: linear-gradient(var(--ia-ink-045), var(--ia-ink-045));
+    }
     .ia-icon-btn:hover {
       background-color: var(--ia-ink-045);
     }
@@ -679,7 +743,7 @@
     color: var(--ia-ink);
     box-shadow:
       var(--ia-shadow-menu),
-      inset 0 0 0 0.5px var(--ia-line-65);
+      inset 0 0 0 var(--ia-hairline) var(--ia-line-65);
     animation: ia-pop 140ms var(--ia-ease-press);
   }
   .ia-menu--end {
@@ -722,8 +786,9 @@
     color: var(--ia-accent);
     font-weight: 600;
   }
+  /* Button(role: .destructive) in a Menu = system red (ClarityMy.swift:168), not coral. */
   .ia-menu__item--danger {
-    color: var(--ia-danger);
+    color: var(--ia-error-system);
   }
   .ia-menu__icon {
     display: inline-flex;
@@ -736,7 +801,7 @@
     color: inherit;
   }
   .ia-menu__sep {
-    height: 0.5px;
+    height: var(--ia-hairline);
     margin: 6px 12px;
     background: var(--ia-line);
   }
@@ -812,6 +877,10 @@
     dialog.ia-sheet[open] {
       animation: ia-pop var(--ia-dur-sheet) var(--ia-ease-sheet);
     }
+    /* The rule above would otherwise widen the small dialog to the sheet width (684). */
+    dialog.ia-sheet--dialog {
+      width: min(420px, calc(100% - 32px));
+    }
   }
   .ia-sheet--w-reading {
     --ia-sheet-w: calc(var(--ia-w-reading) + 44px);
@@ -865,10 +934,12 @@
     overscroll-behavior: contain;
     padding: 4px var(--ia-gutter-reader) 24px;
   }
+  /* Sticky action area (ClarityReader.swift:1000-1004): padding 14/22/10, reading paper,
+     Divider().overlay(rule) on top = full line color. */
   .ia-sheet__footer {
     flex: none;
     padding: 14px var(--ia-gutter-reader) 10px;
-    border-top: 1px solid var(--ia-line-65);
+    border-top: var(--ia-hairline) solid var(--ia-line);
     background: inherit;
   }
 
@@ -945,8 +1016,14 @@
     font: 600 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
     letter-spacing: -0.012em;
   }
+  /* The CTA hugs its label (ClarityMy.swift:121-124: no maxWidth), aligned leading. */
+  .ia-empty__action {
+    align-self: flex-start;
+    max-width: 100%;
+  }
+  /* ClarityMy.swift:116-119: title → body VStack spacing 10, body lineSpacing 4 (17/26). */
   .ia-empty__body {
-    margin: 8px 0 0;
+    margin: 10px 0 0;
     font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
     color: var(--ia-secondary);
   }
@@ -1033,7 +1110,8 @@
     flex: none;
   }
 
-  /* Tab capsule (ClarityFloatingTabBar; spec 05 §3.6 I) */
+  /* Tab capsule (ClarityFloatingTabBar.swift:17-71; spec 05 §3.6 I): surface capsule,
+     line @70 % 0.5 pt, shadow black 12 % r18 y8, padding 6, gap 4. */
   .ia-tabbar {
     display: inline-flex;
     gap: 4px;
@@ -1042,8 +1120,11 @@
     background: var(--ia-surface);
     box-shadow:
       var(--ia-shadow-tabbar),
-      inset 0 0 0 0.5px var(--ia-line-70);
+      inset 0 0 0 var(--ia-hairline) var(--ia-line-70);
   }
+  /* Item: minHeight 50, padding 13 idle / 17 selected, glyph 19 in a 23 box, gap 8,
+     label SF Rounded subheadline semibold. Selection animates with
+     .spring(response 0.38, damping 0.84) → --ia-ease-tab / --ia-dur-tab. */
   .ia-tab {
     position: relative;
     display: inline-flex;
@@ -1052,16 +1133,18 @@
     gap: 8px;
     min-height: var(--ia-tab-item-h);
     padding: 0 13px;
+    box-sizing: border-box;
     border-radius: var(--ia-radius-pill);
     color: var(--ia-secondary);
-    font: 600 var(--ia-fs-subheadline) / 1 var(--ia-font-rounded);
+    font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-rounded);
     letter-spacing: -0.015em;
     white-space: nowrap;
     text-decoration: none;
     transition:
       padding var(--ia-dur-tab) var(--ia-ease-tab),
-      background-color 200ms ease,
-      color 200ms ease;
+      background-color 150ms ease,
+      box-shadow 150ms ease,
+      color 150ms ease;
     -webkit-tap-highlight-color: transparent;
   }
   .ia-tab__icon {
@@ -1069,6 +1152,14 @@
     justify-content: center;
     width: 23px;
     flex: none;
+  }
+  .ia-tab__label {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+  }
+  .ia-tab__text {
+    min-width: 0;
+    overflow: hidden;
   }
   .ia-tab[aria-current="page"],
   .ia-tab[data-active] {
@@ -1083,21 +1174,45 @@
       background: var(--ia-ink-045);
     }
   }
-  /* Floating variant: idle items show the glyph only (label stays the accessible name). */
-  .ia-tabbar--floating .ia-tab:not([aria-current="page"]):not([data-active]) .ia-tab__label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+  /* Floating variant: idle items show the glyph only (13 + 23 + 13 = 49 wide); the label
+     (still the accessible name) folds to zero width and unfolds with the tab spring when the
+     item becomes selected, so the capsule resizes smoothly like the app's HStack. The 8 px
+     glyph–label gap folds with it. (0fr → 1fr is measured: idle 49, selected 17+23+8+label+17.) */
+  .ia-tabbar--floating .ia-tab {
+    gap: 0;
+    transition:
+      padding var(--ia-dur-tab) var(--ia-ease-tab),
+      gap var(--ia-dur-tab) var(--ia-ease-tab),
+      background-color 150ms ease,
+      box-shadow 150ms ease,
+      color 150ms ease;
   }
+  .ia-tabbar--floating .ia-tab__label {
+    grid-template-columns: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-columns var(--ia-dur-tab) var(--ia-ease-tab),
+      opacity 150ms ease;
+  }
+  .ia-tabbar--floating .ia-tab[aria-current="page"],
+  .ia-tabbar--floating .ia-tab[data-active] {
+    gap: 8px;
+  }
+  .ia-tabbar--floating .ia-tab[aria-current="page"] .ia-tab__label,
+  .ia-tabbar--floating .ia-tab[data-active] .ia-tab__label {
+    grid-template-columns: 1fr;
+    opacity: 1;
+  }
+  /* Centered and content-width (ClarityRoot.swift:73-79: padding 16 / 10 / 8). max-content:
+     with left: 50 % the shrink-to-fit width would otherwise be capped at half the viewport
+     and squeeze the (overflow-clipped) selected label. */
   .ia-tabbar-dock {
     position: fixed;
     z-index: var(--ia-z-tabbar);
     left: 50%;
     translate: -50% 0;
     bottom: calc(8px + env(safe-area-inset-bottom));
+    width: max-content;
     max-width: calc(100vw - 32px);
   }
   @media (min-width: 1024px) {
@@ -1125,7 +1240,7 @@
       background: var(--ia-paper-80);
       -webkit-backdrop-filter: blur(20px) saturate(1.6);
       backdrop-filter: blur(20px) saturate(1.6);
-      box-shadow: 0 0.5px 0 var(--ia-line-65);
+      box-shadow: 0 var(--ia-hairline) 0 var(--ia-line-65);
     }
     body:has(.ia-reading-page) .ia-topnav[data-scrolled] {
       background: color-mix(in srgb, var(--ia-paper-reading) 80%, transparent);
@@ -1148,7 +1263,7 @@
   .ia-topnav .ia-tabbar {
     box-shadow:
       0 4px 20px rgb(0 0 0 / 0.06),
-      inset 0 0 0 0.5px var(--ia-line-70);
+      inset 0 0 0 var(--ia-hairline) var(--ia-line-70);
   }
 
   /* Mobile compact header (< 1024) */
@@ -1178,7 +1293,7 @@
     border-radius: var(--ia-radius-pill);
     background: var(--ia-surface);
     color: var(--ia-ink);
-    box-shadow: inset 0 0 0 0.5px var(--ia-line);
+    box-shadow: inset 0 0 0 var(--ia-hairline) var(--ia-line);
     font: 600 var(--ia-fs-subheadline) / 1 var(--ia-font-sans);
     cursor: pointer;
   }
@@ -1207,7 +1322,7 @@
     gap: 12px;
     padding: calc(10px + env(safe-area-inset-top)) 12px 10px var(--ia-gutter-catalog);
     background: var(--ia-surface);
-    box-shadow: 0 0.5px 0 var(--ia-line-65);
+    box-shadow: 0 var(--ia-hairline) 0 var(--ia-line-65);
   }
   @media (min-width: 1024px) {
     .ia-app-banner {
@@ -1246,7 +1361,7 @@
   .ia-footer {
     margin-top: 48px;
     padding: 32px var(--ia-gutter-catalog) calc(32px + env(safe-area-inset-bottom));
-    border-top: 0.5px solid var(--ia-line);
+    border-top: var(--ia-hairline) solid var(--ia-line);
     color: var(--ia-secondary);
     font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
   }
@@ -1320,57 +1435,107 @@
     justify-content: space-between;
     gap: 8px 16px;
     padding-top: 20px;
-    border-top: 0.5px solid var(--ia-line-65);
+    border-top: var(--ia-hairline) solid var(--ia-line-65);
     font-size: var(--ia-fs-footnote);
     line-height: var(--ia-lh-footnote);
   }
 
-  /* Error / loading illustration (ClarityArt, drawn in CSS: spec 05 §3.6 O, spec 09 C4) */
-  .ia-art {
-    position: relative;
-    width: var(--ia-art-size, 150px);
-    height: var(--ia-art-size, 150px);
-    flex: none;
-  }
-  .ia-art__plate {
-    position: absolute;
-    inset: 14% 16%;
-    border-radius: 12%;
-  }
-  .ia-art__plate--back {
-    background: var(--ia-accent-soft);
-    rotate: -15deg;
-  }
-  .ia-art__plate--mid {
-    background: var(--ia-accent-17);
-    rotate: 12deg;
-  }
-  .ia-art__paper {
-    position: absolute;
-    inset: 16% 20%;
+  /* Boot/route error (ClarityRoot.swift:36-41): VStack spacing 24 (art centered, heading
+     leading, full-width button), padding 26, centered in the viewport. On wide screens the
+     column stops at the welcome width (440) so the capsule button does not stretch. */
+  .ia-status {
     display: flex;
     flex-direction: column;
-    gap: 7%;
-    padding: 12% 11%;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: calc(var(--ia-w-welcome) + 52px);
+    margin: auto;
+    padding: 48px 26px;
     box-sizing: border-box;
-    border-radius: 9%;
-    background: var(--ia-surface);
-    box-shadow:
-      0 calc(var(--ia-art-size, 150px) * 0.025) calc(var(--ia-art-size, 150px) * 0.12) rgb(0 0 0 / 0.09),
-      inset 0 0 0 1px var(--ia-line-80);
-    color: var(--ia-accent);
+  }
+  .ia-status__heading {
+    align-self: stretch;
+  }
+  .ia-status .ia-heading__title {
+    font-size: var(--ia-fs-title);
+  }
+
+  /* Error / loading illustration — ClarityArt (ClarityStyle.swift:28-88), drawn in CSS
+     (spec 05 §3.6 O, spec 09 C4). Every measure is the Swift fraction of the art size. */
+  .ia-art {
+    --ia-art-s: var(--ia-art-size, 150px);
+    position: relative;
+    width: var(--ia-art-s);
+    height: var(--ia-art-s);
+    flex: none;
     animation: ia-float var(--ia-dur-float) ease-in-out infinite alternate;
   }
+  .ia-art__plate,
+  .ia-art__paper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-sizing: border-box;
+  }
+  .ia-art__plate--back {
+    width: calc(var(--ia-art-s) * 0.65);
+    height: calc(var(--ia-art-s) * 0.73);
+    border-radius: calc(var(--ia-art-s) * 0.11);
+    background: var(--ia-accent-soft);
+    transform: translate(-50%, -50%) translate(calc(var(--ia-art-s) * -0.05), calc(var(--ia-art-s) * 0.025))
+      rotate(-15deg);
+  }
+  .ia-art__plate--mid {
+    width: calc(var(--ia-art-s) * 0.62);
+    height: calc(var(--ia-art-s) * 0.73);
+    border-radius: calc(var(--ia-art-s) * 0.1);
+    background: var(--ia-accent-17);
+    transform: translate(-50%, -50%) translate(calc(var(--ia-art-s) * 0.05), calc(var(--ia-art-s) * -0.01))
+      rotate(12deg);
+  }
+  .ia-art__paper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--ia-art-s) * 0.055);
+    width: calc(var(--ia-art-s) * 0.63);
+    height: calc(var(--ia-art-s) * 0.73);
+    padding: calc(var(--ia-art-s) * 0.12);
+    border-radius: calc(var(--ia-art-s) * 0.09);
+    background: var(--ia-surface);
+    box-shadow:
+      0 calc(var(--ia-art-s) * 0.025) calc(var(--ia-art-s) * 0.12) rgb(0 0 0 / 0.09),
+      inset 0 0 0 var(--ia-stroke-card) var(--ia-line-80);
+    color: var(--ia-accent);
+    transform: translate(-50%, -50%) rotate(-3deg);
+  }
+  .ia-art__glyph {
+    display: flex;
+    flex: none;
+    align-items: flex-start;
+    height: calc(var(--ia-art-s) * 0.25);
+  }
+  .ia-art__glyph > svg {
+    width: calc(var(--ia-art-s) * 0.17);
+    height: calc(var(--ia-art-s) * 0.17);
+  }
   .ia-art__line {
-    height: 6%;
+    flex: none;
+    height: calc(var(--ia-art-s) * 0.02);
     border-radius: var(--ia-radius-pill);
-    background: var(--ia-soft);
+    background: color-mix(in srgb, var(--ia-secondary) 30%, transparent);
+  }
+  .ia-art__line:nth-child(2) {
+    width: calc(var(--ia-art-s) * 0.31);
+    height: calc(var(--ia-art-s) * 0.026);
+    background: color-mix(in srgb, var(--ia-ink) 75%, transparent);
   }
   .ia-art__line:nth-child(3) {
-    width: 80%;
+    width: calc(var(--ia-art-s) * 0.36);
   }
   .ia-art__line:nth-child(4) {
-    width: 60%;
+    width: calc(var(--ia-art-s) * 0.25);
   }
 }
 
@@ -1425,5 +1590,11 @@
   .ia-card--interactive:active,
   .ia-card--interactive:hover {
     transform: none !important;
+  }
+  /* A progress indicator is not decorative motion (UIActivityIndicatorView keeps spinning
+     under Reduce Motion); a frozen arc would read as a broken control. */
+  .ia-spinner {
+    animation-duration: 0.8s !important;
+    animation-iteration-count: infinite !important;
   }
 }

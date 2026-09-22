@@ -7,7 +7,7 @@ import { findRatingApp, getNicheName } from "@/lib/ratingAppSlug";
 import { tg } from "@/lib/typo";
 import { hasReviewCorpus } from "@/lib/reviews";
 import { neutralizeTrustLanguage } from "@/lib/trustCopy";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -46,7 +46,6 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
   const { slug, app } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(ru);
   const a = findRatingApp(slug, app, locale);
   const niche = getNicheName(slug, locale);
   if (!a || !niche || !hasReviewCorpus(slug)) notFound();
@@ -71,7 +70,7 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
     <main className="mx-auto w-full max-w-[720px] px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href={`${lp}/rating/${slug}`} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+      <Link href={oldHref(ru, `/rating/${slug}`)} className="card-min inline-flex items-center gap-1.5 rounded-full py-2 pl-3 pr-4 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? `Рейтинг: ${niche}` : `Rating: ${niche}`}
       </Link>
@@ -164,15 +163,15 @@ export default async function RatingAppPage({ params }: { params: Promise<{ slug
 
       {/* Navigation into the two niche views. */}
       <div className="mt-20 grid grid-cols-1 gap-3 sm:mt-24 sm:grid-cols-3">
-        <Link href={`${lp}/rating/${slug}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
+        <Link href={oldHref(ru, `/rating/${slug}`)} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
           <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Весь рейтинг" : "Full rating"}</span>
           <span className="text-subhead text-[var(--color-text-primary)]">{ru ? `Все приложения выборки «${niche}»` : `Every app in the ${niche} sample`}</span>
         </Link>
-        <Link href={`${lp}/reviews/${slug}/${a.id}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
+        <Link href={oldHref(ru, `/reviews/${slug}/${a.id}`)} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
           <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Источники" : "Sources"}</span>
           <span className="text-subhead text-[var(--color-text-primary)]">{ru ? "Все отзывы и темы" : "All reviews and topics"}</span>
         </Link>
-        <Link href={`${lp}/segment/${slug}`} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
+        <Link href={oldHref(ru, `/segment/${slug}`)} className="card-min flex flex-col gap-1 rounded-[22px] p-6 transition-colors hover:border-[var(--color-border-strong)]">
           <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Разбор ниши" : "Niche breakdown"}</span>
           <span className="text-subhead text-[var(--color-text-primary)]">{ru ? `Что строить в нише «${niche}»` : `What to build in ${niche}`}</span>
         </Link>

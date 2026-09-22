@@ -26,7 +26,10 @@ function getTransport() {
 }
 
 // Magic-link sign-in email — plain, friendly, one clear action. Localized to the
-// user's UI language (ru/en) so an English visitor doesn't get a Russian email.
+// user's UI language (ru/en; de/fr/ja for the new site, informal like the app) so a
+// visitor doesn't get an email in another language.
+export type MailLocale = "ru" | "en" | "de" | "fr" | "ja";
+
 const COPY = {
   ru: {
     subject: "Вход в inApp",
@@ -46,9 +49,36 @@ const COPY = {
     ignore: "If you didn't request this, just ignore this email.",
     text: (url: string) => `Open this link to sign in to inApp (valid for 15 minutes):\n${url}\n\nIf you didn't request this, ignore this email.`,
   },
+  de: {
+    subject: "Anmeldung bei inApp",
+    heading: "Anmeldung bei inApp",
+    lead: "Tipp auf den Button, um dich anzumelden. Der Link ist 15 Minuten gültig.",
+    button: "Bei inApp anmelden",
+    fallback: "Falls der Button nicht funktioniert, kopier diesen Link:",
+    ignore: "Wenn du die Anmeldung nicht angefordert hast, ignorier diese E-Mail einfach.",
+    text: (url: string) => `Öffne diesen Link, um dich bei inApp anzumelden (15 Minuten gültig):\n${url}\n\nWenn du die Anmeldung nicht angefordert hast, ignorier diese E-Mail.`,
+  },
+  fr: {
+    subject: "Connexion à inApp",
+    heading: "Connexion à inApp",
+    lead: "Appuie sur le bouton pour te connecter. Le lien est valable 15 minutes.",
+    button: "Se connecter à inApp",
+    fallback: "Si le bouton ne fonctionne pas, copie ce lien :",
+    ignore: "Si tu n’as pas demandé cette connexion, ignore simplement cet e-mail.",
+    text: (url: string) => `Ouvre ce lien pour te connecter à inApp (valable 15 minutes) :\n${url}\n\nSi tu n’as pas demandé cette connexion, ignore cet e-mail.`,
+  },
+  ja: {
+    subject: "inAppへのログイン",
+    heading: "inAppへのログイン",
+    lead: "ボタンをタップしてログインしてください。リンクの有効期限は15分です。",
+    button: "inAppにログイン",
+    fallback: "ボタンが機能しない場合は、こちらのリンクをコピーしてください：",
+    ignore: "ログインをリクエストしていない場合は、このメールを無視してください。",
+    text: (url: string) => `inAppにログインするには、こちらのリンクを開いてください（有効期限15分）：\n${url}\n\nログインをリクエストしていない場合は、このメールを無視してください。`,
+  },
 } as const;
 
-export async function sendMagicLink(to: string, url: string, locale: "ru" | "en" = "ru"): Promise<void> {
+export async function sendMagicLink(to: string, url: string, locale: MailLocale = "ru"): Promise<void> {
   const t = COPY[locale] ?? COPY.ru;
   const html = `<!doctype html><html><body style="margin:0;background:#0b0b0d;padding:32px 16px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">

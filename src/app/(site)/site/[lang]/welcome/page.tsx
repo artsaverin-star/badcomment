@@ -1,29 +1,69 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getManifest, getOnboarding, type Art } from "@/site/content";
+import { mediaSrc, mediaSrcSet } from "@/site/content/media";
+import { pageMetadata } from "@/site/features/legal/meta";
+import { WELCOME_UI_KEYS } from "@/site/features/welcome/keys";
+import { WelcomeFlow, type WelcomeData, type WelcomeImage } from "@/site/features/welcome/WelcomeFlow";
+import { I18nProvider } from "@/site/i18n/client";
 import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { routes } from "@/site/routing";
-import { Badge } from "@/site/ui/Badge";
 
-// TODO(welcome): PLACEHOLDER for the onboarding replay (spec 03 §1, spec 09 §2.6): 4 story
-// pages + paywall page, «Закрыть» returns to the previous URL. Full-screen: the shell hides
-// its chrome on this route (src/site/shell/ChromeFrame.tsx chromeFor()).
+// «Знакомство с приложением» (spec 03 §1, spec 09 §2.6): the 4 onboarding story pages from
+// content/v2/<L>/onboarding.json (public fragments — the app shows them to everyone) + the Plus
+// page. Full screen: the shell hides its chrome on /welcome. noindex (spec 09 G9).
 
-export const metadata: Metadata = { robots: { index: false, follow: true } };
+type Params = { lang: string };
 
-export default async function WelcomePlaceholder({ params }: { params: Promise<{ lang: string }> }) {
+function image(art: Art | undefined | null, width: number): WelcomeImage | null {
+  return art ? { src: mediaSrc(art, width), srcSet: mediaSrcSet(art) } : null;
+}
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const t = await getT(lang);
+  return pageMetadata({
+    locale: lang,
+    path: (l) => routes.welcome(l),
+    title: t("Знакомство с приложением"),
+    description: t("Изучили отзывы о 4 623 приложениях: что раздражает людей и чего им не хватает."),
+    index: false,
+  });
+}
+
+export default async function WelcomePage({ params }: { params: Promise<Params> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const t = await getT(lang);
+  const [t, manifest, onboarding] = await Promise.all([getT(lang), getManifest(), getOnboarding(lang)]);
+
+  const data: WelcomeData = {
+    art: {
+      reviews: image(manifest.art.WelcomeReviews_v7, 800),
+      library: image(manifest.art.WelcomeLibrary_v7, 800),
+      research: image(manifest.art.WelcomeResearch_v7, 400),
+      product: image(manifest.art.WelcomeProduct_v7, 400),
+    },
+    articles: onboarding.articles.map((a) => ({
+      key: `${a.category}:${a.observationId}`,
+      label: a.label,
+      title: a.observationTitle,
+      excerpt: a.excerpt,
+      image: image(a.art, 240),
+      quote: a.quote ? { text: a.quote.excerpt, rating: a.quote.rating } : null,
+    })),
+    ideas: onboarding.ideas.map((i) => ({
+      slug: i.slug,
+      title: i.title,
+      description: i.description,
+      image: image(i.cover, 480),
+    })),
+  };
 
   return (
-    <div className="ia-page ia-page--welcome flex min-h-dvh flex-col items-center justify-center gap-6 text-center">
-      <Badge tone="neutral">TODO · welcome placeholder</Badge>
-      <h1 className="ia-display m-0">{t("Разборы отзывов")}</h1>
-      <Link href={routes.settings(lang)} className="text-ia-secondary">
-        {t("Закрыть")}
-      </Link>
-    </div>
+    <I18nProvider locale={lang} strings={t.pick(WELCOME_UI_KEYS)}>
+      <WelcomeFlow data={data} />
+    </I18nProvider>
   );
 }

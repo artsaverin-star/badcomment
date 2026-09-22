@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { randomBytes } from "crypto";
 import { appOrigin } from "@/lib/googleAuth";
+import { safeLocalPath } from "@/lib/safeReturn";
 
 export const dynamic = "force-dynamic";
 
@@ -13,9 +14,10 @@ export async function GET(req: Request) {
   const origin = appOrigin(req);
   if (!clientId) return NextResponse.redirect(new URL("/?auth=google_unconfigured", origin));
 
-  // Remember where the user was so the callback bounces them back (not home).
-  const rawReturn = new URL(req.url).searchParams.get("return_to") || "";
-  const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/";
+  // Remember where the user was so the callback bounces them back (not home). Only a
+  // same-site path (src/lib/safeReturn.ts): "/\evil.com", "/\t/evil.com" & co. → "/".
+  // searchParams.get() takes the first of a repeated ?return_to=.
+  const returnTo = safeLocalPath(new URL(req.url).searchParams.get("return_to"));
 
   const state = randomBytes(16).toString("hex");
   const auth = new URL("https://accounts.google.com/o/oauth2/v2/auth");

@@ -5,7 +5,7 @@
 // text; spec 09 G10). Idea search may run on the client over an
 // entitlement-scoped haystack (readable ideas only).
 
-import { compareNames, matchesQuery, normalizeForSearch } from "./text";
+import { capQuery, compareNames, matchesTokens, normalizeForSearch, queryTokens } from "./text";
 import type { CatalogCategory, CatalogIdea, LocaleCode, SearchFile } from "./types";
 
 /**
@@ -21,16 +21,14 @@ export function searchResearch(
   locale: LocaleCode,
 ): string[] {
   if (query.trim() === "") return categories.map((c) => c.slug);
+  // Tokenize once per request (capped: MAX_QUERY_CHARS / MAX_QUERY_TOKENS in ./text).
+  const tokens = queryTokens(query, locale);
   const results: { slug: string; name: string; relevance: number }[] = [];
   for (const category of categories) {
     const entry = index.research[category.slug];
     if (!entry) continue;
-    if (!matchesQuery(query, [entry.name, entry.summary, ...entry.body], locale)) continue;
-    const relevance = matchesQuery(query, [entry.name], locale)
-      ? 0
-      : matchesQuery(query, [entry.summary], locale)
-        ? 1
-        : 2;
+    if (!matchesTokens(tokens, [entry.name, entry.summary, ...entry.body])) continue;
+    const relevance = matchesTokens(tokens, [entry.name]) ? 0 : matchesTokens(tokens, [entry.summary]) ? 1 : 2;
     results.push({ slug: category.slug, name: category.name, relevance });
   }
   results.sort((a, b) => a.relevance - b.relevance || compareNames(a.name, b.name, locale));
@@ -40,7 +38,7 @@ export function searchResearch(
 /** True when an idea haystack (from search.json, already normalized) matches `query`. */
 export function ideaMatches(haystack: readonly string[] | undefined, query: string, locale: LocaleCode): boolean {
   if (query.trim() === "") return true;
-  return !!haystack && matchesQuery(query, haystack, locale);
+  return !!haystack && matchesTokens(queryTokens(query, locale), haystack);
 }
 
 /**
@@ -80,11 +78,14 @@ export function filterIdeas<T extends Pick<CatalogIdea, "slug" | "category">>(
   },
 ): T[] {
   const q = options.query.trim();
-  return ideas.filter(
-    (idea) =>
-      (!options.category || idea.category === options.category) &&
-      (q === "" || (options.canRead(idea.slug) && ideaMatches(options.haystacks[idea.slug], q, options.locale))),
-  );
+  // Tokenize once per call, not once per idea (capped: MAX_QUERY_CHARS / MAX_QUERY_TOKENS in ./text).
+  const tokens = q === "" ? [] : queryTokens(q, options.locale);
+  return ideas.filter((idea) => {
+    if (options.category && idea.category !== options.category) return false;
+    if (q === "") return true;
+    const haystack = options.haystacks[idea.slug];
+    return options.canRead(idea.slug) && !!haystack && matchesTokens(tokens, haystack);
+  });
 }
 
 /** Category picker rows: the 35 names sorted with the locale collator, filtered by a plain substring. */
@@ -94,7 +95,7 @@ export function pickerCategories<T extends Pick<CatalogCategory, "slug" | "name"
   locale: LocaleCode,
 ): T[] {
   const sorted = [...categories].sort((a, b) => compareNames(a.name, b.name, locale));
-  const f = normalizeForSearch(filter.trim(), locale);
+  const f = normalizeForSearch(capQuery(filter.trim()), locale);
   if (!f) return sorted;
   return sorted.filter((c) => normalizeForSearch(c.name, locale).includes(f));
 }

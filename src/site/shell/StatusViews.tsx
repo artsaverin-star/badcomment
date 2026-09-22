@@ -4,13 +4,19 @@ import { useLocale, useT, useWebStrings } from "../i18n/client";
 import { routes } from "../routing";
 import { Button } from "../ui/Button";
 import { ClarityArt } from "../ui/EmptyState";
-import { AlertIcon, ArrowRightIcon, ResearchIcon } from "../ui/icons";
+import { ArrowRightIcon, TextLinesIcon } from "../ui/icons";
 import { shellStrings } from "./strings";
 import { FloatingTabBar } from "./TabBar";
 
 // Full-page states of the new site, in the app's words (spec 09 G8, G13):
 //   NotFoundView — «Материал недоступен» + a way back to «Разборы» (the tab bar stays visible)
 //   ErrorView    — «Не удалось открыть материалы» / «Попробуй загрузить библиотеку ещё раз.» / «Повторить»
+// Both draw ClarityArt(role: .research) — glyph `text.alignleft` at 0.17 × size.
+// ErrorView is the app's boot error (ClarityRoot.swift:36-41): VStack spacing 24, padding 26,
+// art 150 centered, ClarityHeading (leading-aligned), full-width ClarityButton «Повторить».
+
+const ART = 150;
+const artGlyph = <TextLinesIcon size={Math.round(ART * 0.17)} strokeWidth={2.2} />;
 
 export function NotFoundView() {
   const locale = useLocale();
@@ -18,7 +24,7 @@ export function NotFoundView() {
   const s = useWebStrings(shellStrings);
   return (
     <div className="ia-page ia-page--catalog flex flex-col items-center gap-6 py-16 text-center">
-      <ClarityArt size={150} icon={<ResearchIcon size={22} strokeWidth={2} />} />
+      <ClarityArt size={ART} icon={artGlyph} />
       <div className="flex flex-col gap-2.5">
         <h1 className="ia-heading__title">{t("Материал недоступен")}</h1>
         <p className="ia-heading__subtitle">{s.notFoundBody}</p>
@@ -34,17 +40,15 @@ export function NotFoundView() {
 export function ErrorView({ onRetry }: { onRetry: () => void }) {
   const t = useT();
   return (
-    <div className="ia-page ia-page--catalog flex flex-col items-center gap-6 py-16 text-center" role="alert">
-      <ClarityArt size={150} icon={<AlertIcon size={22} strokeWidth={2} />} />
-      <div className="flex flex-col gap-2.5">
+    <div className="ia-status" role="alert">
+      <ClarityArt size={ART} icon={artGlyph} />
+      <div className="ia-heading ia-status__heading">
         <h1 className="ia-heading__title">{t("Не удалось открыть материалы")}</h1>
         <p className="ia-heading__subtitle">{t("Попробуй загрузить библиотеку ещё раз.")}</p>
       </div>
-      <div className="w-full max-w-[360px]">
-        <Button variant="primary" onClick={onRetry}>
-          {t("Повторить")}
-        </Button>
-      </div>
+      <Button variant="primary" onClick={onRetry}>
+        {t("Повторить")}
+      </Button>
     </div>
   );
 }

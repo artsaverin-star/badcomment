@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { oldLp } from "@/lib/oldHref";
+import { oldHref } from "@/lib/oldHref";
 import { getLegal } from "@/lib/legal";
 import { getLocale } from "@/lib/i18n.server";
 import { APPLE_EULA_URL, APPLE_REFUND_URL, IOS_PRIVACY_URL } from "@/lib/legalPages";
@@ -57,7 +57,6 @@ type Section = { id: string; title: string; body: React.ReactNode };
 export default async function TermsPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const lp = oldLp(locale);
   const l = getLegal();
   const dev = l.appDeveloper;
   const email = dev.email;
@@ -78,7 +77,7 @@ export default async function TermsPage() {
     <Ext href={IOS_PRIVACY_URL}>inApp Privacy Policy</Ext>
   );
   const support = (
-    <Link href={`${lp}/contacts`} className={linkCls}>
+    <Link href={oldHref(locale, "/contacts")} className={linkCls}>
       {ru ? "страница поддержки" : "Support page"}
     </Link>
   );

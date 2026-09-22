@@ -2,7 +2,7 @@ import { permanentRedirect, notFound } from "next/navigation";
 import { getIdea } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
 import { getOldSiteMode } from "@/lib/oldSite.server";
-import { oldHref, publicHref } from "@/lib/oldHref";
+import { oldNavHref } from "@/lib/oldHref";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +19,5 @@ export default async function IdeaRedirect({ params }: { params: Promise<{ slug:
   const idea = getIdea(slug);
   if (!idea) notFound();
   const locale = await getLocale();
-  const path = `/segment/${idea.category}`;
-  permanentRedirect((await getOldSiteMode()) === "old" ? oldHref(locale, path) : publicHref(locale, path));
+  permanentRedirect(oldNavHref(await getOldSiteMode(), locale, `/segment/${idea.category}`));
 }

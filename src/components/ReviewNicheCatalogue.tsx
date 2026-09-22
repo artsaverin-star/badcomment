@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
+import { oldHref } from "@/lib/oldHref";
 import { trackReviewCategoryOpen } from "@/lib/track";
 
 type NicheItem = {
@@ -12,7 +13,7 @@ type NicheItem = {
   unlocked: boolean;
 };
 
-export default function ReviewNicheCatalogue({ niches, ru, lp }: { niches: NicheItem[]; ru: boolean; lp: string }) {
+export default function ReviewNicheCatalogue({ niches, ru }: { niches: NicheItem[]; ru: boolean }) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query.trim().toLocaleLowerCase(ru ? "ru" : "en"));
   const locale = ru ? "ru-RU" : "en-US";
@@ -42,7 +43,7 @@ export default function ReviewNicheCatalogue({ niches, ru, lp }: { niches: Niche
         <ul className="mt-4 grid sm:grid-cols-2 sm:gap-x-8">
           {filtered.map((niche) => (
             <li key={niche.slug} className="border-b border-[var(--color-border-subtle)]">
-              <Link href={`${lp}/reviews/${niche.slug}`} onClick={() => trackReviewCategoryOpen(niche.slug, !niche.unlocked)} className="group flex items-center gap-3 py-3.5">
+              <Link href={oldHref(ru, `/reviews/${niche.slug}`)} onClick={() => trackReviewCategoryOpen(niche.slug, !niche.unlocked)} className="group flex items-center gap-3 py-3.5">
                 <span className="sr-only">{niche.unlocked ? (ru ? "Открыто." : "Open.") : (ru ? "Только с полным доступом." : "Full access required.")}</span>
                 <span className={`flex size-7 shrink-0 items-center justify-center rounded-full ${niche.unlocked ? "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]" : "border border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]"}`} aria-hidden="true">
                   {niche.unlocked ? (

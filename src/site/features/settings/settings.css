@@ -1,0 +1,435 @@
+/* Settings and «О материалах» (spec 02 §8, spec 05 §3.6 K/L). Unlayered; every selector is
+   prefixed ia-set-. Tokens only (tokens.css). */
+
+.ia-set {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 8px;
+  padding-bottom: 40px;
+}
+
+/* Header: «Настройки» 22/700 + «Готово» surface pill */
+.ia-set-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.ia-set-header__title {
+  margin: 0;
+  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  letter-spacing: -0.012em;
+  color: var(--ia-ink);
+}
+@media (min-width: 1024px) {
+  .ia-set-header__title {
+    font-size: var(--ia-fs-large-title);
+    line-height: var(--ia-lh-large-title);
+    letter-spacing: -1px;
+  }
+}
+.ia-set-done {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ia-hit);
+  padding: 0 16px;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-surface);
+  box-shadow: inset 0 0 0 0.5px var(--ia-line-65);
+  color: var(--ia-accent);
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+/* Group: heading outside the box (15/600 secondary, 4 px inset), surface radius 20 */
+.ia-set-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-set-group__title {
+  margin: 0;
+  padding-inline: 4px;
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-set-box {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-surface);
+}
+.ia-set-box--sm {
+  border-radius: var(--ia-radius-group-sm);
+}
+.ia-set-box > * {
+  position: relative;
+}
+/* Dividers: 0.5 px line@65 %, inset 56 (the glyph column). */
+.ia-set-box > * + *::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 56px;
+  right: 0;
+  height: 0.5px;
+  background: var(--ia-line-65);
+  pointer-events: none;
+}
+
+/* Row: 24 px glyph (secondary) · title 17 ink (+ subtitle) · trailing chevron / arrow */
+.ia-set-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 17px 16px 16px;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  background-color: transparent;
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-set-row:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+div.ia-set-row {
+  cursor: default;
+}
+@media (hover: hover) {
+  a.ia-set-row:hover,
+  button.ia-set-row:not(:disabled):hover {
+    background-color: color-mix(in srgb, var(--ia-surface) 94%, var(--ia-ink));
+  }
+}
+a.ia-set-row:active,
+button.ia-set-row:not(:disabled):active {
+  background-color: color-mix(in srgb, var(--ia-surface) 90%, var(--ia-ink));
+}
+.ia-set-row:focus-visible {
+  outline-offset: -2px;
+}
+.ia-set-row--lang {
+  min-height: 52px;
+  padding-block: 14px;
+}
+.ia-set-row__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  color: var(--ia-secondary);
+}
+.ia-set-row__text {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+.ia-set-row__title {
+  overflow-wrap: anywhere;
+}
+.ia-set-row__sub {
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+}
+.ia-set-row__trail {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  color: var(--ia-secondary);
+}
+.ia-set-row__radio-on {
+  color: var(--ia-accent);
+}
+.ia-set-row--danger {
+  color: var(--ia-danger);
+}
+.ia-set-row--danger .ia-set-row__icon {
+  color: var(--ia-danger);
+}
+.ia-set-avatar {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-inline: -4px;
+  border-radius: 50%;
+  background: var(--ia-accent-soft);
+  color: var(--ia-accent);
+  font: 700 var(--ia-fs-subheadline) / 1 var(--ia-font-sans);
+}
+.ia-set-result {
+  margin: 0;
+  padding: 0 16px 16px 56px;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-set-badge {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- Plus card (spec 02 §8.3, 05 §3.6 L) ---- */
+.ia-set-plus {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ia-radius-idea-card);
+  background: var(--ia-surface);
+  box-shadow: inset 0 0 0 0.5px var(--ia-line-card);
+  transition: transform var(--ia-dur-press) var(--ia-ease-press);
+}
+.ia-set-plus:has(.ia-set-plus__cta:active) {
+  transform: scale(0.985);
+}
+.ia-set-plus__band {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px 14px;
+  background: var(--ia-accent-soft);
+}
+.ia-set-plus__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font: 700 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  letter-spacing: 0.8px;
+  color: var(--ia-accent);
+}
+.ia-set-plus__active {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+.ia-set-plus__art {
+  display: block;
+  height: 112px;
+  width: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+.ia-set-plus__body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.ia-set-plus__title {
+  margin: 0;
+  font: 600 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-serif-ui);
+  color: var(--ia-ink);
+}
+.ia-set-plus__text {
+  margin: 8px 0 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-set-plus__cta {
+  margin-top: 20px;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+}
+/* The whole card is the CTA's hit area (one control, as in the app). */
+.ia-set-plus__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.ia-set-plus__caption {
+  margin: 10px 0 0;
+  text-align: center;
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+
+/* ---- Appearance: three preview tiles (spec 02 §8.6) ---- */
+.ia-set-themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-surface);
+}
+@media (max-width: 339.98px) {
+  .ia-set-themes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.ia-set-theme {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-set-theme input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.ia-set-theme__ring {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px var(--ia-line);
+  transition: box-shadow 150ms ease;
+}
+.ia-set-theme input:checked + .ia-set-theme__ring {
+  box-shadow: inset 0 0 0 2px var(--ia-accent);
+}
+.ia-set-theme input:focus-visible + .ia-set-theme__ring {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+.ia-set-theme__label {
+  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  color: var(--ia-ink);
+}
+.ia-set-theme__radio {
+  display: inline-flex;
+  color: var(--ia-secondary);
+}
+.ia-set-theme input:checked ~ .ia-set-theme__radio {
+  color: var(--ia-accent);
+}
+
+/* The preview always draws fixed light/dark samples, independent of the current theme. */
+.ia-set-preview {
+  display: block;
+  position: relative;
+  height: 74px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.ia-set-preview__half {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px;
+  background: var(--p-bg);
+}
+.ia-set-preview__half--light {
+  --p-bg: #f5f5f7;
+  --p-ink: #191a20;
+  --p-card: #ffffff;
+  --p-accent: #3458db;
+  --p-sec: #666872;
+}
+.ia-set-preview__half--dark {
+  --p-bg: #111214;
+  --p-ink: #f2f2f5;
+  --p-card: #1d1e22;
+  --p-accent: #94aaff;
+  --p-sec: #aaadb8;
+}
+.ia-set-preview--system .ia-set-preview__half--dark {
+  clip-path: inset(0 0 0 50%);
+}
+.ia-set-preview__bar {
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--p-ink);
+}
+.ia-set-preview__card {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding-left: 7px;
+  border-radius: 5px;
+  background: var(--p-card);
+}
+.ia-set-preview__card span {
+  width: 15px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--p-accent);
+}
+.ia-set-preview__line {
+  width: 21px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--p-sec);
+}
+
+/* Footer */
+.ia-set-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  color: var(--ia-secondary);
+}
+.ia-set-footer__line1 {
+  margin: 0;
+  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+.ia-set-footer__line2 {
+  margin: 0;
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+}
+
+/* ---- «О материалах» (spec 02 §8.7) ---- */
+.ia-set-about {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 8px;
+  padding-bottom: 40px;
+}
+.ia-set-about__block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ia-set-about__block h2 {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  color: var(--ia-ink);
+}
+.ia-set-about__block p {
+  margin: 0;
+  font: 400 var(--ia-fs-body) / 1.5 var(--ia-font-sans);
+  color: var(--ia-secondary);
+  text-wrap: pretty;
+}
+.ia-set-about__foot {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}

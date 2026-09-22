@@ -1,0 +1,110 @@
+--- a/src/site/content/text.ts
++++ b/src/site/content/text.ts
+@@ -285,15 +285,27 @@
+     .normalize("NFC");
+ }
+ 
+-/** Query tokens (split on whitespace), normalized. */
++/** Longest query that is searched (the rest is ignored) and most distinct tokens used. */
++export const MAX_QUERY_CHARS = 200;
++export const MAX_QUERY_TOKENS = 12;
++
++/** Query tokens (split on whitespace), normalized, de-duplicated and capped. */
+ export function queryTokens(query: string, locale: LocaleCode | string): string[] {
+-  return query
+-    .split(/\s+/u)
+-    .filter(Boolean)
+-    .map((t) => normalizeForSearch(t, locale))
+-    .filter(Boolean);
++  const out = new Set<string>();
++  for (const raw of query.slice(0, MAX_QUERY_CHARS).split(/\s+/u)) {
++    if (!raw) continue;
++    const token = normalizeForSearch(raw, locale);
++    if (token) out.add(token);
++    if (out.size >= MAX_QUERY_TOKENS) break;
++  }
++  return [...out];
+ }
+ 
++/** Every token is contained in some (already normalized) field. Tokenize once per request. */
++export function matchesTokens(tokens: readonly string[], fields: readonly string[]): boolean {
++  return tokens.every((token) => fields.some((field) => field.includes(token)));
++}
++
+ /**
+  * StudioContent.matches: every whitespace token of the query is contained in
+  * some field. An empty query matches everything. `fields` must already be
+@@ -307,8 +319,7 @@
+ ): boolean {
+   const tokens = queryTokens(query, locale);
+   if (tokens.length === 0) return true;
+-  const haystack = normalizeFields ? fields.map((f) => normalizeForSearch(f, locale)) : fields;
+-  return tokens.every((token) => haystack.some((field) => field.includes(token)));
++  return matchesTokens(tokens, normalizeFields ? fields.map((f) => normalizeForSearch(f, locale)) : fields);
+ }
+ 
+ const collators = new Map<string, Intl.Collator>();
+--- a/src/site/content/search.ts
++++ b/src/site/content/search.ts
+@@ -5,7 +5,7 @@
+ // text; spec 09 G10). Idea search may run on the client over an
+ // entitlement-scoped haystack (readable ideas only).
+ 
+-import { compareNames, matchesQuery, normalizeForSearch } from "./text";
++import { compareNames, matchesTokens, normalizeForSearch, queryTokens } from "./text";
+ import type { CatalogCategory, CatalogIdea, LocaleCode, SearchFile } from "./types";
+ 
+ /**
+@@ -20,15 +20,16 @@
+   query: string,
+   locale: LocaleCode,
+ ): string[] {
+-  if (query.trim() === "") return categories.map((c) => c.slug);
++  const tokens = queryTokens(query, locale);
++  if (tokens.length === 0) return categories.map((c) => c.slug);
+   const results: { slug: string; name: string; relevance: number }[] = [];
+   for (const category of categories) {
+     const entry = index.research[category.slug];
+     if (!entry) continue;
+-    if (!matchesQuery(query, [entry.name, entry.summary, ...entry.body], locale)) continue;
+-    const relevance = matchesQuery(query, [entry.name], locale)
++    if (!matchesTokens(tokens, [entry.name, entry.summary, ...entry.body])) continue;
++    const relevance = matchesTokens(tokens, [entry.name])
+       ? 0
+-      : matchesQuery(query, [entry.summary], locale)
++      : matchesTokens(tokens, [entry.summary])
+         ? 1
+         : 2;
+     results.push({ slug: category.slug, name: category.name, relevance });
+@@ -39,8 +40,9 @@
+ 
+ /** True when an idea haystack (from search.json, already normalized) matches `query`. */
+ export function ideaMatches(haystack: readonly string[] | undefined, query: string, locale: LocaleCode): boolean {
+-  if (query.trim() === "") return true;
+-  return !!haystack && matchesQuery(query, haystack, locale);
++  const tokens = queryTokens(query, locale);
++  if (tokens.length === 0) return true;
++  return !!haystack && matchesTokens(tokens, haystack);
+ }
+ 
+ /**
+@@ -79,12 +81,13 @@
+     haystacks: Readonly<Record<string, readonly string[]>>;
+   },
+ ): T[] {
+-  const q = options.query.trim();
+-  return ideas.filter(
+-    (idea) =>
+-      (!options.category || idea.category === options.category) &&
+-      (q === "" || (options.canRead(idea.slug) && ideaMatches(options.haystacks[idea.slug], q, options.locale))),
+-  );
++  const tokens = queryTokens(options.query, options.locale);
++  return ideas.filter((idea) => {
++    if (options.category && idea.category !== options.category) return false;
++    if (tokens.length === 0) return true;
++    const haystack = options.haystacks[idea.slug];
++    return options.canRead(idea.slug) && !!haystack && matchesTokens(tokens, haystack);
++  });
+ }
+ 
+ /** Category picker rows: the 35 names sorted with the locale collator, filtered by a plain substring. */

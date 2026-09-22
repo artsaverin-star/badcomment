@@ -2,7 +2,8 @@ import { redirect } from "next/navigation";
 import { getLocale } from "@/lib/i18n.server";
 import { getSessionUser } from "@/lib/session";
 import ConnectClient from "./ConnectClient";
-import { oldHref } from "@/lib/oldHref";
+import { oldNavHref } from "@/lib/oldHref";
+import { getOldSiteMode } from "@/lib/oldSite.server";
 
 // The sign-in bridge of the MCP OAuth flow. The authorize endpoint sends
 // signed-out browsers here with the original query packed into ?o=…; once the
@@ -13,13 +14,14 @@ export const dynamic = "force-dynamic";
 export default async function McpConnectPage({ searchParams }: { searchParams: Promise<{ o?: string }> }) {
   const { o } = await searchParams;
   const locale = await getLocale();
-  if (!o) redirect(oldHref(locale, "/mcp"));
+  const mcpHref = oldNavHref(await getOldSiteMode(), locale, "/mcp");
+  if (!o) redirect(mcpHref);
 
   let query = "";
   try {
     query = Buffer.from(o, "base64url").toString();
   } catch {
-    redirect(oldHref(locale, "/mcp"));
+    redirect(mcpHref);
   }
   const authorizeUrl = `/api/mcp/oauth/authorize${query.startsWith("?") ? query : `?${query}`}`;
 
