@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLegal, legalValue } from "@/lib/legal";
+import { getLegal } from "@/lib/legal";
 import { getLocale } from "@/lib/i18n.server";
 import { APPLE_REFUND_URL, IOS_PRIVACY_URL } from "@/lib/legalPages";
 
@@ -8,19 +8,19 @@ export const dynamic = "force-dynamic";
 
 // Support page. It is the App Store Support URL and the iOS app's "Contact the
 // developer" link, so App Review reads it: no website prices or buy buttons.
-// It also keeps the seller requisites the website is legally required to show
-// (ЮKassa). Requisites come from src/data/legal.json.
+// Developer details match App Store Connect (src/data/legal.json → appDeveloper);
+// the website's payment requisites live in the offer at /offer/payment.
 
 export async function generateMetadata(): Promise<Metadata> {
   const ru = (await getLocale()) !== "en";
   return ru
     ? {
         title: "Поддержка inApp",
-        description: "Как связаться с разработчиком inApp, восстановить покупку, управлять подпиской и запросить возврат. Реквизиты продавца.",
+        description: "Как связаться с разработчиком inApp, восстановить покупку, управлять подпиской и запросить возврат.",
       }
     : {
         title: "inApp Support",
-        description: "How to contact the inApp developer, restore a purchase, manage your subscription and request a refund. Seller information.",
+        description: "How to contact the inApp developer, restore a purchase, manage your subscription and request a refund.",
       };
 }
 
@@ -50,7 +50,8 @@ export default async function SupportPage() {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
   const l = getLegal();
-  const email = legalValue(l.email);
+  const dev = l.appDeveloper;
+  const email = dev.email;
   const mail = (
     <a href={`mailto:${email}`} className={linkCls}>
       {email}
@@ -140,23 +141,15 @@ export default async function SupportPage() {
 
   const rows: Array<[string, string]> = ru
     ? [
-        ["Исполнитель", legalValue(l.fullName)],
-        ...(l.selfEmployed
-          ? ([["Статус", "Самозанятый (плательщик налога на профессиональный доход), Российская Федерация"]] as Array<[string, string]>)
-          : []),
-        ["ИНН", legalValue(l.inn)],
+        ["Разработчик", dev.name],
+        ["Адрес", dev.addressRu],
         ["E-mail", email],
-        ...(l.phone ? ([["Телефон", l.phone]] as Array<[string, string]>) : []),
         ["Сайт", l.site],
       ]
     : [
-        ["Seller", `${legalValue(l.fullNameEn)} (${legalValue(l.fullName)})`],
-        ...(l.selfEmployed
-          ? ([["Status", "Self-employed (professional income tax payer), Russian Federation"]] as Array<[string, string]>)
-          : []),
-        ["INN (taxpayer ID)", legalValue(l.inn)],
+        ["Developer", dev.name],
+        ["Address", dev.addressEn],
         ["E-mail", email],
-        ...(l.phone ? ([["Phone", l.phone]] as Array<[string, string]>) : []),
         ["Website", l.site],
       ];
 
@@ -214,7 +207,7 @@ export default async function SupportPage() {
         </ul>
       </SectionBlock>
 
-      <SectionBlock id="seller" title={ru ? "Реквизиты" : "Seller information"}>
+      <SectionBlock id="developer" title={ru ? "Разработчик" : "Developer information"}>
         <dl className="card-min flex flex-col divide-y divide-[var(--color-border-subtle)] rounded-[22px] px-5">
           {rows.map(([k, v]) => (
             <div key={k} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-4">

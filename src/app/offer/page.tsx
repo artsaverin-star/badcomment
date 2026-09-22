@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLegal, legalValue } from "@/lib/legal";
+import { getLegal } from "@/lib/legal";
 import { getLocale } from "@/lib/i18n.server";
 import { APPLE_EULA_URL, APPLE_REFUND_URL, IOS_PRIVACY_URL } from "@/lib/legalPages";
 
@@ -58,7 +58,8 @@ export default async function TermsPage() {
   const ru = locale !== "en";
   const lp = ru ? "/ru" : "/en";
   const l = getLegal();
-  const email = legalValue(l.email);
+  const dev = l.appDeveloper;
+  const email = dev.email;
   const mail = (
     <a href={`mailto:${email}`} className={linkCls}>
       {email}
@@ -87,9 +88,8 @@ export default async function TermsPage() {
       title: "Who provides inApp",
       body: (
         <P>
-          inApp is provided by {legalValue(l.fullNameEn)} ({legalValue(l.fullName)})
-          {l.selfEmployed ? ", a self-employed individual (professional income tax payer)" : ""} in the Russian
-          Federation, INN {legalValue(l.inn)} (“we”, “us”). E-mail: {mail}.
+          inApp is provided by {dev.name} (“we”, “us”), the developer of the inApp iOS app. Address:{" "}
+          {dev.addressEn}. E-mail: {mail}.
         </P>
       ),
     },
@@ -100,9 +100,8 @@ export default async function TermsPage() {
         <P>
           inApp publishes editorial breakdowns of public app-store reviews and product ideas based on them. The content
           is available in the inApp iOS app and on the website inapp.pro. We may add, update or remove breakdowns and
-          features over time. If you have accepted a separate agreement with us for a paid service (for example, the
-          public offer published on the website inapp.pro), that agreement prevails over these Terms for that service
-          where they conflict.
+          features over time. If you have accepted a separate agreement for a paid service on the website inapp.pro (for
+          example, its public offer), that agreement prevails over these Terms for that service where they conflict.
         </P>
       ),
     },
@@ -282,9 +281,8 @@ export default async function TermsPage() {
       title: "Кто предоставляет inApp",
       body: (
         <P>
-          inApp предоставляет {legalValue(l.fullName)} ({legalValue(l.fullNameEn)})
-          {l.selfEmployed ? ", самозанятый (плательщик налога на профессиональный доход)" : ""}, Российская Федерация,
-          ИНН {legalValue(l.inn)} (далее — «мы»). E-mail: {mail}.
+          inApp предоставляет {dev.name} (далее — «мы»), разработчик iOS-приложения inApp. Адрес: {dev.addressRu}.
+          E-mail: {mail}.
         </P>
       ),
     },
@@ -295,9 +293,8 @@ export default async function TermsPage() {
         <P>
           inApp публикует редакционные разборы публичных отзывов из магазинов приложений и идеи продуктов на их основе.
           Материалы доступны в iOS-приложении inApp и на сайте inapp.pro. Мы можем добавлять, обновлять и убирать
-          разборы и функции. Если в отношении платной услуги вы заключили с нами отдельный договор (например, приняли
-          публичную оферту, опубликованную на сайте inapp.pro), при противоречии с Условиями в отношении этой услуги
-          действует такой договор.
+          разборы и функции. Если в отношении платной услуги на сайте inapp.pro вы заключили отдельный договор (например,
+          приняли его публичную оферту), при противоречии с Условиями в отношении этой услуги действует такой договор.
         </P>
       ),
     },
