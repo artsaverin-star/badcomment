@@ -100,7 +100,7 @@
   margin: 0;
 }
 .ia-ideas-grid .ia-idea-card--locked .ia-idea-card__art {
-  flex: 1;
+  flex: 1 1 auto; /* auto basis: Safari collapses basis-0 items in auto-height columns */
   min-height: 0;
 }
 

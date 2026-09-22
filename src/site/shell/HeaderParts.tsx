@@ -90,6 +90,10 @@ export function AccountButton() {
       items={[
         ...(heading ? [{ type: "label" as const, label: heading }] : []),
         { label: t("Настройки"), href: routes.settings(locale), icon: <SettingsIcon size={17} strokeWidth={2} /> },
+        // The admin panel is an old-site page served in place (ru/en only).
+        ...(viewer.user.isAdmin
+          ? [{ label: locale === "ru" ? "Админка" : "Admin", href: `/${locale === "ru" ? "ru" : "en"}/admin`, external: true, icon: <SettingsIcon size={17} strokeWidth={2} /> }]
+          : []),
         { type: "separator" as const },
         {
           label: s.signOut,

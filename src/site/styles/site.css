@@ -928,7 +928,10 @@
     text-align: center;
   }
   .ia-sheet__body {
-    flex: 1;
+    /* auto basis, not 0: the dialog's height is fit-content / auto, and Safari (WebKit)
+       sizes a column flexbox from the items' flex-basis — with basis 0 the body collapsed
+       to nothing and every sheet showed only its header on iOS/macOS Safari. */
+    flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
