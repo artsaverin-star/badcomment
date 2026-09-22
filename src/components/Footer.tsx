@@ -5,8 +5,10 @@ import { usePathname } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
 import { oldLp, oldRestPath } from "@/lib/oldHref";
 
-// Site footer — keeps the legally-required pages (оферта, контакты, тарифы)
-// reachable from every page, which payment providers (ЮKassa) check for.
+const linkCls = "text-footnote text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]";
+
+// Site footer — keeps the legally-required pages (условия, оферта, контакты,
+// тарифы) reachable from every page, which payment providers (ЮKassa) check for.
 export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const ru = locale !== "en";
   const lp = oldLp(locale);
@@ -14,6 +16,9 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   // internal path so SSR ("/cards") and the client ("/ru/old/cards") agree.
   const pathname = usePathname();
   if (oldRestPath(pathname) === "/cards") return null;
+  // Terms of Use and the payment offer are separate pages since the App
+  // Review hotfix (2026-09-22). On the new site the Apple-facing /offer and
+  // /contacts are new-site pages, so no "no commerce" variant is needed here.
   const links = [
     { path: "/", label: ru ? "Разборы" : "Breakdowns" },
     { path: "/build", label: ru ? "Создание" : "Create" },
@@ -24,8 +29,9 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
     { path: "/saved", label: ru ? "Избранное" : "Saved" },
     { path: "/apps", label: ru ? "Все приложения" : "All apps" },
     { path: "/tokens", label: ru ? "Доступ" : "Access" },
-    { path: "/offer", label: ru ? "Оферта" : "Terms" },
-    { path: "/contacts", label: ru ? "Контакты" : "Contacts" },
+    { path: "/offer", label: ru ? "Условия использования" : "Terms of Use" },
+    { path: "/offer/payment", label: ru ? "Оферта" : "Payment offer" },
+    { path: "/contacts", label: ru ? "Контакты" : "Support" },
   ];
   return (
     <footer className="mt-auto border-t border-[var(--color-border-subtle)] px-4 py-4">
@@ -33,7 +39,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
         <span className="text-caption text-[var(--color-text-tertiary)]"><span className="font-bold text-[var(--color-text-secondary)]">inApp</span> · © 2026</span>
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {links.map((l) => (
-            <Link key={l.path} href={`${lp}${l.path === "/" ? "" : l.path}`} className="text-footnote text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">
+            <Link key={l.path} href={`${lp}${l.path === "/" ? "" : l.path}`} className={linkCls}>
               {l.label}
             </Link>
           ))}
