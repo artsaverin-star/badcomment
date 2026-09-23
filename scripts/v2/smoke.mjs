@@ -483,11 +483,17 @@ for (const L of OLD_LOCALES.filter((l) => opts.locales.includes(l))) {
     add("markers", `GET ${p} market players (${kind})`, async () => {
       const r = await http(p);
       const fails = expectStatus(r, 200);
-      if (!fails.length) {
+      if (!fails.length && kind === "old in place") {
         if (!r.text.includes('id="main-players"')) fails.push('lacks id="main-players"');
         if (!r.text.includes("/badges/app-store.svg")) fails.push("lacks /badges/app-store.svg");
       }
-      return { expected: '200 id="main-players" + /badges/app-store.svg', actual: statusLine(r), fails };
+      // New topic pages are a copy of the app's article: no competitor-apps block (2026-09-23).
+      if (!fails.length && kind === "new" && r.text.includes('id="main-players"')) fails.push('still has id="main-players"');
+      return {
+        expected: kind === "new" ? '200 without id="main-players"' : '200 id="main-players" + /badges/app-store.svg',
+        actual: statusLine(r),
+        fails,
+      };
     });
   }
 }

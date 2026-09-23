@@ -170,16 +170,21 @@ jobs:
             -o /tmp/pay-status.json -w '%{http_code}' \
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"
           test "${pay_status}" = "401"
-          # The shared market-player block must render beyond the original pilot.
-          # language-learning, workout-fitness, habit-tracking are launch topics: NEW topic pages
-          # (they show market players with store badges). ai-avatars-headshots and
-          # cosmetics-ingredient-checker are not launch topics: the OLD page served in place.
+          # The old site's market-player block must still render on topics served in place
+          # (ai-avatars-headshots, cosmetics-ingredient-checker are not launch topics).
+          # Launch topics are NEW pages, a copy of the app's article (no apps block since
+          # 2026-09-23): they must answer 200 without the old block.
           for locale in ru en; do
-            for niche in language-learning workout-fitness habit-tracking ai-avatars-headshots cosmetics-ingredient-checker; do
+            for niche in ai-avatars-headshots cosmetics-ingredient-checker; do
               curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
                 -o /tmp/market-players.html "https://inapp.pro/$locale/segment/$niche"
               grep -q 'id="main-players"' /tmp/market-players.html
               grep -q '/badges/app-store.svg' /tmp/market-players.html
+            done
+            for niche in language-learning workout-fitness habit-tracking; do
+              curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
+                -o /tmp/topic.html "https://inapp.pro/$locale/segment/$niche"
+              ! grep -q 'id="main-players"' /tmp/topic.html
             done
           done
           # Site v2: the new site answers on its own URLs (no redirect), and the previous site
