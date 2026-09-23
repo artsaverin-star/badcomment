@@ -53,6 +53,8 @@ jobs:
       - run: npm run test:v2-routing
       # Sign-in return_to validation (src/lib/safeReturn.ts; open-redirect guard).
       - run: npm run test:safe-return
+      # App Store offer codes for website lifetime buyers (src/lib/appStoreCodes.ts).
+      - run: npm run test:app-codes
       - run: node --import tsx scripts/v2/check-content.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build

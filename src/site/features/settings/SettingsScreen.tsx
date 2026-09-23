@@ -24,6 +24,7 @@ import {
 } from "@/site/ui/icons";
 import { CheckCircleFill } from "./CheckCircleFill";
 import { AccountRows, PlusCard, ThemePicker } from "./client";
+import { AppCodeCard, type AppCodeView } from "@/site/features/plus/AppCodeCard";
 import { SETTINGS_CLIENT_KEYS } from "./keys";
 import { formatCollectionDate } from "./format";
 import { settingsStrings } from "./strings";
@@ -108,6 +109,7 @@ export function SettingsScreen({
   theme,
   collectionDate,
   plusArt,
+  appCode,
 }: {
   locale: Locale;
   t: T;
@@ -115,6 +117,8 @@ export function SettingsScreen({
   theme: Theme;
   collectionDate: string;
   plusArt: { src: string; srcSet: string } | null;
+  /** Website lifetime buyers only: their App Store code (null = pool empty); undefined = not eligible. */
+  appCode?: AppCodeView;
 }) {
   const s = settingsStrings[locale];
   const here = routes.settings(locale);
@@ -130,6 +134,7 @@ export function SettingsScreen({
         {/* Plus card + account box: VStack(spacing: 12) (ClaritySettings.swift:200). */}
         <div className="ia-set-access">
           <PlusCard art={plusArt} />
+          {appCode !== undefined ? <AppCodeCard locale={locale} view={appCode} /> : null}
           <AccountRows />
         </div>
 

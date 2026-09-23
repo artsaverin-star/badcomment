@@ -148,6 +148,7 @@ model User {
   paymentAttempts PaymentAttempt[]
   siteSaved       SiteSaved[]
   siteNotes       SiteNote[]
+  appStoreCode    AppStoreCode?
 }
 
 // ── New site (site-v2): «Сохранённое» and notes, synced to the account ──────
@@ -377,4 +378,21 @@ model LoginToken {
   firstName  String?
   createdAt  DateTime @default(now())
   expiresAt  DateTime
+}
+
+// One-time App Store offer codes that give website lifetime buyers the iOS app's
+// «inApp Plus Lifetime» for free (App Store Connect offer "Web lifetime buyers").
+// Imported by an admin from Apple's CSV; each code is assigned to at most one user.
+model AppStoreCode {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  redeemUrl  String
+  batch      String
+  expiresAt  DateTime // Apple expiration date: codes stop working at 00:00 PT on this day
+  user       User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId     String?   @unique
+  assignedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([expiresAt])
 }

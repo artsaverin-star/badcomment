@@ -13,6 +13,7 @@ import { AlertIcon, CheckIcon, ClearIcon } from "../../ui/icons";
 import { PLUS_ITEM } from "./offer";
 import type { PlusStrings } from "./strings";
 import "./plus.css";
+import { AppCodeCard, type AppCodeView } from "./AppCodeCard";
 
 // Payment return (YooKassa return_url = /library?checkout=<uuid> → /<L>/library?checkout=…).
 // A redirect back from YooKassa is NOT proof of payment: poll our own server-side attempt
@@ -131,6 +132,7 @@ function Tracker({ checkout, onConfirmed }: { checkout: string; onConfirmed: () 
         {message}
       </p>
       {confirmed ? <p className="ia-checkout__text">{s.doneLead}</p> : null}
+      {confirmed ? <ConfirmedAppCode /> : null}
       <div className="ia-checkout__actions">
         {confirmed ? (
           <>
@@ -163,6 +165,31 @@ function Tracker({ checkout, onConfirmed }: { checkout: string; onConfirmed: () 
           </Button>
         ) : null}
       </div>
+    </div>
+  );
+}
+
+/** After a confirmed lifetime purchase: the buyer's free App Store code for the iOS app. */
+function ConfirmedAppCode() {
+  const locale = useLocale();
+  const [view, setView] = useState<AppCodeView | undefined>(undefined);
+  useEffect(() => {
+    let active = true;
+    void fetch("/api/site/app-code", { cache: "no-store" })
+      .then(async (r) => {
+        if (!active || !r.ok) return;
+        const d = (await r.json()) as { code: string | null; redeemUrl?: string; expiresAt?: string };
+        setView(d.code && d.redeemUrl && d.expiresAt ? { code: d.code, redeemUrl: d.redeemUrl, expiresAt: d.expiresAt } : null);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+  if (view === undefined) return null;
+  return (
+    <div className="ia-checkout__appcode">
+      <AppCodeCard locale={locale} view={view} />
     </div>
   );
 }

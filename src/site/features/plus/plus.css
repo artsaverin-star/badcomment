@@ -489,3 +489,58 @@
   height: 28px;
   border-width: 3px;
 }
+
+/* ---- Personal App Store code of website lifetime buyers (settings, payment return) ---- */
+.ia-appcode {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 22px;
+  border-radius: var(--ia-radius-card, 20px);
+  background: var(--ia-surface);
+  box-shadow: inset 0 0 0 var(--ia-hairline, 0.5px) var(--ia-line-55, var(--ia-line));
+}
+.ia-appcode__main {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-appcode__title {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  color: var(--ia-ink);
+}
+.ia-appcode__text,
+.ia-appcode__note {
+  margin: 0;
+  color: var(--ia-secondary);
+}
+.ia-appcode__note {
+  font-size: var(--ia-fs-footnote);
+  line-height: var(--ia-lh-footnote);
+}
+.ia-appcode__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ia-appcode__code {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--ia-accent-soft);
+  color: var(--ia-ink);
+  font: 600 17px/1.2 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+.ia-checkout__appcode {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 8px;
+  text-align: left;
+}
