@@ -143,7 +143,7 @@ export default function BuyButton({
         <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <span className="text-stat tabular-nums text-[var(--color-text-primary)]">{ACCESS_PRICE_RUB}&nbsp;₽</span>
           <span className="text-footnote text-[var(--color-text-tertiary)]">
-            {ru ? "разовый платёж · без подписки" : "one payment · no subscription"}
+            {ru ? "за все темы сразу, а не за одну · разовый платёж" : "for every topic at once, not just this one · one payment"}
           </span>
         </div>
       </div>

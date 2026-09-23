@@ -41,6 +41,8 @@ export function checkoutSource(surface: string | null | undefined): string {
 export type PlusOfferData = {
   priceRub: number;
   priceLabel: string;
+  /** What the price covers: «Все 35 разборов и 293 идеи». */
+  scopeLabel: string;
   /** /<L>/segment/<free topic> — «Остаться с бесплатным разбором» on the page. */
   freeTopicHref: string;
 };

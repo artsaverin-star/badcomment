@@ -277,7 +277,7 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
       {!plus && webCheckout ? (
         <p className="ia-plus__disclosure" id="paywall-lifetime-price">
           <strong>{t("%1$@ один раз", [offer.priceLabel])}</strong>
-          <span>{t("Пожизненный доступ. Без подписки.")}</span>
+          <span>{s.priceScope}</span>
         </p>
       ) : null}
       {primaryControl}
@@ -313,7 +313,7 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
             <RadioOn />
             <span className="ia-plus__plan-text">
               <span className="ia-plus__plan-title">{t("Навсегда")}</span>
-              <span className="ia-plus__plan-detail">{t("Один платёж. Без продления.")}</span>
+              <span className="ia-plus__plan-detail">{offer.scopeLabel}</span>
             </span>
             <span className="ia-plus__plan-price">{offer.priceLabel}</span>
           </div>
