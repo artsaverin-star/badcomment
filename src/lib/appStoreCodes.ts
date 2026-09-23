@@ -170,10 +170,16 @@ export async function codeStats() {
 }
 
 /**
- * For account pages: the signed-in user's code if they paid for lifetime access on the web
- * (assigned lazily), else null. `lifetime` must come from the session user record.
+ * One shared custom code for every website lifetime buyer (owner, 2026-09-23: about 27 buyers,
+ * a one-off promo — no per-user pool needed). App Store Connect custom code «INAPPWEB» on the
+ * offer "Web lifetime buyers" (500 redemptions, one per Apple Account, expires 2027-03-22).
+ * The per-user pool above stays available for future batches but is not used by the pages.
  */
+export const LIFETIME_CUSTOM_CODE = { code: "INAPPWEB", expiresAt: new Date("2027-03-22T00:00:00Z") } as const;
+
+/** For account pages: the code of a signed-in user who paid for lifetime access on the web, else null. */
 export async function codeForUser(user: Pick<SessionUser, "id" | "lifetime"> | null): Promise<AppCode | null> {
   if (!user || !user.lifetime) return null;
-  return assignCodeTo(user.id);
+  const c = LIFETIME_CUSTOM_CODE;
+  return { code: c.code, redeemUrl: redeemUrlFor(c.code), expiresAt: c.expiresAt, expired: c.expiresAt.getTime() <= todayUtc().getTime() };
 }

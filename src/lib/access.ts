@@ -3,6 +3,7 @@ import { getSessionUser, type SessionUser } from "./session";
 import { isFriendIdentity } from "./friends";
 import { getUnlockSets } from "./tokens";
 import type { UnlockType } from "./tokenConfig";
+import { appPlusActive, currentAppEntitlement } from "./appEntitlements";
 
 export type Access = {
   user: SessionUser | null;
@@ -14,7 +15,9 @@ export type Access = {
 
 // Request-scoped access: load the viewer, their wallet balance and unlock sets
 // once, then answer has(type, slug) synchronously. Admins, hand-listed friends
-// and any still-valid legacy premium keep full access (unlimited).
+// and any still-valid legacy premium keep full access (unlimited), and so does
+// inApp Plus bought in the iOS app (App Store via RevenueCat, cached on User and
+// re-read at most every 15 min, waiting ≤ 3 s; src/lib/appEntitlements.ts).
 export async function getAccess(): Promise<Access> {
   const user = await getSessionUser();
   if (!user) {
@@ -31,7 +34,9 @@ export async function getAccess(): Promise<Access> {
     (user.isAdmin ||
       user.lifetime ||
       isFriendIdentity(user) ||
-      !!(user.premiumUntil && new Date(user.premiumUntil) > new Date()));
+      !!(user.premiumUntil && new Date(user.premiumUntil) > new Date()) ||
+      // getSessionUser() returns the whole User row, app entitlement columns included.
+      appPlusActive(await currentAppEntitlement(user)));
 
   if (unlimited) {
     return { user, loggedIn: true, unlimited: true, balance: user.tokens ?? 0, has: () => true };

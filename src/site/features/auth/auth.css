@@ -141,7 +141,8 @@ h1.ia-auth__title {
   cursor: default;
   transform: none;
 }
-.ia-auth__method--tg {
+.ia-auth__method--tg,
+.ia-auth__method--primary {
   background: var(--ia-action);
   color: var(--ia-on-action);
 }
@@ -152,7 +153,8 @@ h1.ia-auth__title {
   box-shadow: inset 0 0 0 1px var(--ia-line-80);
 }
 @media (hover: hover) {
-  .ia-auth__method--tg:hover:not(:disabled) {
+  .ia-auth__method--tg:hover:not(:disabled),
+  .ia-auth__method--primary:hover:not(:disabled) {
     background: color-mix(in srgb, var(--ia-action) 90%, black);
   }
   .ia-auth__method--google:hover:not(:disabled),
@@ -270,4 +272,23 @@ h1.ia-auth__title {
       var(--ia-shadow-research-card),
       inset 0 0 0 0.5px var(--ia-line-card);
   }
+}
+
+/* iOS app sign-in (/<L>/login?app=1 and /<L>/app-auth, marker .ia-app-flow): the app's sign-in
+   sheet shows only the card — no top bar, header, "open in app" banner or footer, so nothing
+   leads away from sign-in into the site (App Review 3.1.1: no route to other purchase methods). */
+.ia-frame:has(.ia-app-flow) > :not(.ia-main) {
+  display: none;
+}
+
+/* /<L>/app-auth?from=email: «Возвращаемся в inApp…» + «Открыть приложение». */
+.ia-app-return {
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(16px, 10vh, 96px);
+  padding-bottom: 48px;
+}
+.ia-app-return__card {
+  width: 100%;
+  max-width: var(--ia-w-welcome);
 }

@@ -27,7 +27,8 @@ Old site locales: `ru, en` only.
 | `/<L>/settings`, `/<L>/settings/about` | NEW | |
 | `/<L>/plus` | NEW paywall page | |
 | `/<L>/welcome` | NEW onboarding replay | |
-| `/<L>/login` | NEW sign-in page (the dialog is also openable anywhere) | |
+| `/<L>/login` | NEW sign-in page (the dialog is also openable anywhere) | `?app=1`: the iOS app's sign-in sheet (APP-ACCOUNTS.md) — no chrome, always continues to `/<L>/app-auth` |
+| `/<L>/app-auth` (`?from=email`) | NEW iOS app hand-off: one-time code → 307 `inapp://auth?code=…` (`?from=email`: a screen that opens the app) | noindex (`X-Robots-Tag`), never cached |
 | `/<L>/library` (`?checkout=`) | NEW payment-return page (YooKassa return URL is `/library?checkout=`) | |
 | `/<L>/contacts`, `/<L>/offer`, `/<L>/privacy` | NEW | `/en/contacts` = App Store support URL; the shipped app links `/{ru,en}/offer` and `/{ru,en}/contacts` |
 | `/<L>/old` and `/<L>/old/<rest>` | OLD (internal `/<rest>`) | L ∉ ru/en → 307 `/en/old/<rest>`; response header `X-Robots-Tag: noindex, follow` |
@@ -37,7 +38,7 @@ Old site locales: `ru, en` only.
 | `/api/**`, `/_next/**`, files with an extension, `/icon`, `/apple-icon`, `/opengraph-image`, `/sitemap.xml`, `/robots.txt`, `/feed.xml`, `/llms*.txt`, `/.well-known/**` | untouched (proxy matcher excludes them) | |
 
 `NEW_TOP` (first segment after the locale owned by the new site): `"" | segment* | research | search
-| ideas* | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site`
+| ideas* | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site | app-auth`
 (`*` = only when the slug/id is in the manifest; `site` is included so that a public request can
 never reach the new site's internal folder through the old rewrite — it simply 404s in the new
 layout). Never create a new top-level segment named `notes` (it is an old app slug) or any other
@@ -97,6 +98,8 @@ For requests it rewrites to OLD pages the proxy sets request headers (read by th
 - `x-ia-soon`: `1` when an in-place page is `/segment/<slug>` for a non-launch topic
 
 For NEW pages: rewrite to `/site/<L>/<rest>`; set the `locale` cookie (1 year) to `<L>`.
+`/<L>/app-auth` and `/<L>/login?app=1` (the iOS app's sign-in sheet) also get `x-ia-app-flow: 1`:
+the new root layout then loads no analytics libraries (APP-ACCOUNTS.md).
 Old in-place pages also set the `locale` cookie (ru/en). `/<L>/old/**` never writes the cookie.
 Responses under `/<L>/old/**` get `X-Robots-Tag: noindex, follow`.
 RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagates RSC headers).

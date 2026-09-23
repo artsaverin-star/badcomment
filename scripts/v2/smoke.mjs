@@ -554,6 +554,27 @@ for (const p of ["/en", "/en/offer", "/en/contacts", "/ru/offer", "/ru/contacts"
   });
 }
 
+// The iOS app's sign-in sheet (docs/site-v2/APP-ACCOUNTS.md) loads no analytics (proxy header
+// x-ia-app-flow), and the pages the app opens (/offer, /contacts) have no footer link into the
+// old site, whose header sells access (App Review 3.1.1).
+const ANALYTICS_LOADERS = ["mc.yandex.ru/metrika/tag.js", "mc.yandex.ru/watch/", "googletagmanager.com/gtag/js", "datafa.st/js/script.js"];
+for (const p of ["/ru/login?app=1", "/en/login?app=1&return_to=%2Fen%2Fapp-auth"]) {
+  add("apple", `GET ${p} loads no analytics`, async () => {
+    const r = await http(p);
+    const fails = expectStatus(r, 200);
+    if (!fails.length) for (const s of ANALYTICS_LOADERS) if (r.text.includes(s)) fails.push(`loads ${s}`);
+    return { expected: "200, no analytics loader", actual: fails.length ? fails.join("; ") : statusLine(r), fails };
+  });
+}
+for (const p of ["/en/offer", "/ru/offer", "/en/contacts", "/ru/contacts"]) {
+  add("apple", `GET ${p} has no link into the old site`, async () => {
+    const r = await http(p);
+    const fails = expectStatus(r, 200);
+    if (!fails.length && /href="\/(?:ru|en)\/old(?:[/"?#])/.test(r.text)) fails.push('links "/<L>/old"');
+    return { expected: "200, no /<L>/old link", actual: fails.length ? fails.join("; ") : statusLine(r), fails };
+  });
+}
+
 // ───────────────────────────── leak check machinery ─────────────────────────────
 
 const NAMED_ENTITIES = {

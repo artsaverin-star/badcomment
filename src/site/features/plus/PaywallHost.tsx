@@ -47,9 +47,9 @@ function onPlusPage(pathname: string | null): boolean {
 }
 
 // Never pop the paywall by itself on the Apple-facing legal pages (DECISIONS "Legal pages":
-// no prices or buy UI on /offer and /contacts), on sign-in, on the payment return or in the
-// replay (its last page is the paywall).
-const NO_AUTO_OPEN = new Set(["offer", "contacts", "privacy", "login", "library", "welcome"]);
+// no prices or buy UI on /offer and /contacts), on sign-in, on the payment return, in the
+// replay (its last page is the paywall) or on the iOS app's hand-off page (/app-auth).
+const NO_AUTO_OPEN = new Set(["offer", "contacts", "privacy", "login", "library", "welcome", "app-auth"]);
 
 export function PaywallHost() {
   const t = useT();

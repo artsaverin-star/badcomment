@@ -462,3 +462,68 @@ button.ia-set-row:not(:disabled):active {
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
   color: var(--ia-secondary);
 }
+
+/* «Удалить аккаунт» confirmation dialog: what is lost, type-to-confirm, a destructive CTA. */
+.ia-set-delete {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0 20px;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  color: var(--ia-ink);
+}
+.ia-set-delete__text {
+  margin: 0;
+}
+.ia-set-delete__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-inline-start: 1.2em;
+  list-style: disc outside;
+  color: var(--ia-secondary);
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+}
+.ia-set-delete__label {
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: var(--ia-fs-subheadline);
+  line-height: var(--ia-lh-subheadline);
+}
+.ia-set-delete__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--ia-radius-button);
+  background: var(--ia-surface);
+  box-shadow: inset 0 0 0 1px var(--ia-line-80);
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  letter-spacing: 0.04em;
+}
+.ia-set-delete__input:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+.ia-set-delete__error {
+  margin: 0;
+  color: var(--ia-error-system);
+  font-size: var(--ia-fs-footnote);
+  line-height: var(--ia-lh-footnote);
+}
+/* Destructive: danger fill; the label takes the surface colour (white in light, near-black on
+   the light red of the dark theme), ≥ 4.5:1 in both. */
+.ia-set-delete__submit.ia-btn--rect {
+  margin-top: 4px;
+  background: var(--ia-danger);
+  color: var(--ia-surface);
+}
+@media (hover: hover) {
+  .ia-set-delete__submit.ia-btn--rect:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--ia-danger) 88%, var(--ia-ink));
+  }
+}

@@ -9,8 +9,10 @@ import { Ext, MailLink, P, UL, type LegalSection } from "./components";
 // The iOS app opens /{ru,en}/offer from Settings → «Условия использования», so App Review
 // reads this page: it carries the App Store subscription terms and must never mention website
 // prices, web payment methods or link to the purchase pages (DECISIONS "Legal pages").
-// en and ru are VERBATIM from the App-Review hotfix (src/app/(old)/offer/page.tsx);
-// de / fr / ja are faithful translations in the app's informal voice.
+// en and ru come from the App-Review hotfix (src/app/(old)/offer/page.tsx); de / fr / ja are
+// faithful translations in the app's informal voice. 2026-09-23: the "no account" statements were
+// replaced for the optional inApp account of app 1.1 (docs/site-v2/APP-ACCOUNTS.md) — sign-in in
+// the app's Settings → Account, bookmark/note sync, deletion; still no web prices or payments.
 
 export type TermsDoc = { title: string; effective: string; intro: string; contents: string; sections: LegalSection[] };
 
@@ -44,7 +46,7 @@ function en(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
   const privacy = <Ext href={IOS_PRIVACY_URL}>inApp Privacy Policy</Ext>;
   return {
     title: "Terms of Use",
-    effective: "inApp · Effective September 22, 2026",
+    effective: "inApp · Effective September 23, 2026",
     contents: "Contents",
     intro:
       "These Terms of Use (the “Terms”) govern your use of inApp — the inApp iOS app and the website inapp.pro (together, the “Service”). By downloading, installing or using the Service, you agree to these Terms. If you do not agree, please do not use the Service.",
@@ -119,9 +121,16 @@ function en(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               We cannot issue refunds for App Store purchases ourselves.
             </P>
             <P>
-              The app has no account and no sign-in: access is tied to your Apple Account. To restore purchases on a
-              new or reset device, sign in with the same Apple Account, open the Saved tab in the app, tap the gear
-              icon (Settings) and tap Restore purchases. The purchase screen also has a Restore button.
+              An inApp account is not required: access bought in the App Store is tied to your Apple Account. To
+              restore purchases on a new or reset device, sign in with the same Apple Account, open the Saved tab in
+              the app, tap the gear icon (Settings) and tap Restore purchases. The purchase screen also has a Restore
+              button.
+            </P>
+            <P>
+              If you sign in to an inApp account (in the app: Settings → Account), your bookmarks and notes are stored
+              in the account and synced between your devices. You can sign out or delete the account in Settings at
+              any time. Deleting the account erases it together with its bookmarks and notes; it does not cancel an
+              App Store subscription, which you manage in your App Store account settings.
             </P>
           </>
         ),
@@ -192,10 +201,10 @@ function en(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>How the iOS app handles data is described in the {privacy}. In short:</P>
             <UL
               items={[
-                "the app needs no account and does not ask for your name, e-mail or other contact details;",
-                "notes and bookmarks stay on your device and are not sent to our servers;",
+                "an account is optional: without one, the app does not ask for your name, e-mail or other contact details; if you sign in, we keep the name and e-mail address your sign-in method shares (Sign in with Apple lets you hide your e-mail);",
+                "without an account, notes and bookmarks stay on your device; after you sign in, they are also stored in your account on our servers so that they sync between your devices;",
                 "payments are processed by Apple; the app only receives information about your access;",
-                "purchase and subscription statistics are processed by RevenueCat with a random installation identifier that is not linked to your identity;",
+                "purchase and subscription statistics are processed by RevenueCat with a random installation identifier or, after you sign in, your inApp account ID;",
                 "there is no advertising tracking.",
               ]}
             />
@@ -254,7 +263,7 @@ function ru(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
   const privacy = <Ext href={IOS_PRIVACY_URL}>Политике конфиденциальности inApp</Ext>;
   return {
     title: "Условия использования",
-    effective: "inApp · Действуют с 22 сентября 2026 г.",
+    effective: "inApp · Действуют с 23 сентября 2026 г.",
     contents: "Содержание",
     intro:
       "Настоящие Условия использования (далее — «Условия») регулируют использование inApp — iOS-приложения inApp и сайта inapp.pro (вместе — «Сервис»). Скачивая, устанавливая или используя Сервис, вы соглашаетесь с Условиями. Если вы не согласны с ними, пожалуйста, не используйте Сервис.",
@@ -329,10 +338,16 @@ function ru(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               Сами мы не можем вернуть деньги за покупку в App Store.
             </P>
             <P>
-              В приложении нет аккаунта и входа: доступ привязан к вашему аккаунту Apple. Чтобы восстановить покупки на
-              новом или сброшенном устройстве, войдите в тот же аккаунт Apple, откройте в приложении вкладку
-              «Сохранённое», нажмите шестерёнку («Настройки») и выберите «Восстановить покупки». Кнопка «Восстановить»
-              есть и на экране покупки.
+              Аккаунт inApp не обязателен: доступ, купленный в App Store, привязан к вашему аккаунту Apple. Чтобы
+              восстановить покупки на новом или сброшенном устройстве, войдите в тот же аккаунт Apple, откройте в
+              приложении вкладку «Сохранённое», нажмите шестерёнку («Настройки») и выберите «Восстановить покупки».
+              Кнопка «Восстановить» есть и на экране покупки.
+            </P>
+            <P>
+              Если вы войдёте в аккаунт inApp (в приложении: «Настройки» → «Аккаунт»), закладки и заметки будут храниться
+              в аккаунте и синхронизироваться между вашими устройствами. Выйти из аккаунта или удалить его можно в
+              настройках в любой момент. Удаление стирает аккаунт вместе с закладками и заметками, но не отменяет
+              подписку App Store — ею управляют в настройках аккаунта App Store.
             </P>
           </>
         ),
@@ -404,10 +419,10 @@ function ru(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>Как iOS-приложение обращается с данными, описано в {privacy}. Кратко:</P>
             <UL
               items={[
-                "приложению не нужен аккаунт, оно не запрашивает имя, e-mail или другие контактные данные;",
-                "заметки и закладки хранятся на вашем устройстве и не отправляются на наши серверы;",
+                "аккаунт не обязателен: без него приложение не запрашивает имя, e-mail или другие контактные данные; если вы войдёте, мы храним имя и e-mail, которые передаёт выбранный способ входа (при входе через Apple почту можно скрыть);",
+                "без аккаунта заметки и закладки хранятся только на вашем устройстве; после входа они хранятся и в аккаунте на наших серверах, чтобы синхронизироваться между устройствами;",
                 "платежи обрабатывает Apple; приложение получает только сведения о вашем доступе;",
-                "статистику покупок и подписок обрабатывает RevenueCat со случайным идентификатором установки, не связанным с вашей личностью;",
+                "статистику покупок и подписок обрабатывает RevenueCat со случайным идентификатором установки, а после входа — с идентификатором вашего аккаунта inApp;",
                 "рекламного отслеживания нет.",
               ]}
             />
@@ -468,7 +483,7 @@ function de(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
   const privacy = <Ext href={IOS_PRIVACY_URL}>Datenschutzerklärung von inApp</Ext>;
   return {
     title: "Nutzungsbedingungen",
-    effective: "inApp · Gültig ab 22. September 2026",
+    effective: "inApp · Gültig ab 23. September 2026",
     contents: "Inhalt",
     intro:
       "Diese Nutzungsbedingungen (die „Bedingungen“) regeln deine Nutzung von inApp – der iOS-App inApp und der Website inapp.pro (zusammen der „Dienst“). Indem du den Dienst herunterlädst, installierst oder nutzt, stimmst du diesen Bedingungen zu. Wenn du nicht einverstanden bist, nutze den Dienst bitte nicht.",
@@ -545,10 +560,17 @@ function de(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               beantragen. Für Käufe im App Store können wir selbst keine Erstattungen vornehmen.
             </P>
             <P>
-              Die App hat kein Konto und keine Anmeldung: Der Zugang ist an deinen Apple Account gebunden. Um Käufe auf
-              einem neuen oder zurückgesetzten Gerät wiederherzustellen, melde dich mit demselben Apple Account an, öffne
-              in der App den Tab „Gespeichert“, tippe auf das Zahnrad (Einstellungen) und dann auf „Käufe
+              Ein inApp-Konto ist nicht nötig: Im App Store gekaufter Zugang ist an deinen Apple Account gebunden. Um
+              Käufe auf einem neuen oder zurückgesetzten Gerät wiederherzustellen, melde dich mit demselben Apple Account
+              an, öffne in der App den Tab „Gespeichert“, tippe auf das Zahnrad (Einstellungen) und dann auf „Käufe
               wiederherstellen“. Auch auf dem Kaufbildschirm gibt es eine Schaltfläche „Wiederherstellen“.
+            </P>
+            <P>
+              Wenn du dich bei einem inApp-Konto anmeldest (in der App: Einstellungen → Konto), werden deine Lesezeichen
+              und Notizen im Konto gespeichert und zwischen deinen Geräten synchronisiert. Abmelden oder das Konto löschen
+              kannst du jederzeit in den Einstellungen. Beim Löschen werden das Konto und seine Lesezeichen und Notizen
+              entfernt; ein App-Store-Abo wird dadurch nicht gekündigt – das verwaltest du in den Einstellungen deines
+              App-Store-Accounts.
             </P>
           </>
         ),
@@ -625,10 +647,10 @@ function de(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>Wie die iOS-App mit Daten umgeht, ist in der {privacy} beschrieben. Kurz gesagt:</P>
             <UL
               items={[
-                "die App braucht kein Konto und fragt weder nach deinem Namen noch nach deiner E-Mail-Adresse oder anderen Kontaktdaten;",
-                "Notizen und Lesezeichen bleiben auf deinem Gerät und werden nicht an unsere Server gesendet;",
+                "ein Konto ist freiwillig: Ohne Konto fragt die App weder nach deinem Namen noch nach deiner E-Mail-Adresse oder anderen Kontaktdaten; meldest du dich an, speichern wir den Namen und die E-Mail-Adresse, die deine Anmeldemethode übermittelt (bei „Mit Apple anmelden“ kannst du deine E-Mail-Adresse verbergen);",
+                "ohne Konto bleiben Notizen und Lesezeichen auf deinem Gerät; nach der Anmeldung werden sie auch in deinem Konto auf unseren Servern gespeichert, damit sie zwischen deinen Geräten synchronisiert werden;",
                 "Zahlungen wickelt Apple ab; die App erhält nur Angaben zu deinem Zugang;",
-                "Kauf- und Abostatistiken verarbeitet RevenueCat mit einer zufälligen Installationskennung, die nicht mit deiner Identität verknüpft ist;",
+                "Kauf- und Abostatistiken verarbeitet RevenueCat mit einer zufälligen Installationskennung oder, nach der Anmeldung, mit der ID deines inApp-Kontos;",
                 "es gibt kein Werbetracking.",
               ]}
             />
@@ -688,7 +710,7 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
   const privacy = <Ext href={IOS_PRIVACY_URL}>Politique de confidentialité d’inApp</Ext>;
   return {
     title: "Conditions d’utilisation",
-    effective: "inApp · En vigueur à partir du 22 septembre 2026",
+    effective: "inApp · En vigueur à partir du 23 septembre 2026",
     contents: "Sommaire",
     intro:
       "Les présentes Conditions d’utilisation (les « Conditions ») régissent ton utilisation d’inApp — l’app iOS inApp et le site inapp.pro (ensemble, le « Service »). En téléchargeant, en installant ou en utilisant le Service, tu acceptes ces Conditions. Si tu ne les acceptes pas, merci de ne pas utiliser le Service.",
@@ -765,10 +787,16 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               demander un sur {refund}. Nous ne pouvons pas rembourser nous-mêmes les achats effectués sur l’App Store.
             </P>
             <P>
-              L’app n’a ni compte ni connexion : l’accès est lié à ton compte Apple. Pour restaurer tes achats sur un
-              appareil neuf ou réinitialisé, connecte-toi avec le même compte Apple, ouvre l’onglet « Enregistrés » dans
-              l’app, touche la roue dentée (Réglages) puis « Restaurer les achats ». L’écran d’achat a aussi un bouton
-              « Restaurer ».
+              Un compte inApp n’est pas nécessaire : l’accès acheté sur l’App Store est lié à ton compte Apple. Pour
+              restaurer tes achats sur un appareil neuf ou réinitialisé, connecte-toi avec le même compte Apple, ouvre
+              l’onglet « Enregistrés » dans l’app, touche la roue dentée (Réglages) puis « Restaurer les achats ».
+              L’écran d’achat a aussi un bouton « Restaurer ».
+            </P>
+            <P>
+              Si tu te connectes à un compte inApp (dans l’app : Réglages → Compte), tes signets et tes notes sont
+              enregistrés dans le compte et synchronisés entre tes appareils. Tu peux te déconnecter ou supprimer le
+              compte à tout moment dans les Réglages. La suppression efface le compte avec ses signets et ses notes ;
+              elle ne résilie pas un abonnement App Store, que tu gères dans les réglages de ton compte App Store.
             </P>
           </>
         ),
@@ -845,10 +873,10 @@ function fr(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>La façon dont l’app iOS traite les données est décrite dans la {privacy}. En bref :</P>
             <UL
               items={[
-                "l’app ne nécessite aucun compte et ne demande ni ton nom, ni ton e-mail, ni d’autres coordonnées ;",
-                "les notes et les signets restent sur ton appareil et ne sont pas envoyés à nos serveurs ;",
+                "un compte est facultatif : sans compte, l’app ne demande ni ton nom, ni ton e-mail, ni d’autres coordonnées ; si tu te connectes, nous conservons le nom et l’adresse e-mail transmis par le mode de connexion choisi (avec « Se connecter avec Apple », tu peux masquer ton adresse e-mail) ;",
+                "sans compte, les notes et les signets restent sur ton appareil ; après ta connexion, ils sont aussi enregistrés dans ton compte sur nos serveurs pour se synchroniser entre tes appareils ;",
                 "les paiements sont traités par Apple ; l’app ne reçoit que les informations sur ton accès ;",
-                "les statistiques d’achats et d’abonnements sont traitées par RevenueCat avec un identifiant d’installation aléatoire, qui n’est pas lié à ton identité ;",
+                "les statistiques d’achats et d’abonnements sont traitées par RevenueCat avec un identifiant d’installation aléatoire ou, après ta connexion, avec l’identifiant de ton compte inApp ;",
                 "il n’y a aucun suivi publicitaire.",
               ]}
             />
@@ -909,7 +937,7 @@ function ja(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
   const privacy = <Ext href={IOS_PRIVACY_URL}>inAppプライバシーポリシー</Ext>;
   return {
     title: "利用規約",
-    effective: "inApp · 2026年9月22日発効",
+    effective: "inApp · 2026年9月23日発効",
     contents: "目次",
     intro:
       "この利用規約（以下「本規約」）は、inApp（iOSアプリ「inApp」とウェブサイトinapp.pro。以下あわせて「本サービス」）の利用に適用されます。本サービスをダウンロード、インストール、または利用することで、本規約に同意したものとみなされます。同意できない場合は、本サービスを利用しないでください。",
@@ -978,9 +1006,13 @@ function ja(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
               から申請できます。App Storeでの購入について、当方が直接返金することはできません。
             </P>
             <P>
-              アプリにはアカウントもログインもなく、アクセスはApple
+              inAppのアカウントは必須ではありません。App Storeで購入したアクセスはApple
               Accountにひもづいています。新しい端末や初期化した端末で購入を復元するには、同じApple
               Accountでサインインし、アプリの「保存済み」タブを開いて歯車（設定）をタップし、「購入を復元」をタップしてください。購入画面にも「復元」ボタンがあります。
+            </P>
+            <P>
+              inAppのアカウントにサインインすると（アプリでは「設定」→「アカウント」）、ブックマークとメモがアカウントに保存され、端末間で同期されます。サインアウトやアカウントの削除は、いつでも設定から行えます。アカウントを削除すると、アカウントとそのブックマーク・メモは消去されますが、App
+              Storeのサブスクリプションは解約されません。サブスクリプションはApp Storeのアカウント設定で管理してください。
             </P>
           </>
         ),
@@ -1045,10 +1077,10 @@ function ja(dev: Dev, mail: ReactNode, refund: ReactNode, support: ReactNode): T
             <P>iOSアプリがデータをどう扱うかは、{privacy}に記載しています。要点は次のとおりです。</P>
             <UL
               items={[
-                "アプリはアカウントを必要とせず、名前、メールアドレス、その他の連絡先をたずねません",
-                "メモとブックマークは端末に保存され、当方のサーバーには送信されません",
+                "アカウントは任意です。アカウントなしなら、アプリは名前、メールアドレス、その他の連絡先をたずねません。サインインした場合は、選んだサインイン方法から共有される名前とメールアドレスを保存します（「Appleでサインイン」ではメールアドレスを非公開にできます）",
+                "アカウントなしでは、メモとブックマークは端末にだけ保存されます。サインインすると、端末間で同期するために当方のサーバー上のアカウントにも保存されます",
                 "支払いはAppleが処理し、アプリが受け取るのはアクセスに関する情報だけです",
-                "購入とサブスクリプションの統計はRevenueCatが処理し、個人とひもづかないランダムなインストール識別子を使います",
+                "購入とサブスクリプションの統計はRevenueCatが処理し、ランダムなインストール識別子（サインイン後はinAppアカウントのID）を使います",
                 "広告目的の追跡は行いません",
               ]}
             />

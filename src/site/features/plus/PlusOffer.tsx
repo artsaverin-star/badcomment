@@ -18,8 +18,9 @@ import { useLocale, useT, useWeb } from "../../i18n/client";
 import { href, routes } from "../../routing";
 import { openSignIn } from "../../shell/actions";
 import { useViewer } from "../../shell/ViewerContext";
+import { APP_STORE_URL } from "../../config";
 import { AppStoreBadge } from "../../ui/AppStore";
-import { Button } from "../../ui/Button";
+import { Button, buttonClass } from "../../ui/Button";
 import { cx } from "../../ui/cx";
 import {
   checkoutSource,
@@ -198,6 +199,10 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
 
   const Title = variant === "sheet" ? "h2" : "h1";
   const toLibrary = variant !== "sheet";
+  // Website payment (YooKassa, rubles) is only for Russia, where App Store payments don't work
+  // (owner, 2026-09-23). Every other language buys Plus in the iPhone app; the shared account
+  // then opens Plus here too.
+  const webCheckout = locale === "ru";
 
   const primaryControl = plus ? (
     toLibrary ? (
@@ -239,6 +244,16 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
         {t("Назад")}
       </button>
     </div>
+  ) : !webCheckout ? (
+    <a
+      className={buttonClass({ variant: "welcome" })}
+      id="purchase-app-store"
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {s.appOnlyCta}
+    </a>
   ) : (
     <Button variant="welcome" id="purchase-access" onClick={primary}>
       {t("Купить навсегда")}
@@ -259,7 +274,7 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
 
   const footer = (
     <div className={cx("ia-plus__footer", variant === "welcome" && "ia-plus__footer--slot")}>
-      {!plus ? (
+      {!plus && webCheckout ? (
         <p className="ia-plus__disclosure" id="paywall-lifetime-price">
           <strong>{t("%1$@ один раз", [offer.priceLabel])}</strong>
           <span>{t("Пожизненный доступ. Без подписки.")}</span>
@@ -288,7 +303,12 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
 
       {/* ClarityPaywall.swift:51-55: plans, status lines and the legal row, 12 apart. */}
       <div className="ia-plus__group">
-        {!plus ? (
+        {!plus && !webCheckout ? (
+          <div className="ia-plus__app-only" id="paywall-app-only">
+            <p className="ia-plus__plan-title">{s.appOnlyTitle}</p>
+            <p className="ia-plus__note">{s.appOnlyBody}</p>
+          </div>
+        ) : !plus ? (
           <div className="ia-plus__plan" id="paywall-plan-lifetime" data-selected="true">
             <RadioOn />
             <span className="ia-plus__plan-text">
@@ -308,8 +328,8 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
             {error}
           </p>
         ) : null}
-        {!plus && !viewer.loggedIn ? <p className="ia-plus__note">{s.signInFirst}</p> : null}
-        {!plus ? <p className="ia-plus__note">{s.payNote}</p> : null}
+        {!plus && webCheckout && !viewer.loggedIn ? <p className="ia-plus__note">{s.signInFirst}</p> : null}
+        {!plus && webCheckout ? <p className="ia-plus__note">{s.payNote}</p> : null}
 
         <nav className="ia-plus__legal" aria-label={s.legalLabel}>
           {!viewer.loggedIn ? (
@@ -317,7 +337,7 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
               {s.restore}
             </button>
           ) : null}
-          <Link href={href(locale, "offer", "payment")}>{s.offerLink}</Link>
+          {webCheckout ? <Link href={href(locale, "offer", "payment")}>{s.offerLink}</Link> : null}
           <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>
           <Link href={routes.privacy(locale)} id="paywall-privacy">
             {t("Конфиденциальность")}
@@ -326,10 +346,12 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
         </nav>
       </div>
 
-      <div className="ia-plus__iphone">
-        <p>{s.iphoneNote}</p>
-        <AppStoreBadge size="sm" />
-      </div>
+      {webCheckout || plus ? (
+        <div className="ia-plus__iphone">
+          <p>{s.iphoneNote}</p>
+          <AppStoreBadge size="sm" />
+        </div>
+      ) : null}
 
       {variant === "welcome" ? (footerTarget ? createPortal(footer, footerTarget) : null) : footer}
     </div>

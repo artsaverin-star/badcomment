@@ -137,6 +137,19 @@ model User {
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
 
+  // ── iOS app accounts (docs/site-v2/APP-ACCOUNTS.md) ──
+  // Sign in with Apple subject ("sub" of Apple's identity token for com.artsaverin.inapp).
+  appleId           String?   @unique
+  // Apple refresh token (AES-256-GCM, key derived from SESSION_SECRET; src/lib/appApple.ts),
+  // kept only to revoke the Apple sign-in on account deletion (TN3194).
+  appleRefreshToken String?
+  // First sign-in in the iOS app: only these accounts are checked against RevenueCat.
+  appLinkedAt       DateTime?
+  // Cached RevenueCat entitlement "plus" (App Store purchase): expiry / lifetime / last check.
+  appPlusUntil      DateTime?
+  appLifetime       Boolean   @default(false)
+  appCheckedAt      DateTime?
+
   unlocks         Unlock[]
   ledger          TokenLedger[]
   pageViews       PageView[]
@@ -149,6 +162,42 @@ model User {
   siteSaved       SiteSaved[]
   siteNotes       SiteNote[]
   appStoreCode    AppStoreCode?
+  appSessions     AppSession[]
+  appLoginCodes   AppLoginCode[]
+}
+
+// ── iOS app sign-in (docs/site-v2/APP-ACCOUNTS.md; src/lib/appAuth.ts) ──────────
+// One signed-in app install: `Authorization: Bearer <token>`. The token is 32 random bytes
+// (base64url) shown to the app once; only its SHA-256 is stored. No expiry: revoked by
+// sign-out (deletes the row) or account deletion (cascade).
+model AppSession {
+  id          String    @id @default(cuid())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  tokenHash   String    @unique
+  createdAt   DateTime  @default(now())
+  lastUsedAt  DateTime?
+  deviceLabel String?
+
+  @@index([userId])
+}
+
+// One-time code of the website → app hand-off (/<L>/app-auth → inapp://auth?code=…):
+// 32 random bytes (base64url), SHA-256 stored, 5-minute TTL, single use.
+// challenge: PKCE S256 challenge as lowercase hex (src/lib/appFlow.ts) — the code is then
+// redeemable only with the verifier of the app install that started the sign-in.
+model AppLoginCode {
+  id        String    @id @default(cuid())
+  codeHash  String    @unique
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  challenge String?
+
+  @@index([userId])
+  @@index([expiresAt])
 }
 
 // ── New site (site-v2): «Сохранённое» and notes, synced to the account ──────

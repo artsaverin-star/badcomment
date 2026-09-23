@@ -8,6 +8,7 @@ import { INTL_LOCALE } from "../../i18n/locales";
 import { routes } from "../../routing";
 import { Button } from "../../ui/Button";
 import { AlertIcon, AppMark, CopyIcon, MailIcon } from "../../ui/icons";
+import { appAuthPath, APP_AUTH_FROM_EMAIL, telegramAppLink } from "./app";
 import { leadFor } from "./copy";
 import type { AuthStrings } from "./strings";
 import { loadPendingTelegram, storeTelegram, TG_TTL_MS, type TgState } from "./telegram";
@@ -24,6 +25,12 @@ import "./auth.css";
 // A pending Telegram login survives reloads (./telegram.ts), so the dialog can resume polling
 // after the user comes back. Strings: the page locale's row of authStrings, handed down by the
 // server (useWeb("auth")); the dialog host loads this panel on demand.
+// App mode (`app`, only /<L>/login?app=1 inside the iOS app's sign-in sheet, see ./app.ts):
+// the app's heading and lead, no Plus / purchase / website wording and no links that lead away
+// (App Review 3.1.1), Telegram through its tg:// link, and the e-mail link comes back to
+// /<L>/app-auth?from=email (with the app's PKCE challenge, src/lib/appFlow.ts). The e-mail field
+// is kept out of Metrica's Webvisor (ym-disable-keys / ym-hide-content); the layout also skips
+// the analytics loaders on app-flow pages (x-ia-app-flow).
 
 const GOOGLE_ON = !!process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 const EMAIL_ON = process.env.NEXT_PUBLIC_EMAIL_LOGIN === "1";
@@ -72,9 +79,21 @@ export type SignInPanelProps = {
   onSuccess: () => void;
   /** "h1" on the /login page, "h2" in the dialog. */
   headingLevel?: "h1" | "h2";
+  /** Sign-in for the iOS app (/<L>/login?app=1). */
+  app?: boolean;
+  /** App mode: PKCE challenge carried by the e-mail link's return path. */
+  appChallenge?: string | null;
 };
 
-export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel = "h2" }: SignInPanelProps) {
+export function SignInPanel({
+  returnTo,
+  reason,
+  notice,
+  onSuccess,
+  headingLevel = "h2",
+  app = false,
+  appChallenge = null,
+}: SignInPanelProps) {
   const s = useWeb<AuthStrings>("auth");
   const t = useT();
   const locale = useLocale();
@@ -168,7 +187,9 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
     const next = { ...tg, waiting: true };
     storeTelegram(next);
     setTg(next);
-    window.open(tg.url, "_blank", "noopener");
+    const deepLink = app ? telegramAppLink(tg.url) : null;
+    if (deepLink) window.location.href = deepLink;
+    else window.open(tg.url, "_blank", "noopener");
   }
 
   function cancelTelegram() {
@@ -201,7 +222,11 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
       const res = await fetch("/api/auth/email/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: addr, return_to: returnTo, locale }),
+        body: JSON.stringify({
+          email: addr,
+          return_to: app ? appAuthPath(locale, { from: APP_AUTH_FROM_EMAIL, challenge: appChallenge }) : returnTo,
+          locale,
+        }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
       if (res.ok && data.ok) {
@@ -234,7 +259,7 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
           <MailIcon size={26} strokeWidth={1.8} />
         </span>
         <Heading className="ia-auth__title">{s.emailSentTitle}</Heading>
-        <p className="ia-auth__lead">{format(s.emailSentBody, { email: emailSent })}</p>
+        <p className="ia-auth__lead">{format(app ? s.appEmailSentBody : s.emailSentBody, { email: emailSent })}</p>
         <p className="ia-auth__fine">{s.emailSpam}</p>
         <Button variant="text" onClick={() => setEmailSent(null)}>
           {s.emailOther}
@@ -253,7 +278,7 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
         <Heading className="ia-auth__title">{s.tgTitle}</Heading>
         {tg.waiting ? (
           <>
-            <p className="ia-auth__lead">{s.tgWaiting}</p>
+            <p className="ia-auth__lead">{app ? s.appTgWaiting : s.tgWaiting}</p>
             <p className="ia-auth__status" role="status" aria-live="polite">
               <span className="ia-spinner" aria-hidden="true" />
               {s.tgWaitingStatus}
@@ -264,7 +289,7 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
           </>
         ) : (
           <>
-            <p className="ia-auth__lead">{s.tgIntro}</p>
+            <p className="ia-auth__lead">{app ? s.appTgIntro : s.tgIntro}</p>
             <button type="button" className="ia-auth__method ia-auth__method--tg" onClick={openBot}>
               <TelegramGlyph />
               {s.tgOpen}
@@ -286,8 +311,8 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
       <span className="ia-auth__mark" aria-hidden="true">
         <AppMark size={56} />
       </span>
-      <Heading className="ia-auth__title">{s.title}</Heading>
-      <p className="ia-auth__lead">{leadFor(s, reason)}</p>
+      <Heading className="ia-auth__title">{app ? s.appTitle : s.title}</Heading>
+      <p className="ia-auth__lead">{app ? s.appLead : leadFor(s, reason)}</p>
 
       {notice ? (
         <p className="ia-auth__notice" role="alert">
@@ -334,13 +359,13 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
           <div className="ia-auth__divider" aria-hidden="true">
             <span>{s.orEmail}</span>
           </div>
-          <form className="ia-auth__form" onSubmit={submitEmail} noValidate>
+          <form className={app ? "ia-auth__form ym-hide-content" : "ia-auth__form"} onSubmit={submitEmail} noValidate>
             <label className="sr-only" htmlFor={emailId}>
               {s.emailLabel}
             </label>
             <input
               id={emailId}
-              className="ia-auth__input"
+              className={app ? "ia-auth__input ym-disable-keys" : "ia-auth__input"}
               type="email"
               inputMode="email"
               autoComplete="email"
@@ -368,11 +393,18 @@ export function SignInPanel({ returnTo, reason, notice, onSuccess, headingLevel 
         </>
       ) : null}
 
-      <p className="ia-auth__fine">{s.readWithoutAccount}</p>
-      <p className="ia-auth__legal">
-        <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>{" "}
-        <Link href={routes.privacy(locale)}>{t("Конфиденциальность")}</Link>
-      </p>
+      {app ? (
+        // Nothing here may lead away from sign-in: the app shows its own legal links.
+        <p className="ia-auth__fine">{s.appFine}</p>
+      ) : (
+        <>
+          <p className="ia-auth__fine">{s.readWithoutAccount}</p>
+          <p className="ia-auth__legal">
+            <Link href={routes.offer(locale)}>{t("Условия использования")}</Link>{" "}
+            <Link href={routes.privacy(locale)}>{t("Конфиденциальность")}</Link>
+          </p>
+        </>
+      )}
     </div>
   );
 }

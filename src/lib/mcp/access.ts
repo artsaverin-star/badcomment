@@ -1,4 +1,5 @@
 import { isFriendIdentity } from "@/lib/friends";
+import { appPlusForUserId } from "@/lib/appEntitlements";
 import { getUnlockSets } from "@/lib/tokens";
 import { ownsDeck } from "@/lib/unlocks";
 import type { SessionUser } from "@/lib/session";
@@ -22,7 +23,9 @@ export async function accessForUser(user: SessionUser | null): Promise<McpAccess
     user.isAdmin ||
     user.lifetime ||
     isFriendIdentity(user) ||
-    !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());
+    !!(user.premiumUntil && new Date(user.premiumUntil) > new Date()) ||
+    // inApp Plus bought in the iOS app, same as getAccess() (docs/site-v2/APP-ACCOUNTS.md).
+    (await appPlusForUserId(user.id));
 
   if (unlimited) return { user, unlimited: true, deck: true, has: () => true };
 

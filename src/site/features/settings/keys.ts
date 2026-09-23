@@ -19,4 +19,6 @@ export const SETTINGS_CLIENT_KEYS = [
   "Светлая",
   "Тёмная",
   "Системная",
+  // «Удалить аккаунт» dialog.
+  "Отмена",
 ] as const;

@@ -11,6 +11,7 @@ import { buttonClass } from "@/site/ui/Button";
 import { ArrowRightIcon, RadioOffIcon, RetryIcon, SignInIcon, SignOutIcon } from "@/site/ui/icons";
 import { toast } from "@/site/ui/Toast";
 import { CheckCircleFill } from "./CheckCircleFill";
+import { DeleteAccountRow } from "./DeleteAccount";
 import { settingsStrings } from "./strings";
 import "./settings.css";
 
@@ -120,7 +121,7 @@ function RowInner({ icon, title, sub, trail }: { icon: ReactNode; title: ReactNo
 /**
  * Account + restore (spec 02 §8.4 with the web wording of spec 09 G11): guests get «Войти»;
  * members see their name, «Восстановить покупки» (re-reads the access from /api/me and
- * refreshes the page when Plus appeared) and «Выйти».
+ * refreshes the page when Plus appeared), «Выйти» and «Удалить аккаунт» (./DeleteAccount.tsx).
  */
 export function AccountRows() {
   const t = useT();
@@ -200,6 +201,7 @@ export function AccountRows() {
       >
         <RowInner icon={<SignOutIcon size={19} strokeWidth={2} />} title={s.signOut} />
       </button>
+      <DeleteAccountRow rowClassName="ia-set-row ia-set-row--danger" />
     </div>
   );
 }

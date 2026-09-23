@@ -55,6 +55,9 @@ jobs:
       - run: npm run test:safe-return
       # App Store offer codes for website lifetime buyers (src/lib/appStoreCodes.ts).
       - run: npm run test:app-codes
+      # iOS app accounts: Sign in with Apple, web → app hand-off, bearer sessions, RevenueCat Plus,
+      # library sync via Bearer, account deletion (docs/site-v2/APP-ACCOUNTS.md).
+      - run: npm run test:app-accounts
       - run: node --import tsx scripts/v2/check-content.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
@@ -111,10 +114,13 @@ jobs:
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             "sudo touch /opt/badcomment/.env \
-             && sudo sed -i '/^GOOGLE_CLIENT_SECRET=/d;/^YC_SMTP_USER=/d;/^YC_SMTP_PASS=/d' /opt/badcomment/.env \
+             && sudo sed -i '/^GOOGLE_CLIENT_SECRET=/d;/^YC_SMTP_USER=/d;/^YC_SMTP_PASS=/d;/^SIWA_KEY_ID=/d;/^SIWA_PRIVATE_KEY_B64=/d;/^APPLE_TEAM_ID=/d' /opt/badcomment/.env \
              && { printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}'; \
                   printf 'YC_SMTP_USER=%s\n' '${{ secrets.YC_SMTP_USER }}'; \
-                  printf 'YC_SMTP_PASS=%s\n' '${{ secrets.YC_SMTP_PASS }}'; } | sudo tee -a /opt/badcomment/.env > /dev/null"
+                  printf 'YC_SMTP_PASS=%s\n' '${{ secrets.YC_SMTP_PASS }}'; \
+                  printf 'SIWA_KEY_ID=%s\n' '${{ secrets.SIWA_KEY_ID }}'; \
+                  printf 'SIWA_PRIVATE_KEY_B64=%s\n' '${{ secrets.SIWA_PRIVATE_KEY_B64 }}'; \
+                  printf 'APPLE_TEAM_ID=%s\n' '${{ secrets.APPLE_TEAM_ID }}'; } | sudo tee -a /opt/badcomment/.env > /dev/null"
       - name: Swap in the build and restart (no build on the box)
         # Deploys exactly github.sha (the commit the ci job built), not the tip of main. The
         # box runs deploy.sh as it is in that commit: its own checkout still holds the previous

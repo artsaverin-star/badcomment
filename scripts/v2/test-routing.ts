@@ -15,6 +15,7 @@ import { unstable_doesMiddlewareMatch } from "next/experimental/testing/server";
 import {
   decideRoute,
   notFoundLocale,
+  PROXY_REQUEST_HEADERS,
   type RoutingDecision,
   type RewriteDecision,
   type RedirectDecision,
@@ -137,6 +138,24 @@ describe("new site", () => {
     expectRewrite(decide("/en/offer/payment"), "new", "/site/en/offer/payment");
     assert.equal((decide("/ru/old/offer/payment") as RewriteDecision).requestHeaders["x-ia-new-path"], "/ru/offer/payment");
     expectRewrite(decide("/de/privacy"), "new", "/site/de/privacy");
+  });
+  test("/<L>/app-auth (iOS app sign-in hand-off) is new and noindex", () => {
+    const r = expectRewrite(decide("/ja/app-auth"), "new", "/site/ja/app-auth");
+    assert.equal(r.responseHeaders["X-Robots-Tag"], "noindex, follow");
+    assert.equal((decide("/ru/old/app-auth") as RewriteDecision).requestHeaders["x-ia-new-path"], "/ru");
+  });
+  test("the iOS app's sign-in sheet (/<L>/app-auth, /<L>/login?app=1) is marked x-ia-app-flow (no analytics)", () => {
+    const flow = (url: string) => (decide(url) as RewriteDecision).requestHeaders["x-ia-app-flow"];
+    assert.equal(flow("/ja/app-auth"), "1");
+    assert.equal(flow("/ru/app-auth?from=email"), "1");
+    assert.equal(flow("/ru/login?app=1&return_to=%2Fru%2Fapp-auth"), "1");
+    assert.equal(flow("/de/login?auth=google_error&app=1"), "1");
+    assert.equal(flow("/ru/login"), undefined);
+    assert.equal(flow("/ru/login?app=0"), undefined);
+    assert.equal(flow("/ru/login?return_to=%2Fru%3Fapp%3D1"), undefined);
+    assert.equal(flow("/ru/segment?app=1"), undefined);
+    assert.equal(flow("/ru/settings"), undefined);
+    assert.ok(PROXY_REQUEST_HEADERS.includes("x-ia-app-flow"), "a client-sent copy is dropped by the proxy");
   });
   test("/library?checkout= (YooKassa return) is new and keeps the query", () => {
     const r = expectRewrite(decide("/en/library?checkout=5f1c-uuid"), "new", "/site/en/library");

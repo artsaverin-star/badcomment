@@ -86,6 +86,10 @@ test("concurrent buyers never share a code; a buyer keeps the same code", async 
 test("non-buyers get nothing; an empty pool gives null; stats add up", async () => {
   assert.equal(await lib.codeForUser({ id: visitor, lifetime: false }), null);
   assert.equal(await lib.codeForUser(null), null);
+  // Pages show the shared custom code to every lifetime buyer (owner, 2026-09-23).
+  const shared = await lib.codeForUser({ id: buyerA, lifetime: true });
+  assert.equal(shared?.code, "INAPPWEB");
+  assert.equal(shared?.redeemUrl, url("INAPPWEB"));
   const late = (await prisma.user.create({ data: { email: "d@test.local", lifetime: true } })).id;
   assert.equal(await lib.assignCodeTo(late), null, "only the expired code is left");
   const s = await lib.codeStats();
@@ -96,7 +100,7 @@ test("non-buyers get nothing; an empty pool gives null; stats add up", async () 
   });
   const bulk = await lib.assignAllEligible();
   assert.deepEqual(bulk, { eligibleWithoutCode: 1, assigned: 1, poolEmptyFor: 0 });
-  assert.equal((await lib.codeForUser({ id: late, lifetime: true }))?.code, "CODE0000000000000C");
+  assert.equal((await lib.assignCodeTo(late))?.code, "CODE0000000000000C");
 });
 
 test("80 buyers at once for 75 codes: every code handed out once, exactly 5 left waiting", async () => {

@@ -2,21 +2,28 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { loginWithGoogle, verifyGoogleIdToken, appOrigin } from "@/lib/googleAuth";
 import { safeLocalPath } from "@/lib/safeReturn";
+import { authFailurePath } from "@/lib/appFlow";
 
 export const dynamic = "force-dynamic";
 
 // Google redirect-flow callback: verify state, exchange the code for tokens,
 // verify the ID token, open a session, and bounce home.
+// A failure (including "Cancel" on Google's account chooser: error=access_denied, no code) lands
+// on /?auth=<reason> — or, when the sign-in started in the iOS app's sign-in sheet (return path
+// /<L>/app-auth), on /<L>/login?app=1&auth=<reason> (src/lib/appFlow.ts).
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const origin = appOrigin(req);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
-  const cookieState = (await cookies()).get("g_oauth_state")?.value;
+  const jar = await cookies();
+  const cookieState = jar.get("g_oauth_state")?.value;
+  const returnCookie = jar.get("g_oauth_return")?.value;
 
   const fail = (reason: string) => {
-    const res = NextResponse.redirect(new URL(`/?auth=${reason}`, origin));
+    const res = NextResponse.redirect(new URL(authFailurePath(safeLocalPath(returnCookie), { auth: reason }), origin));
     res.cookies.set("g_oauth_state", "", { path: "/", maxAge: 0 });
+    res.cookies.set("g_oauth_return", "", { path: "/", maxAge: 0 });
     return res;
   };
 
@@ -50,7 +57,7 @@ export async function GET(req: Request) {
   // Bounce back to where the user started the sign-in (e.g. the gated page they
   // were unlocking), not the homepage. Validated in `start` and again here: the cookie
   // may predate the fix or have been set by something else.
-  const returnTo = safeLocalPath((await cookies()).get("g_oauth_return")?.value);
+  const returnTo = safeLocalPath(returnCookie);
   const res = NextResponse.redirect(new URL(returnTo, origin));
   res.cookies.set("g_oauth_state", "", { path: "/", maxAge: 0 });
   res.cookies.set("g_oauth_return", "", { path: "/", maxAge: 0 });

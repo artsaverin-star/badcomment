@@ -2,6 +2,7 @@ import "server-only";
 
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/session";
+import { authenticateBearer, hasBearerHeader } from "@/lib/appAuth";
 import { libraryStoreReady } from "./server";
 
 // Shared guard of the /api/site/library route handlers: private JSON, same-origin writes,
@@ -18,8 +19,19 @@ export function json(body: unknown, status = 200): NextResponse {
 
 export type Guarded = { ok: true; userId: string } | { ok: false; response: NextResponse };
 
-/** Session user (401), a Prisma client that knows the models (503), same origin for writes (403). */
+/**
+ * Session user (401), a Prisma client that knows the models (503), same origin for writes (403).
+ * The iOS app authenticates with `Authorization: Bearer <token>` instead (docs/site-v2/
+ * APP-ACCOUNTS.md): such a request never falls back to the cookie, and needs no origin check
+ * (a browser never attaches the header on its own).
+ */
 export async function guard(req: Request, write: boolean): Promise<Guarded> {
+  if (hasBearerHeader(req)) {
+    const app = await authenticateBearer(req);
+    if (!app) return { ok: false, response: json({ error: "sign in to sync" }, 401) };
+    if (!libraryStoreReady()) return { ok: false, response: json({ error: "library storage unavailable" }, 503) };
+    return { ok: true, userId: app.user.id };
+  }
   if (write && !sameOrigin(req)) return { ok: false, response: json({ error: "cross-origin request" }, 403) };
   const user = await getSessionUser();
   if (!user) return { ok: false, response: json({ error: "sign in to sync" }, 401) };

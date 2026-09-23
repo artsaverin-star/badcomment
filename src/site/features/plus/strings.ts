@@ -29,7 +29,11 @@ export const plusStrings = defineStrings({
     legalLabel: "Документы и поддержка",
     iphoneTitle: "Приложение для iPhone",
     iphoneNote:
-      "В приложении для iPhone Plus оформляется отдельно, через App Store. Покупка на сайте и подписка в App Store не связаны и не восстанавливаются друг через друга.",
+      "Plus можно купить и в приложении для iPhone. Покупки работают в одном аккаунте inApp: войди в приложении и на сайте одним способом — доступ откроется и там, и там.",
+    appOnlyTitle: "Plus — в приложении для iPhone",
+    appOnlyBody:
+      "Plus оформляется в приложении inApp через App Store. Потом войди в приложении (Настройки → Аккаунт) и на сайте одним способом — Plus откроется и здесь.",
+    appOnlyCta: "Открыть в App Store",
     pageDescription: "Все разборы и идеи inApp целиком, новые выпуски и экспорт материалов.",
     returnTitle: "Оплата Plus",
     returnDescription: "Подтверждение оплаты inApp Plus.",
@@ -63,7 +67,11 @@ export const plusStrings = defineStrings({
     legalLabel: "Documents and support",
     iphoneTitle: "The iPhone app",
     iphoneNote:
-      "In the iPhone app, Plus is bought separately through the App Store. A purchase on the website and an App Store subscription aren’t linked and can’t be restored from one another.",
+      "You can also get Plus in the iPhone app. Purchases work across one inApp account: sign in the same way in the app and on the website, and your access opens in both.",
+    appOnlyTitle: "Plus is in the iPhone app",
+    appOnlyBody:
+      "Get Plus in the inApp app through the App Store. Then sign in the same way in the app (Settings → Account) and on the website, and Plus opens here too.",
+    appOnlyCta: "Open in the App Store",
     pageDescription: "Every inApp breakdown and idea in full, new releases and material export.",
     returnTitle: "Plus payment",
     returnDescription: "inApp Plus payment confirmation.",
@@ -97,7 +105,11 @@ export const plusStrings = defineStrings({
     legalLabel: "Dokumente und Support",
     iphoneTitle: "Die iPhone-App",
     iphoneNote:
-      "In der iPhone-App wird Plus separat über den App Store abgeschlossen. Ein Kauf auf der Website und ein App-Store-Abo sind nicht verknüpft und lassen sich nicht gegenseitig wiederherstellen.",
+      "Plus gibt es auch in der iPhone-App. Käufe gelten für ein inApp-Konto: Melde dich in der App und auf der Website auf dieselbe Weise an, dann ist dein Zugang überall offen.",
+    appOnlyTitle: "Plus gibt es in der iPhone-App",
+    appOnlyBody:
+      "Hol dir Plus in der inApp-App über den App Store. Melde dich danach in der App (Einstellungen → Konto) und auf der Website auf dieselbe Weise an – dann ist Plus auch hier offen.",
+    appOnlyCta: "Im App Store öffnen",
     pageDescription: "Alle Analysen und Ideen von inApp komplett, neue Ausgaben und Material-Export.",
     returnTitle: "Plus-Zahlung",
     returnDescription: "Zahlungsbestätigung für inApp Plus.",
@@ -132,7 +144,11 @@ export const plusStrings = defineStrings({
     legalLabel: "Documents et assistance",
     iphoneTitle: "L’app iPhone",
     iphoneNote:
-      "Dans l’app iPhone, Plus s’achète séparément via l’App Store. Un achat sur le site et un abonnement App Store ne sont pas liés et ne se restaurent pas l’un par l’autre.",
+      "Tu peux aussi prendre Plus dans l’app iPhone. Les achats valent pour un seul compte inApp : connecte-toi de la même façon dans l’app et sur le site, et ton accès s’ouvre partout.",
+    appOnlyTitle: "Plus est dans l’app iPhone",
+    appOnlyBody:
+      "Prends Plus dans l’app inApp via l’App Store. Connecte-toi ensuite de la même façon dans l’app (Réglages → Compte) et sur le site : Plus s’ouvrira ici aussi.",
+    appOnlyCta: "Ouvrir dans l’App Store",
     pageDescription: "Tous les décryptages et toutes les idées d’inApp en entier, les nouveaux numéros et l’export des contenus.",
     returnTitle: "Paiement Plus",
     returnDescription: "Confirmation du paiement inApp Plus.",
@@ -167,7 +183,11 @@ export const plusStrings = defineStrings({
     legalLabel: "規約とサポート",
     iphoneTitle: "iPhoneアプリ",
     iphoneNote:
-      "iPhoneアプリのPlusは、App Storeで別に購入できます。サイトでの購入とApp Storeのサブスクリプションは連携しておらず、相互に復元することはできません。",
+      "PlusはiPhoneアプリでも購入できます。購入は1つのinAppアカウントで共通です。アプリとサイトで同じ方法でサインインすると、どちらでも使えるようになります。",
+    appOnlyTitle: "PlusはiPhoneアプリで",
+    appOnlyBody:
+      "PlusはinAppアプリ内でApp Storeから購入できます。購入後、アプリ（設定 → アカウント）とサイトで同じ方法でサインインすると、ここでもPlusが使えます。",
+    appOnlyCta: "App Storeで開く",
     pageDescription: "inAppのすべての分析とアイデア、新しい号、資料のエクスポート。",
     returnTitle: "Plusのお支払い",
     returnDescription: "inApp Plusのお支払い確認。",

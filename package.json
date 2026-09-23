@@ -33,7 +33,8 @@
     "reviews:niche-patterns": "node scripts/reviews-bootstrap-patterns.mjs && node scripts/reviews-niche-patterns.mjs",
     "reviews:assemble": "node scripts/reviews-assemble.mjs",
     "reviews:pack-source": "node scripts/reviews-pack-source.mjs",
-    "test:app-codes": "node --import tsx scripts/v2/test-app-codes.ts"
+    "test:app-codes": "node --import tsx scripts/v2/test-app-codes.ts",
+    "test:app-accounts": "node --import tsx scripts/v2/test-app-accounts.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

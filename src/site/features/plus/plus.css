@@ -544,3 +544,15 @@
   margin-top: 8px;
   text-align: left;
 }
+/* Non-Russian locales: Plus is bought in the iPhone app (no web checkout). */
+.ia-plus__app-only {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--ia-accent-soft);
+}
+.ia-plus__app-only .ia-plus__note {
+  margin: 0;
+}

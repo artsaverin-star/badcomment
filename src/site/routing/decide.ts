@@ -12,6 +12,8 @@
 //   /<L>/research[/…], /<L>/search 308 → /<L>/segment[/…] (query kept)
 //   /<L>/ideas[/<launch id>]       NEW; other ids and /ideas/top → OLD in place
 //   /<L>/{saved,settings,plus,welcome,login,library,contacts,offer,privacy,site}/…  NEW
+//   /<L>/app-auth                  NEW, noindex (iOS app sign-in hand-off, docs/site-v2/APP-ACCOUNTS.md);
+//                                  it and /<L>/login?app=1 get x-ia-app-flow: 1 (no analytics)
 //   /<L>/old[/<rest>]              OLD (internal /<rest>), noindex; de/fr/ja → 307 /en/old/…
 //   /old[/<rest>], /old/<ru|en>/…  307 → /<ru|en>/old/<rest>
 //   /<L>/<anything else>           OLD in place (internal /<rest>); de/fr/ja → 307 /en/<rest>
@@ -51,7 +53,22 @@ export const NEW_TOP_STATIC: ReadonlySet<string> = new Set([
   "offer",
   "privacy",
   "site",
+  // The iOS app's sign-in hand-off (mints a one-time code → inapp://auth?code=…); noindex.
+  "app-auth",
 ]);
+
+/** New-site pages that must never be indexed, whatever their own metadata says (e.g. a redirect). */
+const NEW_TOP_NOINDEX: ReadonlySet<string> = new Set(["app-auth"]);
+
+/**
+ * Pages of the iOS app's sign-in sheet (docs/site-v2/APP-ACCOUNTS.md): /<L>/app-auth and
+ * /<L>/login?app=1. They get the request header `x-ia-app-flow: 1`, and the root layout then
+ * loads no analytics there (the app's privacy answers declare no web analytics).
+ */
+function isAppFlow(first: string, search: string): boolean {
+  if (first === "app-auth") return true;
+  return first === "login" && new URLSearchParams(search).get("app") === "1";
+}
 
 /** Request headers the proxy owns. Incoming copies are dropped before the proxy sets its own. */
 export const PROXY_REQUEST_HEADERS = [
@@ -60,6 +77,7 @@ export const PROXY_REQUEST_HEADERS = [
   "x-ia-public-path",
   "x-ia-new-path",
   "x-ia-soon",
+  "x-ia-app-flow",
 ] as const;
 
 export type RoutingInput = {
@@ -135,7 +153,7 @@ export function newSiteEquivalent(l: Locale, segs: readonly string[]): string | 
   }
   if (a === "settings" && b === "about") return `/${l}/settings/about`;
   if (a === "offer" && b === "payment") return `/${l}/offer/payment`;
-  if (a !== "site" && NEW_TOP_STATIC.has(a) && b === undefined) return `/${l}/${a}`;
+  if (a !== "site" && !NEW_TOP_NOINDEX.has(a) && NEW_TOP_STATIC.has(a) && b === undefined) return `/${l}/${a}`;
   return null;
 }
 
@@ -162,7 +180,12 @@ function inPlaceCookie(ctx: Ctx, l: OldLocale): CookieToSet[] {
   return localeCookie(ctx, l);
 }
 
-function rewriteNew(ctx: Ctx, l: Locale, tail: readonly string[], opts: { setCookie?: boolean; noindex?: boolean } = {}): RewriteDecision {
+function rewriteNew(
+  ctx: Ctx,
+  l: Locale,
+  tail: readonly string[],
+  opts: { setCookie?: boolean; noindex?: boolean; appFlow?: boolean } = {},
+): RewriteDecision {
   const setCookie = opts.setCookie ?? true;
   return {
     type: "rewrite",
@@ -174,6 +197,7 @@ function rewriteNew(ctx: Ctx, l: Locale, tail: readonly string[], opts: { setCoo
       "x-locale": l,
       "x-ia-site": "new",
       "x-ia-public-path": ctx.pathname,
+      ...(opts.appFlow ? { "x-ia-app-flow": "1" } : {}),
     },
     responseHeaders: opts.noindex ? { "X-Robots-Tag": "noindex, follow" } : {},
     cookies: setCookie ? localeCookie(ctx, l) : [],
@@ -245,7 +269,9 @@ function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingD
     return inPlace(ctx, l, tail);
   }
 
-  if (NEW_TOP_STATIC.has(a)) return rewriteNew(ctx, l, tail);
+  if (NEW_TOP_STATIC.has(a)) {
+    return rewriteNew(ctx, l, tail, { noindex: NEW_TOP_NOINDEX.has(a), appFlow: isAppFlow(a, ctx.search) });
+  }
 
   return inPlace(ctx, l, tail);
 }

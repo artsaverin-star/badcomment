@@ -69,7 +69,11 @@ export default async function SiteRootLayout({ children, params }: Props) {
   const theme = toTheme(jar.get(THEME_COOKIE)?.value);
   // iOS Safari shows Apple's native Smart App Banner (metadata.itunes) once the app is live —
   // don't stack our own "open in app" banner on top of it there.
-  const ua = (await headers()).get("user-agent") ?? "";
+  const requestHeaders = await headers();
+  const ua = requestHeaders.get("user-agent") ?? "";
+  // The iOS app's sign-in sheet (/<L>/login?app=1, /<L>/app-auth; set by the proxy,
+  // src/site/routing/decide.ts): no analytics libraries there — the queues below stay local.
+  const appFlow = requestHeaders.get("x-ia-app-flow") === "1";
   const nativeAppBanner =
     Boolean(APP_STORE_URL) &&
     /iPhone|iPad|iPod/.test(ua) &&
@@ -155,22 +159,26 @@ gtag('js',new Date());gtag('set',{site:"v2"});gtag('config','G-G3J6K8VBD6',{send
             more. Metrika (the first-hit counter) still loads right after hydration, without
             next/script's head preload; gtag.js (~170 KB gz) and DataFast wait for the window
             load event + idle time. Nothing is lost meanwhile: the queues above hold the calls. */}
-        <DeferredScript id="ym-tag" src="https://mc.yandex.ru/metrika/tag.js?id=110047715" />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="lazyOnload" />
-        {/* DataFast privacy-friendly analytics */}
-        <Script
-          defer
-          data-website-id="dfid_PVKv8dyF6ckAxf79RiAsf"
-          data-domain="inapp.pro"
-          src="https://datafa.st/js/script.js"
-          strategy="lazyOnload"
-        />
-        <noscript>
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://mc.yandex.ru/watch/110047715" style={{ position: "absolute", left: "-9999px" }} alt="" />
-          </div>
-        </noscript>
+        {appFlow ? null : (
+          <>
+            <DeferredScript id="ym-tag" src="https://mc.yandex.ru/metrika/tag.js?id=110047715" />
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="lazyOnload" />
+            {/* DataFast privacy-friendly analytics */}
+            <Script
+              defer
+              data-website-id="dfid_PVKv8dyF6ckAxf79RiAsf"
+              data-domain="inapp.pro"
+              src="https://datafa.st/js/script.js"
+              strategy="lazyOnload"
+            />
+            <noscript>
+              <div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://mc.yandex.ru/watch/110047715" style={{ position: "absolute", left: "-9999px" }} alt="" />
+              </div>
+            </noscript>
+          </>
+        )}
       </body>
     </html>
   );

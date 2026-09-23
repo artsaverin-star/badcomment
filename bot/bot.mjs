@@ -193,6 +193,7 @@ async function handleMessage(m) {
   if (text.startsWith("/start")) {
     const arg = text.split(" ")[1] || "";
     if (arg.startsWith("login_")) {
+      // The same sign-in serves the website and the iOS app's sign-in sheet: «inApp», not «сайт».
       const token = arg.slice("login_".length);
       const lt = await prisma.loginToken.findUnique({ where: { token } }).catch(() => null);
       if (lt && lt.expiresAt > new Date()) {
@@ -200,9 +201,9 @@ async function handleMessage(m) {
           where: { token },
           data: { telegramId: String(m.from.id), username: m.from.username ?? null, firstName: m.from.first_name ?? null },
         });
-        await tg("sendMessage", { chat_id: chatId, text: "✅ Вход выполнен. Вернитесь на сайт inApp." });
+        await tg("sendMessage", { chat_id: chatId, text: "✅ Вход выполнен. Вернитесь в inApp." });
       } else {
-        await tg("sendMessage", { chat_id: chatId, text: "Ссылка для входа истекла. Откройте вход на сайте заново." });
+        await tg("sendMessage", { chat_id: chatId, text: "Ссылка для входа истекла. Откройте вход заново." });
       }
       return;
     }

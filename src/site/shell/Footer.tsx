@@ -7,7 +7,7 @@ import { routes } from "../routing";
 import { AppStoreBadge } from "../ui/AppStore";
 import { AppMark } from "../ui/icons";
 import { FooterLanguages } from "./FooterLanguages";
-import { FooterPaymentOfferLink, FooterPlusLink } from "./FooterPlusLink";
+import { FooterOldSiteLink, FooterPaymentOfferLink, FooterPlusLink } from "./FooterPlusLink";
 import { shellStrings } from "./strings";
 
 // Footer on every page (DECISIONS §8, spec 08 S13): sections, contacts, terms, privacy,
@@ -54,10 +54,8 @@ export async function Footer({ locale }: { locale: Locale }) {
           <li>
             <Link href={routes.privacy(locale)}>{t("Конфиденциальность")}</Link>
           </li>
-          <li>
-            {/* A different root layout: plain <a>, full document load. */}
-            <a href={routes.oldSite(locale)}>{s.oldSite}</a>
-          </li>
+          {/* Hidden on the Apple-facing /offer and /contacts (./FooterPlusLink.tsx). */}
+          <FooterOldSiteLink href={routes.oldSite(locale)} label={s.oldSite} />
         </ul>
 
         <div className="ia-footer__bottom">
