@@ -10,4 +10,3 @@ export type LaunchCopy = { [Key in keyof typeof ru]: string };
 
 // Only the selected locale's small interactive labels are passed to client islands.
 export const launchCopy: Record<Locale, LaunchCopy> = { ru, en, de, fr, ja };
-
