@@ -24,7 +24,7 @@ export function Logo({ className }: { className?: string }) {
       <span className="ia-logo__mark" aria-hidden="true">
         <AppMark size={28} />
       </span>
-      <span aria-hidden="true">inApp</span>
+      <span className="ia-wordmark" aria-hidden="true">in<span className="ia-wordmark__app">App</span></span>
     </Link>
   );
 }

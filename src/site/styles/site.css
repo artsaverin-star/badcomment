@@ -1197,11 +1197,25 @@
   .ia-logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
     color: var(--ia-ink);
     font: 600 var(--ia-fs-headline) / 1 var(--ia-font-sans);
     letter-spacing: -0.02em;
     text-decoration: none;
+  }
+  /* Wordmark: the app's display face (Onest, as in the onboarding/paywall headlines), heavy
+     and tightly tracked; "App" carries the icon's cobalt. */
+  .ia-wordmark {
+    font-family: var(--ia-font-display);
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--ia-ink);
+    font-feature-settings: "ss01", "kern";
+  }
+  .ia-wordmark__app {
+    color: var(--ia-accent);
   }
   .ia-logo__mark {
     display: block;

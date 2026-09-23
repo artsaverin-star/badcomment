@@ -25,7 +25,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             <span className="ia-logo__mark" aria-hidden="true">
               <AppMark size={28} />
             </span>
-            <span aria-hidden="true">inApp</span>
+            <span className="ia-wordmark" aria-hidden="true">in<span className="ia-wordmark__app">App</span></span>
           </Link>
           <p className="m-0 max-w-[34ch] text-ia-secondary">{t("Что людям важно в приложениях и чего им не хватает.")}</p>
           <AppStoreBadge caption />
