@@ -51,6 +51,8 @@ export async function getPayment(id: string): Promise<{
   paid?: boolean;
   metadata?: Record<string, string>;
   amount?: { value?: string; currency?: string };
+  payment_method?: { type?: string };
+  test?: boolean;
 }> {
   const res = await fetch(`${API}/payments/${id}`, { headers: { Authorization: authHeader() } });
   if (!res.ok) throw new Error(`yookassa get ${res.status}`);

@@ -10,7 +10,7 @@ import channelsEn from "@/data/channels.en.json";
 import LeaderRows from "@/components/LeaderRows";
 import NicheMarketPlayers from "@/components/NicheMarketPlayers";
 import { ownsDeck } from "@/lib/unlocks";
-import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
+import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, LIFETIME } from "@/lib/tokenConfig";
 import BuyButton from "@/components/BuyButton";
 import DossierGate from "@/components/DossierGate";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
@@ -132,9 +132,6 @@ export default async function NicheDossier({
   const unlocked = access.has("category", slug) || access.has("chapter", slug) || ideas.some((i) => access.has("idea", i.slug));
   const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
   const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
-  const bot = process.env.BOT_USERNAME || "inAppProBot";
-  const catStarsHref = access.user ? `https://telegram.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
-  const lifeStarsHref = access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined;
   const aud = dossier.audience;
   const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
   // payNote is a paid conclusion: for locked users it must not reach the
@@ -579,10 +576,7 @@ export default async function NicheDossier({
               categorySlug={slug}
               categoryPrice={catPrice}
               categoryName={name}
-              starsHref={catStarsHref}
-              starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
               lifetimePrice={LIFETIME.rub}
-              lifetimeStarsHref={lifeStarsHref}
             />
           </div>
         </section>

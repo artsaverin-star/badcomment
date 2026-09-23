@@ -5,7 +5,7 @@ import { ideaCard, ideaContentEn } from "@/lib/regenCards";
 import { scoreFor, hotScore, publicScore } from "@/lib/ideaScores";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
-import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, LIFETIME } from "@/lib/tokenConfig";
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hueFromSlug } from "@/lib/categoryGradient";
 import { byNicheMoney } from "@/lib/nicheMoney";
@@ -195,7 +195,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       })
     : [];
 
-  const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
     <main className="mx-auto w-full max-w-[1080px] px-4 pb-24 pt-16 sm:pt-20">
@@ -242,9 +241,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           loggedIn={loggedIn}
           locale={locale}
           deckPrice={DECK_PRICE_RUB}
-          starsHref={access.user ? `https://telegram.me/${bot}?start=deck_${access.user.id}` : undefined}
-          starsLabel={`${DECK_STARS} ⭐ Telegram`}
-          lifetimeStarsHref={access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined}
           lifetimePrice={LIFETIME.rub}
         />
       </div>

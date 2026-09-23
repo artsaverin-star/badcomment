@@ -4,7 +4,7 @@ import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { getLocale } from "@/lib/i18n.server";
 import { buildFeed } from "@/lib/ideaFeed";
-import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, LIFETIME } from "@/lib/tokenConfig";
 import { getCatalogData } from "@/lib/catalogData";
 import { isPremium } from "@/lib/premium";
 import IdeaFeed from "@/components/IdeaFeed";
@@ -57,7 +57,6 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
   // Single honest review-count figure — same source as the homepage headline.
   const { totalReviews } = getCatalogData(locale, await isPremium());
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
-  const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
     <main className="relative mx-auto flex w-full max-w-[760px] flex-1 flex-col justify-center overflow-x-clip px-2 sm:px-4 py-4">
@@ -79,9 +78,6 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
         locale={locale}
         loggedIn={loggedIn}
         deckPrice={DECK_PRICE_RUB}
-        starsHref={access.user ? `https://telegram.me/${bot}?start=deck_${access.user.id}` : undefined}
-        starsLabel={`${DECK_STARS} ⭐ Telegram`}
-        lifetimeStarsHref={access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined}
         lifetimePrice={LIFETIME.rub}
       />
     </main>

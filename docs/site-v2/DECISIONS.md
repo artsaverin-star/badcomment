@@ -73,6 +73,16 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
   codes. The ASC offer "Web lifetime buyers", its one-time batch and the custom code INAPPWEB are
   deactivated; the GitHub secret APP_OFFER_CODES is deleted; the `AppStoreCode` table is unused.
 
+## Owner notifications and Telegram Stars (2026-09-23)
+
+- Every new paid purchase pings the owner in Telegram through the site's bot (@inAppProBot):
+  product, amount, payment method, checkout source, today's ₽ payments (Moscow day) and the
+  number of lifetime users — no buyer personal data (`src/lib/purchaseNotify.ts`). Recipients:
+  `PURCHASE_NOTIFY_TG_IDS`, else admins with a linked Telegram. One ping per payment ref.
+- **Telegram Stars sales are off** (owner). The bot sends no invoices, declines pre-checkout of
+  old invoices and points `/start`, `/buy` and old buy links to `/ru/plus`; the payment offer no
+  longer mentions Stars. The bot still finishes a Stars payment that was already under way.
+
 ## Legal pages (Apple-facing; hotfix on branch hotfix/apple-legal, 2026-09-22)
 
 - `/<L>/offer` = **Terms of Use** for the app and the site (Apple standard EULA + inApp Plus

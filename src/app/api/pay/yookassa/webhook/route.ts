@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getPayment, yookassaEnabled } from "@/lib/yookassa";
 import { grantTokens } from "@/lib/tokens";
 import { grantUnlock, type BuyKind } from "@/lib/unlocks";
+import { notifyPurchaseLater, type PurchaseInfo } from "@/lib/purchaseNotify";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,7 @@ export const dynamic = "force-dynamic";
 // from the API and credit only if it's actually succeeded+paid. The payment id is
 // the ledger ref, so a re-delivered webhook can't double-credit. We acknowledge
 // only after a successful durable write; transient failures must be retried.
+// A newly granted purchase pings the owner in Telegram after the response (purchaseNotify.ts).
 export async function POST(req: Request) {
   if (!yookassaEnabled()) return NextResponse.json({ ok: true });
 
@@ -40,6 +42,16 @@ export async function POST(req: Request) {
     }).catch(() => {});
   }
   if (payment?.status !== "succeeded" || payment?.paid !== true) return NextResponse.json({ ok: true });
+  const ping = (kind: PurchaseInfo["kind"]) =>
+    notifyPurchaseLater({
+      kind,
+      provider: "yookassa",
+      amountRub,
+      method: payment?.payment_method?.type ?? null,
+      source: meta.source ?? null,
+      slug: meta.slug ?? null,
+      test: payment?.test === true,
+    }, ref);
 
   try {
     const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -47,7 +59,8 @@ export async function POST(req: Request) {
 
     // New direct-₽ model: metadata.kind = deck | category | lifetime.
     if (meta.kind === "deck" || meta.kind === "category" || meta.kind === "lifetime") {
-      await grantUnlock(userId, meta.kind as BuyKind, meta.slug ?? null, ref, amountRub);
+      const granted = await grantUnlock(userId, meta.kind as BuyKind, meta.slug ?? null, ref, amountRub);
+      if (granted) ping(meta.kind as BuyKind);
       if (checkoutId) {
         await prisma.paymentAttempt.updateMany({
           where: { id: checkoutId, userId },
@@ -66,8 +79,10 @@ export async function POST(req: Request) {
     if (lifetime) {
       await prisma.user.update({ where: { id: userId }, data: { lifetime: true } });
       await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: "lifetime", ref, balanceAfter: user.tokens, amountRub } });
+      ping("lifetime");
     } else {
       await grantTokens(userId, tokens, "purchase", ref);
+      ping("tokens");
     }
   } catch {
     return NextResponse.json({ ok: false }, { status: 500 });

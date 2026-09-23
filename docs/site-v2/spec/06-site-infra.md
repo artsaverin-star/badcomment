@@ -27,7 +27,7 @@ Where code and comments/docs disagree, the code is described and the discrepancy
 | Web app | systemd `badcomment.service`, `/opt/badcomment`, `npm run start` (= `next start`), `PORT=3000`, `NODE_ENV=production`, `EnvironmentFile=-/opt/badcomment/.env` | Runs from the git checkout on the box; `public/`, `src/data/*` read via `fs`, and `review-data/` come from `git pull`, only `.next` comes from the CI tarball | `deploy/badcomment.service:7-15`, `deploy/deploy.sh:20-33` |
 | DB | SQLite `file:/opt/badcomment/data/prod.db` | Shared by web app, Telegram bot, ingest timer, ad-hoc scripts | `deploy/badcomment.service:11`, `bot/bot.mjs:1-4,27` |
 | Reverse proxy | nginx → `127.0.0.1:3000`, sets `X-Forwarded-Proto/For`, `Host` | Repo file still says `server_name badcomment.pro` (the real inapp.pro vhost/TLS config is not in the repo) | `deploy/nginx-badcomment.conf:1-17` |
-| Telegram bot | separate service `inappbot` (restarted by deploy.sh), `bot/bot.mjs`, raw Bot API + Prisma on the same DB | Binds web logins (`LoginToken`), sells lifetime for 500 ⭐ | `deploy/deploy.sh:36-37`, `bot/bot.mjs:19-21,193-208` |
+| Telegram bot | separate service `inappbot` (restarted by deploy.sh), `bot/bot.mjs`, raw Bot API + Prisma on the same DB | Binds web logins (`LoginToken`); Stars sales switched off 2026-09-23 (declines pre-checkout, points to `/ru/plus`) | `deploy/deploy.sh:36-37`, `bot/bot.mjs:19-21,193-208` |
 | Ingest | `badcomment-ingest.timer` daily 04:00 → `npm run ingest` (`INGEST_MAX_REVIEWS=80`) | Writes to prod.db; heavy on the small box | `deploy/badcomment-ingest.service`, `.timer` |
 | Box size | 2 vCPU / 1.9 GB RAM | "Береги prod-box" | `SCALE_RUNBOOK.md` §0 rule 8, `next.config.ts:7-10` |
 
@@ -163,7 +163,8 @@ Magic-link email copy (`src/lib/mail.ts:30-49`): subject «Вход в inApp» /
 |---|---|---|
 | `DATABASE_URL` | Prisma (`prisma/schema.prisma:5-8`); CI build uses `file:./ci.db` | yes |
 | `SESSION_SECRET` | session, magic links (`emailAuth.ts:7`), MCP client-id signing (`mcp/oauth.ts:9-14`), internal grant (`api/internal/grant/route.ts:12`), bot | yes (session throws in prod without it; the other three silently fall back to `dev-insecure-secret`) |
-| `BOT_USERNAME`, `TELEGRAM_BOT_TOKEN`, `ADMIN_TG_IDS` | Telegram login/bot | yes for TG |
+| `BOT_USERNAME`, `TELEGRAM_BOT_TOKEN`, `ADMIN_TG_IDS` | Telegram login/bot; `TELEGRAM_BOT_TOKEN` also sends the owner's purchase pings (`src/lib/purchaseNotify.ts`) | yes for TG |
+| `PURCHASE_NOTIFY_TG_IDS`, `PURCHASE_NOTIFY` | Purchase pings: recipients (comma list of Telegram user ids; default = admins with a linked Telegram); `off` mutes them | no |
 | `GOOGLE_CLIENT_ID` / `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Google login; `NEXT_PUBLIC_*` is inlined at build from repo variable `GOOGLE_CLIENT_ID` (`deploy.yml:56-59`); secret synced to box `.env` on each deploy (`deploy.yml:92-103`) | for Google |
 | `NEXT_PUBLIC_EMAIL_LOGIN` | shows email form (build-time, repo var `EMAIL_LOGIN_ENABLED`) (`deploy.yml:60-63`) | for email |
 | `YC_SMTP_HOST/PORT/USER/PASS`, `MAIL_FROM` | Yandex Cloud Postbox SMTP (`src/lib/mail.ts:7-13`); USER/PASS synced by deploy | for email |
@@ -217,7 +218,7 @@ Recommended **additive** extensions (backward compatible with the old UI, which 
 | SKU | Status | Price | Grant | Source |
 |---|---|---|---|---|
 | **Lifetime («Весь inApp навсегда»)** | **The only SKU sold on the web** | `ACCESS_PRICE_RUB = LAUNCH_PROMO ? FRIEND_PRICE_RUB (990) : LIFETIME.rub (2990)`; `LAUNCH_PROMO = true` → **990 ₽**; `FRIEND_DISCOUNT_PCT = 70` (not shown in UI anymore) | `User.lifetime = true` | `src/lib/tokenConfig.ts:10,16-21` |
-| Lifetime via Telegram Stars | Sold in the bot | **500 ⭐** (`bot/bot.mjs:19-21`); `tokenConfig.LIFETIME.stars = 1500` is stale | `User.lifetime = true` written by the bot directly | `bot/bot.mjs:94-117` |
+| Lifetime via Telegram Stars | **Switched off 2026-09-23** (was 500 ⭐ in the bot) | — | `User.lifetime = true` written by the bot directly | `bot/bot.mjs:94-117` |
 | Deck 290 ₽ / 150 ⭐, Category 290 ₽ / 150 ⭐ | Historical, only fulfilled for in-flight checkouts | — | `Unlock` rows | `tokenConfig.ts:23-31`, `src/lib/unlocks.ts:35-50` |
 | Token packs s/m/l (100/300/700 tokens for 990/2490/4990 ₽) | Legacy, webhook only | — | `User.tokens += n` | `tokenConfig.ts:41-51`, webhook `:60-71` |
 | iOS app (for comparison, not web) | App Store | Annual `com.artsaverin.inapp.annual` $39.99 base; Lifetime `com.artsaverin.inapp.lifetime` $79.99 base | StoreKit only | `app:Inapp/Store/Purchases.swift:11-15`, `app:AppStore/Release-2026-09-21/README.md:13-15` |
@@ -283,7 +284,7 @@ Minimal reuse (no server changes): a new `PlusBuyButton` client component that
 
 If the web should also sell **annual Plus** (the app's default plan), the smallest server change is: new `kind: "plus_annual"` accepted by the pay route with its own price constant in `tokenConfig.ts`; `PaymentAttempt.sku = "plus_annual"`; webhook branch `premiumUntil = max(now, premiumUntil) + 365 days` with the same `ref` idempotency (add `REASON.plus_annual` to `src/lib/unlocks.ts`). `getAccess`, `/api/me`, MCP access and the admin "Безлимит" column already treat a future `premiumUntil` as unlimited. This is a one-time 1-year purchase, not auto-renewal (YooKassa recurring payments would need saved payment methods + a scheduler; nothing like that exists).
 
-Telegram Stars alternative: deep link `https://telegram.me/<BOT_USERNAME>?start=life_<userId>` makes the bot send a 500 ⭐ invoice and grant lifetime to that user id (`bot/bot.mjs:207-212`; links built in e.g. `src/app/cards/page.tsx:84`).
+Telegram Stars alternative (switched off 2026-09-23 — the bot now answers these deep links with a link to `/ru/plus`): deep link `https://telegram.me/<BOT_USERNAME>?start=life_<userId>` made the bot send a 500 ⭐ invoice and grant lifetime to that user id (`bot/bot.mjs:207-212`; links built in e.g. `src/app/cards/page.tsx:84`).
 
 ---
 
@@ -502,7 +503,8 @@ When pages move under `/old`, all of the above that hard-code `/<locale>/segment
 | `/api/pay/yookassa/webhook` | **YooKassa notifications** | `pay/yookassa/webhook/route.ts` | must stay; retries on non-2xx |
 | `/library?checkout=<uuid>` (→ `/<locale>/library`) | **YooKassa `return_url`** for in-flight and future payments | `src/app/library/page.tsx` + `PurchaseTracker` | if `/library` becomes `/old/library`, keep a `/library` route that polls or change `returnUrl` |
 | `/api/pay/yookassa`, `/api/pay/status` | UI; smoke test expects 401 for a zero UUID without session | — | `deploy.yml:141-144` |
-| `/api/internal/grant` | Telegram bot (`SITE_URL/api/internal/grant`, secret in body) | `api/internal/grant/route.ts` | `bot/bot.mjs:84` |
+| `/api/internal/grant` | Telegram bot (`SITE_URL/api/internal/grant`, secret in body) | `api/internal/grant/route.ts` | `bot/bot.mjs` `grantViaSite`; pings the owner for a newly granted payment |
+| `/api/internal/purchase-notify` | Telegram bot (secret in body): owner ping for a Stars purchase the bot granted itself | `api/internal/purchase-notify/route.ts` | `bot/bot.mjs` `notifyPurchaseViaSite`; added 2026-09-23 |
 | `/api/mcp` | MCP clients (Claude, ChatGPT, Cursor, VS Code…) — JSON-RPC, 401 + `www-authenticate … resource_metadata="<origin>/.well-known/oauth-protected-resource"` | `src/app/api/mcp/route.ts` | smoke test: 401 + `authorization_required` (`deploy.yml:123-129`); MCP resource id = `<origin>/api/mcp` baked into issued tokens |
 | `/api/mcp/oauth/{authorize,token,register,revoke}`, `/api/mcp/oauth/meta/{as,pr}`, `/api/mcp/connections` | MCP OAuth (RFC 8414/9728/7591/7009); access token 1 h, refresh 30 d, scope `mcp:read` | `src/app/api/mcp/**`, `src/lib/mcp/authTokens.ts:5-10` | |
 | `/.well-known/oauth-authorization-server[/*]`, `/.well-known/oauth-protected-resource[/*]` | MCP discovery | rewrites in `next.config.ts:17-24` | smoke test greps `"refresh_token"` (`deploy.yml:120-122`) |

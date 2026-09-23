@@ -20,7 +20,7 @@ import { getNicheOpportunities } from "@/lib/nicheOpportunities";
 import { tg, deepTg } from "@/lib/typo";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
-import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU, PREGEN_DATE_EN } from "@/lib/tokenConfig";
+import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, PREGEN_DATE_RU, PREGEN_DATE_EN } from "@/lib/tokenConfig";
 import { ownsDeck } from "@/lib/unlocks";
 import CategoryOffer from "@/components/CategoryOffer";
 import Reveal from "@/components/Reveal";
@@ -235,10 +235,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
   const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
   const pregenDate = ru ? PREGEN_DATE_RU : PREGEN_DATE_EN;
-  const bot = process.env.BOT_USERNAME || "inAppProBot";
-  const catStarsHref = access.user ? `https://telegram.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
-  const catStarsLabel = `${CATEGORY_STARS} ⭐ Telegram`;
-  const lifeStarsHref = access.user ? `https://telegram.me/${bot}?start=life_${access.user.id}` : undefined;
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const catProduct = (categoryCards(slug, locale)?.product ?? []).slice().sort((a, b) => b.count - a.count);
@@ -471,7 +467,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
                     ))}
                   </div>
-                  <CategoryOffer slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} ideasCount={opps.length} appsCount={apps.length} starsHref={catStarsHref} starsLabel={catStarsLabel} lifetimeStarsHref={lifeStarsHref} />
+                  <CategoryOffer slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} ideasCount={opps.length} appsCount={apps.length} />
                 </div>
               )}
             </div>
@@ -490,8 +486,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         sellable={sellable}
         price={catPrice}
         pregenDate={pregenDate}
-        starsHref={catStarsHref}
-        starsLabel={catStarsLabel}
       />
 
       {relatedTop.length > 0 && (

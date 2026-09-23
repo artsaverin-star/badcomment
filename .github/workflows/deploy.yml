@@ -56,6 +56,8 @@ jobs:
       # iOS app accounts: Sign in with Apple, web → app hand-off, bearer sessions, RevenueCat Plus,
       # library sync via Bearer, account deletion (docs/site-v2/APP-ACCOUNTS.md).
       - run: npm run test:app-accounts
+      # Owner's Telegram ping on a new purchase (src/lib/purchaseNotify.ts).
+      - run: npm run test:purchase-notify
       - run: node --import tsx scripts/v2/check-content.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
