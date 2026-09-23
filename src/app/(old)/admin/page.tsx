@@ -7,25 +7,14 @@ import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_STARS, 
 import TokenHistory from "@/components/TokenHistory";
 import ideasData from "@/data/ideas.json";
 import FavoritesCell from "@/components/FavoritesCell";
-import AppCodesSection from "./AppCodesSection";
 
 export const dynamic = "force-dynamic";
 
 // Admin: registered users + token wallets. Visible only to is_admin users
 // (the first registered account is auto-admin).
-export default async function AdminPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export default async function AdminPage() {
   const me = await getSessionUser();
   if (!me || !me.isAdmin) notFound();
-  const sp = await searchParams;
-  const codesResult: Record<string, string | undefined> = {};
-  for (const k of ["codes", "created", "existing", "invalid", "assigned", "waiting"]) {
-    const v = sp[k];
-    if (typeof v === "string") codesResult[k] = v.slice(0, 40);
-  }
 
   const users = await prisma.user.findMany({ orderBy: { createdAt: "desc" } });
 
@@ -303,8 +292,6 @@ export default async function AdminPage({
           </tbody>
         </table>
       </div>
-
-      <AppCodesSection result={codesResult} />
 
       <h2 className="mt-10 text-[20px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Оплата</h2>
       <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">

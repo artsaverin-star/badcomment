@@ -80,7 +80,7 @@ Account deletion: revoke Apple tokens when `SIWA_KEY_ID` + `SIWA_PRIVATE_KEY` + 
 (D8GNCMFXH8) are configured (client secret ES256, `sub` = bundle id `com.artsaverin.inapp`);
 otherwise return `appleRevoked:false` and the app tells the user how to stop using Apple ID with
 inApp (Settings → Apple ID → Sign in with Apple). Then delete the User (cascade: sessions,
-saved, notes, favorites, unlocks, app codes → SetNull, payment attempts). The app warns first
+saved, notes, favorites, unlocks, payment attempts). The app warns first
 that access bought with this account is lost.
 
 ## iOS app (app repo `app_04_inapp/Inapp`)
@@ -105,4 +105,3 @@ that access bought with this account is lost.
    → Keys → + → Sign in with Apple → primary App ID com.artsaverin.inapp), download the .p8, tell
    the orchestrator its Key ID and file path.
 2. Update **App Privacy** in App Store Connect with the answers the orchestrator prepares.
-3. (Pending) import the lifetime codes in `/ru/admin`.

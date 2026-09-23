@@ -61,6 +61,17 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
     reviewed by Apple and will be available soon; continue on the web. **No automatic polling
     of Apple** — the owner will paste the link manually after approval.
 
+## Web purchases in the iOS app (2026-09-23)
+
+- Plus bought on the website (Russia only, YooKassa 990 ₽) reaches the iOS app **through the
+  inApp account** (Guideline 3.1.3(b), docs/site-v2/APP-ACCOUNTS.md): the buyer signs in to the
+  same account in the app's Settings → Account (app 1.1+). The website shows this as the card
+  «Plus и в приложении для iPhone» (Settings, payment return; `AppAccessCard.tsx`).
+- **No App Store offer codes for web buyers.** Tried and withdrawn the same day: the Apple DPLA,
+  Schedule 2, forbids accepting any payment or compensation in connection with distributing offer
+  codes. The ASC offer "Web lifetime buyers", its one-time batch and the custom code INAPPWEB are
+  deactivated; the GitHub secret APP_OFFER_CODES is deleted; the `AppStoreCode` table is unused.
+
 ## Legal pages (Apple-facing; hotfix on branch hotfix/apple-legal, 2026-09-22)
 
 - `/<L>/offer` = **Terms of Use** for the app and the site (Apple standard EULA + inApp Plus
