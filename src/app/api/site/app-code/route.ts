@@ -13,9 +13,11 @@ export async function GET() {
   const me = await getSessionUser();
   if (!me) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: NO_STORE });
   if (!me.lifetime) return NextResponse.json({ error: "not_eligible" }, { status: 403, headers: NO_STORE });
-  const code = await codeForUser({ id: me.id, lifetime: me.lifetime });
+  const code = await codeForUser(me);
   return NextResponse.json(
-    code ? { code: code.code, redeemUrl: code.redeemUrl, expiresAt: code.expiresAt.toISOString() } : { code: null },
+    code
+      ? { code: code.code, redeemUrl: code.redeemUrl, expiresAt: code.expiresAt.toISOString(), expired: code.expired }
+      : { code: null },
     { headers: NO_STORE },
   );
 }

@@ -8,7 +8,7 @@ export default async function AppCodesSection({ result }: { result: Record<strin
     ["Кодов всего", s.total],
     ["Выдано", s.assigned],
     ["Свободно", s.freeValid],
-    ["Истекло без выдачи", s.expiredFree],
+    ["Истекло / недоступно", s.expiredFree],
     ["Купили навсегда", s.eligibleUsers],
     ["Ждут код", s.eligibleWithoutCode],
   ];
@@ -28,7 +28,10 @@ export default async function AppCodesSection({ result }: { result: Record<strin
           {Number(result.waiting ?? 0) > 0 ? `, не хватило кодов: ${result.waiting}` : ""}.
         </p>
       ) : result.codes ? (
-        <p className="mt-3 text-callout text-[var(--color-text-danger,#c0443f)]">Импорт не выполнен: {result.codes}.</p>
+        <p className="mt-3 text-callout text-[var(--color-text-danger,#c0443f)]">
+          Импорт не выполнен:{" "}
+          {result.codes === "bad-date" ? "неверная дата истечения" : result.codes === "too-big" ? "слишком большой файл" : "ошибка"}.
+        </p>
       ) : null}
       <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-border-subtle)] sm:grid-cols-3">
         {cells.map(([label, n]) => (
@@ -46,7 +49,7 @@ export default async function AppCodesSection({ result }: { result: Record<strin
             required
             rows={6}
             spellCheck={false}
-            className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-3 font-mono text-[13px] text-[var(--color-text-primary)]"
+            className="ym-disable-keys ym-hide-content rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-3 font-mono text-[13px] text-[var(--color-text-primary)]"
             placeholder="ABCDEFGH12345678XY,https://apps.apple.com/redeem?ctx=offercodes&id=6814396315&code=ABCDEFGH12345678XY"
           />
         </label>

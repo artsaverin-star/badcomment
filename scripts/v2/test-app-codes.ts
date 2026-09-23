@@ -11,7 +11,7 @@ import { after, before, test } from "node:test";
 const dir = mkdtempSync(path.join(tmpdir(), "app-codes-"));
 const dbUrl = `file:${path.join(dir, "test.db")}`;
 process.env.DATABASE_URL = dbUrl;
-execSync("npx prisma db push --skip-generate", { env: { ...process.env, DATABASE_URL: dbUrl }, stdio: "ignore" });
+execSync("npx prisma db push --skip-generate", { env: { ...process.env, DATABASE_URL: dbUrl }, stdio: ["ignore", "ignore", "inherit"] });
 
 // The package compiles to CJS (no top-level await): load the modules in before().
 let lib: typeof import("../../src/lib/appStoreCodes");
@@ -44,11 +44,16 @@ test("parser accepts only Apple redeem links for our app and the same code", () 
     `JJJJ7777KKKK8888LL,${url("ZZZZ7777KKKK8888LL")}`, // code mismatch
     `short,${url("short")}`,
     `MMMM9999NNNN0000OO,${url("MMMM9999NNNN0000OO")},extra`,
+    `PPPP1111QQQQ2222RR,https://u:p@apps.apple.com/redeem?ctx=offercodes&id=6814396315&code=PPPP1111QQQQ2222RR`,
+    `SSSS3333TTTT4444UU,https://apps.apple.com:8443/redeem?ctx=offercodes&id=6814396315&code=SSSS3333TTTT4444UU`,
+    `VVVV5555WWWW6666XX,${url("VVVV5555WWWW6666XX")}&x=1#frag`,
     "",
   ].join("\n");
   const { rows, invalid } = lib.parseCodesCsv(csv);
-  assert.deepEqual(rows.map((r) => r.code), ["AAAA1111BBBB2222CC"]);
-  assert.equal(invalid, 5);
+  assert.deepEqual(rows.map((r) => r.code), ["AAAA1111BBBB2222CC", "VVVV5555WWWW6666XX"]);
+  assert.equal(invalid, 7);
+  // The stored link is Apple's canonical one, rebuilt from the code alone.
+  assert.equal(rows[1].redeemUrl, url("VVVV5555WWWW6666XX"));
 });
 
 test("import skips existing codes", async () => {
@@ -94,13 +99,30 @@ test("non-buyers get nothing; an empty pool gives null; stats add up", async () 
   assert.equal((await lib.codeForUser({ id: late, lifetime: true }))?.code, "CODE0000000000000C");
 });
 
-test("15 buyers at once: everyone gets a code, all distinct", async () => {
+test("80 buyers at once for 75 codes: every code handed out once, exactly 5 left waiting", async () => {
   const ids = await Promise.all(
-    Array.from({ length: 15 }, (_, i) => prisma.user.create({ data: { email: `s${i}@test.local`, lifetime: true } }).then((u) => u.id)),
+    Array.from({ length: 80 }, (_, i) => prisma.user.create({ data: { email: `s${i}@test.local`, lifetime: true } }).then((u) => u.id)),
   );
-  const codes = Array.from({ length: 15 }, (_, i) => `STRESS${String(i).padStart(12, "0")}`);
+  const codes = Array.from({ length: 75 }, (_, i) => `STRESS${String(i).padStart(12, "0")}`);
   await lib.importCodes(codes.map((code) => ({ code, redeemUrl: url(code) })), { batch: "s", expiresAt: new Date("2099-01-01T00:00:00Z") });
   const got = await Promise.all(ids.map((id) => lib.assignCodeTo(id)));
-  assert.ok(got.every(Boolean), "nobody is left without a code while the pool has enough");
-  assert.equal(new Set(got.map((g) => g!.code)).size, 15);
+  const given = got.filter(Boolean).map((g) => g!.code);
+  assert.equal(given.length, 75, "no free code is left behind while buyers wait");
+  assert.equal(new Set(given).size, 75, "no code is handed out twice");
+});
+
+test("a deleted user's code never goes back to the pool; an expired assigned code is flagged", async () => {
+  const gone = await prisma.user.create({ data: { email: "gone@test.local", lifetime: true } });
+  await lib.importCodes([{ code: "RECYCLE00000000000", redeemUrl: url("RECYCLE00000000000") }], { batch: "r", expiresAt: new Date("2099-01-01T00:00:00Z") });
+  assert.equal((await lib.assignCodeTo(gone.id))?.code, "RECYCLE00000000000");
+  await prisma.user.delete({ where: { id: gone.id } });
+  const next = await prisma.user.create({ data: { email: "next@test.local", lifetime: true } });
+  assert.equal(await lib.assignCodeTo(next.id), null, "the possibly-redeemed code is not reissued");
+  const old = await prisma.user.create({ data: { email: "old@test.local", lifetime: true } });
+  await prisma.appStoreCode.create({
+    data: { code: "OLDCODE00000000000", redeemUrl: url("OLDCODE00000000000"), batch: "o", expiresAt: new Date("2000-01-01T00:00:00Z"), userId: old.id, assignedAt: new Date() },
+  });
+  const mine = await lib.assignCodeTo(old.id);
+  assert.equal(mine?.code, "OLDCODE00000000000");
+  assert.equal(mine?.expired, true);
 });

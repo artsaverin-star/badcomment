@@ -4,11 +4,12 @@ import { useState } from "react";
 import type { Locale } from "@/site/i18n/locales";
 import { INTL_LOCALE } from "@/site/i18n/locales";
 import { format } from "@/site/i18n/strings";
+import { routes } from "@/site/routing";
 import { AppMark, CheckIcon, CopyIcon, buttonClass, toast } from "@/site/ui";
 import { appCodeStrings } from "./appCodeStrings";
 import "./plus.css";
 
-export type AppCodeView = { code: string; redeemUrl: string; expiresAt: string } | null;
+export type AppCodeView = { code: string; redeemUrl: string; expiresAt: string; expired?: boolean } | null;
 
 /** Apple expires codes at 00:00 PT on expiresAt: the last day to redeem is the day before. */
 function lastDay(locale: Locale, expiresAt: string): string {
@@ -25,13 +26,29 @@ export function AppCodeCard({ locale, view }: { locale: Locale; view: AppCodeVie
   const s = appCodeStrings[locale];
   const [copied, setCopied] = useState(false);
 
+  // `ym-hide-content`: Yandex Webvisor must not record the personal code (review M1).
   if (!view) {
     return (
-      <section className="ia-appcode" aria-label={s.pendingTitle}>
+      <section className="ia-appcode ym-hide-content" aria-label={s.pendingTitle}>
         <AppMark size={40} />
         <div className="ia-appcode__main">
           <h2 className="ia-appcode__title">{s.pendingTitle}</h2>
           <p className="ia-appcode__text">{s.pendingBody}</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (view.expired) {
+    return (
+      <section className="ia-appcode ym-hide-content" aria-label={s.title}>
+        <AppMark size={40} />
+        <div className="ia-appcode__main">
+          <h2 className="ia-appcode__title">{s.title}</h2>
+          <p className="ia-appcode__text">{s.expiredBody}</p>
+          <a className={buttonClass({ variant: "secondary", block: true })} href={routes.contacts(locale)}>
+            {s.support}
+          </a>
         </div>
       </section>
     );
@@ -49,7 +66,7 @@ export function AppCodeCard({ locale, view }: { locale: Locale; view: AppCodeVie
   };
 
   return (
-    <section className="ia-appcode" aria-labelledby="ia-appcode-title">
+    <section className="ia-appcode ym-hide-content" aria-labelledby="ia-appcode-title">
       <AppMark size={40} />
       <div className="ia-appcode__main">
         <h2 className="ia-appcode__title" id="ia-appcode-title">
@@ -64,9 +81,15 @@ export function AppCodeCard({ locale, view }: { locale: Locale; view: AppCodeVie
             {copied ? <CheckIcon size={17} strokeWidth={2.2} /> : <CopyIcon size={17} strokeWidth={2} />}
           </button>
         </div>
-        <a className={buttonClass({ variant: "primary", block: true })} href={view.redeemUrl} target="_blank" rel="noopener noreferrer">
+        {/* A button, not an <a href>: link trackers (Metrica trackLinks, GA4 outbound clicks,
+            DataFast exit links) would log the redeem URL, which contains the code. */}
+        <button
+          type="button"
+          className={buttonClass({ variant: "primary", block: true })}
+          onClick={() => window.open(view.redeemUrl, "_blank", "noopener,noreferrer")}
+        >
           {s.redeem}
-        </a>
+        </button>
         <p className="ia-appcode__note">
           {format(s.validUntil, { date: lastDay(locale, view.expiresAt) })} {s.oneAccount}
         </p>

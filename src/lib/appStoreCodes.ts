@@ -1,4 +1,6 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
+import type { SessionUser } from "./session";
 
 // Personal App Store offer codes for website lifetime buyers (owner request 2026-09-23):
 // everyone who paid for lifetime access on inapp.pro (User.lifetime — set by the YooKassa
@@ -11,6 +13,8 @@ export const IOS_APP_ID = "6814396315";
 const CODE_RE = /^[A-Z0-9]{8,32}$/;
 
 export type CodeRow = { code: string; redeemUrl: string };
+
+export const redeemUrlFor = (code: string) => `https://apps.apple.com/redeem?ctx=offercodes&id=${IOS_APP_ID}&code=${code}`;
 export type ParsedCsv = { rows: CodeRow[]; invalid: number };
 
 /** Strict parser for Apple's one-time-use code CSV. Anything unexpected is counted as invalid. */
@@ -37,6 +41,9 @@ export function parseCodesCsv(text: string): ParsedCsv {
     const ok =
       url.protocol === "https:" &&
       url.hostname === "apps.apple.com" &&
+      !url.username &&
+      !url.password &&
+      !url.port &&
       url.pathname === "/redeem" &&
       url.searchParams.get("id") === IOS_APP_ID &&
       (url.searchParams.get("code") ?? "").toUpperCase() === code;
@@ -46,7 +53,8 @@ export function parseCodesCsv(text: string): ParsedCsv {
     }
     if (seen.has(code)) continue;
     seen.add(code);
-    rows.push({ code, redeemUrl: url.toString() });
+    // Store Apple's canonical redeem link, rebuilt — nothing from the input besides the code.
+    rows.push({ code, redeemUrl: redeemUrlFor(code) });
   }
   return { rows, invalid };
 }
@@ -75,13 +83,26 @@ export async function importCodes(rows: CodeRow[], opts: { batch: string; expire
   return { created, skippedExisting: rows.length - fresh.length };
 }
 
-/** Start of "today" in UTC: a code whose last valid day is before today is expired. */
+/** Start of "today" in UTC. Apple stops a code at 00:00 PT on its expiration date. */
 function todayUtc(): Date {
   const d = new Date();
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
-export type AppCode = { code: string; redeemUrl: string; expiresAt: Date };
+/** New assignments need at least a week left, so nobody gets a code that dies tomorrow. */
+function assignCutoff(): Date {
+  return new Date(todayUtc().getTime() + 7 * 86_400_000);
+}
+
+export type AppCode = { code: string; redeemUrl: string; expiresAt: Date; expired: boolean };
+
+const SELECT = { code: true, redeemUrl: true, expiresAt: true } as const;
+const withState = (c: { code: string; redeemUrl: string; expiresAt: Date }): AppCode => ({
+  ...c,
+  expired: c.expiresAt.getTime() <= todayUtc().getTime(),
+});
+/** A code that was never handed to anyone: unassigned now AND never assigned before. */
+const FREE = { userId: null, assignedAt: null } as const;
 
 /**
  * The user's code: the one already assigned, or a free, non-expired code claimed atomically
@@ -89,32 +110,36 @@ export type AppCode = { code: string; redeemUrl: string; expiresAt: Date };
  * never receive the same code). Null when the pool is empty.
  */
 export async function assignCodeTo(userId: string): Promise<AppCode | null> {
-  const mine = await prisma.appStoreCode.findUnique({ where: { userId }, select: { code: true, redeemUrl: true, expiresAt: true } });
-  if (mine) return mine;
-  // Each attempt re-reads the first free code: a lost race just means someone else took
-  // that row a moment ago, so the next read sees the next free one.
-  for (let attempt = 0; attempt < 20; attempt++) {
+  const mine = await prisma.appStoreCode.findUnique({ where: { userId }, select: SELECT });
+  if (mine) return withState(mine);
+  // Each attempt re-reads the first free code. A lost race means another buyer took that row a
+  // moment ago, which uses up one code — so the loop always ends (a code, or an empty pool).
+  for (;;) {
     const candidate = await prisma.appStoreCode.findFirst({
-      where: { userId: null, expiresAt: { gt: todayUtc() } },
+      where: { ...FREE, expiresAt: { gt: assignCutoff() } },
       orderBy: [{ expiresAt: "asc" }, { createdAt: "asc" }],
       select: { id: true },
     });
     if (!candidate) return null;
     try {
       const { count } = await prisma.appStoreCode.updateMany({
-        where: { id: candidate.id, userId: null },
+        where: { id: candidate.id, ...FREE },
         data: { userId, assignedAt: new Date() },
       });
       if (count === 1) {
-        return prisma.appStoreCode.findUnique({ where: { userId }, select: { code: true, redeemUrl: true, expiresAt: true } });
+        const got = await prisma.appStoreCode.findUnique({ where: { userId }, select: SELECT });
+        return got ? withState(got) : null;
       }
-    } catch {
+    } catch (e) {
       // userId is unique: a concurrent request for the same user already claimed a code.
-      const again = await prisma.appStoreCode.findUnique({ where: { userId }, select: { code: true, redeemUrl: true, expiresAt: true } });
-      if (again) return again;
+      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
+        const again = await prisma.appStoreCode.findUnique({ where: { userId }, select: SELECT });
+        if (again) return withState(again);
+        continue;
+      }
+      throw e;
     }
   }
-  return null;
 }
 
 /** Give a code to every paid lifetime user who has none yet. */
@@ -134,11 +159,10 @@ export async function assignAllEligible() {
 }
 
 export async function codeStats() {
-  const today = todayUtc();
   const [total, assigned, freeValid, eligibleUsers, eligibleWithoutCode] = await Promise.all([
     prisma.appStoreCode.count(),
     prisma.appStoreCode.count({ where: { userId: { not: null } } }),
-    prisma.appStoreCode.count({ where: { userId: null, expiresAt: { gt: today } } }),
+    prisma.appStoreCode.count({ where: { ...FREE, expiresAt: { gt: assignCutoff() } } }),
     prisma.user.count({ where: { lifetime: true } }),
     prisma.user.count({ where: { lifetime: true, appStoreCode: { is: null } } }),
   ]);
@@ -149,7 +173,7 @@ export async function codeStats() {
  * For account pages: the signed-in user's code if they paid for lifetime access on the web
  * (assigned lazily), else null. `lifetime` must come from the session user record.
  */
-export async function codeForUser(user: { id: string; lifetime: boolean } | null): Promise<AppCode | null> {
+export async function codeForUser(user: Pick<SessionUser, "id" | "lifetime"> | null): Promise<AppCode | null> {
   if (!user || !user.lifetime) return null;
   return assignCodeTo(user.id);
 }

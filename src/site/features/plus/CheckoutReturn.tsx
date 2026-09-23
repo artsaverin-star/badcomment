@@ -178,8 +178,12 @@ function ConfirmedAppCode() {
     void fetch("/api/site/app-code", { cache: "no-store" })
       .then(async (r) => {
         if (!active || !r.ok) return;
-        const d = (await r.json()) as { code: string | null; redeemUrl?: string; expiresAt?: string };
-        setView(d.code && d.redeemUrl && d.expiresAt ? { code: d.code, redeemUrl: d.redeemUrl, expiresAt: d.expiresAt } : null);
+        const d = (await r.json()) as { code: string | null; redeemUrl?: string; expiresAt?: string; expired?: boolean };
+        setView(
+          d.code && d.redeemUrl && d.expiresAt
+            ? { code: d.code, redeemUrl: d.redeemUrl, expiresAt: d.expiresAt, expired: d.expired }
+            : null,
+        );
       })
       .catch(() => {});
     return () => {

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { codeForUser } from "@/lib/appStoreCodes";
 import { getSessionUser } from "@/lib/session";
 import { getViewer } from "@/site/access";
+import type { AppCodeView } from "@/site/features/plus/AppCodeCard";
 import { getManifest } from "@/site/content";
 import { mediaSrc, mediaSrcSet } from "@/site/content/media";
 import { pageMetadata } from "@/site/features/legal/meta";
@@ -39,12 +40,17 @@ export default async function SettingsPage({ params }: { params: Promise<Params>
   const art = manifest.art.WelcomeLibrary_v7;
   // Website lifetime buyers: their personal App Store code (free lifetime Plus in the iOS app).
   const me = await getSessionUser();
-  const code = me?.lifetime ? await codeForUser({ id: me.id, lifetime: me.lifetime }) : null;
-  const appCode = me?.lifetime
-    ? code
-      ? { code: code.code, redeemUrl: code.redeemUrl, expiresAt: code.expiresAt.toISOString() }
-      : null
-    : undefined;
+  let appCode: AppCodeView | undefined;
+  if (me?.lifetime) {
+    try {
+      const code = await codeForUser(me);
+      appCode = code
+        ? { code: code.code, redeemUrl: code.redeemUrl, expiresAt: code.expiresAt.toISOString(), expired: code.expired }
+        : null;
+    } catch {
+      appCode = undefined; // a DB hiccup must not take Settings down: just no card this time
+    }
+  }
 
   return (
     <SettingsScreen

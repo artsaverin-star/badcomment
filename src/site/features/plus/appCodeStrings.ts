@@ -11,19 +11,23 @@ export type AppCodeStrings = {
   oneAccount: string;
   pendingTitle: string;
   pendingBody: string;
+  expiredBody: string;
+  support: string;
 };
 
 export const appCodeStrings: Record<Locale, AppCodeStrings> = {
   ru: {
     title: "Plus в приложении для iPhone",
-    body: "Ты купил доступ навсегда на сайте — Plus в iOS-приложении inApp для тебя бесплатно. Вот твой личный код.",
+    body: "Доступ навсегда у тебя уже есть — поэтому Plus в iOS-приложении inApp для тебя бесплатен. Вот твой личный код.",
     validUntil: "Активируй до {date} включительно.",
     copy: "Скопировать код",
     copied: "Код скопирован",
     redeem: "Активировать в App Store",
     oneAccount: "Код одноразовый: он откроет Plus навсегда для одного аккаунта Apple.",
     pendingTitle: "Plus в приложении для iPhone",
-    pendingBody: "Код для бесплатного Plus в iOS-приложении скоро появится здесь.",
+    pendingBody: "Код для бесплатного Plus в iOS-приложении скоро появится в «Настройках».",
+    expiredBody: "Срок действия этого кода истёк. Напиши в поддержку — пришлём новый.",
+    support: "Написать в поддержку",
   },
   en: {
     title: "Plus in the iPhone app",
@@ -34,7 +38,9 @@ export const appCodeStrings: Record<Locale, AppCodeStrings> = {
     redeem: "Redeem in the App Store",
     oneAccount: "The code works once: it unlocks lifetime Plus for one Apple Account.",
     pendingTitle: "Plus in the iPhone app",
-    pendingBody: "Your code for free Plus in the iOS app will appear here soon.",
+    pendingBody: "Your code for free Plus in the iOS app will soon appear in Settings.",
+    expiredBody: "This code has expired. Write to support and we’ll send you a new one.",
+    support: "Contact support",
   },
   de: {
     title: "Plus in der iPhone-App",
@@ -45,7 +51,9 @@ export const appCodeStrings: Record<Locale, AppCodeStrings> = {
     redeem: "Im App Store einlösen",
     oneAccount: "Der Code ist einmalig: Er schaltet Plus dauerhaft für einen Apple Account frei.",
     pendingTitle: "Plus in der iPhone-App",
-    pendingBody: "Dein Code für kostenloses Plus in der iOS-App erscheint bald hier.",
+    pendingBody: "Dein Code für kostenloses Plus in der iOS-App erscheint bald in den Einstellungen.",
+    expiredBody: "Dieser Code ist abgelaufen. Schreib dem Support – wir schicken dir einen neuen.",
+    support: "Support kontaktieren",
   },
   fr: {
     title: "Plus dans l’app iPhone",
@@ -56,7 +64,9 @@ export const appCodeStrings: Record<Locale, AppCodeStrings> = {
     redeem: "Utiliser dans l’App Store",
     oneAccount: "Le code est à usage unique : il débloque Plus à vie pour un compte Apple.",
     pendingTitle: "Plus dans l’app iPhone",
-    pendingBody: "Ton code pour Plus gratuit dans l’app iOS apparaîtra bientôt ici.",
+    pendingBody: "Ton code pour Plus gratuit dans l’app iOS apparaîtra bientôt dans les Réglages.",
+    expiredBody: "Ce code a expiré. Écris au support : on t’en enverra un nouveau.",
+    support: "Contacter le support",
   },
   ja: {
     title: "iPhoneアプリのPlus",
@@ -67,6 +77,8 @@ export const appCodeStrings: Record<Locale, AppCodeStrings> = {
     redeem: "App Storeで引き換える",
     oneAccount: "コードは1回限り。1つのApple Accountで Plus（買い切り）が使えるようになります。",
     pendingTitle: "iPhoneアプリのPlus",
-    pendingBody: "iOSアプリのPlusを無料で使えるコードが、まもなくここに表示されます。",
+    pendingBody: "iOSアプリのPlusを無料で使えるコードが、まもなく「設定」に表示されます。",
+    expiredBody: "このコードは有効期限が切れています。サポートに連絡すると新しいコードをお送りします。",
+    support: "サポートに連絡",
   },
 };
