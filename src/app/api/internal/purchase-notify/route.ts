@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { claimPing, notifyPurchase, type PurchaseKind } from "@/lib/purchaseNotify";
+import crypto from "node:crypto";
+import { notifyPurchaseLater, type PurchaseKind } from "@/lib/purchaseNotify";
 
 export const dynamic = "force-dynamic";
 
@@ -19,8 +20,8 @@ export async function POST(req: Request) {
   if (!kind) return NextResponse.json({ error: "bad request" }, { status: 400 });
   const stars = Number.isInteger(body.stars) && (body.stars as number) > 0 ? (body.stars as number) : null;
 
-  if (typeof body.ref === "string" && body.ref && !claimPing(body.ref)) return NextResponse.json({ ok: true, sent: 0 });
-
-  const sent = await notifyPurchase({ kind, provider: "stars", stars });
-  return NextResponse.json({ ok: true, sent });
+  // Delivery retries for up to ~30 min, so it runs after the response (the bot does not wait).
+  const ref = typeof body.ref === "string" && body.ref ? body.ref.slice(0, 200) : `bot:${crypto.randomUUID()}`;
+  const queued = notifyPurchaseLater({ kind, provider: "stars", stars }, ref);
+  return NextResponse.json({ ok: true, queued });
 }

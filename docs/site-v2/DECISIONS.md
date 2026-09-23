@@ -79,6 +79,8 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
   product, amount, payment method, checkout source, today's ₽ payments (Moscow day) and the
   number of lifetime users — no buyer personal data (`src/lib/purchaseNotify.ts`). Recipients:
   `PURCHASE_NOTIFY_TG_IDS`, else admins with a linked Telegram. One ping per payment ref.
+  The server (Russia) loses connections to api.telegram.org now and then, so each message is
+  retried with backoff for ~30 min and also tried via the Bot API addresses directly.
 - **Telegram Stars sales are off** (owner). The bot sends no invoices, declines pre-checkout of
   old invoices and points `/start`, `/buy` and old buy links to `/ru/plus`; the payment offer no
   longer mentions Stars. The bot still finishes a Stars payment that was already under way.

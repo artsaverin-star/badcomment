@@ -1,3 +1,4 @@
+import https from "node:https";
 import { after } from "next/server";
 import { prisma } from "./prisma";
 
@@ -12,6 +13,9 @@ import { prisma } from "./prisma";
 // callers use notifyPurchaseLater(), which runs after the response and pings a payment ref at
 // most once per process (the site is one `next start` process). The text carries no personal
 // data — product, amount, payment method, source and totals only.
+// The server is in Russia and its connections to api.telegram.org are dropped now and then
+// (2026-09): every message is retried with backoff for ~30 minutes, and each attempt also tries
+// the Bot API addresses directly (TLS still verifies api.telegram.org).
 
 export type PurchaseKind = "lifetime" | "deck" | "category" | "tokens";
 
@@ -123,7 +127,76 @@ async function recipients(): Promise<string[]> {
   return parseTgIds(admins.map((a) => a.telegramId).join(","));
 }
 
-/** Sends the ping now. Resolves to the number of chats reached; never throws. */
+/** Delivery knobs (tests shorten the delays and switch the direct addresses off). */
+export const telegramDelivery = {
+  /** Known Bot API addresses, tried when the normal route fails. */
+  directIps: ["149.154.167.220", "149.154.166.110"],
+  /** Wait before each attempt: ~31.5 minutes in total. */
+  retryDelaysMs: [0, 15_000, 60_000, 180_000, 600_000, 1_200_000],
+};
+
+type SendResult = "sent" | "rejected" | "failed";
+
+/** POST to https://api.telegram.org<path> via one fixed IPv4 address; resolves the HTTP status. */
+function postViaIp(ip: string, path: string, body: string): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      {
+        host: "api.telegram.org",
+        path,
+        method: "POST",
+        headers: { "content-type": "application/json", "content-length": Buffer.byteLength(body) },
+        timeout: 8000,
+        lookup: (_host, opts, cb) =>
+          (opts as { all?: boolean }).all ? (cb as (e: null, a: { address: string; family: number }[]) => void)(null, [{ address: ip, family: 4 }]) : cb(null, ip, 4),
+      },
+      (res) => {
+        res.resume();
+        resolve(res.statusCode ?? 0);
+      },
+    );
+    req.on("timeout", () => req.destroy(new Error("timeout")));
+    req.on("error", reject);
+    req.end(body);
+  });
+}
+
+/** One attempt: the normal route, then each direct address. 4xx = Telegram said no (final). */
+async function sendOnce(token: string, payload: string): Promise<SendResult> {
+  const base = process.env.TELEGRAM_API_BASE || "https://api.telegram.org";
+  const status = await fetch(`${base}/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: payload,
+    signal: AbortSignal.timeout(8000),
+  }).then((r) => r.status, () => 0);
+  if (status >= 200 && status < 300) return "sent";
+  if (status >= 400 && status < 500 && status !== 429) return "rejected";
+  if (process.env.TELEGRAM_API_BASE) return "failed";
+  for (const ip of telegramDelivery.directIps) {
+    const s = await postViaIp(ip, `/bot${token}/sendMessage`, payload).catch(() => 0);
+    if (s >= 200 && s < 300) return "sent";
+    if (s >= 400 && s < 500 && s !== 429) return "rejected";
+  }
+  return "failed";
+}
+
+async function sendWithRetry(token: string, chatId: string, text: string): Promise<boolean> {
+  const payload = JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true });
+  for (const delay of telegramDelivery.retryDelaysMs) {
+    if (delay) await new Promise((r) => setTimeout(r, delay));
+    const result = await sendOnce(token, payload).catch((): SendResult => "failed");
+    if (result === "sent") return true;
+    if (result === "rejected") {
+      console.error("purchase notify: telegram rejected the message (has the owner started the bot?)");
+      return false;
+    }
+  }
+  console.error("purchase notify: telegram unreachable, gave up");
+  return false;
+}
+
+/** Sends the ping (retrying for up to ~30 min). Resolves to the number of chats reached; never throws. */
 export async function notifyPurchase(p: PurchaseInfo): Promise<number> {
   if (process.env.PURCHASE_NOTIFY === "off") return 0;
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -138,19 +211,8 @@ export async function notifyPurchase(p: PurchaseInfo): Promise<number> {
       return 0;
     }
     const text = formatPurchaseMessage(p, stats);
-    const api = `${process.env.TELEGRAM_API_BASE || "https://api.telegram.org"}/bot${token}/sendMessage`;
-    let sent = 0;
-    for (const chatId of to) {
-      const r = await fetch(api, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
-        signal: AbortSignal.timeout(8000),
-      }).catch(() => null);
-      if (r?.ok) sent++;
-      else console.error(`purchase notify: telegram ${r ? r.status : "unreachable"}`);
-    }
-    return sent;
+    const results = await Promise.all(to.map((chatId) => sendWithRetry(token, chatId, text)));
+    return results.filter(Boolean).length;
   } catch {
     console.error("purchase notify: failed");
     return 0;
@@ -173,11 +235,12 @@ export function claimPing(ref: string, now = Date.now()): boolean {
  * Schedules the ping after the response (Next `after`); outside a request it just starts it.
  * `ref` = the payment ref ("yk:<id>", "tg:<charge id>"): pinged at most once.
  */
-export function notifyPurchaseLater(p: PurchaseInfo, ref: string): void {
-  if (!claimPing(ref)) return;
+export function notifyPurchaseLater(p: PurchaseInfo, ref: string): boolean {
+  if (!claimPing(ref)) return false;
   try {
     after(() => notifyPurchase(p));
   } catch {
     void notifyPurchase(p);
   }
+  return true;
 }

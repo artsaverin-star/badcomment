@@ -1,7 +1,8 @@
 // Owner's Telegram ping on a new purchase (src/lib/purchaseNotify.ts): message text, recipients,
 // the YooKassa webhook (one ping per payment, none for re-deliveries — also concurrent ones — or
 // unpaid payments), the bot's internal endpoints, the kill switch, that buyer-influenced text
-// cannot become a link, and that a Telegram outage never breaks payments.
+// cannot become a link, retries through a flaky connection, and that a Telegram outage never
+// breaks payments.
 // Amounts use Intl's ru-RU group separator (no-break space, \u00a0), so "1 499 ₽" never wraps.
 // Runs the real route handlers against a throw-away SQLite DB; YooKassa and Telegram are local
 // fakes — nothing leaves the machine.
@@ -41,6 +42,9 @@ type Payment = { id: string; status: string; paid: boolean; metadata: Record<str
 const payments = new Map<string, Payment>();
 const sent: Array<{ url: string; chat_id: string; text: string }> = [];
 let telegramDown = false;
+let telegramCalls = 0;
+let telegramDropsLeft = 0; // the next N calls fail at the network level (flaky connection)
+let telegramStatus = 200;
 
 const realFetch = globalThis.fetch;
 globalThis.fetch = (async (input: string | URL | Request, init?: RequestInit) => {
@@ -50,7 +54,13 @@ globalThis.fetch = (async (input: string | URL | Request, init?: RequestInit) =>
     return p ? new Response(JSON.stringify(p), { status: 200 }) : new Response("{}", { status: 404 });
   }
   if (url.startsWith("https://api.telegram.org/")) {
+    telegramCalls++;
     if (telegramDown) throw new TypeError("fetch failed");
+    if (telegramDropsLeft > 0) {
+      telegramDropsLeft--;
+      throw new TypeError("fetch failed");
+    }
+    if (telegramStatus !== 200) return new Response(JSON.stringify({ ok: false }), { status: telegramStatus });
     const body = JSON.parse(String(init?.body ?? "{}")) as { chat_id: string; text: string };
     sent.push({ url, chat_id: String(body.chat_id), text: body.text });
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
@@ -89,11 +99,17 @@ before(async () => {
   webhook = await import("../../src/app/api/pay/yookassa/webhook/route");
   grantRoute = await import("../../src/app/api/internal/grant/route");
   notifyRoute = await import("../../src/app/api/internal/purchase-notify/route");
+  // No real network: no direct-IP fallback; retries 30 ms apart instead of minutes.
+  notify.telegramDelivery.directIps = [];
+  notify.telegramDelivery.retryDelaysMs = [0, 30, 30];
 });
 
 beforeEach(async () => {
   sent.length = 0;
   telegramDown = false;
+  telegramCalls = 0;
+  telegramDropsLeft = 0;
+  telegramStatus = 200;
   delete process.env.PURCHASE_NOTIFY_TG_IDS;
   delete process.env.PURCHASE_NOTIFY;
   await prisma.tokenLedger.deleteMany();
@@ -205,6 +221,24 @@ describe("YooKassa webhook", () => {
     assert.match(sent[0].text, /^🧪 Тестовый платёж\n💰 Новая покупка: inApp Plus навсегда\n1\u00a0499 ₽ · ЮKassa, карта/);
   });
 
+  test("flaky connection: retried until delivered, exactly once", async () => {
+    telegramDropsLeft = 2;
+    yk("p-flaky");
+    await webhook.POST(post("/api/pay/yookassa/webhook", { object: { id: "p-flaky" } }));
+    await settle(1);
+    assert.equal(sent.length, 1);
+    assert.equal(telegramCalls, 3);
+  });
+
+  test("Telegram says no (4xx): not retried", async () => {
+    telegramStatus = 403;
+    yk("p-403");
+    await webhook.POST(post("/api/pay/yookassa/webhook", { object: { id: "p-403" } }));
+    await settle(1, 300);
+    assert.equal(sent.length, 0);
+    assert.equal(telegramCalls, 1);
+  });
+
   test("Telegram down: the purchase is still granted and acknowledged", async () => {
     telegramDown = true;
     yk("p4");
@@ -247,9 +281,11 @@ describe("bot endpoints", () => {
     assert.equal((await notifyRoute.POST(post("/api/internal/purchase-notify", { secret: "test-session-secret", kind: "car" }))).status, 400);
     assert.equal(sent.length, 0);
     const body = { secret: "test-session-secret", kind: "tokens", stars: 500, ref: "tg:t1" };
-    assert.deepEqual(await (await notifyRoute.POST(post("/api/internal/purchase-notify", body))).json(), { ok: true, sent: 1 });
+    assert.deepEqual(await (await notifyRoute.POST(post("/api/internal/purchase-notify", body))).json(), { ok: true, queued: true });
+    await settle(1);
     assert.match(sent[0].text, /^💰 Новая покупка: пакет энергии \(старый товар\)\n500 ⭐ · Telegram Stars/);
-    assert.deepEqual(await (await notifyRoute.POST(post("/api/internal/purchase-notify", body))).json(), { ok: true, sent: 0 }, "same ref twice");
+    assert.deepEqual(await (await notifyRoute.POST(post("/api/internal/purchase-notify", body))).json(), { ok: true, queued: false }, "same ref twice");
+    await settle(2, 300);
     assert.equal(sent.length, 1);
   });
 });
