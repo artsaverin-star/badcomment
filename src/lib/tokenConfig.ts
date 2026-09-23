@@ -13,8 +13,8 @@ export const LIFETIME = { rub: 2990, stars: 1500 };
 // price. While LAUNCH_PROMO is on, every Lifetime surface sells at FRIEND_PRICE_RUB
 // (the old price shown struck-through). Grants lifetime on payment. Flip
 // LAUNCH_PROMO to false to end the promo everywhere in one place.
-export const FRIEND_PRICE_RUB = 990;
-export const FRIEND_DISCOUNT_PCT = 70; // advertised launch discount
+export const FRIEND_PRICE_RUB = 1499; // owner, 2026-09-23 (was 990)
+export const FRIEND_DISCOUNT_PCT = 50; // advertised launch discount
 export const LAUNCH_PROMO = true;
 // The actual price shown and charged today. Keep a single public value so the
 // header, paywalls, legal offer, analytics and payment route cannot drift.

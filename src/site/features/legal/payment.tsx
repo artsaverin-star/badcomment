@@ -9,7 +9,7 @@ import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
 // The website's public payment offer (публичная оферта) — /<L>/offer/payment. Required by
 // YooKassa; the checkout links here. The Russian text is the legal document and is kept
 // byte-identical to src/app/(old)/offer/payment/page.tsx in every locale (the price comes from
-// ACCESS_PRICE_RUB, prices are frozen — DECISIONS §10). /offer (Terms of Use) is NOT this page.
+// ACCESS_PRICE_RUB — DECISIONS §10). /offer (Terms of Use) is NOT this page.
 
 export type PaymentDoc = { title: string; edition: string; sections: Array<[string, ReactNode]> };
 

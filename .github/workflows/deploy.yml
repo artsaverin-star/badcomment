@@ -161,7 +161,7 @@ jobs:
           grep -q 'authorization_required' /tmp/mcp-smoke.json
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/access-page.html https://inapp.pro/ru/tokens
-          grep -q '990' /tmp/access-page.html
+          grep -q '1499' /tmp/access-page.html
           # Retired experiments must stay unavailable in both locales, in place and inside /old.
           for locale in ru en; do
             for path in aso workspace workspace/habit-tracking; do
@@ -205,10 +205,10 @@ jobs:
           # support URL, /en/offer the Terms of Use; neither may show the web price.
           expect_200 https://inapp.pro/en/contacts
           grep -q 'inApp Support' /tmp/smoke-body.html
-          if grep -q '990' /tmp/smoke-body.html; then echo "/en/contacts mentions 990"; exit 1; fi
+          if grep -qE '990|1499|1 499' /tmp/smoke-body.html; then echo "/en/contacts mentions a web price"; exit 1; fi
           expect_200 https://inapp.pro/en/offer
           grep -q 'Terms of Use' /tmp/smoke-body.html
-          if grep -q '990' /tmp/smoke-body.html; then echo "/en/offer mentions 990"; exit 1; fi
+          if grep -qE '990|1499|1 499' /tmp/smoke-body.html; then echo "/en/offer mentions a web price"; exit 1; fi
           expect_200 https://inapp.pro/ru/segment/interior-design
           expect_200 https://inapp.pro/ru/old
           grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt

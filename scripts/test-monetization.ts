@@ -4,7 +4,7 @@ import { ACCESS_PRICE_RUB } from "../src/lib/tokenConfig";
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
-assert.equal(ACCESS_PRICE_RUB, 990, "The public price and the charged price must share one source of truth");
+assert.equal(ACCESS_PRICE_RUB, 1499, "The public price and the charged price must share one source of truth");
 
 const checkoutRoute = read("src/app/api/pay/yookassa/route.ts");
 assert.match(checkoutRoute, /paymentAttempt\.create/, "Checkout must create a server-side attempt before redirecting");

@@ -395,7 +395,7 @@ const OLD_PAGES = [
   { p: "/ru/segment/qr-scanner", noindex: false, banner: "inplace", contains: ["Скоро обновление"], why: "soon banner" },
   { p: "/en/segment/qr-scanner", noindex: false, banner: "inplace", contains: ["Update coming soon"], why: "soon banner" },
   { p: "/ru/mcp", contains: ["list_niche_themes"] },
-  { p: "/ru/tokens", contains: ["990"] },
+  { p: "/ru/tokens", contains: ["1499"] },
 ];
 for (const o of OLD_PAGES) {
   const what = [o.noindex ? "noindex" : null, o.banner ? `banner=${o.banner}` : null, ...(o.contains ?? []).map((s) => `"${s}"`)].filter(Boolean);
@@ -514,6 +514,7 @@ for (const [p, marker] of [
 const FORBIDDEN = [
   // "990" but not RSC row ids / references ("$990", "$L990", "990:") or longer numbers
   ["990", /(?<![\w$@.])990(?![\w:])/g],
+  ["1499", /(?<![\w$@.])1[\s\u00a0\u202f]?499(?![\w:])/g],
   ["₽", /₽/g],
   ["ЮKassa", /ЮKassa/gi],
   ["YooKassa", /YooKassa/gi],

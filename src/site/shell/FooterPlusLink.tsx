@@ -9,7 +9,7 @@ import { parsePublicPath, routes } from "../routing";
 // so they follow client-side navigation (the footer lives in the root layout, which is not
 // re-rendered between pages):
 //   • all hidden on the Apple-facing /offer and /contacts (DECISIONS "Legal pages": no buy
-//     UI and no website prices there — the payment offer names the 990 ₽ price, and the old
+//     UI and no website prices there — the payment offer names the web price, and the old
 //     site's header sells the same access; the iOS app opens /offer from its Settings); the
 //     payment offer also stays off the landing (owner, 2026-09-23: no web prices on the landing);
 //   • on the landing «inApp Plus» jumps to its own Plus section (spec 08 S13), not to the paywall.

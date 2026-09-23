@@ -1,6 +1,6 @@
 // The web Plus offer — client-safe facts and helpers shared by the paywall and the payment
-// return page. Prices are FROZEN (DECISIONS §10): the web sells only the existing YooKassa
-// "lifetime" SKU at ACCESS_PRICE_RUB (990 ₽), presented as the app's «Навсегда» plan. The
+// return page. The web sells only the existing YooKassa "lifetime" SKU
+// (DECISIONS §10) at ACCESS_PRICE_RUB (1499 ₽ since 2026-09-23), presented as the app's «Навсегда» plan. The
 // price has one source of truth (src/lib/tokenConfig.ts) — never hard-code it here.
 
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";
@@ -17,7 +17,7 @@ export const PLUS_ITEM = { id: "lifetime", name: "inApp — полный дос�
 
 export type PayMethod = "bank_card" | "sbp";
 
-/** "990 ₽" / "₽990" in the page locale (currency RUB, no kopecks). */
+/** "1499 ₽" / "₽1,499" in the page locale (currency RUB, no kopecks). */
 export function formatRub(locale: Locale, amount: number): string {
   return new Intl.NumberFormat(INTL_LOCALE[locale], {
     style: "currency",

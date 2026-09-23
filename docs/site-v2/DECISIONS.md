@@ -47,8 +47,9 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
     `ia_session` cookie, same YooKassa flow). Plus on the web = `getAccess().unlimited`.
     People who bought on the old site have Plus on the new one.
     **Prices are frozen (owner, 2026-09-22):** the web keeps selling the existing YooKassa
-    "lifetime" SKU at the current `ACCESS_PRICE_RUB` (990 ₽), presented as Plus. No annual web
-    plan, no price changes, no edits to `tokenConfig.ts` prices or to the offer text.
+    "lifetime" SKU at the current `ACCESS_PRICE_RUB`, presented as Plus. **Price: 1499 ₽ since
+    2026-09-23** (owner; was 990 ₽; `FRIEND_PRICE_RUB` in `src/lib/tokenConfig.ts`). No annual web
+    plan; the price changes only on the owner's word.
 11. Saved items and notes: local-first for guests (like the app, "stored on this device"),
     synced to the account after sign-in.
 
@@ -63,7 +64,7 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
 
 ## Web purchases in the iOS app (2026-09-23)
 
-- Plus bought on the website (Russia only, YooKassa 990 ₽) reaches the iOS app **through the
+- Plus bought on the website (Russia only, YooKassa 1499 ₽) reaches the iOS app **through the
   inApp account** (Guideline 3.1.3(b), docs/site-v2/APP-ACCOUNTS.md): the buyer signs in to the
   same account in the app's Settings → Account (app 1.1+). The website shows this as the card
   «Plus и в приложении для iPhone» (Settings, payment return; `AppAccessCard.tsx`).
@@ -77,7 +78,7 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
 - `/<L>/offer` = **Terms of Use** for the app and the site (Apple standard EULA + inApp Plus
   subscription disclosures). It must never mention website prices or web payment methods — the
   iOS app's «Условия использования» row opens it and App Review reads it.
-- `/<L>/offer/payment` = the website's **public payment offer** (YooKassa, 990 ₽), text unchanged.
+- `/<L>/offer/payment` = the website's **public payment offer** (YooKassa, price from `ACCESS_PRICE_RUB`; edition date bumped with each price change).
   Footers link both; checkout UI links `/offer/payment`.
 - `/<L>/contacts` = **Support** page (App Store support URL `/en/contacts`): English on `/en`,
   contact e-mail, restore/cancel/refund via Apple, seller requisites; no price or buy CTA in the
