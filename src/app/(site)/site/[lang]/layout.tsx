@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import "@/site/styles/site.css";
@@ -67,7 +67,15 @@ export default async function SiteRootLayout({ children, params }: Props) {
 
   const jar = await cookies();
   const theme = toTheme(jar.get(THEME_COOKIE)?.value);
-  const appBannerDismissed = jar.get(APP_BANNER_COOKIE)?.value === "hidden";
+  // iOS Safari shows Apple's native Smart App Banner (metadata.itunes) once the app is live —
+  // don't stack our own "open in app" banner on top of it there.
+  const ua = (await headers()).get("user-agent") ?? "";
+  const nativeAppBanner =
+    Boolean(APP_STORE_URL) &&
+    /iPhone|iPad|iPod/.test(ua) &&
+    /Safari\//.test(ua) &&
+    !/CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser|GSA\/|FBAN|FBAV|Instagram|Line\//.test(ua);
+  const appBannerDismissed = nativeAppBanner || jar.get(APP_BANNER_COOKIE)?.value === "hidden";
   const [t, viewer] = await Promise.all([getT(lang), getViewer()]);
 
   return (

@@ -7,16 +7,15 @@ export const BRAND = "inApp";
 /** Canonical origin for metadata, canonicals, hreflang and JSON-LD. */
 export const SITE_URL = "https://inapp.pro";
 
-/** The iOS app (in App Review since 2026-09-21, DECISIONS §13). */
+/** The iOS app «App Ideas & Niches: inApp» — approved and on sale since 2026-09-23. */
 export const APP_STORE_APP_ID = "6814396315";
 
 /**
- * The App Store link of the iOS app. EMPTY while Apple reviews the app: every App Store
- * badge then opens the "in review, continue on the web" dialog instead of a link.
- * The owner pastes the link here by hand after approval, e.g.
- * "https://apps.apple.com/app/id6814396315". No automatic polling of Apple (DECISIONS §13).
+ * The App Store link of the iOS app. Storefront-neutral on purpose: Apple opens the
+ * visitor's own country store (the site has 5 locales). Set to "" to bring back the
+ * "in review, continue on the web" dialog on every badge.
  */
-export const APP_STORE_URL: string = "";
+export const APP_STORE_URL: string = "https://apps.apple.com/app/id6814396315";
 
 /** Support address = the developer e-mail in App Store Connect (src/data/legal.json → appDeveloper). */
 export const SUPPORT_EMAIL: string = legal.appDeveloper.email;
