@@ -6,7 +6,7 @@ import { ideaCategorySlug } from "@/site/content/text";
 import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
 import { format } from "@/site/i18n/strings";
 import { routes } from "@/site/routing";
-import { CheckIcon, FilterIcon, SearchField, Sheet, SheetAction } from "@/site/ui";
+import { FilterIcon, PickerSheet, SearchField, type PickerOption } from "@/site/ui";
 import { IdeaCard } from "./IdeaCard";
 import { ideasStrings } from "./strings";
 import "./ideas.css";
@@ -74,6 +74,14 @@ export function IdeasCatalog({
     return () => window.clearTimeout(timer);
   }, [locale, query, category]);
 
+  const pickerOptions = useMemo<PickerOption[]>(
+    () => [
+      { value: null, label: t("Все категории") },
+      ...pickerCategories(categories, "", locale).map((c) => ({ value: c.slug, label: c.name })),
+    ],
+    [categories, locale, t],
+  );
+
   const categoryName = category ? categories.find((c) => c.slug === category)?.name : undefined;
   const pillLabel = categoryName ?? t("Все категории");
   const filtering = deferredQuery.trim() !== "" || category !== null;
@@ -101,7 +109,7 @@ export function IdeasCatalog({
         />
         <button
           type="button"
-          className="ia-ideas__pill"
+          className="ia-pill"
           aria-haspopup="dialog"
           aria-label={format(s.categoryPickerOpen, { name: pillLabel })}
           onClick={() => setPickerOpen(true)}
@@ -157,10 +165,15 @@ export function IdeasCatalog({
         </span>
       ) : null}
 
-      <CategoryPicker
+      {/* ClarityTopicPicker (spec 02 §2.5, 09 G5): «Категория» sheet with «Готово», a filter
+          «Найти категорию» (plain substring on the name), «Все категории» always first, then the
+          35 names sorted with the locale collator; a tap selects and closes. */}
+      <PickerSheet
         open={pickerOpen}
         onClose={() => setPickerOpen(false)}
-        categories={categories}
+        title={t("Категория")}
+        searchPlaceholder={t("Найти категорию")}
+        options={pickerOptions}
         selected={category}
         onSelect={(slug) => {
           setCategory(slug);
@@ -169,75 +182,5 @@ export function IdeasCatalog({
         }}
       />
     </div>
-  );
-}
-
-/**
- * ClarityTopicPicker (spec 02 §2.5, 09 G5): «Категория» sheet with «Готово», a filter
- * «Найти категорию» (plain substring on the name), «Все категории» always first, then the 35
- * names sorted with the locale collator; the selected row has a checkmark; a tap selects and closes.
- */
-function CategoryPicker({
-  open,
-  onClose,
-  categories,
-  selected,
-  onSelect,
-}: {
-  open: boolean;
-  onClose: () => void;
-  categories: CatalogCategoryOption[];
-  selected: string | null;
-  onSelect: (slug: string | null) => void;
-}) {
-  const locale = useLocale();
-  const t = useT();
-  const [filter, setFilter] = useState("");
-  const [wasOpen, setWasOpen] = useState(open);
-  if (open !== wasOpen) {
-    setWasOpen(open);
-    if (open) setFilter("");
-  }
-  const rows = useMemo(() => pickerCategories(categories, filter, locale), [categories, filter, locale]);
-
-  const row = (slug: string | null, name: string) => {
-    const isSelected = slug === selected;
-    return (
-      <li key={slug ?? "*"}>
-        <button
-          type="button"
-          className="ia-picker__row"
-          aria-pressed={isSelected}
-          onClick={() => onSelect(slug)}
-        >
-          <span>{name}</span>
-          {isSelected ? <CheckIcon size={18} strokeWidth={2.4} aria-hidden="true" /> : null}
-        </button>
-      </li>
-    );
-  };
-
-  return (
-    <Sheet
-      open={open}
-      onClose={onClose}
-      title={t("Категория")}
-      trailing={<SheetAction onClick={onClose}>{t("Готово")}</SheetAction>}
-      size="settings"
-      full
-    >
-      <div className="ia-picker">
-        <SearchField
-          value={filter}
-          onValueChange={setFilter}
-          placeholder={t("Найти категорию")}
-          clearLabel={t("Очистить поиск")}
-        />
-        <ul className="ia-picker__list">
-          {row(null, t("Все категории"))}
-          {rows.map((c) => row(c.slug, c.name))}
-        </ul>
-      </div>
-    </Sheet>
   );
 }

@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useEffect, type ReactNode } from "react";
 import type { ViewerSummary } from "../access";
 import { useWeb } from "../i18n/client";
-import { isTabRoot, parsePublicPath } from "../routing";
+import { isTabRoot, parsePublicPath, sectionOf } from "../routing";
 import { AppStoreDialogHost } from "../ui/AppStore";
 import { ToastHost } from "../ui/Toast";
 import { registerNavigator } from "./actions";
@@ -23,6 +23,8 @@ import { ViewerContext } from "./ViewerContext";
 //     (spec 01 §1.3; ClarityReader.swift:193-195);
 //   • the three tab roots: the mobile floating tab bar (spec 01 §1.2);
 //   • /<L>/welcome: nothing (full-screen onboarding replay).
+// The web-only sections (rating, reviews, MCP) behave like a tab: the section root has the
+// compact header, its inner pages are pushed screens with a «Назад» toolbar.
 // `reading` marks the long-read pages (reading paper canvas) for the chrome's CSS.
 
 export type ChromeParts = {
@@ -41,8 +43,10 @@ export function chromeFor(pathname: string | null | undefined): ChromeParts {
     return { banner: false, topNav: false, compactHeader: false, footer: false, tabBar: false, reading: false };
   }
   // /<L>/segment/<slug> and /<L>/ideas/<id> (the new site only renders launch topics/ideas).
-  const reading = segments.length === 2 && (first === "segment" || first === "ideas");
-  const pushed = reading || (segments.length === 2 && first === "settings" && segments[1] === "about");
+  const methodology = first === "reviews" && segments[1] === "methodology";
+  const reading = (segments.length === 2 && (first === "segment" || first === "ideas")) || methodology;
+  const section = sectionOf(pathname) !== null && segments.length > 1;
+  const pushed = reading || section || (segments.length === 2 && first === "settings" && segments[1] === "about");
   return { banner: true, topNav: true, compactHeader: !pushed, footer: true, tabBar: isTabRoot(pathname), reading };
 }
 

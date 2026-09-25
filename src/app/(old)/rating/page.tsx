@@ -41,12 +41,13 @@ export async function generateMetadata(): Promise<Metadata> {
     : "Up to 100 apps in each niche: an editorial review-based score and a comparison between the storefront star and review content.";
   const url = `https://inapp.pro/${ru ? "ru" : "en"}/rating`;
   const og = ogImage(ru);
+  // Archived copy (/<L>/old/rating): noindex without canonical/hreflang — a canonical to the live
+  // page next to noindex could carry the noindex over to it (spec 11 §6.5; ARCHITECTURE §5).
   return {
     title, description,
-    alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/rating", en: "https://inapp.pro/en/rating", "x-default": "https://inapp.pro/en/rating" } },
     openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [og] },
     twitter: { card: "summary_large_image", title, description, images: [og] },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
   };
 }
 

@@ -132,39 +132,8 @@
   max-width: 680px;
   box-sizing: border-box;
 }
-.ia-ideas__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  max-width: 100%;
-  min-height: 44px;
-  box-sizing: border-box;
-  padding: 13px 17px;
-  border: 0;
-  border-radius: var(--ia-radius-pill);
-  background: var(--ia-surface);
-  color: var(--ia-ink);
-  font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: opacity var(--ia-dur-press) var(--ia-ease-press);
-}
-.ia-ideas__pill:active {
-  opacity: 0.8;
-}
-.ia-ideas__pill > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.ia-ideas__pill svg {
-  flex: none;
-}
-@media (hover: hover) {
-  .ia-ideas__pill:hover {
-    background: color-mix(in srgb, var(--ia-surface) 92%, var(--ia-ink));
-  }
-}
+/* The category pill is the shared .ia-pill and its picker the shared PickerSheet
+   (.ia-picker*), both in site.css. */
 /* The pill is 14 above the first card (LazyVStack spacing 14, ClarityCatalogs.swift:189). */
 .ia-ideas__grid {
   margin: 0;
@@ -188,55 +157,6 @@
 }
 .ia-ideas__promo {
   margin-top: 18px;
-}
-
-/* ---- Category picker (ClarityTopicPicker, spec 02 §2.5, 09 G5) ---- */
-.ia-picker {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.ia-picker__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-radius: var(--ia-radius-card);
-  background: var(--ia-surface);
-  overflow: hidden;
-}
-.ia-picker__row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  min-height: 44px;
-  box-sizing: border-box;
-  /* A List row (44) + .padding(.vertical, 7) ≈ 58 (ClarityCatalogs.swift:272). */
-  padding: 18px 20px;
-  border: 0;
-  background: transparent;
-  color: var(--ia-ink);
-  font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
-  text-align: start;
-  cursor: pointer;
-}
-/* Separators inset 20 from the leading edge, like the system List. */
-.ia-picker__list > li + li .ia-picker__row {
-  background-image: linear-gradient(var(--ia-line-65), var(--ia-line-65));
-  background-position: 20px 0;
-  background-size: calc(100% - 20px) 1px;
-  background-repeat: no-repeat;
-}
-.ia-picker__row > span {
-  flex: 1;
-}
-.ia-picker__row:focus-visible {
-  outline-offset: -2px;
-}
-@media (hover: hover) {
-  .ia-picker__row:hover {
-    background-color: var(--ia-ink-045);
-  }
 }
 
 /* ---- Idea reader (spec 02 §3.4, spec 05 §3.6 M) ---- */

@@ -61,6 +61,26 @@ export const routes = {
   contacts: (l: Locale) => href(l, "contacts"),
   offer: (l: Locale) => href(l, "offer"),
   privacy: (l: Locale) => href(l, "privacy"),
+  /**
+   * «Рейтинг» (web-only): niches → the apps of a niche → one app. The optional query is the
+   * lists' view state (?q= search, ?sort= order; features/rating/viewState.ts).
+   */
+  rating: (l: Locale, q?: { q?: string }) => href(l, "rating") + queryString(q),
+  ratingNiche: (l: Locale, niche: string, q?: { q?: string; sort?: string }) => href(l, "rating", niche) + queryString(q),
+  ratingApp: (l: Locale, niche: string, app: string) => href(l, "rating", niche, app),
+  /**
+   * A niche's task page «Выбор по задаче» (ClarityScenarioView): `n` is the 1-based index of
+   * the scenario in the niche's data. The static `tasks` segment wins over an app slug; the
+   * rating reader never hands out the app slug "tasks" (sitedata/rating.ts slug index).
+   */
+  ratingTask: (l: Locale, niche: string, n: number) => href(l, "rating", niche, "tasks", String(n)),
+  /** «Отзывы» (web-only): the review archive — categories → apps → every review of an app. */
+  reviews: (l: Locale) => href(l, "reviews"),
+  reviewsNiche: (l: Locale, niche: string) => href(l, "reviews", niche),
+  reviewsApp: (l: Locale, niche: string, appId: string) => href(l, "reviews", niche, appId),
+  reviewsMethodology: (l: Locale) => href(l, "reviews", "methodology"),
+  /** «MCP» (web-only): the MCP server page. */
+  mcp: (l: Locale) => href(l, "mcp"),
   /** The previous site (ru/en only; de/fr/ja read the English archive). Plain <a>. */
   oldSite: (l: Locale, path: string = "") => `/${toOldLocale(l)}/old${path && path !== "/" ? (path.startsWith("/") ? path : `/${path}`) : ""}`,
 } as const;
@@ -100,6 +120,16 @@ export function tabOf(pathname: string | null | undefined): Tab | null {
   if (a === "ideas") return "ideas";
   if (a === "saved" || a === "settings") return "saved";
   return null;
+}
+
+/** The web-only sections (not app tabs), in navigation order: «Рейтинг», «Отзывы», «MCP». */
+export const SECTIONS = ["rating", "reviews", "mcp"] as const;
+export type Section = (typeof SECTIONS)[number];
+
+/** Which web-only section a public path belongs to. */
+export function sectionOf(pathname: string | null | undefined): Section | null {
+  const [a] = parsePublicPath(pathname).segments;
+  return (SECTIONS as readonly string[]).includes(a) ? (a as Section) : null;
 }
 
 /** True on the three tab roots, where the mobile floating tab bar is shown. */

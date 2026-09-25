@@ -1,0 +1,146 @@
+/* «Отзывы» — the review archive: categories, the apps of a category, the reviews of an app and
+   the methodology (web-only; the app has no archive, redesign spec §4). Built from the Clarity
+   blocks in site.css (page stack, Row/RowCard, section head, QuoteBlock, pills, menus, pickers)
+   plus research.css (lock card, empty card, reader hero/sections) and library.css (the Saved
+   rows of a category's apps); the pages import those sheets. Only what is specific to the
+   archive lives here. Unlayered on purpose like the other feature sheets; every selector is
+   prefixed ia-rv-. Tokens only. */
+
+/* -------------------------------------------------------------------------- */
+/* Reviews of an app                                                          */
+/* -------------------------------------------------------------------------- */
+
+/* Search, then the filter row: 14 apart, the search + pill rhythm of the ideas catalogue
+   (LazyVStack spacing 14, ClarityCatalogs.swift:189). */
+.ia-rv-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* Topic pill and rating pill (their labels wrap, site.css .ia-pill > span). */
+.ia-rv-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The list head (title + count, «Порядок» at the trailing edge), then the loading / failure
+   footnote. The count sits 8 after the title on its baseline (ClarityMy.swift:222-223). */
+.ia-rv-listhead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ia-rv-listhead__title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* One grouped box (Card variant="group"); one ClarityQuoteBlock per review. Dividers are a
+   hairline inset on the leading edge only, like the grouped lists. */
+.ia-rv-review {
+  position: relative;
+  padding: 20px 22px;
+}
+.ia-rv-review + .ia-rv-review::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22px;
+  right: 0;
+  height: 0.5px;
+  background: var(--ia-line-65);
+}
+/* Web deviation (spec §1.5): the stars + topics footnote under the quote. It is the quote
+   figure's <figcaption>, so the figure's 12 gap already separates it from the text. */
+.ia-rv-review__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ia-rv-stars {
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+}
+/* Topic tag: a toggle that filters the list by its topic. The ::after grows the hit area to
+   ~46 px tall without moving the row. */
+.ia-rv-topic {
+  position: relative;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-soft);
+  color: var(--ia-ink);
+  font: 600 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  cursor: pointer;
+}
+.ia-rv-topic::after {
+  content: "";
+  position: absolute;
+  inset: -8px -2px;
+}
+/* «Без конкретной причины» buckets: quieter, outlined. */
+.ia-rv-topic--general {
+  background: none;
+  box-shadow: inset 0 0 0 var(--ia-hairline) var(--ia-line);
+  color: var(--ia-secondary);
+}
+.ia-rv-topic[aria-pressed="true"] {
+  background: var(--ia-accent-soft);
+  box-shadow: none;
+  color: var(--ia-accent);
+}
+.ia-rv-topic:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  /* Web-only hover (no Swift value): the same light tint as the pill hover (site.css). */
+  .ia-rv-topic:not([aria-pressed="true"]):hover {
+    background: color-mix(in srgb, var(--ia-soft) 92%, var(--ia-ink));
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Methodology (a reading page: ClarityReader.swift:731-800)                  */
+/* -------------------------------------------------------------------------- */
+
+/* The article's children (hero, sections, the check card) are 32 apart (--ia-gap-article). */
+.ia-rv-method {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ia-gap-article);
+}
+/* Definitions: a term (headline) over its explanation in the ArticleText voice (Georgia 19),
+   hairlines between the pairs. */
+.ia-rv-defs {
+  margin: 0;
+}
+.ia-rv-defs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-top: var(--ia-hairline) solid var(--ia-line-65);
+}
+.ia-rv-defs > div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.ia-rv-defs dt {
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+}
+.ia-rv-defs dd {
+  margin: 0;
+  font-family: var(--ia-font-serif);
+  font-synthesis: none;
+  font-size: var(--ia-fs-body-serif);
+  line-height: var(--ia-lh-body-serif);
+  color: var(--ia-ink);
+}

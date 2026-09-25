@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { getAccess } from "@/lib/access";
+import { canAccessReviewCategory } from "@/lib/reviewAccess";
 import { FREE_CATEGORY, FREE_IDEAS } from "./manifest.generated";
 
 // Who is looking, and what may they read (ARCHITECTURE §4). Server-only; one DB round trip
@@ -28,6 +29,11 @@ export type Viewer = {
   user: ViewerUser | null;
   canReadResearch: (slug: string) => boolean;
   canReadIdea: (id: string) => boolean;
+  /**
+   * The review archive of a niche (/<L>/reviews/<niche>/…): its own free sample (dating-apps,
+   * src/lib/reviewAccess.ts) — the same rule as GET /api/reviews/<niche>/<id>.
+   */
+  canReadReviews: (niche: string) => boolean;
 };
 
 /** Serializable subset for client components (the shell passes it down). */
@@ -70,6 +76,7 @@ export const getViewer = cache(async (): Promise<Viewer> => {
     // Not canReadResearch: the free topic does not open its paid ideas (interior-design-6…8).
     canReadIdea: (id) =>
       plus || freeIdeas.has(id) || access.has("idea", id) || unlockedTopic(ideaCategory(id)),
+    canReadReviews: (niche) => canAccessReviewCategory(access, niche),
   };
 });
 

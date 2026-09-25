@@ -1,0 +1,1670 @@
+/* «Рейтинг» (web-only section, spec 11 «the rating, rich, visual and free»): the catalogue,
+   niche, app and task pages in the Clarity language — calm and monochrome, one accent — made
+   visual and scannable with App Store icons, screenshots, ranks, score meters and leaders.
+     RR1 Layout    niche / task pages .ia-page--catalog.ia-page--stack (680 + 2×20, gap 20); the
+                   app page adds --stack-24; the catalogue is .ia-page--grid with a 1/2/3 .ia-grid.
+                   No side rail.
+     RR2 Surfaces  rows, mini lists, tasks, facts, niche cards: .ia-card--utility (r20, hairline,
+                   flat); leader cards alone: .ia-card--research (r28, shadow, 0.7 stroke).
+     RR3 Colour    ink and secondary on surface / paper / soft. Accent only on the leader rank
+                   badge, the inset bar, selected chips, text links and focus. Meters are ink on
+                   soft; ★ is a text glyph. No status colours.
+     RR4 Type      tokens only: H1 Heading; leader and niche-card titles Georgia 22/27; row titles
+                   17/22 600; meta 13/18 secondary; notes 15/20.
+     RR5 Images    only the rating shows App Store artwork (media.ts): <img> with width/height or
+                   an aspect-ratio box, CDN-sized, lazy below the fold. Shots are 6 : 13 contain
+                   boxes on soft with the icon's hairline ring; no fade-in.
+     RR6 Text      all editorial text is in the server HTML; only line-clamp here, never hidden.
+     RR7 Access    nothing under /rating reads the viewer: no lock cards, no Plus UI.
+     RR8 Copy      app keys through t(); web strings in strings.ts (useWeb("rating") on the client).
+     RR9 Links     links between sections are RowCards; inside a card the title is the link and
+                   its ::after stretches over the card (or the leader body); screenshot strips are
+                   sibling links above that overlay; one tab stop per row (the title).
+   Rows switch layout on the width of their list (`container: rt-list`, 600 px), not the
+   viewport. Shared blocks live in site.css (.ia-app-icon, Row/RowCard, EmptyCard, QuoteBlock,
+   section head, chips, .ia-rt-method-card, footnote). Unlayered on purpose like the other
+   feature sheets, and global once loaded: every selector is prefixed ia-rt-. Tokens only. */
+
+/* -------------------------------------------------------------------------- */
+/* Score and meter (score.tsx ScoreMeter)                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Value over unit over meter, right-aligned: title2 bold ink tabular (md), 17 (sm) or 34 (lg). */
+.ia-rt-score {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  text-align: end;
+}
+.ia-rt-score__value {
+  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.012em;
+  color: var(--ia-ink);
+}
+.ia-rt-score--sm .ia-rt-score__value {
+  font-size: var(--ia-fs-headline);
+  line-height: var(--ia-lh-headline);
+  letter-spacing: -0.02em;
+}
+.ia-rt-score--lg {
+  gap: 4px;
+}
+.ia-rt-score--lg .ia-rt-score__value {
+  font-size: var(--ia-fs-large-title);
+  line-height: var(--ia-lh-large-title);
+  letter-spacing: -0.03em;
+}
+.ia-rt-score__unit {
+  font: 400 var(--ia-fs-caption2) / var(--ia-lh-caption2) var(--ia-font-sans);
+  color: var(--ia-secondary);
+  white-space: nowrap;
+}
+/* Ink filled to --v % on soft: 44×4 (md), 40×3 (sm), 64×4 (lg). */
+.ia-rt-meter {
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin-top: 2px;
+  border-radius: 2px;
+  background:
+    linear-gradient(var(--ia-ink) 0 0) 0 / calc(var(--v) * 1%) 100% no-repeat,
+    var(--ia-soft);
+}
+.ia-rt-score--sm .ia-rt-meter {
+  width: 40px;
+  height: 3px;
+  margin-top: 1px;
+}
+.ia-rt-score--lg .ia-rt-meter {
+  width: 64px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Rank (score.tsx RankMark)                                                   */
+/* -------------------------------------------------------------------------- */
+
+/* The bare numeral in the wide rows' 28 px column; below 600 px of list width a caption above
+   the title with the locale's prefix / suffix («№ 4», "#4", «4位») from rankVars(). */
+.ia-rt-rank {
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  color: var(--ia-secondary);
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Screenshots (RatingShots, RatingStage + ShotScroller, RatingGallery)        */
+/* -------------------------------------------------------------------------- */
+
+/* Every shot: a 6 : 13 box on soft (a rare iPad or landscape shot letterboxes), radius 12, the
+   icon's hairline ring drawn over the image. */
+.ia-rt-shot {
+  display: block;
+  box-sizing: border-box;
+  aspect-ratio: 6 / 13;
+  object-fit: contain;
+  border-radius: var(--ia-radius-thumb);
+  background: var(--ia-soft);
+  outline: var(--ia-hairline) solid var(--ia-ink-15);
+  outline-offset: calc(-1 * var(--ia-hairline));
+}
+
+/* Row strip: one link above the card's stretched title link. Narrow: 3 equal columns under the
+   head (≈ 94×204 at 375); wide: 3 × 102×221 in the card's right column (322). */
+.ia-rt-shots {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  align-self: start;
+  border-radius: var(--ia-radius-thumb);
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-shots .ia-rt-shot {
+  width: 100%;
+  height: auto;
+}
+@media (hover: hover) {
+  .ia-rt-shots:hover .ia-rt-shot {
+    outline-color: var(--ia-ink-20);
+  }
+}
+
+/* The scroller root (stage, gallery) positions its arrows; the arrows are 36 px glass circles
+   for mouse users only, shown while the pointer is over the track or an arrow has focus. */
+.ia-rt-scroller {
+  position: relative;
+}
+.ia-rt-arrow {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ia-rt-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    margin-top: -18px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--ia-glass);
+    color: var(--ia-ink);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    backdrop-filter: blur(20px) saturate(1.6);
+    box-shadow:
+      var(--ia-shadow-glass),
+      inset 0 0 0 var(--ia-hairline) var(--ia-glass-border);
+    cursor: pointer;
+    opacity: 0;
+    transition:
+      opacity 160ms ease,
+      background-color 150ms ease;
+  }
+  .ia-rt-arrow--prev {
+    inset-inline-start: 10px;
+  }
+  .ia-rt-arrow--next {
+    inset-inline-end: 10px;
+  }
+  .ia-rt-scroller:hover > .ia-rt-arrow,
+  .ia-rt-arrow:focus-visible {
+    opacity: 1;
+  }
+  .ia-rt-arrow:hover {
+    background-image: linear-gradient(var(--ia-ink-045), var(--ia-ink-045));
+  }
+}
+
+/* Leader stage: shots up to 10 on soft, track 260 (228 below 600), 20 (16) around, 10 apart,
+   x-proximity snapping, no scrollbar. The padding lives on the track so the shots' illustration
+   shadow is not clipped and the shots scroll out under the card's edge. */
+.ia-rt-stage {
+  background: var(--ia-soft);
+}
+.ia-rt-stage__track {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 20px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.ia-rt-stage__track::-webkit-scrollbar {
+  display: none;
+}
+.ia-rt-stage__track:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: -4px;
+}
+.ia-rt-stage__shot {
+  flex: none;
+  display: block;
+  scroll-snap-align: start;
+  border-radius: var(--ia-radius-thumb);
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-stage .ia-rt-shot {
+  width: 120px;
+  height: 260px;
+  box-shadow: var(--ia-shadow-illustration);
+}
+/* No shots: the app icon on the two tilted ClarityArt plates (no float), 160 tall. */
+.ia-rt-stage--art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 160px;
+  overflow: hidden;
+}
+.ia-rt-stage--art::before,
+.ia-rt-stage--art::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.ia-rt-stage--art::before {
+  width: 96px;
+  height: 110px;
+  border-radius: 18px;
+  background: var(--ia-accent-soft);
+  transform: translate(-50%, -50%) translate(-10px, 4px) rotate(-15deg);
+}
+.ia-rt-stage--art::after {
+  width: 92px;
+  height: 110px;
+  border-radius: 16px;
+  background: var(--ia-accent-17);
+  transform: translate(-50%, -50%) translate(10px, -2px) rotate(12deg);
+}
+.ia-rt-stage__icon {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--ia-shadow-paper);
+}
+
+/* App page gallery: 360 tall at ≥ 760 (300 below), 12 apart, radius 16; below 760 the track
+   bleeds into the page gutters. The shots are the tab stops (focus ring room above/below). */
+.ia-rt-gallery__track {
+  display: flex;
+  gap: 12px;
+  margin: -4px;
+  padding: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 4px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.ia-rt-gallery__track::-webkit-scrollbar {
+  display: none;
+}
+.ia-rt-gallery__shot {
+  flex: none;
+  display: block;
+  scroll-snap-align: start;
+  border-radius: var(--ia-radius-field);
+  cursor: zoom-in;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-gallery .ia-rt-shot {
+  width: 138px;
+  height: 300px;
+  border-radius: var(--ia-radius-field);
+  transition: opacity var(--ia-dur-press) var(--ia-ease-press);
+}
+.ia-rt-gallery__shot:active .ia-rt-shot {
+  opacity: 0.8;
+}
+@media (min-width: 760px) {
+  .ia-rt-gallery .ia-rt-shot {
+    width: 166px;
+    height: 360px;
+  }
+}
+@media (max-width: 759.98px) {
+  .ia-rt-gallery__track {
+    margin-inline: calc(-1 * var(--ia-gutter-catalog));
+    padding-inline: var(--ia-gutter-catalog);
+    scroll-padding-inline: var(--ia-gutter-catalog);
+  }
+}
+
+/* Viewer: a full-screen native <dialog>, black at 90 % in both themes; one snapped slide per
+   shot; white controls. The page behind does not scroll while it is open. */
+html:has(dialog.ia-rt-viewer[open]) {
+  overflow: hidden;
+}
+dialog.ia-rt-viewer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inset: 0;
+  overflow: hidden;
+  background: transparent;
+  color: #fff;
+}
+dialog.ia-rt-viewer[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+dialog.ia-rt-viewer::backdrop {
+  background: rgb(0 0 0 / 0.9);
+}
+.ia-rt-viewer__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(10px + env(safe-area-inset-top)) 16px 10px 20px;
+}
+.ia-rt-viewer__count {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: rgb(255 255 255 / 0.8);
+}
+.ia-rt-viewer__track {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.ia-rt-viewer__track::-webkit-scrollbar {
+  display: none;
+}
+.ia-rt-viewer__slide {
+  flex: 0 0 100%;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+.ia-rt-viewer__img {
+  display: block;
+  width: auto;
+  height: min(100dvh - 140px, 1000px);
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: var(--ia-radius-field);
+  background: rgb(255 255 255 / 0.06);
+}
+/* The circles on black: translucent white instead of the surface circle. */
+.ia-rt-viewer .ia-rt-viewer__btn {
+  background: rgb(255 255 255 / 0.14);
+  color: #fff;
+  box-shadow: none;
+}
+.ia-rt-viewer .ia-rt-viewer__btn:focus-visible {
+  outline-color: #fff;
+}
+.ia-rt-viewer__nav {
+  display: none;
+}
+@media (min-width: 760px) {
+  .ia-rt-viewer .ia-rt-viewer__nav {
+    position: absolute;
+    top: 50%;
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+  }
+  .ia-rt-viewer__nav--prev {
+    left: 24px;
+  }
+  .ia-rt-viewer__nav--next {
+    right: 24px;
+  }
+}
+.ia-rt-viewer .ia-rt-viewer__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+@media (hover: hover) {
+  .ia-rt-viewer .ia-rt-viewer__btn:not(:disabled):hover {
+    background: rgb(255 255 255 / 0.24);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog.ia-rt-viewer[open],
+  dialog.ia-rt-viewer[open]::backdrop {
+    animation: ia-fade 180ms ease;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Icon stack (IconStack)                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Each icon after the first overlaps the previous by 28 % and cuts into it with a 2 px ring in
+   the card's surface. */
+.ia-rt-stack {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+.ia-rt-stack > .ia-app-icon + .ia-app-icon {
+  margin-inline-start: calc(var(--s) * -0.28);
+  box-shadow: 0 0 0 2px var(--ia-surface);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Ranked lists and row cards (RatingAppCard variant="row")                    */
+/* -------------------------------------------------------------------------- */
+
+/* The list is the container the rows measure (narrow < 600 ≤ wide). */
+.ia-rt-list {
+  container: rt-list / inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ia-rt-list--leaders {
+  gap: 24px;
+}
+@media (min-width: 760px) {
+  .ia-rt-list:not(.ia-rt-list--leaders) {
+    gap: 20px;
+  }
+}
+/* Ranks ≥ 11 skip layout and paint while off-screen (their text stays in the DOM). The 4 px of
+   padding (cancelled by the margin) keep the card's focus ring inside the paint containment. The
+   placeholder height follows the row layout, so it switches on the same list width (600). */
+.ia-rt-item--defer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+  margin: -4px;
+  padding: 4px;
+}
+@container rt-list (min-width: 600px) {
+  .ia-rt-item--defer {
+    contain-intrinsic-size: auto 340px;
+  }
+}
+
+/* Narrow (< 600): a flex column, gap 12, padding 18 — head, 3 shots, verdict, notes (≈ 520). */
+.ia-rt-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  transition: background-color 150ms ease;
+}
+.ia-rt-card__head {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon rank score"
+    "icon title score"
+    "icon meta score";
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: start;
+}
+.ia-rt-card__head > .ia-rt-rank {
+  grid-area: rank;
+  font-size: var(--ia-fs-caption);
+  line-height: var(--ia-lh-caption);
+  letter-spacing: 0;
+}
+.ia-rt-card__head > .ia-rt-rank::before {
+  content: var(--ia-rt-rank-prefix, none);
+}
+.ia-rt-card__head > .ia-rt-rank::after {
+  content: var(--ia-rt-rank-suffix, none);
+}
+.ia-rt-card__icon {
+  grid-area: icon;
+  width: 52px;
+  height: 52px;
+}
+.ia-rt-card__title {
+  grid-area: title;
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-card__head > .ia-rt-meta {
+  grid-area: meta;
+}
+.ia-rt-card__score {
+  grid-area: score;
+}
+
+/* The title is the card's only link and tab stop; its ::after covers the card (RR9). */
+.ia-rt-card__link {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ia-radius-card);
+}
+.ia-rt-card__link:focus-visible {
+  outline: none;
+}
+.ia-rt-card:has(.ia-rt-card__link:focus-visible) {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .ia-rt-card:has(.ia-rt-card__link:hover) {
+    background: color-mix(in srgb, var(--ia-surface) 94%, var(--ia-ink));
+  }
+  .ia-rt-card__link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+.ia-rt-card:active > * {
+  opacity: 0.55;
+}
+
+/* «4,8★ · 12 345 оценок»: footnote secondary; the sorted metric turns ink 600. */
+.ia-rt-meta {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+}
+.ia-rt-list[data-sort="store"] .ia-rt-meta__star,
+.ia-rt-list[data-sort="ratings"] .ia-rt-meta__count {
+  color: var(--ia-ink);
+  font-weight: 600;
+}
+
+/* The verdict: 15/20 ink, 3 lines (4 wide); full text in the DOM. */
+.ia-rt-card__verdict {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* «Хвалят / Жалуются / Кому»: the label 600 ink, the text secondary, 2 lines. The glyph costs
+   no DOM nodes: ::before a 20 px soft circle, ::after the 12 px lucide shape (stroke 2) as a
+   mask painted in ink; the lines hang after it. */
+.ia-rt-note {
+  position: relative;
+  margin: 0;
+  padding-inline-start: 28px;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-note strong {
+  font-weight: 600;
+  color: var(--ia-ink);
+}
+.ia-rt-note::before,
+.ia-rt-pc__label::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ia-soft);
+}
+.ia-rt-note::after,
+.ia-rt-pc__label::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 4px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  background: var(--ia-ink);
+  -webkit-mask: var(--ia-rt-glyph) center / contain no-repeat;
+  mask: var(--ia-rt-glyph) center / contain no-repeat;
+}
+.ia-rt-note--plus,
+.ia-rt-pc--plus {
+  --ia-rt-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z'/%3E%3Cpath d='M7 10v12'/%3E%3C/svg%3E");
+}
+.ia-rt-note--minus,
+.ia-rt-pc--minus {
+  --ia-rt-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z'/%3E%3Cpath d='M17 14V2'/%3E%3C/svg%3E");
+}
+.ia-rt-note--for {
+  --ia-rt-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='5'/%3E%3Cpath d='M20 21a8 8 0 0 0-16 0'/%3E%3C/svg%3E");
+}
+
+/* Wide (≥ 600 of list width: tablets, the 680 desktop column): a two-column grid, padding 22.
+   The head spans both columns (rank 28, icon 56, title, score); the texts fill column 1 and the
+   3 shots column 2 from row 2. A last 1fr row takes whatever the shots add beyond the texts
+   (an item spanning a flexible row grows only that row), so the texts never spread; their
+   10 px spacing is margin, so the rows a card does not use collapse to nothing (≈ 340). */
+@container rt-list (min-width: 600px) {
+  .ia-rt-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 322px;
+    grid-template-rows: auto auto auto auto auto 1fr;
+    column-gap: 24px;
+    row-gap: 0;
+    align-content: start;
+    padding: 22px;
+  }
+  .ia-rt-card > * {
+    grid-column: 1;
+  }
+  .ia-rt-card > * + * {
+    margin-top: 10px;
+  }
+  .ia-rt-card > .ia-rt-card__head + *,
+  .ia-rt-card > .ia-rt-shots + * {
+    margin-top: 16px;
+  }
+  .ia-rt-card > .ia-rt-card__head {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .ia-rt-card > .ia-rt-shots {
+    grid-column: 2;
+    grid-row: 2 / -1;
+    grid-template-columns: repeat(3, 102px);
+  }
+  .ia-rt-card--noshots,
+  .ia-rt-card:not(:has(> .ia-rt-shots:not([hidden]))) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ia-rt-card__head {
+    grid-template-columns: 28px 56px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "rank icon title score"
+      "rank icon meta score";
+    column-gap: 14px;
+    align-items: center;
+  }
+  .ia-rt-card__head > .ia-rt-rank {
+    align-self: center;
+    font-size: var(--ia-fs-subheadline);
+    line-height: var(--ia-lh-subheadline);
+    letter-spacing: -0.01em;
+  }
+  .ia-rt-card__head > .ia-rt-rank::before,
+  .ia-rt-card__head > .ia-rt-rank::after {
+    content: none;
+  }
+  .ia-rt-card__icon {
+    width: 56px;
+    height: 56px;
+  }
+  .ia-rt-card__title {
+    align-self: end;
+  }
+  .ia-rt-card__head > .ia-rt-meta {
+    align-self: start;
+  }
+  .ia-rt-card__score {
+    align-self: center;
+  }
+  .ia-rt-card__verdict {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Leader cards (RatingAppCard variant="leader", № 1–3)                        */
+/* -------------------------------------------------------------------------- */
+
+/* Research-card chrome (r28, shadow, 0.7 stroke in ::after — in dark mode the stroke carries
+   the edge): the stage on top, the body below. The title's link stretches over the body only;
+   the body lifts 1 px on hover like the research cards. */
+.ia-rt-lead {
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform var(--ia-dur-press) var(--ia-ease-press),
+    box-shadow 200ms ease;
+}
+.ia-rt-lead__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+}
+.ia-rt-lead__head {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon badge score"
+    "icon title score"
+    "icon meta score";
+  column-gap: 14px;
+  row-gap: 4px;
+  align-items: start;
+}
+.ia-rt-lead__icon {
+  grid-area: icon;
+  width: 64px;
+  height: 64px;
+}
+.ia-rt-lead__badge {
+  grid-area: badge;
+  justify-self: start;
+  margin-bottom: 4px;
+}
+.ia-rt-lead__title {
+  grid-area: title;
+  margin: 0;
+  font: 400 var(--ia-fs-card-title) / var(--ia-lh-card-title) var(--ia-font-serif);
+  font-synthesis: none;
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-rt-lead__head > .ia-rt-meta {
+  grid-area: meta;
+}
+.ia-rt-lead__score {
+  grid-area: score;
+}
+.ia-rt-lead .ia-rt-card__link::after {
+  border-radius: 0 0 var(--ia-radius-research-card) var(--ia-radius-research-card);
+}
+/* The verdict in full: 17/26 ink. */
+.ia-rt-lead__verdict {
+  margin: 0;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+}
+/* Praise and complaints: paper insets r16 pad 16, side by side from 600, 4-line clamps. */
+.ia-rt-pcs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.ia-rt-pc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--ia-radius-field);
+  background: var(--ia-paper);
+}
+.ia-rt-pc__label {
+  position: relative;
+  margin: 0;
+  padding-inline-start: 28px;
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-ink);
+}
+.ia-rt-pc__label::before {
+  background: var(--ia-surface);
+}
+.ia-rt-pc__text {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+/* «Кому» in full under the pair. */
+.ia-rt-lead .ia-rt-note {
+  display: block;
+  overflow: visible;
+}
+.ia-rt-lead__more {
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-accent);
+}
+.ia-rt-lead:has(.ia-rt-card__link:focus-visible) {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+.ia-rt-lead__body:has(.ia-rt-card__link:active) > * {
+  opacity: 0.55;
+}
+@media (hover: hover) {
+  .ia-rt-lead:has(.ia-rt-card__link:hover) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 36px rgb(0 0 0 / 0.085);
+  }
+  .ia-rt-lead:has(.ia-rt-card__link:hover) .ia-rt-lead__more {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+@container rt-list (min-width: 600px) {
+  .ia-rt-pcs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ia-rt-pc:only-child {
+    grid-column: 1 / -1;
+  }
+}
+/* Narrow leaders: icon 56 beside the badge and the score; the title and meta span the card. */
+@container rt-list (max-width: 599.98px) {
+  .ia-rt-stage__track {
+    padding: 16px;
+    scroll-padding-inline: 16px;
+  }
+  .ia-rt-stage .ia-rt-shot {
+    width: 105px;
+    height: 228px;
+  }
+  .ia-rt-lead__body {
+    padding: 18px;
+  }
+  .ia-rt-lead__head {
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icon badge score"
+      "title title title"
+      "meta meta meta";
+    row-gap: 6px;
+  }
+  .ia-rt-lead__icon {
+    width: 56px;
+    height: 56px;
+  }
+  .ia-rt-lead__badge {
+    align-self: center;
+    margin-bottom: 0;
+  }
+  .ia-rt-lead__title {
+    margin-top: 8px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mini rows (RatingMiniRow): Top-5, alternatives, other rankings              */
+/* -------------------------------------------------------------------------- */
+
+/* In a utility card padded 6 × 18 (any card whose child is the list; the Top-5 card adds its
+   heading, below); dividers start at the text column. */
+.ia-card--utility:has(> .ia-rt-minis) {
+  padding: 6px 18px;
+}
+.ia-rt-minis {
+  display: flex;
+  flex-direction: column;
+}
+.ia-rt-minis > li + li::before {
+  content: "";
+  display: block;
+  height: var(--ia-hairline);
+  margin-inline-start: 90px;
+  background: var(--ia-line-card);
+}
+.ia-rt-minis > li + li:has(> .ia-rt-mini--noicon)::before {
+  margin-inline-start: 38px;
+}
+.ia-rt-minis > li + li:has(> .ia-rt-mini--norank)::before {
+  margin-inline-start: 52px;
+}
+.ia-rt-minis > li + li:has(> .ia-rt-mini--norank.ia-rt-mini--noicon)::before {
+  margin-inline-start: 0;
+}
+/* [rank 26] [icon 40] [title + meta] [score sm], gap 12, min-height 60. The hover tint reaches
+   10 px past the text on both sides. */
+.ia-rt-mini {
+  display: grid;
+  grid-template-columns: 26px 40px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 60px;
+  margin-inline: -10px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  color: var(--ia-ink);
+  text-decoration: none;
+  transition: background-color 150ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-mini--norank {
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+}
+.ia-rt-mini--noicon {
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+}
+.ia-rt-mini--norank.ia-rt-mini--noicon {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.ia-rt-mini__rank {
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+  text-align: center;
+}
+.ia-rt-mini__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.ia-rt-mini__title {
+  font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ia-rt-mini__meta {
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ia-rt-mini:active > * {
+  opacity: 0.55;
+}
+@media (hover: hover) {
+  .ia-rt-mini:hover {
+    background: var(--ia-ink-045);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Niche cards (RatingNicheCard)                                               */
+/* -------------------------------------------------------------------------- */
+
+/* The card fills its grid cell (the <li> stretches to the row), so the cards of one row share
+   their height and outline. */
+.ia-rt-niches > li,
+.ia-rt-related > li {
+  display: grid;
+}
+/* full: [folder 88] [text], gap 16, padding 20, min-height 132. The folder is an App Library
+   folder: a soft r20 square holding the top-4 icons 2 × 2. */
+.ia-rt-niche {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  min-height: 132px;
+  padding: 20px;
+  color: var(--ia-ink);
+}
+.ia-rt-folder {
+  display: grid;
+  grid-template-columns: repeat(2, 33px);
+  grid-auto-rows: 33px;
+  align-content: start;
+  gap: 6px;
+  width: 88px;
+  height: 88px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-soft);
+}
+.ia-rt-niche__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.ia-rt-niche__name {
+  margin: 0 0 2px;
+  font: 400 var(--ia-fs-card-title) / var(--ia-lh-card-title) var(--ia-font-serif);
+  font-synthesis: none;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-niche__intro {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-niche__meta,
+.ia-rt-niche__leader {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+}
+/* «93 приложения · 31 241 отзыв»: the two counts wrap as wholes. The «·» hangs in the gap before
+   the second one (absolutely placed), so on a wrapped line it falls left of the box and is
+   clipped: no line ends or starts with the separator. */
+.ia-rt-niche__meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  margin-top: 4px;
+  overflow: hidden;
+}
+.ia-rt-niche__meta > span {
+  position: relative;
+  white-space: nowrap;
+}
+.ia-rt-niche__sep {
+  position: absolute;
+  inset-inline-end: 100%;
+  width: 1em;
+  text-align: center;
+}
+/* «Лидер: Hevy — 91 из 100» on one line: only the app name gives way (ellipsis), the score
+   stays. The line is a flex row of the template's text runs (spaces kept) and the name. */
+.ia-rt-niche__leader {
+  display: flex;
+  color: var(--ia-ink);
+  white-space: pre;
+}
+.ia-rt-niche__leader-app {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (hover: hover) {
+  .ia-rt-niche:hover .ia-rt-niche__name {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+/* compact: folder 64 (padding 6, gap 4, icons 24), the name 17/22 600, the counts. */
+.ia-rt-niche--compact {
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  padding: 16px;
+}
+.ia-rt-niche--compact .ia-rt-folder {
+  grid-template-columns: repeat(2, 24px);
+  grid-auto-rows: 24px;
+  gap: 4px;
+  width: 64px;
+  height: 64px;
+  padding: 6px;
+  border-radius: var(--ia-radius-field);
+}
+.ia-rt-niche--compact .ia-rt-niche__text {
+  gap: 4px;
+}
+.ia-rt-niche--compact .ia-rt-niche__name {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+}
+.ia-rt-niche--compact .ia-rt-niche__meta {
+  margin-top: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tasks (RatingTaskList)                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Rows of min-height 64 with 16 above and below and a hairline between; the first and last
+   rows sit flush with their card's padding. */
+.ia-rt-tasks__list {
+  display: flex;
+  flex-direction: column;
+}
+.ia-rt-tasks__list > li + li {
+  border-top: var(--ia-hairline) solid var(--ia-line-card);
+}
+.ia-rt-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 64px;
+  padding-block: 16px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: var(--ia-ink);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-rt-tasks__list > li:first-child > .ia-rt-task {
+  padding-top: 4px;
+  min-height: 52px;
+}
+.ia-rt-tasks__list > li:last-child > .ia-rt-task {
+  padding-bottom: 0;
+  min-height: 48px;
+}
+.ia-rt-task__job {
+  margin: 0;
+  font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-task__gap {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-task__apps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  min-width: 0;
+}
+.ia-rt-task__names,
+.ia-rt-task__audience {
+  margin: 0;
+  min-width: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+  overflow: hidden;
+}
+/* The names wrap to 2 lines (on a phone one line would cut «и ещё 3» off). */
+.ia-rt-task__names {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.ia-rt-task__audience {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ia-rt-task:active > * {
+  opacity: 0.55;
+}
+@media (hover: hover) {
+  .ia-rt-task:hover .ia-rt-task__job {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Catalogue search rows (RatingSearchRow)                                     */
+/* -------------------------------------------------------------------------- */
+
+.ia-rt-hit {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 14px;
+}
+.ia-rt-hit__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.ia-rt-hit__title {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ia-rt-hit__context {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ia-secondary);
+}
+.ia-rt-hit__summary {
+  margin: 4px 0 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Catalogue page (/<L>/rating)                                                */
+/* -------------------------------------------------------------------------- */
+
+/* The head, the search field and the search results keep the 680 measure on the wide grid;
+   the default view inside the results (the groups) takes the whole grid. */
+.ia-rt-catalog__head,
+.ia-rt-catalog__search {
+  max-width: var(--ia-w-catalog);
+}
+.ia-rt-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: var(--ia-w-catalog);
+  transition: opacity 160ms ease;
+}
+.ia-rt-results:has(> #rating-niches, > .ia-rt-groups) {
+  max-width: none;
+}
+/* Web-only: the previous results dim while the next ones load. */
+.ia-rt-results[aria-busy="true"] {
+  opacity: 0.6;
+}
+/* Anchor chips to the groups (a.ia-chip.ia-chip--surface); they wrap on wide screens. On a phone
+   the row scrolls and runs to the screen edges, so a chip cut at the edge reads as more to scroll
+   (not as a chip clipped by the page margin). */
+.ia-rt-groups a {
+  text-decoration: none;
+}
+@media (max-width: 759.98px) {
+  .ia-rt-groups {
+    margin-inline: calc(-1 * var(--ia-gutter-catalog));
+    padding-inline: var(--ia-gutter-catalog);
+    scroll-padding-inline: var(--ia-gutter-catalog);
+  }
+}
+@media (min-width: 760px) {
+  .ia-rt-groups {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+.ia-rt-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ia-rt-group + .ia-rt-group {
+  margin-top: 36px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Niche page (/<L>/rating/<niche>)                                            */
+/* -------------------------------------------------------------------------- */
+
+/* The intro and the lead with the top-3 links: 17/26 ink, 62ch. */
+.ia-rt-intro {
+  margin: 0;
+  max-width: 62ch;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  color: var(--ia-ink);
+}
+/* Links inside running text are underlined at rest (a link must not differ by colour alone:
+   WCAG 1.4.1, axe link-in-text-block); the line is a softer tint of the link colour and turns
+   full on hover. */
+.ia-rt-intro a,
+.ia-rt-legend a {
+  color: var(--ia-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+@media (hover: hover) {
+  .ia-rt-intro a:hover,
+  .ia-rt-legend a:hover {
+    text-decoration-color: currentColor;
+  }
+}
+/* Top-5 card: 6 18 10, the H2 (17/22 600) padded 12 0 4. */
+.ia-card--utility.ia-rt-top {
+  padding: 6px 18px 10px;
+}
+.ia-rt-top > h2 {
+  padding: 12px 0 4px;
+}
+/* Search, sort chips, legend. The 4 sort chips wrap to a second row on a phone instead of
+   scrolling out of sight. */
+.ia-rt-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ia-rt-controls .ia-chips {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+/* The toolbar's search shortcut (RatingSearchShortcut): the 44 px of the «Назад» pill instead of
+   the 46 px circle, so the 60 px sticky toolbar keeps its height when the shortcut appears. */
+.ia-rt-search-shortcut {
+  width: var(--ia-hit);
+  height: var(--ia-hit);
+}
+.ia-rt-legend {
+  margin: 0;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-rt-legend svg {
+  display: inline-block;
+  margin-inline-end: 6px;
+  vertical-align: -3px;
+}
+.ia-rt-legend a {
+  white-space: nowrap;
+}
+/* «Для чего тебе приложение?» card: the H2, then the task rows. */
+.ia-rt-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* «Об оценках» (the method, on the page). */
+.ia-rt-method {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* «Похожие темы»: compact niche cards, 2 × 2 on the 680 column. */
+.ia-rt-related {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* App page (/<L>/rating/<niche>/<app>) and task page                          */
+/* -------------------------------------------------------------------------- */
+
+/* Icon hero: the icon (drawn at 96, shown at 72 below 760) beside the fixed Georgia H1. */
+.ia-rt-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ia-rt-hero > .ia-app-icon {
+  width: 72px;
+  height: 72px;
+}
+.ia-rt-hero > .ia-heading {
+  flex: 1;
+  min-width: 0;
+}
+.ia-rt-hero .ia-heading__title {
+  overflow-wrap: anywhere;
+}
+.ia-rt-hero__niche {
+  color: inherit;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .ia-rt-hero__niche:hover {
+    color: var(--ia-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+@media (min-width: 760px) {
+  .ia-rt-hero {
+    gap: 20px;
+  }
+  .ia-rt-hero > .ia-app-icon {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* Facts strip: one surface card, cells divided by 1-px gaps over the line colour; 4 cells in
+   a row from 560 (3 when «прочитано» is unknown), 2 × 2 below. Cell: .ia-rt-facts__value 22/28
+   700 tabular ink (or a ScoreMeter md, left-aligned) over .ia-rt-facts__label 12/16 secondary. */
+.ia-rt-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ia-hairline);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  border-radius: var(--ia-radius-card);
+  background: var(--ia-line-card);
+  outline: var(--ia-hairline) solid var(--ia-line-card);
+  outline-offset: calc(-1 * var(--ia-hairline));
+}
+.ia-rt-facts > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+  min-width: 0;
+  padding: 16px 18px;
+  background: var(--ia-surface);
+}
+.ia-rt-facts > li:nth-child(3):last-child {
+  grid-column: 1 / -1;
+}
+.ia-rt-facts__value {
+  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.012em;
+  color: var(--ia-ink);
+}
+.ia-rt-facts__label {
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}
+.ia-rt-facts .ia-rt-score {
+  align-items: flex-start;
+  text-align: start;
+}
+@media (min-width: 560px) {
+  .ia-rt-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .ia-rt-facts:has(> li:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ia-rt-facts > li:nth-child(3):last-child {
+    grid-column: auto;
+  }
+}
+
+/* «Открыть в App Store»: full width and stacked below 760, content width from 760. */
+.ia-rt-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 760px) {
+  .ia-rt-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .ia-rt-actions > .ia-btn {
+    width: auto;
+    padding-inline: 28px;
+  }
+}
+
+/* The verdict / «Что проверить» inset (a copy of ideas.css .ia-idea__inset, which is not loaded
+   here): accent-soft, radius 12, a 3 px accent bar; Georgia 19/27.6 text or a 22/27 title. */
+.ia-rt-inset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 20px 20px 24px;
+  border-radius: var(--ia-radius-thumb);
+  background: var(--ia-accent-soft);
+}
+.ia-rt-inset::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 3px;
+  border-radius: 1px;
+  background: var(--ia-accent);
+}
+.ia-rt-inset__text {
+  margin: 0;
+  font: 400 var(--ia-fs-body-serif) / var(--ia-lh-body-serif) var(--ia-font-serif);
+  font-synthesis: none;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+}
+.ia-rt-inset__title {
+  margin: 0;
+  font: 400 var(--ia-fs-card-title) / var(--ia-lh-card-title) var(--ia-font-serif);
+  font-synthesis: none;
+  color: var(--ia-ink);
+}
+
+/* A titled section of the detail pages (H2, then its content). */
+.ia-rt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* Body + lineSpacing 5 = 17/27 (ClarityRatings.swift:264, 303, 365). */
+.ia-rt-prose {
+  margin: 0;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-loose) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+}
+
+/* «Что хвалят» / «На что жалуются»: two cards side by side from 600 px of pair width (one card
+   alone takes the row). Card head: a 32 px soft circle with the glyph (.ia-rt-pair__icon, lucide
+   18 in ink) and the H2; body: prose or bullets. */
+.ia-rt-pair {
+  container: rt-pair / inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.ia-rt-pair > * {
+  flex: 1 1 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+@container rt-pair (min-width: 600px) {
+  .ia-rt-pair > * {
+    flex-basis: calc(50% - 8px);
+  }
+  .ia-rt-pair > :only-child {
+    flex-basis: 100%;
+  }
+}
+.ia-rt-pair__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ia-rt-pair__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ia-soft);
+  color: var(--ia-ink);
+}
+/* Points: 17/26 ink with 5 px secondary dots, 10 apart. */
+.ia-rt-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-rt-bullets > li {
+  position: relative;
+  padding-inline-start: 17px;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  letter-spacing: -0.02em;
+  color: var(--ia-ink);
+  overflow-wrap: break-word;
+}
+.ia-rt-bullets > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 2px;
+  top: 10.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ia-secondary);
+}
+
+/* «Опыт пользователей»: the count line, then every quote. */
+.ia-rt-proof {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Forced colors and reduced motion                                            */
+/* -------------------------------------------------------------------------- */
+
+@media (forced-colors: active) {
+  .ia-rt-meter {
+    border: 1px solid CanvasText;
+    background: linear-gradient(CanvasText 0 0) 0 / calc(var(--v) * 1%) 100% no-repeat;
+    forced-color-adjust: none;
+  }
+  .ia-rt-note::after,
+  .ia-rt-pc__label::after {
+    background: CanvasText;
+    forced-color-adjust: none;
+  }
+  .ia-rt-inset,
+  .ia-rt-pc,
+  .ia-rt-stage,
+  .ia-rt-folder,
+  .ia-rt-arrow {
+    border: 1px solid CanvasText;
+  }
+  .ia-rt-inset::before {
+    background: Highlight;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ia-rt-lead,
+  .ia-rt-results,
+  .ia-rt-card,
+  .ia-rt-mini,
+  .ia-rt-arrow {
+    transition: none;
+  }
+  .ia-rt-lead:has(.ia-rt-card__link:hover) {
+    transform: none;
+  }
+}

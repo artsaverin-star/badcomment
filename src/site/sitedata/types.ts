@@ -27,7 +27,7 @@ export interface TopicApp {
   storeUrl: string;
   /** Old per-app page (/<ru|en>/<app-slug>), if the old site has one. */
   pageHref: string | null;
-  /** Old per-app review page (/<ru|en>/reviews/<topic>/<id>), if any. */
+  /** The app's page in the review archive (/<L>/reviews/<topic>/<id>, new site), if any. */
   reviewsHref: string | null;
 }
 

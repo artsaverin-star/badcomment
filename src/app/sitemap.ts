@@ -3,11 +3,11 @@ import active from "@/data/active-categories.json";
 import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
-import { PEOPLES_RATING_SLUGS } from "@/lib/ultra";
 import reviewsIndex from "@/data/reviewsIndex.json";
 import { LOCALES } from "@/site/i18n/locales";
 import { FREE_IDEAS, isLaunchCategory, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
 import oldSite from "@/site/sitedata/old-site.snapshot.json";
+import { ratingHubEntries } from "@/site/sitedata/rating-sitemap";
 
 const BASE = "https://inapp.pro";
 const oldTopicPages: ReadonlySet<string> = new Set((oldSite as { topicPages: string[] }).topicPages);
@@ -19,6 +19,9 @@ const oldTopicPages: ReadonlySet<string> = new Set((oldSite as { topicPages: str
 //   • OLD pages still served in place at their original URLs (ru/en): the /ru URL with ru/en
 //     hreflang alternates, as before. Old URLs now owned by the new site (home, /ideas, the 35
 //     launch topics) are listed once, as new-site entries.
+//   • The rating (ru/en data): /rating and its 71 niche pages, one entry per ru AND en page
+//     (src/site/sitedata/rating-sitemap.ts); its app and task pages are in
+//     /sitemap-rating-{ru,en}.xml (spec 11 §6.5), listed in robots.txt.
 export default function sitemap(): MetadataRoute.Sitemap {
   const cats = active as string[];
 
@@ -39,13 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // exactly what search engines and LLMs cite, so all of them go in.
   const reviewNiches = Object.entries(reviewsIndex as Record<string, { apps: { id: string }[] }>);
 
+  // The review archive is a new-site section since 2026-09-24, but its data speaks ru/en only:
+  // listed like before, ru with ru/en alternates (their canonicals agree).
   const paths: { p: string; priority: number }[] = [
-    { p: "/mcp", priority: 0.8 },
     { p: "/reviews", priority: 0.9 },
     ...reviewNiches.map(([s]) => ({ p: `/reviews/${s}`, priority: 0.8 })),
     ...reviewNiches.flatMap(([s, n]) => n.apps.map((a) => ({ p: `/reviews/${s}/${a.id}`, priority: 0.6 }))),
     { p: "/build", priority: 0.9 },
-    { p: "/rating", priority: 0.95 },
     { p: "/ideas/top", priority: 0.8 },
     { p: "/most-wanted", priority: 0.9 },
     { p: "/cards", priority: 0.9 },
@@ -55,8 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cats
       .filter((s) => !isLaunchCategory(s) && oldTopicPages.has(s))
       .map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
-    // The rating page also needs the topic's review corpus (same gap as the topic page above).
-    ...PEOPLES_RATING_SLUGS.filter((s) => oldTopicPages.has(s)).map((s) => ({ p: `/rating/${s}`, priority: 0.95 })),
     ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
   ];
 
@@ -82,6 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { p: "/contacts", priority: 0.4 },
     { p: "/offer", priority: 0.3 },
     { p: "/privacy", priority: 0.3 },
+    // Web-only pages translated into all five languages (the MCP page, the review methodology).
+    { p: "/mcp", priority: 0.8 },
+    { p: "/reviews/methodology", priority: 0.5 },
   ];
   const newEntries: MetadataRoute.Sitemap = newPaths.flatMap(({ p, priority }) => {
     const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, newUrl(l, p)]));
@@ -99,5 +103,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // One entry per URL (first wins: new-site entries carry the full hreflang set).
   const seen = new Set<string>();
-  return [...newEntries, ...oldEntries].filter((e) => !seen.has(e.url) && !!seen.add(e.url));
+  return [...newEntries, ...ratingHubEntries(), ...oldEntries].filter((e) => !seen.has(e.url) && !!seen.add(e.url));
 }

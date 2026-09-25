@@ -7,6 +7,12 @@ import { categoryCards, appCardsFor, ideaContentEn, descriptionFor } from "@/lib
 import { getProductInsights } from "@/lib/insights";
 import { listIdeas } from "@/lib/ideas";
 import type { Locale } from "@/lib/i18n";
+import { counted } from "@/site/i18n/count";
+import { format } from "@/site/i18n/strings";
+import { h1Name } from "@/site/features/rating/seo";
+import { displayTitle } from "@/site/features/rating/text";
+import { ratingStrings } from "@/site/features/rating/strings";
+import { getRatingNiche, listRatingNiches } from "@/site/sitedata/rating";
 
 // llms.txt / llms-full.txt — a clean Markdown channel that hands LLMs the full
 // research synthesis (governing thought, findings, opportunities, app
@@ -39,6 +45,7 @@ export function buildLlmsIndex(): string {
     out.push(`- [${cat.name}](${BASE}/en/segment/${slug}): ${gist}`);
   }
   out.push("");
+  out.push(...ratingSection());
   out.push("## Full content");
   out.push(`- [Full research, all niches — English (Markdown)](${BASE}/llms-full.txt)`);
   out.push(`- [Полное исследование, все ниши — Russian (Markdown)](${BASE}/llms-full.ru.txt)`);
@@ -47,6 +54,27 @@ export function buildLlmsIndex(): string {
   out.push(`- [inApp](${BASE}): ${oneLine(INTRO.en)}`);
   out.push("");
   return out.join("\n");
+}
+
+// The web-only rating (spec 11 §6.5): the catalogue, then one line per niche with its app count
+// and leader — English pages, English head terms ("Best habit tracker apps").
+function ratingSection(): string[] {
+  const s = ratingStrings.en;
+  const niches = listRatingNiches("en");
+  const apps = niches.reduce((sum, n) => sum + n.count, 0);
+  const out = ["## App ratings (reviews-based)"];
+  out.push(
+    `- [${s.catalogTitle}](${BASE}/en/rating): ${oneLine(format(s.catalogLead, { apps: counted("en", apps, s.appsWord), topics: counted("en", niches.length, s.topicsInWord) }))}`,
+  );
+  for (const card of niches) {
+    const niche = getRatingNiche("en", card.slug);
+    if (!niche) continue;
+    const leader = niche.apps[0];
+    const top = leader ? `; top: ${displayTitle(leader.short)}${leader.realScore !== null ? ` (${leader.realScore}/100)` : ""}` : "";
+    out.push(`- [${format(s.nicheH1, { name: h1Name("en", niche) })}](${BASE}/en/rating/${card.slug}): ${oneLine(counted("en", niche.count, s.appsWord))}${top}`);
+  }
+  out.push("");
+  return out;
 }
 
 // Full digest: the whole authored synthesis per niche, both locales linked.

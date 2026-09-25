@@ -1,0 +1,159 @@
+/* «MCP»: the MCP server page and the OAuth sign-in bridge (web-only; no Swift screen, so it is
+   built only from the Clarity blocks: the page stack and fixed heading, RowCards, the Settings
+   group/box/row, the shared Plus card, the reader's text link). Unlayered like the other feature
+   sheets; prefixed ia-mcp-. Tokens only. The page imports settings.css, library.css and
+   research.css for those blocks (spec §5). */
+
+/* Section: bold title2 + content, 20 apart (ClarityRatings.swift:89-93 rhythm). */
+.ia-mcp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-margin-top: calc(var(--ia-topnav-h) + 12px);
+}
+
+/* Install: numbered steps; the counter sits on the step title (no circles). */
+.ia-mcp-steps {
+  counter-reset: step;
+}
+.ia-mcp-step {
+  counter-increment: step;
+}
+.ia-mcp-step__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.ia-mcp-step__title {
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+  letter-spacing: -0.025em;
+}
+.ia-mcp-step__title::before {
+  content: counter(step) ". ";
+}
+.ia-mcp-step__text {
+  margin: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+}
+
+/* One line of code with an icon-only copy button (44 × 44 hit area inside the padding). */
+.ia-mcp-code {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: var(--ia-radius-field);
+  background: var(--ia-surface);
+}
+.ia-mcp-code code {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--ia-ink);
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.ia-mcp-code code::-webkit-scrollbar {
+  display: none;
+}
+.ia-mcp-code code:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.ia-mcp-code__copy {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  /* 44 − 18 (line) = 26 → −13 above and below, so the box keeps its 14 px padding. */
+  margin: -13px -12px -13px 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ia-radius-thumb);
+  background: none;
+  color: var(--ia-secondary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ia-mcp-code__copy[data-done] {
+  color: var(--ia-ink);
+}
+.ia-mcp-code__copy:active {
+  opacity: 0.55;
+}
+@media (hover: hover) {
+  .ia-mcp-code__copy:hover {
+    color: var(--ia-ink);
+  }
+}
+.ia-mcp-code__copy:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: -2px;
+}
+
+/* Connections: one settings box per client, 12 apart. */
+.ia-mcp-conns {
+  gap: 12px;
+}
+/* «Отключить …?» dialog: the message centred under the centred title (confirmationDialog),
+   then the two actions (.ia-lib-confirm). */
+.ia-mcp-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ia-mcp-confirm > .ia-search-status {
+  text-align: center;
+}
+
+/* Example + prompts: flush rows; the count trails at the right edge. */
+.ia-mcp-count {
+  margin-inline-start: auto;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tool rows: the name in monospace over its one-line description. */
+.ia-set-row.ia-mcp-tool {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 16px;
+}
+.ia-mcp-tool code {
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--ia-ink);
+  overflow-wrap: anywhere;
+}
+.ia-mcp-tool span {
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  color: var(--ia-secondary);
+}
+
+/* FAQ: open info blocks (ClaritySettings.swift:312-325): VStack 28; headline + body with
+   lineSpacing 4 (17/26) in secondary, 10 apart. */
+.ia-mcp-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.ia-mcp-faq__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ia-mcp-faq__a {
+  margin: 0;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+  color: var(--ia-secondary);
+}

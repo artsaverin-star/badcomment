@@ -85,15 +85,17 @@ describe("root and bare paths", () => {
     // de/fr/ja have no old pages: straight to the English one, not /de/… → /en/…
     expectRedirect(decide("/segment/x?q=1", { cookies: { locale: "de" } }), 307, "/en/segment/x?q=1");
     expectRedirect(decide("/segment/sobriety", { acceptLanguage: "de-DE,de;q=0.9,en;q=0.8" }), 307, "/en/segment/sobriety");
-    expectRedirect(decide("/rating/habit-tracking", { cookies: { locale: "ja" } }), 307, "/en/rating/habit-tracking");
-    expectRedirect(decide("/reviews/habit-tracking/1394150432", { acceptLanguage: "fr" }), 307, "/en/reviews/habit-tracking/1394150432");
     expectRedirect(decide("/ideas/top", { cookies: { locale: "fr" } }), 307, "/en/ideas/top");
     // aliases fold in too, but stay temporary: the target depends on the visitor
     expectRedirect(decide("/research/x", { acceptLanguage: "ru" }), 307, "/ru/segment/x");
     expectRedirect(decide("/search?q=a", { cookies: { locale: "ja" } }), 307, "/ja/segment?q=a");
     expectRedirect(decide("/segment/habit-tracking/v2", { acceptLanguage: "ru" }), 307, "/ru/segment/habit-tracking");
-    // pages that exist in the negotiated locale keep the plain one-hop form
+    // pages that exist in the negotiated locale keep the plain one-hop form (the moved
+    // sections exist in all five locales)
     expectRedirect(decide("/rating/habit-tracking", { acceptLanguage: "ru" }), 307, "/ru/rating/habit-tracking");
+    expectRedirect(decide("/rating/habit-tracking", { cookies: { locale: "ja" } }), 307, "/ja/rating/habit-tracking");
+    expectRedirect(decide("/reviews/habit-tracking/1394150432", { acceptLanguage: "fr" }), 307, "/fr/reviews/habit-tracking/1394150432");
+    expectRedirect(decide("/mcp", { cookies: { locale: "de" } }), 307, "/de/mcp");
     expectRedirect(decide("/segment/habit-tracking", { cookies: { locale: "de" } }), 307, "/de/segment/habit-tracking");
     expectRedirect(decide("/spotify", { cookies: { locale: "de" } }), 307, "/en/spotify");
   });
@@ -157,6 +159,31 @@ describe("new site", () => {
     assert.equal(flow("/ru/settings"), undefined);
     assert.ok(PROXY_REQUEST_HEADERS.includes("x-ia-app-flow"), "a client-sent copy is dropped by the proxy");
   });
+  test("the web-only sections (rating, reviews, MCP) are new in all five locales", () => {
+    for (const l of ["ru", "en", "de", "fr", "ja"]) {
+      // rating/<niche>/tasks/<n> (task pages) is indexable or noindex by the page's <meta robots>
+      // (spec 11 §6.1 isIndexableTask), never by the proxy: it routes it like any rating depth.
+      for (const p of ["rating", "rating/habit-tracking", "rating/habit-tracking/streaks", "rating/habit-tracking/tasks/1", "reviews", "reviews/methodology", "reviews/dating-apps", "reviews/dating-apps/440185993", "mcp"]) {
+        const r = expectRewrite(decide(`/${l}/${p}`), "new", `/site/${l}/${p}`);
+        assert.equal(r.responseHeaders["X-Robots-Tag"], undefined, `/${l}/${p} is indexable`);
+        assert.equal(cookieValue(r), l);
+      }
+    }
+    // the OAuth sign-in bridge keeps its query (/api/mcp/oauth/authorize sends signed-out browsers here)
+    assert.equal(expectRewrite(decide("/en/mcp/connect?o=abc"), "new", "/site/en/mcp/connect").search, "?o=abc");
+    assert.equal(expectRewrite(decide("/ru/reviews/x/1?q=a"), "new", "/site/ru/reviews/x/1").search, "?q=a");
+  });
+  test("the archive keeps the previous versions of the moved sections, linked to the new ones", () => {
+    const r = expectRewrite(decide("/ru/old/rating/habit-tracking"), "old", "/rating/habit-tracking");
+    assert.equal(r.requestHeaders["x-ia-new-path"], "/ru/rating/habit-tracking");
+    assert.equal(r.responseHeaders["X-Robots-Tag"], "noindex, follow");
+    const np = (url: string) => (decide(url) as RewriteDecision).requestHeaders["x-ia-new-path"];
+    assert.equal(np("/en/old/reviews/dating-apps/440185993"), "/en/reviews/dating-apps/440185993");
+    assert.equal(np("/ru/old/reviews/methodology"), "/ru/reviews/methodology");
+    assert.equal(np("/ru/old/mcp"), "/ru/mcp");
+    assert.equal(np("/en/old/mcp/connect"), "/en/mcp/connect");
+    assert.equal(np("/ru/old/rating/a/b/c"), "/ru", "no deeper pages");
+  });
   test("/library?checkout= (YooKassa return) is new and keeps the query", () => {
     const r = expectRewrite(decide("/en/library?checkout=5f1c-uuid"), "new", "/site/en/library");
     assert.equal(r.search, "?checkout=5f1c-uuid");
@@ -208,7 +235,7 @@ describe("old pages in place", () => {
   });
   test("non-launch topic in de/fr/ja → the English old page", () => {
     expectRedirect(decide("/de/segment/qr-scanner"), 307, "/en/segment/qr-scanner");
-    expectRedirect(decide("/ja/rating/x?y=1"), 307, "/en/rating/x?y=1");
+    expectRedirect(decide("/ja/tokens?y=1"), 307, "/en/tokens?y=1");
   });
   test("non-launch ideas and the old leaderboard", () => {
     const r = expectRewrite(decide("/ru/ideas/kids-learning-1"), "inplace", "/ideas/kids-learning-1");
@@ -217,11 +244,10 @@ describe("old pages in place", () => {
     expectRedirect(decide("/fr/ideas/top"), 307, "/en/ideas/top");
   });
   test("old-only routes keep their URL", () => {
-    for (const p of ["/ru/mcp", "/ru/tokens", "/ru/spotify", "/ru/reviews/x/y", "/ru/rating/x", "/en/mcp/connect", "/en/build/x/x-1"]) {
+    for (const p of ["/ru/tokens", "/ru/spotify", "/en/build/x/x-1", "/ru/most-wanted", "/en/best/x"]) {
       const r = expectRewrite(decide(p), "inplace", p.slice(3));
       assert.equal(r.requestHeaders["x-ia-new-path"], `/${p.slice(1, 3)}`);
     }
-    assert.equal(expectRewrite(decide("/en/mcp/connect?o=abc"), "inplace", "/mcp/connect").search, "?o=abc");
   });
   test("retired paths fall through to the old site (which 404s them)", () => {
     expectRewrite(decide("/ru/aso"), "inplace", "/aso");
@@ -265,7 +291,8 @@ describe("hidden old site", () => {
     assert.equal(np("/ru/old/saved"), "/ru/saved");
     assert.equal(np("/ru/old/search"), "/ru/segment");
     assert.equal(np("/ru/old/segment/qr-scanner"), "/ru");
-    assert.equal(np("/ru/old/reviews/x"), "/ru");
+    assert.equal(np("/ru/old/reviews/x"), "/ru/reviews/x");
+    assert.equal(np("/ru/old/tokens"), "/ru");
     assert.equal(np("/en/old/contacts"), "/en/contacts");
   });
   test("/<de|fr|ja>/old/x → /en/old/x", () => {
@@ -286,16 +313,27 @@ describe("hidden old site", () => {
 
 describe("old-site links (src/lib/oldHref.ts, A4 option A)", () => {
   test("a page served in place is linked at its public URL", () => {
+    assert.equal(oldHref("ru", "/segment/qr-scanner"), "/ru/segment/qr-scanner", "old topic stays in place");
+    assert.equal(oldHref("en", "/ideas/top"), "/en/ideas/top");
+    assert.equal(oldHref("ru", "/ideas/food-delivery-5"), "/ru/ideas/food-delivery-5", "non-launch idea id");
+    for (const p of ["/tokens", "/build", "/build/x/x-1", "/apps", "/cards", "/admin", "/spotify", "/best/x", "/most-wanted"]) {
+      assert.equal(oldHref("ru", p), `/ru${p}`, p);
+    }
+  });
+  test("the moved sections (rating, reviews, MCP) are linked at their public URL: the new design", () => {
     assert.equal(oldHref("ru", "/reviews/habit-tracking/1394150432"), "/ru/reviews/habit-tracking/1394150432");
     assert.equal(oldHref("en", "/reviews"), "/en/reviews");
     assert.equal(oldHref(true, "/rating/habit-tracking"), "/ru/rating/habit-tracking");
     assert.equal(oldHref(false, "/rating"), "/en/rating");
-    assert.equal(oldHref("ru", "/segment/qr-scanner"), "/ru/segment/qr-scanner", "old topic stays in place");
-    assert.equal(oldHref("en", "/ideas/top"), "/en/ideas/top");
-    assert.equal(oldHref("ru", "/ideas/food-delivery-5"), "/ru/ideas/food-delivery-5", "non-launch idea id");
-    for (const p of ["/tokens", "/mcp", "/mcp/connect", "/build", "/build/x/x-1", "/apps", "/cards", "/admin", "/spotify", "/best/x", "/most-wanted"]) {
-      assert.equal(oldHref("ru", p), `/ru${p}`, p);
-    }
+    assert.equal(oldHref("ru", "/mcp"), "/ru/mcp");
+    assert.equal(oldHref("en", "/mcp#install"), "/en/mcp#install");
+    assert.equal(oldHref("ru", "/mcp/connect"), "/ru/mcp/connect");
+    // new-site pages, not in place — and the archive's redirects leave for them too
+    assert.equal(isServedInPlace("ru", "/reviews"), false);
+    assert.equal(oldNavHref("old", "ru", "/mcp"), "/ru/mcp");
+    // a look-alike first segment is not a section
+    assert.equal(oldHref("ru", "/ratings"), "/ru/ratings");
+    assert.equal(oldHref("ru", "/mcp-server"), "/ru/mcp-server");
   });
   test("a page whose URL the new site took over is linked as its /<L>/old copy", () => {
     assert.equal(oldHref("ru", "/"), "/ru/old");
@@ -322,7 +360,7 @@ describe("old-site links (src/lib/oldHref.ts, A4 option A)", () => {
     assert.equal(oldHref("de", "/reviews"), "/ru/reviews");
     assert.equal(oldHref(undefined, "/"), "/ru/old");
     assert.equal(isServedInPlace("en", "/"), false);
-    assert.equal(isServedInPlace("en", "/rating"), true);
+    assert.equal(isServedInPlace("en", "/tokens"), true);
   });
   test("oldNavHref: redirects of old pages (A10)", () => {
     // served in place → the public URL (new home, in-place page or new topic)
@@ -385,6 +423,8 @@ describe("src/proxy.ts", () => {
       "/opengraph-image",
       "/twitter-image",
       "/sitemap.xml",
+      "/sitemap-rating-ru.xml",
+      "/sitemap-rating-en.xml",
       "/robots.txt",
       "/feed.xml",
       "/llms.txt",

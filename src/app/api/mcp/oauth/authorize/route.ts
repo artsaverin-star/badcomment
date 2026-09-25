@@ -1,9 +1,11 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/session";
 import { getLocale } from "@/lib/i18n.server";
 import { createAuthorizationCode, MCP_SCOPE } from "@/lib/mcp/authTokens";
 import { clientRegistration, normalizeResource, requestOrigin } from "@/lib/mcp/oauth";
 import { recordMcpEvent } from "@/lib/mcp/telemetry";
+import { isLocale, LOCALE_COOKIE } from "@/site/i18n/locales";
 
 export const dynamic = "force-dynamic";
 
@@ -98,7 +100,12 @@ export async function GET(req: Request) {
   if (!user) {
     await recordMcpEvent({ event: "oauth_authorize", status: "login_required", clientName: registration.clientName });
     const packed = Buffer.from(url.search).toString("base64url");
-    return NextResponse.redirect(new URL(`/${locale}/mcp/connect?o=${packed}`, requestOrigin(req)), 302);
+    // The sign-in bridge is a new-site page in all five languages: keep a de/fr/ja visitor in
+    // theirs (the page would otherwise rewrite their locale cookie to en). This consent flow
+    // itself stays ru/en.
+    const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+    const bridgeLocale = isLocale(cookieLocale) ? cookieLocale : locale;
+    return NextResponse.redirect(new URL(`/${bridgeLocale}/mcp/connect?o=${packed}`, requestOrigin(req)), 302);
   }
 
   const hidden = (

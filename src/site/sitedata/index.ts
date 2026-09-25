@@ -5,7 +5,7 @@
 //   getTopicApps(L, slug)   «Приложения в этой теме»: the App Store market players of a topic
 //   getSoonTopics(L)        the old site's other topics («Скоро в новом формате»)
 //   oldTopicHref(L, slug)   «Прежняя версия разбора» → /<ru|en>/old/segment/<slug>
-//   reviewsHubHref(L, slug) «Все отзывы по теме»     → /<ru|en>/reviews/<slug>
+//   reviewsHubHref(L, slug) «Все отзывы по теме»     → /<L>/reviews/<slug> (new site since 2026-09-24)
 //
 // Old pages speak ru/en only: de/fr/ja get English names and /en/… links (toOldLocale).
 // Links to old pages cross the root layout — render them as plain <a>, never next/link.
@@ -35,9 +35,9 @@ export function oldTopicHref(l: Locale, slug: string): string | null {
   return topicPages.has(slug) ? routes.oldSite(l, `/segment/${slug}`) : null;
 }
 
-/** The old reviews hub of a topic (/<ru|en>/reviews/<slug>, served in place), or null. */
+/** The review archive of a topic (/<L>/reviews/<slug>, a new-site page), or null. */
 export function reviewsHubHref(l: Locale, slug: string): string | null {
-  return reviewHubs.has(slug) ? `${oldPrefix(l)}/reviews/${slug}` : null;
+  return reviewHubs.has(slug) ? routes.reviewsNiche(l, slug) : null;
 }
 
 /** True when links to old pages lead to another language than the page (de/fr/ja → English). */
@@ -79,7 +79,7 @@ export function getTopicApps(l: Locale, slug: string): TopicApps | null {
         ratingCount: app.ratingCount,
         storeUrl: `https://apps.apple.com/${data.store}/app/id${app.appStoreId}`,
         pageHref: link?.page ? `${prefix}/${link.page}` : null,
-        reviewsHref: link?.reviews ? `${prefix}/reviews/${slug}/${app.appStoreId}` : null,
+        reviewsHref: link?.reviews ? routes.reviewsApp(l, slug, app.appStoreId) : null,
       };
     });
     result = apps.length ? { store: data.store, collectedAt: data.collectedAt, term: data.leaderTerm, apps } : null;

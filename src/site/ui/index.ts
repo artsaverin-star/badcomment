@@ -1,13 +1,19 @@
 // UI primitives of the new site (spec 05 §3.6). Import from "@/site/ui".
+export { AppIcon, type AppIconSize } from "./AppIcon";
 export { AppStoreBadge, AppStoreDialogHost, openAppStoreDialog } from "./AppStore";
 export { Badge, Chip, ChipRow, Eyebrow, LockBadge } from "./Badge";
 export { Button, buttonClass, type ButtonProps, type ButtonVariant, type LinkButtonProps } from "./Button";
 export { Card, type CardVariant } from "./Card";
+export { categoryGlyph } from "./categoryGlyph";
 export { cx } from "./cx";
+export { EmptyCard } from "./EmptyCard";
 export { ClarityArt, EmptyState } from "./EmptyState";
 export { Heading, SectionTitle, Subheading } from "./Heading";
 export * from "./icons";
 export { Menu, type MenuItem } from "./Menu";
+export { PickerSheet, type PickerOption } from "./PickerSheet";
+export { QuoteBlock } from "./QuoteBlock";
+export { Row, ROW_GLYPH, RowCard, type RowProps } from "./Row";
 export { SearchField } from "./SearchField";
 export { Sheet, SheetAction, type SheetProps } from "./Sheet";
 export { Skeleton, SkeletonCard, SkeletonText } from "./Skeleton";

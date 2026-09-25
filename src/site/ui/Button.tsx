@@ -7,10 +7,13 @@ import { cx } from "./cx";
 //   welcome   content-hugging Onest capsule (onboarding «Дальше», paywall CTA, landing)
 //   rect      radius-14 CTA (Plus card «Открыть Plus», empty state «Открыть разборы»)
 //   secondary surface pill with accent label («Готово» in Settings)
-//   text      accent text button («Показать всё», «Сбросить поиск»)
+//   text      accent text button («Показать всё», «Сбросить поиск»); + ia-btn--flush (no side
+//             padding, leading-aligned) / ia-btn--body (17/22 medium, «Показать остальные»)
+//   ink       full-width ink capsule with a paper label, min-height 54 («Открыть в App Store»,
+//             ClarityRatings.swift:271-277)
 // With `href` it renders a link (next/link for internal paths, <a> when `external`).
 
-export type ButtonVariant = "primary" | "welcome" | "rect" | "secondary" | "text";
+export type ButtonVariant = "primary" | "welcome" | "rect" | "secondary" | "text" | "ink";
 
 type Common = {
   variant?: ButtonVariant;

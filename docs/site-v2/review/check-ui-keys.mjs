@@ -212,8 +212,15 @@ const COVER = {
   "src/site/features/ideas/IdeasCatalog.tsx": ["IDEAS_CATALOG_UI_KEYS"],
   "src/site/features/auth/": ["PLUS_UI_KEYS"],
   "src/site/features/plus/": ["PLUS_UI_KEYS"],
+  // The shared Plus card renders inside /<L>/settings (caption "account": SETTINGS_CLIENT_KEYS)
+  // and /<L>/mcp (caption "static": MCP_UI_KEYS). Coverage is "any of", so a key only the
+  // account caption uses must stay out of the static branch (PlusCard.tsx keeps them apart).
+  "src/site/features/plus/PlusCard.tsx": ["SETTINGS_CLIENT_KEYS", "MCP_UI_KEYS"],
   "src/site/features/settings/": ["SETTINGS_CLIENT_KEYS"],
   "src/site/features/welcome/": ["WELCOME_UI_KEYS"],
+  "src/site/features/rating/": ["RATING_UI_KEYS"],
+  "src/site/features/reviews/": ["REVIEWS_UI_KEYS"],
+  "src/site/features/mcp/": ["MCP_UI_KEYS"],
 };
 const perFileMissing = [];
 for (const u of uses.filter((u) => u.client && u.kind === "t" && u.line > 0)) {

@@ -59,6 +59,9 @@ jobs:
       # Owner's Telegram ping on a new purchase (src/lib/purchaseNotify.ts).
       - run: npm run test:purchase-notify
       - run: node --import tsx scripts/v2/check-content.ts
+      # Rating (docs/site-v2/spec/11-rating-rich.md): short names, text points, niche groups,
+      # Apple CDN URLs, SEO head terms and intros (scripts/v2/data/rating-seo.json).
+      - run: node --import tsx scripts/v2/test-rating.ts
       - name: Build (.next) on the runner, not the prod box
         run: npm run build
         env:
@@ -146,8 +149,9 @@ jobs:
       - name: Smoke-test production
         run: |
           set -euo pipefail
-          # Site v2 routing (docs/site-v2/ARCHITECTURE.md §1, §5.4): /<L>/mcp and /<L>/tokens are
-          # old pages the new site does not own, so the proxy still serves them IN PLACE.
+          # Site v2 routing (docs/site-v2/ARCHITECTURE.md §1, §5.4): /<L>/mcp is a new-site page
+          # since 2026-09-24 (it still lists every server tool); /<L>/tokens is an old page the new
+          # site does not own, so the proxy still serves it IN PLACE.
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/mcp-page.html https://inapp.pro/ru/mcp
           grep -q 'list_niche_themes' /tmp/mcp-page.html
@@ -217,3 +221,50 @@ jobs:
           grep -q 'data-old-site-banner="old"' /tmp/smoke-body.html
           expect_200 https://inapp.pro/ru/old/segment/habit-tracking
           grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt
+          # The web-only sections moved to the new site (rating, review archive, MCP) in the Clarity
+          # design (docs/site-v2/DECISIONS.md «Web-only sections»): indexable, in every locale.
+          # Markers are ids of server-rendered lists, not styling classes (quotes and the research
+          # lock card have no id). The open sample category (dating-apps) shows its apps to guests;
+          # the other review niches render a lock card.
+          # The rating is rich and free (DECISIONS «Rating: rich and free», spec 11 §9): App Store
+          # artwork from the Apple CDN, leaders, public quotes and tasks with no lock card, an
+          # editorial Review in the JSON-LD without the App Store aggregateRating, own image sitemaps.
+          expect_200 https://inapp.pro/ru/rating
+          grep -q 'id="rating-niches"' /tmp/smoke-body.html
+          if grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt; then echo "/ru/rating is noindex"; exit 1; fi
+          grep -q 'is1-ssl.mzstatic.com' /tmp/smoke-body.html
+          grep -q 'id="group-health"' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/ru/rating/dating-apps
+          grep -q 'id="rating-apps"' /tmp/smoke-body.html
+          grep -q 'id="rating-leaders"' /tmp/smoke-body.html
+          grep -q 'Лучшие приложения для знакомств' /tmp/smoke-body.html
+          if grep -q 'ia-rs-lock-card' /tmp/smoke-body.html; then echo "lock card in the rating"; exit 1; fi
+          expect_200 https://inapp.pro/ru/rating/habit-tracking
+          grep -q 'id="rating-leaders"' /tmp/smoke-body.html
+          grep -q 'is1-ssl.mzstatic.com' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/ru/rating/habit-tracking/hevy-workout-tracker-gym-log
+          grep -q 'id="screenshots"' /tmp/smoke-body.html
+          grep -q '"bestRating":100' /tmp/smoke-body.html
+          if grep -qi 'aggregateRating' /tmp/smoke-body.html; then echo "App Store aggregateRating in JSON-LD"; exit 1; fi
+          expect_200 https://inapp.pro/ru/rating/habit-tracking/way-of-life-habit-tracker
+          grep -q 'class="ia-quote' /tmp/smoke-body.html
+          if grep -q 'ia-rs-lock-card' /tmp/smoke-body.html; then echo "lock card on a rating app page"; exit 1; fi
+          expect_200 https://inapp.pro/ru/rating/habit-tracking/tasks/1
+          grep -q 'id="rating-task-apps"' /tmp/smoke-body.html
+          if grep -q 'ia-rs-lock-card' /tmp/smoke-body.html; then echo "lock card on a rating task page"; exit 1; fi
+          # The rating search API reads content/v2/<L>/rating (the --only=rating import step).
+          expect_200 'https://inapp.pro/api/site/rating-search?l=en&q=calendar'
+          grep -q '"total":[1-9]' /tmp/smoke-body.html
+          grep -q '"icon":' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/sitemap-rating-ru.xml
+          grep -q 'https://inapp.pro/ru/rating/' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/sitemap-rating-en.xml
+          grep -q '/en/rating/habit-tracking/hevy-workout-tracker-gym-log' /tmp/smoke-body.html
+          grep -q '<image:loc>' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/robots.txt
+          grep -q 'sitemap-rating-ru.xml' /tmp/smoke-body.html
+          grep -q 'sitemap-rating-en.xml' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/en/reviews/dating-apps
+          grep -q 'id="review-apps"' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/de/mcp
+          grep -q 'list_niche_themes' /tmp/smoke-body.html

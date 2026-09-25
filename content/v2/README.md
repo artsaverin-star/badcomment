@@ -18,6 +18,12 @@ node scripts/v2/export-images.mjs            # --force re-encodes everything
 
 # 3. Consistency check of the generated output (no app sources needed; CI-friendly)
 npx tsx scripts/v2/check-content.ts
+
+# Rating (web-only section, opt-in step; the full import above does not run it). Writes ONLY
+# <locale>/rating/** and never the manifest; also reads the web's src/data/peoplesRating (numbers,
+# order, icons, screenshots, reviews read) and scripts/v2/data/rating-seo.json (SEO terms, intros).
+npx tsx scripts/v2/import-app-content.ts --only=rating            # --check: validate only
+node --import tsx scripts/v2/test-rating.ts                        # rating helpers, rating-seo.json, reader, SEO, sitemaps
 ```
 
 Environment:
@@ -43,7 +49,8 @@ untouched. A re-run with unchanged sources rewrites nothing (and keeps `contentB
 
 Commit all of it together, in one change:
 
-- `content/v2/**` (≈ 12 MB: manifest, `_build/used-images.json`, `_build/media-stamp.json`, 5 locales)
+- `content/v2/**` (≈ 12 MB: manifest, `_build/used-images.json`, `_build/media-stamp.json`, 5 locales;
+  the rating files add ≈ 20 MB since they carry the icon and screenshot paths: ru ≈ 11, en ≈ 8)
 - `public/media/**` (≈ 38 MB of WebP + 2 PNG icons)
 - `src/site/manifest.generated.ts` (routing manifest imported by the proxy)
 
@@ -64,7 +71,31 @@ _build/media-stamp.json       export cache (skip unchanged images)
   ui.json                     PUBLIC: app UI strings (keys = Russian source) + plural forms; ru = identity
   research/<category>.json    GATED except interior-design
   ideas/<id>.json             GATED except interior-design-1…5
+ru/, en/rating/index.json     PUBLIC: rating niches (slug, name, nameLang, count, totalReviews, intro,
+                              updatedAt, leaders = ranks 1–4 with id, title, short, icon, realScore)
+                              + stats (incl. appsWithIcon, appsWithShots, shots) + generatedAt
+                              (max updatedAt) + source sha256
+ru/, en/rating/<niche>.json   PUBLIC (the whole rating is free, spec 11 D2), read on the server only
+                              (size): apps in raw peoplesRating order = rank order (the URL slugs
+                              depend on it) with numbers, texts and quotes, plus `short` (display
+                              name), `icon` / `shots` (compact mzstatic paths, ≤ 10 shots; URLs via
+                              src/site/features/rating/media.ts), `reviewsRead`; the niche's `seoName`
+                              (ru: genitive completing «Лучшие приложения для …», lowercase except
+                              proper nouns; en: a noun phrase for "Best … apps"), `intro` (one
+                              sentence, null only for astrology), `updatedAt`; scenarios
+de/, fr/, ja/rating/overlay.json   own launch-topic names + quote translations over the en files
 ```
+
+The rating files are outside `manifest.contentHash` (their step does not write the manifest);
+`check-content.ts` validates them separately. Types: `src/site/content/rating-types.ts`; read them
+only through `src/site/sitedata/rating.ts`. `updatedAt` (YYYY-MM-DD, UTC) is kept while a niche
+file's content is unchanged and set to the import day otherwise; the sitemap routes read it as
+`lastmod` (`/sitemap.xml` for the niches, with the index `generatedAt` for the hub;
+`/sitemap-rating-{ru,en}.xml` for app and task pages), so a re-import that changes nothing keeps
+them stable (IndexNow gets only the niches the latest import changed). `seoName` and `intro` of the
+71 shown niches come from `scripts/v2/data/rating-seo.json` (edit it and re-import to change the
+wording), and so does an optional `name` override of a topic name (the 9 non-launch topics whose
+English name was a raw «… apps» label); `astrology` (not shown) keeps the peoplesRating name.
 
 Read it only through `src/site/content` (server-only loaders with an LRU); image URLs via
 `src/site/content/media.ts`; reading rules (NBSP, reflow, corpus sentence, plurals) via

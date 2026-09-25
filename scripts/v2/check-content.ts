@@ -8,6 +8,11 @@
  * (src/site/manifest.generated.ts) matches; every Art has its WebP widths in
  * public/media; public files carry no paid idea text; structure is identical
  * across locales; content was not hand-edited (contentHash).
+ *
+ * Rating (content/v2/<L>/rating/**, written by `import-app-content.ts --only=rating`): the
+ * files the rating pages read exist and agree with each other (index ↔ niche files ↔ de/fr/ja
+ * overlays, ru ↔ en numbers and media), media paths, SEO texts and the catalogue groups (spec 11
+ * §8.5). They are outside manifest.contentHash: that step never writes the manifest.
  */
 
 import { createHash } from "node:crypto";
@@ -29,6 +34,8 @@ import type {
   UIFile,
   UsedImage,
 } from "../../src/site/content/types";
+import type { RatingIndexFile, RatingNicheFile, RatingOverlayFile } from "../../src/site/content/rating-types";
+import { RATING_GROUPS, ratingGroupMembers } from "../../src/site/features/rating/groups";
 
 const REPO = fileURLToPath(new URL("../..", import.meta.url));
 const CONTENT = path.join(REPO, "content/v2");
@@ -41,14 +48,14 @@ const error = (m: string) => errors.push(m);
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const rawFiles = new Map<string, string>();
 
-function read<T>(rel: string): T | null {
+function read<T>(rel: string, { hashed = true } = {}): T | null {
   const file = path.join(CONTENT, rel);
   if (!fs.existsSync(file)) {
     error(`missing content/v2/${rel}`);
     return null;
   }
   const raw = fs.readFileSync(file, "utf8");
-  rawFiles.set(rel, raw);
+  if (hashed) rawFiles.set(rel, raw);
   try {
     return JSON.parse(raw) as T;
   } catch (e) {
@@ -58,6 +65,7 @@ function read<T>(rel: string): T | null {
 }
 
 const mediaChecked = new Set<string>();
+let ratingFilesChecked = 0;
 function checkArt(where: string, art: Art | null | undefined, required = true) {
   if (!art) {
     if (required) error(`${where}: missing art`);
@@ -230,7 +238,153 @@ function main() {
   if (errors.length === 0 && contentHash !== manifest.contentHash)
     warnings.push(`contentHash mismatch over ${expectedFiles} files — content/v2 was edited by hand or files are missing; re-run the importer`);
 
+  checkRating();
   finish();
+}
+
+/**
+ * The rating content (src/site/content/rating.ts reads it at runtime; types in rating-types.ts).
+ * ru and en hold the texts, de/fr/ja only an overlay over en. Structural checks only: the
+ * importer (scripts/v2/import-rating.ts) validates the texts against the app sources.
+ */
+function checkRating() {
+  const CYRILLIC = /\p{Script=Cyrillic}/u;
+  // Spec 11 §8.2, §8.5 (the importer applies the same rules).
+  const MZ_PATH = /^[A-Za-z0-9][A-Za-z0-9._@/-]*\.(?:png|jpe?g)$/i;
+  const TRUST_WORDING = /накрут|накручен|скам|фейк|juic|fake|scam|inflat/i;
+  const DAY = /^\d{4}-\d{2}-\d{2}$/;
+  const usable = ratingUsable();
+  const byLocale = new Map<"ru" | "en", Map<string, RatingNicheFile>>();
+  for (const dl of ["ru", "en"] as const) {
+    const index = read<RatingIndexFile>(`${dl}/rating/index.json`, { hashed: false });
+    if (!index) continue;
+    if (index.version !== 1 || index.locale !== dl) error(`${dl}/rating/index.json: locale ${index.locale} / version ${index.version}`);
+    const slugs = index.niches.map((n) => n.slug);
+    if (new Set(slugs).size !== slugs.length) error(`${dl}/rating/index.json: duplicate niche slugs`);
+    const files = new Map<string, RatingNicheFile>();
+    const totals = { apps: 0, scenarios: 0, readableScenarios: 0, appsWithQuotes: 0, quotes: 0, appsWithIcon: 0, appsWithShots: 0, shots: 0 };
+    let newest = "";
+    for (const entry of index.niches) {
+      const where = `${dl}/rating/${entry.slug}`;
+      const f = read<RatingNicheFile>(`${where}.json`, { hashed: false });
+      if (!f) continue;
+      if (f.version !== 1 || f.locale !== dl || f.category !== entry.slug) error(`${where}: wrong version/locale/category`);
+      if (!f.name || f.name !== entry.name || f.nameLang !== entry.nameLang || f.count !== entry.count) error(`${where}: differs from its index entry`);
+      if (f.totalReviews !== entry.totalReviews || f.intro !== entry.intro || f.updatedAt !== entry.updatedAt)
+        error(`${where}: totalReviews / intro / updatedAt differ from its index entry`);
+      // The catalogue card reads the leaders from the index: they are the file's first 4 apps.
+      const leaders = f.apps.slice(0, 4).map((a) => ({ id: a.id, title: a.title, short: a.short, icon: a.icon, realScore: a.realScore }));
+      if (JSON.stringify(entry.leaders) !== JSON.stringify(leaders)) error(`${where}: index leaders are not the file's first 4 apps`);
+      if (dl === "en" && CYRILLIC.test(f.name)) error(`${where}: Cyrillic in the English niche name`);
+      // SEO head term and intro (spec 11 §6.2, §6.3).
+      if (typeof f.seoName !== "string" || !f.seoName.trim() || f.seoName.length > 40) error(`${where}: seoName must be 1–40 characters`);
+      else if (dl === "en" && (/\bapps?$/i.test(f.seoName) || CYRILLIC.test(f.seoName))) error(`${where}: seoName «${f.seoName}» ends in app(s) or is not English`);
+      if (f.intro === null) {
+        if (usable.has(entry.slug)) error(`${where}: no intro (only a niche without a rating page may lack one)`);
+      } else if (typeof f.intro !== "string" || f.intro.length > 180 || TRUST_WORDING.test(f.intro) || (dl === "en" && CYRILLIC.test(f.intro)))
+        error(`${where}: intro over 180 characters, with trust wording or in the wrong language`);
+      if (typeof f.updatedAt !== "string" || !DAY.test(f.updatedAt)) error(`${where}: updatedAt ${f.updatedAt} is not YYYY-MM-DD`);
+      else if (f.updatedAt > newest) newest = f.updatedAt;
+      const ids = new Set<string>();
+      f.apps.forEach((a, i) => {
+        // The rank is the raw index + 1 (spec 11 D3): the raw order is realScore descending.
+        const prev = f.apps[i - 1];
+        if (prev && (a.realScore ?? -1) > (prev.realScore ?? -1)) error(`${where}/${a.id}: apps are not sorted by realScore descending`);
+      });
+      for (const a of f.apps) {
+        // The URL slug index depends on unique ids in the raw order (sitedata/rating.ts).
+        if (!/^\d+$/.test(a.id) || ids.has(a.id)) error(`${where}: bad or duplicate app id ${a.id}`);
+        ids.add(a.id);
+        if (!a.title) error(`${where}/${a.id}: empty title`);
+        if (typeof a.short !== "string" || !a.short.trim() || a.short.length > a.title.length) error(`${where}/${a.id}: bad short name «${a.short}»`);
+        if (a.icon !== null && (typeof a.icon !== "string" || !MZ_PATH.test(a.icon))) error(`${where}/${a.id}: bad icon path ${a.icon}`);
+        if (!Array.isArray(a.shots) || a.shots.length > 10 || new Set(a.shots).size !== a.shots.length || a.shots.some((p) => typeof p !== "string" || !MZ_PATH.test(p)))
+          error(`${where}/${a.id}: shots must be ≤ 10 unique compact paths`);
+        if (a.reviewsRead !== null && !(Number.isInteger(a.reviewsRead) && a.reviewsRead >= 1 && a.reviewsRead <= 2000))
+          error(`${where}/${a.id}: reviewsRead ${a.reviewsRead} is not an integer 1–2000`);
+        if (a.icon) totals.appsWithIcon++;
+        if (a.shots?.length) totals.appsWithShots++;
+        totals.shots += a.shots?.length ?? 0;
+        // Titles keep the store's Cyrillic look-alike letters; the texts must be English.
+        if (dl === "en") for (const k of ["verdict", "loved", "weak", "whoFor"] as const) if (a[k] && CYRILLIC.test(a[k])) error(`${where}/${a.id}: Cyrillic in ${k}`);
+        for (const q of a.quotes) if (!q.text || !q.lang) error(`${where}/${a.id}: bad quote`);
+        if (a.quotes.length) totals.appsWithQuotes++;
+        totals.quotes += a.quotes.length;
+      }
+      totals.apps += f.apps.length;
+      f.scenarios.forEach((s, i) => {
+        // /rating/<niche>/tasks/<n> is the 1-based index into the full list.
+        if (s.n !== i + 1) error(`${where}: scenario ${i + 1} has n=${s.n}`);
+        for (const id of s.appIds) if (!ids.has(id)) error(`${where}: scenario ${s.n} references unknown app ${id}`);
+        if (dl === "en") for (const k of ["name", "job", "gap"] as const) if (s[k] && CYRILLIC.test(s[k])) error(`${where}: Cyrillic in scenario ${s.n} ${k}`);
+        if (s.job) totals.readableScenarios++;
+      });
+      totals.scenarios += f.scenarios.length;
+      files.set(entry.slug, f);
+      ratingFilesChecked++;
+    }
+    const stats = { niches: index.niches.length, ...totals };
+    for (const [k, v] of Object.entries(stats))
+      if (index.stats[k as keyof typeof stats] !== v) error(`${dl}/rating/index.json: stats.${k} = ${index.stats[k as keyof typeof stats]}, files say ${v}`);
+    if (index.generatedAt !== newest) error(`${dl}/rating/index.json: generatedAt ${index.generatedAt} is not the newest niche updatedAt ${newest}`);
+    const dir = path.join(CONTENT, dl, "rating");
+    for (const name of fs.readdirSync(dir))
+      if (name !== "index.json" && !files.has(name.replace(/\.json$/, ""))) warnings.push(`stale file content/v2/${dl}/rating/${name} (not in index.json)`);
+    byLocale.set(dl, files);
+  }
+
+  // ru and en share the numbers, the raw app order (URL slugs) and the niche set.
+  const ru = byLocale.get("ru");
+  const en = byLocale.get("en");
+  if (ru && en) {
+    if ([...ru.keys()].sort().join() !== [...en.keys()].sort().join()) error("rating: ru and en list different niches");
+    for (const [slug, r] of ru) {
+      const e = en.get(slug);
+      if (!e) continue;
+      if (r.count !== e.count || r.totalReviews !== e.totalReviews) error(`rating/${slug}: ru and en counts differ`);
+      if (r.apps.map((a) => a.id).join() !== e.apps.map((a) => a.id).join()) error(`rating/${slug}: ru and en app order differs`);
+      r.apps.forEach((a, i) => {
+        const b = e.apps[i];
+        if (b && (a.realScore !== b.realScore || a.storeAvg !== b.storeAvg || a.ratings !== b.ratings)) error(`rating/${slug}/${a.id}: ru and en numbers differ`);
+        if (b && (a.short !== b.short || a.icon !== b.icon || a.reviewsRead !== b.reviewsRead || JSON.stringify(a.shots) !== JSON.stringify(b.shots)))
+          error(`rating/${slug}/${a.id}: ru and en short name / media / reviewsRead differ`);
+      });
+    }
+  }
+
+  // Catalogue groups (features/rating/groups.ts): every niche with a rating page exactly once.
+  const grouped = new Map<string, number>();
+  for (const id of RATING_GROUPS) for (const slug of ratingGroupMembers(id)) grouped.set(slug, (grouped.get(slug) ?? 0) + 1);
+  const niches = en ?? ru;
+  if (niches) {
+    for (const slug of niches.keys()) if (usable.has(slug) && grouped.get(slug) !== 1) error(`rating: ${slug} is in ${grouped.get(slug) ?? 0} catalogue groups (groups.ts; want 1)`);
+    for (const slug of grouped.keys()) if (!niches.has(slug) || !usable.has(slug)) error(`rating: groups.ts lists ${slug}, which has no rating page`);
+  }
+
+  // de/fr/ja: own names and quote translations over en.
+  for (const L of ["de", "fr", "ja"] as const) {
+    const o = read<RatingOverlayFile>(`${L}/rating/overlay.json`, { hashed: false });
+    if (!o || !en) continue;
+    ratingFilesChecked++;
+    if (o.version !== 1 || o.locale !== L) error(`${L}/rating/overlay.json: locale ${o.locale} / version ${o.version}`);
+    for (const [slug, n] of Object.entries(o.names)) if (!en.has(slug) || !n.name) error(`${L}/rating/overlay.json: bad name for ${slug}`);
+    for (const [key, list] of Object.entries(o.quotes)) {
+      const [slug, id] = key.split(":");
+      const app = en.get(slug)?.apps.find((a) => a.id === id);
+      if (!app) error(`${L}/rating/overlay.json: quotes for unknown app ${key}`);
+      else if (list.length !== app.quotes.length || list.some((q) => !q.text || !q.lang)) error(`${L}/rating/overlay.json: ${key} is not the app's full quote list`);
+    }
+  }
+}
+
+/**
+ * Niches with a rating page besides being in the index: they have a review corpus
+ * (sitedata/rating.ts `usable`, lib/reviews.ts hasReviewCorpus).
+ */
+function ratingUsable(): Set<string> {
+  const file = path.join(REPO, "src/data/reviewSourceIndex.json");
+  const index = JSON.parse(fs.readFileSync(file, "utf8")) as { niches?: Record<string, unknown[]> };
+  return new Set(Object.entries(index.niches ?? {}).filter(([, apps]) => Array.isArray(apps) && apps.length > 0).map(([slug]) => slug));
 }
 
 function finish() {
@@ -240,7 +394,7 @@ function finish() {
     for (const e of errors.slice(0, 100)) console.error(`  - ${e}`);
     process.exit(1);
   }
-  console.log(`✔ content/v2 and public/media are consistent (${mediaChecked.size} media files checked)`);
+  console.log(`✔ content/v2 and public/media are consistent (${mediaChecked.size} media files, ${ratingFilesChecked} rating files checked)`);
 }
 
 main();

@@ -1,7 +1,7 @@
-import type { SVGProps } from "react";
 import type { IdeaBlockView, IdeaFile, QuoteView } from "@/site/content/types";
 import { paragraphs } from "@/site/content/text";
 import type { Locale } from "@/site/i18n/locales";
+import { QuoteOpeningIcon } from "@/site/ui/icons";
 import "./ideas.css";
 
 // The idea article (spec 02 §3.4, spec 05 §3.6 M) — SERVER component, rendered only after
@@ -70,22 +70,8 @@ function Block({ block, locale }: { block: IdeaBlockView; locale: Locale }) {
 function Quote({ quote }: { quote: QuoteView }) {
   return (
     <figure className="ia-idea__quote">
-      <QuoteOpeningGlyph className="ia-idea__quote-mark" />
+      <QuoteOpeningIcon className="ia-idea__quote-mark" />
       <blockquote className="ia-idea__quote-text">{quote.text}</blockquote>
     </figure>
-  );
-}
-
-/**
- * SF `quote.opening` at caption size: a FILLED opening double quote (lucide has only an
- * outline closing-style mark). TODO(ui): hoist into src/site/ui/icons.tsx and share it with
- * the research article's quotes.
- */
-function QuoteOpeningGlyph(props: Omit<SVGProps<SVGSVGElement>, "children">) {
-  return (
-    <svg width={13} height={13} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
-      <path d="M2.5 15.5C2.5 11 5 7.2 9.1 5.5l.8 1.7C7.6 8.4 6.4 10 6.1 12.1A3.7 3.7 0 1 1 2.5 15.5Z" />
-      <path d="M13 15.5c0-4.5 2.5-8.3 6.6-10l.8 1.7c-2.3 1.2-3.5 2.8-3.8 4.9A3.7 3.7 0 1 1 13 15.5Z" />
-    </svg>
   );
 }

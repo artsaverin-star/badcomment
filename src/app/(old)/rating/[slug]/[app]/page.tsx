@@ -27,12 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ? `${a.title}: что хвалят и где слабо по реальным отзывам. Народный балл ${a.realScore ?? ""}, витринная звезда ${a.storeAvg ?? ""}. ${(a.verdict || "").slice(0, 120)}`
     : `${a.title}: what users love and where it falls short, from real reviews. Real score ${a.realScore ?? ""}, store star ${a.storeAvg ?? ""}. ${(a.verdict || "").slice(0, 120)}`;
   const url = `https://inapp.pro/${lp}/rating/${slug}/${app}`;
+  // Archived copy (/<L>/old/rating/<niche>/<app>): noindex without canonical/hreflang — a canonical
+  // to the live page next to noindex could carry the noindex over to it (spec 11 §6.5).
   return {
     title, description,
-    alternates: { canonical: url, languages: { ru: `https://inapp.pro/ru/rating/${slug}/${app}`, en: `https://inapp.pro/en/rating/${slug}/${app}`, "x-default": `https://inapp.pro/en/rating/${slug}/${app}` } },
     openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru)] },
     twitter: { card: "summary_large_image", title, description, images: [ogImage(ru)] },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
   };
 }
 

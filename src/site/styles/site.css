@@ -183,6 +183,17 @@
   .ia-page--library {
     max-width: calc(var(--ia-w-library) + 2 * var(--ia-gutter-catalog));
   }
+  /* One-column page stack (rating, review archive, MCP): a modifier, so .ia-page keeps its
+     margin and padding. Gap 20 on catalogue and list pages (ClarityRatings.swift:79, 166),
+     24 on detail pages and sheets (:256, 354, 450). */
+  .ia-page--stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ia-page--stack-24 {
+    gap: 24px;
+  }
   .ia-page--reading {
     max-width: calc(var(--ia-w-reading) + 2 * var(--ia-gutter-reader));
     padding-inline: var(--ia-gutter-reader);
@@ -266,6 +277,11 @@
     .ia-heading__title {
       font-size: clamp(1.875rem, 1.2rem + 1.6vw, 2.5rem);
     }
+    /* Fixed Georgia 30/34 (ClarityReadingStyle.swift:12), no desktop clamp: rating, review
+       archive and MCP headings and the rating method sheet. */
+    .ia-heading--fixed .ia-heading__title {
+      font-size: var(--ia-fs-title);
+    }
   }
   .ia-heading__subtitle {
     margin: 0;
@@ -305,6 +321,26 @@
     margin: 0;
     font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
     letter-spacing: -0.025em;
+  }
+  /* `.title2.weight(.bold)` section titles (ClarityRatings.swift:90, 174, 196, 302, 311, 363, 368). */
+  .ia-section-title--bold {
+    font-weight: 700;
+  }
+  /* Section title + count / sort: a plain HStack centres (ClarityRatings.swift:89-93);
+     --baseline = HStack(alignment: .firstTextBaseline) (:195). */
+  .ia-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .ia-section-head--baseline {
+    align-items: baseline;
+  }
+  .ia-section-head__count {
+    font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+    font-variant-numeric: tabular-nums;
+    color: var(--ia-secondary);
   }
 
   /* ---- Buttons (spec 05 §3.6 H) ---- */
@@ -399,6 +435,35 @@
     padding: 0 14px;
     font-size: var(--ia-fs-subheadline);
     line-height: var(--ia-lh-subheadline);
+  }
+  /* «Открыть в App Store» (ClarityRatings.swift:271-277): body semibold (the .ia-btn 600 17/22),
+     full width, minHeight 54, ink capsule with a paper label. */
+  .ia-btn--ink {
+    width: 100%;
+    min-height: 54px;
+    padding: 0 20px;
+    border-radius: var(--ia-radius-pill);
+    background: var(--ia-ink);
+    color: var(--ia-paper);
+  }
+  .ia-btn--ink:active {
+    opacity: 0.7;
+  }
+  /* Text button modifiers: --flush drops the side padding and hugs the leading edge of a
+     column; --body is `.body.weight(.medium)` («Показать остальные», ClarityRatings.swift:323). */
+  .ia-btn--text.ia-btn--flush {
+    padding-inline: 0;
+    align-self: flex-start;
+  }
+  .ia-btn--text.ia-btn--body {
+    font: 500 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+    letter-spacing: -0.025em;
+  }
+  @media (hover: hover) {
+    /* Web-only hover (no Swift value). */
+    .ia-btn--ink:hover {
+      background: color-mix(in srgb, var(--ia-ink) 86%, var(--ia-paper));
+    }
   }
   @media (hover: hover) {
     .ia-btn--primary:hover,
@@ -495,6 +560,219 @@
     .ia-card--interactive.ia-card--idea:active {
       transform: scale(0.97);
     }
+  }
+
+  /* ---- Row (ClarityRow, ClarityStyle.swift:148-162; src/site/ui/Row.tsx) ----
+     HStack(spacing 16): a 48 × 48 lilac (= accentSoft, ClarityStyle.swift:15) tile, radius 16,
+     with the glyph in ink; title headline + subtitle subheadline secondary, 6 apart; the row
+     pads 6 vertically. Inside a clarityCard the minimum height is 48 + 12 + 44 = 104. */
+  .ia-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-block: 6px;
+    color: var(--ia-ink);
+  }
+  .ia-row__tile {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--ia-radius-field);
+    background: var(--ia-accent-soft);
+    color: var(--ia-ink);
+  }
+  .ia-row__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .ia-row__titleline {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .ia-row__title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+  }
+  .ia-row__subtitle {
+    font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+    letter-spacing: -0.015em;
+    color: var(--ia-secondary);
+  }
+  /* A badge under the subtitle: 6 gap + 9 = 15 = spacing 10 + padding.top 5
+     (ClarityCatalogs.swift:134-139). */
+  .ia-row__badge {
+    margin-top: 9px;
+  }
+  /* RowCard: the whole clarityCard is one link. `.buttonStyle(.plain)` only dims the label
+     (ClarityRatings.swift:99, 217): no press scale. Web-only: label opacity .55 on press, a
+     surface tint on hover. */
+  .ia-row-card {
+    text-decoration: none;
+    transition: background-color 150ms ease;
+  }
+  .ia-row-card:active > * {
+    opacity: 0.55;
+  }
+  @media (hover: hover) {
+    .ia-row-card:hover {
+      background: color-mix(in srgb, var(--ia-surface) 94%, var(--ia-ink));
+    }
+  }
+  .ia-row-card:focus-visible {
+    outline: 2px solid var(--ia-accent);
+    outline-offset: 2px;
+  }
+
+  /* ---- App Store icon (src/site/ui/AppIcon.tsx; the rating only, spec 11 §3.2) ----
+     A plain <img> sized by its width/height attributes (CSS may resize it). The iOS squircle
+     maths of AppMark (22.37 % of the side) as a percentage, so a resized icon keeps its shape.
+     The ring is an outline: it paints over the image and follows the radius, so white and
+     black icons keep an edge on light and dark surfaces. No wrapper node, no new token. */
+  .ia-app-icon {
+    display: block;
+    flex: none;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-radius: 22.37%;
+    background: var(--ia-soft);
+    outline: var(--ia-hairline) solid var(--ia-ink-15);
+    outline-offset: calc(-1 * var(--ia-hairline));
+  }
+
+  /* ---- Empty result card (ClarityRatingsEmpty, ClarityRatings.swift:474-483) ----
+     VStack(spacing 12): magnifier title2 secondary, title2 bold, body secondary; clarityCard. */
+  .ia-empty-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ia-empty-card > svg {
+    color: var(--ia-secondary);
+  }
+  .ia-empty-card__title {
+    margin: 0;
+    font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+    letter-spacing: -0.012em;
+  }
+  .ia-empty-card__body {
+    margin: 0;
+    font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+    letter-spacing: -0.025em;
+    color: var(--ia-secondary);
+  }
+
+  /* ---- Method card (ClarityRatings.swift:452-459): headline over body ink in a clarityCard.
+     Shared by the rating method sheet and the review methodology (layers, check card). ---- */
+  .ia-rt-method-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ia-rt-method-card p {
+    margin: 0;
+    font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+    color: var(--ia-ink);
+  }
+
+  /* ---- Quote (ClarityQuoteBlock, ClarityReader.swift:870-888; src/site/ui/QuoteBlock.tsx) ----
+     VStack(spacing 12): quote.opening caption secondary, then Georgia 20 + lineSpacing 7 ink.
+     No app name and no stars: the app receives both and renders neither. */
+  .ia-quote {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+  }
+  .ia-quote__glyph {
+    flex: none;
+    color: var(--ia-secondary);
+  }
+  .ia-quote__text {
+    margin: 0;
+    font: 400 var(--ia-fs-quote) / var(--ia-lh-quote) var(--ia-font-serif);
+    font-synthesis: none;
+    color: var(--ia-ink);
+    overflow-wrap: break-word;
+  }
+
+  /* ---- Text utilities ---- */
+  /* Footnote 13/18 secondary (ClarityRatings.swift:103, 281). */
+  .ia-footnote {
+    margin: 0;
+    font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+    color: var(--ia-secondary);
+  }
+  /* .padding(.top, 4) (ClarityRatings.swift:104): 24 below the list in a 20-gap stack. */
+  .ia-footnote--gap {
+    margin-top: 4px;
+  }
+  /* A plain vertical list (Tailwind preflight already resets ul/ol margin, padding, bullets). */
+  .ia-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ia-stack--24 {
+    gap: 24px;
+  }
+  /* Search status and secondary prose lines: subheadline secondary (with the SF tracking the
+     other 15 pt lines use, e.g. .ia-rt-note). */
+  .ia-search-status {
+    margin: 0;
+    font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+    letter-spacing: -0.015em;
+    color: var(--ia-secondary);
+  }
+  .ia-search-status:empty {
+    display: none;
+  }
+  /* An empty live region stays in the accessibility tree (clipped, out of the stack's flow), so
+     its first message is announced too: a region that appears with its text often is not. */
+  .ia-search-status[role="status"]:empty {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+  /* ClarityArticleBullets (ClarityReader.swift:789-800): VStack(spacing 16); a 5 pt ink dot
+     10 from the top, 12 before the Georgia body text. */
+  .ia-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ia-bullets li {
+    position: relative;
+    padding-left: 17px;
+    font: 400 var(--ia-fs-body-serif) / var(--ia-lh-body-serif) var(--ia-font-serif);
+    font-synthesis: none;
+  }
+  .ia-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ia-ink);
   }
 
   /* ---- Search (ClaritySearch, spec 05 §3.6 B) ---- */
@@ -620,6 +898,44 @@
   @media (hover: hover) {
     .ia-chip:not([aria-pressed="true"]):not([aria-checked="true"]):not([aria-current]):hover {
       background: var(--ia-ink-045);
+    }
+  }
+  /* Filter pill (ClarityCatalogs.swift:206-211): subheadline medium ink on a surface capsule,
+     padding 13 × 17, glyph `line.3.horizontal.decrease` in ink, gap 8. Opens a PickerSheet
+     (ideas category) or a Menu (review rating). Moved from ideas.css (.ia-ideas__pill). */
+  .ia-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 13px 17px;
+    border: 0;
+    border-radius: var(--ia-radius-pill);
+    background: var(--ia-surface);
+    color: var(--ia-ink);
+    font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity var(--ia-dur-press) var(--ia-ease-press);
+  }
+  .ia-pill:active {
+    opacity: 0.8;
+  }
+  /* The label wraps instead of truncating: the app's pill Text is
+     .fixedSize(horizontal: false, vertical: true) (ClarityCatalogs.swift:204-211). */
+  .ia-pill > span {
+    min-width: 0;
+    text-align: start;
+    overflow-wrap: break-word;
+  }
+  .ia-pill svg {
+    flex: none;
+  }
+  @media (hover: hover) {
+    .ia-pill:hover {
+      background: color-mix(in srgb, var(--ia-surface) 92%, var(--ia-ink));
     }
   }
   .ia-eyebrow {
@@ -882,6 +1198,14 @@
   .ia-menu__item[aria-checked="true"] .ia-menu__icon {
     color: inherit;
   }
+  /* The section / tab the reader is in (navigation menus): ink 600, like the current section
+     link beside the logo — no accent. */
+  .ia-menu__item[aria-current] {
+    font-weight: 600;
+  }
+  .ia-menu__item[aria-current] .ia-menu__icon {
+    color: var(--ia-ink);
+  }
   .ia-menu__sep {
     height: var(--ia-hairline);
     margin: 6px 12px;
@@ -891,6 +1215,46 @@
     .ia-menu__item:hover {
       background: var(--ia-ink-045);
     }
+  }
+  /* Sort trigger «Порядок» (ClarityRatings.swift:196-203): a Menu with a Picker, labelled with
+     the filter glyph + text in the root tint (accent), subheadline. The text span sets the
+     baseline, so «Порядок» lines up with the «Приложения» title in a --baseline section head. */
+  .ia-sort-btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    min-height: 44px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    border: 0;
+    background: none;
+    color: var(--ia-accent);
+    font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+    letter-spacing: -0.015em;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .ia-sort-btn svg {
+    flex: none;
+    align-self: center;
+  }
+  /* In a section head the 44 px hit area must not make the head taller than its title: the
+     app's HStack(.firstTextBaseline) is only as tall as the text (:195-205). */
+  .ia-section-head--baseline .ia-sort-btn {
+    margin-block: -12px;
+  }
+  /* A Picker inside a Menu: the chosen row gets a tick; the text stays ink and regular. */
+  .ia-menu-anchor--tick .ia-menu__item[aria-checked="true"] {
+    color: var(--ia-ink);
+    font-weight: 400;
+  }
+  .ia-menu-anchor--tick .ia-menu__icon {
+    color: var(--ia-ink);
+  }
+  /* Picker options size the menu like an iOS menu: as wide as the longest option («По оценке в
+     магазине» would wrap at the 232 px minimum), still capped by .ia-menu's max-width. */
+  .ia-menu-anchor--tick .ia-menu {
+    width: max-content;
   }
 
   /* ---- Sheet / dialog (spec 05 §3.6 N) ---- */
@@ -1026,6 +1390,56 @@
     padding: 14px var(--ia-gutter-reader) 10px;
     border-top: var(--ia-hairline) solid var(--ia-line);
     background: inherit;
+  }
+
+  /* ---- Picker sheet (ClarityTopicPicker, ClarityCatalogs.swift:244-273; src/site/ui/PickerSheet.tsx).
+     Moved unchanged from ideas.css. ---- */
+  .ia-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ia-picker__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: var(--ia-radius-card);
+    background: var(--ia-surface);
+    overflow: hidden;
+  }
+  .ia-picker__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    /* A List row (44) + .padding(.vertical, 7) ≈ 58 (ClarityCatalogs.swift:272). */
+    padding: 18px 20px;
+    border: 0;
+    background: transparent;
+    color: var(--ia-ink);
+    font: 400 var(--ia-fs-body) / var(--ia-lh-body) var(--ia-font-sans);
+    text-align: start;
+    cursor: pointer;
+  }
+  /* Separators inset 20 from the leading edge, like the system List. */
+  .ia-picker__list > li + li .ia-picker__row {
+    background-image: linear-gradient(var(--ia-line-65), var(--ia-line-65));
+    background-position: 20px 0;
+    background-size: calc(100% - 20px) 1px;
+    background-repeat: no-repeat;
+  }
+  .ia-picker__row > span {
+    flex: 1;
+  }
+  .ia-picker__row:focus-visible {
+    outline-offset: -2px;
+  }
+  @media (hover: hover) {
+    .ia-picker__row:hover {
+      background-color: var(--ia-ink-045);
+    }
   }
 
   /* ---- Toast ---- */
@@ -1702,6 +2116,7 @@
   @media (forced-colors: active) {
     .ia-search,
     .ia-chip,
+    .ia-pill,
     .ia-tab,
     .ia-glass-pill,
     .ia-icon-btn--circle,
@@ -1786,5 +2201,110 @@
   .ia-spinner {
     animation-duration: 0.8s !important;
     animation-iteration-count: infinite !important;
+  }
+}
+
+/* ---- Web-only sections in the chrome (src/site/shell/SectionNav.tsx) ----
+   «Рейтинги · Отзывы · MCP» sit beside the logo as a quiet second level (web-only: the app has
+   only its tab bar, ClarityRoot.swift:58-75). Spec §6 fallback / §10 Q14: plain rounded text
+   500 15/20 in secondary, the current section in ink 600 — no accent and no accent-soft pill,
+   so the tab capsule stays the only selected shape in the bar. Hover turns the text ink (no
+   tint); a press dims it like `.buttonStyle(.plain)` (web deviation, §1.5). Hit height 44.
+   The logo column is what the centered capsule leaves (1fr), so the column itself decides:
+   three links when they fit in every language (the de row is the widest), else one
+   «Ещё разделы ⌄» menu trigger in the same quiet style. < 1024 the ☰ menu of the compact
+   header takes over. */
+@layer components {
+  .ia-topnav__start {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+    container-type: inline-size;
+  }
+  .ia-secnav,
+  .ia-secnav-menu {
+    display: none;
+  }
+  @container (min-width: 380px) {
+    .ia-secnav {
+      display: block;
+    }
+  }
+  @container (max-width: 379.98px) {
+    .ia-secnav-menu {
+      display: block;
+    }
+  }
+  /* 8 + 4 + 8 = 20 px between labels. Measured with SF Pro Rounded: logo 95 + 18 + the de row
+     «Bewertungen · Rezensionen · MCP» (current in 600) 255 = 368 px, so 380 keeps ~12 px spare. */
+  .ia-secnav__list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* The pill radius only shapes the focus ring; there is no fill in any state. */
+  .ia-secnav__link,
+  .ia-secnav-menu__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: var(--ia-hit);
+    padding: 0 8px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--ia-radius-pill);
+    background: none;
+    color: var(--ia-secondary);
+    font: 500 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-rounded);
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      color 150ms ease,
+      opacity 150ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .ia-secnav-menu__trigger svg {
+    flex: none;
+  }
+  .ia-secnav__link[aria-current],
+  .ia-secnav-menu[data-current] .ia-secnav-menu__trigger {
+    color: var(--ia-ink);
+    font-weight: 600;
+  }
+  .ia-secnav-menu__trigger[aria-expanded="true"] {
+    color: var(--ia-ink);
+  }
+  @media (hover: hover) {
+    .ia-secnav__link:hover,
+    .ia-secnav-menu__trigger:hover {
+      color: var(--ia-ink);
+    }
+  }
+  .ia-secnav__link:active,
+  .ia-secnav-menu__trigger:active {
+    opacity: 0.55;
+  }
+  /* Forced colors flatten ink and secondary to one CanvasText: mark the current section. */
+  @media (forced-colors: active) {
+    .ia-secnav__link[aria-current] {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+  .ia-mobile-header__end {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ia-menu-btn {
+    width: 44px;
+    padding: 0;
+    border-radius: 50%;
   }
 }

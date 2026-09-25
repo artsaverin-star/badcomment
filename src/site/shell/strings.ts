@@ -3,6 +3,8 @@ import { defineStrings } from "../i18n/strings";
 // Web-only strings of the shell (header, tab bar, footer, "open in app" banner).
 // App strings (tab titles «Разборы/Идеи/Сохранённое», «Настройки», «Язык», legal links)
 // come from the app packs through t(); only web wording lives here.
+// `rating` holds the app's «Рейтинги» values (content/v2/<L>/ui.json) verbatim: that key is not
+// in SHELL_UI_KEYS (i18n/builtin.ts), and the section nav and the footer read it from here.
 
 export const shellStrings = defineStrings({
   ru: {
@@ -22,6 +24,12 @@ export const shellStrings = defineStrings({
     bannerCtaLive: "Открыть",
     bannerDismiss: "Скрыть",
     notFoundBody: "Вернись в каталог и выбери другой материал.",
+    rating: "Рейтинги",
+    reviews: "Отзывы",
+    mcp: "MCP",
+    sectionsNav: "Разделы сайта",
+    sectionsMore: "Ещё разделы",
+    menu: "Меню",
   },
   en: {
     signIn: "Sign in",
@@ -40,6 +48,12 @@ export const shellStrings = defineStrings({
     bannerCtaLive: "Open",
     bannerDismiss: "Dismiss",
     notFoundBody: "Go back to the catalog and pick another material.",
+    rating: "Ratings",
+    reviews: "Reviews",
+    mcp: "MCP",
+    sectionsNav: "Site sections",
+    sectionsMore: "More sections",
+    menu: "Menu",
   },
   de: {
     signIn: "Anmelden",
@@ -58,6 +72,12 @@ export const shellStrings = defineStrings({
     bannerCtaLive: "Öffnen",
     bannerDismiss: "Ausblenden",
     notFoundBody: "Geh zurück in den Katalog und wähl ein anderes Material.",
+    rating: "Bewertungen",
+    reviews: "Rezensionen",
+    mcp: "MCP",
+    sectionsNav: "Bereiche der Website",
+    sectionsMore: "Weitere Bereiche",
+    menu: "Menü",
   },
   fr: {
     signIn: "Se connecter",
@@ -76,6 +96,12 @@ export const shellStrings = defineStrings({
     bannerCtaLive: "Ouvrir",
     bannerDismiss: "Masquer",
     notFoundBody: "Reviens au catalogue et choisis un autre contenu.",
+    rating: "Classements",
+    reviews: "Avis",
+    mcp: "MCP",
+    sectionsNav: "Rubriques du site",
+    sectionsMore: "Autres rubriques",
+    menu: "Menu",
   },
   ja: {
     signIn: "ログイン",
@@ -94,6 +120,12 @@ export const shellStrings = defineStrings({
     bannerCtaLive: "開く",
     bannerDismiss: "閉じる",
     notFoundBody: "カタログに戻って別の資料を選んでください。",
+    rating: "評価一覧",
+    reviews: "レビュー",
+    mcp: "MCP",
+    sectionsNav: "サイトのセクション",
+    sectionsMore: "ほかのセクション",
+    menu: "メニュー",
   },
 });
 

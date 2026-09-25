@@ -35,6 +35,9 @@ export type MenuItem =
       danger?: boolean;
       /** Radio-style item (language, theme): renders aria-checked. */
       checked?: boolean;
+      /** A navigation item for the page the reader is on ("page") or inside ("true"):
+       *  aria-current, shown in ink 600 like the section links. */
+      current?: "page" | "true";
       lang?: string;
     }
   | { type: "separator" }
@@ -161,6 +164,7 @@ export function Menu({
                   href={item.href}
                   role={role}
                   aria-checked={item.checked}
+                  aria-current={item.current}
                   tabIndex={-1}
                   className={cls}
                   lang={item.lang}
@@ -175,6 +179,7 @@ export function Menu({
                   href={item.href}
                   role={role}
                   aria-checked={item.checked}
+                  aria-current={item.current}
                   tabIndex={-1}
                   className={cls}
                   lang={item.lang}

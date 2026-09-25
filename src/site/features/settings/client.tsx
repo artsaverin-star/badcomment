@@ -1,107 +1,21 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
-import { openPaywall, openSignIn, signOut } from "@/site/shell/actions";
+import { useState, type ReactNode } from "react";
+import { openSignIn, signOut } from "@/site/shell/actions";
 import { useViewer } from "@/site/shell/ViewerContext";
-import { useLocale, useT, useWebStrings } from "@/site/i18n/client";
-import { INTL_LOCALE } from "@/site/i18n/locales";
+import { useT, useWebStrings } from "@/site/i18n/client";
 import { applyTheme, THEMES, type Theme } from "@/site/theme";
-import { buttonClass } from "@/site/ui/Button";
-import { ArrowRightIcon, RadioOffIcon, RetryIcon, SignInIcon, SignOutIcon } from "@/site/ui/icons";
+import { RadioOffIcon, RetryIcon, SignInIcon, SignOutIcon } from "@/site/ui/icons";
 import { toast } from "@/site/ui/Toast";
+import { fetchMe } from "@/site/features/plus/PlusCard";
 import { CheckCircleFill } from "./CheckCircleFill";
 import { DeleteAccountRow } from "./DeleteAccount";
 import { settingsStrings } from "./strings";
 import "./settings.css";
 
-// Client parts of Settings: the Plus card, the account + restore rows and the appearance picker.
-
-type MeResponse = { unlimited?: boolean; lifetime?: boolean; user?: { premiumUntil?: string | null } | null };
-
-async function fetchMe(): Promise<MeResponse> {
-  const res = await fetch("/api/me", { cache: "no-store", credentials: "same-origin" });
-  if (!res.ok) throw new Error(`me ${res.status}`);
-  return (await res.json()) as MeResponse;
-}
-
-/** «Доступ до %1$@»: day, wide month, year in the page locale — ru keeps «г.» like the app (spec 02 §8.3). */
-function formatDay(iso: string, locale: keyof typeof INTL_LOCALE): string {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return new Intl.DateTimeFormat(INTL_LOCALE[locale], { day: "numeric", month: "long", year: "numeric" }).format(d);
-}
-
-/**
- * Plus card (spec 02 §8.3, 03 §3.5): one control that opens the paywall (source "settings").
- * Caption for members = the app's accessDetail: «Проверяем доступ…» until /api/me answers, then
- * lifetime → «Бессрочный доступ», premiumUntil → «Доступ до …», otherwise «Все разборы, идеи и
- * экспорт». Non-members: the web sells one lifetime SKU → «Один платёж. Без продления.» (no price here).
- */
-export function PlusCard({ art }: { art: { src: string; srcSet: string } | null }) {
-  const t = useT();
-  const locale = useLocale();
-  const viewer = useViewer();
-  const [detail, setDetail] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!viewer.plus) return;
-    let alive = true;
-    fetchMe()
-      .then((me) => {
-        if (!alive) return;
-        const until = me.user?.premiumUntil;
-        if (me.lifetime) setDetail(t("Бессрочный доступ"));
-        else if (until && new Date(until) > new Date()) setDetail(t("Доступ до %1$@", [formatDay(until, locale)]));
-        else setDetail(t("Все разборы, идеи и экспорт"));
-      })
-      .catch(() => alive && setDetail(t("Все разборы, идеи и экспорт")));
-    return () => {
-      alive = false;
-    };
-  }, [viewer.plus, t, locale]);
-
-  const caption = viewer.plus ? (detail ?? t("Проверяем доступ…")) : t("Один платёж. Без продления.");
-
-  return (
-    <section className="ia-set-plus" aria-labelledby="settings-plus-title">
-      <div className="ia-set-plus__band">
-        <div className="ia-set-plus__eyebrow">
-          <span>inApp PLUS</span>
-          {viewer.plus ? (
-            <span className="ia-set-plus__active">
-              <CheckCircleFill size={12} knockout="var(--ia-accent-soft)" strokeWidth={2.4} />
-              {t("Активен")}
-            </span>
-          ) : null}
-        </div>
-        {art ? (
-          // eslint-disable-next-line @next/next/no-img-element -- pre-encoded WebP widths
-          <img className="ia-set-plus__art" src={art.src} srcSet={art.srcSet} sizes="112px" width={112} height={112} alt="" decoding="async" />
-        ) : null}
-      </div>
-      <div className="ia-set-plus__body">
-        <h2 className="ia-set-plus__title" id="settings-plus-title">
-          {/* The app joins the two lines with a space; Japanese takes none («すべての分析とアイデア»). */}
-          {t("Все разборы\nи идеи").replace(/\n/g, locale === "ja" ? "" : " ")}
-        </h2>
-        <p className="ia-set-plus__text">{t("Подробные исследования, идеи приложений и экспорт материалов.")}</p>
-        <button
-          type="button"
-          className={buttonClass({ variant: "rect", className: "ia-set-plus__cta" })}
-          onClick={() => openPaywall({ source: "settings" })}
-          aria-describedby="settings-plus-caption"
-        >
-          {viewer.plus ? t("О моём Plus") : t("Открыть Plus")}
-          <ArrowRightIcon size={18} strokeWidth={2.2} aria-hidden="true" />
-        </button>
-        <p className="ia-set-plus__caption" id="settings-plus-caption" aria-live="polite">
-          {caption}
-        </p>
-      </div>
-    </section>
-  );
-}
+// Client parts of Settings: the account + restore rows and the appearance picker. The Plus card
+// is the shared features/plus/PlusCard (caption "account").
 
 function RowInner({ icon, title, sub, trail }: { icon: ReactNode; title: ReactNode; sub?: ReactNode; trail?: ReactNode }) {
   return (

@@ -3,11 +3,17 @@
  *
  *   npx tsx scripts/v2/import-app-content.ts            # import + validate + write
  *   npx tsx scripts/v2/import-app-content.ts --check    # import + validate only (writes nothing)
+ *   npx tsx scripts/v2/import-app-content.ts --only=rating [--check]
+ *        # opt-in rating step (./import-rating.ts, site-v2 redesign spec §8): writes ONLY
+ *        # content/v2/<L>/rating/** and touches no other file (not the manifest, not the
+ *        # routing manifest). The full import does not run this step.
  *
  * Env:
  *   APP_RESOURCES   path to Inapp/Resources (default: ~/projects/app_04_inapp/Inapp/Resources)
  *   APP_GIT_COMMIT  app repo commit to record when Resources is not inside a git checkout
- *   ALLOW_COUNT_CHANGE=1  downgrade the fixed-count checks (35 / 293 / 792) to warnings
+ *   ALLOW_COUNT_CHANGE=1  downgrade the fixed-count checks (35 / 293 / 792; rating: 72 / 4,443 /
+ *                         317 / 157 / 1,842, media 4,443 icons / 4,149 apps with shots /
+ *                         29,656 shots) to warnings
  *
  * The script is a faithful port of the app's assembly (Clarity reader, flow,
  * quote reading, locale packs, editorial overrides, artwork map, onboarding
@@ -25,6 +31,7 @@ import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 
 import { excerpt, normalizeForSearch, splitPassages } from "../../src/site/content/text";
+import { buildRatingContent } from "./import-rating";
 import type {
   Art,
   CardsFile,
@@ -58,6 +65,8 @@ const APP_SRC = path.resolve(RES, ".."); // Inapp/ (Swift sources), used for con
 const OUT = path.join(REPO, "content/v2");
 const ROUTING_MANIFEST = path.join(REPO, "src/site/manifest.generated.ts");
 const CHECK_ONLY = process.argv.includes("--check") || process.argv.includes("--dry-run");
+/** `--only=rating`: run only the opt-in rating step (writes content/v2/<L>/rating/** only). */
+const ONLY = process.argv.find((a) => a.startsWith("--only="))?.slice("--only=".length) ?? null;
 const ALLOW_COUNT_CHANGE = process.env.ALLOW_COUNT_CHANGE === "1";
 
 const LOCALES: LocaleCode[] = ["ru", "en", "de", "fr", "ja"];
@@ -511,6 +520,8 @@ const acceptReading = (v: unknown) => isObj(v) && v.version === 1 && isStr(v.edi
 // ---------------------------------------------------------------------------
 
 const overrides = new Map<string, string>();
+/** Originals of accepted "withheld" entries (StudioEditorial.needsReview). */
+const withheldOriginals = new Set<string>();
 const overrideHits: Record<string, number> = {};
 let overridesRejected = 0;
 
@@ -539,6 +550,8 @@ function loadOverrides() {
         continue;
       }
       overrides.set(entry.original, entry.replacement);
+      if (entry.status === "withheld") withheldOriginals.add(entry.original);
+      else withheldOriginals.delete(entry.original);
     }
   }
 }
@@ -1426,7 +1439,86 @@ function kb(n: number) {
 // Main
 // ---------------------------------------------------------------------------
 
+/** Print warnings (grouped) and errors; exit 1 on any error. */
+function printDiagnostics() {
+  if (warnings.length) {
+    const grouped = new Map<string, number>();
+    for (const w of warnings) grouped.set(w, (grouped.get(w) ?? 0) + 1);
+    console.log(`\n⚠ ${warnings.length} warning(s):`);
+    for (const [w, n] of grouped) console.log(`  - ${w}${n > 1 ? ` (×${n})` : ""}`);
+  }
+  if (errors.length) {
+    console.error(`\n✖ validation failed with ${errors.length} error(s):`);
+    for (const e of errors.slice(0, 200)) console.error(`  - ${e}`);
+    if (errors.length > 200) console.error(`  … and ${errors.length - 200} more`);
+    process.exit(1);
+  }
+  console.log("\n✔ validation passed");
+}
+
+/**
+ * `--only=rating`: the rating step alone (./import-rating.ts). Reads the app packs it needs and
+ * the site's own topic catalogues (content/v2/<L>/catalog.json, left as they are); writes only
+ * content/v2/<L>/rating/** (changed files only) and removes stale files there.
+ */
+function mainRating() {
+  if (!fs.existsSync(RES)) fatal(`APP_RESOURCES not found: ${RES}`);
+  console.log(`inApp rating import\n  resources: ${RES}\n  output:    ${path.relative(REPO, OUT)}/<locale>/rating${CHECK_ONLY ? " (check only)" : ""}`);
+  loadOverrides();
+  const result = buildRatingContent({
+    repo: REPO,
+    out: OUT,
+    readJson,
+    resExists,
+    resSha: (rel) => sha256(fs.readFileSync(resPath(rel))),
+    prepared,
+    editorialText: ov,
+    isWithheld: (s) => withheldOriginals.has(s),
+    quoteTranslations: (L) =>
+      localePack<SrcQuoteTranslations>("quote-translations", ownChain(L), acceptQuoteTr)?.data.translations ?? null,
+    error,
+    warn,
+    countCheck,
+  });
+  const hitSummary = Object.entries(overrideHits).map(([k, v]) => `${k} ${v}`).join(", ") || "none";
+  console.log(`  overrides: ${overrides.size} accepted (${withheldOriginals.size} withheld), ${overridesRejected} rejected; hits: ${hitSummary}`);
+  for (const line of result.report) console.log(`  ${line}`);
+  const RATING_FILE = /^(?:ru|en|de|fr|ja)\/rating\/[a-z0-9]+(?:-[a-z0-9]+)*\.json$/;
+  for (const f of result.files) if (!RATING_FILE.test(f.rel)) error(`rating step produced a file outside <L>/rating/: ${f.rel}`);
+  printDiagnostics();
+  if (CHECK_ONLY) {
+    console.log("\n--check: nothing written.");
+    return;
+  }
+  let written = 0;
+  let unchanged = 0;
+  for (const p of result.files) {
+    const file = path.join(OUT, p.rel);
+    if (fs.existsSync(file) && fs.readFileSync(file, "utf8") === p.content) {
+      unchanged++;
+      continue;
+    }
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, p.content);
+    written++;
+  }
+  const expected = new Set(result.files.map((p) => p.rel));
+  let removed = 0;
+  for (const L of LOCALES) {
+    const dir = path.join(OUT, L, "rating");
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (expected.has(`${L}/rating/${f}`)) continue;
+      fs.rmSync(path.join(dir, f), { recursive: true, force: true });
+      removed++;
+    }
+  }
+  console.log(`\nWrote ${written} rating file(s), ${unchanged} unchanged, ${removed} stale removed. No other file was touched.`);
+}
+
 function main() {
+  if (ONLY !== null && ONLY !== "rating") fatal(`unknown --only=${ONLY} (supported: --only=rating)`);
+  if (ONLY === "rating") return mainRating();
   if (!fs.existsSync(RES)) fatal(`APP_RESOURCES not found: ${RES}`);
   console.log(`inApp content import\n  resources: ${RES}\n  output:    ${path.relative(REPO, OUT)}${CHECK_ONLY ? " (check only)" : ""}`);
 
@@ -1521,19 +1613,7 @@ function main() {
   const renderHits = Object.entries(overrideHits).filter(([k]) => k.startsWith("research.") || k.startsWith("idea."));
   if (renderHits.length)
     warn(`render-time overrides hit research/idea text (${renderHits.map(([k, v]) => `${k} ${v}`).join(", ")}); the export document uses the raw text`);
-  if (warnings.length) {
-    const grouped = new Map<string, number>();
-    for (const w of warnings) grouped.set(w, (grouped.get(w) ?? 0) + 1);
-    console.log(`\n⚠ ${warnings.length} warning(s):`);
-    for (const [w, n] of grouped) console.log(`  - ${w}${n > 1 ? ` (×${n})` : ""}`);
-  }
-  if (errors.length) {
-    console.error(`\n✖ validation failed with ${errors.length} error(s):`);
-    for (const e of errors.slice(0, 200)) console.error(`  - ${e}`);
-    if (errors.length > 200) console.error(`  … and ${errors.length - 200} more`);
-    process.exit(1);
-  }
-  console.log("\n✔ validation passed");
+  printDiagnostics();
 
   // --- assemble files -----------------------------------------------------------
   const pending: PendingFile[] = [];

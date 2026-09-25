@@ -23,8 +23,9 @@ import {
   WelcomeIcon,
 } from "@/site/ui/icons";
 import { CheckCircleFill } from "./CheckCircleFill";
-import { AccountRows, PlusCard, ThemePicker } from "./client";
+import { AccountRows, ThemePicker } from "./client";
 import { AppAccessCard } from "@/site/features/plus/AppAccessCard";
+import { PlusCard } from "@/site/features/plus/PlusCard";
 import { SETTINGS_CLIENT_KEYS } from "./keys";
 import { formatCollectionDate } from "./format";
 import { settingsStrings } from "./strings";
@@ -130,7 +131,14 @@ export function SettingsScreen({
 
         {/* Plus card + account box: VStack(spacing: 12) (ClaritySettings.swift:200). */}
         <div className="ia-set-access">
-          <PlusCard art={plusArt} />
+          <PlusCard
+            // The app joins the two lines with a space; Japanese takes none («すべての分析とアイデア»).
+            title={t("Все разборы\nи идеи").replace(/\n/g, locale === "ja" ? "" : " ")}
+            body={t("Подробные исследования, идеи приложений и экспорт материалов.")}
+            source="settings"
+            art={plusArt}
+            caption="account"
+          />
           {viewer.plus ? <AppAccessCard locale={locale} /> : null}
           <AccountRows />
         </div>

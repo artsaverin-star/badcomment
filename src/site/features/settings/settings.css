@@ -96,6 +96,10 @@
   background: var(--ia-line-65);
   pointer-events: none;
 }
+/* Rows without a glyph column (MCP example, prompts, tools): the divider starts at the text. */
+.ia-set-box--flush > * + *::before {
+  left: 16px;
+}
 
 /* Row: 24 px glyph (secondary) · title 17 ink (+ subtitle) · trailing chevron / arrow */
 .ia-set-row {
@@ -122,7 +126,8 @@
   cursor: default;
   opacity: 0.6;
 }
-div.ia-set-row {
+div.ia-set-row,
+li.ia-set-row {
   cursor: default;
 }
 @media (hover: hover) {
@@ -167,6 +172,19 @@ button.ia-set-row:not(:disabled):active {
   line-height: var(--ia-lh-subheadline);
   letter-spacing: -0.015em;
   color: var(--ia-secondary);
+}
+/* Info row (ClarityAccountSection profile row, ClarityAccountSection.swift:26-33): the glyph
+   on the first line, a caption subtitle 3 below the title (MCP connections). */
+.ia-set-row--info {
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+.ia-set-row--info .ia-set-row__text {
+  gap: 3px;
+}
+.ia-set-row--info .ia-set-row__sub {
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
+  letter-spacing: 0;
 }
 .ia-set-row__trail {
   display: inline-flex;

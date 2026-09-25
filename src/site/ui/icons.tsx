@@ -52,6 +52,39 @@ export {
   TextAlignStart as TextLinesIcon,
   UserRound as AccountIcon,
   X as CloseIcon,
+  // Web-only sections (no app glyph): «Рейтинги» = RatingIcon (below), «Отзывы», «MCP»; the
+  // mobile menu.
+  MessageSquareText as ReviewsIcon,
+  Plug as McpIcon,
+  Menu as MenuIcon,
+  SquareTerminal as TerminalIcon,
+  Unplug as DisconnectIcon,
+  // Clarity rating / review archive / MCP rows (spec site-v2 §2.3 P8). In a Row tile draw them
+  // at lucide 24 / stroke 1.9, which optically matches SF 21 medium (lucide fills ~80 % of its box).
+  // SF `doc.text.magnifyingglass`: «Изучить весь разбор», «Откуда взят этот разбор» rows.
+  FileSearch as SourceIcon,
+  // SF `info.circle`: «… · об оценках» (the rating method sheet link).
+  Info as InfoIcon,
+  // One app (review archive app rows): no app glyph exists in Swift.
+  AppWindow as AppWindowIcon,
+  // Ratings (web-only rows and section): a ranked list, not a star (R4: ★ only as text).
+  ListOrdered as RatingIcon,
+  // Rating app page (spec 11 §4.3): «Что хвалят в отзывах» / «На что жалуются в отзывах» cards
+  // and «Кому». The row and leader notes draw the same lucide shapes as CSS masks (rating.css).
+  ThumbsUp as PraiseIcon,
+  ThumbsDown as ComplaintIcon,
+  UsersRound as AudienceIcon,
+  // StudioStyle.categorySymbol (Studio/StudioStyle.swift:45-56), mapped in ./categoryGlyph.ts.
+  Images as CategoryPhotoIcon, // photo.on.rectangle.angled
+  Calendar as CategoryCalendarIcon, // calendar
+  PersonStanding as CategoryFitnessIcon, // figure.run
+  CreditCard as CategoryMoneyIcon, // creditcard
+  NotebookText as CategoryNotesIcon, // note.text
+  Headphones as CategoryMusicIcon, // headphones
+  MoonStar as CategorySleepIcon, // moon.stars
+  Carrot as CategoryFoodIcon, // carrot
+  GraduationCap as CategoryLearnIcon, // graduationcap
+  Layers as CategoryDefaultIcon, // square.stack.3d.up
 } from "lucide-react";
 
 type GlyphProps = Omit<SVGProps<SVGSVGElement>, "children"> & { size?: number | string };
@@ -78,6 +111,19 @@ export function ResearchFilledIcon({ size = 24, ...props }: GlyphProps) {
         d="M6.5 2H19a1 1 0 0 1 1 1v13.25a1 1 0 0 1-1 1H6.5a2.5 2.5 0 0 0-2.5 2.5V4.5A2.5 2.5 0 0 1 6.5 2Zm2.25 4.5a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5Zm0 3.5a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"
       />
       <path d="M6.5 18.5H19v3.5H6.5a1.75 1.75 0 0 1 0-3.5Z" />
+    </svg>
+  );
+}
+
+/**
+ * SF `quote.opening` at caption size: a FILLED opening double quote (lucide has only an
+ * outline closing-style mark). Used by the idea article's quotes and QuoteBlock.
+ */
+export function QuoteOpeningIcon(props: Omit<SVGProps<SVGSVGElement>, "children">) {
+  return (
+    <svg width={13} height={13} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+      <path d="M2.5 15.5C2.5 11 5 7.2 9.1 5.5l.8 1.7C7.6 8.4 6.4 10 6.1 12.1A3.7 3.7 0 1 1 2.5 15.5Z" />
+      <path d="M13 15.5c0-4.5 2.5-8.3 6.6-10l.8 1.7c-2.3 1.2-3.5 2.8-3.8 4.9A3.7 3.7 0 1 1 13 15.5Z" />
     </svg>
   );
 }

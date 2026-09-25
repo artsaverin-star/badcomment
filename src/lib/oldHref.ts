@@ -4,8 +4,9 @@
 // Public URL shape (docs/site-v2/ARCHITECTURE.md §1, §3):
 //   /<ru|en>/old/<path>  old page, noindex. The proxy rewrites it to the internal /<path>.
 //   /<ru|en>/<path>      the same old page served IN PLACE when the new site has no
-//                        equivalent (per-app pages, /reviews/**, /rating/**, /mcp, …),
-//                        or the NEW site when it owns the URL.
+//                        equivalent (per-app pages, old topics, /tokens, /build/**, …),
+//                        or the NEW site when it owns the URL (since 2026-09-24 also the
+//                        whole /rating/**, /reviews/**, /mcp/** sections).
 //
 // Links in old code point at the URL that is canonical for the content (owner decision,
 // audit A4 option A): a page served IN PLACE is linked at its original public URL, so the
@@ -19,7 +20,7 @@
 // Canonicals, hreflang, og:url, JSON-LD, sitemap, feed, llms, emails, OAuth, webhooks
 // and MCP absolute URLs keep the original public URLs and do NOT use these helpers.
 
-import { decideRoute } from "@/site/routing/decide";
+import { decideRoute, NEW_SECTIONS } from "@/site/routing/decide";
 
 export const OLD_SEGMENT = "old";
 
@@ -59,9 +60,20 @@ export function isServedInPlace(l: LocaleLike, pathname: string): boolean {
 }
 
 /**
+ * True for a path inside the web-only sections the new site took over whole (/rating/**,
+ * /reviews/**, /mcp/**; NEW_SECTIONS in decide.ts). Old pages link them at the public URL:
+ * they open in the new design from anywhere, the old copies stay reachable only by typing
+ * /<L>/old/… (owner, 2026-09-24: «чтобы всё открывалось сразу в новом дизайне»).
+ */
+export function isMovedSection(pathname: string): boolean {
+  return NEW_SECTIONS.has(pathname.split("/")[1] ?? "");
+}
+
+/**
  * Public URL of an old page, as a link from old code:
- *   oldHref("ru", "/reviews/x/1")   → "/ru/reviews/x/1"        (served in place: its own URL)
+ *   oldHref("ru", "/tokens")        → "/ru/tokens"             (served in place: its own URL)
  *   oldHref("ru", "/segment/qr-scanner") → "/ru/segment/qr-scanner" (old topic, in place)
+ *   oldHref("ru", "/reviews/x/1")   → "/ru/reviews/x/1"        (moved section: the new design)
  *   oldHref("ru", "/segment/habit-tracking") → "/ru/old/segment/habit-tracking" (new site owns it)
  *   oldHref("en", "/"), oldHref("en", "/ideas?cat=x") → "/en/old", "/en/old/ideas?cat=x"
  * `path` is the internal old path ("/", "/ideas?cat=x", "segment/x", "?q=1" all work).
@@ -70,7 +82,7 @@ export function oldHref(l: LocaleLike, path: string = "/"): string {
   const base = oldLp(l);
   const { pathname, suffix } = splitPath(path);
   if (pathname === "/") return base + suffix;
-  if (isServedInPlace(l, pathname)) return `/${oldLocale(l)}${pathname}${suffix}`;
+  if (isServedInPlace(l, pathname) || isMovedSection(pathname)) return `/${oldLocale(l)}${pathname}${suffix}`;
   return base + pathname + suffix;
 }
 

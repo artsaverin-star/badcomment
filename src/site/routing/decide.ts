@@ -14,6 +14,7 @@
 //   /<L>/{saved,settings,plus,welcome,login,library,contacts,offer,privacy,site}/…  NEW
 //   /<L>/app-auth                  NEW, noindex (iOS app sign-in hand-off, docs/site-v2/APP-ACCOUNTS.md);
 //                                  it and /<L>/login?app=1 get x-ia-app-flow: 1 (no analytics)
+//   /<L>/{rating,reviews,mcp}/…    NEW in all five locales (the web-only sections, moved 2026-09-24)
 //   /<L>/old[/<rest>]              OLD (internal /<rest>), noindex; de/fr/ja → 307 /en/old/…
 //   /old[/<rest>], /old/<ru|en>/…  307 → /<ru|en>/old/<rest>
 //   /<L>/<anything else>           OLD in place (internal /<rest>); de/fr/ja → 307 /en/<rest>
@@ -55,7 +56,20 @@ export const NEW_TOP_STATIC: ReadonlySet<string> = new Set([
   "site",
   // The iOS app's sign-in hand-off (mints a one-time code → inapp://auth?code=…); noindex.
   "app-auth",
+  // The web-only sections (NEW_SECTIONS below), every page under them.
+  "rating",
+  "reviews",
+  "mcp",
 ]);
+
+/**
+ * Web-only sections the new site took over whole from the old one (owner, 2026-09-24): the
+ * rating (/rating/<niche>/<app>), the review archive (/reviews/<niche>/<app id>, /methodology)
+ * and the MCP server page (/mcp, /mcp/connect). Old code links them at their public URL, so
+ * they open in the new design from anywhere (src/lib/oldHref.ts); the previous versions stay
+ * in the archive under /<ru|en>/old/….
+ */
+export const NEW_SECTIONS: ReadonlySet<string> = new Set(["rating", "reviews", "mcp"]);
 
 /** New-site pages that must never be indexed, whatever their own metadata says (e.g. a redirect). */
 const NEW_TOP_NOINDEX: ReadonlySet<string> = new Set(["app-auth"]);
@@ -140,6 +154,8 @@ function redirect(status: 307 | 308, pathname: string, search: string): Redirect
  */
 export function newSiteEquivalent(l: Locale, segs: readonly string[]): string | null {
   const [a = "", b, ...more] = segs;
+  // The moved sections keep their page tree: /rating/<niche>/<app>, /reviews/<niche>/<id>, /mcp/connect.
+  if (NEW_SECTIONS.has(a)) return segs.length <= 3 ? path(l, ...segs) : null;
   if (more.length) return null;
   if (a === "") return `/${l}`;
   if (a === "segment" || a === "research") {

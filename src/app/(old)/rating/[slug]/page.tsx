@@ -51,12 +51,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = ru
     ? `${set.count} приложений «${name}» по ${set.totalReviews.toLocaleString("ru-RU")} реальным отзывам. Редакционная оценка опыта и сверка витринной звезды с содержанием отзывов.`
     : `${set.count} ${name} apps from ${set.totalReviews.toLocaleString("en-US")} real reviews. An editorial experience score and a comparison between the storefront star and review content.`;
+  // Archived copy (/<L>/old/rating/<niche>): noindex without canonical/hreflang — a canonical to the
+  // live page next to noindex could carry the noindex over to it (spec 11 §6.5; ARCHITECTURE §5).
   return {
     title, description,
-    alternates: { canonical: url, languages: { ru: `https://inapp.pro/ru/rating/${slug}`, en: `https://inapp.pro/en/rating/${slug}`, "x-default": `https://inapp.pro/en/rating/${slug}` } },
     openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [ogImage(ru, slug)] },
     twitter: { card: "summary_large_image", title, description, images: [ogImage(ru, slug)] },
-    robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    robots: { index: false, follow: true },
   };
 }
 
