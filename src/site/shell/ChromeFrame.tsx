@@ -21,7 +21,8 @@ import { ViewerContext } from "./ViewerContext";
 //   • the mobile compact header (< 1024) everywhere except pushed reading screens — a topic,
 //     an idea, «О материалах»: like the app they have a single bar, the «Назад» toolbar
 //     (spec 01 §1.3; ClarityReader.swift:193-195);
-//   • the three tab roots: the mobile floating tab bar (spec 01 §1.2);
+//   • the four tab roots (Разборы · Пульс · Идеи · Сохранённое): the mobile floating tab bar
+//     (spec 01 §1.2);
 //   • /<L>/welcome: nothing (full-screen onboarding replay).
 // `reading` marks the long-read pages (reading paper canvas) for the chrome's CSS.
 

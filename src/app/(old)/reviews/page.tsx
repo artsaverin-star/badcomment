@@ -1,3 +1,4 @@
+import { LegacyPulseLink } from "@/components/LegacyPulseLink";
 import type { Metadata } from "next";
 import ReviewNicheCatalogue from "@/components/ReviewNicheCatalogue";
 import { getAccess } from "@/lib/access";
@@ -71,6 +72,7 @@ export default async function ReviewsHome() {
         </p>
       </header>
 
+      <LegacyPulseLink locale={ru ? "ru" : "en"} />
       <ReviewNicheCatalogue niches={catalogue} ru={ru} />
     </main>
   );

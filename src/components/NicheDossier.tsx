@@ -1,3 +1,4 @@
+import { LegacyPulseLink } from "@/components/LegacyPulseLink";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
@@ -297,6 +298,7 @@ export default async function NicheDossier({
           <span aria-hidden="true">→</span>
         </Link>
       </header>
+      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} />
 
       {/* A wide pencil-sketch banner for the niche — the cover of its strongest
           idea doubles as the section's illustration. Shows only once art exists. */}

@@ -23,6 +23,8 @@ Old site locales: `ru, en` only.
 | `/<L>/research[/<slug>]`, `/<L>/search?q=` | proxy 308 → `/<L>/segment[/<slug>]`, `/<L>/segment?q=` | aliases |
 | `/<L>/ideas` (`?q=&category=`) | NEW ideas catalog (tab «Идеи») | |
 | `/<L>/ideas/<id>` | NEW if `id ∈ LAUNCH_IDEAS`, else OLD in place | `/<L>/ideas/top` → OLD |
+| `/<L>/pulse` (`?category=&kind=request\|pain&q=&page=`) | NEW «Пульс» feed (tab «Пульс», `docs/site-v2/PULSE.md`) | indexable only without filters, page 1 |
+| `/<L>/pulse/<category>--<slug>` | NEW need page | unknown id → 404; retired prototype ids (with `:` or `insight`, also `/<L>/pulse/insight/<…>`) → 307 `/<L>/pulse?category=<cat>` (or `/<L>/pulse`) |
 | `/<L>/saved` (`?filter=&q=`) | NEW (tab «Сохранённое») | |
 | `/<L>/settings`, `/<L>/settings/about` | NEW | |
 | `/<L>/plus` | NEW paywall page | |
@@ -38,7 +40,7 @@ Old site locales: `ru, en` only.
 | `/api/**`, `/_next/**`, files with an extension, `/icon`, `/apple-icon`, `/opengraph-image`, `/sitemap.xml`, `/robots.txt`, `/feed.xml`, `/llms*.txt`, `/.well-known/**` | untouched (proxy matcher excludes them) | |
 
 `NEW_TOP` (first segment after the locale owned by the new site): `"" | segment* | research | search
-| ideas* | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site | app-auth`
+| ideas* | pulse | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site | app-auth`
 (`*` = only when the slug/id is in the manifest; `site` is included so that a public request can
 never reach the new site's internal folder through the old rewrite — it simply 404s in the new
 layout). Never create a new top-level segment named `notes` (it is an old app slug) or any other
@@ -140,6 +142,9 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
    `id="main-players"` and `/badges/app-store.svg` (it shows market players with store badges);
    add smoke checks for the new site (`/en`, `/en/contacts`, `/ru/segment/interior-design`,
    `/ru/old`).
+5. «Пульс» bridge (`docs/site-v2/PULSE.md`): `src/components/LegacyPulseLink.tsx` on the review hub
+   `/reviews`, `/reviews/<slug>`, old topic pages and `NicheDossier` — the category's needs with
+   their pain score, linking into the new site through `publicHref` + `old-links: allow`.
 
 ## 6. i18n
 
@@ -156,7 +161,7 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
 Spec 05 is the source (tokens §6 with `--ia-*` names; components §3.6; motion §5). Defaults
 chosen for the web (the app is iPhone-only): mobile < 1024px uses the floating capsule tab bar
 at the bottom on tab roots and «Назад» pills on inner pages; ≥ 1024px uses a sticky top bar
-(logo, 3 tabs, App Store badge, account). Catalogs: 1 column < 760px, 2 columns ≥ 760px,
+(logo, 4 tabs — Разборы, Пульс, Идеи, Сохранённое —, App Store badge, account). Catalogs: 1 column < 760px, 2 columns ≥ 760px,
 3 columns ≥ 1280px (max 1200px). Articles: 640px reading column; TOC as a sheet on mobile and a
 sticky sidebar ≥ 1200px. Default theme light. Icons: `lucide-react`. Fonts: Georgia stack for
 reading (fallback `"PT Serif", "Noto Serif", serif`; Japanese `"Hiragino Mincho ProN", "Yu Mincho",

@@ -41,6 +41,11 @@ export const routes = {
   research: (l: Locale, q?: { q?: string }) => href(l, "segment") + queryString(q),
   /** A research article (35 launch topics). */
   topic: (l: Locale, slug: string) => href(l, "segment", slug),
+  /** Tab «Пульс»: needs from reviews (?category=&kind=request|pain&q=&page=). */
+  pulse: (l: Locale, q?: { category?: string; kind?: string; q?: string; page?: number }) =>
+    href(l, "pulse") + queryString(q?.page === 1 ? { ...q, page: undefined } : q),
+  /** A need: id "<category>--<slug>" (URL-safe). */
+  pulseNeed: (l: Locale, id: string) => href(l, "pulse", id),
   /** Tab «Идеи»: ideas catalog. */
   ideas: (l: Locale, q?: { q?: string; category?: string }) => href(l, "ideas") + queryString(q),
   /** An idea page (293 launch ideas). */
@@ -66,11 +71,11 @@ export const routes = {
 } as const;
 
 /** Tabs of the app shell, in order. */
-export const TABS = ["research", "ideas", "saved"] as const;
+export const TABS = ["research", "pulse", "ideas", "saved"] as const;
 export type Tab = (typeof TABS)[number];
 
 export const tabRoot = (l: Locale, tab: Tab): string =>
-  tab === "research" ? routes.research(l) : tab === "ideas" ? routes.ideas(l) : routes.saved(l);
+  tab === "pulse" ? routes.pulse(l) : tab === "research" ? routes.research(l) : tab === "ideas" ? routes.ideas(l) : routes.saved(l);
 
 export type PublicPath = {
   locale: Locale | null;
@@ -97,15 +102,16 @@ export function parsePublicPath(pathname: string | null | undefined): PublicPath
 export function tabOf(pathname: string | null | undefined): Tab | null {
   const [a] = parsePublicPath(pathname).segments;
   if (a === "segment") return "research";
+  if (a === "pulse") return "pulse";
   if (a === "ideas") return "ideas";
   if (a === "saved" || a === "settings") return "saved";
   return null;
 }
 
-/** True on the three tab roots, where the mobile floating tab bar is shown. */
+/** True on the four tab roots, where the mobile floating tab bar is shown. */
 export function isTabRoot(pathname: string | null | undefined): boolean {
   const { segments } = parsePublicPath(pathname);
-  return segments.length === 1 && (segments[0] === "segment" || segments[0] === "ideas" || segments[0] === "saved");
+  return segments.length === 1 && (segments[0] === "pulse" || segments[0] === "segment" || segments[0] === "ideas" || segments[0] === "saved");
 }
 
 /**

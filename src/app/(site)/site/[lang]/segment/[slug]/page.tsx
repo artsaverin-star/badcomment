@@ -22,12 +22,15 @@ import {
 } from "@/site/features/research/seo";
 import { researchStrings } from "@/site/features/research/strings";
 import { TopicExtras } from "@/site/features/research/TopicExtras";
+import { hasCategoryPulse } from "@/site/features/pulse/query";
+import { pulseStrings } from "@/site/features/pulse/strings";
 import "@/site/features/research/research.css";
 import { I18nProvider } from "@/site/i18n/client";
 import { isLocale, type Locale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { isLaunchCategory } from "@/site/manifest.generated";
 import { routes } from "@/site/routing";
+import { getPulseDemand } from "@/site/sitedata/pulse";
 
 // A research topic (spec 01 §5–§6, spec 04 §5.3/§5.6, spec 09 G8–G10). SERVER GATE FIRST:
 // the article file is read only when the viewer can read the topic; otherwise the app's
@@ -143,8 +146,12 @@ export default async function ResearchTopicPage({ params }: Props) {
   }
 
   // Readable: load the gated article (and the UI pack for the corpus sentence).
-  const [research, ui] = await Promise.all([getResearch(lang, slug), getUI(lang)]);
+  const [research, ui, pulse] = await Promise.all([getResearch(lang, slug), getUI(lang), getPulseDemand()]);
   if (!research) notFound();
+  // «Пульс категории» (TopicExtras → CategoryPulse) renders under exactly this test.
+  const toc = hasCategoryPulse(pulse, slug)
+    ? [...research.toc, { id: "category-pulse", title: pulseStrings[lang].embedTitle, depth: 0 as const }]
+    : research.toc;
 
   // Idea cards: readable ideas carry their card copy; paid ones only {slug, cover}.
   const slugs = articleIdeaSlugs(research);
@@ -201,7 +208,7 @@ export default async function ResearchTopicPage({ params }: Props) {
         }}
       />
       <div className="ia-reading-page">
-        <ArticleToolbar slug={slug} title={research.name} toc={research.toc} backHref={backHref} />
+        <ArticleToolbar slug={slug} title={research.name} toc={toc} backHref={backHref} />
         <div className="ia-rs-layout">
           <div className="ia-rs-main">
             <div className="ia-page ia-page--reading">
@@ -209,7 +216,7 @@ export default async function ResearchTopicPage({ params }: Props) {
               <TopicExtras locale={lang} slug={slug} />
             </div>
           </div>
-          <TocRail toc={research.toc} />
+          <TocRail toc={toc} />
         </div>
       </div>
     </I18nProvider>

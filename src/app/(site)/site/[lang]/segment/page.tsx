@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { pulseStrings } from "@/site/features/pulse/strings";
+import "@/site/features/pulse/pulse.css";
 import { notFound } from "next/navigation";
 import { getViewer } from "@/site/access";
 import { SITE_URL } from "@/site/config";
@@ -134,6 +137,7 @@ export default async function ResearchCatalogPage({ params, searchParams }: Prop
         />
       ) : null}
       <Heading id="research-top" title={t("Разборы")} subtitle={t("Что людям важно в приложениях и чего им не хватает.")} />
+      <Link className="ia-pulse-link" href={routes.pulse(lang)}>{pulseStrings[lang].title} · {pulseStrings[lang].subtitle} →</Link>
       <CatalogSearch query={query} placeholder={t("Категория или потребность")} clearLabel={t("Очистить поиск")}>
         {/* Always mounted, so screen readers announce the count when it changes (a11y m9). */}
         <p className="ia-rs-count" role="status">

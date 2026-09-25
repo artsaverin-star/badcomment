@@ -39,6 +39,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             <li>
               <Link href={routes.ideas(locale)}>{t("Идеи")}</Link>
             </li>
+            <li><Link href={routes.pulse(locale)}>{s.pulse}</Link></li>
             <FooterPlusLink locale={locale} />
           </ul>
         </nav>

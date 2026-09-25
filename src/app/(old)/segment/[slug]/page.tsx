@@ -1,3 +1,4 @@
+import { LegacyPulseLink } from "@/components/LegacyPulseLink";
 import type { Metadata } from "next";
 import { ogImage } from "@/lib/og";
 import { notFound } from "next/navigation";
@@ -445,6 +446,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
       </header>
+      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} />
 
       {/* KEY FINDINGS — inline: first free, the other two unlock for energy */}
       {pillars.length > 0 && (

@@ -6,8 +6,9 @@ import { AccountButton, LanguageMenu, Logo } from "./HeaderParts";
 import { TabCapsule } from "./TabBar";
 
 // Desktop (≥ 1024) sticky top bar (spec 05 §3.6 I, ARCHITECTURE §7): logo «inApp» · the
-// three tabs with labels · App Store badge, language, account. Transparent at the top of
-// the page; frosted paper once the page scrolls.
+// four tabs with labels (Разборы · Пульс · Идеи · Сохранённое) · App Store badge (hidden
+// below 1180, site.css), language, account. Transparent at the top of the page; frosted
+// paper once the page scrolls.
 
 function subscribeScroll(onChange: () => void) {
   window.addEventListener("scroll", onChange, { passive: true });

@@ -1,0 +1,643 @@
+/* «Пульс» (SPEC app_04_inapp/Documentation/PulseDemand-2026-09-24/SPEC.md): minimal white cards
+   on the soft grey canvas (--ia-paper, the page background, ≈ #F5F5F5), black type, grey pills,
+   and the pain scale (./pain-meter.css). No page-frame or tab overrides: everything is scoped to
+   the .ia-pulse* blocks and follows the --ia-* tokens, dark theme included. */
+
+.ia-pulse,
+.ia-pulse-page,
+.ia-pulse-embed {
+  --pulse-card-shadow: 0 2px 5px rgb(0 0 0 / 3%), 0 7px 20px rgb(0 0 0 / 3%);
+  --pulse-card-shadow-hover: 0 3px 8px rgb(0 0 0 / 5%), 0 10px 26px rgb(0 0 0 / 5%);
+  --pulse-radius: 24px;
+}
+/* Dark: the card edge is a 1px ring (shadows barely show on the dark canvas); hover keeps it. */
+[data-theme="dark"] :is(.ia-pulse, .ia-pulse-page, .ia-pulse-embed) {
+  --pulse-card-shadow: 0 0 0 1px var(--ia-line-card), 0 6px 18px rgb(0 0 0 / 22%);
+  --pulse-card-shadow-hover: 0 0 0 1px var(--ia-line-card), 0 10px 26px rgb(0 0 0 / 32%);
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] :is(.ia-pulse, .ia-pulse-page, .ia-pulse-embed) {
+    --pulse-card-shadow: 0 0 0 1px var(--ia-line-card), 0 6px 18px rgb(0 0 0 / 22%);
+    --pulse-card-shadow-hover: 0 0 0 1px var(--ia-line-card), 0 10px 26px rgb(0 0 0 / 32%);
+  }
+}
+
+.ia-pulse-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Feed ---------------------------------------------------------------- */
+.ia-pulse {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 20px;
+}
+.ia-pulse-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ia-pulse-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ia-pulse-select select {
+  appearance: none;
+  min-height: 40px;
+  max-width: min(280px, calc(100vw - 40px));
+  padding: 9px 34px 9px 14px;
+  border: 0;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 13px center;
+  box-shadow: var(--pulse-card-shadow);
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-footnote) / 1.4 var(--ia-font-sans);
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.ia-pulse-search summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-footnote) / 1.4 var(--ia-font-sans);
+  list-style: none;
+  cursor: pointer;
+}
+.ia-pulse-search summary::-webkit-details-marker {
+  display: none;
+}
+.ia-pulse-search[open] summary {
+  background: var(--ia-ink);
+  color: var(--ia-paper);
+}
+.ia-pulse-search__field {
+  display: flex;
+  gap: 6px;
+  width: min(360px, calc(100vw - 40px));
+  margin-top: 8px;
+  padding: 6px;
+  border-radius: 20px;
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+}
+.ia-pulse-search__field label {
+  flex: 1;
+  min-width: 0;
+}
+.ia-pulse-search__field input {
+  width: 100%;
+  height: 36px;
+  padding: 6px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--ia-ink);
+  font: 400 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-search__field button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  min-width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-ink);
+  color: var(--ia-paper);
+  cursor: pointer;
+}
+/* Applies a category picked with the keyboard (and every control without JavaScript). */
+.ia-pulse-filters__apply {
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-ink);
+  color: var(--ia-paper);
+  font: 600 var(--ia-fs-footnote) / 1.4 var(--ia-font-sans);
+  cursor: pointer;
+}
+.ia-pulse-kinds {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-soft);
+}
+.ia-pulse-kinds__item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border-radius: var(--ia-radius-pill);
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
+  text-decoration: none;
+}
+.ia-pulse-kinds__item[aria-current="page"] {
+  background: var(--ia-surface);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+  color: var(--ia-ink);
+}
+.ia-pulse-reset,
+.ia-pulse-empty__reset {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 6px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-grid {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-grid > li {
+  display: flex;
+  min-width: 0;
+}
+
+/* ---- Card (SPEC «Карточка») ---- */
+.ia-pulse-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border-radius: var(--pulse-radius);
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+  color: var(--ia-ink);
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+@media (hover: hover) {
+  .ia-pulse-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--pulse-card-shadow-hover);
+  }
+}
+.ia-pulse-card:active {
+  transform: scale(0.985);
+}
+.ia-pulse-card:focus-visible,
+.ia-pulse-row:focus-visible {
+  outline: 2px solid var(--ia-accent);
+  outline-offset: 2px;
+}
+.ia-pulse-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+.ia-pulse-pill {
+  min-width: 0;
+  padding: 4px 11px;
+  overflow: hidden;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-soft);
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1.35 var(--ia-font-sans);
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ia-pulse-kind {
+  flex: none;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-caption) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-card__title {
+  display: -webkit-box;
+  margin: 14px 0 16px;
+  overflow: hidden;
+  font: 700 1.25rem / 1.25 var(--ia-font-sans);
+  letter-spacing: -0.015em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.ia-pulse-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: auto 0 10px;
+}
+.ia-pulse-score__label {
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-subheadline) / 1.2 var(--ia-font-sans);
+}
+.ia-pulse-score__value {
+  font-family: var(--ia-font-sans);
+  line-height: 1;
+}
+.ia-pulse-score__value .ia-pain-value__n {
+  font-size: 1.875rem;
+  letter-spacing: -0.03em;
+}
+.ia-pulse-score__value .ia-pain-value__of {
+  color: var(--ia-secondary);
+  opacity: 1;
+  font-size: 1.0625rem;
+}
+.ia-pulse-card__counts {
+  margin-top: 12px;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+
+/* ---- Empty state, pagination, «Как считаем» ---- */
+.ia-pulse-empty {
+  max-width: 460px;
+  margin: 24px auto;
+  text-align: center;
+}
+.ia-pulse-empty h2 {
+  margin: 0 0 8px;
+  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+}
+.ia-pulse-empty p {
+  margin: 0;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-subheadline) / 1.5 var(--ia-font-sans);
+}
+.ia-pulse-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-pagination a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ia-ink);
+}
+.ia-pulse-about {
+  max-width: 720px;
+  margin-top: 16px;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / 1.6 var(--ia-font-sans);
+}
+.ia-pulse-about summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ia-ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+.ia-pulse-about p {
+  margin: 4px 0 8px;
+}
+
+/* ---- Compact rows (embed «Пульс категории», «Ещё в категории») ---- */
+.ia-pulse-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-rows > li + li {
+  border-top: var(--ia-hairline) solid var(--ia-line-card);
+}
+.ia-pulse-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+  padding: 12px 0;
+  color: var(--ia-ink);
+  text-decoration: none;
+}
+.ia-pulse-row__title {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  font: 500 var(--ia-fs-subheadline) / 1.35 var(--ia-font-sans);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+@media (hover: hover) {
+  .ia-pulse-row:hover .ia-pulse-row__title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+.ia-pulse-row__score {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  width: 64px;
+  font: 500 var(--ia-fs-footnote) / 1 var(--ia-font-sans);
+}
+.ia-pulse-row__score .ia-pain-value__n {
+  font-size: 1.0625rem;
+}
+.ia-pulse-row__score .ia-pain-value__of {
+  color: var(--ia-secondary);
+  opacity: 1;
+}
+
+.ia-pulse-embed {
+  margin: 32px 0;
+  padding: 22px 22px 12px;
+  border-radius: var(--pulse-radius);
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+  color: var(--ia-ink);
+  scroll-margin-top: calc(var(--ia-topnav-h, 86px) + 72px);
+}
+.ia-pulse-embed__title {
+  margin: 0;
+  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
+  letter-spacing: -0.01em;
+}
+.ia-pulse-embed__subtitle {
+  margin: 6px 0 6px;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+.ia-pulse-embed__all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  border-top: var(--ia-hairline) solid var(--ia-line-card);
+  color: var(--ia-ink);
+  font: 600 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+  text-decoration: none;
+}
+
+/* ---- Need page (SPEC «Подробности») ---- */
+.ia-pulse-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+.ia-pulse-panel {
+  padding: 22px;
+  border-radius: var(--pulse-radius);
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+  color: var(--ia-ink);
+}
+.ia-pulse-panel--rows {
+  padding-block: 4px;
+}
+.ia-pulse-detail__title {
+  margin: 16px 0 18px;
+  font: 700 clamp(1.5rem, 1.25rem + 1vw, 1.875rem) / 1.2 var(--ia-font-sans);
+  letter-spacing: -0.02em;
+}
+.ia-pulse-score--large .ia-pulse-score__label {
+  font-size: var(--ia-fs-body);
+}
+.ia-pulse-score--large .ia-pain-value__n {
+  font-size: 2.5rem;
+}
+.ia-pulse-score--large .ia-pain-value__of {
+  font-size: 1.25rem;
+}
+.ia-pulse-detail__numbers {
+  margin: 14px 0 0;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+.ia-pulse-detail__summary {
+  margin: 14px 0 0;
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+}
+.ia-pulse-detail__research {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--ia-ink);
+  font: 600 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-detail__facts {
+  display: grid;
+  gap: 22px;
+}
+@media (min-width: 640px) {
+  .ia-pulse-detail__facts:has(> .ia-pulse-block + .ia-pulse-block) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.ia-pulse-block__title,
+.ia-pulse-section__title {
+  margin: 0 0 12px;
+  font: 700 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-pulse-section__title {
+  font-size: var(--ia-fs-title2);
+  line-height: var(--ia-lh-title2);
+}
+.ia-pulse-stars {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-stars li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1 var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-stars__bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--ia-radius-pill);
+  background: var(--ia-soft);
+}
+.ia-pulse-stars__bar > span {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  border-radius: inherit;
+  background: var(--ia-ink-65);
+}
+.ia-pulse-stars__count {
+  min-width: 3ch;
+  text-align: end;
+}
+.ia-pulse-apps {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-apps li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font: 400 var(--ia-fs-subheadline) / 1.35 var(--ia-font-sans);
+}
+.ia-pulse-apps__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ia-pulse-apps__count {
+  flex: none;
+  color: var(--ia-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-section {
+  margin-top: 12px;
+}
+.ia-pulse-quotes {
+  display: grid;
+  gap: 12px;
+}
+.ia-pulse-quote {
+  margin: 0;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--ia-surface);
+  box-shadow: var(--pulse-card-shadow);
+}
+.ia-pulse-quote blockquote {
+  margin: 0;
+  font: 400 1.0625rem / 1.55 var(--ia-font-serif);
+  overflow-wrap: anywhere;
+}
+.ia-pulse-quote__original {
+  margin-top: 10px;
+}
+.ia-pulse-quote__original summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
+  cursor: pointer;
+}
+.ia-pulse-quote__original blockquote {
+  margin-top: 4px;
+  color: var(--ia-secondary);
+  font-size: var(--ia-fs-subheadline);
+}
+.ia-pulse-quote figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  margin-top: 14px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
+}
+.ia-pulse-quote__stars {
+  color: #f4b63f;
+  letter-spacing: 1px;
+}
+.ia-pulse-quote__stars-off {
+  color: var(--ia-line);
+}
+.ia-pulse-lock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+.ia-pulse-lock__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font: 600 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-pulse-lock__body {
+  margin: 0;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-body) / var(--ia-lh-body-relaxed) var(--ia-font-sans);
+}
+.ia-pulse-lock__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+}
+
+/* Link from the research catalog (/<L>/segment) into the tab. */
+.ia-pulse-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--ia-ink);
+  font: 600 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+  text-decoration: none;
+}
+
+@media (max-width: 759px) {
+  .ia-pulse {
+    gap: 14px;
+  }
+  .ia-pulse-card {
+    padding: 18px;
+  }
+  .ia-pulse-card__title {
+    margin: 12px 0 14px;
+    font-size: 1.1875rem;
+  }
+  .ia-pulse-score__value .ia-pain-value__n {
+    font-size: 1.75rem;
+  }
+  .ia-pulse-panel,
+  .ia-pulse-embed {
+    padding-inline: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ia-pulse-card {
+    transition: none;
+  }
+  .ia-pulse-card:hover,
+  .ia-pulse-card:active {
+    transform: none;
+  }
+}
