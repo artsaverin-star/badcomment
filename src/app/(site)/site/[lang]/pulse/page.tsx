@@ -5,12 +5,16 @@ import { isLocale } from "@/site/i18n/locales";
 import { routes } from "@/site/routing";
 import { getPulseCategoryNames, getPulseDemand } from "@/site/sitedata/pulse";
 import { PulseCard } from "@/site/features/pulse/PulseCard";
+import { PulseFeed } from "@/site/features/pulse/PulseFeed";
 import { PulseFilters } from "@/site/features/pulse/PulseFilters";
 import {
   isDefaultPulseQuery,
   levelScale,
   parsePulseQuery,
-  PULSE_PAGE_SIZE,
+  pickStrings,
+  PULSE_FEED_ROWS,
+  pulseDataVersion,
+  pulseFeedPage,
   selectPulseNeeds,
   type PulseQuery,
   type RawPulseQuery,
@@ -27,6 +31,10 @@ import "@/site/features/pulse/pulse.css";
 // share — the file's order). Compact controls via query params: ?category=, ?q=, ?page=. The
 // kind switch is gone (owner, 2026-09-25: «убрать просят жалуются это мусор»); ?kind= is a
 // retired key and ignored, like view/scope/sort. Only the unfiltered first page is indexable.
+// The list grows by itself (owner, 2026-09-26: «неудобно пагинация, пусть автоподгрузка
+// будет»): this page renders ?page=N (24 cards) with the «Назад · N / M · Дальше» links for
+// crawlers and no-JS; PulseFeed hides the counter and «Дальше» once hydrated and appends the
+// next pages from GET /api/site/pulse as the reader nears the end.
 
 type Props = { params: Promise<{ lang: string }>; searchParams: Promise<RawPulseQuery> };
 
@@ -55,9 +63,7 @@ export default async function PulsePage({ params, searchParams }: Props) {
   const s = pulseStrings[lang];
   const query = parsePulseQuery(raw);
   const results = selectPulseNeeds(data.needs, query, lang);
-  const pages = Math.max(1, Math.ceil(results.length / PULSE_PAGE_SIZE));
-  const page = Math.min(query.page, pages);
-  const visible = results.slice((page - 1) * PULSE_PAGE_SIZE, page * PULSE_PAGE_SIZE);
+  const { page, pages, items: visible } = pulseFeedPage(results, query.page);
   const options = data.categories
     .map((category) => ({ id: category.id, name: names.get(category.id) ?? category.id }))
     .sort((a, b) => a.name.localeCompare(b.name, lang));
@@ -88,13 +94,26 @@ export default async function PulsePage({ params, searchParams }: Props) {
         </div>
       ) : null}
       {visible.length ? (
-        <ul className="ia-grid ia-pulse-grid">
+        <PulseFeed
+          key={`${lang}|${query.category}|${query.q}|${page}`}
+          locale={lang}
+          category={query.category}
+          q={query.q}
+          page={page}
+          pages={pages}
+          total={results.length}
+          version={pulseDataVersion(data)}
+          ids={visible.map((need) => need.id)}
+          prevHref={page > 1 ? link({ page: page - 1 }) : null}
+          nextHref={page < pages ? link({ page: page + 1 }) : null}
+          strings={pickStrings(s, PULSE_FEED_ROWS)}
+        >
           {visible.map((need) => (
             <li key={need.id}>
               <PulseCard need={need} categoryName={names.get(need.categoryId) ?? need.categoryId} locale={lang} strings={s} />
             </li>
           ))}
-        </ul>
+        </PulseFeed>
       ) : (
         <section className="ia-card ia-card--utility ia-pulse-empty" data-pulse-empty="">
           <h2>{data.needs.length ? s.noResults : s.empty}</h2>
@@ -106,15 +125,6 @@ export default async function PulsePage({ params, searchParams }: Props) {
           ) : null}
         </section>
       )}
-      {pages > 1 ? (
-        <nav className="ia-pulse-pagination" aria-label={s.pages}>
-          {page > 1 ? <Link href={link({ page: page - 1 })}>← {s.previous}</Link> : <span />}
-          <span>
-            {page} / {pages}
-          </span>
-          {page < pages ? <Link href={link({ page: page + 1 })}>{s.next} →</Link> : <span />}
-        </nav>
-      ) : null}
       <details className="ia-pulse-about">
         <summary>{s.about}</summary>
         <p>{s.aboutSample}</p>

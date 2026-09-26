@@ -15,6 +15,8 @@ import { Ext, MailLink, P, UL } from "./components";
 //   • analytics: Yandex Metrica (Webvisor, click map), Google Analytics 4, DataFast, and the
 //     signed-in page log (/api/track → PageView);
 //   • cookies: ia_session, locale, ia_theme, ia_app_banner, g_oauth_state/g_oauth_return, el_rl;
+//   • sessionStorage: ia2:tabs (last page per tab), ia2:pulse.feed (the «Пульс» cards loaded by
+//     scrolling and the position, for Back; 30 minutes — src/site/features/pulse/PulseFeed.tsx);
 //   • the iOS app's account (docs/site-v2/APP-ACCOUNTS.md): Sign in with Apple (User.appleId,
 //     e-mail/name if shared, encrypted Apple refresh token for revocation), the website → app
 //     hand-off code (AppLoginCode, 5 min, single use), app sessions (AppSession: token hash,
@@ -185,7 +187,8 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
                   </>,
                   <>
                     localStorage {code("ia2:saved.ideas")}, {code("ia2:saved.research")}, {code("ia2:notes")} — закладки
-                    и заметки; sessionStorage {code("ia2:tabs")} — последняя страница в каждой вкладке;
+                    и заметки; sessionStorage {code("ia2:tabs")} — последняя страница в каждой вкладке, {code("ia2:pulse.feed")} —
+                    подгруженные карточки «Пульса» и место в ленте для возврата «Назад», 30 минут;
                   </>,
                   "cookies Яндекс Метрики и Google Analytics.",
                 ]}
@@ -217,7 +220,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
         ],
         contactLabel: "Связаться с разработчиком",
         iosLabel: "Политика конфиденциальности iOS-приложения",
-        updated: "Обновлено 23 сентября 2026 года",
+        updated: "Обновлено 26 сентября 2026 года",
       };
     case "de":
       return {
@@ -361,7 +364,9 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
                   </>,
                   <>
                     localStorage {code("ia2:saved.ideas")}, {code("ia2:saved.research")}, {code("ia2:notes")} –
-                    Lesezeichen und Notizen; sessionStorage {code("ia2:tabs")} – die letzte Seite in jedem Tab;
+                    Lesezeichen und Notizen; sessionStorage {code("ia2:tabs")} – die letzte Seite in jedem Tab,{" "}
+                    {code("ia2:pulse.feed")} – nachgeladene Karten im „Puls“ und die Stelle in der Liste für „Zurück“, 30
+                    Minuten;
                   </>,
                   "Cookies von Yandex Metrica und Google Analytics.",
                 ]}
@@ -394,7 +399,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
         ],
         contactLabel: "Kontakt zum Entwickler",
         iosLabel: "Datenschutzerklärung der iOS-App",
-        updated: "Aktualisiert am 23. September 2026",
+        updated: "Aktualisiert am 26. September 2026",
       };
     case "fr":
       return {
@@ -538,7 +543,8 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
                   </>,
                   <>
                     localStorage {code("ia2:saved.ideas")}, {code("ia2:saved.research")}, {code("ia2:notes")} — signets
-                    et notes ; sessionStorage {code("ia2:tabs")} — la dernière page de chaque onglet ;
+                    et notes ; sessionStorage {code("ia2:tabs")} — la dernière page de chaque onglet, {code("ia2:pulse.feed")}{" "}
+                    — les cartes chargées du « Pouls » et la position dans la liste pour le retour, 30 minutes ;
                   </>,
                   "les cookies de Yandex Metrica et de Google Analytics.",
                 ]}
@@ -571,7 +577,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
         ],
         contactLabel: "Contacter le développeur",
         iosLabel: "Politique de confidentialité de l’app iOS",
-        updated: "Mis à jour le 23 septembre 2026",
+        updated: "Mis à jour le 26 septembre 2026",
       };
     case "ja":
       return {
@@ -693,7 +699,8 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
                   </>,
                   <>
                     localStorageの{code("ia2:saved.ideas")}、{code("ia2:saved.research")}、{code("ia2:notes")}
-                    ：ブックマークとメモ。sessionStorageの{code("ia2:tabs")}：各タブで最後に開いたページ
+                    ：ブックマークとメモ。sessionStorageの{code("ia2:tabs")}：各タブで最後に開いたページ、
+                    {code("ia2:pulse.feed")}：「パルス」で読み込んだカードと「戻る」のための表示位置、30分間
                   </>,
                   "Yandex MetricaとGoogle AnalyticsのCookie",
                 ]}
@@ -719,7 +726,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
         ],
         contactLabel: "開発者に連絡する",
         iosLabel: "iOSアプリのプライバシーポリシー",
-        updated: "2026年9月23日更新",
+        updated: "2026年9月26日更新",
       };
     default:
       return {
@@ -861,7 +868,8 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
                   </>,
                   <>
                     localStorage {code("ia2:saved.ideas")}, {code("ia2:saved.research")}, {code("ia2:notes")} —
-                    bookmarks and notes; sessionStorage {code("ia2:tabs")} — the last page of each tab;
+                    bookmarks and notes; sessionStorage {code("ia2:tabs")} — the last page of each tab, {code("ia2:pulse.feed")} —
+                    the cards loaded in “Pulse” and the place in the list for Back, 30 minutes;
                   </>,
                   "Yandex Metrica and Google Analytics cookies.",
                 ]}
@@ -895,7 +903,7 @@ export function privacyDoc(locale: Locale): PrivacyDoc {
         ],
         contactLabel: "Contact the developer",
         iosLabel: "iOS app privacy policy",
-        updated: "Updated September 23, 2026",
+        updated: "Updated September 26, 2026",
       };
   }
 }

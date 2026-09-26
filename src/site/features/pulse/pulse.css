@@ -249,6 +249,112 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* ---- Auto-loading (PulseFeed): new cards, skeletons, the sentinel, failure and end ---- */
+.ia-pulse-grid {
+  position: relative;
+}
+/* A 1 px probe on the list's bottom edge, out of the grid flow: the observer loads the next
+   page when it comes within 1000 px of the viewport. */
+.ia-pulse-grid > .ia-pulse-sentinel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+/* Scroll anchoring keeps the view on an element in it while content above changes. The
+   skeletons go away and the sentinel moves with every page: anchored on them, Chrome held the
+   view at the list's end while the new cards went in above it, the sentinel stayed in range and
+   every page pulled in the next (to the last page, no input). Without them the anchor is a card
+   or the list itself, so the new cards go in under the reader's eyes. */
+.ia-pulse-grid > .ia-pulse-skeleton,
+.ia-pulse-grid > .ia-pulse-sentinel {
+  overflow-anchor: none;
+}
+.ia-pulse-grid__new {
+  animation: ia-pulse-in var(--ia-dur-sheet) var(--ia-ease-press) both;
+}
+@keyframes ia-pulse-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+/* Placeholders in the card's own shape: category, two title lines, the dial beside the word
+   level, the counts under a hairline. A full row at three columns, one row below that. */
+.ia-pulse-card--skeleton {
+  min-height: 248px;
+  pointer-events: none;
+}
+.ia-pulse-skeleton__category {
+  width: 42%;
+  height: 12px;
+  margin-top: 3px;
+}
+.ia-pulse-skeleton__title {
+  width: 92%;
+  height: 18px;
+  margin-top: 12px;
+}
+.ia-pulse-skeleton__title--short {
+  width: 64%;
+  margin-top: 9px;
+}
+.ia-pulse-skeleton__gauge {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+.ia-pulse-skeleton__dial {
+  width: 84px;
+  height: 48px;
+  border-radius: 42px 42px 10px 10px;
+}
+.ia-pulse-skeleton__level {
+  width: 92px;
+  height: 30px;
+  margin-bottom: 3px;
+}
+.ia-pulse-skeleton__counts {
+  width: 64%;
+  height: 12px;
+  margin-top: 26px;
+}
+@media (max-width: 1279px) {
+  .ia-pulse-grid > .ia-pulse-skeleton--third {
+    display: none;
+  }
+}
+.ia-pulse-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  padding: 4px 0;
+  text-align: center;
+}
+.ia-pulse-more__text {
+  margin: 0;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+.ia-pulse-more .ia-spinner {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+.ia-pulse-end {
+  margin: 4px 0 0;
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
 /* ---- Empty state, pagination, «Как считаем» ---- */
 .ia-pulse-empty {
   max-width: 460px;
@@ -693,6 +799,9 @@
 @media (prefers-reduced-motion: reduce) {
   .ia-pulse-card {
     transition: none;
+  }
+  .ia-pulse-grid__new {
+    animation: none;
   }
   .ia-pulse-card:hover,
   .ia-pulse-card:active {

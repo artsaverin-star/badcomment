@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import type { Locale } from "@/site/i18n/locales";
 import { GAUGE, gaugeBox, gaugeEnds, gaugeTicks, painScore, type GaugeSize } from "./gauge";
-import { levelWord, needAria, needText, painOfPhrase } from "./query";
+import { levelWord, needAria, needText, painOfPhrase, type PulseCardStrings } from "./query";
 import type { PulseStrings } from "./strings";
 import type { PulseNeed } from "./types";
 
@@ -115,7 +115,7 @@ export function PulseFactList({ facts }: { facts: readonly ReactNode[] }) {
 }
 
 /** «Сильная» over «боль 7 из 10» (aria-hidden: the card or row carries needAria). */
-export function PulseLevel({ score, strings: s, className }: { score: number; strings: PulseStrings; className?: string }) {
+export function PulseLevel({ score, strings: s, className }: { score: number; strings: Pick<PulseCardStrings, "painOf" | "levelMild" | "levelNoticeable" | "levelStrong" | "levelAcute">; className?: string }) {
   return (
     <span className={`ia-pulse-level${className ? ` ${className}` : ""}`} aria-hidden="true">
       <span className="ia-pulse-level__word">{levelWord(s, score)}</span>

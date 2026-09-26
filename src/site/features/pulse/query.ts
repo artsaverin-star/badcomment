@@ -38,7 +38,7 @@ export function isDefaultPulseQuery(q: PulseQuery): boolean {
 }
 
 /** The need's text in the page locale (the build guarantees all five; English as a safety net). */
-export function needText(text: PulseText, locale: Locale): string {
+export function needText(text: Partial<PulseText>, locale: Locale): string {
   return text[locale] || text.en || text.ru || "";
 }
 
@@ -58,6 +58,48 @@ export function selectPulseNeeds(needs: readonly PulseNeed[], query: PulseQuery,
       return words.every((word) => text.includes(word));
     })
     .sort(byStrength);
+}
+
+/** One page of the feed: `requested` clamped to 1..pages (as the server-rendered ?page=N). */
+export function pulseFeedPage<T>(results: readonly T[], requested: number): { page: number; pages: number; items: T[] } {
+  const pages = Math.max(1, Math.ceil(results.length / PULSE_PAGE_SIZE));
+  const page = Math.min(Math.max(1, requested), pages);
+  return { page, pages, items: results.slice((page - 1) * PULSE_PAGE_SIZE, page * PULSE_PAGE_SIZE) };
+}
+
+/**
+ * What a feed card shows (PulseCard) and nothing more: the id, the title in the page locale and
+ * the public numbers. No summary, no quotes, no kind — the shape GET /api/site/pulse returns
+ * for the auto-loaded pages and the feed keeps in sessionStorage for Back.
+ */
+export type PulseCardNeed = Pick<PulseNeed, "id" | "score" | "reviewCount" | "appCount" | "categoryAppCount"> & { title: Partial<PulseText> };
+export type PulseFeedItem = PulseCardNeed & { categoryName: string };
+
+export function pulseFeedItem(need: PulseNeed, locale: Locale, categoryName: string): PulseFeedItem {
+  return {
+    id: need.id,
+    categoryName,
+    title: { [locale]: needText(need.title, locale) },
+    score: need.score,
+    reviewCount: need.reviewCount,
+    appCount: need.appCount,
+    categoryAppCount: need.categoryAppCount,
+  };
+}
+
+/**
+ * A short fingerprint of the published file (its build time, the build's own fingerprint and
+ * the feed order): the auto-loaded pages and the list the feed restores on Back are thrown away
+ * when it changes.
+ */
+export function pulseDataVersion(data: Pick<PulseDemand, "generatedAt" | "source" | "needs">): string {
+  let h = 0x811c9dc5;
+  const feed = (text: string) => {
+    for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193);
+  };
+  feed(`${data.generatedAt}|${data.source.fingerprint ?? ""}|${data.needs.length}`);
+  for (const need of data.needs) feed(`|${need.id}:${need.score}`);
+  return (h >>> 0).toString(36);
 }
 
 /** Needs of one category, strongest first (rank 1 = strongest). */
@@ -121,10 +163,13 @@ export function resolvePulseRoute(rawId: string, data: Pick<PulseDemand, "needs"
 // ---------------------------------------------------------------------------
 
 type Forms = { one: string; few: string; many: string };
-const forms = (s: PulseStrings, key: "reviews" | "apps" | "inApps" | "needs" | "allNeeds" | "aboutApps"): Forms => ({
-  one: s[`${key}One`],
-  few: s[`${key}Few`],
-  many: s[`${key}Many`],
+type FormKey = "reviews" | "apps" | "inApps" | "needs" | "allNeeds" | "aboutApps" | "loaded" | "end";
+/** The three plural rows of `K` («{n} отзыв / отзыва / отзывов»). */
+type FormStrings<K extends FormKey> = Pick<PulseStrings, `${K}One` | `${K}Few` | `${K}Many`>;
+const forms = <K extends FormKey>(s: FormStrings<K>, key: K): Forms => ({
+  one: s[`${key}One` as const],
+  few: s[`${key}Few` as const],
+  many: s[`${key}Many` as const],
 });
 
 function plural(locale: Locale, n: number, f: Forms): string {
@@ -137,7 +182,7 @@ export function formatNumber(locale: Locale, n: number): string {
 }
 
 /** «267 отзывов» / "267 reviews". */
-export function reviewsPhrase(locale: Locale, s: PulseStrings, n: number): string {
+export function reviewsPhrase(locale: Locale, s: FormStrings<"reviews">, n: number): string {
   return format(plural(locale, n, forms(s, "reviews")), { n: formatNumber(locale, n) });
 }
 
@@ -162,18 +207,18 @@ export function aboutAppsPhrase(locale: Locale, s: PulseStrings, reviews: number
 }
 
 /** «в 67 из 100 приложений» / "in 67 of 100 apps" (ru/en/de agree with the total, fr with n). */
-export function inAppsPhrase(locale: Locale, s: PulseStrings, n: number, total: number): string {
+export function inAppsPhrase(locale: Locale, s: FormStrings<"inApps">, n: number, total: number): string {
   const template = plural(locale, locale === "fr" ? n : total, forms(s, "inApps"));
   return format(template, { n: formatNumber(locale, n), total: formatNumber(locale, total) });
 }
 
 /** The two facts of a need: «267 отзывов», «в 67 из 100 приложений» (rendered by PulseFactList). */
-export function countsFacts(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): [string, string] {
+export function countsFacts(locale: Locale, s: FormStrings<"reviews" | "inApps">, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): [string, string] {
   return [reviewsPhrase(locale, s, need.reviewCount), inAppsPhrase(locale, s, need.appCount, need.categoryAppCount)];
 }
 
 /** The card's grey line as text: «267 отзывов · в 67 из 100 приложений». */
-export function countsLine(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): string {
+export function countsLine(locale: Locale, s: FormStrings<"reviews" | "inApps">, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): string {
   return countsFacts(locale, s, need).join(" · ");
 }
 
@@ -181,7 +226,8 @@ export function countsLine(locale: Locale, s: PulseStrings, need: Pick<PulseNeed
 // Word level (thresholds: painLevel in ./gauge.ts)
 // ---------------------------------------------------------------------------
 
-const LEVEL_KEY: Record<PainLevel, "levelMild" | "levelNoticeable" | "levelStrong" | "levelAcute"> = {
+type LevelKey = "levelMild" | "levelNoticeable" | "levelStrong" | "levelAcute";
+const LEVEL_KEY: Record<PainLevel, LevelKey> = {
   mild: "levelMild",
   noticeable: "levelNoticeable",
   strong: "levelStrong",
@@ -189,27 +235,81 @@ const LEVEL_KEY: Record<PainLevel, "levelMild" | "levelNoticeable" | "levelStron
 };
 
 /** «Сильная» / "Strong" for a 7. */
-export function levelWord(s: PulseStrings, score: number): string {
+export function levelWord(s: Pick<PulseStrings, LevelKey>, score: number): string {
   return s[LEVEL_KEY[painLevel(score)]];
 }
 
 /** «боль 7 из 10» (under the word level). */
-export function painOfPhrase(s: PulseStrings, score: number): string {
+export function painOfPhrase(s: Pick<PulseStrings, "painOf">, score: number): string {
   return format(s.painOf, { score: painScore(score) });
 }
 
 /** «Боль 7 из 10, сильная.» for screen readers. */
-export function painAria(locale: Locale, s: PulseStrings, score: number): string {
+export function painAria(locale: Locale, s: Pick<PulseStrings, "painAria" | LevelKey>, score: number): string {
   return format(s.painAria, { score: painScore(score), level: levelWord(s, score).toLocaleLowerCase(INTL_LOCALE[locale]) });
 }
 
 /** «Боль 7 из 10, сильная. 267 отзывов, в 67 из 100 приложений.» — the text alternative of a card or row. */
-export function needAria(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "score" | "reviewCount" | "appCount" | "categoryAppCount">): string {
+export function needAria(locale: Locale, s: PulseCardStrings, need: Pick<PulseNeed, "score" | "reviewCount" | "appCount" | "categoryAppCount">): string {
   const counts = format(s.countsAria, {
     reviews: reviewsPhrase(locale, s, need.reviewCount),
     apps: inAppsPhrase(locale, s, need.appCount, need.categoryAppCount),
   });
   return `${painAria(locale, s, need.score)}${locale === "ja" ? "" : " "}${counts}`;
+}
+
+/**
+ * The rows a feed card reads (PulseCard): the word level, «боль 7 из 10», the counts and its text
+ * alternative. Rows of ./strings.ts, not app UI keys — hence not a `*_KEYS` name, which
+ * docs/site-v2/review/check-ui-keys.mjs reads as ui.json keys.
+ */
+export const PULSE_CARD_ROWS = [
+  "painAria",
+  "painOf",
+  "levelMild",
+  "levelNoticeable",
+  "levelStrong",
+  "levelAcute",
+  "countsAria",
+  "reviewsOne",
+  "reviewsFew",
+  "reviewsMany",
+  "inAppsOne",
+  "inAppsFew",
+  "inAppsMany",
+] as const satisfies readonly (keyof PulseStrings)[];
+export type PulseCardStrings = Pick<PulseStrings, (typeof PULSE_CARD_ROWS)[number]>;
+
+/** The rows the auto-loading feed reads (PulseFeed): the card's, the loader's and the no-JS pagination's. */
+export const PULSE_FEED_ROWS = [
+  ...PULSE_CARD_ROWS,
+  "loadedOne",
+  "loadedFew",
+  "loadedMany",
+  "loadError",
+  "retry",
+  "endOne",
+  "endFew",
+  "endMany",
+  "pages",
+  "next",
+  "previous",
+] as const satisfies readonly (keyof PulseStrings)[];
+export type PulseFeedStrings = Pick<PulseStrings, (typeof PULSE_FEED_ROWS)[number]>;
+
+/** Only `keys` of a locale's table (what a client component receives). */
+export function pickStrings<K extends keyof PulseStrings>(s: PulseStrings, keys: readonly K[]): Pick<PulseStrings, K> {
+  return Object.fromEntries(keys.map((key) => [key, s[key]])) as Pick<PulseStrings, K>;
+}
+
+/** «Загружены ещё 24 боли. Показано 48 из 585.» — what the feed announces after a page arrives. */
+export function loadedPhrase(locale: Locale, s: FormStrings<"loaded">, n: number, shown: number, total: number): string {
+  return format(plural(locale, n, forms(s, "loaded")), { n: formatNumber(locale, n), shown: formatNumber(locale, shown), total: formatNumber(locale, total) });
+}
+
+/** «Это все 585 болей» — the line under a feed that has grown to its end. */
+export function endPhrase(locale: Locale, s: FormStrings<"end">, n: number): string {
+  return format(plural(locale, n, forms(s, "end")), { n: formatNumber(locale, n) });
 }
 
 /** «1–3 фоновая · 4–6 заметная · 7–8 сильная · 9–10 острая» for «Как считаем». */

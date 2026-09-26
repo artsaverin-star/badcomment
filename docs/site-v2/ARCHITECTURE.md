@@ -69,7 +69,11 @@ src/app/api/site/**                  # NEW APIs for the new site (saved/notes sy
                                      #   rating-search: GET ?l=&q=&offset=&limit=40|all → {total, items}
                                      #   of the rating catalogue search, public fields only (with rank,
                                      #   storeAvg and the icon path), 400 on a bad locale/empty q/limit,
-                                     #   q cut to 80, `max-age=300` + noindex)
+                                     #   q cut to 80, `max-age=300` + noindex;
+                                     #   pulse: GET ?l=&category=&q=&page= → {version, page, pages,
+                                     #   total, items} — the «Пульс» feed's next page for its
+                                     #   auto-loading, slim card fields only, empty past the end,
+                                     #   400 on a bad locale/page, `max-age=300` + noindex; PULSE.md)
 src/app/{sitemap.ts,robots.ts,icon.tsx,apple-icon.tsx,opengraph-image.tsx,feed.xml,llms*.txt}
                                      # stay at the root (shared)
 src/app/sitemap-rating-{ru,en}.xml/route.ts

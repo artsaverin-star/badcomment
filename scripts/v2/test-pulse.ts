@@ -16,12 +16,21 @@
 //    ("server-only" and CSS imports stubbed). No kind label anywhere; one hue — no amber or red
 //    in the rendered HTML or in the Pulse CSS; the block's subtitle prints the host page's own
 //    figures; fact lines never break after a «·»; the gauge's box is trimmed to its ink.
+// 3b. Auto-loading (owner, 2026-09-26: «неудобно пагинация, пусть автоподгрузка будет»): the page
+//    slice, the slim card data and GET /api/site/pulse (the right slice of page N with filters,
+//    empty past the end, only card fields, the same PulseCard markup as the server's), the data
+//    version, the loader's phrases, and PulseFeed's server HTML (the no-JS «Дальше» link and the
+//    counter, the sentinel, the live region; the end line only once the list is complete); the
+//    guards against a self-feeding loop (skeletons and sentinel not scroll anchors, loading held
+//    after a page until the reader scrolls when the view moved) and the per-history-entry Back
+//    snapshot (plus `ia2:pulse.feed` in the privacy notice).
 // 4. Live HTTP against the running dev server (PULSE_BASE_URL, default http://localhost:3107):
 //    feed (no kind switch; ?kind= ignored and still indexable), filters, the need page, evidence
 //    gating as a guest, retired-id redirects, 404s, the topic-page embed (right under the hero,
 //    first in the TOC, before the paywall when locked) and the review archive (new design: the hub
 //    and category pages, right under the header); on each host page (topic, archive category,
-//    archive hub, dossier) the block's reviews and apps equal the page's own. Skipped when no
+//    archive hub, dossier) the block's reviews and apps equal the page's own; the feed's
+//    fallback pagination and client hook, ?page=N, and GET /api/site/pulse. Skipped when no
 //    server answers.
 
 import { after, before, describe, test, type TestContext } from "node:test";
@@ -36,6 +45,7 @@ import { LOCALES, type Locale } from "../../src/site/i18n/locales";
 import { FREE_CATEGORY, LAUNCH_CATEGORIES } from "../../src/site/manifest.generated";
 import { DOTS_PER_ROW, dotGrid, GAUGE, gaugeBox, gaugeTicks, PAIN_LEVELS, painLevel, painScore, scoreBreakdown } from "../../src/site/features/pulse/gauge";
 import { PulseCard } from "../../src/site/features/pulse/PulseCard";
+import { PulseFeed } from "../../src/site/features/pulse/PulseFeed";
 import { PulseBreakdown, PulseEvidenceList, PulseFacts, PulseStars, PulseWhere, visibleEvidence } from "../../src/site/features/pulse/PulseDetail";
 import { PulseGauge } from "../../src/site/features/pulse/PulseGauge";
 import { CategoryPulseHero } from "../../src/site/features/pulse/CategoryPulseHero";
@@ -46,16 +56,25 @@ import {
   allNeedsPhrase,
   categoryNeeds,
   countsLine,
+  endPhrase,
   hasCategoryPulse,
   inAppsPhrase,
   isDefaultPulseQuery,
   levelScale,
   levelWord,
+  loadedPhrase,
   needAria,
   needsPhrase,
   painOfPhrase,
   parsePulseQuery,
+  pickStrings,
+  PULSE_CARD_ROWS,
   PULSE_EMBED_LIMIT,
+  PULSE_FEED_ROWS,
+  PULSE_PAGE_SIZE,
+  pulseDataVersion,
+  pulseFeedItem,
+  pulseFeedPage,
   resolvePulseRoute,
   reviewsPhrase,
   selectPulseNeeds,
@@ -99,6 +118,8 @@ function hostStats(id: string, locale: Locale = "en"): Stats {
   return corpus ? { reviewCount: corpus.reviews, appCount: corpus.apps } : { reviewCount: (own?.reviewCount ?? 0) + 17, appCount: own?.appCount ?? 0 };
 }
 const render = (el: ReactElement | null) => (el ? renderToStaticMarkup(el) : "");
+/** One card of GET /api/site/pulse (PulseFeedItem as JSON). */
+type PulseFeedItemJson = ReturnType<typeof pulseFeedItem>;
 const unescapeHtml = (s: string) =>
   s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 /** «Пульс категории» exactly as CategoryPulse builds it (minus the file loader). */
@@ -559,9 +580,10 @@ describe("rendered HTML", () => {
       }
     }
     // Colour never follows the kind: a request and a pain with the same numbers render the same.
-    const n = needs[0];
-    const asRequest = render(PulseCard({ need: { ...n, kind: "request" }, categoryName: "C", locale: "en", strings: pulseStrings.en }));
-    const asPain = render(PulseCard({ need: { ...n, kind: "pain" }, categoryName: "C", locale: "en", strings: pulseStrings.en }));
+    const request = { ...needs[0], kind: "request" as const };
+    const pain = { ...needs[0], kind: "pain" as const };
+    const asRequest = render(PulseCard({ need: request, categoryName: "C", locale: "en", strings: pulseStrings.en }));
+    const asPain = render(PulseCard({ need: pain, categoryName: "C", locale: "en", strings: pulseStrings.en }));
     assert.equal(asRequest, asPain);
   });
 
@@ -717,6 +739,7 @@ describe("rendered HTML", () => {
       reviews: typeof import("../../src/lib/reviews");
       reviewPages: typeof import("../../src/site/sitedata/reviews");
       pulse: typeof import("../../src/site/sitedata/pulse");
+      pulseRoute: typeof import("../../src/app/api/site/pulse/route");
       sitemap: typeof import("../../src/app/sitemap").default;
     };
     let m: Loaded;
@@ -739,6 +762,7 @@ describe("rendered HTML", () => {
         reviews: require("../../src/lib/reviews"),
         reviewPages: require("../../src/site/sitedata/reviews"),
         pulse: require("../../src/site/sitedata/pulse"),
+        pulseRoute: require("../../src/app/api/site/pulse/route"),
         sitemap: require("../../src/app/sitemap").default,
       };
       /* eslint-enable @typescript-eslint/no-require-imports */
@@ -890,6 +914,68 @@ describe("rendered HTML", () => {
       assert.equal(render(await m.LegacyPulseLink({ locale: "ru", slug: launchWithout ?? "no-such-category", stats: { reviewCount: 1, appCount: 1 } })), "");
     });
 
+    test("GET /api/site/pulse: page N of the feed with its filters, empty past the end, the server's card markup", async () => {
+      type Body = { version: string; page: number; pages: number; total: number; items: PulseFeedItemJson[] };
+      const call = async (qs: string) => {
+        const res = await m.pulseRoute.GET(new Request(`http://localhost/api/site/pulse?${qs}`));
+        return { status: res.status, headers: res.headers, body: (await res.json()) as Body };
+      };
+      const version = pulseDataVersion(data);
+      /** Every page of `query` in `locale` through the route: the feed's slices, then an empty page. */
+      const walk = async (locale: Locale, query: { category?: string; q?: string }, label: string) => {
+        const all = selectPulseNeeds(needs, parsePulseQuery(query), locale);
+        const pages = Math.max(1, Math.ceil(all.length / PULSE_PAGE_SIZE));
+        const qs = new URLSearchParams({ l: locale, ...(query.category ? { category: query.category } : {}), ...(query.q ? { q: query.q } : {}) });
+        const seen: string[] = [];
+        for (let page = 1; page <= pages + 1; page++) {
+          const { status, headers, body } = await call(`${qs}&page=${page}`);
+          assert.equal(status, 200, `${label} page ${page}`);
+          assert.equal(headers.get("x-robots-tag"), "noindex", label);
+          assert.deepEqual({ version: body.version, page: body.page, pages: body.pages, total: body.total }, { version, page, pages, total: all.length }, `${label} page ${page}`);
+          const want = all.slice((page - 1) * PULSE_PAGE_SIZE, page * PULSE_PAGE_SIZE).map((n) => n.id);
+          assert.deepEqual(body.items.map((item) => item.id), want, `${label} page ${page}`);
+          if (page <= pages && all.length) assert.ok(body.items.length > 0, `${label} page ${page}`);
+          seen.push(...body.items.map((item) => item.id));
+        }
+        // Stops at the end: every need of the selection exactly once, then an empty page.
+        assert.deepEqual(seen, all.map((n) => n.id), label);
+        return all;
+      };
+      for (const locale of ["ru", "en"] as const) assert.equal((await walk(locale, {}, `${locale} all`)).length, needs.length);
+      // The category with the most needs (more than one page when the file allows), and ∩ a search word.
+      const biggest = [...withNeeds].sort((a, b) => categoryNeeds(data, b).length - categoryNeeds(data, a).length)[0];
+      assert.ok((await walk("de", { category: biggest }, `de ${biggest}`)).length > 0);
+      const target = categoryNeeds(data, biggest).at(-1)!;
+      const word = target.title.ru.split(/\s+/).sort((a, b) => b.length - a.length)[0];
+      assert.ok((await walk("ru", { category: biggest, q: word }, `ru ${biggest} «${word}»`)).some((n) => n.id === target.id));
+      assert.ok((await walk("en", { q: "the" }, "en «the»")).length > 0);
+      assert.equal((await walk("fr", { q: "zzzzNoMatch" }, "fr no match")).length, 0);
+      assert.equal((await walk("ja", { category: "no-such-category" }, "ja unknown category")).length, 0);
+      // The same card as the server's: the page's category names, the same markup, in every locale.
+      for (const locale of LOCALES) {
+        const names = await m.pulse.getPulseCategoryNames(locale, data);
+        const { body } = await call(`l=${locale}&page=2`);
+        assert.equal(body.items.length, Math.min(PULSE_PAGE_SIZE, Math.max(0, needs.length - PULSE_PAGE_SIZE)), locale);
+        for (const item of body.items) {
+          const need = needs.find((n) => n.id === item.id)!;
+          assert.equal(item.categoryName, names.get(need.categoryId), `${locale} ${item.id}`);
+          const client = render(PulseCard({ need: item, categoryName: item.categoryName, locale, strings: pickStrings(pulseStrings[locale], PULSE_CARD_ROWS) }));
+          const server = render(PulseCard({ need, categoryName: names.get(need.categoryId) ?? need.categoryId, locale, strings: pulseStrings[locale] }));
+          assert.equal(client, server, `${locale} ${item.id}`);
+        }
+        // Only card fields: no summary, no quotes, no kind, no other locale's title.
+        const raw = JSON.stringify(body);
+        for (const key of ["summary", "evidence", "quote", "quoteRu", "kind", "topApps", "ratingCounts", "precision"]) assert.ok(!raw.includes(`"${key}"`), `${locale}: ${key}`);
+        for (const item of body.items) assert.deepEqual(Object.keys(item.title), [locale], `${locale} ${item.id}`);
+      }
+      // Bad requests.
+      for (const qs of ["page=2", "l=xx&page=2", "l=en&page=0", "l=en&page=-1", "l=en&page=abc", "l=en&page=1.5", "l=en&page=123456"]) {
+        assert.equal((await call(qs)).status, 400, qs);
+      }
+      // A malformed category is dropped like on the page (?category=../x → the unfiltered feed).
+      assert.equal((await call("l=en&category=..%2Fx&page=1")).body.total, needs.length);
+    });
+
     test("sitemap: the feed and every need in every locale", async () => {
       const urls = new Set((await m.sitemap()).map((e) => e.url));
       for (const locale of LOCALES) {
@@ -897,6 +983,208 @@ describe("rendered HTML", () => {
         for (const n of needs) assert.ok(urls.has(`https://inapp.pro/${locale}/pulse/${n.id}`), `${locale} ${n.id}`);
       }
     });
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3b. Auto-loading (in-process)
+// ---------------------------------------------------------------------------
+
+/** PulseFeed exactly as the feed page builds it for ?page=`requested` (server HTML, before hydration). */
+function feedHtml(locale: Locale, query: { category?: string; q?: string }, requested: number) {
+  const s = pulseStrings[locale];
+  const category = query.category ?? "";
+  const q = query.q ?? "";
+  const results = selectPulseNeeds(needs, parsePulseQuery(query), locale);
+  const { page, pages, items } = pulseFeedPage(results, requested);
+  const link = (p: number) => routes.pulse(locale, { category, q, page: p });
+  const html = render(
+    createElement(
+      PulseFeed,
+      {
+        locale,
+        category,
+        q,
+        page,
+        pages,
+        total: results.length,
+        version: pulseDataVersion(data),
+        ids: items.map((n) => n.id),
+        prevHref: page > 1 ? link(page - 1) : null,
+        nextHref: page < pages ? link(page + 1) : null,
+        strings: pickStrings(s, PULSE_FEED_ROWS),
+      },
+      items.map((need) => createElement("li", { key: need.id }, createElement(PulseCard, { need, categoryName: "C", locale, strings: s }))),
+    ),
+  );
+  const cards = items.map((need) => `<li>${render(PulseCard({ need, categoryName: "C", locale, strings: s }))}</li>`).join("");
+  return { html, page, pages, items, cards };
+}
+/** The no-JS pagination of a feed: its links and its text. */
+function paginationOf(html: string) {
+  const nav = /<nav class="ia-pulse-pagination"[\s\S]*?<\/nav>/.exec(html)?.[0] ?? "";
+  return { nav, links: hrefs(nav), text: textOf(nav) };
+}
+
+describe("auto-loading (PulseFeed, GET /api/site/pulse)", () => {
+  test("page slice: 24 per page, ?page=N clamped to the last page", () => {
+    const all = selectPulseNeeds(needs, parsePulseQuery({}), "en");
+    const pages = Math.ceil(all.length / PULSE_PAGE_SIZE);
+    assert.equal(PULSE_PAGE_SIZE, 24);
+    assert.deepEqual(pulseFeedPage(all, 1), { page: 1, pages, items: all.slice(0, 24) });
+    assert.deepEqual(pulseFeedPage(all, 2), { page: 2, pages: Math.max(pages, 1), items: pages >= 2 ? all.slice(24, 48) : all });
+    assert.deepEqual(pulseFeedPage(all, 9999), pulseFeedPage(all, pages));
+    assert.deepEqual(pulseFeedPage(all, pages).items, all.slice((pages - 1) * 24));
+    assert.deepEqual(pulseFeedPage([], 3), { page: 1, pages: 1, items: [] });
+  });
+
+  test("card data: only what a card shows, and the same PulseCard markup as the full need's", () => {
+    for (const locale of LOCALES) {
+      const s = pulseStrings[locale];
+      const cardStrings = pickStrings(s, PULSE_CARD_ROWS);
+      for (const need of needs) {
+        const item = pulseFeedItem(need, locale, "Category");
+        assert.deepEqual(Object.keys(item).sort(), ["appCount", "categoryAppCount", "categoryName", "id", "reviewCount", "score", "title"]);
+        assert.deepEqual(item.title, { [locale]: need.title[locale] }, `${locale} ${need.id}`);
+        const fromItem = render(PulseCard({ need: item, categoryName: item.categoryName, locale, strings: cardStrings }));
+        assert.equal(fromItem, render(PulseCard({ need, categoryName: "Category", locale, strings: s })), `${locale} ${need.id}`);
+      }
+    }
+    // The client receives rows of the table only: the card's, the loader's, the no-JS pagination's.
+    assert.deepEqual(Object.keys(pickStrings(pulseStrings.ru, PULSE_FEED_ROWS)).sort(), [...new Set(PULSE_FEED_ROWS)].sort());
+    for (const key of PULSE_CARD_ROWS) assert.ok((PULSE_FEED_ROWS as readonly string[]).includes(key), key);
+  });
+
+  test("data version: the same for the same file, new when the feed changes", () => {
+    const v = pulseDataVersion(data);
+    assert.match(v, /^[0-9a-z]+$/);
+    assert.equal(pulseDataVersion(JSON.parse(readFileSync(FILE, "utf8")) as PulseDemand), v);
+    assert.notEqual(pulseDataVersion({ ...data, generatedAt: `${data.generatedAt}x` }), v);
+    assert.notEqual(pulseDataVersion({ ...data, needs: needs.slice(1) }), v);
+    assert.notEqual(pulseDataVersion({ ...data, needs: [...needs].reverse() }), v);
+    const bumped = { ...needs[0], score: needs[0].score === 10 ? 9 : needs[0].score + 1 };
+    assert.notEqual(pulseDataVersion({ ...data, needs: [bumped, ...needs.slice(1)] }), v);
+  });
+
+  test("phrases: «Загружены ещё 24 боли. Показано 48 из 585.», «Это все 585 болей» — five locales, plurals", () => {
+    const ru = pulseStrings.ru;
+    assert.equal(loadedPhrase("ru", ru, 24, 48, 585), "Загружены ещё 24 боли. Показано 48 из 585.");
+    assert.equal(loadedPhrase("ru", ru, 9, 585, 585), "Загружено ещё 9 болей. Показано 585 из 585.");
+    assert.equal(loadedPhrase("ru", ru, 1, 25, 25), "Загружена ещё 1 боль. Показано 25 из 25.");
+    assert.equal(endPhrase("ru", ru, 585), "Это все 585 болей");
+    assert.equal(endPhrase("ru", ru, 42), "Это все 42 боли");
+    assert.equal(endPhrase("ru", ru, 31), "Это все 31 боль");
+    assert.equal(endPhrase("ru", ru, 1449), "Это все 1\u00a0449 болей");
+    assert.equal(loadedPhrase("en", pulseStrings.en, 24, 48, 585), "Loaded 24 more. Showing 48 of 585.");
+    assert.equal(endPhrase("en", pulseStrings.en, 585), "That’s all 585 pains");
+    assert.equal(endPhrase("de", pulseStrings.de, 585), "Das sind alle 585 Schmerzpunkte");
+    assert.equal(loadedPhrase("de", pulseStrings.de, 1, 25, 25), "1 weiterer Schmerzpunkt geladen. 25 von 25 angezeigt.");
+    assert.equal(endPhrase("fr", pulseStrings.fr, 585), "C’est tout\u00a0: 585 douleurs");
+    assert.equal(loadedPhrase("fr", pulseStrings.fr, 1, 25, 25), "1 douleur de plus. Affichées\u00a0: 25 sur 25.");
+    assert.equal(endPhrase("ja", pulseStrings.ja, 585), "以上、585件のペインです");
+    for (const locale of LOCALES) {
+      for (const n of [1, 2, 5, 21, 24, 585]) {
+        const text = `${loadedPhrase(locale, pulseStrings[locale], n, 48, 585)} ${endPhrase(locale, pulseStrings[locale], n)}`;
+        assert.ok(text.includes(String(n)) && text.includes("48") && text.includes("585"), `${locale} ${n}: ${text}`);
+        assert.ok(!/[{}]/.test(text), `${locale} ${n}: ${text}`);
+      }
+    }
+    // No pagination words in what the auto-loading feed says.
+    for (const locale of LOCALES) {
+      const s = pulseStrings[locale];
+      for (const text of [loadedPhrase(locale, s, 24, 48, 585), endPhrase(locale, s, 585), s.loadError]) {
+        assert.ok(!text.includes(`${s.next} →`) && !text.includes(`← ${s.previous}`) && !/\d\s*\/\s*\d/.test(text), `${locale}: ${text}`);
+      }
+    }
+  });
+
+  test("server HTML: the server's cards in the list, the no-JS «Дальше» and counter, the sentinel, a polite live region", () => {
+    for (const locale of LOCALES) {
+      const s = pulseStrings[locale];
+      const { html, pages, items, cards } = feedHtml(locale, {}, 1);
+      assert.ok(pages > 1, "the file has more than one page");
+      // The list: exactly the server's <li>s (same markup as before), then the sentinel.
+      const list = /<ul class="ia-grid ia-pulse-grid"([^>]*)>([\s\S]*)<\/ul>/.exec(html);
+      assert.ok(list, locale);
+      assert.match(list[1], /data-pulse-feed=""/, locale);
+      assert.ok(!list[1].includes("aria-busy"), `${locale}: not busy before hydration`);
+      assert.equal(list[2], `${cards}<li class="ia-pulse-sentinel" aria-hidden="true" data-pulse-sentinel=""></li>`, locale);
+      assert.deepEqual(needLinks(html, locale), items.map((n) => n.id), locale);
+      // The fallback pagination: no «Назад» on page 1, «1 / 25», «Дальше →» to ?page=2.
+      const nav = paginationOf(html);
+      assert.deepEqual(nav.links, [`/${locale}/pulse?page=2`], locale);
+      assert.ok(nav.text.includes(`1 / ${pages}`) && nav.text.includes(`${s.next} →`), `${locale}: ${nav.text}`);
+      assert.match(nav.nav, new RegExp(`aria-label="${s.pages}"`), locale);
+      // The live region is there (empty) from the start; no loader, error or end yet.
+      assert.match(html, /<p class="ia-pulse-sr-only" role="status" aria-live="polite"><\/p>/, locale);
+      for (const later of ["ia-pulse-skeleton", "data-pulse-error", "data-pulse-end", "ia-pulse-grid__new"]) assert.ok(!html.includes(later), `${locale}: ${later}`);
+    }
+    // A later page: «← Назад» and «Дальше →» keep the filters; the last page has no «Дальше» and no sentinel.
+    const all = selectPulseNeeds(needs, parsePulseQuery({}), "ru");
+    const pages = Math.ceil(all.length / PULSE_PAGE_SIZE);
+    const second = feedHtml("ru", {}, 2);
+    assert.deepEqual(needLinks(second.html, "ru"), all.slice(24, 48).map((n) => n.id));
+    assert.deepEqual(paginationOf(second.html).links, pages > 2 ? ["/ru/pulse", "/ru/pulse?page=3"] : ["/ru/pulse"]);
+    const last = feedHtml("ru", {}, 9999);
+    assert.equal(last.page, pages);
+    assert.deepEqual(needLinks(last.html, "ru"), all.slice((pages - 1) * 24).map((n) => n.id));
+    assert.deepEqual(paginationOf(last.html).links, [pages === 2 ? "/ru/pulse" : `/ru/pulse?page=${pages - 1}`]);
+    assert.ok(paginationOf(last.html).text.includes(`${pages} / ${pages}`));
+    assert.ok(!last.html.includes("data-pulse-sentinel"), "the last page has nothing to load");
+    assert.ok(!last.html.includes("data-pulse-end"), "the end line is for a list grown from page 1");
+    const biggest = [...withNeeds].sort((a, b) => categoryNeeds(data, b).length - categoryNeeds(data, a).length)[0];
+    const filtered = feedHtml("en", { category: biggest, q: "" }, 1);
+    if (filtered.pages > 1) assert.deepEqual(paginationOf(filtered.html).links, [`/en/pulse?category=${biggest}&page=2`]);
+    // One page: no pagination, no sentinel, no end line.
+    const small = [...withNeeds].find((id) => categoryNeeds(data, id).length <= PULSE_PAGE_SIZE);
+    if (small) {
+      const one = feedHtml("en", { category: small }, 1);
+      assert.equal(one.pages, 1);
+      for (const none of ["ia-pulse-pagination", "data-pulse-sentinel", "data-pulse-end"]) assert.ok(!one.html.includes(none), `${small}: ${none}`);
+      assert.deepEqual(needLinks(one.html, "en"), categoryNeeds(data, small).map((n) => n.id));
+    }
+  });
+
+  test("CSS: the fade-in respects prefers-reduced-motion; skeletons use the DS shimmer", () => {
+    const css = readFileSync(path.resolve("src/site/features/pulse/pulse.css"), "utf8");
+    assert.match(css, /\.ia-pulse-grid__new \{\s*animation: ia-pulse-in /);
+    const reduced = [...css.matchAll(/@media \(prefers-reduced-motion: reduce\) \{([\s\S]*?)\n\}/g)].map((m) => m[1]).join("\n");
+    assert.match(reduced, /\.ia-pulse-grid__new \{\s*animation: none;/);
+    const feed = readFileSync(path.resolve("src/site/features/pulse/PulseFeed.tsx"), "utf8");
+    assert.ok(feed.includes('"ia-skeleton ia-pulse-skeleton__'), "skeletons are .ia-skeleton");
+    assert.ok(feed.includes("rootMargin: ROOT_MARGIN") && /ROOT_MARGIN = "0px 0px 1000px 0px"/.test(feed), "the sentinel fires ~1000 px ahead");
+  });
+
+  // Review 2026-09-26: at the list's end with a slow network, Chrome anchored the view on a
+  // skeleton / the sentinel, held it at the end while every page went in above, and the feed
+  // loaded all 25 pages by itself (scrollY 2390 → 25341 with no input).
+  test("no self-feeding loop: skeletons and sentinel are not scroll anchors; after a page the view must stay put or the reader scroll", () => {
+    const css = readFileSync(path.resolve("src/site/features/pulse/pulse.css"), "utf8");
+    assert.match(css, /\.ia-pulse-grid > \.ia-pulse-skeleton,\s*\.ia-pulse-grid > \.ia-pulse-sentinel \{\s*overflow-anchor: none;/);
+    const feed = readFileSync(path.resolve("src/site/features/pulse/PulseFeed.tsx"), "utf8");
+    // The page's arrival notes scrollY; the observer's first look holds loading when the view moved.
+    assert.match(feed, /settledY\.current = window\.scrollY;\s*const known/);
+    assert.match(feed, /if \(first && settled !== null && Math\.abs\(window\.scrollY - settled\) >= 1\) \{\s*heldY\.current = window\.scrollY;\s*setHeld\(true\);\s*return;/);
+    assert.match(feed, /if \(!el \|\| done \|\| loading \|\| failed \|\| held \|\|/, "no observer while held");
+    assert.match(feed, /\[done, loading, failed, held, feed\.loaded\]/);
+    // Released only by the reader: a position change other than the one already in heldY, or input.
+    assert.match(feed, /if \(Math\.abs\(window\.scrollY - heldY\.current\) >= 1\) release\(\);/);
+    for (const ev of ["wheel", "touchmove", "keydown"]) assert.ok(feed.includes(`window.addEventListener("${ev}", release`), ev);
+  });
+
+  // Review 2026-09-26: the mark was the filter key, so every visit of /ru/pulse «matched» and a
+  // fresh visit got an older visit's 585 cards on Back, or its position on reload.
+  test("Back restores only this history entry's own list (per-entry id), and the storage key is in the privacy notice", () => {
+    const feed = readFileSync(path.resolve("src/site/features/pulse/PulseFeed.tsx"), "utf8");
+    assert.match(feed, /entry\.current = back \? mark\.entry : newEntryId\(\);\s*markEntry\(\{ key, entry: entry\.current \}\);/);
+    assert.match(feed, /const back = mark !== null && mark\.key === key;/);
+    assert.match(feed, /readSnapshots\(\)\.find\(\(x\) => x\.entry === entry\.current && x\.key === key\)/);
+    assert.match(feed, /writeSnapshot\(entry\.current, \{/);
+    assert.ok(!/writeSnapshot\(key,/.test(feed), "snapshots are keyed by the entry, not by the filters");
+    const store = /const STORE_KEY = "([^"]+)"/.exec(feed)?.[1];
+    assert.equal(store, "ia2:pulse.feed");
+    const privacy = readFileSync(path.resolve("src/site/features/legal/privacy.tsx"), "utf8");
+    assert.equal(count(privacy, /\{code\("ia2:pulse\.feed"\)\}/g), LOCALES.length, "the key in all five privacy notices");
   });
 });
 
@@ -1141,5 +1429,42 @@ describe(`live HTTP (${BASE})`, { timeout: 600_000 }, () => {
     // The archived old copies (/<ru|en>/old/reviews/**) carry no block: the new pages do.
     const oldHub = await get(`/ru/old/reviews`);
     if (oldHub.status === 200) assert.ok(!(await oldHub.text()).includes("ia-pulse-hero"), "/ru/old/reviews");
+  });
+
+  test("auto-loading: the feed keeps its no-JS pagination and the client hook; ?page=N renders that page; GET /api/site/pulse", async (t) => {
+    if (!(await needServer(t))) return;
+    const pages = Math.ceil(needs.length / PULSE_PAGE_SIZE);
+    for (const locale of LOCALES) {
+      const html = await (await get(`/${locale}/pulse`)).text();
+      assert.match(html, /<ul class="ia-grid ia-pulse-grid"[^>]*data-pulse-feed=""/, locale);
+      assert.equal(html.includes("data-pulse-sentinel"), pages > 1, `${locale}: the sentinel`);
+      assert.match(html, /role="status" aria-live="polite"/, locale);
+      const nav = paginationOf(html);
+      assert.deepEqual(nav.links, pages > 1 ? [`/${locale}/pulse?page=2`] : [], `${locale}: the fallback «Дальше»`);
+      if (pages > 1) assert.ok(nav.text.includes(`1 / ${pages}`), `${locale}: ${nav.text}`);
+      assert.ok(!/data-pulse-(?:end|error)/.test(html), locale);
+    }
+    // ?page=N still renders that page, with its links, noindex.
+    const page2 = await (await get(`/en/pulse?page=2`)).text();
+    assert.deepEqual(needLinks(page2, "en"), needs.slice(24, 48).map((n) => n.id));
+    assert.deepEqual(paginationOf(page2).links, pages > 2 ? ["/en/pulse", "/en/pulse?page=3"] : ["/en/pulse"]);
+    assert.match(page2, /<meta name="robots" content="noindex/);
+    const last = await (await get(`/ru/pulse?page=${pages}`)).text();
+    assert.deepEqual(needLinks(last, "ru"), needs.slice((pages - 1) * 24).map((n) => n.id));
+    assert.ok(!last.includes("data-pulse-sentinel"), "the last page has nothing to load");
+    // The loader's endpoint: the same slices, the filters, an empty page past the end.
+    const api = async (qs: string) => {
+      const res = await get(`/api/site/pulse?${qs}`);
+      return { status: res.status, body: res.status === 200 ? ((await res.json()) as { page: number; pages: number; total: number; items: { id: string }[] }) : null };
+    };
+    const second = await api("l=ru&page=2");
+    assert.equal(second.status, 200);
+    assert.deepEqual(second.body?.items.map((i) => i.id), needs.slice(24, 48).map((n) => n.id));
+    assert.deepEqual([second.body?.pages, second.body?.total], [pages, needs.length]);
+    assert.deepEqual((await api(`l=en&page=${pages + 1}`)).body?.items, []);
+    const id = categoryIds[0];
+    const own = needs.filter((n) => n.categoryId === id);
+    assert.deepEqual((await api(`l=de&category=${id}&page=1`)).body?.items.map((i) => i.id), own.slice(0, 24).map((n) => n.id));
+    assert.equal((await api("l=xx&page=2")).status, 400);
   });
 });
