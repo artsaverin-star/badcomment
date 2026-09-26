@@ -135,6 +135,12 @@ const ticks = (html: string) => ({
 });
 /** The old «Просят / Жалуются» labels and switch in all five locales (removed 2026-09-25: «это мусор»). */
 const KIND_WORDS = ["Просят", "Жалуются", "Request", "Complaint", "Wunsch", "Beschwerde", "Demande", "Plainte", "要望", "不満"];
+/**
+ * `text` without the needs' own content (titles and summaries in `locale`): a title may use one of
+ * the retired label words legitimately («auf Wunsch», "feature request"); only chrome must not.
+ */
+const withoutNeedContent = (text: string, locale: Locale) =>
+  needs.reduce((acc, n) => acc.split(n.title[locale]).join(" ").split(n.summary[locale]).join(" "), text);
 /** Markup that would carry the kind: the old label and switch classes, data-kind, a ?kind= link. */
 const KIND_MARKUP = /ia-pulse-kinds?\b|data-kind=|[?&](?:amp;)?kind=/;
 /** The retired amber → red ramp of the old PainMeter (#F4B63F at 1 … #E5484D at 10), and red. */
@@ -549,7 +555,7 @@ describe("rendered HTML", () => {
         assert.ok(text.includes(needAria(locale, s, need)), `${locale} ${need.id} text alternative`);
         assert.ok(!/Подробнее|View details/.test(text), "no «Подробнее» button");
         assert.ok(!KIND_MARKUP.test(html), `${need.id}: kind markup`);
-        for (const word of KIND_WORDS) assert.ok(!text.includes(word), `${locale} ${need.id}: «${word}»`);
+        for (const word of KIND_WORDS) assert.ok(!withoutNeedContent(text, locale).includes(word), `${locale} ${need.id}: «${word}»`);
       }
     }
     // Colour never follows the kind: a request and a pain with the same numbers render the same.
@@ -618,7 +624,7 @@ describe("rendered HTML", () => {
         // No chart, no rank badges, no kind.
         assert.ok(!/ia-pulse-hero__(bars?|chart|badge|num)\b/.test(html), where);
         assert.ok(!KIND_MARKUP.test(html), where);
-        for (const word of KIND_WORDS) assert.ok(!text.includes(word), `${where}: «${word}»`);
+        for (const word of KIND_WORDS) assert.ok(!withoutNeedContent(text, locale).includes(word), `${where}: «${word}»`);
         // «Все 7 потребностей →».
         const all = /<a[^>]*class="ia-pulse-hero__all"[^>]*>([\s\S]*?)<\/a>/.exec(html)?.[1] ?? "";
         assert.equal(unescapeHtml(all.replace(/<[^>]+>/g, "")), `${allNeedsPhrase(locale, s, own.length)}\u00a0→`, where);
@@ -832,7 +838,7 @@ describe("rendered HTML", () => {
         const names = await m.pulse.getPulseCategoryNames(locale, data);
         assert.ok(textOf(hub).includes(`${names.get(needs[0].categoryId)}. ${needAria(locale, s, needs[0])}`), locale);
         assert.ok(!KIND_MARKUP.test(hub), locale);
-        for (const word of KIND_WORDS) assert.ok(!textOf(hub).includes(word), `${locale}: ${word}`);
+        for (const word of KIND_WORDS) assert.ok(!withoutNeedContent(textOf(hub), locale).includes(word), `${locale}: ${word}`);
         const pulseRoot = `/${locale}/pulse`;
         for (const href of hrefs(hub).filter((h) => h !== pulseRoot)) {
           assert.ok(href.startsWith(`${pulseRoot}/`), `${locale}: ${href}`);
