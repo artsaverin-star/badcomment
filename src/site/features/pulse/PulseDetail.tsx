@@ -1,18 +1,41 @@
 import Link from "next/link";
-import type { Locale } from "@/site/i18n/locales";
+import { Fragment, type ReactNode } from "react";
+import { INTL_LOCALE, type Locale } from "@/site/i18n/locales";
 import { format } from "@/site/i18n/translate";
 import { buttonClass } from "@/site/ui/Button";
 import { LockIcon } from "@/site/ui/icons";
-import { formatNumber } from "./query";
+import { DOTS_PER_ROW, dotGrid, painScore, scoreBreakdown } from "./gauge";
+import { PulseBar, PulseFactList } from "./PulseGauge";
+import { formatNumber, sharePercent } from "./query";
 import type { PulseStrings } from "./strings";
-import type { PulseEvidence, PulseNeed } from "./types";
+import type { PulseEvidence, PulseNeed, PulseScoreParams } from "./types";
 
-// Parts of a need page (SPEC «Подробности»). Pure and server-rendered.
+// Parts of a need page (SPEC «Подробности», direction A «Прибор»). Pure and server-rendered.
 // EVIDENCE GATE: the first quote is public; the others are rendered only when the viewer can
 // read the category's breakdown (getViewer().canReadResearch(categoryId)). Locked quotes never
 // reach the HTML or the RSC payload — the gate is applied here, before rendering.
 
 export type PulseUnlock = { href: string; label: string; signInHref: string | null };
+
+/** format() for React: "{value} из {max}" with nodes in place of the placeholders. */
+function fill(template: string, values: Record<string, ReactNode>): ReactNode[] {
+  return template.split(/(\{\w+\})/).map((part, i) => {
+    const key = /^\{(\w+)\}$/.exec(part)?.[1];
+    return <Fragment key={i}>{key && key in values ? values[key] : part}</Fragment>;
+  });
+}
+
+/**
+ * The facts line: «3 827 отзывов · в 92 из 100 приложений · …», wrapping only between facts and
+ * never after a «·» (PulseFactList).
+ */
+export function PulseFacts({ facts, className }: { facts: readonly string[]; className?: string }) {
+  return (
+    <p className={className}>
+      <PulseFactList facts={facts} />
+    </p>
+  );
+}
 
 /** The quotes a viewer may see: all of them with access, else only the first. */
 export function visibleEvidence(need: Pick<PulseNeed, "evidence">, readable: boolean): PulseEvidence[] {
@@ -98,8 +121,9 @@ export function PulseStars({ counts, locale, strings: s }: { counts: readonly nu
               <span className="ia-pulse-stars__label" aria-hidden="true">
                 {stars}★
               </span>
-              <span className="ia-pulse-stars__bar" aria-hidden="true">
-                <span style={{ width: `${(count / max) * 100}%` }} />
+              <span className="ia-pulse-stars__bar" aria-hidden="true" data-count={count}>
+                {/* No fill for a zero: the 2 px minimum is for small non-zero counts. */}
+                {count > 0 ? <span style={{ width: `${(count / max) * 100}%` }} /> : null}
               </span>
               <span className="ia-pulse-stars__count" aria-hidden="true">
                 {formatNumber(locale, count)}
@@ -114,12 +138,12 @@ export function PulseStars({ counts, locale, strings: s }: { counts: readonly nu
 }
 
 /** «Чаще всего пишут в»: up to five apps with the number of matching reviews. */
-export function PulseTopApps({ apps, locale, strings: s }: { apps: PulseNeed["topApps"]; locale: Locale; strings: PulseStrings }) {
+export function PulseTopApps({ apps, locale, strings: s, heading: Heading = "h2" }: { apps: PulseNeed["topApps"]; locale: Locale; strings: PulseStrings; heading?: "h2" | "h3" }) {
   const named = apps.filter((app) => app.name.trim());
   if (!named.length) return null;
   return (
     <div className="ia-pulse-block">
-      <h2 className="ia-pulse-block__title">{s.topAppsTitle}</h2>
+      <Heading className="ia-pulse-block__title ia-pulse-block__title--sub">{s.topAppsTitle}</Heading>
       <ul className="ia-pulse-apps">
         {named.map((app) => (
           <li key={app.id}>
@@ -129,5 +153,104 @@ export function PulseTopApps({ apps, locale, strings: s }: { apps: PulseNeed["to
         ))}
       </ul>
     </div>
+  );
+}
+
+/**
+ * «Из чего складывается 7/10»: the three terms of the score (source.score), each a labelled row
+ * with a thin bar — share of the category's reviews (of 10 × shareWeight), apps (of 10 ×
+ * breadthWeight), reviews (of 10 × volumeWeight) — and their total. The shown parts add up to the
+ * total, which rounds to the published score (scoreBreakdown).
+ */
+export function PulseBreakdown({ need, params, locale, strings: s }: { need: PulseNeed; params: PulseScoreParams; locale: Locale; strings: PulseStrings }) {
+  const breakdown = scoreBreakdown(need, params);
+  const score = painScore(need.score);
+  const tenths = new Intl.NumberFormat(INTL_LOCALE[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const label = { share: s.partShare, apps: s.partApps, reviews: s.partReviews } as const;
+  const detail = {
+    share: sharePercent(locale, need.share),
+    apps: format(s.appsOf, { n: formatNumber(locale, need.appCount), total: formatNumber(locale, need.categoryAppCount) }),
+    reviews: formatNumber(locale, need.reviewCount),
+  } as const;
+  return (
+    <section className="ia-pulse-panel ia-pulse-breakdown" aria-labelledby="pulse-breakdown-title" data-pulse-breakdown="">
+      <h2 className="ia-pulse-block__title" id="pulse-breakdown-title">
+        {format(s.breakdownTitle, { score })}
+      </h2>
+      <ul className="ia-pulse-parts" role="list">
+        {breakdown.parts.map((part) => (
+          <li key={part.key} className="ia-pulse-part" data-part={part.key} data-shown={part.shown} data-max={part.max}>
+            <span className="ia-pulse-part__label">
+              {label[part.key]}
+              <span className="ia-pulse-part__detail">{detail[part.key]}</span>
+            </span>
+            <span className="ia-pulse-part__points">
+              {fill(s.partPoints, { value: <span className="ia-pulse-part__value">{tenths.format(part.shown)}</span>, max: formatNumber(locale, part.max) })}
+            </span>
+            <PulseBar value={part.max ? part.shown / part.max : 0} thin className="ia-pulse-part__bar" />
+          </li>
+        ))}
+      </ul>
+      <p className="ia-pulse-parts__total" data-total={breakdown.total}>
+        <span>{s.breakdownTotal}</span>
+        <span className="ia-pulse-part__points">
+          <span className="ia-pulse-part__value">{tenths.format(breakdown.total)}</span> ≈ {score}/10
+        </span>
+      </p>
+    </section>
+  );
+}
+
+const DOT = 8;
+const DOT_GAP = 4;
+
+/**
+ * «Где об этом пишут»: one dot per app of the category (10 to a row), the apps whose reviews
+ * mention the need filled in cobalt from the bottom-left, a legend «● 92 с этой болью · ● 8 без»
+ * — next to «Чаще всего пишут в». The dots are not particular apps (only the top five are known).
+ */
+export function PulseWhere({ need, locale, strings: s }: { need: PulseNeed; locale: Locale; strings: PulseStrings }) {
+  const grid = dotGrid(need.appCount, need.categoryAppCount);
+  const on = grid.dots.filter((dot) => dot.on).length;
+  const off = grid.dots.length - on;
+  const width = DOTS_PER_ROW * DOT + (DOTS_PER_ROW - 1) * DOT_GAP;
+  const height = grid.rows * DOT + Math.max(0, grid.rows - 1) * DOT_GAP;
+  return (
+    <section className="ia-pulse-panel ia-pulse-where" aria-labelledby="pulse-where-title">
+      <h2 className="ia-pulse-block__title" id="pulse-where-title">
+        {s.whereTitle}
+      </h2>
+      <div className="ia-pulse-where__body">
+        <figure className="ia-pulse-dots">
+          <svg className="ia-pulse-dots__grid" width={width} height={height} viewBox={`0 0 ${width} ${height}`} aria-hidden="true" focusable="false" data-dots={grid.dots.length} data-on={on}>
+            {grid.dots.map((dot) => (
+              <circle
+                key={`${dot.row}-${dot.col}`}
+                cx={dot.col * (DOT + DOT_GAP) + DOT / 2}
+                cy={dot.row * (DOT + DOT_GAP) + DOT / 2}
+                r={DOT / 2}
+                className={dot.on ? "ia-pulse-dots__on" : "ia-pulse-dots__off"}
+              />
+            ))}
+          </svg>
+          <figcaption className="ia-pulse-dots__caption">
+            <span className="ia-pulse-dots__legend">
+              <span className="ia-pulse-dots__key">
+                <span className="ia-pulse-dots__swatch ia-pulse-dots__swatch--on" aria-hidden="true" />
+                {format(s.dotsWith, { n: formatNumber(locale, on) })}
+              </span>
+              {off > 0 ? (
+                <span className="ia-pulse-dots__key">
+                  <span className="ia-pulse-dots__swatch" aria-hidden="true" />
+                  {format(s.dotsWithout, { n: formatNumber(locale, off) })}
+                </span>
+              ) : null}
+            </span>
+            <span className="ia-pulse-dots__note">{s.dotsNote}</span>
+          </figcaption>
+        </figure>
+        <PulseTopApps apps={need.topApps} locale={locale} strings={s} heading="h3" />
+      </div>
+    </section>
   );
 }

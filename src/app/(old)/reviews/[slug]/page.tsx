@@ -77,7 +77,7 @@ export default async function NicheReviews({ params }: { params: Promise<{ slug:
         </p>
       </header>
 
-      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} />
+      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} stats={{ reviewCount: sourceReviews, appCount: apps.length }} />
       {unlocked ? (
         <section className="mt-8" aria-labelledby="niche-apps-heading">
           <h2 id="niche-apps-heading" className="mb-4 text-title2 text-[var(--color-text-primary)]">{ru ? "Приложения" : "Apps"}</h2>

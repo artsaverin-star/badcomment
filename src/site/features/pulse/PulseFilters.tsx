@@ -3,12 +3,12 @@
 import { useRef, useState } from "react";
 import { ArrowRightIcon, SearchIcon } from "@/site/ui/icons";
 
-// Compact feed controls (SPEC «Лента»): the category picker and an optional title search. A plain
-// GET form over the page's query params (?category=&kind=&q=), so it works without JavaScript;
+// Compact feed controls (SPEC «Лента»): the category picker and an optional title search — the
+// only controls (the kind switch was removed on 2026-09-25). A plain GET form over the page's
+// query params (?category=&q=), so it works without JavaScript;
 // with it, picking a category with the pointer submits at once. A keyboard change never leaves
 // the page by itself (WCAG 3.2.2: arrow keys on a closed <select> fire `change` in Chrome/Firefox
 // on Windows and Linux): it shows a «Показать» button instead, and Enter on the select submits.
-// The kind switch (Все · Просят · Жалуются) is a row of server-rendered links next to it.
 // Receives names and interface strings only.
 
 export type PulseFilterStrings = {
@@ -23,14 +23,12 @@ export type PulseFilterStrings = {
 export function PulseFilters({
   action,
   category,
-  kind,
   query,
   options,
   strings: s,
 }: {
   action: string;
   category: string;
-  kind: string;
   query: string;
   options: { id: string; name: string }[];
   strings: PulseFilterStrings;
@@ -71,7 +69,6 @@ export function PulseFilters({
           {s.apply}
         </button>
       ) : null}
-      {kind ? <input type="hidden" name="kind" value={kind} /> : null}
       <details className="ia-pulse-search" open={query !== "" || undefined}>
         <summary>
           <SearchIcon size={16} aria-hidden="true" />

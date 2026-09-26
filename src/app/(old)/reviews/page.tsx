@@ -72,7 +72,7 @@ export default async function ReviewsHome() {
         </p>
       </header>
 
-      <LegacyPulseLink locale={ru ? "ru" : "en"} />
+      <LegacyPulseLink locale={ru ? "ru" : "en"} stats={{ reviewCount: summary.sourceReviews, appCount: summary.sourceApps }} />
       <ReviewNicheCatalogue niches={catalogue} ru={ru} />
     </main>
   );

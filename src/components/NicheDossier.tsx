@@ -298,7 +298,7 @@ export default async function NicheDossier({
           <span aria-hidden="true">→</span>
         </Link>
       </header>
-      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} />
+      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} stats={{ reviewCount: corpus.reviews, appCount: corpus.apps }} />
 
       {/* A wide pencil-sketch banner for the niche — the cover of its strongest
           idea doubles as the section's illustration. Shows only once art exists. */}

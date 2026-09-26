@@ -1,0 +1,207 @@
+/* «Пульс категории» (CategoryPulseHero.tsx, direction A «Прибор»): a white DS card on the page —
+   --ia-surface, radius --ia-radius-research-card (28), the research-card shadow and the DS card
+   stroke — with a Georgia heading like the article, the #1 need with its gauge, rows of bars
+   (./pulse-kit.css) and a cobalt «Все 7 потребностей →». The old archive and old topic pages
+   render it too and have no --ia-* tokens, so every var() falls back to the same DS value (light,
+   and dark under <html data-theme="dark"> — the old site's default, where the card is its own
+   dark surface). Self-contained and unlayered, so the layered resets of either site never
+   override it. */
+
+.ia-pulse-hero {
+  --ph-surface: var(--ia-surface, #ffffff);
+  --ph-ink: var(--ia-ink, #191a20);
+  --ph-muted: var(--ia-secondary, #666872);
+  --ph-accent: var(--ia-accent, #3458db);
+  --ph-line: var(--ia-line, #dedfe5);
+  --ph-shadow: var(--ia-shadow-research-card, 0 6px 32px rgb(0 0 0 / 0.055));
+  --ph-stroke: color-mix(in srgb, var(--ph-line) 65%, transparent);
+  --ph-sans: var(
+    --ia-font-sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "Yu Gothic",
+    sans-serif
+  );
+  --ph-serif: var(--ia-font-serif, Georgia, "PT Serif", "Noto Serif", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif);
+
+  container: ia-pulse-hero / inline-size;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  /* No margin here: the callers place it (the article's gap, my-8 on the old pages). */
+  padding: 24px;
+  border-radius: var(--ia-radius-research-card, 28px);
+  background: var(--ph-surface);
+  box-shadow:
+    var(--ph-shadow),
+    inset 0 0 0 var(--ia-stroke-card, 1px) var(--ph-stroke);
+  color: var(--ph-ink);
+  font-family: var(--ph-sans);
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ia-pulse-hero *,
+.ia-pulse-hero *::before,
+.ia-pulse-hero *::after {
+  box-sizing: border-box;
+}
+/* Dark DS values (the old site has no tokens; on the new one they already flip). The shadow
+   hardly shows on a dark page, so the DS card stroke carries the edge. */
+[data-theme="dark"] .ia-pulse-hero {
+  --ph-surface: var(--ia-surface, #1d1e22);
+  --ph-ink: var(--ia-ink, #f2f2f5);
+  --ph-muted: var(--ia-secondary, #aaadb8);
+  --ph-accent: var(--ia-accent, #94aaff);
+  --ph-line: var(--ia-line, #383a42);
+  --ph-shadow: 0 6px 32px rgb(0 0 0 / 0.28);
+  --ph-stroke: color-mix(in srgb, var(--ph-line) 90%, transparent);
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .ia-pulse-hero {
+    --ph-surface: var(--ia-surface, #1d1e22);
+    --ph-ink: var(--ia-ink, #f2f2f5);
+    --ph-muted: var(--ia-secondary, #aaadb8);
+    --ph-accent: var(--ia-accent, #94aaff);
+    --ph-line: var(--ia-line, #383a42);
+    --ph-shadow: 0 6px 32px rgb(0 0 0 / 0.28);
+    --ph-stroke: color-mix(in srgb, var(--ph-line) 90%, transparent);
+  }
+}
+
+/* ---- Header ---- */
+.ia-pulse-hero__heading {
+  margin: 0;
+  color: var(--ph-ink);
+  font: 400 22px / 28px var(--ph-serif);
+  letter-spacing: -0.005em;
+}
+.ia-pulse-hero__sub {
+  margin: 4px 0 0;
+  color: var(--ph-muted);
+  font: 400 13px / 18px var(--ph-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- The #1 need: gauge + «ГЛАВНАЯ БОЛЬ», title, level and counts; one link ---- */
+.ia-pulse-hero__lead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: var(--ia-hairline, 1px) solid color-mix(in srgb, var(--ph-line) 70%, transparent);
+  border-radius: 0;
+  color: var(--ph-ink);
+  text-decoration: none;
+}
+/* The drawn box is trimmed to the ticks' ink (gaugeBox): 84×56, so the dial starts at the text
+   column's edge. */
+.ia-pulse-hero__gauge {
+  width: 84px;
+  height: 56px;
+}
+.ia-pulse-hero__copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.ia-pulse-hero__eyebrow {
+  color: var(--ph-muted);
+  font: 600 11px / 14px var(--ph-sans);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.ia-pulse-hero__title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ph-ink);
+  font: 600 17px / 22px var(--ph-sans);
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+  /* Up to four lines beside the gauge on a phone (the longest de/fr titles need them at 375 px);
+     a wide block needs ≤ 2. */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+.ia-pulse-hero__meta {
+  color: var(--ph-muted);
+  font: 400 13px / 18px var(--ph-sans);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-hero__level {
+  color: var(--ph-accent);
+  font-weight: 600;
+}
+@media (hover: hover) {
+  .ia-pulse-hero__lead:hover .ia-pulse-hero__title {
+    color: var(--ph-accent);
+  }
+}
+
+/* ---- Rows #2…#5 (./pulse-kit.css) and the link to all needs ---- */
+.ia-pulse-hero__rows {
+  margin-top: 2px;
+}
+.ia-pulse-hero__all {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 6px;
+  margin-bottom: -8px;
+  border-radius: 10px;
+  color: var(--ph-accent);
+  font: 600 15px / 20px var(--ph-sans);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .ia-pulse-hero__all:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+.ia-pulse-hero__lead:focus-visible,
+.ia-pulse-hero__all:focus-visible {
+  outline: 2px solid var(--ph-accent);
+  outline-offset: 3px;
+}
+
+/* ---- A wide block: the bigger gauge ---- */
+@container ia-pulse-hero (min-width: 560px) {
+  .ia-pulse-hero__lead {
+    gap: 24px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  /* The card gauge × 4/3 (a 128 × 74.67 dial, trimmed to its ink). */
+  .ia-pulse-hero__gauge {
+    width: 112px;
+    height: 74.67px;
+  }
+}
+/* ---- A phone ---- */
+@media (max-width: 420px) {
+  .ia-pulse-hero {
+    padding: 20px;
+  }
+}
+
+@media (forced-colors: active) {
+  .ia-pulse-hero {
+    border: 1px solid CanvasText;
+  }
+}

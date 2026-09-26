@@ -3,19 +3,21 @@
 
 import { INTL_LOCALE, type Locale } from "@/site/i18n/locales";
 import { format, pluralCategory } from "@/site/i18n/translate";
+import { PAIN_LEVELS, painLevel, painScore, type PainLevel } from "./gauge";
 import type { PulseStrings } from "./strings";
-import type { PulseDemand, PulseKind, PulseNeed, PulseText } from "./types";
+import type { PulseDemand, PulseNeed, PulseText } from "./types";
 import { PULSE_NEED_ID, PULSE_SLUG } from "./validate";
 
 // ---------------------------------------------------------------------------
-// Feed query (?category=&kind=&q=&page=). Retired prototype keys (view, scope, sort) are ignored.
+// Feed query (?category=&q=&page=). Retired keys are ignored: the prototype's view, scope and
+// sort, and kind (the «Все · Просят · Жалуются» switch, removed by the owner on 2026-09-25).
 // ---------------------------------------------------------------------------
 
-export type PulseQuery = { q: string; category: string; kind: PulseKind | ""; page: number };
+export type PulseQuery = { q: string; category: string; page: number };
 export type RawPulseQuery = Record<string, string | string[] | undefined>;
 /** Divisible by 2 and 3, so every grid row is full. */
 export const PULSE_PAGE_SIZE = 24;
-/** Compact rows in the category embed «Пульс категории». */
+/** Needs shown in «Пульс категории»: the #1 as the lead with its gauge, then rows #2…#5. */
 export const PULSE_EMBED_LIMIT = 5;
 
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value) ?? "";
@@ -23,18 +25,16 @@ const first = (value: string | string[] | undefined) => (Array.isArray(value) ? 
 export function parsePulseQuery(raw: RawPulseQuery): PulseQuery {
   const page = Number(first(raw.page));
   const category = first(raw.category).trim().slice(0, 100);
-  const kind = first(raw.kind);
   return {
     q: first(raw.q).trim().slice(0, 200),
     category: PULSE_SLUG.test(category) ? category : "",
-    kind: kind === "request" || kind === "pain" ? kind : "",
     page: Number.isSafeInteger(page) && page > 0 ? Math.min(page, 10000) : 1,
   };
 }
 
 /** True when the feed shows its canonical, indexable state. */
 export function isDefaultPulseQuery(q: PulseQuery): boolean {
-  return !q.q && !q.category && !q.kind && q.page === 1;
+  return !q.q && !q.category && q.page === 1;
 }
 
 /** The need's text in the page locale (the build guarantees all five; English as a safety net). */
@@ -47,13 +47,12 @@ export function byStrength(a: PulseNeed, b: PulseNeed): number {
   return b.score - a.score || b.share - a.share || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 }
 
-/** Feed: category ∩ kind ∩ every search word (title or summary in the page locale). */
+/** Feed: category ∩ every search word (title or summary in the page locale). */
 export function selectPulseNeeds(needs: readonly PulseNeed[], query: PulseQuery, locale: Locale): PulseNeed[] {
   const words = query.q.toLocaleLowerCase(INTL_LOCALE[locale]).split(/\s+/).filter(Boolean);
   return needs
     .filter((need) => {
       if (query.category && need.categoryId !== query.category) return false;
-      if (query.kind && need.kind !== query.kind) return false;
       if (!words.length) return true;
       const text = `${needText(need.title, locale)} ${needText(need.summary, locale)}`.toLocaleLowerCase(INTL_LOCALE[locale]);
       return words.every((word) => text.includes(word));
@@ -122,7 +121,7 @@ export function resolvePulseRoute(rawId: string, data: Pick<PulseDemand, "needs"
 // ---------------------------------------------------------------------------
 
 type Forms = { one: string; few: string; many: string };
-const forms = (s: PulseStrings, key: "reviews" | "apps" | "inApps"): Forms => ({
+const forms = (s: PulseStrings, key: "reviews" | "apps" | "inApps" | "needs" | "allNeeds" | "aboutApps"): Forms => ({
   one: s[`${key}One`],
   few: s[`${key}Few`],
   many: s[`${key}Many`],
@@ -147,21 +146,77 @@ export function appsPhrase(locale: Locale, s: PulseStrings, n: number): string {
   return format(plural(locale, n, forms(s, "apps")), { n: formatNumber(locale, n) });
 }
 
+/** «8 потребностей» / "8 needs" (the subtitle of «Пульс категории»). */
+export function needsPhrase(locale: Locale, s: PulseStrings, n: number): string {
+  return format(plural(locale, n, forms(s, "needs")), { n: formatNumber(locale, n) });
+}
+
+/** «Все 7 потребностей» / "All 7 needs" (the link under «Пульс категории»). */
+export function allNeedsPhrase(locale: Locale, s: PulseStrings, n: number): string {
+  return format(plural(locale, n, forms(s, "allNeeds")), { n: formatNumber(locale, n) });
+}
+
+/** «45 975 отзывов о 100 приложениях» / "45,975 reviews of 100 apps" (agrees with the app count). */
+export function aboutAppsPhrase(locale: Locale, s: PulseStrings, reviews: number, apps: number): string {
+  return format(plural(locale, apps, forms(s, "aboutApps")), { reviews: reviewsPhrase(locale, s, reviews), n: formatNumber(locale, apps) });
+}
+
 /** «в 67 из 100 приложений» / "in 67 of 100 apps" (ru/en/de agree with the total, fr with n). */
 export function inAppsPhrase(locale: Locale, s: PulseStrings, n: number, total: number): string {
   const template = plural(locale, locale === "fr" ? n : total, forms(s, "inApps"));
   return format(template, { n: formatNumber(locale, n), total: formatNumber(locale, total) });
 }
 
-/** The card's grey line: «267 отзывов · в 67 из 100 приложений». */
-export function countsLine(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): string {
-  return `${reviewsPhrase(locale, s, need.reviewCount)} · ${inAppsPhrase(locale, s, need.appCount, need.categoryAppCount)}`;
+/** The two facts of a need: «267 отзывов», «в 67 из 100 приложений» (rendered by PulseFactList). */
+export function countsFacts(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): [string, string] {
+  return [reviewsPhrase(locale, s, need.reviewCount), inAppsPhrase(locale, s, need.appCount, need.categoryAppCount)];
 }
 
-/** «Боль 7 из 10.» for screen readers. */
-export function painAria(s: PulseStrings, score: number): string {
-  return format(s.painAria, { score });
+/** The card's grey line as text: «267 отзывов · в 67 из 100 приложений». */
+export function countsLine(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "reviewCount" | "appCount" | "categoryAppCount">): string {
+  return countsFacts(locale, s, need).join(" · ");
 }
+
+// ---------------------------------------------------------------------------
+// Word level (thresholds: painLevel in ./gauge.ts)
+// ---------------------------------------------------------------------------
+
+const LEVEL_KEY: Record<PainLevel, "levelMild" | "levelNoticeable" | "levelStrong" | "levelAcute"> = {
+  mild: "levelMild",
+  noticeable: "levelNoticeable",
+  strong: "levelStrong",
+  acute: "levelAcute",
+};
+
+/** «Сильная» / "Strong" for a 7. */
+export function levelWord(s: PulseStrings, score: number): string {
+  return s[LEVEL_KEY[painLevel(score)]];
+}
+
+/** «боль 7 из 10» (under the word level). */
+export function painOfPhrase(s: PulseStrings, score: number): string {
+  return format(s.painOf, { score: painScore(score) });
+}
+
+/** «Боль 7 из 10, сильная.» for screen readers. */
+export function painAria(locale: Locale, s: PulseStrings, score: number): string {
+  return format(s.painAria, { score: painScore(score), level: levelWord(s, score).toLocaleLowerCase(INTL_LOCALE[locale]) });
+}
+
+/** «Боль 7 из 10, сильная. 267 отзывов, в 67 из 100 приложений.» — the text alternative of a card or row. */
+export function needAria(locale: Locale, s: PulseStrings, need: Pick<PulseNeed, "score" | "reviewCount" | "appCount" | "categoryAppCount">): string {
+  const counts = format(s.countsAria, {
+    reviews: reviewsPhrase(locale, s, need.reviewCount),
+    apps: inAppsPhrase(locale, s, need.appCount, need.categoryAppCount),
+  });
+  return `${painAria(locale, s, need.score)}${locale === "ja" ? "" : " "}${counts}`;
+}
+
+/** «1–3 фоновая · 4–6 заметная · 7–8 сильная · 9–10 острая» for «Как считаем». */
+export function levelScale(locale: Locale, s: PulseStrings): string {
+  return PAIN_LEVELS.map((band) => `${band.from}–${band.to} ${levelWord(s, band.from).toLocaleLowerCase(INTL_LOCALE[locale])}`).join(" · ");
+}
+
 
 /** «0,6 %» with one decimal; below 0.1 % → «<0,1 %». */
 export function sharePercent(locale: Locale, share: number): string {
@@ -174,8 +229,4 @@ export function verifiedPhrase(locale: Locale, s: PulseStrings, need: Pick<Pulse
   if (need.precision === null || !need.precisionSample) return null;
   const correct = Math.round(need.precision * need.precisionSample);
   return format(s.verified, { correct: formatNumber(locale, correct), sample: formatNumber(locale, need.precisionSample) });
-}
-
-export function kindLabel(s: PulseStrings, kind: PulseKind): string {
-  return kind === "request" ? s.kindRequest : s.kindPain;
 }

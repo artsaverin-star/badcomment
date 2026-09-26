@@ -1,0 +1,310 @@
+/* «Пульс» visual primitives (PulseGauge.tsx, direction A «Прибор»; owner 2026-09-25: «флэт 3D
+   премиум эппл такой»): the 10-tick gauge, the word level, the score bar and the rows of bars.
+   One hue: the brand cobalt (--ia-accent, --ia-action for depth); tracks and empty ticks
+   --ia-soft / --ia-line; text --ia-ink / --ia-secondary. Every colour is a DS token or a
+   color-mix of tokens. Self-contained and unlayered: the old archive (LegacyPulseLink) loads it
+   too, where the --ia-* tokens do not exist, so every var() falls back to the same DS value
+   (light, and dark under <html data-theme="dark">, which both sites set). */
+
+/* Onest (the DS display face) for the old site; the new one exposes it as --ia-font-onest via
+   next/font, so this face is never used — and never downloaded — there. */
+@font-face {
+  font-family: "ia Pulse Onest";
+  src: url("../../fonts/Onest-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ia-pulse-gauge,
+.ia-pulse-level,
+.ia-pulse-bar,
+.ia-pulse-barrows {
+  --pk-accent: var(--ia-accent, #3458db);
+  --pk-action: var(--ia-action, #3458db);
+  --pk-surface: var(--ia-surface, #ffffff);
+  --pk-ink: var(--ia-ink, #191a20);
+  --pk-muted: var(--ia-secondary, #666872);
+  --pk-line: var(--ia-line, #dedfe5);
+  --pk-soft: var(--ia-soft, #ebecf0);
+  /* The fill: lighter at the top, the deep cobalt below — gentle volume, lit from above. */
+  --pk-hi: color-mix(in srgb, var(--pk-accent) 72%, var(--pk-surface));
+  --pk-lo: var(--pk-action);
+  --pk-needle: var(--pk-action);
+  --pk-glow: color-mix(in srgb, var(--pk-accent) 28%, transparent);
+  --pk-glow-opacity: 0.28;
+  --pk-sans: var(
+    --ia-font-sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "Yu Gothic",
+    sans-serif
+  );
+  --pk-display: var(--ia-font-onest, "ia Pulse Onest"), var(--pk-sans);
+}
+/* Dark: the accent itself is the light end (#94aaff), blended into the action cobalt below. No
+   coloured shadow: on the dark surface it blooms into a halo (neon); the gradient alone carries
+   the volume, as in Apple's dark cards. DS dark values as fallbacks for the old site. */
+[data-theme="dark"] :is(.ia-pulse-gauge, .ia-pulse-level, .ia-pulse-bar, .ia-pulse-barrows) {
+  --pk-accent: var(--ia-accent, #94aaff);
+  --pk-action: var(--ia-action, #3458db);
+  --pk-surface: var(--ia-surface, #1d1e22);
+  --pk-ink: var(--ia-ink, #f2f2f5);
+  --pk-muted: var(--ia-secondary, #aaadb8);
+  --pk-line: var(--ia-line, #383a42);
+  --pk-soft: var(--ia-soft, #28292f);
+  --pk-hi: var(--pk-accent);
+  --pk-lo: color-mix(in srgb, var(--pk-accent) 58%, var(--pk-action));
+  --pk-needle: var(--pk-accent);
+  --pk-glow: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] :is(.ia-pulse-gauge, .ia-pulse-level, .ia-pulse-bar, .ia-pulse-barrows) {
+    --pk-accent: var(--ia-accent, #94aaff);
+    --pk-action: var(--ia-action, #3458db);
+    --pk-surface: var(--ia-surface, #1d1e22);
+    --pk-ink: var(--ia-ink, #f2f2f5);
+    --pk-muted: var(--ia-secondary, #aaadb8);
+    --pk-line: var(--ia-line, #383a42);
+    --pk-soft: var(--ia-soft, #28292f);
+    --pk-hi: var(--pk-accent);
+    --pk-lo: color-mix(in srgb, var(--pk-accent) 58%, var(--pk-action));
+    --pk-needle: var(--pk-accent);
+    --pk-glow: transparent;
+  }
+}
+
+/* One fact of a « · » line (PulseFactList): moves to the next line whole, its «·» with it. */
+.ia-pulse-kit-fact {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.ia-pulse-kit-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Gauge ---------------------------------------------------------------- */
+.ia-pulse-gauge {
+  display: block;
+  flex: none;
+  overflow: visible;
+}
+.ia-pulse-gauge__off {
+  stroke: var(--pk-line);
+}
+.ia-pulse-gauge__hi {
+  stop-color: var(--pk-hi);
+}
+.ia-pulse-gauge__lo {
+  stop-color: var(--pk-lo);
+}
+/* The needle (the last filled tick) is solid, so it reads at any angle of the gradient. */
+.ia-pulse-gauge__needle {
+  stroke: var(--pk-needle);
+}
+.ia-pulse-gauge__glow {
+  flood-color: var(--pk-accent);
+  flood-opacity: var(--pk-glow-opacity);
+}
+/* The soft shadow of the filled ticks is for the light theme only: in dark it blooms into a halo.
+   CSS beats the SVG's filter attribute. */
+[data-theme="dark"] .ia-pulse-gauge__on {
+  filter: none;
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .ia-pulse-gauge__on {
+    filter: none;
+  }
+}
+.ia-pulse-gauge__n {
+  fill: var(--pk-ink);
+  font-family: var(--pk-display);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+/* The need page's big number: a hair tighter, so «10» does not read as «1 0». */
+.ia-pulse-gauge--page .ia-pulse-gauge__n {
+  letter-spacing: -0.045em;
+}
+.ia-pulse-gauge__ends {
+  fill: var(--pk-muted);
+  font: 500 12px var(--pk-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Word level: «Сильная» over «боль 7 из 10» ----------------------------- */
+.ia-pulse-level {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.ia-pulse-level__word {
+  color: var(--pk-accent);
+  font: 600 17px / 22px var(--pk-sans);
+  letter-spacing: -0.01em;
+}
+.ia-pulse-level__of {
+  color: var(--pk-muted);
+  font: 400 13px / 18px var(--pk-sans);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-level--large .ia-pulse-level__word {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.015em;
+}
+.ia-pulse-level--large .ia-pulse-level__of {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+/* ---- Bar: track --ia-soft, the fill in the same gradient as the gauge ------ */
+.ia-pulse-bar {
+  display: block;
+  box-sizing: border-box;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--pk-soft);
+}
+.ia-pulse-bar__fill {
+  display: block;
+  height: 100%;
+  min-width: 8px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, var(--pk-hi), var(--pk-lo));
+  box-shadow: 0 1px 3px var(--pk-glow);
+}
+.ia-pulse-bar--thin {
+  height: 6px;
+}
+.ia-pulse-bar--thin .ia-pulse-bar__fill {
+  min-width: 6px;
+}
+
+/* ---- Rows: [title][bar][9/10]; the bar and the score under the title when narrow ---- */
+.ia-pulse-barrows {
+  container: ia-pulse-rows / inline-size;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-barrows > li {
+  margin: 0;
+  padding: 0;
+}
+.ia-pulse-barrows > li + li {
+  border-top: var(--ia-hairline, 1px) solid color-mix(in srgb, var(--pk-line) 70%, transparent);
+}
+.ia-pulse-barrow {
+  display: grid;
+  grid-template-areas:
+    "text text"
+    "bar score";
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 12px;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 13px 0 12px;
+  border-radius: 12px;
+  color: var(--pk-ink);
+  text-decoration: none;
+}
+.ia-pulse-barrow__text {
+  display: flex;
+  grid-area: text;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.ia-pulse-barrow__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font: 500 15px / 20px var(--pk-sans);
+  letter-spacing: -0.005em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.ia-pulse-barrow__meta {
+  overflow: hidden;
+  color: var(--pk-muted);
+  font: 400 12px / 16px var(--pk-sans);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ia-pulse-barrow__bar {
+  grid-area: bar;
+}
+.ia-pulse-barrow__score {
+  display: inline-flex;
+  grid-area: score;
+  align-items: baseline;
+  justify-content: flex-end;
+  min-width: 40px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ia-pulse-barrow__n {
+  font: 600 17px / 20px var(--pk-display);
+  letter-spacing: -0.01em;
+}
+.ia-pulse-barrow__of {
+  margin-left: 1px;
+  color: var(--pk-muted);
+  font: 400 13px / 20px var(--pk-sans);
+}
+@container ia-pulse-rows (min-width: 500px) {
+  .ia-pulse-barrow {
+    grid-template-areas: "text bar score";
+    grid-template-columns: minmax(0, 1fr) 200px 56px;
+    gap: 0 16px;
+    min-height: 56px;
+  }
+}
+@media (hover: hover) {
+  .ia-pulse-barrow:hover .ia-pulse-barrow__title {
+    color: var(--pk-accent);
+  }
+}
+.ia-pulse-barrow:focus-visible {
+  outline: 2px solid var(--pk-accent);
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .ia-pulse-gauge__off {
+    stroke: GrayText;
+  }
+  .ia-pulse-gauge [data-tick="on"] {
+    stroke: CanvasText;
+  }
+  .ia-pulse-gauge__n {
+    fill: CanvasText;
+  }
+  .ia-pulse-bar {
+    border: 1px solid CanvasText;
+  }
+  .ia-pulse-bar__fill {
+    background: CanvasText;
+  }
+}

@@ -23,7 +23,7 @@ Old site locales: `ru, en` only.
 | `/<L>/research[/<slug>]`, `/<L>/search?q=` | proxy 308 → `/<L>/segment[/<slug>]`, `/<L>/segment?q=` | aliases |
 | `/<L>/ideas` (`?q=&category=`) | NEW ideas catalog (tab «Идеи») | |
 | `/<L>/ideas/<id>` | NEW if `id ∈ LAUNCH_IDEAS`, else OLD in place | `/<L>/ideas/top` → OLD |
-| `/<L>/pulse` (`?category=&kind=request\|pain&q=&page=`) | NEW «Пульс» feed (tab «Пульс», `docs/site-v2/PULSE.md`) | indexable only without filters, page 1 |
+| `/<L>/pulse` (`?category=&q=&page=`; retired `kind`, `view`, `scope`, `sort` are ignored) | NEW «Пульс» feed (tab «Пульс», `docs/site-v2/PULSE.md`) | indexable only without filters, page 1 |
 | `/<L>/pulse/<category>--<slug>` | NEW need page | unknown id → 404; retired prototype ids (with `:` or `insight`, also `/<L>/pulse/insight/<…>`) → 307 `/<L>/pulse?category=<cat>` (or `/<L>/pulse`) |
 | `/<L>/saved` (`?filter=&q=`) | NEW (tab «Сохранённое») | |
 | `/<L>/settings`, `/<L>/settings/about` | NEW | |

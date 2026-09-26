@@ -1,24 +1,32 @@
-/* «Пульс» (SPEC app_04_inapp/Documentation/PulseDemand-2026-09-24/SPEC.md): minimal white cards
-   on the soft grey canvas (--ia-paper, the page background, ≈ #F5F5F5), black type, grey pills,
-   and the pain scale (./pain-meter.css). No page-frame or tab overrides: everything is scoped to
-   the .ia-pulse* blocks and follows the --ia-* tokens, dark theme included. */
+/* «Пульс» (SPEC app_04_inapp/Documentation/PulseDemand-2026-09-24/SPEC.md), direction A «Прибор»
+   (owner, 2026-09-25: «флэт 3D премиум эппл такой»): white --ia-surface cards on the --ia-paper
+   canvas with the DS radii, elevation and card stroke, like the idea cards; the gauge, bars and
+   rows come from ./pulse-kit.css. One hue — the brand cobalt; no amber, no red, no colour by
+   kind. No page-frame or tab overrides: everything is scoped to the .ia-pulse* blocks and follows
+   the --ia-* tokens, dark theme included. */
 
 .ia-pulse,
-.ia-pulse-page,
-.ia-pulse-embed {
-  --pulse-card-shadow: 0 2px 5px rgb(0 0 0 / 3%), 0 7px 20px rgb(0 0 0 / 3%);
-  --pulse-card-shadow-hover: 0 3px 8px rgb(0 0 0 / 5%), 0 10px 26px rgb(0 0 0 / 5%);
-  --pulse-radius: 24px;
+.ia-pulse-page {
+  /* The idea card's elevation and stroke (site.css .ia-card--idea) and its web hover shadow
+     (spec 05 §6.2: alpha +0.03); the lift is 2 px here. */
+  --pulse-card-shadow:
+    var(--ia-shadow-idea-card), inset 0 0 0 var(--ia-stroke-card) var(--ia-line-65);
+  --pulse-card-shadow-hover:
+    0 8px 32px rgb(0 0 0 / 0.08), inset 0 0 0 var(--ia-stroke-card) var(--ia-line-65);
 }
-/* Dark: the card edge is a 1px ring (shadows barely show on the dark canvas); hover keeps it. */
-[data-theme="dark"] :is(.ia-pulse, .ia-pulse-page, .ia-pulse-embed) {
-  --pulse-card-shadow: 0 0 0 1px var(--ia-line-card), 0 6px 18px rgb(0 0 0 / 22%);
-  --pulse-card-shadow-hover: 0 0 0 1px var(--ia-line-card), 0 10px 26px rgb(0 0 0 / 32%);
+/* Dark: shadows barely show on the dark canvas; the stroke carries the edge. */
+[data-theme="dark"] :is(.ia-pulse, .ia-pulse-page) {
+  --pulse-card-shadow:
+    0 6px 28px rgb(0 0 0 / 0.24), inset 0 0 0 var(--ia-stroke-card) var(--ia-line-card);
+  --pulse-card-shadow-hover:
+    0 12px 34px rgb(0 0 0 / 0.36), inset 0 0 0 var(--ia-stroke-card) var(--ia-line);
 }
 @media (prefers-color-scheme: dark) {
-  [data-theme="system"] :is(.ia-pulse, .ia-pulse-page, .ia-pulse-embed) {
-    --pulse-card-shadow: 0 0 0 1px var(--ia-line-card), 0 6px 18px rgb(0 0 0 / 22%);
-    --pulse-card-shadow-hover: 0 0 0 1px var(--ia-line-card), 0 10px 26px rgb(0 0 0 / 32%);
+  [data-theme="system"] :is(.ia-pulse, .ia-pulse-page) {
+    --pulse-card-shadow:
+      0 6px 28px rgb(0 0 0 / 0.24), inset 0 0 0 var(--ia-stroke-card) var(--ia-line-card);
+    --pulse-card-shadow-hover:
+      0 12px 34px rgb(0 0 0 / 0.36), inset 0 0 0 var(--ia-stroke-card) var(--ia-line);
   }
 }
 
@@ -53,16 +61,35 @@
   align-items: flex-start;
   gap: 8px;
 }
+/* The chevron is drawn in --ia-secondary through a mask (the SVG only gives the shape), so it
+   follows the theme like every other colour here. */
+.ia-pulse-select {
+  position: relative;
+  display: inline-flex;
+}
+.ia-pulse-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background: var(--ia-secondary);
+  -webkit-mask: var(--pulse-chevron) center / 12px 12px no-repeat;
+  mask: var(--pulse-chevron) center / 12px 12px no-repeat;
+  pointer-events: none;
+  --pulse-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
 .ia-pulse-select select {
   appearance: none;
   min-height: 40px;
-  max-width: min(280px, calc(100vw - 40px));
+  /* Leaves room for «Поиск» on the same line at 375 px (the kind switch is gone). */
+  max-width: min(280px, calc(100vw - 180px));
   padding: 9px 34px 9px 14px;
   border: 0;
   border-radius: var(--ia-radius-pill);
-  background: var(--ia-surface)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
-    no-repeat right 13px center;
+  background: var(--ia-surface);
   box-shadow: var(--pulse-card-shadow);
   color: var(--ia-ink);
   font: 500 var(--ia-fs-footnote) / 1.4 var(--ia-font-sans);
@@ -136,28 +163,6 @@
   font: 600 var(--ia-fs-footnote) / 1.4 var(--ia-font-sans);
   cursor: pointer;
 }
-.ia-pulse-kinds {
-  display: inline-flex;
-  gap: 2px;
-  padding: 3px;
-  border-radius: var(--ia-radius-pill);
-  background: var(--ia-soft);
-}
-.ia-pulse-kinds__item {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 13px;
-  border-radius: var(--ia-radius-pill);
-  color: var(--ia-secondary);
-  font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
-  text-decoration: none;
-}
-.ia-pulse-kinds__item[aria-current="page"] {
-  background: var(--ia-surface);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
-  color: var(--ia-ink);
-}
 .ia-pulse-reset,
 .ia-pulse-empty__reset {
   display: inline-flex;
@@ -177,63 +182,46 @@
   min-width: 0;
 }
 
-/* ---- Card (SPEC «Карточка») ---- */
+/* ---- Card: category · title · gauge + word level · hairline · counts ---- */
 .ia-pulse-card {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
   min-width: 0;
   padding: 20px;
-  border-radius: var(--pulse-radius);
+  border-radius: var(--ia-radius-idea-card);
   background: var(--ia-surface);
   box-shadow: var(--pulse-card-shadow);
   color: var(--ia-ink);
   text-decoration: none;
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+    transform var(--ia-dur-press) var(--ia-ease-press),
+    box-shadow 200ms ease;
 }
 @media (hover: hover) {
   .ia-pulse-card:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: var(--pulse-card-shadow-hover);
   }
 }
 .ia-pulse-card:active {
   transform: scale(0.985);
 }
-.ia-pulse-card:focus-visible,
-.ia-pulse-row:focus-visible {
+.ia-pulse-card:focus-visible {
   outline: 2px solid var(--ia-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
-.ia-pulse-card__meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  min-width: 0;
-}
-.ia-pulse-pill {
-  min-width: 0;
-  padding: 4px 11px;
+.ia-pulse-card__category {
   overflow: hidden;
-  border-radius: var(--ia-radius-pill);
-  background: var(--ia-soft);
   color: var(--ia-secondary);
-  font: 500 var(--ia-fs-footnote) / 1.35 var(--ia-font-sans);
-  text-decoration: none;
+  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.ia-pulse-kind {
-  flex: none;
-  color: var(--ia-secondary);
-  font: 500 var(--ia-fs-caption) / 1.3 var(--ia-font-sans);
-}
 .ia-pulse-card__title {
   display: -webkit-box;
-  margin: 14px 0 16px;
+  margin: 8px 0 0;
   overflow: hidden;
   font: 700 1.25rem / 1.25 var(--ia-font-sans);
   letter-spacing: -0.015em;
@@ -241,34 +229,24 @@
   -webkit-line-clamp: 3;
   line-clamp: 3;
 }
-.ia-pulse-score {
+.ia-pulse-card__gauge {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin: auto 0 10px;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 20px;
 }
-.ia-pulse-score__label {
-  color: var(--ia-secondary);
-  font: 500 var(--ia-fs-subheadline) / 1.2 var(--ia-font-sans);
-}
-.ia-pulse-score__value {
-  font-family: var(--ia-font-sans);
-  line-height: 1;
-}
-.ia-pulse-score__value .ia-pain-value__n {
-  font-size: 1.875rem;
-  letter-spacing: -0.03em;
-}
-.ia-pulse-score__value .ia-pain-value__of {
-  color: var(--ia-secondary);
-  opacity: 1;
-  font-size: 1.0625rem;
+/* The level's last line sits on the number's baseline. */
+.ia-pulse-card__gauge .ia-pulse-level {
+  padding-bottom: 3px;
 }
 .ia-pulse-card__counts {
-  margin-top: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: var(--ia-hairline) solid var(--ia-line-80);
   color: var(--ia-secondary);
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---- Empty state, pagination, «Как считаем» ---- */
@@ -318,88 +296,6 @@
   margin: 4px 0 8px;
 }
 
-/* ---- Compact rows (embed «Пульс категории», «Ещё в категории») ---- */
-.ia-pulse-rows {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.ia-pulse-rows > li + li {
-  border-top: var(--ia-hairline) solid var(--ia-line-card);
-}
-.ia-pulse-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 52px;
-  padding: 12px 0;
-  color: var(--ia-ink);
-  text-decoration: none;
-}
-.ia-pulse-row__title {
-  display: -webkit-box;
-  min-width: 0;
-  overflow: hidden;
-  font: 500 var(--ia-fs-subheadline) / 1.35 var(--ia-font-sans);
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-}
-@media (hover: hover) {
-  .ia-pulse-row:hover .ia-pulse-row__title {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-  }
-}
-.ia-pulse-row__score {
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  width: 64px;
-  font: 500 var(--ia-fs-footnote) / 1 var(--ia-font-sans);
-}
-.ia-pulse-row__score .ia-pain-value__n {
-  font-size: 1.0625rem;
-}
-.ia-pulse-row__score .ia-pain-value__of {
-  color: var(--ia-secondary);
-  opacity: 1;
-}
-
-.ia-pulse-embed {
-  margin: 32px 0;
-  padding: 22px 22px 12px;
-  border-radius: var(--pulse-radius);
-  background: var(--ia-surface);
-  box-shadow: var(--pulse-card-shadow);
-  color: var(--ia-ink);
-  scroll-margin-top: calc(var(--ia-topnav-h, 86px) + 72px);
-}
-.ia-pulse-embed__title {
-  margin: 0;
-  font: 700 var(--ia-fs-title2) / var(--ia-lh-title2) var(--ia-font-sans);
-  letter-spacing: -0.01em;
-}
-.ia-pulse-embed__subtitle {
-  margin: 6px 0 6px;
-  color: var(--ia-secondary);
-  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
-}
-.ia-pulse-embed__all {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 48px;
-  border-top: var(--ia-hairline) solid var(--ia-line-card);
-  color: var(--ia-ink);
-  font: 600 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
-  text-decoration: none;
-}
-
 /* ---- Need page (SPEC «Подробности») ---- */
 .ia-pulse-detail {
   display: flex;
@@ -408,8 +304,8 @@
   padding-top: 8px;
 }
 .ia-pulse-panel {
-  padding: 22px;
-  border-radius: var(--pulse-radius);
+  padding: 24px;
+  border-radius: var(--ia-radius-idea-card);
   background: var(--ia-surface);
   box-shadow: var(--pulse-card-shadow);
   color: var(--ia-ink);
@@ -417,24 +313,59 @@
 .ia-pulse-panel--rows {
   padding-block: 4px;
 }
+.ia-pulse-detail__category {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  margin-top: -6px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .ia-pulse-detail__category:hover {
+    color: var(--ia-accent);
+  }
+}
 .ia-pulse-detail__title {
-  margin: 16px 0 18px;
+  margin: 2px 0 0;
   font: 700 clamp(1.5rem, 1.25rem + 1vw, 1.875rem) / 1.2 var(--ia-font-sans);
   letter-spacing: -0.02em;
 }
-.ia-pulse-score--large .ia-pulse-score__label {
-  font-size: var(--ia-fs-body);
+/* The large gauge with the word level beside it (under it on a narrow panel). */
+.ia-pulse-detail__meter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  /* 26: the needle at 10 reaches 9 px past the gauge's box. */
+  gap: 12px 26px;
+  margin-top: 26px;
 }
-.ia-pulse-score--large .ia-pain-value__n {
-  font-size: 2.5rem;
+/* The level's last baseline sits on the big number's (19 px above the gauge's bottom). */
+.ia-pulse-detail__meter .ia-pulse-level {
+  padding-bottom: 14.5px;
 }
-.ia-pulse-score--large .ia-pain-value__of {
-  font-size: 1.25rem;
+.ia-pulse-detail__head {
+  container-type: inline-size;
+}
+/* A phone: the level goes under the gauge, close to it. */
+@container (max-width: 380px) {
+  .ia-pulse-detail__meter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .ia-pulse-detail__meter .ia-pulse-level {
+    padding-bottom: 0;
+  }
 }
 .ia-pulse-detail__numbers {
-  margin: 14px 0 0;
+  margin: 20px 0 0;
+  padding-top: 14px;
+  border-top: var(--ia-hairline) solid var(--ia-line-80);
   color: var(--ia-secondary);
   font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
 }
 .ia-pulse-detail__summary {
   margin: 14px 0 0;
@@ -445,23 +376,154 @@
   align-items: center;
   gap: 4px;
   min-height: 44px;
-  margin-top: 8px;
-  color: var(--ia-ink);
+  margin: 6px 0 -10px;
+  color: var(--ia-accent);
   font: 600 var(--ia-fs-subheadline) / 1.3 var(--ia-font-sans);
+  text-decoration: none;
 }
-.ia-pulse-detail__facts {
-  display: grid;
-  gap: 22px;
-}
-@media (min-width: 640px) {
-  .ia-pulse-detail__facts:has(> .ia-pulse-block + .ia-pulse-block) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (hover: hover) {
+  .ia-pulse-detail__research:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 }
 .ia-pulse-block__title,
 .ia-pulse-section__title {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   font: 700 var(--ia-fs-headline) / var(--ia-lh-headline) var(--ia-font-sans);
+}
+.ia-pulse-block__title--sub {
+  margin-bottom: 10px;
+  color: var(--ia-secondary);
+  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+}
+
+/* «Из чего складывается 7/10»: label + value, points on the right, a thin bar below. */
+.ia-pulse-parts {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-pulse-part {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8px 12px;
+}
+.ia-pulse-part__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  min-width: 0;
+  font: 400 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+.ia-pulse-part__detail {
+  color: var(--ia-secondary);
+  font-size: var(--ia-fs-footnote);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-part__points {
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ia-pulse-part__value {
+  color: var(--ia-ink);
+  font-family: var(--ia-font-display);
+  font-size: var(--ia-fs-subheadline);
+  font-weight: 600;
+}
+.ia-pulse-part__bar {
+  grid-column: 1 / -1;
+}
+.ia-pulse-parts__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: var(--ia-hairline) solid var(--ia-line-80);
+  font: 600 var(--ia-fs-subheadline) / var(--ia-lh-subheadline) var(--ia-font-sans);
+}
+.ia-pulse-parts__total .ia-pulse-part__value {
+  font-size: var(--ia-fs-headline);
+}
+
+/* «Где об этом пишут»: the dot grid and its legend beside «Чаще всего пишут в». */
+.ia-pulse-where__body {
+  display: grid;
+  gap: 22px;
+}
+@media (min-width: 640px) {
+  .ia-pulse-where__body {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+.ia-pulse-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+.ia-pulse-dots__grid {
+  display: block;
+  overflow: visible;
+}
+/* One colour for the filled dots and their legend swatch. */
+.ia-pulse-dots {
+  --pulse-dot-on: var(--ia-accent);
+}
+[data-theme="dark"] .ia-pulse-dots {
+  --pulse-dot-on: color-mix(in srgb, var(--ia-accent) 80%, var(--ia-action));
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .ia-pulse-dots {
+    --pulse-dot-on: color-mix(in srgb, var(--ia-accent) 80%, var(--ia-action));
+  }
+}
+.ia-pulse-dots__on {
+  fill: var(--pulse-dot-on);
+}
+.ia-pulse-dots__off {
+  fill: var(--ia-line);
+}
+.ia-pulse-dots__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 220px;
+}
+.ia-pulse-dots__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--ia-ink);
+  font: 500 var(--ia-fs-footnote) / var(--ia-lh-footnote) var(--ia-font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.ia-pulse-dots__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ia-pulse-dots__swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ia-line);
+}
+.ia-pulse-dots__swatch--on {
+  background: var(--pulse-dot-on);
+}
+.ia-pulse-dots__note {
+  color: var(--ia-secondary);
+  font: 400 var(--ia-fs-caption) / var(--ia-lh-caption) var(--ia-font-sans);
 }
 .ia-pulse-section__title {
   font-size: var(--ia-fs-title2);
@@ -489,6 +551,7 @@
   border-radius: var(--ia-radius-pill);
   background: var(--ia-soft);
 }
+/* A non-zero count never vanishes (2 px); a zero has no fill at all (PulseStars). */
 .ia-pulse-stars__bar > span {
   display: block;
   height: 100%;
@@ -570,7 +633,7 @@
   font: 500 var(--ia-fs-footnote) / 1.3 var(--ia-font-sans);
 }
 .ia-pulse-quote__stars {
-  color: #f4b63f;
+  color: var(--ia-ink-65);
   letter-spacing: 1px;
 }
 .ia-pulse-quote__stars-off {
@@ -621,15 +684,10 @@
     padding: 18px;
   }
   .ia-pulse-card__title {
-    margin: 12px 0 14px;
     font-size: 1.1875rem;
   }
-  .ia-pulse-score__value .ia-pain-value__n {
-    font-size: 1.75rem;
-  }
-  .ia-pulse-panel,
-  .ia-pulse-embed {
-    padding-inline: 18px;
+  .ia-pulse-panel {
+    padding: 22px 18px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

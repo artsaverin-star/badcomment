@@ -446,7 +446,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
       </header>
-      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} />
+      <LegacyPulseLink locale={ru ? "ru" : "en"} slug={slug} stats={{ reviewCount: summary.reviewsScanned, appCount: readyCount || cat.apps.length }} />
 
       {/* KEY FINDINGS — inline: first free, the other two unlock for energy */}
       {pillars.length > 0 && (

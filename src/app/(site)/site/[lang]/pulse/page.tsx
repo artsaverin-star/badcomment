@@ -6,17 +6,27 @@ import { routes } from "@/site/routing";
 import { getPulseCategoryNames, getPulseDemand } from "@/site/sitedata/pulse";
 import { PulseCard } from "@/site/features/pulse/PulseCard";
 import { PulseFilters } from "@/site/features/pulse/PulseFilters";
-import { isDefaultPulseQuery, parsePulseQuery, PULSE_PAGE_SIZE, selectPulseNeeds, type PulseQuery, type RawPulseQuery } from "@/site/features/pulse/query";
+import {
+  isDefaultPulseQuery,
+  levelScale,
+  parsePulseQuery,
+  PULSE_PAGE_SIZE,
+  selectPulseNeeds,
+  type PulseQuery,
+  type RawPulseQuery,
+} from "@/site/features/pulse/query";
 import { pulseStrings } from "@/site/features/pulse/strings";
+import { format } from "@/site/i18n/translate";
 import { localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
 import { Heading } from "@/site/ui";
-import "@/site/features/pulse/pain-meter.css";
+import "@/site/features/pulse/pulse-kit.css";
 import "@/site/features/pulse/pulse.css";
 
 // Tab «Пульс» (SPEC app_04_inapp/Documentation/PulseDemand-2026-09-24/SPEC.md «Лента»): concrete
-// requests and complaints from reviews as minimal cards, strongest pain first (score, then share —
-// the file's order). Compact controls via query params: ?category=, ?kind=request|pain, ?q=,
-// ?page=. Only the unfiltered first page is indexable.
+// needs from reviews as gauge cards (direction A «Прибор»), strongest pain first (score, then
+// share — the file's order). Compact controls via query params: ?category=, ?q=, ?page=. The
+// kind switch is gone (owner, 2026-09-25: «убрать просят жалуются это мусор»); ?kind= is a
+// retired key and ignored, like view/scope/sort. Only the unfiltered first page is indexable.
 
 type Props = { params: Promise<{ lang: string }>; searchParams: Promise<RawPulseQuery> };
 
@@ -53,13 +63,8 @@ export default async function PulsePage({ params, searchParams }: Props) {
     .sort((a, b) => a.name.localeCompare(b.name, lang));
   const link = (patch: Partial<PulseQuery>) => {
     const next = { ...query, page: 1, ...patch };
-    return routes.pulse(lang, { category: next.category, kind: next.kind, q: next.q, page: next.page });
+    return routes.pulse(lang, { category: next.category, q: next.q, page: next.page });
   };
-  const kinds = [
-    { kind: "" as const, label: s.filterAll },
-    { kind: "request" as const, label: s.filterRequest },
-    { kind: "pain" as const, label: s.filterPain },
-  ];
   const filtered = !isDefaultPulseQuery({ ...query, page: 1 });
 
   return (
@@ -68,21 +73,13 @@ export default async function PulsePage({ params, searchParams }: Props) {
       {data.needs.length ? (
         <div className="ia-pulse-controls">
           <PulseFilters
-            key={`${query.category}|${query.kind}|${query.q}`}
+            key={`${query.category}|${query.q}`}
             action={routes.pulse(lang)}
             category={query.category}
-            kind={query.kind}
             query={query.q}
             options={options}
             strings={{ category: s.category, allCategories: s.allCategories, search: s.search, searchPlaceholder: s.searchPlaceholder, searchSubmit: s.searchSubmit, apply: s.apply }}
           />
-          <nav className="ia-pulse-kinds" aria-label={s.kindFilter}>
-            {kinds.map((item) => (
-              <Link key={item.kind || "all"} href={link({ kind: item.kind })} aria-current={query.kind === item.kind ? "page" : undefined} className="ia-pulse-kinds__item">
-                {item.label}
-              </Link>
-            ))}
-          </nav>
           {filtered ? (
             <Link className="ia-pulse-reset" href={routes.pulse(lang)}>
               {s.reset}
@@ -122,6 +119,7 @@ export default async function PulsePage({ params, searchParams }: Props) {
         <summary>{s.about}</summary>
         <p>{s.aboutSample}</p>
         <p>{s.aboutScore}</p>
+        <p>{format(s.aboutLevels, { scale: levelScale(lang, s) })}</p>
       </details>
     </div>
   );

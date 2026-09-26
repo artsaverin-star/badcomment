@@ -6,31 +6,23 @@ import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { routes } from "@/site/routing";
 import { getPulseCategoryNames, getPulseDemand, pulseCategoryHref } from "@/site/sitedata/pulse";
-import { PainMeter, PainValue } from "@/site/features/pulse/PainMeter";
-import { PulseEvidenceList, PulseStars, PulseTopApps } from "@/site/features/pulse/PulseDetail";
+import { PulseBreakdown, PulseEvidenceList, PulseFacts, PulseStars, PulseWhere } from "@/site/features/pulse/PulseDetail";
+import { PulseGauge, PulseLevel } from "@/site/features/pulse/PulseGauge";
 import { PulseRows } from "@/site/features/pulse/PulseRows";
-import {
-  appsPhrase,
-  categoryNeeds,
-  kindLabel,
-  needText,
-  painAria,
-  resolvePulseRoute,
-  reviewsPhrase,
-  sharePercent,
-  verifiedPhrase,
-} from "@/site/features/pulse/query";
+import { categoryNeeds, countsFacts, needText, painAria, resolvePulseRoute, sharePercent, verifiedPhrase } from "@/site/features/pulse/query";
 import { pulseStrings } from "@/site/features/pulse/strings";
 import { format } from "@/site/i18n/translate";
 import { clampDescription, localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
 import { BackButton, DetailToolbar } from "@/site/ui";
-import "@/site/features/pulse/pain-meter.css";
+import "@/site/features/pulse/pulse-kit.css";
 import "@/site/features/pulse/pulse.css";
 
-// A need (SPEC «Подробности»): title, kind, link to the category breakdown; big «Боль 7/10»
-// with the scale; the numbers; the summary; the star split of the matching reviews; the apps
-// where it comes up most; quotes (the first is public, the rest need the category's research
-// access — gated here on the server); the other needs of the category.
+// A need (SPEC «Подробности», direction A «Прибор»): the category and the title; a large gauge
+// with the word level; the facts line; the summary and the link to the category breakdown;
+// «Из чего складывается 7/10» (the three terms of the score); «Где об этом пишут» (a dot per
+// app of the category, next to the apps where it comes up most); the star split of the matching
+// reviews; quotes (the first is public, the rest need the category's research access — gated
+// here on the server); the other needs of the category as bar rows. No kind label.
 // Ids are "<category>--<slug>". Retired prototype ids (with ":" or "insight") redirect to the
 // feed filtered by their category; anything else unknown is a 404.
 
@@ -73,12 +65,7 @@ export default async function PulseNeedPage({ params }: Props) {
   const breakdown = pulseCategoryHref(lang, need.categoryId);
   const others = categoryNeeds(data, need.categoryId).filter((other) => other.id !== need.id);
   const verified = verifiedPhrase(lang, s, need);
-  const numbers = [
-    reviewsPhrase(lang, s, need.reviewCount),
-    appsPhrase(lang, s, need.appCount),
-    format(s.shareOfCategory, { share: sharePercent(lang, need.share) }),
-    ...(verified ? [verified] : []),
-  ];
+  const numbers = [...countsFacts(lang, s, need), format(s.shareOfCategory, { share: sharePercent(lang, need.share) }), ...(verified ? [verified] : [])];
   const unlock = {
     href: routes.plus(lang, { source: "pulse_need" }),
     label: t("Открыть все материалы"),
@@ -90,24 +77,18 @@ export default async function PulseNeedPage({ params }: Props) {
       <DetailToolbar leading={<BackButton label={t("Назад")} fallbackHref={routes.pulse(lang, { category: need.categoryId })} />} />
       <article className="ia-page ia-page--reading ia-pulse-detail" aria-labelledby="pulse-need-title">
         <header className="ia-pulse-panel ia-pulse-detail__head">
-          <div className="ia-pulse-card__meta">
-            <Link className="ia-pulse-pill" href={routes.pulse(lang, { category: need.categoryId })}>
-              {categoryName}
-            </Link>
-            <span className="ia-pulse-kind">{kindLabel(s, need.kind)}</span>
-          </div>
+          <Link className="ia-pulse-detail__category" href={routes.pulse(lang, { category: need.categoryId })}>
+            {categoryName}
+          </Link>
           <h1 className="ia-pulse-detail__title" id="pulse-need-title">
             {needText(need.title, lang)}
           </h1>
-          <div className="ia-pulse-score ia-pulse-score--large">
-            <span className="ia-pulse-score__label" aria-hidden="true">
-              {s.pain}
-            </span>
-            <PainValue score={need.score} className="ia-pulse-score__value" />
-            <span className="ia-pulse-sr-only">{painAria(s, need.score)}</span>
+          <div className="ia-pulse-detail__meter">
+            <PulseGauge score={need.score} size="page" id={`pg-${need.id}`} />
+            <PulseLevel score={need.score} strings={s} className="ia-pulse-level--large" />
+            <span className="ia-pulse-sr-only">{painAria(lang, s, need.score)}</span>
           </div>
-          <PainMeter score={need.score} />
-          <p className="ia-pulse-detail__numbers">{numbers.join(" · ")}</p>
+          <PulseFacts facts={numbers} className="ia-pulse-detail__numbers" />
           <p className="ia-pulse-detail__summary">{needText(need.summary, lang)}</p>
           {breakdown ? (
             breakdown.oldSite ? (
@@ -121,9 +102,10 @@ export default async function PulseNeedPage({ params }: Props) {
             )
           ) : null}
         </header>
-        <div className="ia-pulse-panel ia-pulse-detail__facts">
+        <PulseBreakdown need={need} params={data.source.score} locale={lang} strings={s} />
+        <PulseWhere need={need} locale={lang} strings={s} />
+        <div className="ia-pulse-panel">
           <PulseStars counts={need.ratingCounts} locale={lang} strings={s} />
-          <PulseTopApps apps={need.topApps} locale={lang} strings={s} />
         </div>
         <PulseEvidenceList need={need} readable={readable} locale={lang} strings={s} unlock={unlock} />
         {others.length ? (

@@ -9,7 +9,8 @@ export const PULSE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /** "<category>--<slug>": URL-safe, no colons, no encoding needed. */
 export const PULSE_NEED_ID = /^([a-z0-9]+(?:-[a-z0-9]+)*)--([a-z0-9]+(?:-[a-z0-9]+)*)$/;
 
-const logScale = (value: number, floor: number, ceil: number) =>
+/** Position of `value` on a log scale floor..ceil, clamped to 0..1 (build.py's logscale). */
+export const logScale = (value: number, floor: number, ceil: number) =>
   Math.min(1, Math.max(0, (Math.log10(Math.max(value, 1e-9)) - Math.log10(floor)) / (Math.log10(ceil) - Math.log10(floor))));
 
 /**

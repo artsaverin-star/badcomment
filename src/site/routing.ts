@@ -41,8 +41,8 @@ export const routes = {
   research: (l: Locale, q?: { q?: string }) => href(l, "segment") + queryString(q),
   /** A research article (35 launch topics). */
   topic: (l: Locale, slug: string) => href(l, "segment", slug),
-  /** Tab «Пульс»: needs from reviews (?category=&kind=request|pain&q=&page=). */
-  pulse: (l: Locale, q?: { category?: string; kind?: string; q?: string; page?: number }) =>
+  /** Tab «Пульс»: needs from reviews (?category=&q=&page=). */
+  pulse: (l: Locale, q?: { category?: string; q?: string; page?: number }) =>
     href(l, "pulse") + queryString(q?.page === 1 ? { ...q, page: undefined } : q),
   /** A need: id "<category>--<slug>" (URL-safe). */
   pulseNeed: (l: Locale, id: string) => href(l, "pulse", id),
