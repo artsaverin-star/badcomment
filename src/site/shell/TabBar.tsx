@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Activity } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
 import { useLocale, useT, useWeb } from "../i18n/client";
@@ -11,7 +12,8 @@ import { BookmarkFilledIcon, IdeasFilledIcon, ResearchFilledIcon } from "../ui/i
 import { rememberedTabLocation, subscribeTabMemory } from "./navigation";
 import type { ShellStrings } from "./strings";
 
-// The three tabs of the app (spec 01 §1.2, spec 05 §3.6 I): «Разборы», «Идеи», «Сохранённое».
+// The tabs of the app (spec 01 §1.2, spec 05 §3.6 I): «Разборы», «Пульс» (web label from
+// shellStrings.pulse, lucide Activity glyph), «Идеи», «Сохранённое».
 //   variant="floating"  mobile capsule at the bottom, tab roots only; idle items = glyph only
 //                       (the label folds away but stays the accessible name)
 //   variant="top"       desktop capsule in the sticky top bar; all labels visible
@@ -20,8 +22,8 @@ import type { ShellStrings } from "./strings";
 // Each tab remembers its last URL in this browser tab (switching tabs restores it); the
 // current tab always links to its root.
 
-const TAB_TITLE: Record<Tab, string> = { research: "Разборы", ideas: "Идеи", saved: "Сохранённое" };
-const TAB_ICON = { research: ResearchFilledIcon, ideas: IdeasFilledIcon, saved: BookmarkFilledIcon } as const;
+const TAB_TITLE: Record<Exclude<Tab, "pulse">, string> = { research: "Разборы", ideas: "Идеи", saved: "Сохранённое" };
+const TAB_ICON = { pulse: Activity, research: ResearchFilledIcon, ideas: IdeasFilledIcon, saved: BookmarkFilledIcon } as const;
 
 function useTabHref(locale: Locale, tab: Tab, current: Tab | null): string {
   const remembered = useSyncExternalStore(
@@ -36,6 +38,7 @@ function useTabHref(locale: Locale, tab: Tab, current: Tab | null): string {
 function TabItem({ tab, current, atRoot }: { tab: Tab; current: Tab | null; atRoot: boolean }) {
   const locale = useLocale();
   const t = useT();
+  const s = useWeb<ShellStrings>("shell");
   const href = useTabHref(locale, tab, current);
   const Icon = TAB_ICON[tab];
   const active = tab === current;
@@ -52,7 +55,7 @@ function TabItem({ tab, current, atRoot }: { tab: Tab; current: Tab | null; atRo
         <Icon size={19} strokeWidth={2} />
       </span>
       <span className="ia-tab__label">
-        <span className="ia-tab__text">{t(TAB_TITLE[tab])}</span>
+        <span className="ia-tab__text">{tab === "pulse" ? s.pulse : t(TAB_TITLE[tab])}</span>
       </span>
     </Link>
   );

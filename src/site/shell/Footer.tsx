@@ -39,6 +39,9 @@ export async function Footer({ locale }: { locale: Locale }) {
             <li>
               <Link href={routes.ideas(locale)}>{t("Идеи")}</Link>
             </li>
+            <li>
+              <Link href={routes.pulse(locale)}>{s.pulse}</Link>
+            </li>
             {/* The web-only sections (./SectionNav.tsx). */}
             <li>
               <Link href={routes.rating(locale)}>{s.rating}</Link>

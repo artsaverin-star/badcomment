@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getViewer } from "@/site/access";
 import { SITE_URL } from "@/site/config";
+import { PulseTop } from "@/site/features/pulse/CategoryPulse";
 import { dataAlternates } from "@/site/features/rating/seo";
 import "@/site/features/research/research.css";
 import { OG_LOCALE, breadcrumbList, jsonLd, withBrand } from "@/site/features/research/seo";
@@ -23,7 +24,9 @@ import { AboutIcon, Heading, ROW_GLYPH, RowCard } from "@/site/ui";
 // are public; the free sample category is open to everyone, the rest need Plus
 // (viewer.canReadReviews, the same rule as GET /api/reviews/…). Same URL and canonical as before.
 // Layout (redesign spec §4.1): one 680 column, gap 20 (ClarityRatings.swift:79) — heading, the
-// corpus size, the searchable category rows, then the methodology row.
+// corpus size, «Пульс» (the strongest needs across categories, docs/site-v2/PULSE.md; its
+// subtitle repeats the corpus line's reviews and apps), the searchable category rows, then the
+// methodology row.
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -102,6 +105,7 @@ export default async function ReviewsArchivePage({ params }: Props) {
         <Heading className="ia-heading--fixed" title={s.title} subtitle={s.subtitle} />
         <p className="ia-footnote">{summary}</p>
         {s.dataNote ? <p className="ia-footnote">{s.dataNote}</p> : null}
+        <PulseTop locale={locale} totals={{ reviews: totals.reviews, apps: totals.apps }} />
         <ReviewNiches
           niches={niches.map((n) => ({
             slug: n.slug,

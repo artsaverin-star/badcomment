@@ -63,6 +63,11 @@ manifest.json                 locales, launch list (35), idea ids (293), free la
                               app icon, per-locale stats, source sha256 + resolved pack per locale
 _build/used-images.json       input of export-images.mjs (asset → output name, widths, source sha256)
 _build/media-stamp.json       export cache (skip unchanged images)
+pulse-demand.json             SERVER-ONLY «Пульс» (site-only, not in the app bundle): needs from reviews with pain
+                              scores and evidence quotes (quotes are gated per category). Written only by
+                              app_04_inapp/Tools/pulse-demand/build.py --site (copy of its out/pulse-demand.json);
+                              the importer does not touch it. Validated by check-content; not part of contentHash.
+                              Optional.
 <locale>/                     ru | en | de | fr | ja
   catalog.json                PUBLIC-SAFE: 35 categories (name, summary, cover), 293 ideas (slug, category, rank, free, cover)
   cards.json                  SERVER-ONLY: idea card title + description (strip paid entries for non-Plus)

@@ -1,5 +1,6 @@
 "use client";
 
+import { Activity } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ComponentType } from "react";
@@ -39,8 +40,10 @@ type IconType = ComponentType<{ size?: number; strokeWidth?: number; "aria-hidde
 const SECTION_ICON: Record<Section, IconType> = { rating: RatingIcon, reviews: ReviewsIcon, mcp: McpIcon };
 // The app tabs in the mobile menu (app strings, t()). Partial on purpose: a tab added to TABS
 // without an entry here is simply left out of the menu instead of breaking the build.
+// «Пульс» is a web tab with no app key: its label is the shell's `pulse` string (as in TabBar),
+// its glyph the tab bar's lucide Activity.
 const TAB_TITLE: Partial<Record<Tab, string>> = { research: "Разборы", ideas: "Идеи", saved: "Сохранённое" };
-const TAB_ICON: Partial<Record<Tab, IconType>> = { research: ResearchIcon, ideas: IdeasIcon, saved: BookmarkIcon };
+const TAB_ICON: Partial<Record<Tab, IconType>> = { research: ResearchIcon, pulse: Activity, ideas: IdeasIcon, saved: BookmarkIcon };
 
 function sectionRoot(l: Locale, section: Section): string {
   return section === "rating" ? routes.rating(l) : section === "reviews" ? routes.reviews(l) : routes.mcp(l);
@@ -120,9 +123,11 @@ export function MobileMenu() {
   const currentTab = tabOf(pathname);
   const tabs: MenuItem[] = TABS.flatMap((tab) => {
     const Icon = TAB_ICON[tab];
-    if (!Icon || !TAB_TITLE[tab]) return [];
+    const title = TAB_TITLE[tab];
+    const label = tab === "pulse" ? s.pulse : title ? t(title) : null;
+    if (!Icon || !label) return [];
     const href = tabRoot(locale, tab);
-    return [{ label: t(TAB_TITLE[tab]), href, icon: <Icon size={17} strokeWidth={2} />, current: currentOf(pathname, href, currentTab === tab) }];
+    return [{ label, href, icon: <Icon size={17} strokeWidth={2} />, current: currentOf(pathname, href, currentTab === tab) }];
   });
   return (
     <Menu

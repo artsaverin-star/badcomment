@@ -7,6 +7,7 @@ import reviewsIndex from "@/data/reviewsIndex.json";
 import { LOCALES } from "@/site/i18n/locales";
 import { FREE_IDEAS, isLaunchCategory, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
 import oldSite from "@/site/sitedata/old-site.snapshot.json";
+import { getPulseDemand } from "@/site/sitedata/pulse";
 import { ratingHubEntries } from "@/site/sitedata/rating-sitemap";
 
 const BASE = "https://inapp.pro";
@@ -22,7 +23,8 @@ const oldTopicPages: ReadonlySet<string> = new Set((oldSite as { topicPages: str
 //   • The rating (ru/en data): /rating and its 71 niche pages, one entry per ru AND en page
 //     (src/site/sitedata/rating-sitemap.ts); its app and task pages are in
 //     /sitemap-rating-{ru,en}.xml (spec 11 §6.5), listed in robots.txt.
-export default function sitemap(): MetadataRoute.Sitemap {
+//   • «Пульс» (docs/site-v2/PULSE.md): the feed and every need page, in all 5 locales.
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const cats = active as string[];
 
   // Per-app teardown pages (/<app-slug>) are now real indexed landing pages that
@@ -72,11 +74,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { ru: `${BASE}/ru${p || "/"}`, en: `${BASE}/en${p || "/"}`, "x-default": `${BASE}/en${p || "/"}` } },
   }));
 
+  // «Пульс»: the feed and every need (content/v2/pulse-demand.json; none when the file is absent).
+  const pulse = await getPulseDemand();
+
   // New site: same path in every locale (the pages' own canonical/hreflang use the same shape).
   const newUrl = (l: string, p: string) => `${BASE}/${l}${p}`;
   const newPaths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
     { p: "/segment", priority: 0.95 },
+    { p: "/pulse", priority: 0.9 },
+    ...pulse.needs.map((need) => ({ p: `/pulse/${need.id}`, priority: 0.7 })),
     ...LAUNCH_CATEGORIES.map((s) => ({ p: `/segment/${s}`, priority: 0.9 })),
     { p: "/ideas", priority: 0.95 },
     ...FREE_IDEAS.map((id) => ({ p: `/ideas/${id}`, priority: 0.8 })),

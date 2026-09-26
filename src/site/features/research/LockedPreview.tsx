@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { CatalogCategory } from "@/site/content/types";
 import type { Locale } from "@/site/i18n/locales";
 import type { T } from "@/site/i18n/translate";
@@ -16,15 +17,19 @@ export function LockedPreview({
   locale,
   category,
   t,
+  afterHero,
 }: {
   locale: Locale;
   category: Pick<CatalogCategory, "slug" | "name" | "summary" | "cover">;
   t: T;
+  /** A web-only block between the hero and the Plus card: «Пульс категории» (public data). */
+  afterHero?: ReactNode;
 }) {
   return (
     <div className="ia-rs-locked" id="clarity-content-locked">
       <Artwork art={category.cover} eager />
       <Heading id="clarity-locked-title" title={category.name} subtitle={category.summary} />
+      {afterHero}
       <Card className="ia-rs-lock-card">
         <p className="ia-rs-lock-card__label">
           <LockIcon size={17} strokeWidth={2} aria-hidden="true" />

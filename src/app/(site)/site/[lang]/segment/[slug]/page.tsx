@@ -22,17 +22,22 @@ import {
 } from "@/site/features/research/seo";
 import { researchStrings } from "@/site/features/research/strings";
 import { TopicExtras } from "@/site/features/research/TopicExtras";
+import { CategoryPulse } from "@/site/features/pulse/CategoryPulse";
+import { hasCategoryPulse } from "@/site/features/pulse/query";
+import { pulseStrings } from "@/site/features/pulse/strings";
 import "@/site/features/research/research.css";
 import { I18nProvider } from "@/site/i18n/client";
 import { isLocale, type Locale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { isLaunchCategory } from "@/site/manifest.generated";
 import { routes } from "@/site/routing";
+import { getPulseDemand } from "@/site/sitedata/pulse";
 
 // A research topic (spec 01 §5–§6, spec 04 §5.3/§5.6, spec 09 G8–G10). SERVER GATE FIRST:
 // the article file is read only when the viewer can read the topic; otherwise the app's
-// locked preview is built from public catalogue fields. Site-only blocks (apps of the topic,
-// old-site links, App Store promo) follow on both.
+// locked preview is built from public catalogue fields. «Пульс категории» (public data) sits
+// right under the hero on both: before the article body, or before the Plus card. The other
+// site-only blocks (old-site link, App Store promo) follow at the end on both.
 // Unknown or non-launch slugs never get here (the proxy serves the old page); 404 defensively.
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
@@ -132,7 +137,7 @@ export default async function ResearchTopicPage({ params }: Props) {
         <div className="ia-rs-locked-page">
           <LockedToolbar backHref={backHref} />
           <div className="ia-page ia-page--reading">
-            <LockedPreview locale={lang} category={category} t={t} />
+            <LockedPreview locale={lang} category={category} t={t} afterHero={<CategoryPulse locale={lang} slug={slug} corpus={category.corpus} />} />
           </div>
           <div className="ia-page ia-page--reading">
             <TopicExtras locale={lang} slug={slug} />
@@ -143,8 +148,13 @@ export default async function ResearchTopicPage({ params }: Props) {
   }
 
   // Readable: load the gated article (and the UI pack for the corpus sentence).
-  const [research, ui] = await Promise.all([getResearch(lang, slug), getUI(lang)]);
+  const [research, ui, pulse] = await Promise.all([getResearch(lang, slug), getUI(lang), getPulseDemand()]);
   if (!research) notFound();
+  // «Пульс категории» (CategoryPulse, right under the hero) renders under exactly this test; its
+  // TOC entry comes first, as the block does.
+  const toc = hasCategoryPulse(pulse, slug)
+    ? [{ id: "category-pulse", title: pulseStrings[lang].embedTitle, depth: 0 as const }, ...research.toc]
+    : research.toc;
 
   // Idea cards: readable ideas carry their card copy; paid ones only {slug, cover}.
   const slugs = articleIdeaSlugs(research);
@@ -201,15 +211,22 @@ export default async function ResearchTopicPage({ params }: Props) {
         }}
       />
       <div className="ia-reading-page">
-        <ArticleToolbar slug={slug} title={research.name} toc={research.toc} backHref={backHref} />
+        <ArticleToolbar slug={slug} title={research.name} toc={toc} backHref={backHref} />
         <div className="ia-rs-layout">
           <div className="ia-rs-main">
             <div className="ia-page ia-page--reading">
-              <ResearchArticle research={research} ui={ui} locale={lang} t={t} ideas={ideas} />
+              <ResearchArticle
+                research={research}
+                ui={ui}
+                locale={lang}
+                t={t}
+                ideas={ideas}
+                afterHero={<CategoryPulse locale={lang} slug={slug} corpus={research.corpus ?? category.corpus} />}
+              />
               <TopicExtras locale={lang} slug={slug} />
             </div>
           </div>
-          <TocRail toc={research.toc} />
+          <TocRail toc={toc} />
         </div>
       </div>
     </I18nProvider>

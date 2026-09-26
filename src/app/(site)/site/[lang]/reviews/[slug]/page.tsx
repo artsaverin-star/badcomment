@@ -4,6 +4,7 @@ import { getViewer } from "@/site/access";
 import { SITE_URL } from "@/site/config";
 import "@/site/features/library/library.css";
 import { PlusButton } from "@/site/features/plus/PlusButton";
+import { CategoryPulse } from "@/site/features/pulse/CategoryPulse";
 import { dataAlternates } from "@/site/features/rating/seo";
 import { ratingStrings } from "@/site/features/rating/strings";
 import "@/site/features/research/research.css";
@@ -28,9 +29,11 @@ import { BackButton, Card, DetailToolbar, Heading, LockIcon, RatingIcon, ROW_GLY
 // access — the locked card with the Plus offer and the way to the open sample. Only public
 // catalogue fields are rendered either way; review texts start one level down.
 // Layout (redesign spec §4.2): one 680 column, gap 20 — the name (the rating's niche name,
-// §10 Q13; <title>s keep the archive's own name), the sizes, the apps as Saved rows
-// (ClarityMy.swift:220-231, 272-306) or the content-gate lock card
-// (ClarityContentAccess.swift:86-104), then rows to the niche's rating (W8) and breakdown.
+// §10 Q13; <title>s keep the archive's own name), the sizes, «Пульс категории» (public data,
+// docs/site-v2/PULSE.md; its subtitle repeats the sizes line's reviews and apps; nothing for a
+// category without needs), the apps as Saved rows (ClarityMy.swift:220-231, 272-306) or the
+// content-gate lock card (ClarityContentAccess.swift:86-104), then rows to the niche's rating
+// (W8) and breakdown.
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -117,6 +120,7 @@ export default async function ReviewNichePage({ params }: Props) {
           {apps} · {reviews}
         </p>
         {s.dataNote ? <p className="ia-footnote">{s.dataNote}</p> : null}
+        <CategoryPulse locale={locale} slug={slug} corpus={{ reviews: niche.reviews, apps: niche.apps.length }} />
 
         {open ? (
           <ReviewApps

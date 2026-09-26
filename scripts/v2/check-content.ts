@@ -7,7 +7,9 @@
  * Checks: every file exists; counts match the manifest; the routing manifest
  * (src/site/manifest.generated.ts) matches; every Art has its WebP widths in
  * public/media; public files carry no paid idea text; structure is identical
- * across locales; content was not hand-edited (contentHash).
+ * across locales; content was not hand-edited (contentHash); «Пульс» data
+ * (pulse-demand.json, optional) passes the shared validator and, in CI, is not a development
+ * build (source.unverifiedIncluded; PULSE_ALLOW_UNVERIFIED=1 overrides).
  *
  * Rating (content/v2/<L>/rating/**, written by `import-app-content.ts --only=rating`): the
  * files the rating pages read exist and agree with each other (index ↔ niche files ↔ de/fr/ja
@@ -21,6 +23,8 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { FREE_CATEGORY, FREE_IDEAS, LAUNCH_CATEGORIES, LAUNCH_IDEAS } from "../../src/site/manifest.generated";
+import type { PulseDemand } from "../../src/site/features/pulse/types";
+import { validatePulseDemand } from "../../src/site/features/pulse/validate";
 import type {
   Art,
   CardsFile,
@@ -229,6 +233,8 @@ function main() {
     for (const f of fs.readdirSync(abs)) if (!expected.has(`${dir}/${f}`)) warnings.push(`orphan media file public/media/${dir}/${f}`);
   }
 
+  checkPulse();
+
   // Hand-edit detection
   const hashed = [...rawFiles.entries()]
     .filter(([rel]) => rel !== "manifest.json")
@@ -385,6 +391,36 @@ function ratingUsable(): Set<string> {
   const file = path.join(REPO, "src/data/reviewSourceIndex.json");
   const index = JSON.parse(fs.readFileSync(file, "utf8")) as { niches?: Record<string, unknown[]> };
   return new Set(Object.entries(index.niches ?? {}).filter(([, apps]) => Array.isArray(apps) && apps.length > 0).map(([slug]) => slug));
+}
+
+/**
+ * «Пульс»: content/v2/pulse-demand.json is written only by app_04_inapp/Tools/pulse-demand/build.py
+ * --site (Pulse is site-only; the app bundle and import-app-content.ts do not carry it).
+ * Optional (the section renders an empty state without it) and outside contentHash, because the
+ * build tool refreshes it independently of the app import.
+ */
+function checkPulse() {
+  const file = path.join(CONTENT, "pulse-demand.json");
+  if (!fs.existsSync(file)) {
+    warnings.push("content/v2/pulse-demand.json missing — «Пульс» renders its empty state");
+    return;
+  }
+  let data: unknown;
+  try {
+    data = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (e) {
+    error(`content/v2/pulse-demand.json is not valid JSON: ${(e as Error).message}`);
+    return;
+  }
+  for (const problem of validatePulseDemand(data)) error(`pulse-demand.json: ${problem}`);
+  if ((data as Partial<PulseDemand>).source?.unverifiedIncluded) {
+    // SPEC: the draft build is for development only, and the interface cannot tell it apart, so
+    // CI (the deploy gate) refuses it. Locally it stays a warning. PULSE_ALLOW_UNVERIFIED=1 overrides.
+    const message = "pulse-demand.json is a development build (source.unverifiedIncluded: true)";
+    if (process.env.CI && process.env.PULSE_ALLOW_UNVERIFIED !== "1")
+      error(`${message} — rebuild without --allow-unverified (build.py --site), or set PULSE_ALLOW_UNVERIFIED=1 to ship it anyway`);
+    else warnings.push(`${message}; CI rejects it unless PULSE_ALLOW_UNVERIFIED=1`);
+  }
 }
 
 function finish() {

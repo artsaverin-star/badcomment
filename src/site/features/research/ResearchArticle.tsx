@@ -166,12 +166,15 @@ export function ResearchArticle({
   locale,
   t,
   ideas,
+  afterHero,
 }: {
   research: ResearchFile;
   ui: UIFile;
   locale: Locale;
   t: T;
   ideas: ReadonlyMap<string, ArticleIdea>;
+  /** A web-only block between the hero (title, description, cover) and the body: «Пульс категории». */
+  afterHero?: ReactNode;
 }) {
   const ctx: Ctx = { locale, t, ideas };
   const description = researchDescription(applyNbspPolicy(research.summary), research.corpus, ui);
@@ -189,6 +192,8 @@ export function ResearchArticle({
       </header>
 
       <Artwork art={research.cover} bleed />
+
+      {afterHero}
 
       <Section id="introduction" title={t("Главное")}>
         <Text text={research.lead || t("Полный текст этого разбора пока не добавлен.")} locale={locale} lead />

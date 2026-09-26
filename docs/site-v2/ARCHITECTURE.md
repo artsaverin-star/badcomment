@@ -25,6 +25,8 @@ Old site locales: `ru, en` only.
 | `/<L>/research[/<slug>]`, `/<L>/search?q=` | proxy 308 → `/<L>/segment[/<slug>]`, `/<L>/segment?q=` | aliases |
 | `/<L>/ideas` (`?q=&category=`) | NEW ideas catalog (tab «Идеи») | |
 | `/<L>/ideas/<id>` | NEW if `id ∈ LAUNCH_IDEAS`, else OLD in place | `/<L>/ideas/top` → OLD |
+| `/<L>/pulse` (`?category=&q=&page=`; retired `kind`, `view`, `scope`, `sort` are ignored) | NEW «Пульс» feed (tab «Пульс», `docs/site-v2/PULSE.md`) | indexable only without filters, page 1 |
+| `/<L>/pulse/<category>--<slug>` | NEW need page | unknown id → 404; retired prototype ids (with `:` or `insight`, also `/<L>/pulse/insight/<…>`) → 307 `/<L>/pulse?category=<cat>` (or `/<L>/pulse`) |
 | `/<L>/saved` (`?filter=&q=`) | NEW (tab «Сохранённое») | |
 | `/<L>/settings`, `/<L>/settings/about` | NEW | |
 | `/<L>/plus` | NEW paywall page | |
@@ -44,8 +46,8 @@ Old site locales: `ru, en` only.
 | `/api/**`, `/_next/**`, files with an extension, `/icon`, `/apple-icon`, `/opengraph-image`, `/sitemap.xml`, `/sitemap-rating-{ru,en}.xml`, `/robots.txt`, `/feed.xml`, `/llms*.txt`, `/.well-known/**` | untouched (proxy matcher excludes them) | |
 
 `NEW_TOP` (first segment after the locale owned by the new site): `"" | segment* | research | search
-| ideas* | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site | app-auth
-| rating | reviews | mcp`
+| ideas* | pulse | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site
+| app-auth | rating | reviews | mcp`
 (`*` = only when the slug/id is in the manifest; `site` is included so that a public request can
 never reach the new site's internal folder through the old rewrite — it simply 404s in the new
 layout). Never create a new top-level segment named `notes` (it is an old app slug) or any other
@@ -207,6 +209,11 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
    proxy sends `X-Robots-Tag: noindex` for them; together with their former meta `index, follow`
    and a canonical to the live URL, that risked carrying the noindex over to the live page. Their
    JSON-LD and body stay.
+6. «Пульс» bridge (`docs/site-v2/PULSE.md`): `src/components/LegacyPulseLink.tsx` on the old topic
+   pages served in place and `NicheDossier` — the category's needs with their pain score, linking
+   into the new site through `publicHref` + `old-links: allow`. The review archive moved to the new
+   site (item 2), so its hub and category pages carry the new-site block themselves (`PulseTop`,
+   `CategoryPulse`); the archived copies under `/<ru|en>/old/reviews/**` have none.
 
 ## 6. i18n
 
@@ -236,14 +243,16 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
 Spec 05 is the source (tokens §6 with `--ia-*` names; components §3.6; motion §5). Defaults
 chosen for the web (the app is iPhone-only): mobile < 1024px uses the floating capsule tab bar
 at the bottom on tab roots and «Назад» pills on inner pages; ≥ 1024px uses a sticky top bar
-(logo, 3 tabs, App Store badge, account). The web-only sections «Рейтинги · Отзывы · MCP» are a
-quiet second level (`src/site/shell/SectionNav.tsx`, `.ia-secnav*` in site.css): plain text links
-beside the logo, rounded 500 15/20 in secondary, the current section in ink 600, no background
+(logo, 4 tabs — Разборы, Пульс, Идеи, Сохранённое —, App Store badge, account). The web-only
+sections «Рейтинги · Отзывы · MCP» are a quiet second level (`src/site/shell/SectionNav.tsx`,
+`.ia-secnav*` in site.css): plain text links beside the logo, rounded 500 15/20 in secondary, the current section in ink 600, no background
 or accent pill in any state (the tab capsule stays the only selected shape), 44 px hit height;
 when the logo column is narrower than 380 px (container query) one «Ещё разделы ⌄» menu trigger
-in the same quiet style replaces them; < 1024 a ☰ menu in the compact header lists the tabs and
-the sections; the footer links them too. There is no «⋯» sections menu. Section pages have no
-current tab; depth comes from the Back pill.
+in the same quiet style replaces them; < 1024 a ☰ menu in the compact header lists the tabs («Пульс»
+included) and the sections; the footer links them too. There is no «⋯» sections menu. Section
+pages have no current tab; depth comes from the Back pill. «Пульс» (`docs/site-v2/PULSE.md`) is a
+web tab in the capsule, not a section: site-only like the sections, but its block sits on topic
+pages and on the review archive's hub and category pages (not on the rating, DECISIONS Q11).
 
 The web-only sections themselves follow the app's Clarity screens (`docs/site-v2/spec/
 10-web-only-sections-clarity.md`; reviews and MCP are built only from Clarity blocks; the rating
@@ -276,7 +285,7 @@ ink on `--ia-soft`; ★ is a text glyph; no status colours and no new tokens. Ea
 stretches over the card (one tab stop per row; shot strips are sibling links above it). Nothing
 under `/rating/**` reads the viewer: no lock card, Plus UI or price.
 
-Tab catalogs (research, ideas; not the web-only sections): 1 column < 760px, 2 columns ≥ 760px,
+Tab catalogs (research, Pulse, ideas; not the web-only sections): 1 column < 760px, 2 columns ≥ 760px,
 3 columns ≥ 1280px (max 1200px). Articles: 640px reading column; TOC as a sheet on mobile and a
 sticky sidebar ≥ 1200px. Default theme light. Icons: `lucide-react`. Fonts: Georgia stack for
 reading (fallback `"PT Serif", "Noto Serif", serif`; Japanese `"Hiragino Mincho ProN", "Yu Mincho",

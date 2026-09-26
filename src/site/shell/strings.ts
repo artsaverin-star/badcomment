@@ -8,6 +8,7 @@ import { defineStrings } from "../i18n/strings";
 
 export const shellStrings = defineStrings({
   ru: {
+    pulse: "Пульс",
     signIn: "Войти",
     signOut: "Выйти",
     signOutFailed: "Не получилось выйти. Попробуй ещё раз.",
@@ -32,6 +33,7 @@ export const shellStrings = defineStrings({
     menu: "Меню",
   },
   en: {
+    pulse: "Pulse",
     signIn: "Sign in",
     signOut: "Sign out",
     signOutFailed: "Couldn’t sign out. Try again.",
@@ -56,6 +58,7 @@ export const shellStrings = defineStrings({
     menu: "Menu",
   },
   de: {
+    pulse: "Puls",
     signIn: "Anmelden",
     signOut: "Abmelden",
     signOutFailed: "Abmelden hat nicht geklappt. Versuch es noch einmal.",
@@ -80,6 +83,7 @@ export const shellStrings = defineStrings({
     menu: "Menü",
   },
   fr: {
+    pulse: "Pouls",
     signIn: "Se connecter",
     signOut: "Se déconnecter",
     signOutFailed: "Impossible de se déconnecter. Réessaie.",
@@ -104,6 +108,7 @@ export const shellStrings = defineStrings({
     menu: "Menu",
   },
   ja: {
+    pulse: "パルス",
     signIn: "ログイン",
     signOut: "ログアウト",
     signOutFailed: "ログアウトできませんでした。もう一度お試しください。",

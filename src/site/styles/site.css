@@ -1798,6 +1798,40 @@
       0 4px 20px rgb(0 0 0 / 0.06),
       inset 0 0 0 var(--ia-hairline) var(--ia-line-70);
   }
+  /* Pills keep their labels on one line (fr «Se connecter» wrapped inside the 44 px pill). */
+  .ia-topnav__end > * {
+    flex-shrink: 0;
+  }
+  .ia-topnav .ia-account-btn {
+    white-space: nowrap;
+  }
+  /* Four tabs (Разборы · Пульс · Идеи · Сохранённое) leave the right column too narrow for the
+     App Store badge, language and fr «Se connecter» (≈ 317 px) below 1280 (measured): tighter
+     bar padding, gaps and tab items up to 1279, and no top-bar badge below 1180 (fr needs it
+     from ≈ 1140, de from ≈ 1060; the footer keeps its badge). */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .ia-topnav {
+      padding-inline: 16px;
+    }
+    .ia-topnav__inner {
+      gap: 8px;
+    }
+    .ia-topnav__end {
+      gap: 6px;
+    }
+    .ia-topnav .ia-tab {
+      padding-inline: 9px;
+    }
+    .ia-topnav .ia-tab[aria-current="page"],
+    .ia-topnav .ia-tab[data-active] {
+      padding-inline: 12px;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1179px) {
+    .ia-topnav__end > .ia-appstore-badge {
+      display: none;
+    }
+  }
 
   /* Mobile compact header (< 1024) */
   .ia-mobile-header {

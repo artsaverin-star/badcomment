@@ -7,8 +7,9 @@ import { MobileMenu, SectionLinks, SectionsMenu } from "./SectionNav";
 import { TabCapsule } from "./TabBar";
 
 // Desktop (≥ 1024) sticky top bar (spec 05 §3.6 I, ARCHITECTURE §7): logo «inApp» and the
-// web-only sections (./SectionNav.tsx) · the three tabs with labels · App Store badge,
-// language, account. Transparent at the top of the page; frosted paper once the page scrolls.
+// web-only sections (./SectionNav.tsx) · the four tabs with labels (Разборы · Пульс · Идеи ·
+// Сохранённое) · App Store badge (hidden below 1180, site.css), language, account. Transparent
+// at the top of the page; frosted paper once the page scrolls.
 
 function subscribeScroll(onChange: () => void) {
   window.addEventListener("scroll", onChange, { passive: true });

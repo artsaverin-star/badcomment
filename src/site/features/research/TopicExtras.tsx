@@ -5,8 +5,9 @@ import { researchStrings } from "./strings";
 
 // The end of every topic page, readable or locked. The page is a copy of the app's article
 // (owner, 2026-09-23: the «Приложения в этой теме» block with other apps was removed); the
-// web adds only the promo of our own iOS app and a quiet link to the previous version of the
-// breakdown on the old site.
+// web adds the promo of our own iOS app and a quiet link to the previous version of the
+// breakdown on the old site. «Пульс категории» is no longer here: it sits right under the hero
+// (owner, 2026-09-25), see CategoryPulse and the topic page.
 
 export function TopicExtras({ locale, slug }: { locale: Locale; slug: string }) {
   const s = researchStrings[locale];

@@ -44,6 +44,7 @@ export const OLD_SEGMENT = "old";
 
 /** First segments after the locale that always belong to the new site (besides "", segment*, ideas*). */
 export const NEW_TOP_STATIC: ReadonlySet<string> = new Set([
+  "pulse",
   "saved",
   "settings",
   "plus",
