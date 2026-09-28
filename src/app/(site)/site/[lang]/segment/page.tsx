@@ -25,8 +25,8 @@ import { Card, Heading } from "@/site/ui";
 
 // Tab «Разборы» (spec 01 §3–§4, spec 04 §5.2): the 35 launch topics in LaunchEdition order,
 // server-side search over ?q= with the app's rules (locked bodies may match; only catalogue
-// fields are rendered), then the old site's other topics («Скоро в новом формате») and an
-// App Store promo.
+// fields are rendered), then the other topics, linked to their app ratings («Скоро в новом
+// формате»), and an App Store promo.
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -179,15 +179,10 @@ export default async function ResearchCatalogPage({ params, searchParams }: Prop
             <ul className="ia-rs-soon__list">
               {soon.map((topic) => (
                 <li key={topic.slug}>
-                  {/* Old page in place (another root layout): a plain link. */}
-                  <a
-                    className="ia-rs-soon__link"
-                    href={topic.href}
-                    lang={topic.lang === lang ? undefined : topic.lang}
-                    hrefLang={topic.lang}
-                  >
+                  {/* The topic's app rating (a site page). */}
+                  <Link className="ia-rs-soon__link" href={topic.href} lang={topic.lang === lang ? undefined : topic.lang}>
                     {topic.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

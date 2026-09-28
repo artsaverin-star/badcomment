@@ -264,11 +264,9 @@ renders the same in the old layout, which loads neither `site.css` nor the Onest
   «Все N потребностей →» to the unfiltered feed; `id="pulse-top"`). All five locales (the
   archive's data is ru/en; the block speaks the page locale). No block on the rating pages
   (DECISIONS «Clarity redesign», Q11).
-- The old site (`src/components/LegacyPulseLink.tsx`, the same component with plain `<a>` links):
-  old topic pages served in place and `NicheDossier` (that category's needs; nothing without
-  needs), right under each page's header. Links leave the old site via `publicHref` with
-  `old-links: allow`, as `scripts/check-old-links.mjs` requires. The archived old copies of the
-  review pages (`/<ru|en>/old/reviews/**`, typed-in only) carry no block.
+- The need page's «Разбор категории» goes to the topic's breakdown (35 launch topics); for the
+  other categories it reads «Рейтинг приложений категории» and goes to `/<L>/rating/<slug>`
+  (the old site and its bridge `LegacyPulseLink` were retired on 2026-09-27).
 - Tab bar, top bar, footer, the research catalogue link, and the sitemap (feed + every need, all
   five locales).
 

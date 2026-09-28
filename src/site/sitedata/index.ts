@@ -1,108 +1,40 @@
-// Server-only adapters from the NEW site to the OLD site's data (ARCHITECTURE §2 sitedata,
-// DECISIONS §3–§4). Read-only reuse of src/lib/** loaders and src/data/**; everything returned
-// here is public store/catalogue data (no review text, nothing gated).
+// Server-only adapters from the site to data it shares with the retired old site (ARCHITECTURE
+// §2 sitedata). Read-only; everything returned here is public catalogue data.
 //
-//   getTopicApps(L, slug)   «Приложения в этой теме»: the App Store market players of a topic
-//   getSoonTopics(L)        the old site's other topics («Скоро в новом формате»)
-//   oldTopicHref(L, slug)   «Прежняя версия разбора» → /<ru|en>/old/segment/<slug>
-//   reviewsHubHref(L, slug) «Все отзывы по теме»     → /<L>/reviews/<slug> (new site since 2026-09-24)
+//   getSoonTopics(L)   «Скоро в новом формате»: the topics without a breakdown yet, each linked
+//                      to its app rating (/<L>/rating/<slug>)
 //
-// Old pages speak ru/en only: de/fr/ja get English names and /en/… links (toOldLocale).
-// Links to old pages cross the root layout — render them as plain <a>, never next/link.
+// The old site's pages are gone (2026-09-27); its topics outside the launch edition keep their
+// rating, which is where their old URLs redirect too (src/site/routing/decide.ts).
 
 import "server-only";
 
 import active from "@/data/active-categories.json";
-import { marketPlayerRows, type MarketSnapshot } from "@/lib/marketPlayers";
-import { marketPlayersFor } from "@/lib/marketPlayers.server";
-import { toOldLocale, type Locale } from "../i18n/locales";
+import type { Locale } from "../i18n/locales";
 import { isLaunchCategory } from "../manifest.generated";
 import { routes } from "../routing";
-import snapshotJson from "./old-site.snapshot.json";
-import type { OldSiteSnapshot, SoonTopic, TopicApp, TopicApps } from "./types";
+import { hasRatingNiche, ratingNicheName } from "./rating";
+import type { SoonTopic } from "./types";
 
-export type { OldSiteSnapshot, SoonTopic, TopicApp, TopicApps } from "./types";
+export type { SoonTopic } from "./types";
 
-const snapshot = snapshotJson as OldSiteSnapshot;
-const topicPages: ReadonlySet<string> = new Set(snapshot.topicPages);
-const reviewHubs: ReadonlySet<string> = new Set(snapshot.reviewHubs);
-const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-
-const oldPrefix = (l: Locale) => `/${toOldLocale(l)}`;
-
-/** Old topic page in its previous version (/<ru|en>/old/segment/<slug>), or null. */
-export function oldTopicHref(l: Locale, slug: string): string | null {
-  return topicPages.has(slug) ? routes.oldSite(l, `/segment/${slug}`) : null;
-}
-
-/** The review archive of a topic (/<L>/reviews/<slug>, a new-site page), or null. */
-export function reviewsHubHref(l: Locale, slug: string): string | null {
-  return reviewHubs.has(slug) ? routes.reviewsNiche(l, slug) : null;
-}
-
-/** True when links to old pages lead to another language than the page (de/fr/ja → English). */
-export function oldLinksInEnglish(l: Locale): boolean {
-  return toOldLocale(l) !== l;
-}
-
-const appsCache = new Map<string, TopicApps | null>();
+const soonCache = new Map<Locale, SoonTopic[]>();
 
 /**
- * «Приложения в этой теме»: the apps App Store returns for the topic's broad query
- * ("habit tracker", …), most ratings first — the old site's «Лидеры ниши» view
- * (src/components/MarketPlayersList.tsx, mode "leaders"). Null when the old site has no
- * snapshot for the topic.
- */
-export function getTopicApps(l: Locale, slug: string): TopicApps | null {
-  if (!SAFE_SLUG.test(slug)) return null;
-  const key = `${toOldLocale(l)}:${slug}`;
-  if (appsCache.has(key)) return appsCache.get(key) ?? null;
-
-  let data: MarketSnapshot | null = null;
-  try {
-    data = marketPlayersFor(slug);
-  } catch (error) {
-    console.error(`[sitedata] market players for ${slug}:`, error);
-  }
-  let result: TopicApps | null = null;
-  if (data) {
-    const links = snapshot.apps[slug] ?? {};
-    const prefix = oldPrefix(l);
-    const apps: TopicApp[] = marketPlayerRows(data, "leaders", data.leaderTerm).map(({ app }) => {
-      const link = links[app.appStoreId];
-      return {
-        appStoreId: app.appStoreId,
-        name: app.name,
-        developer: app.developer,
-        iconUrl: app.iconUrl,
-        averageRating: app.averageRating,
-        ratingCount: app.ratingCount,
-        storeUrl: `https://apps.apple.com/${data.store}/app/id${app.appStoreId}`,
-        pageHref: link?.page ? `${prefix}/${link.page}` : null,
-        reviewsHref: link?.reviews ? routes.reviewsApp(l, slug, app.appStoreId) : null,
-      };
-    });
-    result = apps.length ? { store: data.store, collectedAt: data.collectedAt, term: data.leaderTerm, apps } : null;
-  }
-  appsCache.set(key, result);
-  return result;
-}
-
-const soonCache = new Map<string, SoonTopic[]>();
-
-/**
- * The old site's active topics that are not in the app's launch edition and still have an
- * old topic page (served in place with the «Скоро обновление» banner), sorted by name.
+ * The active topics that are not in the app's launch edition and have an app rating, sorted by
+ * their displayed name (the rating's topic name: ru in Russian, English elsewhere).
  */
 export function getSoonTopics(l: Locale): SoonTopic[] {
-  const lang = toOldLocale(l);
-  const hit = soonCache.get(lang);
+  const hit = soonCache.get(l);
   if (hit) return hit;
-  const collator = new Intl.Collator(lang, { sensitivity: "base", numeric: true });
+  const collator = new Intl.Collator(l, { sensitivity: "base", numeric: true });
   const list = (active as string[])
-    .filter((slug) => !isLaunchCategory(slug) && topicPages.has(slug) && snapshot.topics[slug])
-    .map((slug) => ({ slug, name: snapshot.topics[slug][lang], href: `/${lang}/segment/${slug}`, lang }))
+    .filter((slug) => !isLaunchCategory(slug) && hasRatingNiche(slug))
+    .flatMap((slug) => {
+      const name = ratingNicheName(l, slug);
+      return name ? [{ slug, name: name.name, href: routes.ratingNiche(l, slug), lang: name.nameLang }] : [];
+    })
     .sort((a, b) => collator.compare(a.name, b.name));
-  soonCache.set(lang, list);
+  soonCache.set(l, list);
   return list;
 }

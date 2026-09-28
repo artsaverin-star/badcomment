@@ -12,7 +12,8 @@ import { PulseRows } from "@/site/features/pulse/PulseRows";
 import { categoryNeeds, countsFacts, needText, painAria, resolvePulseRoute, sharePercent, verifiedPhrase } from "@/site/features/pulse/query";
 import { pulseStrings } from "@/site/features/pulse/strings";
 import { format } from "@/site/i18n/translate";
-import { clampDescription, localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
+import { breadcrumbList, clampDescription, jsonLd, localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
+import { SITE_URL } from "@/site/config";
 import { BackButton, DetailToolbar } from "@/site/ui";
 import "@/site/features/pulse/pulse-kit.css";
 import "@/site/features/pulse/pulse.css";
@@ -72,8 +73,37 @@ export default async function PulseNeedPage({ params }: Props) {
     signInHref: viewer.loggedIn ? null : routes.login(lang, { returnTo: routes.pulseNeed(lang, need.id) }),
   };
 
+  const canonical = `${SITE_URL}${routes.pulseNeed(lang, need.id)}`;
+  const feed = `${SITE_URL}${routes.pulse(lang)}`;
   return (
     <div className="ia-pulse-page" data-pulse="detail">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": canonical,
+                url: canonical,
+                name: needText(need.title, lang),
+                description: needText(need.summary, lang),
+                inLanguage: lang,
+                about: { "@type": "Thing", name: categoryName },
+                isPartOf: [{ "@id": feed }, { "@id": `${SITE_URL}/#website` }],
+                publisher: { "@id": `${SITE_URL}/#org` },
+                breadcrumb: { "@id": `${canonical}#breadcrumb` },
+              },
+              breadcrumbList(`${canonical}#breadcrumb`, [
+                ["inApp", `${SITE_URL}/${lang}`],
+                [s.title, feed],
+                [needText(need.title, lang), canonical],
+              ]),
+            ],
+          }),
+        }}
+      />
       <DetailToolbar leading={<BackButton label={t("Назад")} fallbackHref={routes.pulse(lang, { category: need.categoryId })} />} />
       <article className="ia-page ia-page--reading ia-pulse-detail" aria-labelledby="pulse-need-title">
         <header className="ia-pulse-panel ia-pulse-detail__head">
@@ -91,15 +121,9 @@ export default async function PulseNeedPage({ params }: Props) {
           <PulseFacts facts={numbers} className="ia-pulse-detail__numbers" />
           <p className="ia-pulse-detail__summary">{needText(need.summary, lang)}</p>
           {breakdown ? (
-            breakdown.oldSite ? (
-              <a className="ia-pulse-detail__research" href={breakdown.href}>
-                {s.research} <span aria-hidden="true">→</span>
-              </a>
-            ) : (
-              <Link className="ia-pulse-detail__research" href={breakdown.href}>
-                {s.research} <span aria-hidden="true">→</span>
-              </Link>
-            )
+            <Link className="ia-pulse-detail__research" href={breakdown.href}>
+              {breakdown.kind === "rating" ? s.categoryRating : s.research} <span aria-hidden="true">→</span>
+            </Link>
           ) : null}
         </header>
         <PulseBreakdown need={need} params={data.source.score} locale={lang} strings={s} />

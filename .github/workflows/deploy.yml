@@ -44,11 +44,8 @@ jobs:
       - run: npx prisma generate
       - run: npx tsc --noEmit
       - run: npm run lint
-      # Old-site navigation must stay under /<L>/old (docs/site-v2/ARCHITECTURE.md §5.2).
-      - run: node scripts/check-old-links.mjs
       - run: npm run test:mcp
       - run: npm run test:monetization
-      - run: npm run test:market-players
       # Site v2: public URL routing (src/site/routing/decide.ts) and the generated app content.
       - run: npm run test:v2-routing
       # Sign-in return_to validation (src/lib/safeReturn.ts; open-redirect guard).
@@ -149,9 +146,7 @@ jobs:
       - name: Smoke-test production
         run: |
           set -euo pipefail
-          # Site v2 routing (docs/site-v2/ARCHITECTURE.md §1, §5.4): /<L>/mcp is a new-site page
-          # since 2026-09-24 (it still lists every server tool); /<L>/tokens is an old page the new
-          # site does not own, so the proxy still serves it IN PLACE.
+          # Site routing (docs/site-v2/ARCHITECTURE.md §1, §5.4): /<L>/mcp lists every server tool.
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
             -o /tmp/mcp-page.html https://inapp.pro/ru/mcp
           grep -q 'list_niche_themes' /tmp/mcp-page.html
@@ -165,10 +160,11 @@ jobs:
             https://inapp.pro/api/mcp)"
           test "${status}" = "401"
           grep -q 'authorization_required' /tmp/mcp-smoke.json
+          # The web price lives on the paywall page (ru only).
           curl -fsS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
-            -o /tmp/access-page.html https://inapp.pro/ru/tokens
+            -o /tmp/access-page.html https://inapp.pro/ru/plus
           grep -q '1499' /tmp/access-page.html
-          # Retired experiments must stay unavailable in both locales, in place and inside /old.
+          # Retired experiments must stay unavailable in both locales, also behind the retired /old.
           for locale in ru en; do
             for path in aso workspace workspace/habit-tracking; do
               for prefix in "$locale" "$locale/old"; do
@@ -182,25 +178,27 @@ jobs:
             -o /tmp/pay-status.json -w '%{http_code}' \
             'https://inapp.pro/api/pay/status?checkout=00000000-0000-0000-0000-000000000000')"
           test "${pay_status}" = "401"
-          # The old site's market-player block must still render on topics served in place
-          # (ai-avatars-headshots, cosmetics-ingredient-checker are not launch topics).
-          # Launch topics are NEW pages, a copy of the app's article (no apps block since
-          # 2026-09-23): they must answer 200 without the old block.
+          # The old site is retired (2026-09-27): its URLs answer 301 with the closest live page
+          # (src/site/routing/decide.ts legacyTarget); launch topics are site pages.
+          expect_301() {
+            read -r code location < <(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+              -o /dev/null -w '%{http_code} %{redirect_url}\n' "$1")
+            if [ "$code" != "301" ] || [ "$location" != "$2" ]; then echo "Expected 301 $1 → $2, got $code $location"; exit 1; fi
+          }
+          expect_301 https://inapp.pro/ru/segment/sobriety https://inapp.pro/ru/rating/sobriety
+          expect_301 https://inapp.pro/en/tinder https://inapp.pro/en/rating/dating-apps/tinder-dating-app-date-chat
+          expect_301 https://inapp.pro/ru/tokens https://inapp.pro/ru/plus
+          expect_301 https://inapp.pro/ru/most-wanted https://inapp.pro/ru/pulse
+          expect_301 https://inapp.pro/ru/old https://inapp.pro/ru
+          expect_301 https://inapp.pro/ru/old/segment/habit-tracking https://inapp.pro/ru/segment/habit-tracking
           for locale in ru en; do
-            for niche in ai-avatars-headshots cosmetics-ingredient-checker; do
-              curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
-                -o /tmp/market-players.html "https://inapp.pro/$locale/segment/$niche"
-              grep -q 'id="main-players"' /tmp/market-players.html
-              grep -q '/badges/app-store.svg' /tmp/market-players.html
-            done
             for niche in language-learning workout-fitness habit-tracking; do
               curl -fsS --retry 3 --retry-all-errors --retry-delay 3 --max-time 30 \
                 -o /tmp/topic.html "https://inapp.pro/$locale/segment/$niche"
               ! grep -q 'id="main-players"' /tmp/topic.html
             done
           done
-          # The home entry redirects to the catalog; content pages answer directly, and the
-          # previous site stays reachable, noindexed, under /<L>/old with its banner.
+          # The home entry redirects to the catalog; content pages answer directly.
           expect_200() {
             code="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
               -D /tmp/smoke-headers.txt -o /tmp/smoke-body.html -w '%{http_code}' "$1")"
@@ -220,11 +218,6 @@ jobs:
           grep -q 'Terms of Use' /tmp/smoke-body.html
           if grep -qE '990|1499|1 499' /tmp/smoke-body.html; then echo "/en/offer mentions a web price"; exit 1; fi
           expect_200 https://inapp.pro/ru/segment/interior-design
-          expect_200 https://inapp.pro/ru/old
-          grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt
-          grep -q 'data-old-site-banner="old"' /tmp/smoke-body.html
-          expect_200 https://inapp.pro/ru/old/segment/habit-tracking
-          grep -qi '^x-robots-tag:.*noindex' /tmp/smoke-headers.txt
           # The web-only sections moved to the new site (rating, review archive, MCP) in the Clarity
           # design (docs/site-v2/DECISIONS.md «Web-only sections»): indexable, in every locale.
           # Markers are ids of server-rendered lists, not styling classes (quotes and the research
@@ -268,6 +261,18 @@ jobs:
           expect_200 https://inapp.pro/robots.txt
           grep -q 'sitemap-rating-ru.xml' /tmp/smoke-body.html
           grep -q 'sitemap-rating-en.xml' /tmp/smoke-body.html
+          grep -q '^User-agent: Claude-SearchBot' /tmp/smoke-body.html
+          grep -q '^User-agent: YandexAdditional' /tmp/smoke-body.html
+          grep -q '^Clean-param: utm_source' /tmp/smoke-body.html
+          # Language models: the map and the full public content (no retired old-site links).
+          expect_200 https://inapp.pro/llms.txt
+          grep -q '/en/rating/dating-apps' /tmp/smoke-body.html
+          grep -q '/en/pulse' /tmp/smoke-body.html
+          expect_200 https://inapp.pro/llms-full.ru.txt
+          grep -q '/ru/rating/' /tmp/smoke-body.html
+          # The sitemap lists no retired old-site URL.
+          expect_200 https://inapp.pro/sitemap.xml
+          if grep -qE 'inapp\.pro/(ru|en)/(most-wanted|cards|apps|build|tokens|old)[<"/]' /tmp/smoke-body.html; then echo "retired URL in the sitemap"; exit 1; fi
           expect_200 https://inapp.pro/en/reviews/dating-apps
           grep -q 'id="review-apps"' /tmp/smoke-body.html
           expect_200 https://inapp.pro/de/mcp

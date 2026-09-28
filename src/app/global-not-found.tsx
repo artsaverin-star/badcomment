@@ -10,12 +10,12 @@ import { ClarityArt } from "@/site/ui/EmptyState";
 import { AppMark, ArrowRightIcon, SearchIcon } from "@/site/ui/icons";
 
 // The 404 for URLs that match no route at all (experimental.globalNotFound in next.config.ts).
-// The app has two root layouts — the old site's src/app/(old)/layout.tsx and the new site's
-// src/app/(site)/site/[lang]/layout.tsx — so there is no single layout to compose a 404 from:
-// Next renders this file as the whole document instead. Typical visitors: multi-segment old
-// URLs that no longer exist (/ru/foo/bar/baz, /ru/old/x/y/z; the proxy rewrote them to an old
-// internal path) and paths the proxy never sees (/foo.php). notFound() inside a page still
-// renders that page's own not-found boundary (the new site: [lang]/not-found.tsx).
+// The app has two root layouts — the site's src/app/(site)/site/[lang]/layout.tsx and the
+// owner's admin (src/app/(admin)/layout.tsx) — so there is no single layout to compose a 404
+// from: Next renders this file as the whole document instead. Typical visitors: paths the proxy
+// never sees (/foo.php) and internal paths no page owns. notFound() inside a page still renders
+// that page's own not-found boundary (the site: [lang]/not-found.tsx; URLs under /<L>/ that
+// match nothing reach the site's [...missing] catch-all).
 //
 // New design (the --ia-* tokens and components of src/site/styles/site.css), localized:
 // the URL's locale from the proxy (x-ia-public-path), else the `locale` cookie, else

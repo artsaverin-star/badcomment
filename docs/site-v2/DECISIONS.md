@@ -13,7 +13,7 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
    the web may. New topic pages add blocks the app does not have: apps in the topic with icons,
    ratings and store links, market players, review counts, links to per-app pages. Data comes
    from the existing site data (`src/data/**`, `src/lib/**` loaders).
-4. **The other 37 topics are not rewritten now.** Their URLs keep serving the *previous* version
+4. *(Superseded 2026-09-27: «Old site retired».)* **The other 37 topics are not rewritten now.** Their URLs keep serving the *previous* version
    of the analysis with a banner «Скоро обновление · пока прежняя версия разбора». The new
    research catalog lists them at the bottom as «Скоро в новом формате».
 
@@ -23,19 +23,51 @@ Binding for every implementer. Where a spec in `spec/` disagrees, this file wins
    `/<loc>/segment/<slug>` (35 topics), `/<loc>/ideas/<id>` (293 ideas, ids like
    `habit-tracking-1` — old site uses the same slug format), `/<loc>` (home), `/<loc>/ideas`,
    `/<loc>/saved`, `/<loc>/library` (payment return), `/<loc>/contacts`, `/<loc>/offer`.
-6. **The old version of any page lives at `/<loc>/old/<path>`** (e.g.
+6. *(Superseded 2026-09-27.)* **The old version of any page lives at `/<loc>/old/<path>`** (e.g.
    `/ru/old/segment/qr-scanner`). Old site locales are ru and en only.
-7. **Old-only routes keep serving at their original URL** (per-app pages `/<loc>/<app-slug>`,
+7. *(Superseded 2026-09-27: they answer 301 with the closest live page.)* **Old-only routes keep serving at their original URL** (per-app pages `/<loc>/<app-slug>`,
    `/reviews/**`, `/rating/**`, `/mcp`, `/tokens`, `/build/**`, …): nothing external may break
    (App Store support URL `/en/contacts`, the shipped iOS app links `/offer`, `/contacts`,
    `/reviews/<cat>/<appId>`, `/rating/<cat>`, `/segment/<slug>`; OAuth callbacks; YooKassa
    webhook; MCP; search engines).
-8. **Old site is hidden, not deleted.** No navigation links to it from the new site except: the
+8. *(Superseded 2026-09-27: deleted.)* **Old site is hidden, not deleted.** No navigation links to it from the new site except: the
    footer/settings link «Старая версия сайта», and «прежняя версия» links on pages that have one.
    Every old page shows a thin banner «Это прежняя версия сайта · Перейти на новую».
    Inside the old site, links to pages that have a NEW version stay in `/<loc>/old/...`; links to
    old-only pages (apps, reviews, rating, …) use their original public URL, where the same old page
    is served in place (AUDIT-PHASE-A A4 — keeps ~2 700 indexed pages linked to each other).
+
+## Old site retired (owner, 2026-09-27) — supersedes items 3 (per-app links), 4, 6, 7 and 8
+
+The owner: «удалим старую версию сайта и всё, что там есть, и настроим оптимизацию SEO, чтобы
+нейронки нас находили». Asked about the scope, the owner chose **everything old + redirects**:
+
+- `src/app/(old)/**` is deleted with every component, library, API route, data file and public
+  asset only it used (per-app pages, the 36 old topic breakdowns, /build, /best, /cards, /catalog,
+  /categories, /most-wanted, /apps, /ideas/top, non-launch ideas, /tokens, /premium, the
+  archive under `/<ru|en>/old`, market players, the old favourites/deck/idea-depth APIs). The
+  texts of the old breakdowns leave the site — accepted by the owner.
+- **Every old URL answers 301 with the closest live page** (`legacyTarget` in
+  `src/site/routing/decide.ts`, map in `src/site/routing/legacy.generated.ts` built by
+  `scripts/v2/build-legacy-redirects.ts`): per-app page → the app's card in the rating (else its
+  topic's rating, astrology → the rating); old topic and `/best/<topic>` → `/rating/<topic>`;
+  old idea / `/build/<topic>[/<idea>]` → the topic's breakdown (launch) or rating; `/cards`,
+  `/build`, `/ideas/top` → `/ideas`; `/most-wanted` → `/pulse`; `/apps`, `/best` → `/rating`;
+  `/catalog`, `/categories` → `/segment`; `/tokens`, `/premium` → `/plus`; `/<L>/old/<rest>` →
+  where `/<L>/<rest>` is now. de/fr/ja get their own locale (the targets exist in all five).
+- **The admin stays** (`/<L>/admin`, `/<L>/admin/posts`): its own root layout in
+  `src/app/(admin)`, noindex, internal `/admin` path.
+- «Скоро в новом формате» (the 36 topics without a breakdown) now links each topic to its app
+  rating; «Пульс» needs of those topics link «Рейтинг приложений категории». The footer and
+  Settings lose «Старая версия сайта».
+- SEO / AI discoverability shipped with it: robots.txt as one group welcoming the search and AI
+  crawlers by their current names (incl. `Claude-SearchBot`, `OAI-SearchBot`, `YandexAdditional`
+  — Алиса AI, `PerplexityBot`, `DuckAssistBot`, `Meta-WebIndexer`), `Clean-param` for tracking
+  parameters; the sitemap without retired URLs and with honest `lastmod`; `/llms.txt`,
+  `/llms-full.txt`, `/llms-full.ru.txt` rebuilt from PUBLIC site content only (rating, «Пульс»,
+  catalog cards, the free breakdown and ideas); `/feed.xml` from the site's topics and ratings;
+  JSON-LD on «Пульс» (feed and needs) and a richer Organization; IndexNow sends only what changed
+  (the retired URLs for two weeks after 2026-09-27).
 
 ## Web-only sections in the new design (owner, 2026-09-24)
 

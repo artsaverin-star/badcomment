@@ -4,11 +4,10 @@ import path from "node:path";
 import { getCatalog } from "@/site/content";
 import { CONTENT_ROOT } from "@/site/content/root";
 import type { PulseCategory, PulseDemand, PulseNeed } from "@/site/features/pulse/types";
-import { toOldLocale, type Locale } from "@/site/i18n/locales";
+import type { Locale } from "@/site/i18n/locales";
 import { isLaunchCategory } from "@/site/manifest.generated";
 import { routes } from "@/site/routing";
-import snapshotJson from "./old-site.snapshot.json";
-import type { OldSiteSnapshot } from "./types";
+import { hasRatingNiche } from "./rating";
 
 // «Пульс» data: content/v2/pulse-demand.json (schemaVersion 1), written only by
 // app_04_inapp/Tools/pulse-demand/build.py --site (Pulse is site-only; the app importer does not
@@ -82,18 +81,13 @@ export async function getPulseCategoryNames(locale: Locale, data: Pick<PulseDema
   return new Map(data.categories.map((c) => [c.id, product.get(c.id) || c.name[locale] || c.name.en || c.id]));
 }
 
-const oldTopicPages: ReadonlySet<string> = new Set((snapshotJson as OldSiteSnapshot).topicPages);
-const oldReviewHubs: ReadonlySet<string> = new Set((snapshotJson as OldSiteSnapshot).reviewHubs);
-
 /**
- * «Разбор категории»: the new topic page for the 35 launch categories (next/link), else the
- * previous analysis served in place at /<ru|en>/segment/<slug> (an old page: plain <a>), else
- * the review archive of the category (/<L>/reviews/<slug>, a new-site page since 2026-09-24:
- * next/link). Null when the site has nothing for it.
+ * Where a need's category continues: its breakdown for the 35 launch categories, else the
+ * category's app rating (/<L>/rating/<slug>; the old site's previous breakdowns are gone since
+ * 2026-09-27). Null when the site has neither.
  */
-export function pulseCategoryHref(locale: Locale, slug: string): { href: string; oldSite: boolean } | null {
-  if (isLaunchCategory(slug)) return { href: routes.topic(locale, slug), oldSite: false };
-  if (oldTopicPages.has(slug)) return { href: `/${toOldLocale(locale)}/segment/${slug}`, oldSite: true };
-  if (oldReviewHubs.has(slug)) return { href: routes.reviewsNiche(locale, slug), oldSite: false };
+export function pulseCategoryHref(locale: Locale, slug: string): { href: string; kind: "research" | "rating" } | null {
+  if (isLaunchCategory(slug)) return { href: routes.topic(locale, slug), kind: "research" };
+  if (hasRatingNiche(slug)) return { href: routes.ratingNiche(locale, slug), kind: "rating" };
   return null;
 }

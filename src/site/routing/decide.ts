@@ -7,23 +7,29 @@
 // Public URL map (summary; the table in ARCHITECTURE §1 is the source of truth):
 //   /                              307 → /<negotiated>/segment
 //   /<L>                           308 → /<L>/segment
-//   /<L>/segment[/<launch slug>]   NEW; other slugs → OLD in place (+ x-ia-soon), de/fr/ja → 307 /en/…
+//   /<L>/segment[/<launch slug>]   the research catalog / topic
 //   /<L>/segment/<launch slug>/v2  308 → /<L>/segment/<launch slug> (retired experiment URL)
 //   /<L>/research[/…], /<L>/search 308 → /<L>/segment[/…] (query kept)
-//   /<L>/ideas[/<launch id>]       NEW; other ids and /ideas/top → OLD in place
-//   /<L>/{saved,settings,plus,welcome,login,library,contacts,offer,privacy,site}/…  NEW
-//   /<L>/app-auth                  NEW, noindex (iOS app sign-in hand-off, docs/site-v2/APP-ACCOUNTS.md);
+//   /<L>/ideas[/<launch id>]       the ideas catalog / idea
+//   /<L>/{saved,settings,plus,welcome,login,library,contacts,offer,privacy,site}/…  site pages
+//   /<L>/app-auth                  noindex (iOS app sign-in hand-off, docs/site-v2/APP-ACCOUNTS.md);
 //                                  it and /<L>/login?app=1 get x-ia-app-flow: 1 (no analytics)
-//   /<L>/{rating,reviews,mcp}/…    NEW in all five locales (the web-only sections, moved 2026-09-24)
-//   /<L>/old[/<rest>]              OLD (internal /<rest>), noindex; de/fr/ja → 307 /en/old/…
-//   /old[/<rest>], /old/<ru|en>/…  307 → /<ru|en>/old/<rest>
-//   /<L>/<anything else>           OLD in place (internal /<rest>); de/fr/ja → 307 /en/<rest>
+//   /<L>/{pulse,rating,reviews,mcp}/…  site pages in all five locales
+//   /<L>/admin[/posts]             the owner's admin (internal /admin, its own root layout), noindex
+//   retired old site               301 → the closest page (legacyTarget below: old topics → their
+//                                  rating, per-app pages → the app's rating card, /tokens → /plus, …)
+//   /<L>/old[/<rest>], /old/…      301 → where /<L>/<rest> is now (the archive is gone)
+//   /<L>/<anything else>           the site's 404 (rewrite /site/<L>/<rest>, the [...missing] page)
 //   /<bare path>                   307 → /<negotiated>/<path>, or straight to where that URL
-//                                  redirects (one hop, e.g. /segment/<old topic> for de → /en/…)
-// The locale cookie: NEW pages write <L>; in-place OLD pages write ru/en unless the cookie
-// already holds de/fr/ja; /<L>/old/** and redirects never write it.
+//                                  redirects (one hop, e.g. /tokens → /<L>/plus)
+// The locale cookie: pages write <L>; redirects and 404s never write it.
 // `site` is owned by the new site so no public URL can reach the internal /site/<L>/… tree
-// through an old rewrite: /<L>/site/… and /<L>/old/site/… land on the new site's 404.
+// through another rewrite: /<L>/site/… lands on the site's 404.
+//
+// The old site (src/app/(old), a second design served at the same URLs and archived under
+// /<ru|en>/old) was retired on 2026-09-27 (owner: «удалим старую версию сайта и всё, что там
+// есть»). Its URLs stay answered with permanent redirects so their search traffic and links
+// carry over; nothing renders the old design any more.
 
 import { isLaunchCategory, isLaunchIdea } from "../manifest.generated";
 import {
@@ -32,17 +38,22 @@ import {
   LOCALE_COOKIE,
   LOCALE_COOKIE_MAX_AGE,
   negotiateLocale,
-  toOldLocale,
   type Locale,
-  type OldLocale,
 } from "../i18n/locales";
+import { LEGACY_APPS, LEGACY_RATING_TOPICS, LEGACY_TOPICS } from "./legacy.generated";
 
 /** Internal folder of the new site: src/app/(site)/site/[lang]/… */
 export const SITE_INTERNAL_PREFIX = "/site";
-/** Public segment of the old site: /<ru|en>/old/… */
+/** Public segment of the retired old-site archive (/<ru|en>/old/…): 301 to the live page. */
 export const OLD_SEGMENT = "old";
 
-/** First segments after the locale that always belong to the new site (besides "", segment*, ideas*). */
+/**
+ * Service pages outside the site's design, served at their internal path with their own root
+ * layout: the owner's admin (src/app/(admin)/admin). Never indexed.
+ */
+export const SERVICE_TOP: ReadonlySet<string> = new Set(["admin"]);
+
+/** First segments after the locale that always belong to the site (besides "", segment*, ideas*). */
 export const NEW_TOP_STATIC: ReadonlySet<string> = new Set([
   "pulse",
   "saved",
@@ -57,22 +68,13 @@ export const NEW_TOP_STATIC: ReadonlySet<string> = new Set([
   "site",
   // The iOS app's sign-in hand-off (mints a one-time code → inapp://auth?code=…); noindex.
   "app-auth",
-  // The web-only sections (NEW_SECTIONS below), every page under them.
+  // The web-only sections: the rating, the review archive, the MCP server page.
   "rating",
   "reviews",
   "mcp",
 ]);
 
-/**
- * Web-only sections the new site took over whole from the old one (owner, 2026-09-24): the
- * rating (/rating/<niche>/<app>), the review archive (/reviews/<niche>/<app id>, /methodology)
- * and the MCP server page (/mcp, /mcp/connect). Old code links them at their public URL, so
- * they open in the new design from anywhere (src/lib/oldHref.ts); the previous versions stay
- * in the archive under /<ru|en>/old/….
- */
-export const NEW_SECTIONS: ReadonlySet<string> = new Set(["rating", "reviews", "mcp"]);
-
-/** New-site pages that must never be indexed, whatever their own metadata says (e.g. a redirect). */
+/** Site pages that must never be indexed, whatever their own metadata says (e.g. a redirect). */
 const NEW_TOP_NOINDEX: ReadonlySet<string> = new Set(["app-auth"]);
 
 /**
@@ -86,14 +88,7 @@ function isAppFlow(first: string, search: string): boolean {
 }
 
 /** Request headers the proxy owns. Incoming copies are dropped before the proxy sets its own. */
-export const PROXY_REQUEST_HEADERS = [
-  "x-locale",
-  "x-ia-site",
-  "x-ia-public-path",
-  "x-ia-new-path",
-  "x-ia-soon",
-  "x-ia-app-flow",
-] as const;
+export const PROXY_REQUEST_HEADERS = ["x-locale", "x-ia-public-path", "x-ia-app-flow"] as const;
 
 export type RoutingInput = {
   /** URL pathname as received (no query). */
@@ -114,15 +109,16 @@ export type CookieToSet = {
 
 export type RedirectDecision = {
   type: "redirect";
-  status: 307 | 308;
+  /** 301: a retired old-site URL (permanent); 308: an alias; 307: depends on the visitor's locale. */
+  status: 301 | 307 | 308;
   /** Path + query, always starting with "/". */
   location: string;
 };
 
 export type RewriteDecision = {
   type: "rewrite";
-  /** new = the new site; old = /<L>/old/…; inplace = an old page at its original URL. */
-  site: "new" | "old" | "inplace";
+  /** site = a page of the site (or its 404); service = the admin, outside the site's design. */
+  site: "site" | "service";
   locale: Locale;
   /** Internal pathname to render. */
   pathname: string;
@@ -131,6 +127,8 @@ export type RewriteDecision = {
   requestHeaders: Record<string, string>;
   responseHeaders: Record<string, string>;
   cookies: CookieToSet[];
+  /** No page is known for the URL: the site's catch-all answers 404. */
+  missing?: true;
 };
 
 export type RoutingDecision = RedirectDecision | RewriteDecision;
@@ -145,34 +143,87 @@ function path(...parts: string[]): string {
   return clean.length ? `/${clean.join("/")}` : "/";
 }
 
-function redirect(status: 307 | 308, pathname: string, search: string): RedirectDecision {
+function redirect(status: 301 | 307 | 308, pathname: string, search: string): RedirectDecision {
   return { type: "redirect", status, location: pathname + search };
 }
 
+// ---------------------------------------------------------------------------------------------
+// The retired old site: every URL it served → the closest live page (301)
+// ---------------------------------------------------------------------------------------------
+
+/** An old topic's rating (/<L>/rating/<topic>), or the whole rating when the topic has none. */
+function topicRating(l: Locale, topic: string): string {
+  return LEGACY_RATING_TOPICS.has(topic) ? path(l, "rating", topic) : path(l, "rating");
+}
+
+/** The live page of an old topic: its breakdown (the 35 launch topics), else its rating. */
+function topicHome(l: Locale, topic: string): string {
+  return isLaunchCategory(topic) ? path(l, "segment", topic) : topicRating(l, topic);
+}
+
+/** The topic of an old idea id ("<topic>-<n>"), or null. */
+function ideaTopic(id: string): string | null {
+  const m = /^([a-z0-9]+(?:-[a-z0-9]+)*)-\d+$/.exec(id);
+  return m && LEGACY_TOPICS.has(m[1]) ? m[1] : null;
+}
+
+const hasOwn = (o: object, k: string) => Object.prototype.hasOwnProperty.call(o, k);
+
 /**
- * Public URL of the new-site page equivalent to an old internal path, or null.
- * `segs` are the old internal segments (e.g. ["segment", "habit-tracking"]).
+ * Public path of the live page that replaces a URL of the retired old site, or null when the
+ * URL was not an old-site page. `tail` = the segments after the locale. Launch topics, launch
+ * ideas and the site's own sections never get here (decideLocalized serves them first).
+ *
+ *   /segment/<old topic>[/v2]         → /rating/<topic> (all 37 have a rating; astrology → /rating)
+ *   /ideas/top                        → /ideas
+ *   /ideas/<old id>                   → the idea's topic: /segment/<launch topic> or its rating
+ *   /build                            → /ideas;  /build/<topic>[/<idea>] → the topic (as above)
+ *   /best                             → /rating; /best/<topic> → /rating/<topic>
+ *   /cards → /ideas · /most-wanted → /pulse · /apps → /rating · /catalog, /categories → /segment
+ *   /tokens, /premium                 → /plus
+ *   /<app slug>[/test]                → the app's card in the rating, else its topic's rating
  */
-export function newSiteEquivalent(l: Locale, segs: readonly string[]): string | null {
-  const [a = "", b, ...more] = segs;
-  // The moved sections keep their page tree: /rating/<niche>/<app>, /reviews/<niche>/<id>, /mcp/connect.
-  if (NEW_SECTIONS.has(a)) return segs.length <= 3 ? path(l, ...segs) : null;
-  if (more.length) return null;
-  if (a === "") return `/${l}`;
-  if (a === "segment" || a === "research") {
-    if (b === undefined) return `/${l}/segment`;
-    return isLaunchCategory(b) ? `/${l}/segment/${b}` : null;
+export function legacyTarget(l: Locale, tail: readonly string[]): string | null {
+  const [a = "", b, c] = tail;
+  const n = tail.length;
+  switch (a) {
+    case "segment":
+      if (b && !isLaunchCategory(b) && LEGACY_TOPICS.has(b) && (n === 2 || (n === 3 && c === "v2"))) return topicRating(l, b);
+      return null;
+    case "ideas":
+      if (n !== 2 || !b) return null;
+      if (b === "top") return path(l, "ideas");
+      return ideaTopic(b) ? topicHome(l, ideaTopic(b)!) : null;
+    case "build":
+      if (n === 1) return path(l, "ideas");
+      return b && LEGACY_TOPICS.has(b) && n <= 3 ? topicHome(l, b) : null;
+    case "best":
+      if (n === 1) return path(l, "rating");
+      return b && LEGACY_TOPICS.has(b) && n === 2 ? topicRating(l, b) : null;
+    case "cards":
+      return n === 1 ? path(l, "ideas") : null;
+    case "most-wanted":
+      return n === 1 ? path(l, "pulse") : null;
+    case "apps":
+      return n === 1 ? path(l, "rating") : null;
+    case "catalog":
+    case "categories":
+      return n === 1 ? path(l, "segment") : null;
+    case "tokens":
+    case "premium":
+      return n === 1 ? path(l, "plus") : null;
   }
-  if (a === "search") return b === undefined ? `/${l}/segment` : null;
-  if (a === "ideas") {
-    if (b === undefined) return `/${l}/ideas`;
-    return b !== "top" && isLaunchIdea(b) ? `/${l}/ideas/${b}` : null;
+  // The per-app landing pages (/<app slug>) and their experiment (/<app slug>/test).
+  if ((n === 1 || (n === 2 && b === "test")) && hasOwn(LEGACY_APPS, a)) {
+    const target = LEGACY_APPS[a];
+    return target ? path(l, "rating", ...target.split("/")) : path(l, "rating");
   }
-  if (a === "settings" && b === "about") return `/${l}/settings/about`;
-  if (a === "offer" && b === "payment") return `/${l}/offer/payment`;
-  if (a !== "site" && !NEW_TOP_NOINDEX.has(a) && NEW_TOP_STATIC.has(a) && b === undefined) return `/${l}/${a}`;
   return null;
 }
+
+// ---------------------------------------------------------------------------------------------
+// Decisions
+// ---------------------------------------------------------------------------------------------
 
 type Ctx = {
   pathname: string;
@@ -185,78 +236,53 @@ function localeCookie(ctx: Ctx, l: Locale): CookieToSet[] {
   return [{ name: LOCALE_COOKIE, value: l, path: "/", maxAge: LOCALE_COOKIE_MAX_AGE, sameSite: "lax" }];
 }
 
-/**
- * The cookie an in-place old page may write: ru/en like the old proxy did, but never over a
- * de/fr/ja choice. Those visitors only land on /en/<old page> because the old site has no
- * German/French/Japanese version (new topic pages link to per-app pages), and "/" must keep
- * sending them to their own locale.
- */
-function inPlaceCookie(ctx: Ctx, l: OldLocale): CookieToSet[] {
-  const c = ctx.cookieLocale;
-  if (isLocale(c) && !isOldLocale(c)) return [];
-  return localeCookie(ctx, l);
-}
-
-function rewriteNew(
+function rewriteSite(
   ctx: Ctx,
   l: Locale,
   tail: readonly string[],
-  opts: { setCookie?: boolean; noindex?: boolean; appFlow?: boolean } = {},
+  opts: { noindex?: boolean; appFlow?: boolean; missing?: boolean } = {},
 ): RewriteDecision {
-  const setCookie = opts.setCookie ?? true;
   return {
     type: "rewrite",
-    site: "new",
+    site: "site",
     locale: l,
     pathname: path(SITE_INTERNAL_PREFIX.slice(1), l, ...tail),
     search: ctx.search,
     requestHeaders: {
       "x-locale": l,
-      "x-ia-site": "new",
       "x-ia-public-path": ctx.pathname,
       ...(opts.appFlow ? { "x-ia-app-flow": "1" } : {}),
     },
     responseHeaders: opts.noindex ? { "X-Robots-Tag": "noindex, follow" } : {},
-    cookies: setCookie ? localeCookie(ctx, l) : [],
+    // A 404 does not change the visitor's language.
+    cookies: opts.missing ? [] : localeCookie(ctx, l),
+    ...(opts.missing ? { missing: true as const } : {}),
   };
 }
 
-function rewriteOld(ctx: Ctx, l: OldLocale, rest: readonly string[], site: "old" | "inplace", soon: boolean): RewriteDecision {
-  const requestHeaders: Record<string, string> = {
-    "x-locale": l,
-    "x-ia-site": site,
-    "x-ia-public-path": ctx.pathname,
-    "x-ia-new-path": newSiteEquivalent(l, rest) ?? `/${l}`,
-  };
-  if (soon) requestHeaders["x-ia-soon"] = "1";
+/** The admin: its internal path (/admin/…), its own root layout, never indexed or cached. */
+function rewriteService(ctx: Ctx, l: Locale, tail: readonly string[]): RewriteDecision {
   return {
     type: "rewrite",
-    site,
+    site: "service",
     locale: l,
-    pathname: path(...rest),
+    pathname: path(...tail),
     search: ctx.search,
-    requestHeaders,
-    // The archive is hidden from search engines; in-place pages keep their indexing.
-    responseHeaders: site === "old" ? { "X-Robots-Tag": "noindex, follow" } : {},
-    // /<L>/old/** never writes the cookie (it would overwrite a de/fr/ja choice made on the
-    // new site); in-place pages write ru/en like the old proxy did, except over de/fr/ja.
-    cookies: site === "inplace" ? inPlaceCookie(ctx, l) : [],
+    requestHeaders: { "x-locale": isOldLocale(l) ? l : "en", "x-ia-public-path": ctx.pathname },
+    responseHeaders: { "X-Robots-Tag": "noindex, nofollow" },
+    cookies: [],
   };
 }
 
-/** An old page served at its original URL; de/fr/ja have no old version → the English one. */
-function inPlace(ctx: Ctx, l: Locale, tail: readonly string[], soon = false): RoutingDecision {
-  if (!isOldLocale(l)) return redirect(307, path("en", ...tail), ctx.search);
-  return rewriteOld(ctx, l, tail, "inplace", soon);
-}
-
+/**
+ * /<L>/old[/<rest>] — the retired archive: 301 to where /<L>/<rest> is now (its redirect target,
+ * or the page itself). A URL with no page there stays a 404 instead of redirecting to one.
+ */
 function decideOldArchive(ctx: Ctx, l: Locale, rest: readonly string[]): RoutingDecision {
-  if (!isOldLocale(l)) return redirect(307, path("en", OLD_SEGMENT, ...rest), ctx.search);
-  // Never let the old rewrite expose the new site's internal tree: /ru/old/site/… → new 404.
-  if (rest[0] === SITE_INTERNAL_PREFIX.slice(1)) {
-    return rewriteNew(ctx, l, [OLD_SEGMENT, ...rest], { setCookie: false, noindex: true });
-  }
-  return rewriteOld(ctx, l, rest, "old", false);
+  const live = decideLocalized(ctx, l, rest);
+  if (live.type === "redirect") return { ...live, status: 301 };
+  if (live.missing || live.site === "service") return rewriteSite(ctx, l, [OLD_SEGMENT, ...rest], { missing: true });
+  return redirect(301, path(l, ...rest), ctx.search);
 }
 
 function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingDecision {
@@ -270,35 +296,35 @@ function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingD
   if (a === "search") return redirect(308, path(l, "segment"), ctx.search);
 
   if (a === "segment") {
-    // The old "/segment/<slug>/v2" experiment URL: its design became the topic page. A launch
-    // topic's v2 has no page on the new site, so it goes straight to the topic (other topics
-    // reach the old v2 stub in place, which redirects to the old topic page).
+    // The old "/segment/<slug>/v2" experiment URL: its design became the topic page.
     if (b !== undefined && tail.length === 3 && tail[2] === "v2" && isLaunchCategory(b)) {
       return redirect(308, path(l, "segment", b), ctx.search);
     }
-    if (b === undefined || isLaunchCategory(b)) return rewriteNew(ctx, l, tail);
-    // A topic that is not in the launch edition keeps its previous analysis in place.
-    return inPlace(ctx, l, tail, tail.length === 2);
+    if (b === undefined || isLaunchCategory(b)) return rewriteSite(ctx, l, tail);
   }
 
-  if (a === "ideas") {
-    if (b === undefined || (b !== "top" && isLaunchIdea(b))) return rewriteNew(ctx, l, tail);
-    return inPlace(ctx, l, tail);
-  }
+  if (a === "ideas" && (b === undefined || (b !== "top" && isLaunchIdea(b)))) return rewriteSite(ctx, l, tail);
+
+  // The internal folder's name is reserved: /<L>/site/… never has a page (the site's 404).
+  if (a === SITE_INTERNAL_PREFIX.slice(1)) return rewriteSite(ctx, l, tail, { missing: true });
 
   if (NEW_TOP_STATIC.has(a)) {
-    return rewriteNew(ctx, l, tail, { noindex: NEW_TOP_NOINDEX.has(a), appFlow: isAppFlow(a, ctx.search) });
+    return rewriteSite(ctx, l, tail, { noindex: NEW_TOP_NOINDEX.has(a), appFlow: isAppFlow(a, ctx.search) });
   }
 
-  return inPlace(ctx, l, tail);
+  if (SERVICE_TOP.has(a)) return rewriteService(ctx, l, tail);
+
+  const legacy = legacyTarget(l, tail);
+  if (legacy) return redirect(301, legacy, ctx.search);
+
+  // Nothing lives here: the site's catch-all ([...missing]) renders its 404 in the URL's locale.
+  return rewriteSite(ctx, l, tail, { missing: true });
 }
 
 /**
  * Locale of the global 404 (src/app/global-not-found.tsx) for a URL no route matched.
- * `publicPath` is x-ia-public-path from the proxy: its locale wins (spec 09 §2.2), except that
- * a de/fr/ja `locale` cookie beats "en" — the old site has no de/fr/ja pages, so those visitors
- * were redirected to /en/… before the path turned out not to exist. Requests the proxy never
- * sees (paths with a dot, /api/…) have no public path: negotiated like "/".
+ * `publicPath` is x-ia-public-path from the proxy: its locale wins (spec 09 §2.2). Requests the
+ * proxy never sees (paths with a dot, /api/…) have no public path: negotiated like "/".
  */
 export function notFoundLocale(input: {
   publicPath?: string | null;
@@ -306,10 +332,7 @@ export function notFoundLocale(input: {
   acceptLanguage?: string | null;
 }): Locale {
   const first = (input.publicPath ?? "").split("/").filter(Boolean)[0];
-  if (isLocale(first)) {
-    if (first === "en" && isLocale(input.cookie) && !isOldLocale(input.cookie)) return input.cookie;
-    return first;
-  }
+  if (isLocale(first)) return first;
   return negotiateLocale({ cookie: input.cookie, acceptLanguage: input.acceptLanguage });
 }
 
@@ -329,16 +352,17 @@ export function decideRoute(input: RoutingInput): RoutingDecision {
 
   const [first, second] = segs;
 
-  // Convenience entry points into the archive: /old, /old/<rest>, /old/<ru|en>/<rest>.
+  // The retired archive's convenience entry points: /old/<L>/<rest> (301, the locale is in the
+  // URL) and /old[/<rest>] (307, the locale is the visitor's), straight to the live page.
   if (first === OLD_SEGMENT) {
-    if (isOldLocale(second)) return redirect(307, path(second, OLD_SEGMENT, ...segs.slice(2)), ctx.search);
-    if (isLocale(second)) return redirect(307, path("en", OLD_SEGMENT, ...segs.slice(2)), ctx.search);
-    return redirect(307, path(toOldLocale(negotiated()), OLD_SEGMENT, ...segs.slice(1)), ctx.search);
+    if (isLocale(second)) return decideOldArchive(ctx, second, segs.slice(2));
+    const live = decideOldArchive(ctx, negotiated(), segs.slice(1));
+    return live.type === "redirect" ? { ...live, status: 307 } : live;
   }
 
   // Bare path: add the negotiated locale. When the localized URL would redirect again
-  // (/segment/<old topic> for de/fr/ja → /en/…, aliases, …) go to that final target in one
-  // hop. Always 307: the target depends on the visitor's cookie / Accept-Language.
+  // (a retired old-site URL, an alias, …) go to that final target in one hop. Always 307: the
+  // target depends on the visitor's cookie / Accept-Language.
   if (!isLocale(first)) {
     const l = negotiated();
     const next = decideLocalized(ctx, l, segs);

@@ -12,10 +12,9 @@ export {
   ArrowUpRight as ExternalIcon,
   // SF `text.book.closed` («Читать разбор категории», the Разборы tab): a closed book with text.
   BookText as ResearchIcon,
-  // Settings rows: «О материалах», «Знакомство…», old site, privacy, payment offer.
+  // Settings rows: «О материалах», «Знакомство…», privacy, payment offer.
   BookText as AboutIcon,
   Hand as PrivacyIcon,
-  History as OldSiteIcon,
   ScrollText as PaymentOfferIcon,
   SquarePlay as WelcomeIcon,
   Bookmark as BookmarkIcon,

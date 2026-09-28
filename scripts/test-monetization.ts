@@ -17,13 +17,7 @@ assert.match(webhook, /status: "succeeded", confirmedAt: new Date\(\)/, "Verifie
 assert.match(webhook, /payment\?\.status === "succeeded" \? "confirming"/, "Captured money must remain unconfirmed until access is durable");
 assert.match(webhook, /status: 500/, "Transient fulfilment failures must ask YooKassa to retry");
 
-const purchaseTracker = read("src/components/PurchaseTracker.tsx");
-const verified = purchaseTracker.indexOf('data.status === "succeeded"');
-const purchase = purchaseTracker.indexOf("trackPurchase(");
-assert.ok(verified >= 0 && purchase > verified, "Browser revenue must be emitted only after server confirmation");
-assert.doesNotMatch(purchaseTracker, /params\.get\("bought"\)/, "A return URL alone must not count as a purchase");
-
-// New site (site-v2): the payment-return tracker keeps the same guarantees.
+// The payment-return tracker (the only one since the old site's PurchaseTracker went, 2026-09-27).
 const v2Tracker = read("src/site/features/plus/CheckoutReturn.tsx");
 const v2Verified = v2Tracker.indexOf('data.status === "succeeded"');
 const v2Purchase = v2Tracker.indexOf("trackPurchase(");
@@ -43,11 +37,7 @@ assert.doesNotMatch(v2Paywall, /trackPurchase\(/, "The paywall must never count 
 const tracking = read("src/lib/track.ts");
 assert.doesNotMatch(tracking, /dataLayer\(\)\.push/, "Do not duplicate GA4 ecommerce with a second legacy Yandex payload");
 
-const layout = read("src/app/(old)/layout.tsx");
-assert.match(layout, /send_page_view\s*:\s*false/, "SPA page views must be owned by PageTracker");
-assert.match(layout, /defer:true/, "Yandex initial hit must not duplicate PageTracker");
-const googleLoader = layout.indexOf('<Script src="https://www.googletagmanager.com');
-assert.ok(layout.indexOf('id="ym-metrika"') < googleLoader, "Google loading must not block Yandex initialization");
-assert.ok(layout.indexOf('id="ga-gtag"') < googleLoader, "gtag must queue events before the remote library loads");
+// The root layout's analytics contract (send_page_view:false, defer:true, shims first) is checked
+// on the site's layout by scripts/v2/test-routing.ts.
 
 console.log("Monetization contract tests passed");

@@ -6,25 +6,26 @@ rating/reviews/MCP: `10-web-only-sections-clarity.md`; the rating since 2026-09-
 `11-rating-rich.md`, which supersedes spec 10's rating parts). Where a spec's URL
 proposal disagrees with this file (e.g. `/research`, `/old/<loc>`, `(new)/v2`), **this file wins**.
 
-Repo: git worktree `/Users/artsaverin/projects/badcomment-v2`, branch `site-v2`. Next.js **16.2.6**
+Repo: `/Users/artsaverin/projects/badcomment` (worktrees per task; `main` deploys). Next.js **16.2.6**
 (App Router, Turbopack) — it is NOT the Next.js you remember: read the relevant page in
 `node_modules/next/dist/docs/` before using an API. In particular: `params`/`searchParams` are
 Promises, `cookies()`/`headers()` are async, middleware is called **proxy** (`src/proxy.ts`).
 
 ## 1. Public URL map
 
-Locales of the new site: `ru, en, de, fr, ja` (display order in pickers exactly this).
-Old site locales: `ru, en` only.
+Locales: `ru, en, de, fr, ja` (display order in pickers exactly this). The old site (ru/en, its
+own design at the same URLs and under `/<L>/old`) was **retired on 2026-09-27** (DECISIONS «Old
+site retired»): its URLs answer 301 with the closest live page.
 
 | Public URL | Served by | Notes |
 |---|---|---|
 | `/` | proxy 307 → `/<negotiated>/segment` | negotiation: `locale` cookie → Accept-Language (exact, base, prefix) → `en` (spec 09 §2.2); query kept, one hop |
 | `/<L>` | proxy 308 → `/<L>/segment` | research catalog for every viewer; query kept |
-| `/<L>/segment` (`?q=`) | NEW research catalog (tab «Разборы») | 35 launch topics + bottom list «Скоро в новом формате» (the other 37 old topics, ru/en only, links to their URLs) |
-| `/<L>/segment/<slug>` | NEW if `slug ∈ LAUNCH_CATEGORIES`, else OLD in place (banner «Скоро обновление») | L ∈ de/fr/ja and not launch → 307 `/en/segment/<slug>` |
+| `/<L>/segment` (`?q=`) | NEW research catalog (tab «Разборы») | 35 launch topics + bottom list «Скоро в новом формате» (the other 36 topics with a rating, each linked to `/<L>/rating/<slug>`) |
+| `/<L>/segment/<slug>` | NEW if `slug ∈ LAUNCH_CATEGORIES` | an old topic → 301 `/<L>/rating/<slug>`; unknown → 404 |
 | `/<L>/research[/<slug>]`, `/<L>/search?q=` | proxy 308 → `/<L>/segment[/<slug>]`, `/<L>/segment?q=` | aliases |
 | `/<L>/ideas` (`?q=&category=`) | NEW ideas catalog (tab «Идеи») | |
-| `/<L>/ideas/<id>` | NEW if `id ∈ LAUNCH_IDEAS`, else OLD in place | `/<L>/ideas/top` → OLD |
+| `/<L>/ideas/<id>` | NEW if `id ∈ LAUNCH_IDEAS` | an old idea `<topic>-<n>` → 301 its topic (breakdown or rating); `/ideas/top` → 301 `/ideas` |
 | `/<L>/pulse` (`?category=&q=&page=`; retired `kind`, `view`, `scope`, `sort` are ignored) | NEW «Пульс» feed (tab «Пульс», `docs/site-v2/PULSE.md`) | indexable only without filters, page 1 |
 | `/<L>/pulse/<category>--<slug>` | NEW need page | unknown id → 404; retired prototype ids (with `:` or `insight`, also `/<L>/pulse/insight/<…>`) → 307 `/<L>/pulse?category=<cat>` (or `/<L>/pulse`) |
 | `/<L>/saved` (`?filter=&q=`) | NEW (tab «Сохранённое») | |
@@ -39,19 +40,20 @@ Old site locales: `ru, en` only.
 | `/<L>/rating/<niche>/tasks/<n>` | NEW «Выбор по задаче» (scenario page, 2026-09-25) | `n` = 1-based index into the niche's scenarios (`/^[1-9]\d{0,2}$/`, 404 when out of range or unreadable); public; indexable only when `isIndexableTask` holds (gap text, ≥ 3 rated apps, an audience name, a title that fits without clamping; spec 11 §6.1) and then listed in `/sitemap-rating-<ru\|en>.xml`, otherwise `noindex, follow`; the static `tasks` segment wins over `[app]` (no app slug is `tasks`, the slug index guards it); en/de/fr/ja exist only for the 35 launch topics |
 | `/<L>/reviews[/methodology \| /<niche>[/<app id>]]` | NEW (web-only section «Отзывы») | free sample `dating-apps`, the rest needs Plus (`viewer.canReadReviews`); data pages canonical ru/en, methodology in 5 locales |
 | `/<L>/mcp`, `/<L>/mcp/connect?o=` | NEW (web-only section «MCP») | 5 locales; `connect` = sign-in bridge of the MCP OAuth flow, noindex |
-| `/<L>/old` and `/<L>/old/<rest>` | OLD (internal `/<rest>`) | L ∉ ru/en → 307 `/en/old/<rest>`; response header `X-Robots-Tag: noindex, follow` |
-| `/old[/<rest>]`, `/old/<ru|en>/<rest>` | proxy 307 → `/<ru|en>/old/<rest>` | convenience |
-| `/<L>/<anything else>` | OLD in place (internal `/<rest>`): per-app pages `/<L>/<app-slug>`, `/tokens`, `/build/**`, `/cards`, `/catalog`, `/categories`, `/best/**`, `/apps`, `/most-wanted`, `/premium`, `/admin`, … | L ∉ ru/en → 307 `/en/<rest>` |
+| `/<L>/admin`, `/<L>/admin/posts` | the owner's admin: internal `/admin/…`, own root layout `src/app/(admin)` | `X-Robots-Tag: noindex, nofollow`; 404 for non-admins |
+| retired old-site URLs | proxy **301** → the closest live page (`legacyTarget`, decide.ts) | `/<L>/<app-slug>[/test]` → the app's rating card (else its topic's rating); `/best/<topic>` → `/rating/<topic>`; `/build[/<topic>[/<idea>]]` → `/ideas` or the topic; `/cards` → `/ideas`; `/most-wanted` → `/pulse`; `/apps`, `/best` → `/rating`; `/catalog`, `/categories` → `/segment`; `/tokens`, `/premium` → `/plus` |
+| `/<L>/old[/<rest>]`, `/old/<L>/<rest>` | proxy 301 → where `/<L>/<rest>` is now | a rest with no page stays a 404; bare `/old[/<rest>]` → 307 (negotiated locale) |
+| `/<L>/<anything else>` | the site's 404 (rewrite `/site/<L>/<rest>` → `[...missing]`) | no locale cookie |
 | `/<bare path>` (no locale) | proxy 307 → `/<negotiated>/<path>` (then re-evaluated) | |
 | `/api/**`, `/_next/**`, files with an extension, `/icon`, `/apple-icon`, `/opengraph-image`, `/sitemap.xml`, `/sitemap-rating-{ru,en}.xml`, `/robots.txt`, `/feed.xml`, `/llms*.txt`, `/.well-known/**` | untouched (proxy matcher excludes them) | |
 
-`NEW_TOP` (first segment after the locale owned by the new site): `"" | segment* | research | search
+`NEW_TOP` (first segment after the locale owned by the site): `"" | segment* | research | search
 | ideas* | pulse | saved | settings | plus | welcome | login | library | contacts | offer | privacy | site
-| app-auth | rating | reviews | mcp`
-(`*` = only when the slug/id is in the manifest; `site` is included so that a public request can
-never reach the new site's internal folder through the old rewrite — it simply 404s in the new
-layout). Never create a new top-level segment named `notes` (it is an old app slug) or any other
-key of `src/data/app-slugs.json`.
+| app-auth | rating | reviews | mcp`, plus `admin` (SERVICE_TOP)
+(`*` = only when the slug/id is in the manifest; `site` always 404s, so a public request never
+reaches the internal folder). Never create a new top-level segment named like a retired per-app
+page (the keys of `LEGACY_APPS` in `src/site/routing/legacy.generated.ts`, e.g. `notes`): it would
+shadow that page's 301.
 
 ## 2. Internal layout (files)
 
@@ -59,8 +61,10 @@ key of `src/data/app-slugs.json`.
 src/proxy.ts                         # routing above (owned by the SHELL agent)
 src/site/manifest.generated.ts       # LAUNCH_CATEGORIES (35, ordered), LAUNCH_IDEAS (293), FREE_*;
                                      #   isLaunchCategory/isLaunchIdea — tiny, imported by the proxy
-src/app/(old)/**                     # every old page, moved with `git mv` (URLs unchanged). Its
-                                     #   layout.tsx is the old root layout (old CSS, header, footer)
+src/app/(admin)/**                   # the owner's admin (internal /admin/…) with its own root layout
+                                     #   (the @saverin/tokens look it had in the retired old site)
+src/site/routing/legacy.generated.ts # where the retired old site's URLs lead (301 targets); built by
+                                     #   scripts/v2/build-legacy-redirects.ts, checked by test-routing
 src/app/(site)/site/[lang]/**        # NEW site pages. Internal path /site/<L>/...; the proxy rewrites
                                      #   public /<L>/... here. `[lang]/layout.tsx` is the NEW ROOT
                                      #   LAYOUT (<html lang>, <body>, tokens CSS, analytics)
@@ -74,8 +78,10 @@ src/app/api/site/**                  # NEW APIs for the new site (saved/notes sy
                                      #   total, items} — the «Пульс» feed's next page for its
                                      #   auto-loading, slim card fields only, empty past the end,
                                      #   400 on a bad locale/page, `max-age=300` + noindex; PULSE.md)
-src/app/{sitemap.ts,robots.ts,icon.tsx,apple-icon.tsx,opengraph-image.tsx,feed.xml,llms*.txt}
-                                     # stay at the root (shared)
+src/app/{sitemap.ts,robots.txt,icon.tsx,apple-icon.tsx,opengraph-image.tsx,feed.xml,llms*.txt}
+                                     # at the root; robots.txt, feed.xml and llms*.txt are route
+                                     #   handlers (robots needs Clean-param; llms is built from
+                                     #   PUBLIC content by src/site/sitedata/llms.ts)
 src/app/sitemap-rating-{ru,en}.xml/route.ts
                                      # the rating's image sitemaps (app + indexable task pages; spec 11
                                      #   §6.5), dotted folders like feed.xml so the proxy skips them;
@@ -142,18 +148,13 @@ Rules:
 
 ## 3. Proxy contract (headers the proxy sets)
 
-For requests it rewrites to OLD pages the proxy sets request headers (read by the old root layout):
-- `x-locale`: `ru|en` (existing contract of old code)
-- `x-ia-site`: `old` (under `/<L>/old/...`) or `inplace` (old page at its original URL)
-- `x-ia-public-path`: the public path that was requested
-- `x-ia-new-path`: public URL of the new-site equivalent if one exists, else `/<L>`
-- `x-ia-soon`: `1` when an in-place page is `/segment/<slug>` for a non-launch topic
-
-For NEW pages: rewrite to `/site/<L>/<rest>`; set the `locale` cookie (1 year) to `<L>`.
+Site pages: rewrite to `/site/<L>/<rest>`; request headers `x-locale: <L>` and
+`x-ia-public-path` (the requested public path; the global 404 reads its locale); the `locale`
+cookie (1 year) is set to `<L>` — except on a 404 (`missing`), which never changes it.
 `/<L>/app-auth` and `/<L>/login?app=1` (the iOS app's sign-in sheet) also get `x-ia-app-flow: 1`:
-the new root layout then loads no analytics libraries (APP-ACCOUNTS.md).
-Old in-place pages also set the `locale` cookie (ru/en). `/<L>/old/**` never writes the cookie.
-Responses under `/<L>/old/**` get `X-Robots-Tag: noindex, follow`.
+the root layout then loads no analytics libraries (APP-ACCOUNTS.md).
+The admin: rewrite to `/admin/…`, `x-locale` ru/en, `X-Robots-Tag: noindex, nofollow`, no cookie.
+Retired old-site URLs: 301 (query kept). Incoming copies of the proxy's headers are dropped.
 RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagates RSC headers).
 
 ## 4. Access, auth, payments, persistence
@@ -172,52 +173,22 @@ RSC/prefetch requests go through the same logic (`NextResponse.rewrite` propagat
   sign-in. Wording: guests «сохранено в этом браузере», signed-in «сохранено в аккаунте».
 - Theme cookie `ia_theme` = `light` (default) | `dark` | `system`.
 
-## 5. Changes to OLD code (the only allowed ones)
+## 5. The retired old site (2026-09-27)
 
-1. Done: `git mv` of old pages/layout/CSS into `src/app/(old)/`; `scripts/test-monetization.ts`
-   reads `src/app/(old)/layout.tsx`.
-2. Navigation links inside old code: `oldHref()` returns the public URL when that URL is served in place
-   (old-only route) and `/<L>/old/…` when the new site owns the public URL (AUDIT-PHASE-A A4). Exception
-   since 2026-09-24: the moved web-only sections (`NEW_SECTIONS` in `src/site/routing/decide.ts`:
-   `/rating/**`, `/reviews/**`, `/mcp/**`) are linked at their public URL from anywhere in old code, so
-   they always open in the new design; their old copies stay reachable only by typing `/<L>/old/…`. Originally: a helper `src/lib/oldHref.ts`
-   (`oldLp(locale) → "/ru/old" | "/en/old"`) replaces the `lp` constants and per-line locale
-   templates, bare paths, client navigations and language switchers (spec 07 §5 M1–M6, M10 where
-   it builds navigation links). **Do not change** metadata canonicals/hreflang/JSON-LD/sitemap/feed/
-   llms/emails/OAuth/webhook/MCP absolute URLs (M7–M9): old content keeps its original canonical
-   URLs so in-place pages stay indexed.
-3. Old root layout renders `OldSiteBanner` from the proxy headers (§3): «Это прежняя версия сайта ·
-   Перейти на новую» (link `x-ia-new-path`); for `x-ia-soon=1`: «Скоро обновление · пока прежняя
-   версия разбора»; for other in-place pages a quiet «Этот раздел пока в прежнем дизайне · Новый
-   inApp →». Old header logo → `x-ia-new-path`'s locale home (`/<L>`).
-4. CI smoke tests in `.github/workflows/deploy.yml` keep working: `/ru/segment/{language-learning,
-   workout-fitness,habit-tracking}` become NEW pages — the new topic page must contain
-   `id="main-players"` and `/badges/app-store.svg` (it shows market players with store badges);
-   add smoke checks for the new site (`/en`, `/en/contacts`, `/ru/segment/interior-design`,
-   `/ru/old`). The web-only sections are checked by ids of server-rendered lists, never by styling
-   classes: `id="rating-niches"` (`/ru/rating`, must not be noindex), `id="rating-apps"`
-   (`/ru/rating/dating-apps`), `"total":` > 0 from `/api/site/rating-search`, `id="review-apps"`
-   (`/en/reviews/dating-apps`, the open sample — other niches render a lock card for guests) and
-   `list_niche_themes` (`/ru/mcp`, `/de/mcp`: the tool list stays server-rendered). The rich, free
-   rating (spec 11 §9) adds: `id="group-health"` and `is1-ssl.mzstatic.com` artwork (`/ru/rating`);
-   `id="rating-leaders"` (`/ru/rating/dating-apps` with its keyword H1 «Лучшие приложения для
-   знакомств», `/ru/rating/habit-tracking` with mzstatic artwork); `id="screenshots"`,
-   `"bestRating":100` and no `aggregateRating` (the Hevy app page);
-   `id="rating-task-apps"` (a task page); `"icon":` in the search API; the sitemap files
-   (`/sitemap-rating-ru.xml` and `/sitemap-rating-en.xml` answer 200 with `/rating/` URLs and
-   `<image:loc>`, `robots.txt` lists them). Two checks read class names because those blocks have
-   no id: `class="ia-quote` (quotes are public) and the absence of `ia-rs-lock-card` (no gate).
-5. Archived rating pages `src/app/(old)/rating/**` (typed-in `/<ru|en>/old/rating/**`) set
-   `robots: { index: false, follow: true }` in `generateMetadata` and have **no `alternates`**
-   (spec 11 §6.5): a documented exception to item 2's "do not change metadata canonicals". The
-   proxy sends `X-Robots-Tag: noindex` for them; together with their former meta `index, follow`
-   and a canonical to the live URL, that risked carrying the noindex over to the live page. Their
-   JSON-LD and body stay.
-6. «Пульс» bridge (`docs/site-v2/PULSE.md`): `src/components/LegacyPulseLink.tsx` on the old topic
-   pages served in place and `NicheDossier` — the category's needs with their pain score, linking
-   into the new site through `publicHref` + `old-links: allow`. The review archive moved to the new
-   site (item 2), so its hub and category pages carry the new-site block themselves (`PulseTop`,
-   `CategoryPulse`); the archived copies under `/<ru|en>/old/reviews/**` have none.
+The old site's pages (`src/app/(old)`), its components, libraries, API routes, data and public
+assets that nothing else used are deleted. What remains of it: data libraries in `src/lib/**`
+the site, the MCP server or the data scripts still read; the admin (§2); the 301 map (§1).
+CI smoke tests in `.github/workflows/deploy.yml` check the site's pages by ids of server-rendered
+lists (never by styling classes): `id="rating-niches"` (`/ru/rating`, must not be noindex),
+`id="rating-apps"` (`/ru/rating/dating-apps`), `"total":` > 0 from `/api/site/rating-search`,
+`id="review-apps"` (`/en/reviews/dating-apps`), `list_niche_themes` (`/ru/mcp`, `/de/mcp`),
+`id="group-health"` and `is1-ssl.mzstatic.com` artwork (`/ru/rating`), `id="rating-leaders"`,
+`id="screenshots"`, `"bestRating":100` and no `aggregateRating`, `id="rating-task-apps"`, the
+rating sitemaps, robots.txt (sitemaps, AI crawlers, Clean-param), the llms files, the retired
+URLs' 301s and a sitemap without them. Two checks read class names because those blocks have no
+id: `class="ia-quote` (quotes are public) and the absence of `ia-rs-lock-card` (no gate).
+Before shipping routing or SEO changes: `node --import tsx scripts/v2/audit/seo-live.ts --base
+<running build>` asks the build for every URL production's sitemaps, llms files and feed list.
 
 ## 6. i18n
 

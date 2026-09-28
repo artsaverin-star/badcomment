@@ -36,9 +36,9 @@ import { getPulseDemand } from "@/site/sitedata/pulse";
 // A research topic (spec 01 §5–§6, spec 04 §5.3/§5.6, spec 09 G8–G10). SERVER GATE FIRST:
 // the article file is read only when the viewer can read the topic; otherwise the app's
 // locked preview is built from public catalogue fields. «Пульс категории» (public data) sits
-// right under the hero on both: before the article body, or before the Plus card. The other
-// site-only blocks (old-site link, App Store promo) follow at the end on both.
-// Unknown or non-launch slugs never get here (the proxy serves the old page); 404 defensively.
+// right under the hero on both: before the article body, or before the Plus card. The App Store
+// promo follows at the end on both.
+// Non-launch slugs never get here (the proxy redirects an old topic to its rating); 404 defensively.
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -140,7 +140,7 @@ export default async function ResearchTopicPage({ params }: Props) {
             <LockedPreview locale={lang} category={category} t={t} afterHero={<CategoryPulse locale={lang} slug={slug} corpus={category.corpus} />} />
           </div>
           <div className="ia-page ia-page--reading">
-            <TopicExtras locale={lang} slug={slug} />
+            <TopicExtras locale={lang} />
           </div>
         </div>
       </I18nProvider>
@@ -223,7 +223,7 @@ export default async function ResearchTopicPage({ params }: Props) {
                 ideas={ideas}
                 afterHero={<CategoryPulse locale={lang} slug={slug} corpus={research.corpus ?? category.corpus} />}
               />
-              <TopicExtras locale={lang} slug={slug} />
+              <TopicExtras locale={lang} />
             </div>
           </div>
           <TocRail toc={toc} />

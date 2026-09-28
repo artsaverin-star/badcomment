@@ -1,113 +1,78 @@
 import type { MetadataRoute } from "next";
-import active from "@/data/active-categories.json";
-import { getCategoryBySlug } from "@/lib/researchCategories";
-import { getSlugByProductId } from "@/lib/appSlugs";
-import { hasInsight } from "@/lib/readyApps";
 import reviewsIndex from "@/data/reviewsIndex.json";
+import { getManifest } from "@/site/content";
 import { LOCALES } from "@/site/i18n/locales";
-import { FREE_IDEAS, isLaunchCategory, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
-import oldSite from "@/site/sitedata/old-site.snapshot.json";
+import { FREE_IDEAS, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
 import { getPulseDemand } from "@/site/sitedata/pulse";
 import { ratingHubEntries } from "@/site/sitedata/rating-sitemap";
 
 const BASE = "https://inapp.pro";
-const oldTopicPages: ReadonlySet<string> = new Set((oldSite as { topicPages: string[] }).topicPages);
 
-// /sitemap.xml — also dot-suffixed, so the locale proxy skips it.
-//   • NEW site (docs/site-v2): every indexable page in all 5 locales, one entry per locale, each
-//     with the full hreflang set (+ x-default → en). Locked ideas are noindex → only the free
-//     ones; /old/** is never listed (noindex archive).
-//   • OLD pages still served in place at their original URLs (ru/en): the /ru URL with ru/en
-//     hreflang alternates, as before. Old URLs now owned by the new site (home, /ideas, the 35
-//     launch topics) are listed once, as new-site entries.
+// /sitemap.xml — dot-suffixed, so the locale proxy skips it.
+//   • Site pages: every indexable page in all 5 locales, one entry per locale, each with the
+//     full hreflang set (+ x-default → en). Locked ideas are noindex → only the free ones.
+//   • The review archive: its data speaks ru/en only — the /ru URL with ru/en alternates.
 //   • The rating (ru/en data): /rating and its 71 niche pages, one entry per ru AND en page
 //     (src/site/sitedata/rating-sitemap.ts); its app and task pages are in
 //     /sitemap-rating-{ru,en}.xml (spec 11 §6.5), listed in robots.txt.
 //   • «Пульс» (docs/site-v2/PULSE.md): the feed and every need page, in all 5 locales.
+// The retired old site's URLs are not listed: they answer 301 (src/site/routing/decide.ts).
+//
+// <lastmod> is honest (Bing and Google ignore a sitemap whose dates always say "now"): the app
+// content's build time for pages made from it, the «Пульс» data's generation time, the rating
+// files' own dates; pages without a known date (legal, MCP) carry none.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const cats = active as string[];
+  const [manifest, pulse] = await Promise.all([getManifest(), getPulseDemand()]);
+  const content = new Date(manifest.contentBuiltAt);
+  const pulseDate = pulse.generatedAt ? new Date(pulse.generatedAt) : undefined;
 
-  // Per-app teardown pages (/<app-slug>) are now real indexed landing pages that
-  // funnel into the niche — list every one so search engines can reach them.
-  const appSlugs = new Set<string>();
-  for (const cs of cats) {
-    const cat = getCategoryBySlug(cs, "en");
-    if (!cat) continue;
-    for (const a of cat.apps) {
-      if (!a.productId || !hasInsight(a.productId)) continue;
-      const s = getSlugByProductId(a.productId);
-      if (s) appSlugs.add(s);
-    }
-  }
-
-  // Every app's reviews-by-theme page is a real page of primary source text —
-  // exactly what search engines and LLMs cite, so all of them go in.
-  const reviewNiches = Object.entries(reviewsIndex as Record<string, { apps: { id: string }[] }>);
-
-  // The review archive is a new-site section since 2026-09-24, but its data speaks ru/en only:
-  // listed like before, ru with ru/en alternates (their canonicals agree).
-  const paths: { p: string; priority: number }[] = [
-    { p: "/reviews", priority: 0.9 },
-    ...reviewNiches.map(([s]) => ({ p: `/reviews/${s}`, priority: 0.8 })),
-    ...reviewNiches.flatMap(([s, n]) => n.apps.map((a) => ({ p: `/reviews/${s}/${a.id}`, priority: 0.6 }))),
-    { p: "/build", priority: 0.9 },
-    { p: "/ideas/top", priority: 0.8 },
-    { p: "/most-wanted", priority: 0.9 },
-    { p: "/cards", priority: 0.9 },
-    { p: "/apps", priority: 0.6 },
-    // Non-launch topics keep their old page in place — only those that render (e.g. astrology
-    // has no review corpus and 404s; src/site/sitedata/build-old-site-snapshot.ts).
-    ...cats
-      .filter((s) => !isLaunchCategory(s) && oldTopicPages.has(s))
-      .map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
-    ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
-  ];
-
-  // Fresh timestamp so search engines see the site is actively maintained
-  // (a fixed date reads as "abandoned"). Content force-dynamic + rebuilt weekly.
-  const lastModified = new Date();
-  const oldEntries: MetadataRoute.Sitemap = paths.map(({ p, priority }) => ({
-    url: `${BASE}/ru${p || "/"}`,
-    lastModified,
-    changeFrequency: "weekly",
-    priority,
-    alternates: { languages: { ru: `${BASE}/ru${p || "/"}`, en: `${BASE}/en${p || "/"}`, "x-default": `${BASE}/en${p || "/"}` } },
-  }));
-
-  // «Пульс»: the feed and every need (content/v2/pulse-demand.json; none when the file is absent).
-  const pulse = await getPulseDemand();
-
-  // New site: same path in every locale (the pages' own canonical/hreflang use the same shape).
-  const newUrl = (l: string, p: string) => `${BASE}/${l}${p}`;
-  const newPaths: { p: string; priority: number }[] = [
-    { p: "/segment", priority: 0.95 },
-    { p: "/pulse", priority: 0.9 },
-    ...pulse.needs.map((need) => ({ p: `/pulse/${need.id}`, priority: 0.7 })),
-    ...LAUNCH_CATEGORIES.map((s) => ({ p: `/segment/${s}`, priority: 0.9 })),
-    { p: "/ideas", priority: 0.95 },
-    ...FREE_IDEAS.map((id) => ({ p: `/ideas/${id}`, priority: 0.8 })),
+  // Site pages: same path in every locale (the pages' own canonical/hreflang use the same shape).
+  const url = (l: string, p: string) => `${BASE}/${l}${p}`;
+  const pages: { p: string; priority: number; lastModified?: Date }[] = [
+    { p: "/segment", priority: 0.95, lastModified: content },
+    ...LAUNCH_CATEGORIES.map((s) => ({ p: `/segment/${s}`, priority: 0.9, lastModified: content })),
+    { p: "/ideas", priority: 0.95, lastModified: content },
+    ...FREE_IDEAS.map((id) => ({ p: `/ideas/${id}`, priority: 0.8, lastModified: content })),
+    { p: "/pulse", priority: 0.9, lastModified: pulseDate },
+    ...pulse.needs.map((need) => ({ p: `/pulse/${need.id}`, priority: 0.7, lastModified: pulseDate })),
+    // Web-only pages translated into all five languages.
+    { p: "/mcp", priority: 0.8 },
+    { p: "/reviews/methodology", priority: 0.5 },
     { p: "/contacts", priority: 0.4 },
     { p: "/offer", priority: 0.3 },
     { p: "/privacy", priority: 0.3 },
-    // Web-only pages translated into all five languages (the MCP page, the review methodology).
-    { p: "/mcp", priority: 0.8 },
-    { p: "/reviews/methodology", priority: 0.5 },
   ];
-  const newEntries: MetadataRoute.Sitemap = newPaths.flatMap(({ p, priority }) => {
-    const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, newUrl(l, p)]));
-    languages["x-default"] = newUrl("en", p);
+  const siteEntries: MetadataRoute.Sitemap = pages.flatMap(({ p, priority, lastModified }) => {
+    const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, url(l, p)]));
+    languages["x-default"] = url("en", p);
     return LOCALES.map((l) => ({
-      url: newUrl(l, p),
-      lastModified,
+      url: url(l, p),
+      ...(lastModified ? { lastModified } : {}),
       changeFrequency: "weekly" as const,
       priority,
       alternates: { languages },
     }));
   });
   // The website's payment offer is a Russian-only document (other locales are noindex copies).
-  newEntries.push({ url: `${BASE}/ru/offer/payment`, lastModified, changeFrequency: "monthly", priority: 0.2 });
+  siteEntries.push({ url: `${BASE}/ru/offer/payment`, changeFrequency: "monthly", priority: 0.2 });
 
-  // One entry per URL (first wins: new-site entries carry the full hreflang set).
+  // The review archive (ru/en data): the hub, its niches and every app's reviews by theme —
+  // primary source text, exactly what search engines and LLMs cite. The ru page is listed with
+  // its ru/en alternates (their canonicals agree).
+  const reviewNiches = Object.entries(reviewsIndex as Record<string, { apps: { id: string }[] }>);
+  const reviewPaths: { p: string; priority: number }[] = [
+    { p: "/reviews", priority: 0.9 },
+    ...reviewNiches.map(([s]) => ({ p: `/reviews/${s}`, priority: 0.8 })),
+    ...reviewNiches.flatMap(([s, n]) => n.apps.map((a) => ({ p: `/reviews/${s}/${a.id}`, priority: 0.6 }))),
+  ];
+  const reviewEntries: MetadataRoute.Sitemap = reviewPaths.map(({ p, priority }) => ({
+    url: url("ru", p),
+    changeFrequency: "monthly",
+    priority,
+    alternates: { languages: { ru: url("ru", p), en: url("en", p), "x-default": url("en", p) } },
+  }));
+
+  // One entry per URL (first wins: site entries carry the full hreflang set).
   const seen = new Set<string>();
-  return [...newEntries, ...ratingHubEntries(), ...oldEntries].filter((e) => !seen.has(e.url) && !!seen.add(e.url));
+  return [...siteEntries, ...ratingHubEntries(), ...reviewEntries].filter((e) => !seen.has(e.url) && !!seen.add(e.url));
 }

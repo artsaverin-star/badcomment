@@ -1,17 +1,16 @@
 import { defineStrings } from "../../i18n/strings";
 
 // Web-only strings of the «Разборы» side (catalog, topic pages): the site-only blocks the app
-// does not have (apps in the topic, links to the previous site, App Store promo) and the list
-// of topics not rewritten yet (DECISIONS §3–§4). App UI strings come from content/v2/<L>/ui.json.
+// does not have (App Store promo) and the list of topics not rewritten yet, linked to their app
+// ratings (DECISIONS §3–§4). App UI strings come from content/v2/<L>/ui.json.
 // Voice: informal «ты» / du / tu; Japanese です・ます like ui.ja.json.
-// de/fr/ja visitors are sent to the English archive for old pages, hence `englishNote`.
 
 export const researchStrings = defineStrings({
   ru: {
     catalogHeading: "Найди боль, за решение которой уже платят",
     catalogIntro: "Мы прочитали {reviews} о приложениях и нашли, чего людям не хватает и за что они уже платят. Выбери нишу, открой разбор и забери готовую идею под спрос.",
     soonTitle: "Скоро в новом формате",
-    soonBody: "Эти разборы пока открываются в прежней версии сайта. Скоро перепишем их, как остальные.",
+    soonBody: "Разборы этих тем ещё пишем. А рейтинг приложений по отзывам у каждой уже есть — открой тему.",
     appsTitle: "Приложения в этой теме",
     appsLead: "Самые оценённые приложения в выдаче App Store по запросу «{term}».",
     appsSource: "App Store · {region} · {date}",
@@ -23,8 +22,6 @@ export const researchStrings = defineStrings({
     appReviews: "Отзывы",
     appReviewsLabel: "Отзывы о приложении {name}",
     allReviews: "Все отзывы по теме",
-    oldVersion: "Прежняя версия разбора",
-    englishNote: "",
     ratingLabel: "Рейтинг {rating} из 5",
     noRating: "нет оценок",
     ratingsOne: "оценка",
@@ -49,7 +46,7 @@ export const researchStrings = defineStrings({
     catalogHeading: "Find a pain people already pay to solve",
     catalogIntro: "We read {reviews} of apps and found what people are missing and already pay for. Pick a niche, open the breakdown and take a ready app idea backed by demand.",
     soonTitle: "Coming soon in the new format",
-    soonBody: "These breakdowns still open in the previous version of the site. We’ll rewrite them soon, like the rest.",
+    soonBody: "We’re still writing the breakdowns of these topics. Each already has an app rating built from reviews — open a topic.",
     appsTitle: "Apps in this topic",
     appsLead: "The most-rated apps in App Store results for “{term}”.",
     appsSource: "App Store · {region} · {date}",
@@ -61,8 +58,6 @@ export const researchStrings = defineStrings({
     appReviews: "Reviews",
     appReviewsLabel: "Reviews of {name}",
     allReviews: "All reviews on this topic",
-    oldVersion: "Previous version of this breakdown",
-    englishNote: "",
     ratingLabel: "Rated {rating} out of 5",
     noRating: "no ratings",
     ratingsOne: "rating",
@@ -87,7 +82,7 @@ export const researchStrings = defineStrings({
     catalogIntro: "Wir haben {reviews} zu Apps gelesen und herausgefunden, was Menschen fehlt und wofür sie schon zahlen. Wähle eine Nische, öffne die Analyse und finde eine konkrete App-Idee mit Nachfrage.",
     soonTitle: "Bald im neuen Format",
     soonBody:
-      "Diese Analysen öffnen sich vorerst in der bisherigen Version der Website, auf Englisch. Bald schreiben wir sie wie die anderen neu.",
+      "An den Analysen dieser Themen schreiben wir noch. Ein App-Ranking aus Rezensionen hat aber jedes schon — öffne ein Thema.",
     appsTitle: "Apps zu diesem Thema",
     appsLead: "Die am häufigsten bewerteten Apps in den App-Store-Ergebnissen für „{term}“.",
     appsSource: "App Store · {region} · {date}",
@@ -99,8 +94,6 @@ export const researchStrings = defineStrings({
     appReviews: "Rezensionen",
     appReviewsLabel: "Rezensionen zu {name}",
     allReviews: "Alle Rezensionen zu diesem Thema",
-    oldVersion: "Bisherige Version dieser Analyse",
-    englishNote: "(auf Englisch)",
     ratingLabel: "Bewertung {rating} von 5",
     noRating: "keine Bewertungen",
     ratingsOne: "Bewertung",
@@ -125,7 +118,7 @@ export const researchStrings = defineStrings({
     catalogIntro: "Nous avons lu {reviews} d’apps pour découvrir ce qui manque aux gens et ce pour quoi ils paient déjà. Choisis une niche, ouvre le décryptage et trouve une idée d’app fondée sur la demande.",
     soonTitle: "Bientôt au nouveau format",
     soonBody:
-      "Ces décryptages s’ouvrent encore dans l’ancienne version du site, en anglais. On les réécrit bientôt, comme les autres.",
+      "On écrit encore les décryptages de ces sujets. Mais chacun a déjà son classement d’apps tiré des avis\u00A0: ouvre un sujet.",
     appsTitle: "Les apps de ce sujet",
     appsLead: "Les apps les plus notées dans les résultats de l’App Store pour «\u00A0{term}\u00A0».",
     appsSource: "App Store · {region} · {date}",
@@ -137,8 +130,6 @@ export const researchStrings = defineStrings({
     appReviews: "Avis",
     appReviewsLabel: "Avis sur {name}",
     allReviews: "Tous les avis sur ce sujet",
-    oldVersion: "Ancienne version de ce décryptage",
-    englishNote: "(en anglais)",
     ratingLabel: "Note de {rating} sur 5",
     noRating: "aucune note",
     ratingsOne: "note",
@@ -162,7 +153,7 @@ export const researchStrings = defineStrings({
     catalogHeading: "すでにお金を払ってでも解決したい悩みを見つけよう",
     catalogIntro: "アプリの{reviews}を読み、ユーザーが何を求め、何にお金を払っているかを調べました。分野を選び、分析を開いて、需要に基づくアプリのアイデアを見つけてください。",
     soonTitle: "まもなく新しい形式で",
-    soonBody: "これらの分析は、今のところ以前のサイト（英語）で開きます。ほかの分析と同じように、近いうちに書き直します。",
+    soonBody: "これらのテーマの分析は準備中です。レビューにもとづくアプリのランキングは、どのテーマにもすでにあります。テーマを開いてみてください。",
     appsTitle: "このテーマのアプリ",
     appsLead: "App Storeで「{term}」と検索したときの、評価数の多いアプリです。",
     appsSource: "App Store · {region} · {date}",
@@ -174,8 +165,6 @@ export const researchStrings = defineStrings({
     appReviews: "レビュー",
     appReviewsLabel: "{name}のレビュー",
     allReviews: "このテーマのレビューをすべて見る",
-    oldVersion: "この分析の以前の版",
-    englishNote: "（英語）",
     ratingLabel: "5点中{rating}点",
     noRating: "評価なし",
     ratingsOne: "件の評価",

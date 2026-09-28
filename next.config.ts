@@ -8,11 +8,9 @@ const nextConfig: NextConfig = {
   // inside `next build` on the 1.9GB prod box OOM-kills it as the bundled
   // insights.json grows, so skip the redundant in-build pass.
   typescript: { ignoreBuildErrors: true },
-  // Two root layouts (old site, new site): unmatched URLs render src/app/global-not-found.tsx.
+  // Two root layouts (the site, the owner's admin): unmatched URLs render
+  // src/app/global-not-found.tsx.
   experimental: { globalNotFound: true },
-  outputFileTracingIncludes: {
-    "/segment/*": ["./src/data/marketPlayers/*.json"],
-  },
   // OAuth discovery for the MCP server. App-router folders can't start with a
   // dot, so the well-known paths are rewritten onto normal API routes. The
   // path-suffixed variant is RFC 9728's per-resource form some clients probe.

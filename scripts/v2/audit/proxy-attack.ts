@@ -57,28 +57,15 @@ function checkDecision(label: string, input: { pathname: string; search: string 
   const underOld = /^\/(ru|en|de|fr|ja)\/old(\/|$)/.test(publicPath);
   if (d.search !== search) fail(`${label}: query changed on rewrite ${search} → ${d.search}`);
   if (new URL(d.pathname, ORIGIN).origin !== ORIGIN) fail(`${label}: rewrite leaves origin ${d.pathname}`);
-  if (d.site === "new" && !d.pathname.startsWith(`/site/${d.locale}`)) fail(`${label}: new rewrite outside /site/<L>: ${d.pathname}`);
-  if (d.site !== "new") {
-    const first = d.pathname.split("/")[1] ?? "";
-    let firstDecoded = first;
-    try {
-      firstDecoded = decodeURIComponent(first);
-    } catch {}
-    if (first === "site") fail(`${label}: OLD rewrite reaches internal /site tree: ${d.pathname}`);
-    // Percent-encoded "site": Next matches dynamic routes on the RAW pathname, so /%73ite/[lang]/…
-    // does not resolve to the internal tree (all of it sits under the dynamic [lang] segment).
-    else if (firstDecoded === "site") notes.push(`${label}: OLD rewrite to percent-encoded /site (${d.pathname}) — no route match expected`);
-    if (["api", "_next"].includes(firstDecoded)) notes.push(`${label}: OLD rewrite targets /${firstDecoded}/… (${d.pathname})`);
-  }
-  const robots = d.responseHeaders["X-Robots-Tag"];
-  if (underOld && !robots) fail(`${label}: /<L>/old response without X-Robots-Tag`);
-  if (!underOld && robots && d.site !== "new") fail(`${label}: X-Robots-Tag outside /old`);
+  if (d.site === "site" && !d.pathname.startsWith(`/site/${d.locale}`)) fail(`${label}: site rewrite outside /site/<L>: ${d.pathname}`);
+  // The only rewrite outside the site's tree: the owner's admin at its internal /admin path.
+  if (d.site === "service" && !/^\/admin(\/|$)/.test(d.pathname)) fail(`${label}: service rewrite outside /admin: ${d.pathname}`);
+  if (d.site === "service" && !d.responseHeaders["X-Robots-Tag"]) fail(`${label}: admin without X-Robots-Tag`);
   for (const c of d.cookies) {
     if (!(LOCALES as readonly string[]).includes(c.value)) fail(`${label}: cookie value ${c.value}`);
-    if (underOld) fail(`${label}: cookie written under /old`);
+    if (underOld) fail(`${label}: cookie written under the retired /old`);
+    if (d.missing) fail(`${label}: cookie written by a 404`);
   }
-  const np = d.requestHeaders["x-ia-new-path"];
-  if (np !== undefined && (!np.startsWith("/") || np.startsWith("//") || /[\\\t\r\n]/.test(np))) fail(`${label}: unsafe x-ia-new-path ${np}`);
 }
 
 const RAW_TARGETS = [
@@ -240,7 +227,7 @@ const PUBLIC_NEW_URLS = [
 for (const url of PUBLIC_NEW_URLS) {
   const u = new URL(url, ORIGIN);
   const d = decideRoute({ pathname: u.pathname, search: u.search });
-  if (d.type !== "rewrite" || d.site !== "new") continue;
+  if (d.type !== "rewrite" || d.site !== "site" || d.missing) continue;
   const segs = d.pathname.split("/").filter(Boolean).slice(2); // drop "site", "<L>"
   const ok = hasPage(SITE_ROOT, segs);
   console.log(`${url.padEnd(28)} → ${d.pathname.padEnd(28)} ${ok ? "page ok" : "NO PAGE"}`);

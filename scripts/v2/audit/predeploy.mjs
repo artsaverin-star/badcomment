@@ -5,7 +5,8 @@
 // Usage (from the repo root):
 //   node scripts/v2/audit/predeploy.mjs            # offline checks only
 //   node scripts/v2/audit/predeploy.mjs --built    # also inspect the .next build (after `next build`)
-//   node scripts/v2/audit/predeploy.mjs --live URL # also smoke a running build (GET only)
+//   node scripts/v2/audit/predeploy.mjs --live URL # also check every URL production's sitemaps,
+//                                                  # llms files and feed list against a running build
 //
 // Read-only: no files are written, no server is started. Exit 1 when any check fails.
 
@@ -24,16 +25,14 @@ const TSX = ["--import", "tsx"];
 const checks = [
   { id: "routing-tests", why: "decideRoute contract", cmd: ["npm", ["run", "-s", "test:v2-routing"]] },
   { id: "proxy-attack", why: "NEW rewrites without a page, unsafe return paths", cmd: ["node", [...TSX, "scripts/v2/audit/proxy-attack.ts"]] },
-  { id: "seo-routes", why: "sitemap/feed/llms URLs vs routing, noindex, canonicals", cmd: ["node", [...TSX, "scripts/v2/audit/seo-routes.ts", "--source", "code", "--strict"]] },
   { id: "search-cost", why: "?q= worst case (search-query-cap.patch)", cmd: ["node", [...TSX, "scripts/v2/audit/bench-search.ts"]] },
-  { id: "old-links", why: "old navigation stays under /<L>/old", cmd: ["node", ["scripts/check-old-links.mjs"]] },
   { id: "content", why: "content/v2 and public/media consistent", cmd: ["node", [...TSX, "scripts/v2/check-content.ts"]] },
 ];
 if (BUILT) {
   checks.push({ id: "static-json", why: "no large JSON bundled into proxy/new pages", cmd: ["node", ["scripts/v2/audit/check-static-json.mjs"]] });
 }
 if (LIVE) {
-  checks.push({ id: "live-smoke", why: `old/new/legal/payment smoke against ${LIVE}`, cmd: ["node", ["scripts/v2/audit/old-site-smoke.mjs", LIVE]] });
+  checks.push({ id: "seo-live", why: `known URLs end on indexable pages at ${LIVE}`, cmd: ["node", [...TSX, "scripts/v2/audit/seo-live.ts", "--base", LIVE, "--sample", "400"]] });
 }
 
 /** Public new-site pages that still render a "TODO · … placeholder" badge. */

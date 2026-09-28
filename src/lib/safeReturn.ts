@@ -5,13 +5,13 @@
 //
 // A value is accepted only when it is a same-site path the browser cannot turn into
 // another origin, and that does not point at a machine endpoint:
-//   ok:  "/", "/ru/old/tokens", "/de/segment/x?q=1#a", "/ru/emmo-%E6%97%A5"
+//   ok:  "/", "/ru/plus", "/de/segment/x?q=1#a", "/ru/emmo-%E6%97%A5"
 //   no:  non-strings (e.g. an array from ?return_to=a&return_to=b), "", > 2048 chars,
 //        anything not starting with "/", "//evil.com", "/\evil.com" (browsers read "\" as "/"),
 //        "/\t/evil.com" (the URL parser drops tab/CR/LF), other control chars,
 //        "/%2F%2Fevil.com" and "/%255Cevil.com" (encoded, even twice, into "//" or "\"),
 //        "/.//evil.com" and "/%2e%2e/x" (dot segments), "/@evil.com" style userinfo bait,
-//        "/api/…", "/_next/…" and "/<L>/api/…" (the proxy rewrites /<L>/<rest> to /<rest>).
+//        "/api/…", "/_next/…" and "/<L>/api/…" (the retired old site rewrote /<L>/<rest> to /<rest>).
 //
 // Only the path is decoded and inspected; the query and fragment are left alone (a search
 // for "https://example.com" is a legitimate return), but they may not contain raw control

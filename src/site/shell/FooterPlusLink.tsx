@@ -41,14 +41,3 @@ export function FooterPaymentOfferLink({ locale, label }: { locale: Locale; labe
     </li>
   );
 }
-
-/** «Старая версия сайта» (the archive; DECISIONS §8). A different root layout: plain <a>. */
-export function FooterOldSiteLink({ href, label }: { href: string; label: string }) {
-  const [first] = parsePublicPath(usePathname()).segments;
-  if (first && HIDDEN.has(first)) return null;
-  return (
-    <li>
-      <a href={href}>{label}</a>
-    </li>
-  );
-}

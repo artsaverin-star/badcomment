@@ -29,7 +29,7 @@
 //    gating as a guest, retired-id redirects, 404s, the topic-page embed (right under the hero,
 //    first in the TOC, before the paywall when locked) and the review archive (new design: the hub
 //    and category pages, right under the header); on each host page (topic, archive category,
-//    archive hub, dossier) the block's reviews and apps equal the page's own; the feed's
+//    archive hub) the block's reviews and apps equal the page's own; the feed's
 //    fallback pagination and client hook, ?page=N, and GET /api/site/pulse. Skipped when no
 //    server answers.
 
@@ -237,12 +237,12 @@ describe("pulse-demand.json", () => {
 // ---------------------------------------------------------------------------
 
 describe("routing and queries", () => {
-  test("Pulse belongs to the new shell in every locale; the tab root is /<L>/pulse", () => {
+  test("Pulse belongs to the site shell in every locale; the tab root is /<L>/pulse", () => {
     for (const locale of LOCALES) {
       for (const pathname of [routes.pulse(locale), routes.pulseNeed(locale, needs[0].id)]) {
         const result = decideRoute({ pathname });
         assert.equal(result.type, "rewrite", pathname);
-        if (result.type === "rewrite") assert.equal(result.site, "new", pathname);
+        if (result.type === "rewrite") assert.equal(result.site, "site", pathname);
       }
       assert.equal(tabRoot(locale, "pulse"), routes.pulse(locale));
       assert.equal(isTabRoot(routes.pulse(locale)), true);
@@ -735,7 +735,6 @@ describe("rendered HTML", () => {
       ResearchArticle: typeof import("../../src/site/features/research/ResearchArticle").ResearchArticle;
       LockedPreview: typeof import("../../src/site/features/research/LockedPreview").LockedPreview;
       I18nProvider: typeof import("../../src/site/i18n/client").I18nProvider;
-      LegacyPulseLink: typeof import("../../src/components/LegacyPulseLink").LegacyPulseLink;
       reviews: typeof import("../../src/lib/reviews");
       reviewPages: typeof import("../../src/site/sitedata/reviews");
       pulse: typeof import("../../src/site/sitedata/pulse");
@@ -758,7 +757,6 @@ describe("rendered HTML", () => {
         ResearchArticle: require("../../src/site/features/research/ResearchArticle").ResearchArticle,
         LockedPreview: require("../../src/site/features/research/LockedPreview").LockedPreview,
         I18nProvider: require("../../src/site/i18n/client").I18nProvider,
-        LegacyPulseLink: require("../../src/components/LegacyPulseLink").LegacyPulseLink,
         reviews: require("../../src/lib/reviews"),
         reviewPages: require("../../src/site/sitedata/reviews"),
         pulse: require("../../src/site/sitedata/pulse"),
@@ -895,23 +893,6 @@ describe("rendered HTML", () => {
         assert.ok(!/<a href="\/(?!en\/pulse)/.test(html), `${id}: every link leaves for Pulse`);
       }
       assert.equal(render(await m.CategoryPulse({ locale: "ru", slug: launchWithout ?? "no-such-category", corpus: { reviews: 1, apps: 1 } })), "");
-    });
-
-    test("old bridge (LegacyPulseLink on old topic pages and NicheDossier): the same block, links via publicHref as plain <a>", async () => {
-      for (const id of categoryIds) {
-        const dossier = m.reviews.reviewNicheTotals(id);
-        const stats = dossier ? { reviewCount: dossier.reviews, appCount: dossier.apps } : hostStats(id);
-        const html = render(await m.LegacyPulseLink({ locale: "en", slug: id, stats }));
-        const own = categoryNeeds(data, id);
-        assert.ok(html.includes('id="category-pulse"'), id);
-        assert.deepEqual(ticks(html), { all: 10, on: own[0].score, needles: 1 }, id);
-        assert.equal(count(html, /class="ia-pulse-barrow"/g), Math.min(PULSE_EMBED_LIMIT, own.length) - 1, id);
-        assert.ok(textOf(html).includes(aboutAppsPhrase("en", pulseStrings.en, stats.reviewCount, stats.appCount)), `${id}: the page's figures`);
-        assert.ok(html.includes(`href="/en/pulse?category=${id}"`), id);
-        assert.ok(html.includes(`href="/en/pulse/${own[0].id}"`), id);
-        assert.ok(!/<a href="\/(?!en\/pulse)/.test(html), `${id}: every link leaves for Pulse`);
-      }
-      assert.equal(render(await m.LegacyPulseLink({ locale: "ru", slug: launchWithout ?? "no-such-category", stats: { reviewCount: 1, appCount: 1 } })), "");
     });
 
     test("GET /api/site/pulse: page N of the feed with its filters, empty past the end, the server's card markup", async () => {
@@ -1333,7 +1314,7 @@ describe(`live HTTP (${BASE})`, { timeout: 600_000 }, () => {
     }
   });
 
-  test("the block's reviews and apps are the host page's own: topic, archive category, archive hub, dossier", async (t) => {
+  test("the block's reviews and apps are the host page's own: topic, archive category, archive hub", async (t) => {
     if (!(await needServer(t))) return;
     /** The block's subtitle: [needs, reviews, apps] (ru/en word order). */
     const block = (html: string) => nums(textOf(/<p class="ia-pulse-hero__sub">([\s\S]*?)<\/p>/.exec(html)?.[1] ?? ""));
@@ -1377,19 +1358,6 @@ describe(`live HTTP (${BASE})`, { timeout: 600_000 }, () => {
       assert.deepEqual(block(html).slice(1), [reviews, apps], `/${locale}/reviews`);
       checked.push(`/${locale}/reviews`);
     }
-    // A dossier (an old topic page): «Open 12,593 source reviews» and «51 apps in the archive».
-    const dossierSlug = categoryIds.find((id) => !(LAUNCH_CATEGORIES as readonly string[]).includes(id));
-    if (dossierSlug) {
-      const res = await get(`/en/segment/${dossierSlug}`);
-      if (res.status === 200) {
-        const html = await res.text();
-        const reviews = nums(/Open ([\d,]+) source reviews/.exec(html)?.[1] ?? "")[0];
-        const apps = nums(/>([\d,]+)<\/span><span[^>]*>apps in the archive</.exec(html)?.[1] ?? "")[0];
-        assert.ok(reviews && apps, `/en/segment/${dossierSlug}: the dossier's figures`);
-        assert.deepEqual(block(html).slice(1), [reviews, apps], `/en/segment/${dossierSlug}`);
-        checked.push(`/en/segment/${dossierSlug}`);
-      }
-    }
     assert.ok(checked.length >= 3, `checked: ${checked}`);
   });
 
@@ -1426,9 +1394,6 @@ describe(`live HTTP (${BASE})`, { timeout: 600_000 }, () => {
       assert.deepEqual(ticks(block), { all: 10, on: categoryNeeds(data, slug)[0].score, needles: 1 }, slug);
       assert.ok(!KIND_MARKUP.test(block) && !/Просят|Жалуются/.test(textOf(block)), slug);
     }
-    // The archived old copies (/<ru|en>/old/reviews/**) carry no block: the new pages do.
-    const oldHub = await get(`/ru/old/reviews`);
-    if (oldHub.status === 200) assert.ok(!(await oldHub.text()).includes("ia-pulse-hero"), "/ru/old/reviews");
   });
 
   test("auto-loading: the feed keeps its no-JS pagination and the client hook; ?page=N renders that page; GET /api/site/pulse", async (t) => {

@@ -5,7 +5,6 @@ import { I18nProvider } from "@/site/i18n/client";
 import { LOCALE_NAMES, LOCALES, type Locale } from "@/site/i18n/locales";
 import type { T } from "@/site/i18n/translate";
 import { routes, switchLocaleHref } from "@/site/routing";
-import { shellStrings } from "@/site/shell/strings";
 import type { Theme } from "@/site/theme";
 import { AppStoreBadge } from "@/site/ui/AppStore";
 import { BackButton } from "@/site/ui/Toolbar";
@@ -15,7 +14,6 @@ import {
   DocumentIcon,
   ExternalIcon,
   MailIcon,
-  OldSiteIcon,
   PaymentOfferIcon,
   PhoneIcon,
   PrivacyIcon,
@@ -178,7 +176,6 @@ export function SettingsScreen({
             <div className="ia-set-row">
               <RowBody icon={<PhoneIcon {...ICON} />} title={s.iphoneApp} trail={<AppStoreBadge size="sm" />} />
             </div>
-            <LinkRow href={routes.oldSite(locale)} icon={<OldSiteIcon {...ICON} />} title={shellStrings[locale].oldSite} external />
           </div>
         </Group>
 

@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { decideRoute, PROXY_REQUEST_HEADERS } from "@/site/routing/decide";
 import { LOCALE_COOKIE } from "@/site/i18n/locales";
 
-// Public URL routing for the new site, the old site in place and the hidden archive
+// Public URL routing: the site's pages, the admin and the 301s of the retired old site
 // (Next 16 calls this file "proxy", formerly middleware). Every rule lives in the pure
 // decideRoute() (src/site/routing/decide.ts, tested by scripts/v2/test-routing.ts);
 // this file only turns the decision into a NextResponse.

@@ -20,11 +20,10 @@ import { shellStrings } from "@/site/shell/strings";
 import { THEME_COLOR, THEME_COOKIE, toTheme } from "@/site/theme";
 import { uiStrings } from "@/site/ui/strings";
 
-// ROOT LAYOUT of the new site (internal /site/<L>/…, public /<L>/…; see src/proxy.ts).
+// ROOT LAYOUT of the site (internal /site/<L>/…, public /<L>/…; see src/proxy.ts).
 // <html lang data-theme> from the ia_theme cookie (light by default; "system" is resolved
 // in CSS), the --ia-* tokens, Onest, analytics, and the app chrome around every page.
-// The old site has its own root layout (src/app/(old)/layout.tsx); crossing between them is
-// a full document load, so no CSS or state leaks either way.
+// The owner's admin has its own root layout (src/app/(admin)/layout.tsx).
 
 type Props = { children: ReactNode; params: Promise<{ lang: string }> };
 
@@ -85,7 +84,10 @@ export default async function SiteRootLayout({ children, params }: Props) {
   return (
     <html lang={lang} data-theme={theme} className={onest.variable} suppressHydrationWarning>
       <head>
-        {/* Same counters and ordering contract as the old layout (scripts/test-monetization.ts):
+        {/* Discovery links for feed readers and language models (/feed.xml, /llms.txt). */}
+        <link rel="alternate" type="application/rss+xml" title="inApp" href="/feed.xml" />
+        <link rel="alternate" type="text/markdown" title="inApp for language models" href="/llms.txt" />
+        {/* The analytics counters' ordering contract (scripts/v2/test-routing.ts):
             tiny queue shims first (ym before the Google loader, the gtag queue before it too),
             then the remote libraries. The initial hit is NOT automatic (YM defer:true, GA
             send_page_view:false): RouteObserver sends every page view, and every ym()/gtag()
@@ -121,6 +123,8 @@ gtag('js',new Date());gtag('set',{site:"v2"});gtag('config','G-G3J6K8VBD6',{send
                   alternateName: "inApp.pro",
                   url: SITE_URL,
                   logo: `${SITE_URL}/api/og?logo=1`,
+                  description: t("Что людям важно в приложениях и чего им не хватает."),
+                  ...(APP_STORE_URL ? { sameAs: [APP_STORE_URL] } : {}),
                 },
                 {
                   "@type": "WebSite",

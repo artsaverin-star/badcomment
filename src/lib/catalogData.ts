@@ -7,8 +7,21 @@ import { isActiveCategory } from "./categoryVisibility";
 import segmentInsights from "@/data/segment-insights.json";
 import hidden from "@/data/hidden-categories.json";
 import type { Locale } from "./i18n";
-import type { BrowseDomain, BrowseAppItem } from "@/components/CatalogBrowser";
 import { totals } from "./reviews";
+
+// The catalogue shapes the retired old site's CatalogBrowser rendered (moved here with it gone).
+export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
+export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
+export type BrowseCategory = {
+  slug: string;
+  name: string;
+  appsCount: number;
+  apps: BrowseApp[];
+  live: boolean; // synthesis published (≥10 разборов)
+  free: boolean; // free for everyone (the flagship set)
+  locked: boolean; // live but premium-gated for this viewer
+};
+export type BrowseDomain = { slug: string; name: string; categories: BrowseCategory[] };
 
 // A category is "live" once its synthesis is published (≥10 разборов).
 const LIVE = new Set(Object.keys(segmentInsights as Record<string, unknown>));

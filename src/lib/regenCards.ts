@@ -6,8 +6,10 @@ import appCardsEn from "@/data/app-cards.en.json";
 import ideaCardsEn from "@/data/idea-cards.en.json";
 import descriptionsEn from "@/data/descriptions.en.json";
 import ideasContentEn from "@/data/ideas-content.en.json";
-import type { Evidence } from "@/components/InsightCard";
 import type { Locale } from "./i18n";
+
+/** One review quote behind a card (the shape the old InsightCard rendered). */
+export type Evidence = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
 
 // Regenerated, share-worthy insight cards (built offline by the regen workflow +
 // scripts/regen-assemble.mjs). When a slug/productId is present here the page

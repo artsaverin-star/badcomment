@@ -10,6 +10,7 @@ import { PulseFilters } from "@/site/features/pulse/PulseFilters";
 import {
   isDefaultPulseQuery,
   levelScale,
+  needText,
   parsePulseQuery,
   pickStrings,
   PULSE_FEED_ROWS,
@@ -21,7 +22,8 @@ import {
 } from "@/site/features/pulse/query";
 import { pulseStrings } from "@/site/features/pulse/strings";
 import { format } from "@/site/i18n/translate";
-import { localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
+import { breadcrumbList, jsonLd, localeAlternates, OG_LOCALE } from "@/site/features/research/seo";
+import { SITE_URL } from "@/site/config";
 import { Heading } from "@/site/ui";
 import "@/site/features/pulse/pulse-kit.css";
 import "@/site/features/pulse/pulse.css";
@@ -73,8 +75,46 @@ export default async function PulsePage({ params, searchParams }: Props) {
   };
   const filtered = !isDefaultPulseQuery({ ...query, page: 1 });
 
+  const canonical = `${SITE_URL}${routes.pulse(lang)}`;
   return (
     <div className="ia-page ia-page--grid ia-pulse" data-pulse="feed">
+      {/* The indexable view (no filters, page 1): the feed as a list of its need pages. */}
+      {!filtered && page === 1 && visible.length ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "CollectionPage",
+                  "@id": canonical,
+                  url: canonical,
+                  name: s.title,
+                  description: s.metaDescription,
+                  inLanguage: lang,
+                  isPartOf: { "@id": `${SITE_URL}/#website` },
+                  breadcrumb: { "@id": `${canonical}#breadcrumb` },
+                  mainEntity: {
+                    "@type": "ItemList",
+                    numberOfItems: data.needs.length,
+                    itemListElement: visible.map((need, i) => ({
+                      "@type": "ListItem",
+                      position: i + 1,
+                      url: `${SITE_URL}${routes.pulseNeed(lang, need.id)}`,
+                      name: needText(need.title, lang),
+                    })),
+                  },
+                },
+                breadcrumbList(`${canonical}#breadcrumb`, [
+                  ["inApp", `${SITE_URL}/${lang}`],
+                  [s.title, canonical],
+                ]),
+              ],
+            }),
+          }}
+        />
+      ) : null}
       <Heading title={s.title} subtitle={s.subtitle} />
       {data.needs.length ? (
         <div className="ia-pulse-controls">

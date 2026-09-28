@@ -6,11 +6,11 @@
 //   href("de", "settings", "about")              → "/de/settings/about"
 //   switchLocaleHref("/ru/segment/x?q=a", "ja")  → "/ja/segment/x?q=a"
 //
-// Links between new pages: next/link. Links to the old site (/<L>/old/…) and language
-// switches cross a root layout / reload the document: use a plain <a>.
+// Links between pages: next/link. Links to the admin (its own root layout) and language
+// switches reload the document: use a plain <a>.
 
 import { isSafeLocalPath } from "@/lib/safeReturn";
-import { isLocale, toOldLocale, type Locale } from "./i18n/locales";
+import { isLocale, type Locale } from "./i18n/locales";
 
 type Query = Record<string, string | number | boolean | null | undefined>;
 
@@ -86,8 +86,6 @@ export const routes = {
   reviewsMethodology: (l: Locale) => href(l, "reviews", "methodology"),
   /** «MCP» (web-only): the MCP server page. */
   mcp: (l: Locale) => href(l, "mcp"),
-  /** The previous site (ru/en only; de/fr/ja read the English archive). Plain <a>. */
-  oldSite: (l: Locale, path: string = "") => `/${toOldLocale(l)}/old${path && path !== "/" ? (path.startsWith("/") ? path : `/${path}`) : ""}`,
 } as const;
 
 /** Tabs of the app shell, in order. */
