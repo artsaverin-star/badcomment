@@ -199,14 +199,18 @@ jobs:
               ! grep -q 'id="main-players"' /tmp/topic.html
             done
           done
-          # Site v2: the new site answers on its own URLs (no redirect), and the previous site
-          # stays reachable, noindexed, under /<L>/old with its banner.
+          # The home entry redirects to the catalog; content pages answer directly, and the
+          # previous site stays reachable, noindexed, under /<L>/old with its banner.
           expect_200() {
             code="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
               -D /tmp/smoke-headers.txt -o /tmp/smoke-body.html -w '%{http_code}' "$1")"
             if [ "$code" != "200" ]; then echo "Expected 200 from $1, got $code"; exit 1; fi
           }
-          expect_200 https://inapp.pro/en
+          home_status="$(curl -sS --retry 5 --retry-all-errors --retry-delay 3 --max-time 30 \
+            -D /tmp/home-headers.txt -o /dev/null -w '%{http_code}' https://inapp.pro/en)"
+          test "$home_status" = "308"
+          grep -qiE '^location: (https://inapp.pro)?/en/segment[[:space:]]*$' /tmp/home-headers.txt
+          expect_200 https://inapp.pro/en/segment
           # Apple-facing legal pages (DECISIONS "Legal pages"): /en/contacts is the App Store
           # support URL, /en/offer the Terms of Use; neither may show the web price.
           expect_200 https://inapp.pro/en/contacts
