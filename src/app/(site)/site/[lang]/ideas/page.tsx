@@ -7,7 +7,9 @@ import { AppPromo } from "@/site/features/ideas/AppPromo";
 import { IdeasCatalog, type CatalogCard } from "@/site/features/ideas/IdeasCatalog";
 import { IDEAS_CATALOG_UI_KEYS } from "@/site/features/ideas/keys";
 import { alternatesFor, ideasCatalogMeta, OG_LOCALE } from "@/site/features/ideas/seo";
+import { ideasStrings } from "@/site/features/ideas/strings";
 import { I18nProvider } from "@/site/i18n/client";
+import { format } from "@/site/i18n/strings";
 import { isLocale } from "@/site/i18n/locales";
 import { getT } from "@/site/i18n/server";
 import { FREE_IDEAS, isLaunchCategory, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
@@ -19,7 +21,7 @@ import { Heading } from "@/site/ui";
 // GATE BEFORE SERIALIZING (spec 04 §7.6, 09 G10): a locked card is {slug} only (the cover is
 // derived from the slug) and has no search haystack, so a locked idea never matches a query and
 // its copy never leaves the server.
-// SEO (review seo S3/S7): the H1 and subtitle are the app's; <title> and the description are
+// SEO (review seo S3/S7): the H1 and introduction use localized web copy; metadata has
 // keyword copy with counts from data («Идеи приложений из реальных отзывов», the old /ru/ideas
 // ranked with a similar title at sitemap priority 0.95).
 
@@ -105,13 +107,14 @@ export default async function IdeasCatalogPage({
 
   const rawCategory = first(sp.category);
   const category = rawCategory && names.has(rawCategory) ? rawCategory : null;
+  const s = ideasStrings[lang];
 
   return (
     // Top 20 like the app's ideas screen (.padding(20), ClarityCatalogs.swift:218); items 14 apart.
     <div className="ia-page ia-page--grid flex flex-col gap-3.5 pt-5">
       <Heading
-        title={t("Идеи")}
-        subtitle={viewer.plus ? t("Что можно создать или улучшить.") : t("5 идей бесплатно. Остальные — в Plus.")}
+        title={s.catalogHeading}
+        subtitle={format(s.catalogIntro, { reviews: t.count("отзыв", manifest.corpus.reviews) })}
       />
       <I18nProvider locale={lang} strings={t.pick(IDEAS_CATALOG_UI_KEYS)}>
         <IdeasCatalog

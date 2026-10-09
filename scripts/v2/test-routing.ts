@@ -20,7 +20,7 @@ import {
   type RewriteDecision,
   type RedirectDecision,
 } from "../../src/site/routing/decide";
-import { negotiateLocale, parseAcceptLanguage } from "../../src/site/i18n/locales";
+import { LOCALES, negotiateLocale, parseAcceptLanguage } from "../../src/site/i18n/locales";
 import { isServedInPlace, oldHref, oldNavHref, switchOldLocale } from "../../src/lib/oldHref";
 import { proxy, config } from "../../src/proxy";
 
@@ -67,13 +67,13 @@ describe("locale negotiation (spec 09 §2.2)", () => {
 });
 
 describe("root and bare paths", () => {
-  test("/ → negotiated locale home", () => {
-    expectRedirect(decide("/", { acceptLanguage: "ru-RU,ru;q=0.9" }), 307, "/ru");
-    expectRedirect(decide("/", { acceptLanguage: "de-DE,de;q=0.9,en;q=0.8" }), 307, "/de");
-    expectRedirect(decide("/", { acceptLanguage: "en-GB,en;q=0.9" }), 307, "/en");
-    expectRedirect(decide("/", { acceptLanguage: "zh-CN" }), 307, "/en");
-    expectRedirect(decide("/", { cookies: { locale: "ja" }, acceptLanguage: "ru" }), 307, "/ja");
-    expectRedirect(decide("/?utm_source=x", { acceptLanguage: "fr" }), 307, "/fr?utm_source=x");
+  test("/ → negotiated research catalog in one redirect", () => {
+    expectRedirect(decide("/", { acceptLanguage: "ru-RU,ru;q=0.9" }), 307, "/ru/segment");
+    expectRedirect(decide("/", { acceptLanguage: "de-DE,de;q=0.9,en;q=0.8" }), 307, "/de/segment");
+    expectRedirect(decide("/", { acceptLanguage: "en-GB,en;q=0.9" }), 307, "/en/segment");
+    expectRedirect(decide("/", { acceptLanguage: "zh-CN" }), 307, "/en/segment");
+    expectRedirect(decide("/", { cookies: { locale: "ja" }, acceptLanguage: "ru" }), 307, "/ja/segment");
+    expectRedirect(decide("/?utm_source=x", { acceptLanguage: "fr" }), 307, "/fr/segment?utm_source=x");
   });
   test("bare /segment/x → /<loc>/segment/x (query kept)", () => {
     expectRedirect(decide("/segment/x", { acceptLanguage: "ru" }), 307, "/ru/segment/x");
@@ -105,15 +105,21 @@ describe("root and bare paths", () => {
 });
 
 describe("new site", () => {
-  test("/<L> home sets the locale cookie", () => {
-    const r = expectRewrite(decide("/ru"), "new", "/site/ru");
+  test("/<L> permanently redirects to its research catalog and keeps the query", () => {
+    for (const l of LOCALES) {
+      expectRedirect(decide(`/${l}`), 308, `/${l}/segment`);
+      expectRedirect(decide(`/${l}?q=sleep&utm_source=x`, { cookies: { locale: "ja" }, acceptLanguage: "fr" }), 308, `/${l}/segment?q=sleep&utm_source=x`);
+    }
+  });
+  test("the research catalog sets the locale cookie", () => {
+    const r = expectRewrite(decide("/ru/segment"), "new", "/site/ru/segment");
     assert.equal(cookieValue(r), "ru");
     assert.equal(r.requestHeaders["x-ia-site"], "new");
-    assert.equal(r.requestHeaders["x-ia-public-path"], "/ru");
+    assert.equal(r.requestHeaders["x-ia-public-path"], "/ru/segment");
     assert.equal(r.responseHeaders["X-Robots-Tag"], undefined);
   });
   test("locale cookie is not re-sent when it already matches", () => {
-    const r = expectRewrite(decide("/de", { cookies: { locale: "de" } }), "new", "/site/de");
+    const r = expectRewrite(decide("/de/segment", { cookies: { locale: "de" } }), "new", "/site/de/segment");
     assert.equal(r.cookies.length, 0);
   });
   test("research catalog and launch topics", () => {
@@ -364,7 +370,8 @@ describe("old-site links (src/lib/oldHref.ts, A4 option A)", () => {
   });
   test("oldNavHref: redirects of old pages (A10)", () => {
     // served in place → the public URL (new home, in-place page or new topic)
-    assert.equal(oldNavHref("inplace", "ru", "/"), "/ru");
+    assert.equal(oldNavHref("inplace", "ru", "/"), "/ru/segment");
+    assert.equal(oldNavHref("inplace", "en", "/?q=sleep#top"), "/en/segment?q=sleep#top");
     assert.equal(oldNavHref("inplace", "en", "/tokens"), "/en/tokens");
     assert.equal(oldNavHref("inplace", "ru", "/segment/sobriety"), "/ru/segment/sobriety");
     assert.equal(oldNavHref("inplace", "ru", "/segment/habit-tracking"), "/ru/segment/habit-tracking");
@@ -446,6 +453,12 @@ describe("src/proxy.ts", () => {
     new NextRequest(new URL(url, "https://inapp.pro"), { headers });
 
   test("redirects carry status and query", () => {
+    const root = proxy(req("/?utm_source=x", { "accept-language": "ru" }));
+    assert.equal(root.status, 307);
+    assert.equal(root.headers.get("location"), "https://inapp.pro/ru/segment?utm_source=x");
+    const home = proxy(req("/en?q=sleep&utm_source=x", { cookie: "locale=ru" }));
+    assert.equal(home.status, 308);
+    assert.equal(home.headers.get("location"), "https://inapp.pro/en/segment?q=sleep&utm_source=x");
     const res = proxy(req("/search-me?x=1", { "accept-language": "ru" }));
     assert.equal(res.status, 307);
     assert.equal(res.headers.get("location"), "https://inapp.pro/ru/search-me?x=1");

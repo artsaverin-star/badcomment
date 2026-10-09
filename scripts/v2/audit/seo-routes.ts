@@ -37,6 +37,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { decideRoute, type RoutingDecision } from "../../../src/site/routing/decide";
 import { isLaunchCategory, isLaunchIdea, LAUNCH_CATEGORIES, LAUNCH_IDEAS } from "../../../src/site/manifest.generated";
 import { LOCALES } from "../../../src/site/i18n/locales";
+import { oldNavHref } from "../../../src/lib/oldHref";
 
 // Next's server modules (pulled in by next/experimental/testing/server and by route handlers)
 // expect the global that Next's node environment installs; outside `next` it is missing.
@@ -462,7 +463,7 @@ function simulate(start: string, persona: Persona): Sim {
       const r = appRedirect(m.route, m.params);
       if (r) {
         const l = d.locale;
-        const to = d.site === "inplace" && r.modeAware ? `/${l}${r.internal === "/" ? "" : r.internal}` : `/${l}/old${r.internal === "/" ? "" : r.internal}`;
+        const to = d.site === "inplace" && r.modeAware ? oldNavHref("inplace", l, r.internal) : `/${l}/old${r.internal === "/" ? "" : r.internal}`;
         hops.push({ from: cur, status: r.status, to, by: "old-page" });
         cur = to;
         continue;
@@ -657,13 +658,13 @@ async function main() {
     if (!/^\s*sitemap:/im.test(r.text)) problems.push({ sev: "minor", url: "/robots.txt", what: `robots.txt (${r.source}) has no Sitemap: line`, sources: ["robots"] });
   }
 
-  // Sitemap coverage of the new site (informational): launch topics/ideas in all 5 locales.
+  // Sitemap coverage of the new site (informational): the catalog home and launch topics/ideas.
   const codeMap = new Set(sims.filter((s) => s.sources.includes("code:sitemap") || s.sources.includes("code:sitemap:hreflang")).map((s) => s.url));
   const coverage = { topics: { expected: 0, listed: 0 }, ideas: { expected: 0, listed: 0 }, homes: { expected: 0, listed: 0 } };
   if (SOURCE !== "prod") {
     for (const l of LOCALES) {
       coverage.homes.expected++;
-      if (codeMap.has(`/${l}`)) coverage.homes.listed++;
+      if (codeMap.has(`/${l}/segment`)) coverage.homes.listed++;
       for (const c of LAUNCH_CATEGORIES) {
         coverage.topics.expected++;
         if (codeMap.has(`/${l}/segment/${c}`)) coverage.topics.listed++;

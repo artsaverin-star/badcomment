@@ -284,7 +284,7 @@ function expectNewPage(r, L) {
 // ── routes: every new route of ARCHITECTURE §1, all five locales ──
 
 const NEW_ROUTES = [
-  { p: "" },
+  { p: "", status: 308, location: (L) => `/${L}/segment` },
   { p: "segment" },
   { p: "segment/interior-design" },
   { p: "segment/habit-tracking" },
@@ -323,16 +323,16 @@ for (const L of opts.locales) {
 // ── redirects: negotiation, aliases, de/fr/ja → en for old pages, archive entry points ──
 
 const REDIRECTS = [
-  // "/" → negotiated locale: cookie → Accept-Language (exact, base, q-order) → en (spec 09 §2.2)
-  { p: "/", h: { "accept-language": "*" }, s: 307, to: "/en", why: "no preference → en" },
-  { p: "/", h: { "accept-language": "ru-RU,ru;q=0.9,en;q=0.8" }, s: 307, to: "/ru" },
-  { p: "/", h: { "accept-language": "de-AT,de;q=0.9" }, s: 307, to: "/de", why: "base language" },
-  { p: "/", h: { "accept-language": "fr-CA" }, s: 307, to: "/fr" },
-  { p: "/", h: { "accept-language": "ja-JP,ja;q=0.9" }, s: 307, to: "/ja" },
-  { p: "/", h: { "accept-language": "zh-CN,zh;q=0.9" }, s: 307, to: "/en", why: "unsupported → en" },
-  { p: "/", h: { "accept-language": "ru;q=0.5,de;q=0.9" }, s: 307, to: "/de", why: "q-order" },
-  { p: "/", h: { cookie: "locale=ja", "accept-language": "ru" }, s: 307, to: "/ja", why: "cookie wins" },
-  { p: "/?utm_source=smoke", h: { "accept-language": "en" }, s: 307, to: "/en?utm_source=smoke", why: "query kept" },
+  // "/" → negotiated catalog: cookie → Accept-Language (exact, base, q-order) → en (spec 09 §2.2)
+  { p: "/", h: { "accept-language": "*" }, s: 307, to: "/en/segment", why: "no preference → en" },
+  { p: "/", h: { "accept-language": "ru-RU,ru;q=0.9,en;q=0.8" }, s: 307, to: "/ru/segment" },
+  { p: "/", h: { "accept-language": "de-AT,de;q=0.9" }, s: 307, to: "/de/segment", why: "base language" },
+  { p: "/", h: { "accept-language": "fr-CA" }, s: 307, to: "/fr/segment" },
+  { p: "/", h: { "accept-language": "ja-JP,ja;q=0.9" }, s: 307, to: "/ja/segment" },
+  { p: "/", h: { "accept-language": "zh-CN,zh;q=0.9" }, s: 307, to: "/en/segment", why: "unsupported → en" },
+  { p: "/", h: { "accept-language": "ru;q=0.5,de;q=0.9" }, s: 307, to: "/de/segment", why: "q-order" },
+  { p: "/", h: { cookie: "locale=ja", "accept-language": "ru" }, s: 307, to: "/ja/segment", why: "cookie wins" },
+  { p: "/?utm_source=smoke", h: { "accept-language": "en" }, s: 307, to: "/en/segment?utm_source=smoke", why: "query kept" },
   // bare paths get the negotiated locale, straight to the final target (one hop)
   { p: "/segment/habit-tracking", h: { "accept-language": "de" }, s: 307, to: "/de/segment/habit-tracking" },
   { p: "/segment/qr-scanner", h: { "accept-language": "de" }, s: 307, to: "/en/segment/qr-scanner", why: "old topic, one hop" },
@@ -348,6 +348,7 @@ const REDIRECTS = [
 ];
 for (const L of opts.locales) {
   REDIRECTS.push(
+    { p: `/${L}?q=sleep&utm_source=smoke`, s: 308, to: `/${L}/segment?q=sleep&utm_source=smoke`, why: "home query kept" },
     { p: `/${L}/research`, s: 308, to: `/${L}/segment` },
     { p: `/${L}/research/habit-tracking`, s: 308, to: `/${L}/segment/habit-tracking` },
     { p: `/${L}/search?q=habit`, s: 308, to: `/${L}/segment?q=habit` },
@@ -522,7 +523,7 @@ const FORBIDDEN = [
   ["/tokens", /\/tokens(?![\w.-])/g],
   ["offer/payment", /offer\/payment/g],
 ];
-for (const p of ["/en", "/en/offer", "/en/contacts", "/ru/offer", "/ru/contacts"]) {
+for (const p of ["/en/offer", "/en/contacts", "/ru/offer", "/ru/contacts"]) {
   add("apple", `GET ${p} forbidden strings`, async () => {
     const r = await http(p);
     const fails = expectStatus(r, 200);
@@ -1166,7 +1167,6 @@ if (enabled("leak")) {
         { what: "locked article", p: `/${L}/segment/habit-tracking` },
         { what: `free article (locked cards ${freeCategory}-6…8)`, p: `/${L}/segment/${freeCategory}`, control: "research" },
         { what: "free idea page", p: `/${L}/ideas/${freeIdea}`, control: "idea" },
-        { what: "landing (guest home)", p: `/${L}` },
         ...(q1 ? [{ what: "idea search, locked title", p: `/${L}/ideas?q=${encodeURIComponent(q1)}`, show: `/${L}/ideas?q=${q1}` }] : []),
         ...(q2 ? [{ what: "research search, locked body", p: `/${L}/segment?q=${encodeURIComponent(q2)}`, show: `/${L}/segment?q=${q2}` }] : []),
         ...lockedIdeas.map((id) => ({ what: `locked idea ${id}`, p: `/${L}/ideas/${id}` })),

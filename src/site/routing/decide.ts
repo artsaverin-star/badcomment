@@ -5,8 +5,8 @@
 // translates the returned decision into NextResponse.redirect / NextResponse.rewrite.
 //
 // Public URL map (summary; the table in ARCHITECTURE §1 is the source of truth):
-//   /                              307 → /<negotiated>
-//   /<L>                           NEW home                         (rewrite /site/<L>)
+//   /                              307 → /<negotiated>/segment
+//   /<L>                           308 → /<L>/segment
 //   /<L>/segment[/<launch slug>]   NEW; other slugs → OLD in place (+ x-ia-soon), de/fr/ja → 307 /en/…
 //   /<L>/segment/<launch slug>/v2  308 → /<L>/segment/<launch slug> (retired experiment URL)
 //   /<L>/research[/…], /<L>/search 308 → /<L>/segment[/…] (query kept)
@@ -262,7 +262,7 @@ function decideOldArchive(ctx: Ctx, l: Locale, rest: readonly string[]): Routing
 function decideLocalized(ctx: Ctx, l: Locale, tail: readonly string[]): RoutingDecision {
   const [a = "", b] = tail;
 
-  if (a === "") return rewriteNew(ctx, l, []);
+  if (a === "") return redirect(308, path(l, "segment"), ctx.search);
   if (a === OLD_SEGMENT) return decideOldArchive(ctx, l, tail.slice(1));
 
   // Aliases (old JSON-LD SearchAction target, earlier spec drafts).
@@ -324,8 +324,8 @@ export function decideRoute(input: RoutingInput): RoutingDecision {
   const negotiated = () =>
     negotiateLocale({ cookie: ctx.cookieLocale, acceptLanguage: input.acceptLanguage });
 
-  // "/" → the negotiated locale home.
-  if (segs.length === 0) return redirect(307, path(negotiated()), ctx.search);
+  // "/" → the negotiated research catalog in one hop.
+  if (segs.length === 0) return redirect(307, path(negotiated(), "segment"), ctx.search);
 
   const [first, second] = segs;
 

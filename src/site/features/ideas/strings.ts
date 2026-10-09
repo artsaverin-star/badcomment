@@ -7,6 +7,8 @@ import { defineStrings } from "@/site/i18n/strings";
 
 export const ideasStrings = defineStrings({
   ru: {
+    catalogHeading: "Готовые идеи приложений под спрос",
+    catalogIntro: "Мы прочитали {reviews} о приложениях и нашли, чего людям не хватает. Каждая идея показывает, что можно создать, для кого и что проверить перед разработкой.",
     // App Store promo (DECISIONS §12)
     promoEyebrow: "Приложение для iPhone",
     promoTitle: "Идеи и разборы — в кармане",
@@ -20,6 +22,8 @@ export const ideasStrings = defineStrings({
     categoryPickerOpen: "Выбрать категорию: {name}",
   },
   en: {
+    catalogHeading: "Ready app ideas backed by demand",
+    catalogIntro: "We read {reviews} of apps and found what people are missing. Each idea shows what you could build, who it is for and what to check before development.",
     promoEyebrow: "The iPhone app",
     promoTitle: "Ideas and breakdowns in your pocket",
     promoBody: "The same breakdowns and ideas in the inApp app: bookmarks, notes and ready documents right on your phone.",
@@ -30,6 +34,8 @@ export const ideasStrings = defineStrings({
     categoryPickerOpen: "Pick a category: {name}",
   },
   de: {
+    catalogHeading: "Konkrete App-Ideen mit Nachfrage",
+    catalogIntro: "Wir haben {reviews} zu Apps gelesen und herausgefunden, was Menschen fehlt. Jede Idee zeigt, was du entwickeln könntest, für wen und was du vor der Entwicklung prüfen solltest.",
     promoEyebrow: "Die iPhone-App",
     promoTitle: "Ideen und Analysen für unterwegs",
     promoBody: "Dieselben Analysen und Ideen in der inApp-App: Lesezeichen, Notizen und fertige Dokumente direkt auf deinem Handy.",
@@ -40,6 +46,8 @@ export const ideasStrings = defineStrings({
     categoryPickerOpen: "Kategorie wählen: {name}",
   },
   fr: {
+    catalogHeading: "Des idées d’apps prêtes, fondées sur la demande",
+    catalogIntro: "Nous avons lu {reviews} d’apps pour découvrir ce qui manque aux gens. Chaque idée montre ce que tu pourrais créer, pour qui et quoi vérifier avant de développer.",
     promoEyebrow: "L’app pour iPhone",
     promoTitle: "Idées et décryptages dans ta poche",
     promoBody: "Les mêmes décryptages et idées dans l’app inApp : signets, notes et documents prêts, directement sur ton téléphone.",
@@ -50,6 +58,8 @@ export const ideasStrings = defineStrings({
     categoryPickerOpen: "Choisir une catégorie : {name}",
   },
   ja: {
+    catalogHeading: "需要に基づくアプリのアイデア",
+    catalogIntro: "アプリの{reviews}を読み、ユーザーが何を求めているかを調べました。各アイデアでは、何をつくれるか、誰のためか、開発前に何を確かめるべきかを紹介します。",
     promoEyebrow: "iPhoneアプリ",
     promoTitle: "アイデアと分析をポケットに",
     promoBody: "同じ分析とアイデアをinAppアプリで。ブックマーク、メモ、完成した文書をスマートフォンで手元に置けます。",

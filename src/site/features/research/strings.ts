@@ -8,6 +8,8 @@ import { defineStrings } from "../../i18n/strings";
 
 export const researchStrings = defineStrings({
   ru: {
+    catalogHeading: "Найди боль, за решение которой уже платят",
+    catalogIntro: "Мы прочитали {reviews} о приложениях и нашли, чего людям не хватает и за что они уже платят. Выбери нишу, открой разбор и забери готовую идею под спрос.",
     soonTitle: "Скоро в новом формате",
     soonBody: "Эти разборы пока открываются в прежней версии сайта. Скоро перепишем их, как остальные.",
     appsTitle: "Приложения в этой теме",
@@ -44,6 +46,8 @@ export const researchStrings = defineStrings({
     topicsOther: "{n} темы",
   },
   en: {
+    catalogHeading: "Find a pain people already pay to solve",
+    catalogIntro: "We read {reviews} of apps and found what people are missing and already pay for. Pick a niche, open the breakdown and take a ready app idea backed by demand.",
     soonTitle: "Coming soon in the new format",
     soonBody: "These breakdowns still open in the previous version of the site. We’ll rewrite them soon, like the rest.",
     appsTitle: "Apps in this topic",
@@ -79,6 +83,8 @@ export const researchStrings = defineStrings({
     topicsOther: "{n} topics",
   },
   de: {
+    catalogHeading: "Finde ein Problem, für dessen Lösung Menschen schon zahlen",
+    catalogIntro: "Wir haben {reviews} zu Apps gelesen und herausgefunden, was Menschen fehlt und wofür sie schon zahlen. Wähle eine Nische, öffne die Analyse und finde eine konkrete App-Idee mit Nachfrage.",
     soonTitle: "Bald im neuen Format",
     soonBody:
       "Diese Analysen öffnen sich vorerst in der bisherigen Version der Website, auf Englisch. Bald schreiben wir sie wie die anderen neu.",
@@ -115,6 +121,8 @@ export const researchStrings = defineStrings({
     topicsOther: "{n} Themen",
   },
   fr: {
+    catalogHeading: "Trouve un problème que les gens paient déjà pour résoudre",
+    catalogIntro: "Nous avons lu {reviews} d’apps pour découvrir ce qui manque aux gens et ce pour quoi ils paient déjà. Choisis une niche, ouvre le décryptage et trouve une idée d’app fondée sur la demande.",
     soonTitle: "Bientôt au nouveau format",
     soonBody:
       "Ces décryptages s’ouvrent encore dans l’ancienne version du site, en anglais. On les réécrit bientôt, comme les autres.",
@@ -151,6 +159,8 @@ export const researchStrings = defineStrings({
     topicsOther: "{n} thèmes",
   },
   ja: {
+    catalogHeading: "すでにお金を払ってでも解決したい悩みを見つけよう",
+    catalogIntro: "アプリの{reviews}を読み、ユーザーが何を求め、何にお金を払っているかを調べました。分野を選び、分析を開いて、需要に基づくアプリのアイデアを見つけてください。",
     soonTitle: "まもなく新しい形式で",
     soonBody: "これらの分析は、今のところ以前のサイト（英語）で開きます。ほかの分析と同じように、近いうちに書き直します。",
     appsTitle: "このテーマのアプリ",

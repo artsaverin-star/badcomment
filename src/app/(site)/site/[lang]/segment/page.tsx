@@ -5,7 +5,7 @@ import "@/site/features/pulse/pulse.css";
 import { notFound } from "next/navigation";
 import { getViewer } from "@/site/access";
 import { SITE_URL } from "@/site/config";
-import { getCatalog, getSearchIndex } from "@/site/content";
+import { getCatalog, getManifest, getSearchIndex } from "@/site/content";
 import { mediaAbsoluteUrl } from "@/site/content/media";
 import { searchResearch } from "@/site/content/search";
 import { compareNames, matchesQuery } from "@/site/content/text";
@@ -35,7 +35,7 @@ type Props = {
 
 const queryOf = (q: string | string[] | undefined) => (Array.isArray(q) ? (q[0] ?? "") : (q ?? "")).slice(0, 200);
 
-/** Web-only <title>/description with the search keywords (review seo S3); H1 and subtitle stay the app's. */
+/** Web-only metadata with the search keywords; the visible introduction is localized separately. */
 async function catalogMeta(lang: Locale) {
   const [t, catalog] = await Promise.all([getT(lang), getCatalog(lang)]);
   const s = researchStrings[lang];
@@ -77,7 +77,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 export default async function ResearchCatalogPage({ params, searchParams }: Props) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const [sp, { t, catalog, title, description }, viewer] = await Promise.all([searchParams, catalogMeta(lang), getViewer()]);
+  const [sp, { t, catalog, title, description }, viewer, manifest] = await Promise.all([searchParams, catalogMeta(lang), getViewer(), getManifest()]);
   const query = queryOf(sp.q);
   const s = researchStrings[lang];
   // The app tests the untrimmed query (ClarityCatalogs.swift:15,47,67): spaces only = every topic
@@ -136,7 +136,11 @@ export default async function ResearchCatalogPage({ params, searchParams }: Prop
           }}
         />
       ) : null}
-      <Heading id="research-top" title={t("Разборы")} subtitle={t("Что людям важно в приложениях и чего им не хватает.")} />
+      <Heading
+        id="research-top"
+        title={s.catalogHeading}
+        subtitle={format(s.catalogIntro, { reviews: t.count("отзыв", manifest.corpus.reviews) })}
+      />
       <Link className="ia-pulse-link" href={routes.pulse(lang)}>{pulseStrings[lang].title} · {pulseStrings[lang].subtitle} →</Link>
       <CatalogSearch query={query} placeholder={t("Категория или потребность")} clearLabel={t("Очистить поиск")}>
         {/* Always mounted, so screen readers announce the count when it changes (a11y m9). */}

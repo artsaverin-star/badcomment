@@ -97,6 +97,8 @@ export function oldHref(l: LocaleLike, path: string = "/"): string {
 export function oldNavHref(mode: string | null | undefined, l: LocaleLike, path: string = "/"): string {
   if (mode === "old") return oldHref(l, path);
   const { pathname, suffix } = splitPath(path);
+  // Home is now a redirect itself; legacy stubs should reach the catalog in one hop.
+  if (pathname === "/" || pathname === "") return publicHref(l, "/segment") + suffix;
   return publicHref(l, pathname) + suffix;
 }
 

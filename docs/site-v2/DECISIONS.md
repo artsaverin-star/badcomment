@@ -156,10 +156,12 @@ Accepted consequence of D2: some rating quotes also appear in the paid research 
 habit-tracking, 22 of 45 open with the same 60 characters). Research articles and ideas pages still
 never link the rating (the «Site only» rule above).
 
-## Landing and access
+## Home and access
 
-9. `/<loc>` shows the **landing to signed-out visitors** and the app home (research catalog) to
-   signed-in visitors. Topic and idea pages are public (SEO, sharing) with the app's gates:
+9. The home opens the **research catalog for every visitor** (owner, 2026-10-09): `/` negotiates
+   the locale and redirects directly to `/<loc>/segment` with 307; `/<loc>` redirects there
+   permanently with 308. Both preserve the query. The separate landing is retired.
+   Topic and idea pages are public (SEO, sharing) with the app's gates:
    free = topic `interior-design` + ideas `interior-design-1…5`; everything else shows the
    app's locked preview with the Plus offer.
 10. Accounts, sessions, logins and payments are **shared with the old site** (same DB, same

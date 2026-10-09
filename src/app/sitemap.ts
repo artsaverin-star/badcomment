@@ -80,7 +80,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // New site: same path in every locale (the pages' own canonical/hreflang use the same shape).
   const newUrl = (l: string, p: string) => `${BASE}/${l}${p}`;
   const newPaths: { p: string; priority: number }[] = [
-    { p: "", priority: 1 },
     { p: "/segment", priority: 0.95 },
     { p: "/pulse", priority: 0.9 },
     ...pulse.needs.map((need) => ({ p: `/pulse/${need.id}`, priority: 0.7 })),

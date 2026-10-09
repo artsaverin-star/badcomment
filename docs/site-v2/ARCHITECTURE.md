@@ -18,8 +18,8 @@ Old site locales: `ru, en` only.
 
 | Public URL | Served by | Notes |
 |---|---|---|
-| `/` | proxy 307 → `/<negotiated>` | negotiation: `locale` cookie → Accept-Language (exact, base, prefix) → `en` (spec 09 §2.2) |
-| `/<L>` | NEW home | signed out → landing; signed in → 307 `/<L>/segment` |
+| `/` | proxy 307 → `/<negotiated>/segment` | negotiation: `locale` cookie → Accept-Language (exact, base, prefix) → `en` (spec 09 §2.2); query kept, one hop |
+| `/<L>` | proxy 308 → `/<L>/segment` | research catalog for every viewer; query kept |
 | `/<L>/segment` (`?q=`) | NEW research catalog (tab «Разборы») | 35 launch topics + bottom list «Скоро в новом формате» (the other 37 old topics, ru/en only, links to their URLs) |
 | `/<L>/segment/<slug>` | NEW if `slug ∈ LAUNCH_CATEGORIES`, else OLD in place (banner «Скоро обновление») | L ∈ de/fr/ja and not launch → 307 `/en/segment/<slug>` |
 | `/<L>/research[/<slug>]`, `/<L>/search?q=` | proxy 308 → `/<L>/segment[/<slug>]`, `/<L>/segment?q=` | aliases |

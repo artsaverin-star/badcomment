@@ -35,7 +35,7 @@ export function href(locale: Locale, ...segments: Array<string | null | undefine
 export type SavedFilter = "all" | "research" | "ideas" | "notes";
 
 export const routes = {
-  /** Landing (signed out) / → research catalog (signed in). */
+  /** Home entry point; redirects to the research catalog for every viewer. */
   home: (l: Locale) => href(l),
   /** Tab «Разборы»: research catalog. */
   research: (l: Locale, q?: { q?: string }) => href(l, "segment") + queryString(q),
