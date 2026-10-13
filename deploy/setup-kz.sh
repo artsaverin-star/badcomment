@@ -78,7 +78,7 @@ Environment=DATABASE_URL=file:${APP_DIR}/data/prod.db
 # 485 MB peak while a big data file is split once after it changes (src/lib/dataFile.ts).
 Environment=NODE_OPTIONS=--max-old-space-size=512
 EnvironmentFile=-${APP_DIR}/.env
-# No -H: with `-H 127.0.0.1` Next builds rewrite URLs on "localhost", treats proxy.ts rewrites
+# No -H: with "-H 127.0.0.1" Next builds rewrite URLs on "localhost", treats proxy.ts rewrites
 # as external and answers 307/500. Port 3000 is closed by the VM's security group (80/443 only).
 ExecStart=${NODE} ${APP_DIR}/node_modules/next/dist/bin/next start -p 3000
 Restart=always
