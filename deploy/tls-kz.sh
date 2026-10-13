@@ -20,15 +20,17 @@ log() { echo ">> $*"; }
 [[ -f "${NEW}" ]] || { echo "${NEW} missing: pass it with --put deploy/nginx-badcomment.conf:${NEW}"; exit 1; }
 
 if [[ ! -f /etc/letsencrypt/live/inapp.pro/fullchain.pem ]]; then
-  # Both names must reach this box over HTTP before asking Let's Encrypt.
+  # Check first, from the Mac, that the zone's own servers already answer with this VM:
+  #   dig +short inapp.pro www.inapp.pro @ns1.reg.ru     (this VM's resolver may cache the old IP for a day)
+  # Here: nginx serves the challenge webroot for both names.
   probe="probe-$(date +%s)"
   install -d -m 755 "${WEBROOT}/.well-known/acme-challenge"
   echo "${probe}" > "${WEBROOT}/.well-known/acme-challenge/${probe}"
   for host in inapp.pro www.inapp.pro; do
-    got="$(curl -s --max-time 15 "http://${host}/.well-known/acme-challenge/${probe}" || true)"
+    got="$(curl -s --max-time 15 --resolve "${host}:80:127.0.0.1" "http://${host}/.well-known/acme-challenge/${probe}" || true)"
     if [[ "${got}" != "${probe}" ]]; then
       rm -f "${WEBROOT}/.well-known/acme-challenge/${probe}"
-      echo "!! http://${host} does not reach this VM yet (DNS not switched or not propagated)"; exit 1
+      echo "!! nginx does not serve the ACME webroot for ${host}"; exit 1
     fi
   done
   rm -f "${WEBROOT}/.well-known/acme-challenge/${probe}"
