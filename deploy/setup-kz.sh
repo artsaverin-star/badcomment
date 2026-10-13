@@ -12,7 +12,8 @@
 #   - /opt/badcomment/.env with a fresh SESSION_SECRET (other secrets are added by hand, see below)
 #   - systemd unit `badcomment` on port 3000 (closed outside by the security group) with a
 #     memory cap, so it can't starve Roomdo (the site runs at ~320 MB, src/lib/dataFile.ts)
-#   - sudo rule so deploy.sh (run as `badcomment`) can restart only its own unit
+#   - systemd unit `inappbot` for the Telegram login bot (starts once TELEGRAM_BOT_TOKEN is in .env)
+#   - sudo rule so deploy.sh (run as `badcomment`) can restart only its own units
 #   - a bootstrap nginx site for inapp.pro on port 80 + ACME webroot; once DNS points here,
 #     deploy/tls-kz.sh issues the certificate and installs deploy/nginx-badcomment.conf
 #
@@ -93,6 +94,37 @@ WantedBy=multi-user.target
 UNIT
 systemctl daemon-reload
 systemctl enable --quiet badcomment.service
+
+# 4b. The Telegram bot @inAppProBot (bot/bot.mjs): binds "Login with Telegram" on the site
+# through the shared prod.db. Long-polls Telegram; needs TELEGRAM_BOT_TOKEN in .env and is
+# started once it is there (deploy.sh restarts it after every deploy).
+cat > /etc/systemd/system/inappbot.service <<UNIT
+[Unit]
+Description=inapp.pro Telegram bot @inAppProBot (web login binding), bot/bot.mjs
+After=network.target badcomment.service
+
+[Service]
+Type=simple
+User=badcomment
+Group=badcomment
+WorkingDirectory=${APP_DIR}
+Environment=NODE_ENV=production
+Environment=DATABASE_URL=file:${APP_DIR}/data/prod.db
+Environment=SITE_URL=https://inapp.pro
+Environment=NODE_OPTIONS=--max-old-space-size=96
+EnvironmentFile=${APP_DIR}/.env
+ExecStart=${NODE} ${APP_DIR}/bot/bot.mjs
+Restart=always
+RestartSec=10
+# Shares the box with Roomdo (the bot runs at ~35 MB).
+MemoryMax=200M
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+systemctl daemon-reload
+systemctl enable --quiet inappbot.service
+if grep -q '^TELEGRAM_BOT_TOKEN=.' "${APP_DIR}/.env"; then systemctl restart inappbot.service; fi
 
 # 5. deploy.sh runs as `badcomment` and restarts only its own units.
 cat > /etc/sudoers.d/badcomment-deploy <<'SUDO'
