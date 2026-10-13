@@ -20,6 +20,15 @@ export async function GET(req: Request) {
 
   const adminIds = (process.env.ADMIN_TG_IDS || "").split(",").map((s) => s.trim()).filter(Boolean);
   const firstUser = (await prisma.user.count()) === 0;
+  // Buyers restored after the old database was lost (2026-10-11) are known by their Telegram
+  // username only, not by the numeric id: the first Telegram login under that username takes
+  // over the restored account (no telegramId, no Google, no e-mail yet).
+  if (lt.username && !(await prisma.user.findUnique({ where: { telegramId: lt.telegramId } }))) {
+    const restored = await prisma.user.findFirst({
+      where: { username: lt.username, telegramId: null, googleId: null, email: null },
+    });
+    if (restored) await prisma.user.update({ where: { id: restored.id }, data: { telegramId: lt.telegramId } });
+  }
   const user = await prisma.user.upsert({
     where: { telegramId: lt.telegramId },
     update: { username: lt.username, firstName: lt.firstName },
