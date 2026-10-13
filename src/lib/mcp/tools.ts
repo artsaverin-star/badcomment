@@ -3,6 +3,7 @@ import type { SessionUser } from "@/lib/session";
 import {
   getApp,
   getNichePatterns,
+  hasReviewCorpus,
   listNiches,
   listReviewCatalogue,
   listSourceApps,
@@ -13,7 +14,7 @@ import {
   type Polarity,
   type ReviewTheme,
 } from "@/lib/reviews";
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { getRatingSet, hasRatingSet, ratingSlugs } from "@/lib/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
 import channelsData from "@/data/channels.json";
 import { getNicheThesis } from "@/lib/nicheThesis";
@@ -44,7 +45,6 @@ type RatingApp = {
   whoFor?: string;
 };
 type RatingSet = { slug: string; name: string; nameEn?: string; apps: RatingApp[]; totalReviews?: number; count?: number; inflated?: number };
-const RATING = RATING_BY_SLUG as Record<string, RatingSet>;
 
 type Segment = { name: string; job: string; payLevel: string; payNote?: string; servedBy: string[]; gap: string };
 type Dossier = { audience: { segments: Segment[]; takeaway?: string }; market: { money?: string; marketLead?: string } };
@@ -53,7 +53,9 @@ const DOSSIER = DOSSIER_BY_SLUG as Record<string, Dossier>;
 type Channel = { name: string; note: string; count: number; quotes: { app: string; quote: string }[] };
 const CHANNELS = channelsData as unknown as Record<string, { channels: Channel[] }>;
 
-const SUPPORTED_SLUGS = new Set(listReviewCatalogue("ru").map((niche) => niche.slug).filter((slug) => listSourceApps(slug).length > 0 && RATING[slug]));
+let supported: Set<string> | null = null;
+const supportedSlugs = () =>
+  (supported ??= new Set(listReviewCatalogue("ru").map((niche) => niche.slug).filter((slug) => hasReviewCorpus(slug) && hasRatingSet(slug))));
 const DEEP_SLUGS = new Set(listNiches("ru").map((niche) => niche.slug));
 
 type JsonSchema = Record<string, unknown>;
@@ -257,8 +259,8 @@ function page<T>(items: T[], args: Record<string, unknown>, fallback: number, ma
 }
 
 function assertNiche(slug: string): RatingSet {
-  const rating = RATING[slug];
-  if (!slug || !rating || !SUPPORTED_SLUGS.has(slug)) throw new McpToolError("unknown_niche", `Unknown niche "${slug}". Call list_niches for supported slugs.`);
+  const rating = slug ? getRatingSet<RatingSet>(slug) : null;
+  if (!slug || !rating || !supportedSlugs().has(slug)) throw new McpToolError("unknown_niche", `Unknown niche "${slug}". Call list_niches for supported slugs.`);
   return rating;
 }
 
@@ -423,9 +425,10 @@ export async function callTool(name: string, rawArgs: Record<string, unknown>, c
     case "list_niches": {
       const query = s(args.query).toLowerCase();
       const deepOnly = args.deepEditorialOnly === true;
-      const rows = Object.entries(RATING)
-        .filter(([slug]) => SUPPORTED_SLUGS.has(slug))
-        .map(([slug, set]) => {
+      const rows = ratingSlugs()
+        .filter((slug) => supportedSlugs().has(slug))
+        .map((slug) => {
+          const set = getRatingSet<RatingSet>(slug)!;
           const sourceApps = listSourceApps(slug);
           const sourceThemes = sourceApps.flatMap((app) => app.themes);
           const assignments = sourceApps.reduce((sum, app) => sum + app.themeAssignments, 0);
@@ -462,7 +465,7 @@ export async function callTool(name: string, rawArgs: Record<string, unknown>, c
         shown: paged.shown,
         nextCursor: paged.nextCursor,
         coverage: {
-          corpus: { niches: SUPPORTED_SLUGS.size, apps: CORPUS.sourceApps, reviews: CORPUS.sourceReviews, individuallyLabelled: CORPUS.labelledReviews },
+          corpus: { niches: supportedSlugs().size, apps: CORPUS.sourceApps, reviews: CORPUS.sourceReviews, individuallyLabelled: CORPUS.labelledReviews },
           deepEditorial: { niches: reviewProgress.nichesDone, apps: reviewProgress.appsDone, reviews: CORPUS.reviews },
           note: "Every review has corpus topics or an honest nonspecific remainder. The deep editorial layer adds app-specific themes to the stated subset.",
         },
@@ -573,7 +576,7 @@ export async function callTool(name: string, rawArgs: Record<string, unknown>, c
       const polarity = s(args.polarity);
       if (niche) assertNiche(niche);
       const minimum = clamp(args.minCount, 10, 1000000);
-      const niches = listReviewCatalogue("ru").filter((row) => SUPPORTED_SLUGS.has(row.slug) && (!niche || row.slug === niche));
+      const niches = listReviewCatalogue("ru").filter((row) => supportedSlugs().has(row.slug) && (!niche || row.slug === niche));
       const rows = niches.flatMap((row) => aggregateNicheThemes(row.slug, { polarity }).filter((theme) => theme.assignments >= minimum && (!query || `${theme.theme} ${theme.en}`.toLowerCase().includes(query))).map((theme) => ({ niche: row.slug, nicheName: row.name, ...theme }))).sort((a, b) => b.assignments - a.assignments || a.theme.localeCompare(b.theme));
       const paged = page(rows, args, 30, 100);
       return { query: query || null, niche: niche || null, themes: paged.values, total: paged.total, shown: paged.shown, nextCursor: paged.nextCursor, countingNote: "Counts are theme assignments aggregated inside each niche; a review may contribute to multiple explicit themes." };

@@ -5,7 +5,7 @@ import { isFriendIdentity } from "@/lib/friends";
 import friendsList from "@/data/friends.json";
 import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_STARS, CATEGORY_STARS } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
-import ideasData from "@/data/ideas.json";
+import { dataFile } from "@/lib/dataFile";
 import FavoritesCell from "@/components/FavoritesCell";
 
 export const dynamic = "force-dynamic";
@@ -20,7 +20,7 @@ export default async function AdminPage() {
 
   // Favorites per user (server-side bookmarks). Map slug -> idea title for display.
   const favRows = await prisma.favorite.findMany({ orderBy: { createdAt: "desc" }, select: { userId: true, slug: true } });
-  const ideaTitle = new Map<string, string>((ideasData as { slug: string; title: string }[]).map((i) => [i.slug, i.title]));
+  const ideaTitle = new Map<string, string>(dataFile<{ slug: string; title: string }[]>("ideas.json").map((i) => [i.slug, i.title]));
   const favBy = new Map<string, string[]>();
   for (const f of favRows) {
     const arr = favBy.get(f.userId) ?? [];

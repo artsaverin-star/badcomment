@@ -1,6 +1,6 @@
 import categories from "@/data/categories.json";
-import meta from "@/data/categories-meta.json";
 import deprioritized from "@/data/deprioritized-categories.json";
+import { dataFile } from "./dataFile";
 import type { Locale } from "./i18n";
 
 // Two-level taxonomy: top-level life domain ("Sleep & meditation") → sub
@@ -36,7 +36,8 @@ type RawAppMeta = {
 };
 
 const RAW_DOMAINS = categories as RawDomain[];
-const META = meta as Record<string, RawAppMeta>;
+// Per-app metadata (~1.4 MB), read from disk on first use (lib/dataFile.ts).
+const META = () => dataFile<Record<string, RawAppMeta>>("categories-meta.json");
 // Categories parked as not-worth-processing (junk/storefront/network-effect):
 // kept in the catalog but greyed out and skipped by the pipeline.
 const DEPRIORITIZED = new Set(deprioritized as string[]);
@@ -69,7 +70,7 @@ export type DomainView = {
 };
 
 function resolveApp(catSlug: string, query: string): CategoryAppView {
-  const m = META[`${catSlug}:${query}`];
+  const m = META()[`${catSlug}:${query}`];
   if (!m) return { query, name: query, icon: "", appleId: 0, productId: null };
   return {
     query,
@@ -116,7 +117,7 @@ export const getResearchCategory = getCategoryBySlug;
 export function getAppMetaByProductId(
   productId: string,
 ): { name: string; icon: string; developer: string | null; screenshots: string[] } | null {
-  for (const m of Object.values(META)) {
+  for (const m of Object.values(META())) {
     if (m.productId === productId)
       return { name: m.name, icon: m.icon, developer: m.developer ?? null, screenshots: m.screenshots ?? [] };
   }

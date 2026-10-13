@@ -1,11 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { gunzipSync } from "node:zlib";
-import reviewsIndex from "@/data/reviewsIndex.json";
 import reviewsProgress from "@/data/reviewsProgress.json";
 import reviewNicheCatalog from "@/data/reviewNicheCatalog.json";
-import reviewNichePatterns from "@/data/reviewNichePatterns.json";
-import reviewSourceIndex from "@/data/reviewSourceIndex.json";
+import { dataFile, jsonShards } from "./dataFile";
 import type { Locale } from "./i18n";
 
 // The /reviews section: every app broken down into ITS OWN emergent themes.
@@ -43,7 +41,7 @@ type NicheCatalogEntry = {
   patterns: number;
   translatedPatterns: number;
 };
-type ReviewSourceIndex = {
+type ReviewSourceTotals = {
   totalApps: number;
   totalReviews: number;
   detailedApps: number;
@@ -57,14 +55,28 @@ type ReviewSourceIndex = {
   universalLabelledReviews: number;
   fallbackLabelledReviews: number;
   themeAssignments: number;
-  archiveOverrides: Record<string, string[]>;
-  niches: Record<string, ReviewSourceApp[]>;
 };
+type ReviewSourceIndex = ReviewSourceTotals & { archiveOverrides: Record<string, string[]>; niches: Record<string, ReviewSourceApp[]> };
+type ReviewSourceMeta = { totals: ReviewSourceTotals; niches: Record<string, { apps: number; reviews: number }> };
 
-const IDX = reviewsIndex as unknown as Record<string, ReviewNiche>;
 const CATALOG = reviewNicheCatalog as unknown as Record<string, NicheCatalogEntry>;
-const NICHE_PATTERNS = reviewNichePatterns as unknown as Record<string, NichePattern[]>;
-const SOURCE = reviewSourceIndex as ReviewSourceIndex;
+// Read from disk on first use, not imported (lib/dataFile.ts).
+const IDX = () => dataFile<Record<string, ReviewNiche>>("reviewsIndex.json");
+const NICHE_PATTERNS = () => dataFile<Record<string, NichePattern[]>>("reviewNichePatterns.json");
+// The source index (~40 MB, nearly all of it per-app themes) is read one niche at a time;
+// the totals and per-niche counts the catalogue pages need come from its summary.
+const SOURCE = jsonShards<ReviewSourceApp[], ReviewSourceMeta>(
+  "reviewSourceIndex.json",
+  (data) => Object.entries((data as ReviewSourceIndex).niches),
+  (data) => {
+    const { niches, archiveOverrides: _overrides, ...totals } = data as ReviewSourceIndex;
+    void _overrides;
+    const counts: ReviewSourceMeta["niches"] = {};
+    for (const [slug, apps] of Object.entries(niches)) counts[slug] = { apps: apps.length, reviews: apps.reduce((sum, app) => sum + app.total, 0) };
+    return { totals, niches: counts };
+  },
+  16,
+);
 
 /**
  * How far the labelling pass has got. The section ships as it goes, so every
@@ -113,7 +125,7 @@ export type NicheSummary = {
 };
 
 export function listNiches(locale: Locale): NicheSummary[] {
-  return Object.entries(IDX)
+  return Object.entries(IDX())
     .map(([slug, n]) => {
       const themes = n.apps.flatMap((a) => a.themes);
       return {
@@ -142,7 +154,7 @@ export type ReviewCatalogueSummary = NicheSummary & {
 export function listReviewCatalogue(locale: Locale): ReviewCatalogueSummary[] {
   return Object.entries(CATALOG)
     .map(([slug, catalog]) => {
-      const niche = IDX[slug];
+      const niche = IDX()[slug];
       const apps = niche?.apps || [];
       const themes = apps.flatMap((app) => app.themes);
       return {
@@ -164,7 +176,7 @@ export function listReviewCatalogue(locale: Locale): ReviewCatalogueSummary[] {
 }
 
 export function getNiche(slug: string): ReviewNiche | null {
-  const niche = IDX[slug];
+  const niche = IDX()[slug];
   const catalog = CATALOG[slug];
   if (niche) return { ...niche, sourceReviews: catalog?.sourceReviews };
   if (!catalog) return null;
@@ -172,36 +184,35 @@ export function getNiche(slug: string): ReviewNiche | null {
 }
 
 export function getNichePatterns(slug: string, locale: Locale): NichePattern[] {
-  const patterns = NICHE_PATTERNS[slug] || [];
+  const patterns = NICHE_PATTERNS()[slug] || [];
   return locale === "en" ? patterns.filter((pattern) => pattern.titleEn) : patterns;
 }
 
 /** Every app whose source reviews are present, whether or not product-topic
  * labelling has been completed for it. */
 export function listSourceApps(slug: string): ReviewSourceApp[] {
-  return SOURCE.niches[slug] || [];
+  return SOURCE.get(slug) || [];
 }
 
 export function getSourceApp(slug: string, id: string): ReviewSourceApp | null {
-  return SOURCE.niches[slug]?.find((app) => app.id === id) ?? null;
+  return SOURCE.get(slug)?.find((app) => app.id === id) ?? null;
 }
 
 export function hasReviewCorpus(slug: string): boolean {
-  return (SOURCE.niches[slug]?.length ?? 0) > 0;
+  return (SOURCE.meta().niches[slug]?.apps ?? 0) > 0;
 }
 
 export function reviewNicheTotals(slug: string): { apps: number; reviews: number } | null {
-  const apps = SOURCE.niches[slug];
-  if (!apps?.length) return null;
-  return { apps: apps.length, reviews: apps.reduce((sum, app) => sum + app.total, 0) };
+  const counts = SOURCE.meta().niches[slug];
+  return counts?.apps ? { ...counts } : null;
 }
 
 export function reviewCorpusSlugs(): string[] {
-  return Object.keys(SOURCE.niches);
+  return SOURCE.keys();
 }
 
 export function getApp(slug: string, id: string): ReviewApp | null {
-  const detailed = IDX[slug]?.apps.find((app) => app.id === id);
+  const detailed = IDX()[slug]?.apps.find((app) => app.id === id);
   const source = getSourceApp(slug, id);
   if (source) return { ...source, icon: detailed?.icon };
   return detailed ?? null;
@@ -209,7 +220,8 @@ export function getApp(slug: string, id: string): ReviewApp | null {
 
 /** Catalog-wide totals for the section hero. */
 export function totals() {
-  const niches = Object.values(IDX);
+  const source = SOURCE.meta().totals;
+  const niches = Object.values(IDX());
   const apps = niches.flatMap((n) => n.apps);
   const themes = apps.flatMap((a) => a.themes);
   const fallbackReviews = themes.filter((t) => t.fallback).reduce((sum, theme) => sum + theme.count, 0);
@@ -223,17 +235,17 @@ export function totals() {
     fallbackReviews,
     specificReviews,
     specificCoveragePct: reviews ? (specificReviews / reviews) * 100 : 0,
-    sourceNiches: Object.keys(SOURCE.niches).length,
-    sourceApps: SOURCE.totalApps,
-    sourceReviews: SOURCE.totalReviews,
-    labelledReviews: SOURCE.labelledReviews,
-    sourceSpecificReviews: SOURCE.specificLabelledReviews,
-    sourceSpecificCoveragePct: SOURCE.totalReviews ? (SOURCE.specificLabelledReviews / SOURCE.totalReviews) * 100 : 0,
-    nicheLabelledReviews: SOURCE.nicheLabelledReviews,
-    universalLabelledReviews: SOURCE.universalLabelledReviews,
-    sourceFallbackReviews: SOURCE.fallbackLabelledReviews,
-    themeAssignments: SOURCE.themeAssignments,
-    nichePatterns: Object.values(NICHE_PATTERNS).reduce((sum, patterns) => sum + patterns.length, 0),
+    sourceNiches: SOURCE.keys().length,
+    sourceApps: source.totalApps,
+    sourceReviews: source.totalReviews,
+    labelledReviews: source.labelledReviews,
+    sourceSpecificReviews: source.specificLabelledReviews,
+    sourceSpecificCoveragePct: source.totalReviews ? (source.specificLabelledReviews / source.totalReviews) * 100 : 0,
+    nicheLabelledReviews: source.nicheLabelledReviews,
+    universalLabelledReviews: source.universalLabelledReviews,
+    sourceFallbackReviews: source.fallbackLabelledReviews,
+    themeAssignments: source.themeAssignments,
+    nichePatterns: Object.values(NICHE_PATTERNS()).reduce((sum, patterns) => sum + patterns.length, 0),
   };
 }
 

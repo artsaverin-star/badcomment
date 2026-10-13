@@ -69,3 +69,6 @@ gen/
 scripts/_*.ts
 gen/.eliza_token
 tmp/
+
+# Per-key splits of big src/data JSON, made at runtime by src/lib/dataFile.ts
+/.data-shards/

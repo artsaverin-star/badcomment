@@ -1,4 +1,5 @@
-import ideasData from "@/data/ideas.json";
+import { dataFile } from "./dataFile";
+import { hasRatingSet } from "./peoplesRating";
 
 // Review-derived app ideas ("Идеи") — each one is built from the reviews of a
 // whole catalog category and shows its derivation chain: a grid of verbatim
@@ -40,21 +41,19 @@ export type Idea = {
   score?: number; // critic-assigned strength (demand/uniqueness/virality/buildability)
 };
 
-const ideas = ideasData as Idea[];
-
 // Single source of truth for "this niche is published": the ULTRA tier — the 29
 // niches rebuilt on the full people's-rating dataset (rating + dossier + ideas).
 // The homepage, the /rating list and these ideas all key off the same set, so
 // the three surfaces always show the exact same niches. Legacy slugs (older
 // pre-ULTRA twins) are retired everywhere by virtue of not being in this set.
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
-const PUBLISHED_CATEGORIES = new Set(Object.keys(RATING_BY_SLUG));
+let published: Idea[] | null = null;
 
 export function listIdeas(): Idea[] {
   // Best ideas first (critic score), then by validated demand.
-  return ideas
-    .filter((i) => PUBLISHED_CATEGORIES.has(i.category))
+  published ??= dataFile<Idea[]>("ideas.json")
+    .filter((i) => hasRatingSet(i.category))
     .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || (b.stats?.observations ?? 0) - (a.stats?.observations ?? 0));
+  return published.slice();
 }
 
 export function getIdea(slug: string): Idea | null {

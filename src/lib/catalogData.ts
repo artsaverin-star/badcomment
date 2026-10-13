@@ -1,13 +1,13 @@
 import { listDomains } from "./researchCategories";
 import { hasInsight } from "./readyApps";
 import { getSlugByProductId } from "./appSlugs";
-import { getProductInsights } from "./insights";
+import { insightFacts } from "./insights";
 import { isFreeCategory } from "./premium";
 import { isActiveCategory } from "./categoryVisibility";
-import segmentInsights from "@/data/segment-insights.json";
 import hidden from "@/data/hidden-categories.json";
 import type { Locale } from "./i18n";
 import { totals } from "./reviews";
+import { dataFile } from "./dataFile";
 
 // The catalogue shapes the retired old site's CatalogBrowser rendered (moved here with it gone).
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
@@ -24,7 +24,8 @@ export type BrowseCategory = {
 export type BrowseDomain = { slug: string; name: string; categories: BrowseCategory[] };
 
 // A category is "live" once its synthesis is published (≥10 разборов).
-const LIVE = new Set(Object.keys(segmentInsights as Record<string, unknown>));
+let live: Set<string> | null = null;
+const isLive = (slug: string) => (live ??= new Set(Object.keys(dataFile<Record<string, unknown>>("segment-insights.json")))).has(slug);
 
 // Catalog clean-up: whole domains and individual categories the user retired
 // from the catalog (were stale «Скоро» placeholders). Filtered out everywhere
@@ -46,7 +47,7 @@ export function getCatalogData(locale: Locale, premium: boolean): {
     name: d.name,
     categories: d.categories.filter((c) => !HIDDEN_CATEGORIES.has(c.slug)).map((c) => {
       // "Скоро" for everything except the active (rebuilt) categories.
-      const live = LIVE.has(c.slug) && isActiveCategory(c.slug);
+      const live = isLive(c.slug) && isActiveCategory(c.slug);
       return {
         slug: c.slug,
         name: c.name,
@@ -83,7 +84,7 @@ export function getCatalogData(locale: Locale, premium: boolean): {
           name: a.name,
           icon: a.icon,
           slug,
-          reviews: getProductInsights(a.productId)?.reviewsScanned ?? 0,
+          reviews: insightFacts()[a.productId]?.[2] ?? 0,
           free: freeProducts.has(a.productId),
         });
       }

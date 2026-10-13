@@ -1,5 +1,4 @@
-import data from "@/data/niche-thesis.json";
-import dataEn from "@/data/niche-thesis.en.json";
+import { dataFile } from "@/lib/dataFile";
 import type { Locale } from "@/lib/i18n";
 
 // McKinsey-style overview per category: one governing thought (answer-first),
@@ -12,8 +11,8 @@ export type NicheThesis = { governing: string; pillars: NichePillar[]; competito
 
 export function getNicheThesis(slug: string, locale: Locale = "ru"): NicheThesis | null {
   if (locale === "en") {
-    const en = (dataEn as Record<string, NicheThesis>)[slug];
+    const en = dataFile<Record<string, NicheThesis>>("niche-thesis.en.json")[slug];
     if (en) return en;
   }
-  return (data as Record<string, NicheThesis>)[slug] ?? null;
+  return dataFile<Record<string, NicheThesis>>("niche-thesis.json")[slug] ?? null;
 }

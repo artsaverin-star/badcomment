@@ -1,4 +1,4 @@
-import insightsData from "@/data/insights.json";
+import { jsonShards } from "./dataFile";
 
 // Qualitative-extraction prototype data: hand-validated insights from Calm
 // reviews 1-5★. This file feeds /product/[id]/insights — the exemplary page
@@ -92,9 +92,29 @@ export type ProductInsights = {
   commodityBaseline: CommodityRow[];
 };
 
+/** Per product: [balanced (1/0), number of insights, reviews scanned] — what readyApps decides on. */
+export type InsightFacts = Record<string, [number, number, number]>;
+
+// src/data/insights.json (~40 MB) is read one product at a time (lib/dataFile.ts).
+const INSIGHTS = jsonShards<ProductInsights, InsightFacts>(
+  "insights.json",
+  (data) => (data as ProductInsights[]).filter((p) => p.productId).map((p) => [p.productId, p] as [string, ProductInsights]),
+  (data) => {
+    const facts: InsightFacts = {};
+    for (const p of data as Array<{ productId?: string; insights?: unknown[]; balanced?: boolean; reviewsScanned?: number }>) {
+      if (!p.productId || p.productId in facts) continue;
+      facts[p.productId] = [p.balanced === true ? 1 : 0, Array.isArray(p.insights) ? p.insights.length : 0, p.reviewsScanned ?? 0];
+    }
+    return facts;
+  },
+);
+
 export function getProductInsights(productId: string): ProductInsights | null {
-  const all = insightsData as ProductInsights[];
-  return all.find((p) => p.productId === productId) ?? null;
+  return INSIGHTS.get(productId);
+}
+
+export function insightFacts(): InsightFacts {
+  return INSIGHTS.meta();
 }
 
 export const CATEGORY_LABEL: Record<InsightCategory, { ru: string; en: string; tone: "danger" | "warning" | "info" | "brand" }> = {

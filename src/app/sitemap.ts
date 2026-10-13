@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import reviewsIndex from "@/data/reviewsIndex.json";
+import { dataFile } from "@/lib/dataFile";
 import { getManifest } from "@/site/content";
 import { LOCALES } from "@/site/i18n/locales";
 import { FREE_IDEAS, LAUNCH_CATEGORIES } from "@/site/manifest.generated";
@@ -59,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // The review archive (ru/en data): the hub, its niches and every app's reviews by theme —
   // primary source text, exactly what search engines and LLMs cite. The ru page is listed with
   // its ru/en alternates (their canonicals agree).
-  const reviewNiches = Object.entries(reviewsIndex as Record<string, { apps: { id: string }[] }>);
+  const reviewNiches = Object.entries(dataFile<Record<string, { apps: { id: string }[] }>>("reviewsIndex.json"));
   const reviewPaths: { p: string; priority: number }[] = [
     { p: "/reviews", priority: 0.9 },
     ...reviewNiches.map(([s]) => ({ p: `/reviews/${s}`, priority: 0.8 })),

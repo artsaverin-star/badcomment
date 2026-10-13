@@ -18,7 +18,7 @@
 
 import "server-only";
 
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { getRatingSet } from "@/lib/peoplesRating";
 import {
   getApp,
   getNiche,
@@ -39,7 +39,6 @@ const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /** The archive's open sample category (src/lib/reviewAccess.ts): everyone reads it in full. */
 export const FREE_REVIEW_NICHE = FREE_REVIEW_CATEGORY;
 const SAFE_ID = /^[0-9]{1,20}$/;
-const RATING = RATING_BY_SLUG as unknown as Record<string, { apps?: { id: string; icon?: string | null }[] }>;
 
 /** The language of topic names (and review metadata) for a page locale: ru stays ru, others read English. */
 export function reviewDataLocale(l: Locale): OldLocale {
@@ -98,7 +97,7 @@ function iconsOf(niche: string): Map<string, string> {
   const hit = iconCache.get(niche);
   if (hit) return hit;
   const icons = new Map<string, string>();
-  for (const app of RATING[niche]?.apps ?? []) if (app.icon) icons.set(app.id, app.icon);
+  for (const app of getRatingSet<{ apps?: { id: string; icon?: string | null }[] }>(niche)?.apps ?? []) if (app.icon) icons.set(app.id, app.icon);
   for (const app of getNiche(niche)?.apps ?? []) if (app.icon) icons.set(app.id, app.icon);
   iconCache.set(niche, icons);
   return icons;

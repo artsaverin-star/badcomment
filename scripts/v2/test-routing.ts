@@ -273,7 +273,7 @@ describe("retired old site: every URL answers 301 with its live page (owner, 202
     expectRewrite(decide("/ru/tinder/reviews"), "site", "/site/ru/tinder/reviews");
   });
   test("the archive /<L>/old/… → 301 the live page, or the site's 404", () => {
-    expectRedirect(decide("/ru/old", { cookies: { locale: "de" } }), 301, "/ru");
+    expectRedirect(decide("/ru/old", { cookies: { locale: "de" } }), 301, "/ru/segment");
     expectRedirect(decide("/ru/old/segment/habit-tracking"), 301, "/ru/segment/habit-tracking");
     expectRedirect(decide("/en/old/segment/sobriety"), 301, "/en/rating/sobriety");
     expectRedirect(decide("/ru/old/rating/habit-tracking?x=1"), 301, "/ru/rating/habit-tracking?x=1");
@@ -282,7 +282,7 @@ describe("retired old site: every URL answers 301 with its live page (owner, 202
     expectRedirect(decide("/ru/old/tinder"), 301, "/ru/rating/dating-apps/tinder-dating-app-date-chat");
     expectRedirect(decide("/ru/old/search?q=a"), 301, "/ru/segment?q=a");
     expectRedirect(decide("/de/old/segment/sobriety"), 301, "/de/rating/sobriety");
-    expectRedirect(decide("/ja/old"), 301, "/ja");
+    expectRedirect(decide("/ja/old"), 301, "/ja/segment");
     for (const url of ["/ru/old/aso", "/ru/old/workspace/habit-tracking", "/ru/old/admin", "/ru/old/site/ru"]) {
       const r = decide(url) as RewriteDecision;
       assert.equal(r.type, "rewrite", url);
@@ -290,11 +290,11 @@ describe("retired old site: every URL answers 301 with its live page (owner, 202
     }
   });
   test("/old convenience entries", () => {
-    expectRedirect(decide("/old", { acceptLanguage: "ru" }), 307, "/ru");
-    expectRedirect(decide("/old", { acceptLanguage: "de" }), 307, "/de");
+    expectRedirect(decide("/old", { acceptLanguage: "ru" }), 307, "/ru/segment");
+    expectRedirect(decide("/old", { acceptLanguage: "de" }), 307, "/de/segment");
     expectRedirect(decide("/old/segment/sobriety?q=1", { acceptLanguage: "ru" }), 307, "/ru/rating/sobriety?q=1");
     expectRedirect(decide("/old/ru/mcp"), 301, "/ru/mcp");
-    expectRedirect(decide("/old/en"), 301, "/en");
+    expectRedirect(decide("/old/en"), 301, "/en/segment");
     expectRedirect(decide("/old/fr/tokens"), 301, "/fr/plus");
   });
   test("every retired URL of the old sitemap redirects to a page the site serves", () => {

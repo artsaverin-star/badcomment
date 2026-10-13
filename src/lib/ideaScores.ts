@@ -1,7 +1,5 @@
-import scores from "@/data/ideaScores.json";
-import scoresEn from "@/data/ideaScores.en.json";
-import founderScores from "@/data/ideaFounderScores.json";
 import market from "@/data/nicheMarket.json";
+import { dataFile } from "@/lib/dataFile";
 import type { Locale } from "@/lib/i18n";
 
 // Profitability/buildability scoring for ideas, and real market data per niche.
@@ -27,7 +25,7 @@ export type IdeaScore = {
 };
 
 type FounderRaw = { promo: number; standout: number; monetization: number; demand: number; weighted: number; rationale: string };
-const FOUNDER = founderScores as unknown as Record<string, FounderRaw>;
+const FOUNDER = () => dataFile<Record<string, FounderRaw>>("ideaFounderScores.json");
 
 // Weighted founder total (0-45) normalized to a 0-100 headline score.
 export function founderScore100(weighted: number): number {
@@ -45,8 +43,8 @@ export type NicheMarket = {
   revenue: null | { low: string; high: string; annualPrice: number; note: string };
 };
 
-const RU = scores as unknown as Record<string, IdeaScore>;
-const EN = scoresEn as unknown as Record<string, { whyPay?: string; targetSegment?: string }>;
+const RU = () => dataFile<Record<string, IdeaScore>>("ideaScores.json");
+const EN = () => dataFile<Record<string, { whyPay?: string; targetSegment?: string }>>("ideaScores.en.json");
 const MKT = market as unknown as Record<string, NicheMarket>;
 
 // Prices are baked as RU strings ("$4-6/мес", "$60/год", "$12 разово"); the
@@ -59,14 +57,14 @@ export function localizePrice(s: string | undefined, locale: Locale): string | u
 }
 
 export function scoreFor(slug: string, locale: Locale = "ru"): IdeaScore | null {
-  const s = RU[slug];
+  const s = RU()[slug];
   if (!s) return null;
-  const f = FOUNDER[slug];
+  const f = FOUNDER()[slug];
   const founder = f
     ? { founder: f.weighted, founderParts: { promo: f.promo, standout: f.standout, monetization: f.monetization, demand: f.demand }, founderWhy: f.rationale }
     : {};
   if (locale === "en") {
-    const en = EN[slug];
+    const en = EN()[slug];
     return {
       ...s,
       ...founder,
@@ -102,7 +100,7 @@ export function hotScore(s: IdeaScore): number {
 export type SortMode = "composite" | "money" | "simplicity" | "demand" | "hot";
 export function rankedSlugs(mode: SortMode = "composite"): string[] {
   const val = (s: IdeaScore) => (mode === "hot" ? hotScore(s) : s[mode]);
-  return Object.entries(RU)
+  return Object.entries(RU())
     .sort((a, b) => val(b[1]) - val(a[1]))
     .map(([slug]) => slug);
 }

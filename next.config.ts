@@ -10,7 +10,9 @@ const nextConfig: NextConfig = {
   typescript: { ignoreBuildErrors: true },
   // Two root layouts (the site, the owner's admin): unmatched URLs render
   // src/app/global-not-found.tsx.
-  experimental: { globalNotFound: true },
+  // preloadEntriesOnStart: by default `next start` loads every route's server bundle at
+  // boot; on the 2 GB box (shared with Roomdo) modules load on first request instead.
+  experimental: { globalNotFound: true, preloadEntriesOnStart: false },
   // OAuth discovery for the MCP server. App-router folders can't start with a
   // dot, so the well-known paths are rewritten onto normal API routes. The
   // path-suffixed variant is RFC 9728's per-resource form some clients probe.

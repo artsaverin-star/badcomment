@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { getCatalogData } from "@/lib/catalogData";
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { getRatingSet, ratingSlugs } from "@/lib/peoplesRating";
 
 // Locale + niche-aware social/OG card, Mobbin-style: white canvas, big black
 // type, real app icons floating as rounded tiles.
@@ -29,7 +29,6 @@ const GREY = "#8a8a90";
 
 type RApp = { title: string; realScore: number; ratings?: number; icon?: string | null };
 type RSet = { name: string; nameEn: string; count: number; totalReviews: number; inflated: number; apps: RApp[] };
-const RATING = RATING_BY_SLUG as Record<string, RSet>;
 const num = (n: number, en: boolean) => n.toLocaleString(en ? "en-US" : "ru-RU").replace(/[  ]/g, " ");
 const appsWord = (n: number, en: boolean) => {
   if (en) return n === 1 ? "app" : "apps";
@@ -76,7 +75,7 @@ export async function GET(req: Request) {
   }
 
   // --- per-niche rating card: text left, staggered icon wall right ----------
-  const set = slug ? RATING[slug] : null;
+  const set = slug ? getRatingSet<RSet>(slug) : null;
   if (set) {
     const name = en ? set.nameEn : set.name;
     const top = [...set.apps].sort((a, b) => (b.realScore || 0) - (a.realScore || 0))[0];
@@ -134,13 +133,14 @@ export async function GET(req: Request) {
 
   // --- default brand card: centered type, icon row peeking from the bottom --
   const { totalReviews } = getCatalogData(en ? "en" : "ru", false);
-  const nicheCount = Object.keys(RATING).length;
+  const nicheCount = ratingSlugs().length;
   const headline = en ? `We analyzed ${num(totalReviews, en)} app reviews` : `Проанализировали ${num(totalReviews, en)} отзывов на приложения`;
   const sub = en
     ? `Honest ratings, niche breakdowns and ideas people pay for. ${nicheCount} niches on inapp.pro`
     : `Честные рейтинги, разборы ниш и идеи, за которые платят. ${nicheCount} ниш на inapp.pro`;
   // One icon from each of the biggest niches, for the floating bottom row.
-  const brandIcons = Object.values(RATING)
+  const brandIcons = ratingSlugs()
+    .map((s) => getRatingSet<RSet>(s)!)
     .map((r) => ({ mass: r.totalReviews, icon: topIcons(r.apps, 1)[0] }))
     .filter((x): x is { mass: number; icon: string } => !!x.icon)
     .sort((a, b) => b.mass - a.mass)

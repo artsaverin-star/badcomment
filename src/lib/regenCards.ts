@@ -1,11 +1,7 @@
-import segCards from "@/data/segment-cards.json";
-import appCards from "@/data/app-cards.json";
 import ideaCards from "@/data/idea-cards.json";
-import segCardsEn from "@/data/segment-cards.en.json";
-import appCardsEn from "@/data/app-cards.en.json";
 import ideaCardsEn from "@/data/idea-cards.en.json";
 import descriptionsEn from "@/data/descriptions.en.json";
-import ideasContentEn from "@/data/ideas-content.en.json";
+import { dataFile, jsonShards } from "./dataFile";
 import type { Locale } from "./i18n";
 
 /** One review quote behind a card (the shape the old InsightCard rendered). */
@@ -34,10 +30,11 @@ export type RegenSet = { product: RegenCard[]; hygiene: RegenCard[] };
 type TextCard = { title?: string; plus?: string; minus?: string; body?: string };
 type TextSet = { product?: TextCard[]; hygiene?: TextCard[] };
 
-const RU_SEG = segCards as unknown as Record<string, RegenSet>;
-const RU_APP = appCards as unknown as Record<string, RegenSet>;
-const EN_SEG = segCardsEn as unknown as Record<string, TextSet>;
-const EN_APP = appCardsEn as unknown as Record<string, TextSet>;
+// The card files (app cards ~20 MB) are read per key from disk (lib/dataFile.ts).
+const RU_SEG = jsonShards("segment-cards.json", (d) => Object.entries(d as Record<string, RegenSet>));
+const RU_APP = jsonShards("app-cards.json", (d) => Object.entries(d as Record<string, RegenSet>));
+const EN_APP = jsonShards("app-cards.en.json", (d) => Object.entries(d as Record<string, TextSet>));
+const enSeg = () => dataFile<Record<string, TextSet>>("segment-cards.en.json");
 
 // Overlay translated text onto the RU card by index (keeps count/apps/evidence).
 function mergeText(ru: RegenCard, en?: TextCard): RegenCard {
@@ -59,14 +56,14 @@ function mergeSet(ru: RegenSet, en?: TextSet): RegenSet {
 }
 
 export function categoryCards(slug: string, locale: Locale = "ru"): RegenSet | null {
-  const ru = RU_SEG[slug];
+  const ru = RU_SEG.get(slug);
   if (!ru) return null;
-  return locale === "en" ? mergeSet(ru, EN_SEG[slug]) : ru;
+  return locale === "en" ? mergeSet(ru, enSeg()[slug]) : ru;
 }
 export function appCardsFor(productId: string, locale: Locale = "ru"): RegenSet | null {
-  const ru = RU_APP[productId];
+  const ru = RU_APP.get(productId);
   if (!ru) return null;
-  return locale === "en" ? mergeSet(ru, EN_APP[productId]) : ru;
+  return locale === "en" ? mergeSet(ru, EN_APP.get(productId) ?? undefined) : ru;
 }
 export function ideaCard(slug: string, locale: Locale = "ru"): { title?: string; oneLiner?: string } | null {
   const ru = (ideaCards as Record<string, { title?: string; oneLiner?: string }>)[slug] ?? null;
@@ -101,5 +98,5 @@ export type IdeaContentEn = {
 };
 export function ideaContentEn(slug: string, locale: Locale): IdeaContentEn | null {
   if (locale !== "en") return null;
-  return (ideasContentEn as Record<string, IdeaContentEn>)[slug] ?? null;
+  return dataFile<Record<string, IdeaContentEn>>("ideas-content.en.json")[slug] ?? null;
 }

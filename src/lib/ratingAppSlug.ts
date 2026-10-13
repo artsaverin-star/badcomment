@@ -1,4 +1,4 @@
-import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { getRatingSet } from "@/lib/peoplesRating";
 import type { Locale } from "@/lib/i18n";
 
 // A URL slug for a rated app, derived from its title. Rating apps have no
@@ -23,10 +23,9 @@ export type RatingApp = {
   en?: { verdict?: string; loved?: string; weak?: string; whoFor?: string; authNote?: string };
 };
 type RSet = { name: string; nameEn?: string; apps?: RatingApp[] };
-const RATING = RATING_BY_SLUG as Record<string, RSet>;
 
 export function getNicheName(slug: string, locale: Locale): string | null {
-  const r = RATING[slug];
+  const r = getRatingSet<RSet>(slug);
   if (!r) return null;
   return (locale === "en" ? r.nameEn : r.name) || r.name;
 }
@@ -34,7 +33,7 @@ export function getNicheName(slug: string, locale: Locale): string | null {
 // Find a rated app inside a niche by its computed slug. Returns the app plus its
 // EN fields already merged for the locale.
 export function findRatingApp(niche: string, appSlug: string, locale: Locale): RatingApp | null {
-  const r = RATING[niche];
+  const r = getRatingSet<RSet>(niche);
   if (!r?.apps) return null;
   const app = r.apps.find((a) => appSlugify(a.title) === appSlug);
   if (!app) return null;

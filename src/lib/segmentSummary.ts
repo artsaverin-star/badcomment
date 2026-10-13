@@ -1,4 +1,4 @@
-import summaryData from "@/data/segment-insights.json";
+import { dataFile } from "./dataFile";
 import { THEME_LABEL, type Theme } from "./insights";
 
 // Category-level editorial synthesis ("инсайты категории") — built offline by
@@ -42,7 +42,7 @@ export type SegmentSummary = {
 };
 
 export function getSegmentSummary(slug: string): SegmentSummary | null {
-  const data = summaryData as Record<string, SegmentSummary>;
+  const data = dataFile<Record<string, SegmentSummary>>("segment-insights.json");
   return data[slug] ?? null;
 }
 
