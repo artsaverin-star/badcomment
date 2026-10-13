@@ -13,7 +13,8 @@
 #   - systemd unit `badcomment` on port 3000 (closed outside by the security group) with a
 #     memory cap, so it can't starve Roomdo (the site runs at ~320 MB, src/lib/dataFile.ts)
 #   - sudo rule so deploy.sh (run as `badcomment`) can restart only its own unit
-#   - nginx site for inapp.pro / www.inapp.pro on port 80 + ACME webroot; TLS is added after DNS points here
+#   - a bootstrap nginx site for inapp.pro on port 80 + ACME webroot; once DNS points here,
+#     deploy/tls-kz.sh issues the certificate and installs deploy/nginx-badcomment.conf
 #
 # Secrets that only lived in the old box's .env must be appended to /opt/badcomment/.env by hand
 # (YOOKASSA_SHOP_ID, YOOKASSA_SECRET_KEY, TELEGRAM_BOT_TOKEN, …), then `sudo systemctl restart badcomment`.
@@ -104,11 +105,23 @@ visudo -cqf /etc/sudoers.d/badcomment-deploy || { rm -f /etc/sudoers.d/badcommen
 install -d -m 755 /var/www/inapp-acme
 SITE=/etc/nginx/sites-available/inapp.pro
 if [[ ! -f "${SITE}" ]]; then
-  log "installing nginx site ${SITE}"
-  sed '/server_name inapp.pro www.inapp.pro;/a\
-\
-    location ^~ /.well-known/acme-challenge/ { root /var/www/inapp-acme; }' \
-    "${APP_DIR}/deploy/nginx-badcomment.conf" > "${SITE}"
+  # HTTP-only bootstrap until deploy/tls-kz.sh has a certificate and installs
+  # deploy/nginx-badcomment.conf over it.
+  log "installing bootstrap nginx site ${SITE}"
+  cat > "${SITE}" <<'NGINX'
+server {
+    listen 80;
+    listen [::]:80;
+    server_name inapp.pro www.inapp.pro;
+    location ^~ /.well-known/acme-challenge/ { root /var/www/inapp-acme; }
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+NGINX
   ln -sf "${SITE}" /etc/nginx/sites-enabled/inapp.pro
   if ! nginx -t 2>/dev/null; then
     rm -f /etc/nginx/sites-enabled/inapp.pro
