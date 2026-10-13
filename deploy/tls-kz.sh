@@ -51,6 +51,11 @@ fi
 systemctl reload nginx
 rm -f "${SITE}.prev"
 log "done"
-for url in https://inapp.pro/en/segment https://www.inapp.pro/ http://inapp.pro/ru/rating https://94.131.83.228/health; do
-  echo "   ${url} -> $(curl -sk -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 30 --resolve inapp.pro:443:127.0.0.1 --resolve www.inapp.pro:443:127.0.0.1 "${url}")"
+# Through the VM's private address: via 127.0.0.1 these requests answered 401 when this was
+# set up (2026-10-13, not investigated), and the public IP does not loop back from inside the VM.
+ip="$(hostname -I | awk '{print $1}')"
+for url in https://inapp.pro/en/segment https://www.inapp.pro/ http://inapp.pro/ru/rating; do
+  echo "   ${url} -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 30 \
+    --resolve "inapp.pro:443:${ip}" --resolve "www.inapp.pro:443:${ip}" --resolve "inapp.pro:80:${ip}" "${url}")"
 done
+echo "   Roomdo https://${ip}/health -> $(curl -sk -o /dev/null -w '%{http_code}' --max-time 30 "https://${ip}/health")"
