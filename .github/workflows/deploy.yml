@@ -69,6 +69,10 @@ jobs:
           # Set repo variable GOOGLE_CLIENT_ID to switch on the Google sign-in
           # button; empty = button hidden, Telegram login still works.
           NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ vars.GOOGLE_CLIENT_ID }}
+          # Sign in with Apple on the website: the Services ID (com.artsaverin.inapp.web,
+          # grouped with the app's App ID). Repo variable APPLE_WEB_CLIENT_ID; empty = button
+          # hidden. See src/lib/appleWeb.ts.
+          NEXT_PUBLIC_APPLE_WEB_CLIENT_ID: ${{ vars.APPLE_WEB_CLIENT_ID }}
           # Email magic-link sign-in. Set repo variable EMAIL_LOGIN_ENABLED=1 to
           # show the email form (also needs the YC_SMTP_* secrets below, else the
           # server returns "disabled"). Empty = form hidden, other logins work.

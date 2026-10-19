@@ -130,10 +130,15 @@ const SKEW_S = 60;
 
 /**
  * Verifies an Apple identity token: RS256 signature against Apple's JWKS, iss, aud (the app's
- * bundle id), exp, iat and nonce = SHA-256(rawNonce) hex. Throws AppleTokenError (→ 401) or
+ * bundle id, or the website's Services ID for the web flow), exp, iat and nonce = SHA-256(rawNonce) hex. Throws AppleTokenError (→ 401) or
  * AppleUnavailableError (→ 503).
  */
-export async function verifyAppleIdentityToken(identityToken: string, rawNonce: string, nowMs = Date.now()): Promise<AppleClaims> {
+export async function verifyAppleIdentityToken(
+  identityToken: string,
+  rawNonce: string,
+  nowMs = Date.now(),
+  audience: string = APPLE_CLIENT_ID,
+): Promise<AppleClaims> {
   const parts = identityToken.split(".");
   if (parts.length !== 3 || parts.some((p) => !/^[A-Za-z0-9_-]+$/.test(p))) throw new AppleTokenError("malformed");
   let header: Record<string, unknown>;
@@ -153,7 +158,7 @@ export async function verifyAppleIdentityToken(identityToken: string, rawNonce: 
 
   if (payload.iss !== APPLE_ISSUER) throw new AppleTokenError("iss");
   const aud = payload.aud;
-  if (!(aud === APPLE_CLIENT_ID || (Array.isArray(aud) && aud.includes(APPLE_CLIENT_ID)))) throw new AppleTokenError("aud");
+  if (!(aud === audience || (Array.isArray(aud) && aud.includes(audience)))) throw new AppleTokenError("aud");
   const nowS = nowMs / 1000;
   if (typeof payload.exp !== "number" || payload.exp + SKEW_S < nowS) throw new AppleTokenError("exp");
   if (typeof payload.iat === "number" && payload.iat - SKEW_S > nowS) throw new AppleTokenError("iat");

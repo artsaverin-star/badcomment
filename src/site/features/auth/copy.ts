@@ -27,6 +27,8 @@ export function leadFor(s: AuthStrings, reason: string | null | undefined): stri
 export function noticeFor(s: AuthStrings, auth: string | null | undefined, login: string | null | undefined): string | null {
   if (auth === "google_error") return s.noticeGoogleError;
   if (auth === "google_unconfigured") return s.noticeGoogleUnconfigured;
+  if (auth === "apple_error") return s.noticeAppleError;
+  if (auth === "apple_unconfigured") return s.noticeAppleUnconfigured;
   if (auth === "vk_failed" || auth === "vk_unconfigured") return s.errGeneric;
   if (login === "expired") return s.noticeLoginExpired;
   return null;

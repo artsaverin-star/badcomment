@@ -258,6 +258,19 @@ describe("Apple identity token verification", () => {
     assert.equal((await apple.verifyAppleIdentityToken(t.identityToken, t.rawNonce)).sub, "s-aud-array");
   });
 
+  test("website flow: a Services ID token passes only when that audience is asked for", async () => {
+    const web = "com.artsaverin.inapp.web";
+    const t = appleToken({ sub: "s-web", aud: web });
+    assert.equal((await apple.verifyAppleIdentityToken(t.identityToken, t.rawNonce, Date.now(), web)).sub, "s-web");
+    await assert.rejects(() => apple.verifyAppleIdentityToken(t.identityToken, t.rawNonce), apple.AppleTokenError, "web token as app token");
+    const appToken = appleToken({ sub: "s-app" });
+    await assert.rejects(
+      () => apple.verifyAppleIdentityToken(appToken.identityToken, appToken.rawNonce, Date.now(), web),
+      apple.AppleTokenError,
+      "app token on the website",
+    );
+  });
+
   test("Apple's keys unreachable and nothing cached → 503 unavailable", async () => {
     apple.setAppleJwksFetcher(jwksFetcher); // clears the cache
     jwksDown = true;
