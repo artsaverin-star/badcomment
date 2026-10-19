@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { ACCESS_PRICE_RUB } from "../src/lib/tokenConfig";
+import { isRussianTimeZone } from "../src/site/features/plus/region";
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
-assert.equal(ACCESS_PRICE_RUB, 1499, "The public price and the charged price must share one source of truth");
+assert.equal(ACCESS_PRICE_RUB, 999, "The public price and the charged price must share one source of truth");
 
 const checkoutRoute = read("src/app/api/pay/yookassa/route.ts");
 assert.match(checkoutRoute, /paymentAttempt\.create/, "Checkout must create a server-side attempt before redirecting");
@@ -39,5 +40,13 @@ assert.doesNotMatch(tracking, /dataLayer\(\)\.push/, "Do not duplicate GA4 ecomm
 
 // The root layout's analytics contract (send_page_view:false, defer:true, shims first) is checked
 // on the site's layout by scripts/v2/test-routing.ts.
+
+// Web checkout on the Russian site only for browsers in Russia; a known foreign zone goes to the app.
+for (const tz of ["Europe/Moscow", "Europe/Kaliningrad", "Asia/Vladivostok", "Asia/Yekaterinburg", "UTC", "Etc/GMT-3", "", undefined]) {
+  assert.equal(isRussianTimeZone(tz), true, `${tz} must keep the web checkout`);
+}
+for (const tz of ["Asia/Almaty", "Europe/Minsk", "Europe/Kyiv", "Asia/Tbilisi", "Europe/Berlin", "America/New_York"]) {
+  assert.equal(isRussianTimeZone(tz), false, `${tz} must go to the app`);
+}
 
 console.log("Monetization contract tests passed");

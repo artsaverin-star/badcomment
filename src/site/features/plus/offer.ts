@@ -1,6 +1,6 @@
 // The web Plus offer — client-safe facts and helpers shared by the paywall and the payment
 // return page. The web sells only the existing YooKassa "lifetime" SKU
-// (DECISIONS §10) at ACCESS_PRICE_RUB (1499 ₽ since 2026-09-23), presented as the app's «Навсегда» plan. The
+// (DECISIONS §10) at ACCESS_PRICE_RUB (999 ₽ since 2026-10-19), presented as the app's «Навсегда» plan. The
 // price has one source of truth (src/lib/tokenConfig.ts) — never hard-code it here.
 
 import { ACCESS_PRICE_RUB } from "@/lib/tokenConfig";

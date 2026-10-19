@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useRef, useState, type Ref } from "react";
+import { useEffect, useId, useRef, useState, useSyncExternalStore, type Ref } from "react";
 import { createPortal } from "react-dom";
 import {
   trackAddPaymentInfo,
@@ -32,8 +32,12 @@ import {
   type PayMethod,
   type PlusOfferData,
 } from "./offer";
+import { browserInRussia } from "./region";
 import type { PlusStrings } from "./strings";
 import "./plus.css";
+
+const noSubscribe = () => () => {};
+const serverInRussia = () => true;
 
 // The web Plus paywall (spec 03 §2 adapted per §2.7 and DECISIONS §10), laid out like
 // ClarityPaywallView: artwork → «Полный доступ» → description → [plan row · status lines ·
@@ -201,8 +205,13 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
   const toLibrary = variant !== "sheet";
   // Website payment (YooKassa, rubles) is only for Russia, where App Store payments don't work
   // (owner, 2026-09-23). Every other language buys Plus in the iPhone app; the shared account
-  // then opens Plus here too.
-  const webCheckout = locale === "ru";
+  // then opens Plus here too. On the Russian site a visitor whose browser is in a foreign time
+  // zone is sent to the app as well (owner, 2026-10-19; ./region.ts), with a link back to the
+  // web checkout for Russians abroad who pay with a Russian card or СБП.
+  const inRussia = useSyncExternalStore(noSubscribe, browserInRussia, serverInRussia);
+  const [payOnSite, setPayOnSite] = useState(false);
+  const webCheckout = locale === "ru" && (inRussia || payOnSite);
+  const offerPayOnSite = locale === "ru" && !webCheckout;
 
   const primaryControl = plus ? (
     toLibrary ? (
@@ -307,6 +316,11 @@ export function PlusOffer({ offer, source, variant, onClose, onRequested, footer
           <div className="ia-plus__app-only" id="paywall-app-only">
             <p className="ia-plus__plan-title">{s.appOnlyTitle}</p>
             <p className="ia-plus__note">{s.appOnlyBody}</p>
+            {offerPayOnSite ? (
+              <button type="button" className="ia-plus__secondary" id="paywall-pay-on-site" onClick={() => setPayOnSite(true)}>
+                {s.payOnSiteLink}
+              </button>
+            ) : null}
           </div>
         ) : !plus ? (
           <div className="ia-plus__plan" id="paywall-plan-lifetime" data-selected="true">
