@@ -14,7 +14,7 @@ import { defineStrings } from "../../i18n/strings";
 export const plusStrings = defineStrings({
   ru: {
     payNote:
-      "Оплата в рублях — банковской картой или через СБП, через ЮKassa. Доступ включится сам, как только оплата подтвердится.",
+      "Оплата на сайте — для России: картой российского банка или через СБП, через ЮKassa. Из других стран Plus покупается в приложении для iPhone (ссылка ниже). Доступ включится сам, как только оплата подтвердится.",
     signInFirst: "Перед оплатой попросим войти — доступ привяжется к твоему аккаунту.",
     methodTitle: "Как оплатить?",
     methodCard: "Банковская карта",
@@ -34,7 +34,6 @@ export const plusStrings = defineStrings({
     appOnlyBody:
       "Plus оформляется в приложении inApp через App Store. Потом войди в приложении (Настройки → Аккаунт) и на сайте одним способом — Plus откроется и здесь.",
     appOnlyCta: "Открыть в App Store",
-    payOnSiteLink: "Есть российская карта или СБП? Оплатить на сайте",
     pageDescription: "Все разборы и идеи inApp целиком, новые выпуски и экспорт материалов.",
     // What the one price covers (people asked: one topic or everything?). {topics}/{ideas} =
     // counted words; word forms one|few|many|other.
@@ -79,7 +78,6 @@ export const plusStrings = defineStrings({
     appOnlyBody:
       "Get Plus in the inApp app through the App Store. Then sign in the same way in the app (Settings → Account) and on the website, and Plus opens here too.",
     appOnlyCta: "Open in the App Store",
-    payOnSiteLink: "Have a Russian card? Pay on the website",
     pageDescription: "Every inApp breakdown and idea in full, new releases and material export.",
     planScope: "All {topics} and {ideas}",
     topicsWord: "breakdown|breakdowns|breakdowns|breakdowns",
@@ -122,7 +120,6 @@ export const plusStrings = defineStrings({
     appOnlyBody:
       "Hol dir Plus in der inApp-App über den App Store. Melde dich danach in der App (Einstellungen → Konto) und auf der Website auf dieselbe Weise an – dann ist Plus auch hier offen.",
     appOnlyCta: "Im App Store öffnen",
-    payOnSiteLink: "Russische Karte? Auf der Website bezahlen",
     pageDescription: "Alle Analysen und Ideen von inApp komplett, neue Ausgaben und Material-Export.",
     planScope: "Alle {topics} und {ideas}",
     topicsWord: "Analyse|Analysen|Analysen|Analysen",
@@ -166,7 +163,6 @@ export const plusStrings = defineStrings({
     appOnlyBody:
       "Prends Plus dans l’app inApp via l’App Store. Connecte-toi ensuite de la même façon dans l’app (Réglages → Compte) et sur le site : Plus s’ouvrira ici aussi.",
     appOnlyCta: "Ouvrir dans l’App Store",
-    payOnSiteLink: "Une carte russe ? Payer sur le site",
     pageDescription: "Tous les décryptages et toutes les idées d’inApp en entier, les nouveaux numéros et l’export des contenus.",
     planScope: "Les {topics} et {ideas}",
     topicsWord: "décryptage|décryptages|décryptages|décryptages",
@@ -210,7 +206,6 @@ export const plusStrings = defineStrings({
     appOnlyBody:
       "PlusはinAppアプリ内でApp Storeから購入できます。購入後、アプリ（設定 → アカウント）とサイトで同じ方法でサインインすると、ここでもPlusが使えます。",
     appOnlyCta: "App Storeで開く",
-    payOnSiteLink: "ロシアのカードをお持ちですか？サイトで支払う",
     pageDescription: "inAppのすべての分析とアイデア、新しい号、資料のエクスポート。",
     planScope: "全{topics}の分析と{ideas}のアイデア",
     topicsWord: "本",
